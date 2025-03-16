@@ -32,7 +32,7 @@ def extraer_enlaces_acestream(url):
         return []
     soup = BeautifulSoup(response.text, "html.parser")
     enlaces_info = []
-    
+
     # Encuentra todos los enlaces con AceStream
     for a in soup.find_all("a", href=True):
         if "acestream://" in a["href"]:
