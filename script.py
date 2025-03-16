@@ -40,12 +40,12 @@ def extraer_eventos(url):
     for tag in time_tags:
         time_val = tag.get("datetime", "").strip()
         try:
-            hora_evento = datetime.fromisoformat(time_val.replace("Z", "")).time()
+            hora_evento = datetime.fromisoformat(time_val.replace("Z", ""))
         except Exception:
             try:
-                hora_evento = datetime.strptime(time_val, "%H:%M").time()
+                hora_evento = datetime.strptime(time_val, "%H:%M")
             except Exception:
-                hora_evento = datetime.strptime("23:59", "%H:%M").time()
+                hora_evento = datetime.combine(datetime.today(), datetime.strptime("23:59", "%H:%M").time())
 
         event_text = ""
         canales = []
@@ -100,7 +100,7 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in eventos:
-            hora_ajustada = convertir_a_utc_mas_1(item["hora"])
+            hora_ajustada = convertir_a_utc_mas_1(item["hora"].time())
             canal_id = item["nombre"].lower().replace(" ", "_")
             # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
@@ -112,10 +112,9 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
 def evento_acabado(hora_evento):
     # Obtener hora actual en UTC/GMT+1
     hora_actual = datetime.now() + timedelta(hours=1)
-    hora_evento_completa = datetime.combine(hora_actual.date(), hora_evento)
     
-    # Comparar si el evento terminó hace más de 3 horas
-    if hora_evento_completa < hora_actual - timedelta(hours=3):
+    # Comprobar si el evento ha terminado hace más de 3 horas
+    if hora_evento < hora_actual - timedelta(hours=3):
         return True
     return False
 
