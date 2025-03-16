@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import pytz
 
+# Función para obtener la URL diaria
 def obtener_url_diaria():
     base_url = "https://www.platinsport.com"
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -28,6 +29,7 @@ def obtener_url_diaria():
     print("No se encontró la URL diaria")
     return None
 
+# Función para obtener los enlaces AceStream y los eventos
 def obtener_enlaces_acestream(url):
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
@@ -60,6 +62,7 @@ def obtener_enlaces_acestream(url):
     
     return enlaces
 
+# Función para generar la lista M3U
 def generar_lista_m3u(enlaces):
     ruta_lista = "lista.m3u"
     
