@@ -33,46 +33,39 @@ def extraer_enlaces_acestream(url):
     soup = BeautifulSoup(response.text, "html.parser")
     enlaces_info = []
 
-    # Encuentra todos los enlaces con AceStream
-    for a in soup.find_all("a", href=True):
-        if "acestream://" in a["href"]:
-            texto = a.get_text(strip=True)
+    # Buscamos los contenedores de los eventos
+    eventos = soup.find_all("div", class_="event-details")  # Aquí debes ajustar el selector según la página
 
-            # Intentamos extraer la hora y el nombre del evento desde el HTML
-            hora_encontrada = None
-            nombre_evento = None
-
-            # Buscar la hora
-            time_tag = a.find_previous("time")
-            if time_tag:
-                try:
-                    hora_encontrada = datetime.strptime(time_tag.get_text(strip=True), "%H:%M").time()
-                except Exception:
-                    hora_encontrada = datetime.strptime("23:59", "%H:%M").time()  # Si no se puede parsear, asignamos 23:59
-
-            # Buscar el nombre del evento
-            div_evento = a.find_next("div", class_="separator")
-            if div_evento:
-                nombre_evento = div_evento.get_text(strip=True)
-            
-            # Si no se encuentra hora o evento, asignamos valores por defecto
-            if hora_encontrada is None:
+    for evento in eventos:
+        # Extraemos la hora y nombre del evento
+        hora = evento.find("time")
+        if hora:
+            hora_encontrada = hora.get_text(strip=True)
+            try:
+                hora_encontrada = datetime.strptime(hora_encontrada, "%H:%M").time()
+            except Exception:
                 hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
-            if nombre_evento is None:
-                nombre_evento = "Evento no disponible"
-                
-            enlaces_info.append({
-                "nombre": nombre_evento,
-                "url": a["href"],
-                "hora": hora_encontrada
-            })
-    
+        
+        # Extraemos el nombre del evento
+        nombre_evento = evento.find("div", class_="separator")  # Ajusta el selector si es necesario
+        if nombre_evento:
+            nombre_evento = nombre_evento.get_text(strip=True)
+
+        # Ahora buscamos los enlaces de AceStream
+        for a in evento.find_all("a", href=True):
+            if "acestream://" in a["href"]:
+                texto = a.get_text(strip=True)
+                enlaces_info.append({
+                    "nombre": nombre_evento if nombre_evento else "Evento no disponible",
+                    "hora": hora_encontrada,
+                    "url": a["href"]
+                })
+
     return enlaces_info
 
 def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
     # Ordenamos las entradas por la hora extraída
     enlaces_info.sort(key=lambda x: x["hora"])
-    
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in enlaces_info:
