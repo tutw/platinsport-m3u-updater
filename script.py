@@ -17,7 +17,8 @@ def obtener_url_diaria():
         # Buscar un enlace con el patrón deseado
         match = re.search(r"(https://www\.platinsport\.com/link/\d{2}[a-z]{3}[a-z0-9]+/01\.php)", href, re.IGNORECASE)
         if match:
-            url_platinsport = href
+            # Resolver el acortador automáticamente siguiendo la redirección
+            url_platinsport = requests.get(href, headers=headers).url
             print("URL diaria encontrada:", url_platinsport)
             return url_platinsport
     print("No se encontró la URL diaria")
