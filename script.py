@@ -1,7 +1,7 @@
 import re
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+from datetime import datetime, timedelta
 
 def obtener_url_diaria():
     base_url = "https://www.platinsport.com"
@@ -14,10 +14,8 @@ def obtener_url_diaria():
     enlaces = soup.find_all("a", href=True)
     for a in enlaces:
         href = a["href"]
-        # Buscamos un enlace que cumpla con el patrón deseado
         match = re.search(r"(https://www\.platinsport\.com/link/\d{2}[a-z]{3}[a-z0-9]+/01\.php)", href, re.IGNORECASE)
         if match:
-            # Eliminar el prefijo del acortador, si existe, para quedarnos solo con la URL de Platinsport
             url_platinsport = re.sub(r"^http://bc\.vc/\d+/", "", href)
             print("URL diaria encontrada:", url_platinsport)
             return url_platinsport
@@ -25,9 +23,6 @@ def obtener_url_diaria():
     return None
 
 def extraer_eventos(url):
-    """
-    Extrae los eventos de la página obtenida de Platinsport.
-    """
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
@@ -36,19 +31,15 @@ def extraer_eventos(url):
     soup = BeautifulSoup(response.text, "html.parser")
     eventos = []
 
-    # Obtén el contenedor de los eventos
     contenedor = soup.find("div", class_="myDiv1")
     if not contenedor:
         print("No se encontró el contenedor de eventos (.myDiv1)")
         return eventos
 
-    # Si usas .find_all("time"), obtendrás cada elemento <time> del contenedor.
     time_tags = contenedor.find_all("time")
     for tag in time_tags:
-        # Extraer la hora del evento
         time_val = tag.get("datetime", "").strip()
         try:
-            # Usamos fromisoformat; se quita la 'Z' en caso de que exista
             hora_evento = datetime.fromisoformat(time_val.replace("Z", "")).time()
         except Exception:
             try:
@@ -56,7 +47,6 @@ def extraer_eventos(url):
             except Exception:
                 hora_evento = datetime.strptime("23:59", "%H:%M").time()
 
-        # Obtener el contenido (texto y enlaces) entre este <time> y el siguiente <time>
         event_text = ""
         canales = []
         for sib in tag.next_siblings:
@@ -71,7 +61,6 @@ def extraer_eventos(url):
                     event_text += sib.get_text(" ", strip=True) + " "
         event_text = event_text.strip()
 
-        # Por cada enlace <a> (cada canal) en este bloque, creamos una entrada de evento.
         if canales:
             for a_tag in canales:
                 canal_text = a_tag.get_text(" ", strip=True)
@@ -82,7 +71,6 @@ def extraer_eventos(url):
                     "url": a_tag["href"]
                 })
         else:
-            # Si no hay enlaces, generamos un evento "genérico" (opcional)
             eventos.append({
                 "hora": hora_evento,
                 "nombre": event_text if event_text else "Evento Desconocido",
@@ -91,28 +79,30 @@ def extraer_eventos(url):
             })
     return eventos
 
+def convertir_a_utc_mas_1(hora):
+    dt = datetime.combine(datetime.today(), hora)
+    dt_utc1 = dt + timedelta(hours=1)
+    return dt_utc1.time()
+
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
-    # Ordenamos los eventos por hora
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in eventos:
-            # Generamos un canal_id a partir del nombre del evento
+            hora_ajustada = convertir_a_utc_mas_1(item["hora"])
             canal_id = item["nombre"].lower().replace(" ", "_")
             extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\","  
-                           f"{item['hora'].strftime('%H:%M')} - {item['nombre']} - {item['canal']}\n")
+                           f"{hora_ajustada.strftime('%H:%M')} - {item['nombre']} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
 
 if __name__ == "__main__":
-    # 1. Detectar la URL diaria de Platinsport
     url_diaria = obtener_url_diaria()
     if not url_diaria:
         print("No se pudo determinar la URL diaria.")
         exit(1)
     print("URL diaria:", url_diaria)
 
-    # 2. Extraer los eventos de Platinsport
     eventos_platinsport = extraer_eventos(url_diaria)
     print("Eventos extraídos de Platinsport:", len(eventos_platinsport))
 
@@ -120,6 +110,5 @@ if __name__ == "__main__":
         print("No se encontraron eventos.")
         exit(1)
 
-    # 3. Generar y guardar la lista M3U
     guardar_lista_m3u(eventos_platinsport)
     print("Lista M3U actualizada correctamente con", len(eventos_platinsport), "eventos.")
