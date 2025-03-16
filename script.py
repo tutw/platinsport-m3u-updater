@@ -63,6 +63,9 @@ def extraer_eventos(url):
 
         # Asegurar que no haya espacios innecesarios
         event_text = " ".join(event_text.split())
+        
+        # Eliminar el texto "LIVE STREAM" repetido
+        event_text = eliminar_repeticiones_live_stream(event_text)
 
         if canales:
             for a_tag in canales:
@@ -74,6 +77,12 @@ def extraer_eventos(url):
                     "url": a_tag["href"]
                 })
     return eventos
+
+def eliminar_repeticiones_live_stream(event_text):
+    # Elimina las repeticiones de "LIVE STREAM"
+    while "LIVE STREAM" in event_text:
+        event_text = event_text.replace("LIVE STREAM", "").strip()
+    return event_text
 
 def convertir_a_utc_mas_1(hora):
     dt = datetime.combine(datetime.today(), hora)
