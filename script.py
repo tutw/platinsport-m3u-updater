@@ -55,7 +55,7 @@ def extraer_eventos(url):
             if isinstance(sib, str):
                 event_text += sib.strip() + " "
             elif hasattr(sib, "name"):
-                if sib.name == "a" and sib["href"].startswith("acestream://"):
+                if sib.name == "a" and "acestream://" in sib["href"]:
                     canales.append(sib)
                 else:
                     event_text += sib.get_text(" ", strip=True) + " "
