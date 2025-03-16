@@ -11,15 +11,18 @@ def obtener_url_diaria():
         print("Error al acceder a la página principal")
         return None
     soup = BeautifulSoup(response.text, "html.parser")
-    # Buscamos el enlace que contiene la programación diaria
-    enlace_programacion = soup.find("a", string=re.compile("TODAYS LIVE BROADCASTS"))
-    if enlace_programacion and enlace_programacion.get('href'):
-        url_diaria = base_url + enlace_programacion.get('href')
-        print("URL de programación diaria encontrada:", url_diaria)
-        return url_diaria
-    else:
-        print("No se encontró el enlace a la programación diaria")
-        return None
+    enlaces = soup.find_all("a", href=True)
+    for a in enlaces:
+        href = a["href"]
+        # Buscamos un enlace que cumpla con el patrón deseado
+        match = re.search(r"(https://www\.platinsport\.com/link/\d{2}[a-z]{3}[a-z0-9]+/01\.php)", href, re.IGNORECASE)
+        if match:
+            # Eliminar el prefijo del acortador, si existe, para quedarnos solo con la URL de Platinsport
+            url_platinsport = re.sub(r"^http://bc\.vc/\d+/", "", href)
+            print("URL diaria encontrada:", url_platinsport)
+            return url_platinsport
+    print("No se encontró la URL diaria")
+    return None
 
 def extraer_eventos_y_enlaces(url):
     headers = {"User-Agent": "Mozilla/5.0"}
