@@ -14,11 +14,10 @@ def obtener_url_diaria():
     enlaces = soup.find_all("a", href=True)
     for a in enlaces:
         href = a["href"]
-        # Buscamos un enlace que cumpla con el patrón deseado
+        # Buscar un enlace con el patrón deseado
         match = re.search(r"(https://www\.platinsport\.com/link/\d{2}[a-z]{3}[a-z0-9]+/01\.php)", href, re.IGNORECASE)
         if match:
-            # Eliminar el prefijo del acortador, si existe, para quedarnos solo con la URL de Platinsport
-            url_platinsport = re.sub(r"^http://bc\.vc/\d+/", "", href)
+            url_platinsport = href
             print("URL diaria encontrada:", url_platinsport)
             return url_platinsport
     print("No se encontró la URL diaria")
@@ -35,26 +34,34 @@ def extraer_enlaces_acestream(url):
     for a in soup.find_all("a", href=True):
         if "acestream://" in a["href"]:
             texto = a.get_text(strip=True)
-            # Intentamos extraer un patrón de hora (formato HH:MM) del texto
+
+            # Extraer nombre del evento
+            nombre_evento = "Evento Desconocido"
+            if len(texto) > 2:
+                nombre_evento = texto
+
+            # Extraer la hora del texto asociado al enlace
             hora_encontrada = None
-            match = re.search(r'\b(\d{1,2}:\d{2})\b', texto)
-            if match:
+            match_hora = re.search(r'\b(\d{1,2}:\d{2})\b', texto)
+            if match_hora:
                 try:
-                    hora_encontrada = datetime.strptime(match.group(1), "%H:%M").time()
-                except Exception:
+                    hora_encontrada = datetime.strptime(match_hora.group(1), "%H:%M").time()
+                except ValueError:
                     hora_encontrada = None
-            # Si no se encuentra hora, se asigna 23:59 para ordenarlo al final
-            if hora_encontrada is None:
+
+            # Si no se encuentra la hora, asignar 23:59 por defecto
+            if not hora_encontrada:
                 hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
+
             enlaces_info.append({
-                "nombre": texto if texto else "Canal AceStream",
+                "nombre": nombre_evento,
                 "url": a["href"],
                 "hora": hora_encontrada
             })
     return enlaces_info
 
 def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
-    # Ordenamos las entradas por la hora extraída
+    # Ordenar las entradas por hora
     enlaces_info.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
