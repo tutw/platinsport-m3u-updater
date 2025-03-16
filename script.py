@@ -24,48 +24,60 @@ def obtener_url_diaria():
     print("No se encontró la URL diaria")
     return None
 
-def extraer_eventos_y_enlaces(url):
+def extraer_enlaces_acestream(url):
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
         print("Error al acceder a", url)
         return []
     soup = BeautifulSoup(response.text, "html.parser")
-    eventos_info = []
-    # Buscamos los contenedores que podrían tener la información de los eventos
-    for div in soup.find_all("div", class_=re.compile(".*schedule.*", re.IGNORECASE)):
-        texto = div.get_text(" ", strip=True)
-        # Buscamos la hora y el evento en el texto
-        match = re.search(r"(\d{1,2}:\d{2})\s+([A-Z\s\-]+)(acestream://[a-f0-9]+)", texto, re.IGNORECASE)
-        if match:
-            hora = datetime.strptime(match.group(1), "%H:%M").time()
-            evento = match.group(2).strip()
-            enlace = match.group(3)
-            eventos_info.append({
-                "hora": hora,
-                "evento": evento,
-                "enlace": enlace
+    enlaces_info = []
+    for a in soup.find_all("a", href=True):
+        if "acestream://" in a["href"]:
+            texto = a.get_text(strip=True)
+            # Intentamos extraer un patrón de hora (formato HH:MM) del texto
+            hora_encontrada = None
+            match = re.search(r'\b(\d{1,2}:\d{2})\b', texto)
+            if match:
+                try:
+                    hora_encontrada = datetime.strptime(match.group(1), "%H:%M").time()
+                except Exception:
+                    hora_encontrada = None
+            # Si no se encuentra hora, se asigna 23:59 para ordenarlo al final
+            if hora_encontrada is None:
+                hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
+            enlaces_info.append({
+                "nombre": texto if texto else "Canal AceStream",
+                "url": a["href"],
+                "hora": hora_encontrada
             })
-    return eventos_info
+    return enlaces_info
 
-def guardar_lista_m3u(eventos_info, archivo="lista.m3u"):
-    eventos_info.sort(key=lambda x: x["hora"])
+def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
+    # Ordenamos las entradas por la hora extraída
+    enlaces_info.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
-        for item in eventos_info:
-            canal_id = item["evento"].lower().replace(" ", "_")
-            extinf_line = f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['evento']}\",{item['evento']} ({item['hora'].strftime('%H:%M')})\n"
+        for item in enlaces_info:
+            canal_id = item["nombre"].lower().replace(" ", "_")
+            extinf_line = f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\",{item['nombre']} ({item['hora'].strftime('%H:%M')})\n"
             f.write(extinf_line)
-            f.write(f"{item['enlace']}\n")
+            f.write(f"{item['url']}\n")
 
 if __name__ == "__main__":
+    # 1. Detectar la URL diaria
     url_diaria = obtener_url_diaria()
     if not url_diaria:
-        print("No se pudo determinar la URL de programación diaria.")
+        print("No se pudo determinar la URL diaria.")
         exit(1)
-    eventos_info = extraer_eventos_y_enlaces(url_diaria)
-    if not eventos_info:
-        print("No se encontraron eventos con enlaces AceStream.")
+    print("URL diaria:", url_diaria)
+    
+    # 2. Extraer los enlaces AceStream
+    enlaces_info = extraer_enlaces_acestream(url_diaria)
+    if not enlaces_info:
+        print("No se encontraron enlaces AceStream.")
         exit(1)
-    guardar_lista_m3u(eventos_info)
+    
+    # 3. Generar y guardar la lista M3U ordenada por hora
+    guardar_lista_m3u(enlaces_info)
     print("Lista M3U actualizada correctamente.")
