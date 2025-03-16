@@ -70,12 +70,18 @@ def extraer_eventos(url):
         if canales:
             for a_tag in canales:
                 canal_text = a_tag.get_text(" ", strip=True)
-                eventos.append({
+                evento = {
                     "hora": hora_evento,
                     "nombre": event_text if event_text else "Evento Desconocido",
                     "canal": canal_text,
                     "url": a_tag["href"]
-                })
+                }
+
+                # Filtrar eventos que ya hayan acabado hace más de 3 horas
+                if evento_acabado(evento["hora"]):
+                    continue  # Si el evento ha terminado hace más de 3 horas, se omite
+                
+                eventos.append(evento)
     return eventos
 
 def eliminar_repeticiones_live_stream(event_text):
@@ -102,6 +108,16 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
+
+def evento_acabado(hora_evento):
+    # Obtener hora actual en UTC/GMT+1
+    hora_actual = datetime.now() + timedelta(hours=1)
+    hora_evento_completa = datetime.combine(hora_actual.date(), hora_evento)
+    
+    # Comparar si el evento terminó hace más de 3 horas
+    if hora_evento_completa < hora_actual - timedelta(hours=3):
+        return True
+    return False
 
 if __name__ == "__main__":
     url_diaria = obtener_url_diaria()
