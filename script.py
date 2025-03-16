@@ -32,9 +32,12 @@ def extraer_enlaces_acestream(url):
         return []
     soup = BeautifulSoup(response.text, "html.parser")
     enlaces_info = []
+    
+    # Buscar todos los enlaces que contienen "acestream://"
     for a in soup.find_all("a", href=True):
         if "acestream://" in a["href"]:
             texto = a.get_text(strip=True)
+            
             # Intentamos extraer un patrón de hora (formato HH:MM) del texto
             hora_encontrada = None
             match = re.search(r'\b(\d{1,2}:\d{2})\b', texto)
@@ -46,11 +49,23 @@ def extraer_enlaces_acestream(url):
             # Si no se encuentra hora, se asigna 23:59 para ordenarlo al final
             if hora_encontrada is None:
                 hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
+            
+            # Buscamos el nombre del evento (generalmente en un elemento con texto naranja)
+            nombre_evento = None
+            evento_element = soup.find("span", style="color: orange")  # Ajusta esto según el HTML real
+            if evento_element:
+                nombre_evento = evento_element.get_text(strip=True)
+            
+            # Si no se encuentra nombre del evento, se usa un valor por defecto
+            if nombre_evento is None:
+                nombre_evento = "Evento desconocido"
+            
             enlaces_info.append({
-                "nombre": texto if texto else "Canal AceStream",
+                "nombre": nombre_evento,
                 "url": a["href"],
                 "hora": hora_encontrada
             })
+    
     return enlaces_info
 
 def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
