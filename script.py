@@ -26,10 +26,9 @@ def obtener_url_diaria():
 
 def extraer_enlaces_acestream(url):
     """
-    Extrae la información de cada evento de la página:
-      - La hora del evento (usando el selector: body > div.myDiv1 > time:nth-child(1))
-      - El nombre del evento (usando el selector: body > div.myDiv1 > div:nth-child(2))
-      - El enlace AceStream encontrado dentro del contenedor.
+    Para cada enlace AceStream encontrado:
+      - Busca el elemento <time> anterior, y extrae la hora desde su atributo 'datetime'.
+      - Busca el siguiente <div class="separator" style="user-select: auto;"></div> para obtener el nombre del evento deportivo.
     """
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
@@ -40,41 +39,40 @@ def extraer_enlaces_acestream(url):
     soup = BeautifulSoup(response.text, "html.parser")
     enlaces_info = []
     
-    # Seleccionar cada contenedor que agrupa los datos del evento
-    containers = soup.select("div.myDiv1")
-    for container in containers:
-        # Extraer la hora con el selector especificado
-        time_tag = container.select_one("time:nth-child(1)")
-        if time_tag:
-            time_str = time_tag.get_text(strip=True)
-            try:
-                event_time = datetime.strptime(time_str, "%H:%M").time()
-            except Exception:
-                event_time = datetime.strptime("23:59", "%H:%M").time()
-        else:
-            event_time = datetime.strptime("23:59", "%H:%M").time()
+    for a in soup.find_all("a", href=True):
+        if "acestream://" in a["href"]:
+            # Enlace AceStream
+            acestream_url = a["href"]
             
-        # Extraer el nombre del evento con el selector indicado (el elemento justo debajo)
-        name_tag = container.select_one("div:nth-child(2)")
-        if name_tag:
-            event_name = name_tag.get_text(strip=True)
-        else:
-            event_name = "Evento Desconocido"
-        
-        # Buscar el enlace AceStream dentro de este contenedor
-        a_tag = container.find("a", href=lambda href: href and href.startswith("acestream://"))
-        if a_tag:
-            acestream_url = a_tag["href"]
-        else:
-            continue
-        
-        # Agregar la información extraída a la lista
-        enlaces_info.append({
-            "nombre": event_name,
-            "url": acestream_url,
-            "hora": event_time
-        })
-    
+            # Extraer la hora desde el elemento <time> anterior
+            time_tag = a.find_previous("time")
+            if time_tag is not None:
+                # Se asume que el atributo 'datetime' contiene la hora en formato "HH:MM".
+                time_val = time_tag.get("datetime", "").strip()
+                try:
+                    event_time = datetime.strptime(time_val, "%H:%M").time()
+                except ValueError:
+                    # Si el formato es distinto, intentamos con ISO (por ejemplo "2021-08-24T19:00:00Z")
+                    try:
+                        event_time = datetime.fromisoformat(time_val.replace("Z", "")).time()
+                    except Exception:
+                        event_time = datetime.strptime("23:59", "%H:%M").time()
+            else:
+                event_time = datetime.strptime("23:59", "%H:%M").time()
+
+            # Extraer el nombre del evento desde el siguiente <div class="separator" style="user-select: auto;">
+            name_tag = a.find_next("div", class_="separator", style="user-select: auto;")
+            if name_tag is not None:
+                event_name = name_tag.get_text(strip=True)
+            else:
+                event_name = "Evento Desconocido"
+
+            enlaces_info.append({
+                "nombre": event_name,
+                "url": acestream_url,
+                "hora": event_time
+            })
+            
     return enlaces_info
 
 def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
@@ -96,7 +94,7 @@ if __name__ == "__main__":
         exit(1)
     print("URL diaria:", url_diaria)
     
-    # 2. Extraer los enlaces AceStream junto con los datos de cada evento
+    # 2. Extraer los enlaces AceStream y la información de cada evento (hora y nombre)
     enlaces_info = extraer_enlaces_acestream(url_diaria)
     if not enlaces_info:
         print("No se encontraron enlaces AceStream.")
