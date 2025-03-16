@@ -1,41 +1,40 @@
-name: Update M3U Playlist
+name: Actualizar Lista M3U
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Esto hará que el flujo de trabajo se ejecute una vez al día a la medianoche (hora UTC)
-  workflow_dispatch: # También puede ser activado manualmente desde la interfaz de GitHub
+    - cron: "0 * * * *"  # Ejecuta el workflow al inicio de cada hora
+  workflow_dispatch:      # Permite ejecutar manualmente
 
 jobs:
-  update-m3u:
+  update-list:
     runs-on: ubuntu-latest
 
     steps:
-      # Paso 1: Verificar el repositorio
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
 
-      # Paso 2: Configurar Python
-      - name: Set up Python 3.x
-        uses: actions/setup-python@v2
+      - name: Configurar Python
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
-      # Paso 3: Instalar dependencias necesarias
-      - name: Install dependencies
+      - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 pytz
+          pip install requests beautifulsoup4
 
-      # Paso 4: Ejecutar el script Python para actualizar la lista M3U
-      - name: Run script to update M3U playlist
-        run: |
-          python script.py
+      - name: Ejecutar script de scraping
+        run: python script.py
 
-      # Paso 5: Subir el archivo generado al repositorio
-      - name: Commit and push M3U playlist
+      - name: Configurar usuario de Git
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Commit y push de cambios
+        run: |
           git add lista.m3u
-          git commit -m "Actualizar lista M3U"
+          git commit -m "Actualizar lista M3U" || echo "No hay cambios para hacer commit"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
