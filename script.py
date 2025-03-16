@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 
-def obtener_url_diaria():
+def obtener_url_lista_m3u():
     base_url = "https://www.platinsport.com"
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(base_url, headers=headers)
@@ -11,56 +11,49 @@ def obtener_url_diaria():
         print("Error al acceder a la página principal")
         return None
     soup = BeautifulSoup(response.text, "html.parser")
-    enlaces = soup.find_all("a", href=True)
-    for a in enlaces:
-        href = a["href"]
-        # Buscamos un enlace que cumpla con el patrón deseado
-        match = re.search(r"(https://www\.platinsport\.com/link/\d{2}[a-z]{3}[a-z0-9]+/01\.php)", href, re.IGNORECASE)
-        if match:
-            # Eliminar el prefijo del acortador, si existe, para quedarnos solo con la URL de Platinsport
-            url_platinsport = re.sub(r"^http://bc\.vc/\d+/", "", href)
-            print("URL diaria encontrada:", url_platinsport)
-            return url_platinsport
-    print("No se encontró la URL diaria")
-    return None
+    # Buscamos el enlace que contiene el texto "DOWNLOAD ALL THE LINKS AS A M3U8 PLAYLIST"
+    enlace_m3u = soup.find("a", string="DOWNLOAD ALL THE LINKS AS A M3U8 PLAYLIST", href=True)
+    if enlace_m3u:
+        url_m3u = base_url + enlace_m3u["href"]
+        print("URL de la lista M3U encontrada:", url_m3u)
+        return url_m3u
+    else:
+        print("No se encontró el enlace a la lista M3U")
+        return None
 
-def extraer_enlaces_acestream(url):
+def descargar_lista_m3u(url):
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
         print("Error al acceder a", url)
         return []
-    soup = BeautifulSoup(response.text, "html.parser")
+    # Dividimos el contenido de la lista M3U en líneas
+    lineas = response.text.splitlines()
     enlaces_info = []
-
-    # Buscamos los contenedores de los eventos
-    eventos = soup.find_all("div", class_="event-details")  # Aquí debes ajustar el selector según la página
-
-    for evento in eventos:
-        # Extraemos la hora y nombre del evento
-        hora = evento.find("time")
-        if hora:
-            hora_encontrada = hora.get_text(strip=True)
-            try:
-                hora_encontrada = datetime.strptime(hora_encontrada, "%H:%M").time()
-            except Exception:
-                hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
-        
-        # Extraemos el nombre del evento
-        nombre_evento = evento.find("div", class_="separator")  # Ajusta el selector si es necesario
-        if nombre_evento:
-            nombre_evento = nombre_evento.get_text(strip=True)
-
-        # Ahora buscamos los enlaces de AceStream
-        for a in evento.find_all("a", href=True):
-            if "acestream://" in a["href"]:
-                texto = a.get_text(strip=True)
+    hora_encontrada = None
+    nombre_evento = None
+    for linea in lineas:
+        # Buscamos las líneas que comienzan con #EXTINF
+        if linea.startswith("#EXTINF"):
+            # Extraemos la hora y el nombre del evento
+            match = re.search(r"#EXTINF:-1 tvg-id=\"[^\"]+\" tvg-name=\"([^\"]+)\",([^\n]+)", linea)
+            if match:
+                nombre_evento = match.group(2).strip()
+                hora_texto = match.group(1).strip()
+                try:
+                    hora_encontrada = datetime.strptime(hora_texto, "%H:%M").time()
+                except ValueError:
+                    hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
+        # Buscamos las líneas que contienen las URLs de los streams
+        elif linea.startswith("acestream://"):
+            if nombre_evento and hora_encontrada:
                 enlaces_info.append({
-                    "nombre": nombre_evento if nombre_evento else "Evento no disponible",
+                    "nombre": nombre_evento,
                     "hora": hora_encontrada,
-                    "url": a["href"]
+                    "url": linea.strip()
                 })
-
+                nombre_evento = None
+                hora_encontrada = None
     return enlaces_info
 
 def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
@@ -75,17 +68,17 @@ def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
             f.write(f"{item['url']}\n")
 
 if __name__ == "__main__":
-    # 1. Detectar la URL diaria
-    url_diaria = obtener_url_diaria()
-    if not url_diaria:
-        print("No se pudo determinar la URL diaria.")
+    # 1. Obtener la URL de la lista M3U
+    url_lista_m3u = obtener_url_lista_m3u()
+    if not url_lista_m3u:
+        print("No se pudo obtener la URL de la lista M3U.")
         exit(1)
-    print("URL diaria:", url_diaria)
+    print("URL de la lista M3U:", url_lista_m3u)
 
-    # 2. Extraer los enlaces AceStream
-    enlaces_info = extraer_enlaces_acestream(url_diaria)
+    # 2. Descargar y procesar la lista M3U
+    enlaces_info = descargar_lista_m3u(url_lista_m3u)
     if not enlaces_info:
-        print("No se encontraron enlaces AceStream.")
+        print("No se encontraron enlaces AceStream en la lista M3U.")
         exit(1)
 
     # 3. Generar y guardar la lista M3U ordenada por hora
