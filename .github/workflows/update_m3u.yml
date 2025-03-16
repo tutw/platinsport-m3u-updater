@@ -26,12 +26,6 @@ jobs:
       - name: Ejecutar script de scraping
         run: python script.py
 
-      - name: Verificar contenido de lista.m3u
-        run: cat lista.m3u
-
-      - name: Mostrar diferencias en lista.m3u
-        run: git diff lista.m3u || echo "No se detectaron cambios en lista.m3u"
-
       - name: Configurar usuario de Git
         run: |
           git config --global user.name "github-actions"
