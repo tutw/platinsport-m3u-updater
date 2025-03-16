@@ -1,40 +1,40 @@
-name: Actualizar Lista M3U
+name: Actualizar lista M3U
 
 on:
   schedule:
-    - cron: "0 * * * *"  # Ejecuta el workflow al inicio de cada hora
-  workflow_dispatch:      # Permite ejecutar manualmente
+    - cron: "0 * * * *" # Ejecuta el script cada hora
+  workflow_dispatch: # Permite ejecutar manualmente el workflow
 
 jobs:
-  update-list:
+  update-m3u:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout del repositorio
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.x"
+          python-version: '3.x'
 
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install beautifulsoup4 requests pytz
 
-      - name: Ejecutar script de scraping
+      - name: Ejecutar script
         run: python script.py
 
-      - name: Configurar usuario de Git
+      - name: Configurar Git
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "actions@github.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit y push de cambios
+      - name: Subir cambios al repositorio
         run: |
           git add lista.m3u
-          git commit -m "Actualizar lista M3U" || echo "No hay cambios para hacer commit"
+          git commit -m "Actualizar lista M3U" || exit 0
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
