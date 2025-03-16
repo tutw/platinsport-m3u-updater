@@ -61,6 +61,9 @@ def extraer_eventos(url):
                     event_text += sib.get_text(" ", strip=True) + " "
         event_text = event_text.strip()
 
+        # Asegurar que no haya espacios innecesarios
+        event_text = " ".join(event_text.split())
+
         if canales:
             for a_tag in canales:
                 canal_text = a_tag.get_text(" ", strip=True)
@@ -84,8 +87,10 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
             canal_id = item["nombre"].lower().replace(" ", "_")
-            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\","  
-                           f"{hora_ajustada.strftime('%H:%M')} - {item['nombre']} - {item['canal']}\n")
+            # Eliminar espacios innecesarios en el nombre
+            nombre_evento = " ".join(item['nombre'].split())
+            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","  
+                           f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
 
