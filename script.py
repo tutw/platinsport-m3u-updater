@@ -41,17 +41,21 @@ def extraer_enlaces_acestream(url):
             url_acestream = a["href"]
             
             # Buscar el contenedor de texto cercano al enlace AceStream
-            contenedor_evento = a.find_parent()  # Intenta buscar información en el contenedor padre
+            contenedor_evento = a.find_parent()  # Buscar información en el contenedor padre
             texto_evento = contenedor_evento.get_text(strip=True) if contenedor_evento else ""
 
-            # Extraer el nombre del evento
+            # Limpiar y filtrar el texto del evento
+            texto_limpio = " ".join(texto_evento.split())  # Eliminar espacios redundantes
             nombre_evento = "Evento Desconocido"
-            if len(texto_evento) > 2:  # Validamos que el texto tenga longitud mínima
-                nombre_evento = texto_evento
+            hora_encontrada = None
+
+            # Intentar extraer el nombre del evento usando delimitadores conocidos
+            match_evento = re.search(r'(.+?)\s-\s', texto_limpio)  # Ejemplo: "Evento - Otro texto"
+            if match_evento:
+                nombre_evento = match_evento.group(1).strip()
 
             # Extraer la hora asociada al evento
-            hora_encontrada = None
-            match_hora = re.search(r'\b(\d{1,2}:\d{2})\b', texto_evento)  # Buscar un patrón de hora HH:MM
+            match_hora = re.search(r'\b(\d{1,2}:\d{2})\b', texto_limpio)  # Buscar un patrón de hora HH:MM
             if match_hora:
                 try:
                     hora_encontrada = datetime.strptime(match_hora.group(1), "%H:%M").time()
