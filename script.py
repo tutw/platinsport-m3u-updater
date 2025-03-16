@@ -40,8 +40,8 @@ def extraer_enlaces_acestream(url):
         if "acestream://" in a["href"]:
             url_acestream = a["href"]
             
-            # Buscar el contenedor de texto cercano al enlace AceStream
-            contenedor_evento = a.find_parent()  # Buscar información en el contenedor padre
+            # Buscar el contenedor cercano para extraer el nombre del evento
+            contenedor_evento = a.find_parent()  # Usar el contenedor padre para buscar texto relacionado
             texto_evento = contenedor_evento.get_text(strip=True) if contenedor_evento else ""
 
             # Limpiar y filtrar el texto del evento
@@ -50,7 +50,7 @@ def extraer_enlaces_acestream(url):
             hora_encontrada = None
 
             # Intentar extraer el nombre del evento usando delimitadores conocidos
-            match_evento = re.search(r'(.+?)\s-\s', texto_limpio)  # Ejemplo: "Evento - Otro texto"
+            match_evento = re.search(r'(.+?) - ', texto_limpio)  # Ejemplo: "Evento - Descripción adicional"
             if match_evento:
                 nombre_evento = match_evento.group(1).strip()
 
@@ -62,13 +62,13 @@ def extraer_enlaces_acestream(url):
                 except ValueError:
                     hora_encontrada = None
             
-            # Si no se encuentra la hora, asignamos un valor predeterminado
+            # Si no se encuentra la hora, asignar un valor por defecto
             if not hora_encontrada:
                 hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
 
             # Agregar los datos recopilados a la lista de resultados
             enlaces_info.append({
-                "nombre": nombre_evento.strip(),
+                "nombre": nombre_evento,
                 "url": url_acestream,
                 "hora": hora_encontrada
             })
