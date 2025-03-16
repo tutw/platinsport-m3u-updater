@@ -3,9 +3,9 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 
-# ---------------------------
+# ------------------------------------
 # Fuente 1: Platinsport
-# ---------------------------
+# ------------------------------------
 def obtener_url_diaria():
     base_url = "https://www.platinsport.com"
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -34,12 +34,10 @@ def extraer_enlaces_acestream(url):
         print("Error al acceder a", url)
         return []
     soup = BeautifulSoup(response.text, "html.parser")
-    enlaces_info = []
-    # Se recorre cada enlace y se extrae el texto (aquí asumimos que el texto contiene la información del evento)
+    eventos = []
     for a in soup.find_all("a", href=True):
         if "acestream://" in a["href"]:
             texto = a.get_text(strip=True)
-            # Se intenta extraer un horario en formato "HH:MM" del texto
             hora_encontrada = None
             match = re.search(r'\b(\d{1,2}:\d{2})\b', texto)
             if match:
@@ -47,89 +45,94 @@ def extraer_enlaces_acestream(url):
                     hora_encontrada = datetime.strptime(match.group(1), "%H:%M").time()
                 except Exception:
                     hora_encontrada = None
-            # Si no se encuentra hora, se asigna 23:59 por defecto
             if hora_encontrada is None:
                 hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
-            enlaces_info.append({
+            # Para los eventos de Platinsport se asigna "Platinsport" en el campo canal
+            eventos.append({
                 "nombre": texto if texto else "Canal AceStream",
                 "url": a["href"],
-                "hora": hora_encontrada
+                "hora": hora_encontrada,
+                "canal": "Platinsport"
             })
-    return enlaces_info
+    return eventos
 
-# ---------------------------
+# ------------------------------------
 # Fuente 2: Tarjeta Roja en Vivo
-# ---------------------------
+# ------------------------------------
 def extraer_eventos_tarjetaroja(url):
     """
-    Extrae la información de eventos de Tarjeta Roja en Vivo.
-    Se asume que cada evento está en un contenedor <div class="match">.
-      - Se obtiene la hora del evento desde el atributo `datetime` de un <time>.
-      - El nombre del evento se extrae de un <div class="separator" style="user-select: auto;">.
-      - El canal de TV se extrae de un <div class="channel">.
-      - Se extrae el enlace AceStream (de un <a> cuyo href inicia con "acestream://").
-    (Si la estructura real difiere, ajusta los selectores CSS a la estructura actual de la web).
+    Extrae los eventos de tarjetarojaenvivo.lat.
+
+    Se asume que cada evento aparece en un contenedor <div class="match"> con el texto:
+          "(18:30) Laliga : Osasuna - Getafe"
+    y, en la tabla de la derecha (con id "tablaCanales"), se listan los canales en celdas <td> en el mismo orden.
+    Se utiliza un mapeo para transformar, por ejemplo, "CH10" en "beIN max 10".
     """
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
-        print("Error al acceder a", url)
+        print("Error al acceder a Tarjeta Roja en Vivo:", url)
         return []
-    
     soup = BeautifulSoup(response.text, "html.parser")
+    
     eventos = []
-    # Supongamos que cada evento se encuentra en un contenedor con clase "match"
-    containers = soup.find_all("div", class_="match")
-    for container in containers:
-        # Extraer la hora utilizando <time datetime="...">
-        time_tag = container.find("time")
-        if time_tag and time_tag.get("datetime"):
-            time_val = time_tag["datetime"].strip()
+    # Se asume que cada evento está en un <div class="match">
+    event_containers = soup.find_all("div", class_="match")
+    for container in event_containers:
+        # Extraer el texto completo del contenedor (que se espera tenga formato: "(18:30) Laliga : Osasuna - Getafe")
+        event_text = container.get_text(strip=True)
+        m = re.match(r'^\((\d{1,2}:\d{2})\)\s*(.+)$', event_text)
+        if m:
+            time_str = m.group(1)
+            event_name = m.group(2)
             try:
-                # Se supone que el atributo datetime tiene el formato "HH:MM"
-                event_time = datetime.strptime(time_val, "%H:%M").time()
-            except ValueError:
-                try:
-                    event_time = datetime.fromisoformat(time_val.replace("Z", "")).time()
-                except Exception:
-                    event_time = datetime.strptime("23:59", "%H:%M").time()
+                event_time = datetime.strptime(time_str, "%H:%M").time()
+            except Exception:
+                event_time = datetime.strptime("23:59", "%H:%M").time()
         else:
             event_time = datetime.strptime("23:59", "%H:%M").time()
-
-        # Extraer el nombre del evento desde <div class="separator" style="user-select: auto;">
-        separator_div = container.find("div", class_="separator", style="user-select: auto;")
-        if separator_div:
-            event_name = separator_div.get_text(strip=True)
-        else:
             event_name = "Evento Desconocido"
-
-        # Extraer el canal de TV (suponemos que está en <div class="channel">)
-        channel_div = container.find("div", class_="channel")
-        if channel_div:
-            tv_channel = channel_div.get_text(strip=True)
-        else:
-            tv_channel = "Canal Desconocido"
-
-        # Extraer el enlace AceStream (se asume que hay un <a> cuyo href inicia con "acestream://")
+        # Intentar extraer el enlace AceStream dentro de este contenedor, si existe:
         a_tag = container.find("a", href=lambda h: h and h.startswith("acestream://"))
-        if a_tag:
-            stream_url = a_tag["href"]
-        else:
-            stream_url = ""
+        stream_url = a_tag["href"] if a_tag else ""
         
-        # Solo agregamos si se encontró un enlace
-        if stream_url:
-            eventos.append({
-                "nombre": event_name,
-                "hora": event_time,
-                "canal": tv_channel,
-                "url": stream_url
-            })
+        eventos.append({
+            "nombre": event_name,
+            "hora": event_time,
+            "url": stream_url,
+            "canal": ""  # se asignará luego
+        })
+    
+    # Extraer los canales de la tabla de la derecha.
+    # Se asume que la tabla tiene id "tablaCanales" y cada canal está en una celda <td>.
+    channel_elements = soup.select("table#tablaCanales td")
+    canales = [elem.get_text(strip=True) for elem in channel_elements]
+    
+    # Mapeo simple: se extrae el código de canal (por ejemplo, "CH10" de "CH10fr")
+    # y se mapea a su nombre completo, por ejemplo: "CH10" -> "beIN max 10"
+    channel_mapping = {
+        "CH10": "beIN max 10"
+        # Se pueden agregar más mapeos según sea necesario.
+    }
+    
+    # Asumimos que la cantidad de canales corresponde (por orden) a la cantidad de eventos detectados
+    for i, ev in enumerate(eventos):
+        if i < len(canales):
+            canal_text = canales[i]
+            m_channel = re.match(r'(CH\d+)', canal_text)
+            if m_channel:
+                canal_code = m_channel.group(1)
+            else:
+                canal_code = canal_text
+            ev["canal"] = channel_mapping.get(canal_code, canal_code)
+        else:
+            ev["canal"] = "Canal Desconocido"
+    
     return eventos
 
-# ---------------------------
-# Guardar la lista M3U (actualizada para incluir canal si existe)
-# ---------------------------
+# ------------------------------------
+# Guardar la lista M3U combinada
+# ------------------------------------
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
     # Ordenamos los eventos por la hora
     eventos.sort(key=lambda x: x["hora"])
@@ -137,25 +140,30 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
         f.write("#EXTM3U\n")
         for item in eventos:
             canal_id = item["nombre"].lower().replace(" ", "_")
-            if "canal" in item:
-                extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\","
-                               f"{item['nombre']} ({item['hora'].strftime('%H:%M')}) - {item['canal']}\n")
+            # Se incluye el canal (si existe) en la descripción
+            if item.get("canal"):
+                extinf_line = (
+                    f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\","
+                    f"{item['nombre']} ({item['hora'].strftime('%H:%M')}) - {item['canal']}\n"
+                )
             else:
-                extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\","
-                               f"{item['nombre']} ({item['hora'].strftime('%H:%M')})\n")
+                extinf_line = (
+                    f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\","
+                    f"{item['nombre']} ({item['hora'].strftime('%H:%M')})\n"
+                )
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
 
-# ---------------------------
+# ------------------------------------
 # Bloque principal: combinar ambas fuentes
-# ---------------------------
+# ------------------------------------
 if __name__ == "__main__":
     eventos_totales = []
     
     # Fuente 1: Platinsport
-    url_diaria = obtener_url_diaria()
-    if url_diaria:
-        eventos_platinsport = extraer_enlaces_acestream(url_diaria)
+    url_platinsport = obtener_url_diaria()
+    if url_platinsport:
+        eventos_platinsport = extraer_enlaces_acestream(url_platinsport)
         print("Eventos extraídos de Platinsport:", len(eventos_platinsport))
         eventos_totales.extend(eventos_platinsport)
     else:
@@ -171,6 +179,5 @@ if __name__ == "__main__":
         print("No se encontraron eventos en ninguna fuente.")
         exit(1)
     
-    # Guardar la lista M3U combinada
     guardar_lista_m3u(eventos_totales)
     print("Lista M3U actualizada correctamente con", len(eventos_totales), "eventos.")
