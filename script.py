@@ -5,7 +5,14 @@ import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
 from datetime import datetime
 
+def normalizar_nombre(nombre):
+    """Convierte un nombre en un formato uniforme para facilitar la comparación."""
+    if nombre:
+        return re.sub(r"[^a-zA-Z0-9]", "", nombre).lower()
+    return ""
+
 def obtener_url_diaria():
+    """Obtiene la URL diaria desde la página principal de Platinsport."""
     base_url = "https://www.platinsport.com"
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(base_url, headers=headers)
@@ -25,6 +32,7 @@ def obtener_url_diaria():
     return None
 
 def extraer_enlaces_acestream(url):
+    """Extrae los enlaces AceStream y los horarios desde la URL proporcionada."""
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
@@ -52,6 +60,7 @@ def extraer_enlaces_acestream(url):
     return enlaces_info
 
 def descargar_epg(url_epg):
+    """Descarga el archivo EPG desde la URL y lo descomprime."""
     response = requests.get(url_epg)
     if response.status_code != 200:
         print("Error al descargar el EPG")
@@ -65,34 +74,54 @@ def descargar_epg(url_epg):
     return "epg.xml"
 
 def parsear_epg(epg_file):
+    """Procesa el archivo EPG y organiza los datos."""
     tree = ET.parse(epg_file)
     root = tree.getroot()
     epg_data = {}
+    
+    # Procesar canales
     for channel in root.findall("channel"):
         channel_id = channel.get("id")
         display_name = channel.find("display-name").text if channel.find("display-name") is not None else None
         logo = channel.find("icon").get("src") if channel.find("icon") is not None else None
-        epg_data[channel_id] = {"name": display_name, "logo": logo, "programs": []}
+        epg_data[normalizar_nombre(display_name)] = {
+            "id": channel_id,
+            "name": display_name,
+            "logo": logo,
+            "programs": []
+        }
+    
+    # Procesar programas
     for program in root.findall("programme"):
         start_time = datetime.strptime(program.get("start")[:12], "%Y%m%d%H%M")
         channel_id = program.get("channel")
         title = program.find("title").text if program.find("title") is not None else "Sin título"
-        if channel_id in epg_data:
-            epg_data[channel_id]["programs"].append({"start": start_time, "title": title})
+        
+        # Vincular programa al canal correspondiente
+        for epg_channel in epg_data.values():
+            if epg_channel["id"] == channel_id:
+                epg_channel["programs"].append({"start": start_time, "title": title})
+                break
+
     return epg_data
 
 def enriquecer_m3u_con_epg(enlaces_info, epg_data, archivo="lista.m3u"):
+    """Enriquece el archivo M3U con datos del EPG, como logos y programas."""
     enlaces_info.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in enlaces_info:
-            canal_id = item["nombre"].lower().replace(" ", "_")
+            canal_id = normalizar_nombre(item["nombre"])
             epg_info = epg_data.get(canal_id, {"logo": None, "programs": []})
             logo = epg_info["logo"]
+            
+            # Buscar el programa en curso según la hora
             programa_actual = "Sin información"
             for programa in epg_info["programs"]:
                 if programa["start"].time() <= item["hora"]:
                     programa_actual = programa["title"]
+
+            # Crear línea de EXTINF con logo y nombre del programa
             extinf_line = f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\""
             if logo:
                 extinf_line += f" tvg-logo=\"{logo}\""
