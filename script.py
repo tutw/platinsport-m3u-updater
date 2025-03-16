@@ -55,7 +55,7 @@ def extraer_eventos(url):
             if isinstance(sib, str):
                 event_text += sib.strip() + " "
             elif hasattr(sib, "name"):
-                if sib.name == "a":
+                if sib.name == "a" and sib["href"].startswith("acestream://"):
                     canales.append(sib)
                 else:
                     event_text += sib.get_text(" ", strip=True) + " "
@@ -70,13 +70,6 @@ def extraer_eventos(url):
                     "canal": canal_text,
                     "url": a_tag["href"]
                 })
-        else:
-            eventos.append({
-                "hora": hora_evento,
-                "nombre": event_text if event_text else "Evento Desconocido",
-                "canal": "",
-                "url": ""
-            })
     return eventos
 
 def convertir_a_utc_mas_1(hora):
