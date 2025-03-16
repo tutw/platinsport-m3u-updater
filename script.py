@@ -1,3 +1,6 @@
+script.py
+
+
 import re
 import requests
 from bs4 import BeautifulSoup
@@ -32,47 +35,30 @@ def extraer_enlaces_acestream(url):
         return []
     soup = BeautifulSoup(response.text, "html.parser")
     enlaces_info = []
-
-    # Encuentra todos los enlaces con AceStream
     for a in soup.find_all("a", href=True):
         if "acestream://" in a["href"]:
             texto = a.get_text(strip=True)
-            
-            # Intentamos extraer la hora y el nombre del evento desde el HTML
+            # Intentamos extraer un patrón de hora (formato HH:MM) del texto
             hora_encontrada = None
-            nombre_evento = None
-            
-            # Buscar la hora
-            time_tag = a.find_previous("time")
-            if time_tag:
+            match = re.search(r'\b(\d{1,2}:\d{2})\b', texto)
+            if match:
                 try:
-                    hora_encontrada = datetime.strptime(time_tag.get_text(strip=True), "%H:%M").time()
+                    hora_encontrada = datetime.strptime(match.group(1), "%H:%M").time()
                 except Exception:
-                    hora_encontrada = datetime.strptime("23:59", "%H:%M").time()  # Si no se puede parsear, asignamos 23:59
-
-            # Buscar el nombre del evento
-            div_evento = a.find_next("div", class_="separator")
-            if div_evento:
-                nombre_evento = div_evento.get_text(strip=True)
-            
-            # Si no se encuentra hora o evento, asignamos valores por defecto
+                    hora_encontrada = None
+            # Si no se encuentra hora, se asigna 23:59 para ordenarlo al final
             if hora_encontrada is None:
                 hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
-            if nombre_evento is None:
-                nombre_evento = "Evento no disponible"
-                
             enlaces_info.append({
-                "nombre": nombre_evento,
+                "nombre": texto if texto else "Canal AceStream",
                 "url": a["href"],
                 "hora": hora_encontrada
             })
-    
     return enlaces_info
 
 def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
     # Ordenamos las entradas por la hora extraída
     enlaces_info.sort(key=lambda x: x["hora"])
-    
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in enlaces_info:
@@ -88,13 +74,13 @@ if __name__ == "__main__":
         print("No se pudo determinar la URL diaria.")
         exit(1)
     print("URL diaria:", url_diaria)
-
+    
     # 2. Extraer los enlaces AceStream
     enlaces_info = extraer_enlaces_acestream(url_diaria)
     if not enlaces_info:
         print("No se encontraron enlaces AceStream.")
         exit(1)
-
+    
     # 3. Generar y guardar la lista M3U ordenada por hora
     guardar_lista_m3u(enlaces_info)
     print("Lista M3U actualizada correctamente.")
