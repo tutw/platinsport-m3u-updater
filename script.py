@@ -32,25 +32,25 @@ def extraer_enlaces_acestream(url):
         return []
     soup = BeautifulSoup(response.text, "html.parser")
     enlaces_info = []
-    for a in soup.find_all("a", href=True):
-        if "acestream://" in a["href"]:
-            texto = a.get_text(strip=True)
-            # Intentamos extraer un patrón de hora (formato HH:MM) del texto
-            hora_encontrada = None
-            match = re.search(r'\b(\d{1,2}:\d{2})\b', texto)
-            if match:
-                try:
-                    hora_encontrada = datetime.strptime(match.group(1), "%H:%M").time()
-                except Exception:
-                    hora_encontrada = None
-            # Si no se encuentra hora, se asigna 23:59 para ordenarlo al final
-            if hora_encontrada is None:
-                hora_encontrada = datetime.strptime("23:59", "%H:%M").time()
-            enlaces_info.append({
-                "nombre": texto if texto else "Canal AceStream",
-                "url": a["href"],
-                "hora": hora_encontrada
-            })
+    # Buscar todos los divs con la clase 'myDiv1'
+    eventos = soup.find_all("div", class_="myDiv1")
+    for evento in eventos:
+        # Extraer el nombre del evento
+        nombre_evento = evento.get_text(strip=True).split('\n')[0]
+        # Extraer la hora del evento
+        time_element = evento.find("time")
+        if time_element and 'datetime' in time_element.attrs:
+            hora_evento = datetime.fromisoformat(time_element['datetime']).time()
+        else:
+            hora_evento = datetime.strptime("23:59", "%H:%M").time()
+        # Buscar enlaces AceStream dentro del div del evento
+        for a in evento.find_all("a", href=True):
+            if "acestream://" in a["href"]:
+                enlaces_info.append({
+                    "nombre": nombre_evento,
+                    "url": a["href"],
+                    "hora": hora_evento
+                })
     return enlaces_info
 
 def guardar_lista_m3u(enlaces_info, archivo="lista.m3u"):
