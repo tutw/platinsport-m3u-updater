@@ -95,7 +95,7 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
         f.write("#EXTM3U\n")
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
-            canal_id = item["nombre"].lower().replace(" ", "_")
+            canal_id = item["canal"]
             # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
             extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","  
