@@ -157,6 +157,7 @@ if __name__ == "__main__":
         exit(1)
 
     epg_urls = [
+        "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz",
         "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.pdf",
         "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.txt"
     ]
