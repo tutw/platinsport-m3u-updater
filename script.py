@@ -2,37 +2,8 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
-import unicodedata
 
-# Mapeo de canales a países, idiomas y nombres de archivo en tv-logo/tv-logos
-channel_mappings = {
-    "espn": ("usa", "en", "espn"),
-    "sky sports": ("uk", "en", "sky-sports"),
-    "fox sports": ("usa", "en", "fox"),  # Nota: usa "fox.png", no específico para deportes
-    "bein sports": ("middle-east", "ar", "bein-sports"),  # Logo en árabe
-    "bbc sport": ("uk", "en", "bbc-sport"),
-    "eurosport": ("international", "en", "eurosport"),
-    "nbc sports": ("usa", "en", "nbc"),
-    "bt sport": ("uk", "en", "bt-sport"),
-    # Añade más canales según necesites, verifica nombres en https://github.com/tv-logo/tv-logos
-}
-
-def normalize_string(s):
-    """Normaliza un string eliminando acentos y convirtiendo a minúsculas."""
-    return ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn').lower()
-
-def get_logo_url(channel_name):
-    """Obtiene la URL del logo del canal desde tv-logo/tv-logos."""
-    normalized_name = normalize_string(channel_name)
-    for base_name, (country, language, filename) in channel_mappings.items():
-        pattern = r'\b' + re.escape(base_name.lower()) + r'\b'
-        if re.search(pattern, normalized_name):
-            if language is None or filename is None:
-                return None
-            logo_url = f"https://raw.githubusercontent.com/tv-logo/tv-logos/master/countries/{country}/{language}/{filename}.png"
-            return logo_url
-    return None
-
+# Función para obtener la URL diaria desde Platinsport
 def obtener_url_diaria():
     base_url = "https://www.platinsport.com"
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -52,6 +23,7 @@ def obtener_url_diaria():
     print("No se encontró la URL diaria")
     return None
 
+# Función para extraer eventos de la página de Platinsport
 def extraer_eventos(url):
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers)
@@ -90,11 +62,7 @@ def extraer_eventos(url):
                 else:
                     event_text += sib.get_text(" ", strip=True) + " "
         event_text = event_text.strip()
-
-        # Asegurar que no haya espacios innecesarios
-        event_text = " ".join(event_text.split())
-        
-        # Eliminar el texto "LIVE STREAM" repetido
+        event_text = " ".join(event_text.split())  # Asegurar que no haya espacios innecesarios
         event_text = eliminar_repeticiones_live_stream(event_text)
 
         if canales:
@@ -108,42 +76,63 @@ def extraer_eventos(url):
                 })
     return eventos
 
+# Función para eliminar repeticiones de "LIVE STREAM"
 def eliminar_repeticiones_live_stream(event_text):
-    """Elimina las repeticiones de 'LIVE STREAM'."""
     while "LIVE STREAM" in event_text:
         event_text = event_text.replace("LIVE STREAM", "").strip()
     return event_text
 
+# Función para convertir la hora a UTC +1
 def convertir_a_utc_mas_1(hora):
-    """Convierte la hora a UTC+1."""
     dt = datetime.combine(datetime.today(), hora)
     dt_utc1 = dt + timedelta(hours=1)
     return dt_utc1.time()
 
-def get_filename_from_channel_name(channel_name):
-    """Genera un ID único para el canal basado en su nombre."""
-    return normalize_string(channel_name).replace(" ", "_")
+# Función para obtener el logo desde Wikipedia
+def obtener_logo_de_wikipedia(nombre_canal):
+    nombre_canal = nombre_canal.replace(" ", "_")
+    url = f"https://es.wikipedia.org/wiki/{nombre_canal}"
 
+    headers = {"User-Agent": "Mozilla/5.0"}
+    response = requests.get(url, headers=headers)
+
+    if response.status_code != 200:
+        print(f"Error al acceder a la página de Wikipedia de {nombre_canal}")
+        return None
+
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    imagenes = soup.find_all("img")
+    
+    for img in imagenes:
+        src = img.get("src", "")
+        if re.search(r"(.*logo.*|.*canal.*)", src, re.IGNORECASE):
+            logo_url = "https:" + src if src.startswith("//") else src
+            print(f"Logo encontrado para {nombre_canal}: {logo_url}")
+            return logo_url
+
+    print(f"No se encontró logotipo para {nombre_canal}")
+    return None
+
+# Función para guardar la lista M3U con los eventos
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
-    """Guarda los eventos en un archivo M3U con logos si están disponibles."""
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
-            canal_id = get_filename_from_channel_name(item["canal"])
+            canal_id = item["nombre"].lower().replace(" ", "_")
             nombre_evento = " ".join(item['nombre'].split())
-            attributes = [f'tvg-id="{canal_id}"', f'tvg-name="{nombre_evento}"']
-            
-            # Obtener la URL del logo si existe
-            logo_url = get_logo_url(item['canal'])
-            if logo_url:
-                attributes.append(f'tvg-logo="{logo_url}"')
-            
-            extinf_line = f"#EXTINF:-1 {' '.join(attributes)},{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n"
+
+            logo_url = obtener_logo_de_wikipedia(item["canal"])
+
+            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\""
+                           f" logo=\"{logo_url if logo_url else 'No disponible'}\","
+                           f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
 
+# Función principal
 if __name__ == "__main__":
     url_diaria = obtener_url_diaria()
     if not url_diaria:
