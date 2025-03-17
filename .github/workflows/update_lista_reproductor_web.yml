@@ -26,8 +26,12 @@ jobs:
     - name: Run script
       run: python script_reproductor_web.py
 
-    - name: Upload result
-      uses: actions/upload-artifact@v2
-      with:
-        name: lista_reproductor_web
-        path: lista_reproductor_web.xml
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add lista_reproductor_web.xml
+        git commit -m "Update lista_reproductor_web.xml"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
