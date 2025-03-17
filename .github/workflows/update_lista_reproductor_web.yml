@@ -27,7 +27,7 @@ jobs:
       run: python script_reproductor_web.py
 
     - name: Upload result
-      uses: actions/upload-artifact@v3.1.0
+      uses: actions/upload-artifact@v2
       with:
         name: lista_reproductor_web
         path: lista_reproductor_web.xml
