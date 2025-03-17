@@ -4,6 +4,7 @@ on:
   schedule:
     # Ejecutar cada 12 horas
     - cron: '0 */12 * * *'
+  workflow_dispatch: # Permite la ejecución manual
 
 jobs:
   run-script:
