@@ -1,0 +1,33 @@
+name: Update Lista Reproductor Web
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Ejecutar cada hora
+  workflow_dispatch:  # Permite ejecución manual
+
+jobs:
+  run-scraping:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4
+
+    - name: Run script
+      run: python script_reproductor_web.py
+
+    - name: Upload result
+      uses: actions/upload-artifact@v2
+      with:
+        name: lista_reproductor_web
+        path: lista_reproductor_web.xml
