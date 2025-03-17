@@ -1,7 +1,7 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
-from datetime import datetime
 
 URL = 'https://tarjetarojaenvivo.lat'
 response = requests.get(URL)
@@ -12,32 +12,25 @@ soup = BeautifulSoup(response.content, 'html.parser')
 
 events = []  # Lista donde almacenaremos los eventos
 
-# Aquí debes adaptar el scraping según la estructura del HTML del sitio web
-for event in soup.find_all('div', class_='event'):
-    date_time_element = event.find('span', class_='datetime')
-    league_element = event.find('span', class_='league')
-    teams_element = event.find('span', class_='teams')
-    channels = event.find_all('span', class_='channel')
-    
-    if date_time_element and league_element and teams_element and channels:
-        date_time = date_time_element.text.strip()
-        league = league_element.text.strip()
-        teams = teams_element.text.strip()
-        
-        for channel in channels:
-            channel_name = channel.get('data-name')
-            channel_id = channel.get('data-id')
-            if channel_name and channel_id:
-                events.append({
-                    'datetime': date_time,
-                    'league': league,
-                    'teams': teams,
-                    'channel_name': channel_name,
-                    'channel_id': channel_id,
-                    'url': f'{URL}/player/1/{channel_id}'
-                })
-    else:
-        print(f"Missing data in event: {event}")
+# Patrón regex para extraer eventos
+event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)  \((.+?)\)')
+
+# Buscar eventos en el texto de la página
+for line in soup.stripped_strings:
+    match = event_pattern.match(line)
+    if match:
+        date, time, league, teams, channels = match.groups()
+        channel_list = channels.split(') (')
+        for channel in channel_list:
+            channel = channel.replace('(', '').replace(')', '')
+            events.append({
+                'datetime': f"{date} {time}",
+                'league': league,
+                'teams': teams,
+                'channel_name': channel,
+                'channel_id': None,
+                'url': f'{URL}/player/{channel.split("CH")[1]}/1' if 'CH' in channel else None
+            })
 
 # Verificar los datos obtenidos
 if not events:
