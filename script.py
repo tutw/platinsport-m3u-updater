@@ -106,11 +106,12 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
 def actualizar_lista_canales(eventos, archivo="canales.txt"):
     canales = set()
     for item in eventos:
-        canales.add(item['canal'])
+        if item['canal']:
+            canales.add(item['canal'])
     
     try:
         with open(archivo, "r", encoding="utf-8") as f:
-            canales_existentes = set(line.strip() for line in f)
+            canales_existentes = set(line.strip() for line in f if line.strip())
     except FileNotFoundError:
         canales_existentes = set()
     
