@@ -86,3 +86,10 @@ indent(root)  # Llamar a la función de sangría para formatear el XML
 
 tree = ET.ElementTree(root)
 tree.write('lista_reproductor_web.xml', encoding='utf-8', xml_declaration=True)
+
+# Crear el archivo M3U
+with open('lista_reproductor_web.m3u', 'w', encoding='utf-8') as m3u_file:
+    m3u_file.write('#EXTM3U\n')
+    for event in events:
+        m3u_file.write(f'#EXTINF:-1,{event["league"]} - {event["teams"]}\n')
+        m3u_file.write(f'{event["url"]}\n')
