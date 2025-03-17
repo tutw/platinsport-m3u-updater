@@ -94,7 +94,7 @@ def convertir_a_utc_mas_1(hora):
     return dt_utc1.time()
 
 def obtener_logo_canal(canal, pais):
-    base_url = "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/"
+    base_url = "https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries"
     canal_normalizado = canal.lower().replace(" ", "-").replace("&", "and")
     pais_normalizado = pais.lower().replace(" ", "-")
     logo_url = f"{base_url}/{pais_normalizado}/{canal_normalizado}.png"
