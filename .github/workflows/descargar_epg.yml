@@ -1,28 +1,33 @@
-name: Descargar EPG
+name: Actualizar EPG
 
 on:
   schedule:
-    # Ejecutar cada 12 horas
-    - cron: '0 */12 * * *'
-  workflow_dispatch: # Permite la ejecución manual
+    - cron: '0 0 * * *'  # Se ejecuta todos los días a medianoche UTC
+  workflow_dispatch:  # Permite ejecución manual
 
 jobs:
-  run-script:
+  update-epg:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: 🛎️ Clonar el repositorio
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # Necesario para autenticación con token
+          fetch-depth: 0  # Obtiene todo el historial (necesario para commits)
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.8'
+      - name: ⚡ Configurar Git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests
+      - name: 🛠️ Instalar dependencias de Python
+        run: pip install requests
 
-    - name: Run descargar_epg.py
-      run: python descargar_epg.py
+      - name: 📡 Descargar y actualizar EPG
+        run: python script.py  # Asegúrate de que el script esté en la raíz del repo
+
+      - name: 📤 Commit y Push si hay cambios
+        run: |
+          git add epg.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Actualización automática de EPG" && git push https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git main)
