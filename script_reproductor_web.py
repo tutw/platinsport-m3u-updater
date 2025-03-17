@@ -46,7 +46,7 @@ for line in page_content.splitlines():
                 'teams': teams,
                 'channel_name': channel_number,
                 'channel_id': channel_number,
-                'url': f'{URL}/player/{channel_number}/1'
+                'url': f'{URL}/player/1/{channel_number}'
             })
 
 # Verificar los datos obtenidos
