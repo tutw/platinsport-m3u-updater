@@ -55,11 +55,17 @@ def extraer_eventos(url):
             if isinstance(sib, str):
                 event_text += sib.strip() + " "
             elif hasattr(sib, "name"):
-                if sib.name == "a":
+                if sib.name == "a" and "acestream://" in sib["href"]:
                     canales.append(sib)
                 else:
                     event_text += sib.get_text(" ", strip=True) + " "
         event_text = event_text.strip()
+
+        # Asegurar que no haya espacios innecesarios
+        event_text = " ".join(event_text.split())
+        
+        # Eliminar el texto "LIVE STREAM" repetido
+        event_text = eliminar_repeticiones_live_stream(event_text)
 
         if canales:
             for a_tag in canales:
@@ -70,46 +76,30 @@ def extraer_eventos(url):
                     "canal": canal_text,
                     "url": a_tag["href"]
                 })
-        else:
-            eventos.append({
-                "hora": hora_evento,
-                "nombre": event_text if event_text else "Evento Desconocido",
-                "canal": "",
-                "url": ""
-            })
     return eventos
+
+def eliminar_repeticiones_live_stream(event_text):
+    # Elimina las repeticiones de "LIVE STREAM"
+    while "LIVE STREAM" in event_text:
+        event_text = event_text.replace("LIVE STREAM", "").strip()
+    return event_text
 
 def convertir_a_utc_mas_1(hora):
     dt = datetime.combine(datetime.today(), hora)
     dt_utc1 = dt + timedelta(hours=1)
     return dt_utc1.time()
 
-def obtener_logos():
-    logos_url = "https://www.tvlogos.net/logos"
-    headers = {"User-Agent": "Mozilla/5.0"}
-    response = requests.get(logos_url, headers=headers)
-    if response.status_code != 200:
-        print("Error al acceder a los logos")
-        return {}
-    soup = BeautifulSoup(response.text, "html.parser")
-    logos = {}
-    for img in soup.find_all("img"):
-        alt_text = img.get("alt", "").strip().lower()
-        src = img.get("src", "")
-        if alt_text and src:
-            logos[alt_text] = src
-    return logos
-
-def guardar_lista_m3u(eventos, logos, archivo="lista.m3u"):
+def guardar_lista_m3u(eventos, archivo="lista.m3u"):
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
             canal_id = item["nombre"].lower().replace(" ", "_")
-            logo_url = logos.get(item["canal"].lower(), "")
-            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{item['nombre']}\" tvg-logo=\"{logo_url}\","  
-                           f"{hora_ajustada.strftime('%H:%M')} - {item['nombre']} - {item['canal']}\n")
+            # Eliminar espacios innecesarios en el nombre
+            nombre_evento = " ".join(item['nombre'].split())
+            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","  
+                           f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
 
@@ -127,8 +117,5 @@ if __name__ == "__main__":
         print("No se encontraron eventos.")
         exit(1)
 
-    logos = obtener_logos()
-    print("Logos obtenidos:", len(logos))
-
-    guardar_lista_m3u(eventos_platinsport, logos)
-    print("Lista M3U actualizada correctamente con", len(eventos_platinsport), "eventos y sus logos correspondientes.")
+    guardar_lista_m3u(eventos_platinsport)
+    print("Lista M3U actualizada correctamente con", len(eventos_platinsport), "eventos.")
