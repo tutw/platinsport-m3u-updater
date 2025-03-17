@@ -1,23 +1,41 @@
 import requests
 import re
-from bs4 import BeautifulSoup
+import time
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import xml.etree.ElementTree as ET
 
 URL = 'https://tarjetarojaenvivo.lat'
-response = requests.get(URL)
-if response.status_code != 200:
-    raise Exception(f"Error fetching the page: {response.status_code}")
 
-soup = BeautifulSoup(response.content, 'html.parser')
+# Configurar opciones de Chrome
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Ejecutar en modo headless (sin interfaz gráfica)
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("--no-sandbox")
 
+# Iniciar el navegador Chrome
+service = ChromeService(executable_path=ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service, options=chrome_options)
+
+# Navegar a la URL
+driver.get(URL)
+time.sleep(5)  # Esperar a que la página cargue completamente
+
+# Obtener el contenido de la página
+page_content = driver.page_source
+
+# Cerrar el navegador
+driver.quit()
+
+# Analizar el contenido con regex
 events = []  # Lista donde almacenaremos los eventos
-
-# Patrón regex para extraer eventos
 event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)  \((.+?)\)')
 
-# Buscar eventos en el texto de la página
-for line in soup.stripped_strings:
-    match = event_pattern.match(line)
+for line in page_content.splitlines():
+    match = event_pattern.search(line)
     if match:
         date, time, league, teams, channels = match.groups()
         channel_list = channels.split(') (')
