@@ -1,4 +1,4 @@
-name: Actualizar Lista Reproductor Web
+name: Update Lista Reproductor Web
 
 on:
   schedule:
@@ -27,7 +27,7 @@ jobs:
       run: python script_reproductor_web.py
 
     - name: Upload result
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: lista_reproductor_web
         path: lista_reproductor_web.xml
