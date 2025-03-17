@@ -49,6 +49,7 @@ def extraer_eventos(url):
 
         event_text = ""
         canales = []
+        pais = ""
         for sib in tag.next_siblings:
             if hasattr(sib, "name") and sib.name == "time":
                 break
@@ -59,6 +60,8 @@ def extraer_eventos(url):
                     canales.append(sib)
                 else:
                     event_text += sib.get_text(" ", strip=True) + " "
+                    if "País:" in sib.get_text(" ", strip=True):
+                        pais = sib.get_text(" ", strip=True).split("País:")[-1].strip()
         event_text = event_text.strip()
 
         # Asegurar que no haya espacios innecesarios
@@ -74,6 +77,7 @@ def extraer_eventos(url):
                     "hora": hora_evento,
                     "nombre": event_text if event_text else "Evento Desconocido",
                     "canal": canal_text,
+                    "pais": pais,
                     "url": a_tag["href"]
                 })
     return eventos
@@ -89,6 +93,13 @@ def convertir_a_utc_mas_1(hora):
     dt_utc1 = dt + timedelta(hours=1)
     return dt_utc1.time()
 
+def obtener_logo_canal(canal, pais):
+    base_url = "https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/"
+    canal_normalizado = canal.lower().replace(" ", "-").replace("&", "and")
+    pais_normalizado = pais.lower().replace(" ", "-")
+    logo_url = f"{base_url}/{pais_normalizado}/{canal_normalizado}.png"
+    return logo_url
+
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
@@ -96,9 +107,9 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
             canal_id = item["nombre"].lower().replace(" ", "_")
-            # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
-            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","  
+            logo_url = obtener_logo_canal(item["canal"], item["pais"])
+            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\" tvg-logo=\"{logo_url}\","  
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
