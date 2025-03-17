@@ -2,7 +2,6 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
-import xml.etree.ElementTree as ET
 
 def obtener_url_diaria():
     base_url = "https://www.platinsport.com"
@@ -90,28 +89,16 @@ def convertir_a_utc_mas_1(hora):
     dt_utc1 = dt + timedelta(hours=1)
     return dt_utc1.time()
 
-def obtener_logos_epg(epg_file):
-    tree = ET.parse(epg_file)
-    root = tree.getroot()
-    logos = {}
-    for channel in root.findall(".//channel"):
-        channel_id = channel.get("id")
-        logo = channel.find("icon")
-        if logo is not None:
-            logos[channel_id] = logo.get("src")
-    return logos
-
-def guardar_lista_m3u(eventos, logos, archivo="lista.m3u"):
+def guardar_lista_m3u(eventos, archivo="lista.m3u"):
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
             canal_id = item["nombre"].lower().replace(" ", "_")
-            logo_url = logos.get(canal_id, "")
             # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
-            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\" tvg-logo=\"{logo_url}\","  
+            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","  
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
@@ -130,6 +117,5 @@ if __name__ == "__main__":
         print("No se encontraron eventos.")
         exit(1)
 
-    logos_epg = obtener_logos_epg("epg.xml")
-    guardar_lista_m3u(eventos_platinsport, logos_epg)
+    guardar_lista_m3u(eventos_platinsport)
     print("Lista M3U actualizada correctamente con", len(eventos_platinsport), "eventos.")
