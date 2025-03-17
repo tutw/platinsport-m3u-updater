@@ -31,7 +31,7 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add lista_reproductor_web.xml
-        git commit -m "Update lista_reproductor_web.xml"
+        git commit -m "Update lista_reproductor_web.xml" || echo "No changes to commit"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
