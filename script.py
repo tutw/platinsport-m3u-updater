@@ -96,7 +96,13 @@ def buscar_logo_en_archive(nombre_canal):
         data = response.json()
         if data["response"]["docs"]:
             identifier = data["response"]["docs"][0]["identifier"]
-            return f"https://archive.org/download/{identifier}/{identifier}.png"
+            formatos = ['.jpg', '.png', '.jpeg', '.gif']
+            for formato in formatos:
+                logo_url = f"https://archive.org/download/{identifier}/{identifier}{formato}"
+                # Verificar si la URL del logo es válida
+                logo_response = requests.head(logo_url)
+                if logo_response.status_code == 200:
+                    return logo_url
     return None
 
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
