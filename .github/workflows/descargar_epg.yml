@@ -1,4 +1,4 @@
-name: Actualizar EPG
+name: Descargar y actualizar EPG
 
 on:
   schedule:
@@ -13,19 +13,16 @@ jobs:
       - name: 🛎️ Clonar el repositorio
         uses: actions/checkout@v3
         with:
-          persist-credentials: false  # Necesario para autenticación con token
-          fetch-depth: 0  # Obtiene todo el historial (necesario para commits)
+          persist-credentials: false
+          fetch-depth: 0
 
-      - name: ⚡ Configurar Git
+      - name: 🛠️ Configurar Python y dependencias
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: 🛠️ Instalar dependencias de Python
-        run: pip install requests
-
-      - name: 📡 Descargar y actualizar EPG
-        run: python script.py  # Asegúrate de que el script esté en la raíz del repo
+      - name: 📡 Ejecutar script de descarga
+        run: python descargar_epg.py  # <- Aquí cambiamos el nombre del script
 
       - name: 📤 Commit y Push si hay cambios
         run: |
