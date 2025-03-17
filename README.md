@@ -1,5 +1,3 @@
-# platinsport-m3u-updater
-
 El archivo README.md del repositorio `platinsport-m3u-updater` está vacío. Aquí tienes un ejemplo de cómo podrías estructurar el README para resumir la información del repositorio y sus funciones:
 
 ```markdown
