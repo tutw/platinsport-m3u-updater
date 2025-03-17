@@ -94,14 +94,20 @@ def convertir_a_utc_mas_1(hora):
 def descargar_epg(epg_urls):
     for url in epg_urls:
         try:
-            response = requests.get(url, stream=True)
+            response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, stream=True)
             if response.status_code != 200:
                 print(f"Error al descargar el EPG desde {url}")
                 continue
-            with gzip.open(response.raw, 'rb') as f:
-                epg_data = f.read()
-            print(f"EPG descargado exitosamente desde {url}")
-            return epg_data
+            
+            if url.endswith('.gz'):
+                with gzip.open(response.raw, 'rb') as f:
+                    epg_data = f.read()
+                print(f"EPG descargado exitosamente desde {url}")
+                return epg_data
+            elif url.endswith('.pdf') or url.endswith('.txt'):
+                epg_data = response.content
+                print(f"EPG descargado exitosamente desde {url}")
+                return epg_data
         except Exception as e:
             print(f"Error al procesar el EPG desde {url}: {e}")
     return None
@@ -110,8 +116,12 @@ def parsear_epg(epg_data):
     if not epg_data:
         print("El archivo EPG está vacío o no se pudo descargar correctamente.")
         return {}
+    try:
+        root = ET.fromstring(epg_data)
+    except ET.ParseError as e:
+        print(f"Error al analizar el EPG: {e}")
+        return {}
     epg = {}
-    root = ET.fromstring(epg_data)
     for channel in root.findall(".//channel"):
         channel_id = channel.get("id")
         logo = channel.find("icon").get("src") if channel.find("icon") is not None else ""
