@@ -1,7 +1,7 @@
 import requests
 
 def importar_lista():
-    url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/Probando"
+    url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
     response = requests.get(url)
     if response.status_code == 200:
         with open("canales_acestream.m3u", "w") as f:
