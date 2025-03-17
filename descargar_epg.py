@@ -2,53 +2,54 @@ import requests
 import gzip
 import xml.etree.ElementTree as ET
 
-def descargar_epg(url):
+def descargar_epg(url, archivo_salida):
     try:
-        response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, stream=True)
+        response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
         if response.status_code != 200:
             print(f"Error al descargar el EPG desde {url}")
-            return None
+            return False
         
-        # Leer y descomprimir el contenido del archivo gz
-        with gzip.open(response.raw, 'rb') as f:
-            epg_data = f.read()
-        
+        # Descomprimir el contenido utilizando gzip.decompress()
+        try:
+            epg_data = gzip.decompress(response.content)
+        except Exception as e:
+            print(f"Error al descomprimir el archivo: {e}")
+            return False
+
         # Verificar que se ha leído algún contenido
         if not epg_data:
             print("El archivo EPG descargado está vacío.")
-            return None
+            return False
+        
+        # Guardar el contenido descomprimido en el archivo de salida
+        with open(archivo_salida, 'wb') as f:
+            f.write(epg_data)
+        
+        print(f"EPG descargado y guardado en {archivo_salida}")
+        return True
 
-        return epg_data
     except Exception as e:
         print(f"Error al procesar el EPG desde {url}: {e}")
-        return None
+        return False
 
-def actualizar_epg(epg_data, archivo_salida):
+def verificar_epg_xml(archivo):
     try:
-        tree = ET.parse(archivo_salida)
+        tree = ET.parse(archivo)
         root = tree.getroot()
-        
-        # Parse the new EPG data
-        new_root = ET.fromstring(epg_data)
-        
-        # Append new EPG data to the existing one
-        for elem in new_root:
-            root.append(elem)
-        
-        # Write the updated tree back to the file
-        tree.write(archivo_salida, encoding='utf-8', xml_declaration=True)
-        print(f"El archivo {archivo_salida} ha sido actualizado con nuevos datos EPG.")
+        print(f"El archivo {archivo} es un XML válido.")
+        return True
     except ET.ParseError as e:
-        print(f"Error al analizar el archivo XML {archivo_salida}: {e}")
-    except Exception as e:
-        print(f"Error al actualizar el archivo {archivo_salida}: {e}")
+        print(f"Error al analizar el archivo XML {archivo}: {e}")
+        return False
 
 if __name__ == "__main__":
     epg_url = "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz"
     archivo_salida = "epg.xml"
     
-    epg_data = descargar_epg(epg_url)
-    if epg_data:
-        actualizar_epg(epg_data, archivo_salida)
+    if descargar_epg(epg_url, archivo_salida):
+        if verificar_epg_xml(archivo_salida):
+            print("El archivo EPG se ha descargado y verificado correctamente.")
+        else:
+            print("El archivo EPG descargado no es un XML válido.")
     else:
-        print("No se pudo descargar o procesar el archivo EPG.")
+        print("No se pudo descargar el archivo EPG.")
