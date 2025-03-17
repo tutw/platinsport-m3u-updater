@@ -1,6 +1,7 @@
-name: Actualizar Canales Acestream.yml
+name: Actualizar Canales Acestream
 
 on:
+  workflow_dispatch: # Permite ejecutar manualmente
   schedule:
     - cron: '0 * * * *' # Ejecuta cada hora
 
