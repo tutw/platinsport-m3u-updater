@@ -9,6 +9,34 @@ import xml.etree.ElementTree as ET
 
 URL = 'https://tarjetarojaenvivo.lat'
 
+# Mapeo de números de canal a nombres de canal
+channel_names = {
+    '53': 'ES LALIGA HYPERMOTION',
+    '109': 'VTV plus',
+    '74': 'GOL español',
+    '75': 'TNT sport arg',
+    '76': 'ESPN Premium',
+    '87': 'ESPN1',
+    '170': 'EXTRA SPORT16',
+    '171': 'EXTRA SPORT17',
+    '172': 'EXTRA SPORT18',
+    '160': 'EXTRA SPORT6',
+    '173': 'EXTRA SPORT19',
+    '86': 'Zapping sports',
+    '4': 'beIN max 4',
+    '162': 'EXTRA SPORT8',
+    '163': 'EXTRA SPORT9',
+    '174': 'EXTRA SPORT20',
+    '101': 'FOXsport1MX',
+    '164': 'EXTRA SPORT10',
+    '1': 'beIN 1',
+    '166': 'EXTRA SPORT12',
+    '167': 'EXTRA SPORT13',
+    '168': 'EXTRA SPORT14',
+    '169': 'EXTRA SPORT15',
+    # Agrega más números de canal y sus nombres correspondientes según sea necesario
+}
+
 # Configurar opciones de Chrome
 chrome_options = Options()
 chrome_options.add_argument("--headless")  # Ejecutar en modo headless (sin interfaz gráfica)
@@ -40,11 +68,12 @@ for line in page_content.splitlines():
         channel_list = channels.split(') (')
         for channel in channel_list:
             channel_number = re.search(r'\d+', channel).group()
+            channel_name = channel_names.get(channel_number, f'Channel {channel_number}')
             events.append({
                 'datetime': f"{date} {time}",
                 'league': league,
                 'teams': teams,
-                'channel_name': channel_number,
+                'channel_name': channel_name,
                 'channel_id': channel_number,
                 'url': f'{URL}/player/1/{channel_number}'
             })
@@ -91,5 +120,5 @@ tree.write('lista_reproductor_web.xml', encoding='utf-8', xml_declaration=True)
 with open('lista_reproductor_web.m3u', 'w', encoding='utf-8') as m3u_file:
     m3u_file.write('#EXTM3U\n')
     for event in events:
-        m3u_file.write(f'#EXTINF:-1,{event["datetime"]} - {event["league"]} - {event["teams"]} - Channel {event["channel_name"]}\n')
+        m3u_file.write(f'#EXTINF:-1,{event["datetime"]} - {event["league"]} - {event["teams"]} - {event["channel_name"]}\n')
         m3u_file.write(f'{event["url"]}\n')
