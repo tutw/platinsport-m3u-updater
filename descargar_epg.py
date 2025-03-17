@@ -9,9 +9,17 @@ def descargar_epg(url, archivo_salida):
             print(f"Error al descargar el EPG desde {url}")
             return False
         
+        # Leer y descomprimir el contenido del archivo gz
+        epg_data = b""
         with gzip.open(response.raw, 'rb') as f:
             epg_data = f.read()
         
+        # Verificar que se ha leído algún contenido
+        if not epg_data:
+            print("El archivo EPG descargado está vacío.")
+            return False
+
+        # Guardar el contenido descomprimido en el archivo de salida
         with open(archivo_salida, 'wb') as f:
             f.write(epg_data)
         
