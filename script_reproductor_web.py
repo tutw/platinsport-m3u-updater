@@ -1,4 +1,3 @@
-import requests
 import re
 import time
 from selenium import webdriver
@@ -40,14 +39,14 @@ for line in page_content.splitlines():
         date, time, league, teams, channels = match.groups()
         channel_list = channels.split(') (')
         for channel in channel_list:
-            channel = channel.replace('(', '').replace(')', '')
+            channel_number = re.search(r'\d+', channel).group()
             events.append({
                 'datetime': f"{date} {time}",
                 'league': league,
                 'teams': teams,
-                'channel_name': channel,
-                'channel_id': None,
-                'url': f'{URL}/player/{channel.split("CH")[1]}/1' if 'CH' in channel else None
+                'channel_name': channel_number,
+                'channel_id': channel_number,
+                'url': f'{URL}/player/{channel_number}/1'
             })
 
 # Verificar los datos obtenidos
