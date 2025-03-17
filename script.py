@@ -103,6 +103,15 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
 
+def guardar_lista_canales(eventos, archivo="lista_canales.txt"):
+    canales = set()
+    for item in eventos:
+        canales.add(item['canal'])
+    
+    with open(archivo, "w", encoding="utf-8") as f:
+        for canal in sorted(canales):
+            f.write(f"{canal}\n")
+
 if __name__ == "__main__":
     url_diaria = obtener_url_diaria()
     if not url_diaria:
@@ -118,4 +127,5 @@ if __name__ == "__main__":
         exit(1)
 
     guardar_lista_m3u(eventos_platinsport)
-    print("Lista M3U actualizada correctamente con", len(eventos_platinsport), "eventos.")
+    guardar_lista_canales(eventos_platinsport)
+    print("Lista M3U y lista de canales actualizadas correctamente con", len(eventos_platinsport), "eventos.")
