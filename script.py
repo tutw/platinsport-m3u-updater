@@ -89,6 +89,16 @@ def convertir_a_utc_mas_1(hora):
     dt_utc1 = dt + timedelta(hours=1)
     return dt_utc1.time()
 
+def buscar_logo_en_archive(nombre_canal):
+    search_url = f"https://archive.org/advancedsearch.php?q={nombre_canal}+logo&fl[]=identifier&rows=1&page=1&output=json"
+    response = requests.get(search_url)
+    if response.status_code == 200:
+        data = response.json()
+        if data["response"]["docs"]:
+            identifier = data["response"]["docs"][0]["identifier"]
+            return f"https://archive.org/download/{identifier}/{identifier}.png"
+    return None
+
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
@@ -98,7 +108,9 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
             canal_id = item["nombre"].lower().replace(" ", "_")
             # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
-            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","  
+            logo_url = buscar_logo_en_archive(nombre_evento)
+            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\""
+                           f"{f' tvg-logo=\"{logo_url}\"' if logo_url else ''},"
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
