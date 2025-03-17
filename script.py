@@ -2,6 +2,8 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
+import gzip
+import xml.etree.ElementTree as ET
 
 def obtener_url_diaria():
     base_url = "https://www.platinsport.com"
@@ -89,16 +91,34 @@ def convertir_a_utc_mas_1(hora):
     dt_utc1 = dt + timedelta(hours=1)
     return dt_utc1.time()
 
-def guardar_lista_m3u(eventos, archivo="lista.m3u"):
+def descargar_epg(epg_url):
+    response = requests.get(epg_url, stream=True)
+    if response.status_code != 200:
+        print("Error al descargar el EPG")
+        return None
+    with gzip.open(response.raw, 'rb') as f:
+        epg_data = f.read()
+    return epg_data
+
+def parsear_epg(epg_data):
+    epg = {}
+    root = ET.fromstring(epg_data)
+    for channel in root.findall(".//channel"):
+        channel_id = channel.get("id")
+        logo = channel.find("icon").get("src") if channel.find("icon") is not None else ""
+        epg[channel_id] = logo
+    return epg
+
+def guardar_lista_m3u(eventos, epg, archivo="lista.m3u"):
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
             canal_id = item["canal"]
-            # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
-            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","  
+            logo = epg.get(canal_id, "")
+            extinf_line = (f"#EXTINF:-1 tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\" tvg-logo=\"{logo}\","  
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
@@ -117,5 +137,12 @@ if __name__ == "__main__":
         print("No se encontraron eventos.")
         exit(1)
 
-    guardar_lista_m3u(eventos_platinsport)
+    epg_url = "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz"
+    epg_data = descargar_epg(epg_url)
+    if not epg_data:
+        print("No se pudo descargar el EPG.")
+        exit(1)
+
+    epg = parsear_epg(epg_data)
+    guardar_lista_m3u(eventos_platinsport, epg)
     print("Lista M3U actualizada correctamente con", len(eventos_platinsport), "eventos.")
