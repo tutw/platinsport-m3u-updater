@@ -15,7 +15,7 @@ jobs:
 
     - name: Set up Git user
       run: |
-        git config --global user.email "tutorialeswo@gmail.com"
+        git config --global user.email "tutorialeswo.com"
         git config --global user.name "tutw"
 
     - name: Install dependencies
@@ -23,15 +23,24 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Install Git LFS
+      run: |
+        sudo apt-get install -y git-lfs
+        git lfs install
+
     - name: Run descargar_epg.py
       run: python descargar_epg.py
 
-    - name: Add epg.xml to Git
-      run: git add epg.xml
+    - name: Track large file with Git LFS
+      run: git lfs track "epg.xml"
 
-    - name: Commit changes
+    - name: Add and commit epg.xml
       run: |
+        git add .gitattributes
+        git add epg.xml
         git commit -m "Update EPG"
-        git push
+
+    - name: Push changes
+      run: git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
