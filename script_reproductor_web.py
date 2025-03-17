@@ -14,15 +14,15 @@ events = []  # Lista donde almacenaremos los eventos
 
 # Aquí debes adaptar el scraping según la estructura del HTML del sitio web
 for event in soup.find_all('div', class_='event'):
-    date_time = event.find('span', class_='datetime')
-    league = event.find('span', class_='league')
-    teams = event.find('span', class_='teams')
+    date_time_element = event.find('span', class_='datetime')
+    league_element = event.find('span', class_='league')
+    teams_element = event.find('span', class_='teams')
     channels = event.find_all('span', class_='channel')
     
-    if date_time and league and teams and channels:
-        date_time = date_time.text
-        league = league.text
-        teams = teams.text
+    if date_time_element and league_element and teams_element and channels:
+        date_time = date_time_element.text.strip()
+        league = league_element.text.strip()
+        teams = teams_element.text.strip()
         
         for channel in channels:
             channel_name = channel.get('data-name')
