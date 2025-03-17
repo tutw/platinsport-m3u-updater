@@ -91,5 +91,5 @@ tree.write('lista_reproductor_web.xml', encoding='utf-8', xml_declaration=True)
 with open('lista_reproductor_web.m3u', 'w', encoding='utf-8') as m3u_file:
     m3u_file.write('#EXTM3U\n')
     for event in events:
-        m3u_file.write(f'#EXTINF:-1,{event["league"]} - {event["teams"]}\n')
+        m3u_file.write(f'#EXTINF:-1,{event["datetime"]} - {event["league"]} - {event["teams"]} - Channel {event["channel_name"]}\n')
         m3u_file.write(f'{event["url"]}\n')
