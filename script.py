@@ -103,13 +103,21 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
             f.write(extinf_line)
             f.write(f"{item['url']}\n")
 
-def guardar_lista_canales(eventos, archivo="lista_canales.txt"):
+def actualizar_lista_canales(eventos, archivo="canales.txt"):
     canales = set()
     for item in eventos:
         canales.add(item['canal'])
     
+    try:
+        with open(archivo, "r", encoding="utf-8") as f:
+            canales_existentes = set(line.strip() for line in f)
+    except FileNotFoundError:
+        canales_existentes = set()
+    
+    canales_actualizados = canales_existentes.union(canales)
+
     with open(archivo, "w", encoding="utf-8") as f:
-        for canal in sorted(canales):
+        for canal in sorted(canales_actualizados):
             f.write(f"{canal}\n")
 
 if __name__ == "__main__":
@@ -127,5 +135,5 @@ if __name__ == "__main__":
         exit(1)
 
     guardar_lista_m3u(eventos_platinsport)
-    guardar_lista_canales(eventos_platinsport)
+    actualizar_lista_canales(eventos_platinsport)
     print("Lista M3U y lista de canales actualizadas correctamente con", len(eventos_platinsport), "eventos.")
