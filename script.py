@@ -91,16 +91,25 @@ def convertir_a_utc_mas_1(hora):
     dt_utc1 = dt + timedelta(hours=1)
     return dt_utc1.time()
 
-def descargar_epg(epg_url):
-    response = requests.get(epg_url, stream=True)
-    if response.status_code != 200:
-        print("Error al descargar el EPG")
-        return None
-    with gzip.open(response.raw, 'rb') as f:
-        epg_data = f.read()
-    return epg_data
+def descargar_epg(epg_urls):
+    for url in epg_urls:
+        try:
+            response = requests.get(url, stream=True)
+            if response.status_code != 200:
+                print(f"Error al descargar el EPG desde {url}")
+                continue
+            with gzip.open(response.raw, 'rb') as f:
+                epg_data = f.read()
+            print(f"EPG descargado exitosamente desde {url}")
+            return epg_data
+        except Exception as e:
+            print(f"Error al procesar el EPG desde {url}: {e}")
+    return None
 
 def parsear_epg(epg_data):
+    if not epg_data:
+        print("El archivo EPG está vacío o no se pudo descargar correctamente.")
+        return {}
     epg = {}
     root = ET.fromstring(epg_data)
     for channel in root.findall(".//channel"):
@@ -137,8 +146,12 @@ if __name__ == "__main__":
         print("No se encontraron eventos.")
         exit(1)
 
-    epg_url = "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz"
-    epg_data = descargar_epg(epg_url)
+    epg_urls = [
+        "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.xml.gz",
+        "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.pdf",
+        "https://epgshare01.online/epgshare01/epg_ripper_ALL_SOURCES1.txt"
+    ]
+    epg_data = descargar_epg(epg_urls)
     if not epg_data:
         print("No se pudo descargar el EPG.")
         exit(1)
