@@ -55,6 +55,22 @@ if not events:
 else:
     print(f"Found {len(events)} events.")
 
+# Helper function to add indentation to XML
+def indent(elem, level=0):
+    i = "\n" + level*"  "
+    if len(elem):
+        if not elem.text or not elem.text.strip():
+            elem.text = i + "  "
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+        for subelem in elem:
+            indent(subelem, level+1)
+        if not subelem.tail or not subelem.tail.strip():
+            subelem.tail = i
+    else:
+        if level and (not elem.tail or not elem.tail.strip()):
+            elem.tail = i
+
 # Crear el archivo XML
 root = ET.Element('events')
 
@@ -65,6 +81,8 @@ for event in events:
     ET.SubElement(event_element, 'teams').text = event['teams']
     ET.SubElement(event_element, 'channel_name').text = event['channel_name']
     ET.SubElement(event_element, 'url').text = event['url']
+
+indent(root)  # Llamar a la función de sangría para formatear el XML
 
 tree = ET.ElementTree(root)
 tree.write('lista_reproductor_web.xml', encoding='utf-8', xml_declaration=True)
