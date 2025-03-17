@@ -5,28 +5,45 @@ from datetime import datetime
 
 URL = 'https://tarjetarojaenvivo.lat'
 response = requests.get(URL)
+if response.status_code != 200:
+    raise Exception(f"Error fetching the page: {response.status_code}")
+
 soup = BeautifulSoup(response.content, 'html.parser')
 
 events = []  # Lista donde almacenaremos los eventos
 
 # Aquí debes adaptar el scraping según la estructura del HTML del sitio web
 for event in soup.find_all('div', class_='event'):
-    date_time = event.find('span', class_='datetime').text
-    league = event.find('span', class_='league').text
-    teams = event.find('span', class_='teams').text
+    date_time = event.find('span', class_='datetime')
+    league = event.find('span', class_='league')
+    teams = event.find('span', class_='teams')
     channels = event.find_all('span', class_='channel')
     
-    for channel in channels:
-        channel_name = channel.get('data-name')
-        channel_id = channel.get('data-id')
-        events.append({
-            'datetime': date_time,
-            'league': league,
-            'teams': teams,
-            'channel_name': channel_name,
-            'channel_id': channel_id,
-            'url': f'{URL}/player/1/{channel_id}'
-        })
+    if date_time and league and teams and channels:
+        date_time = date_time.text
+        league = league.text
+        teams = teams.text
+        
+        for channel in channels:
+            channel_name = channel.get('data-name')
+            channel_id = channel.get('data-id')
+            if channel_name and channel_id:
+                events.append({
+                    'datetime': date_time,
+                    'league': league,
+                    'teams': teams,
+                    'channel_name': channel_name,
+                    'channel_id': channel_id,
+                    'url': f'{URL}/player/1/{channel_id}'
+                })
+    else:
+        print(f"Missing data in event: {event}")
+
+# Verificar los datos obtenidos
+if not events:
+    print("No events found.")
+else:
+    print(f"Found {len(events)} events.")
 
 # Crear el archivo XML
 root = ET.Element('events')
