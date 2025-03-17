@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 URL = 'https://tarjetarojaenvivo.lat'
 response = requests.get(URL)
