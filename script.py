@@ -119,7 +119,11 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
                            f"{f' tvg-logo=\"{logo_url}\"' if logo_url else ''},"
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
-            f.write(f"{item['url']}\n")
+            
+            # Generar el enlace acestream con el nuevo formato
+            acestream_id = item['url'].split('acestream://')[-1]
+            nuevo_enlace = f"http://127.0.0.1:6878/ace/getstream?id={acestream_id}"
+            f.write(f"{nuevo_enlace}\n")
 
 if __name__ == "__main__":
     url_diaria = obtener_url_diaria()
