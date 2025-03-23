@@ -2,11 +2,12 @@ import requests
 import xml.etree.ElementTree as ET
 import os
 
-API_KEY = os.getenv('e29ce6ba90msh5ba551dfe893059p142633jsndbbb353521bb')
-API_URL = 'https://www.thesportsdb.com/api/v1/json/{API_KEY}/search_all_teams.php?l=English%20Premier%20League'
+# Obtén la clave API de una variable de entorno
+API_KEY = os.getenv('THESPORTSDB_API_KEY')
+API_URL = 'https://www.thesportsdb.com/api/v1/json/{}/search_all_teams.php?l=English%20Premier%20League'.format(API_KEY)
 
-def buscar_logos_deportivos(api_key):
-    response = requests.get(API_URL.format(API_KEY=api_key))
+def buscar_logos_deportivos():
+    response = requests.get(API_URL)
     if response.status_code == 200:
         resultados = response.json()
         return resultados
@@ -15,7 +16,7 @@ def buscar_logos_deportivos(api_key):
         return None
 
 def generar_lista_de_logos():
-    resultados = buscar_logos_deportivos(API_KEY)
+    resultados = buscar_logos_deportivos()
     if resultados:
         root = ET.Element("logos")
         for equipo in resultados['teams']:
