@@ -11,14 +11,17 @@ base_url = "https://github.com/tv-logo/tv-logos/tree/main/countries"
 output_folder = "logos"
 
 def download_logos():
+    print("Starting download_logos function...")
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
+        print(f"Created directory: {output_folder}")
     
     response = requests.get(base_url)
     if response.status_code != 200:
         print(f"Error fetching URL: {base_url}")
         return
 
+    print("Fetched base URL successfully.")
     soup = BeautifulSoup(response.content, 'html.parser')
     country_links = soup.find_all('a', class_='js-navigation-open Link--primary')
 
@@ -26,21 +29,25 @@ def download_logos():
         country_name = country_link.text.strip()
         country_url = 'https://github.com' + country_link['href'].replace('tree', 'blob')
         
+        print(f"Fetching country URL: {country_url}")
         country_response = requests.get(country_url)
         if country_response.status_code != 200:
             print(f"Error fetching country URL: {country_url}")
             continue
 
+        print(f"Fetched country URL successfully: {country_name}")
         country_soup = BeautifulSoup(country_response.content, 'html.parser')
         logo_links = country_soup.find_all('a', class_='js-navigation-open Link--primary')
 
         country_folder = os.path.join(output_folder, country_name)
         if not os.path.exists(country_folder):
             os.makedirs(country_folder)
+            print(f"Created directory: {country_folder}")
 
         for logo_link in logo_links:
             logo_name = logo_link.text.strip()
             logo_url = 'https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/' + country_name + '/' + logo_name
+            print(f"Downloading logo: {logo_name} from {logo_url}")
             logo_response = requests.get(logo_url, stream=True)
 
             if logo_response.status_code == 200:
