@@ -95,28 +95,22 @@ def normalizar_nombre(nombre):
     # Normaliza el nombre eliminando espacios adicionales y convirtiendo a minúsculas
     return re.sub(r'\s+', ' ', nombre).strip().lower()
 
-def buscar_logo_en_archive(nombre_canal, region=None):
+def buscar_logo_en_archive(nombre_canal):
     tree = ET.parse('logos.xml')
     root = tree.getroot()
     
+    # Normalizar nombres y URLs de logos
     nombres_logos = {normalizar_nombre(logo.find('name').text): logo.find('url').text for logo in root.findall('logo') if logo.find('name') is not None}
     nombre_canal_normalizado = normalizar_nombre(nombre_canal)
     
-    if region:
-        nombre_canal_normalizado = f"{region.lower()} {nombre_canal_normalizado}"
+    # Mejorar la precisión de la coincidencia
+    closest_matches = get_close_matches(nombre_canal_normalizado, nombres_logos.keys(), n=3, cutoff=0.6)
     
-    closest_match = get_close_matches(nombre_canal_normalizado, nombres_logos.keys(), n=1, cutoff=0.6)
-    
-    if closest_match:
-        return nombres_logos[closest_match[0]]
-    return None
-
-def extraer_region(nombre_evento):
-    # Extrae la región del nombre del evento si está presente
-    regiones = ["EUROPE", "SPAIN", "NORTH AMERICA", "SOUTH AMERICA", "ASIA", "AFRICA", "OCEANIA"]
-    for region in regiones:
-        if region in nombre_evento.upper():
-            return region
+    if closest_matches:
+        for match in closest_matches:
+            if nombre_canal_normalizado in match:
+                return nombres_logos[match]
+        return nombres_logos[closest_matches[0]]
     return None
 
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
@@ -128,8 +122,7 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
             canal_id = normalizar_nombre(item["nombre"]).replace(" ", "_")
             # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
-            region = extraer_region(nombre_evento)
-            logo_url = buscar_logo_en_archive(item["canal"], region)
+            logo_url = buscar_logo_en_archive(item["canal"])
             extinf_line = (f"#EXTINF:-1 tvg-logo=\"{logo_url}\" tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
