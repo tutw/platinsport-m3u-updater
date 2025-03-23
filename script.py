@@ -2,6 +2,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
+import xml.etree.ElementTree as ET
 
 def obtener_url_diaria():
     base_url = "https://www.platinsport.com"
@@ -90,19 +91,12 @@ def convertir_a_utc_mas_1(hora):
     return dt_utc1.time()
 
 def buscar_logo_en_archive(nombre_canal):
-    search_url = f"https://archive.org/advancedsearch.php?q={nombre_canal}+logo&fl[]=identifier&rows=1&page=1&output=json"
-    response = requests.get(search_url)
-    if response.status_code == 200:
-        data = response.json()
-        if data["response"]["docs"]:
-            identifier = data["response"]["docs"][0]["identifier"]
-            formatos = ['.jpg', '.png', '.jpeg', '.gif']
-            for formato in formatos:
-                logo_url = f"https://archive.org/download/{identifier}/{identifier}{formato}"
-                # Verificar si la URL del logo es válida
-                logo_response = requests.head(logo_url)
-                if logo_response.status_code == 200:
-                    return logo_url
+    tree = ET.parse('logos.xml')
+    root = tree.getroot()
+    
+    for logo in root.findall('logo'):
+        if logo.get('nombre').lower() == nombre_canal.lower():
+            return logo.get('url')
     return None
 
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
