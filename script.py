@@ -95,7 +95,8 @@ def buscar_logo_en_archive(nombre_canal):
     root = tree.getroot()
     
     for logo in root.findall('logo'):
-        if logo.get('nombre').lower() == nombre_canal.lower():
+        nombre = logo.get('nombre')
+        if nombre and nombre.lower() == nombre_canal.lower():
             return logo.get('url')
     return None
 
