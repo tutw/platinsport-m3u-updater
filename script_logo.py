@@ -65,8 +65,10 @@ for url in urls:
             url_element = ET.SubElement(logo_element, "url")
             url_element.text = img_url
 
-# Write to logos.xml
+# Write to logos.xml with pretty printing
 tree = ET.ElementTree(root)
+ET.indent(tree, space="\t", level=0)  # Pretty print with tabs
+
 with open("logos.xml", "wb") as xml_file:
     tree.write(xml_file, encoding='utf-8', xml_declaration=True)
 
