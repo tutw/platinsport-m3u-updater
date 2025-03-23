@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = 'TU_CLAVE_API_DE_GOOGLE'
+API_KEY = 'AIzaSyCJEsuyu1X762eIMhc-mFod9_uE3SWuxb8'
 
 def buscar_logos_deportivos(api_key):
     url = "https://vision.googleapis.com/v1/images:annotate"
