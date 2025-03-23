@@ -124,9 +124,11 @@ def buscar_logo_en_url(nombre_canal):
     
     nombres_logos = {}
     for line in logos_data:
-        parts = line.split(',')
-        if len(parts) >= 2:
-            nombres_logos[normalizar_nombre(parts[0])] = parts[1]
+        match = re.search(r'tvg-logo="([^"]+)" .*?tvg-id="[^"]+", ([^,]+)', line)
+        if match:
+            logo_url = match.group(1)
+            canal_name = match.group(2).strip().lower()
+            nombres_logos[canal_name] = logo_url
     
     closest_matches = get_close_matches(nombre_canal_normalizado, nombres_logos.keys(), n=3, cutoff=0.6)
     
