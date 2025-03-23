@@ -3,19 +3,19 @@ import xml.etree.ElementTree as ET
 import os
 
 API_KEY = os.getenv('AIzaSyCJEsuyu1X762eIMhc-mFod9_uE3SWuxb8')
-API_URL = 'https://api.gemini.com/v1/logos'
+API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent'
 
 def buscar_logos_deportivos(api_key):
     headers = {
-        'Authorization': f'Bearer {api_key}',
         'Content-Type': 'application/json',
     }
     data = {
-        "query": "sports tv channel logos",
-        "maxResults": 10
+        "contents": [{
+            "parts": [{"text": "List sports TV channel logos with names and URLs"}]
+        }]
     }
 
-    response = requests.post(API_URL, headers=headers, json=data)
+    response = requests.post(API_URL, headers=headers, json=data, params={'key': api_key})
     if response.status_code == 200:
         resultados = response.json()
         return resultados
@@ -27,7 +27,7 @@ def generar_lista_de_logos():
     resultados = buscar_logos_deportivos(API_KEY)
     if resultados:
         root = ET.Element("logos")
-        for logo in resultados['logos']:
+        for logo in resultados['contents'][0]['parts']:
             canal = ET.SubElement(root, "canal")
             nombre = ET.SubElement(canal, "nombre")
             nombre.text = logo['name']
