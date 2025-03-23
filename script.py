@@ -123,6 +123,11 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
             # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
             logo_url = buscar_logo_en_archive(item["canal"])
+            
+            # Si no se encuentra logo, buscar el logo más probable
+            if not logo_url:
+                logo_url = buscar_logo_en_archive(item["canal"].split(' ')[0])  # Intentar con la primera palabra del canal
+            
             extinf_line = (f"#EXTINF:-1 tvg-logo=\"{logo_url}\" tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
