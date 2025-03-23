@@ -91,12 +91,17 @@ def convertir_a_utc_mas_1(hora):
     dt_utc1 = dt + timedelta(hours=1)
     return dt_utc1.time()
 
+def normalizar_nombre(nombre):
+    # Normaliza el nombre eliminando espacios adicionales y convirtiendo a minúsculas
+    return re.sub(r'\s+', ' ', nombre).strip().lower()
+
 def buscar_logo_en_archive(nombre_canal):
     tree = ET.parse('logos.xml')
     root = tree.getroot()
     
-    nombres_logos = {logo.find('name').text: logo.find('url').text for logo in root.findall('logo') if logo.find('name') is not None}
-    closest_match = get_close_matches(nombre_canal, nombres_logos.keys(), n=1, cutoff=0.6)
+    nombres_logos = {normalizar_nombre(logo.find('name').text): logo.find('url').text for logo in root.findall('logo') if logo.find('name') is not None}
+    nombre_canal_normalizado = normalizar_nombre(nombre_canal)
+    closest_match = get_close_matches(nombre_canal_normalizado, nombres_logos.keys(), n=1, cutoff=0.6)
     
     if closest_match:
         return nombres_logos[closest_match[0]]
@@ -108,7 +113,7 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
         f.write("#EXTM3U\n")
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
-            canal_id = item["nombre"].lower().replace(" ", "_")
+            canal_id = normalizar_nombre(item["nombre"]).replace(" ", "_")
             # Eliminar espacios innecesarios en el nombre
             nombre_evento = " ".join(item['nombre'].split())
             logo_url = buscar_logo_en_archive(item["canal"])
