@@ -24,8 +24,6 @@ jobs:
         pip install requests
 
     - name: Run buscar_logos.py
-      env:
-        THESPORTSDB_API_KEY: ${{ secrets.THESPORTSDB_API_KEY }}
       run: python buscar_logos.py
 
     - name: Upload logos.xml
