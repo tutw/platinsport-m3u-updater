@@ -95,13 +95,11 @@ def buscar_logo_en_archive(nombre_canal):
     tree = ET.parse('logos.xml')
     root = tree.getroot()
     
-    nombres_logos = [logo.find('name').text for logo in root.findall('logo') if logo.find('name') is not None]
-    closest_match = get_close_matches(nombre_canal, nombres_logos, n=1, cutoff=0.6)
+    nombres_logos = {logo.find('name').text: logo.find('url').text for logo in root.findall('logo') if logo.find('name') is not None}
+    closest_match = get_close_matches(nombre_canal, nombres_logos.keys(), n=1, cutoff=0.6)
     
     if closest_match:
-        for logo in root.findall('logo'):
-            if logo.find('name').text == closest_match[0]:
-                return logo.find('url').text
+        return nombres_logos[closest_match[0]]
     return None
 
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
