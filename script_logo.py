@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
+import re
 
 # URLs to scrape
 urls = [
@@ -41,11 +42,13 @@ def scrape_logos(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     logos = []
-    for img_tag in soup.find_all('img'):
-        img_url = img_tag.get('src')
-        if img_url:
-            channel_name = img_tag.get('alt', 'Unknown Channel')
-            logos.append((channel_name, img_url))
+    for a_tag in soup.find_all('a', class_='Link--primary'):
+        img_url = a_tag.get('href')
+        if img_url and img_url.endswith('.png'):
+            channel_name = re.sub(r'\.png$', '', a_tag.text)
+            raw_url = img_url.replace('blob', 'raw').replace('/github.com/', '/raw.githubusercontent.com/')
+            raw_url = raw_url.replace('/tree/', '/refs/heads/')
+            logos.append((channel_name, raw_url))
     return logos
 
 # Create XML structure
