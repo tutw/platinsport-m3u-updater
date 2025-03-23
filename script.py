@@ -113,6 +113,30 @@ def buscar_logo_en_archive(nombre_canal):
         return nombres_logos[closest_matches[0]]
     return None
 
+def buscar_logo_en_url(nombre_canal):
+    response = requests.get("https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones")
+    if response.status_code != 200:
+        print("Error al acceder a la URL de logos")
+        return None
+    
+    logos_data = response.text.split('\n')
+    nombre_canal_normalizado = normalizar_nombre(nombre_canal)
+    
+    nombres_logos = {}
+    for line in logos_data:
+        parts = line.split(',')
+        if len(parts) >= 2:
+            nombres_logos[normalizar_nombre(parts[0])] = parts[1]
+    
+    closest_matches = get_close_matches(nombre_canal_normalizado, nombres_logos.keys(), n=3, cutoff=0.6)
+    
+    if closest_matches:
+        for match in closest_matches:
+            if nombre_canal_normalizado in match:
+                return nombres_logos[match]
+        return nombres_logos[closest_matches[0]]
+    return None
+
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
@@ -124,9 +148,15 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
             nombre_evento = " ".join(item['nombre'].split())
             logo_url = buscar_logo_en_archive(item["canal"])
             
-            # Si no se encuentra logo, buscar el logo más probable
+            # Si no se encuentra logo, buscar en la URL proporcionada
             if not logo_url:
-                logo_url = buscar_logo_en_archive(item["canal"].split(' ')[0])  # Intentar con la primera palabra del canal
+                logo_url = buscar_logo_en_url(item["canal"])
+            
+            # Si aún no se encuentra logo, buscar el logo más probable
+            if not logo_url:
+                logo_url = buscar_logo_en_archive(item["canal"].split(' ')[0])
+                if not logo_url:
+                    logo_url = buscar_logo_en_url(item["canal"].split(' ')[0])
             
             extinf_line = (f"#EXTINF:-1 tvg-logo=\"{logo_url}\" tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
