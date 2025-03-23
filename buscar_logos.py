@@ -1,4 +1,5 @@
 import requests
+import xml.etree.ElementTree as ET
 
 API_KEY = 'AIzaSyCJEsuyu1X762eIMhc-mFod9_uE3SWuxb8'
 
@@ -36,10 +37,17 @@ def buscar_logos_deportivos(api_key):
 def generar_lista_de_logos():
     resultados = buscar_logos_deportivos(API_KEY)
     if resultados:
+        root = ET.Element("logos")
         for logo in resultados['responses'][0]['logoAnnotations']:
-            nombre_canal = logo['description']
-            url_logo = logo['score']
-            print(f"Canal: {nombre_canal}, URL del logo: {url_logo}")
+            canal = ET.SubElement(root, "canal")
+            nombre = ET.SubElement(canal, "nombre")
+            nombre.text = logo['description']
+            url_logo = ET.SubElement(canal, "url_logo")
+            url_logo.text = logo['score']
+
+        tree = ET.ElementTree(root)
+        tree.write("logos.xml", encoding="utf-8", xml_declaration=True)
+        print("Archivo logos.xml creado con éxito.")
 
 if __name__ == "__main__":
     generar_lista_de_logos()
