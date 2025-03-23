@@ -13,7 +13,7 @@ def buscar_logos_deportivos(api_key):
             {
                 "image": {
                     "source": {
-                        "imageUri": "URL_DE_EJEMPLO_DE_UN_LOGO_DE_CANAL_DE_TV"
+                        "imageUri": "https://upload.wikimedia.org/wikipedia/commons/7/70/DAZN_F1_logo.png"
                     }
                 },
                 "features": [
