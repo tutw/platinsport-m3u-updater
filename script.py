@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import xml.etree.ElementTree as ET
+from difflib import get_close_matches
 
 def obtener_url_diaria():
     base_url = "https://www.platinsport.com"
@@ -94,10 +95,13 @@ def buscar_logo_en_archive(nombre_canal):
     tree = ET.parse('logos.xml')
     root = tree.getroot()
     
-    for logo in root.findall('logo'):
-        nombre = logo.get('nombre')
-        if nombre and nombre.lower() == nombre_canal.lower():
-            return logo.get('url')
+    nombres_logos = [logo.get('nombre') for logo in root.findall('logo') if logo.get('nombre')]
+    closest_match = get_close_matches(nombre_canal, nombres_logos, n=1, cutoff=0.6)
+    
+    if closest_match:
+        for logo in root.findall('logo'):
+            if logo.get('nombre') == closest_match[0]:
+                return logo.get('url')
     return None
 
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
