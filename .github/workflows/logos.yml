@@ -1,4 +1,4 @@
-name: Buscar Logos Deportivos
+name: Generar Logos Deportivos
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  buscar-logos:
+  generar-logos:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,12 +18,11 @@ jobs:
       with:
         python-version: '3.x'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-
     - name: Run buscar_logos.py
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       run: python buscar_logos.py
+
+    - name: Upload logos.xml
+      uses: actions/upload-artifact@v2
+      with:
+        name: logos
+        path: logos.xml
