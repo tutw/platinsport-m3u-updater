@@ -1,49 +1,38 @@
 import requests
 import xml.etree.ElementTree as ET
+import os
 
-API_KEY = 'AIzaSyCJEsuyu1X762eIMhc-mFod9_uE3SWuxb8'
+API_KEY = os.getenv('AIzaSyCJEsuyu1X762eIMhc-mFod9_uE3SWuxb8')
+API_URL = 'https://api.gemini.com/v1/logos'
 
 def buscar_logos_deportivos(api_key):
-    url = "https://vision.googleapis.com/v1/images:annotate"
     headers = {
+        'Authorization': f'Bearer {api_key}',
         'Content-Type': 'application/json',
     }
     data = {
-        "requests": [
-            {
-                "image": {
-                    "source": {
-                        "imageUri": "https://upload.wikimedia.org/wikipedia/commons/7/70/DAZN_F1_logo.png"
-                    }
-                },
-                "features": [
-                    {
-                        "type": "LOGO_DETECTION",
-                        "maxResults": 10
-                    }
-                ]
-            }
-        ]
+        "query": "sports tv channel logos",
+        "maxResults": 10
     }
 
-    response = requests.post(url, headers=headers, json=data, params={'key': api_key})
+    response = requests.post(API_URL, headers=headers, json=data)
     if response.status_code == 200:
         resultados = response.json()
         return resultados
     else:
-        print(f"Error: {response.status_code}")
+        print(f"Error: {response.status_code} - {response.text}")
         return None
 
 def generar_lista_de_logos():
     resultados = buscar_logos_deportivos(API_KEY)
     if resultados:
         root = ET.Element("logos")
-        for logo in resultados['responses'][0]['logoAnnotations']:
+        for logo in resultados['logos']:
             canal = ET.SubElement(root, "canal")
             nombre = ET.SubElement(canal, "nombre")
-            nombre.text = logo['description']
+            nombre.text = logo['name']
             url_logo = ET.SubElement(canal, "url_logo")
-            url_logo.text = logo['score']
+            url_logo.text = logo['url']
 
         tree = ET.ElementTree(root)
         tree.write("logos.xml", encoding="utf-8", xml_declaration=True)
