@@ -7,34 +7,7 @@ import re
 urls = [
     "https://github.com/tv-logo/tv-logos/tree/main/countries/albania",
     "https://github.com/tv-logo/tv-logos/tree/main/countries/argentina",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/australia",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/austria",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/azerbaijan",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/belgium",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/brazil",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/bulgaria",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/canada",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/caribbean",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/costa-rica",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/croatia",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/czech-republic",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/france",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/germany",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/greece",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/hong-kong",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/hungary",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/india",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/indonesia",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/international",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/israel",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/italy",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/lebanon",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/lithuania",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/malaysia",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/malta",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/mexico",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/netherlands",
-    "https://github.com/tv-logo/tv-logos/tree/main/countries/new-zealand"
+    # Agrega el resto de las URLs aquí...
 ]
 
 # Function to scrape logos from a given URL
@@ -46,8 +19,7 @@ def scrape_logos(url):
         img_url = a_tag.get('href')
         if img_url and img_url.endswith('.png'):
             channel_name = re.sub(r'\.png$', '', a_tag.text)
-            raw_url = img_url.replace('blob', 'raw').replace('/github.com/', '/raw.githubusercontent.com/')
-            raw_url = raw_url.replace('/tree/', '/refs/heads/')
+            raw_url = 'https://raw.githubusercontent.com' + img_url.replace('/blob', '')
             logos.append((channel_name, raw_url))
     return logos
 
