@@ -42,10 +42,11 @@ def format_eventos(eventos_content, hash_logo_map):
         elif "acestream://" in line:
             try:
                 hash_id = re.search(r'acestream://([a-f0-9]+)', line).group(1)
-                logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
+                logo_url = hash_logo_map.get(hash_id, None)
 
                 if extinf_line:
-                    extinf_line = replace_logo(extinf_line, logo_url)
+                    if logo_url:
+                        extinf_line = replace_logo(extinf_line, logo_url)
                     formatted_lines.append(extinf_line)
                     extinf_line = None  
 
