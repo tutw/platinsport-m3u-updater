@@ -50,7 +50,7 @@ def format_eventos(eventos_content, hash_logo_map):
                     formatted_lines.append(extinf_line)
                     extinf_line = None  
 
-                formatted_lines.append(f"acestream://{hash_id}")
+                formatted_lines.append(line)
 
             except IndexError:
                 print(f"Error processing line: {line}")
