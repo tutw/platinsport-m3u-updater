@@ -11,6 +11,7 @@ def download_file(url):
     try:
         response = requests.get(url)
         response.raise_for_status()
+        print(f"Descarga exitosa del archivo desde {url}")
         return response.text
     except requests.exceptions.RequestException as e:
         print(f"Error al descargar el archivo desde {url}: {e}")
@@ -24,6 +25,7 @@ def parse_peticiones(peticiones_content):
             parts = line.split(',')
             if len(parts) == 2:
                 hash_logo_map[parts[0].strip()] = parts[1].strip()
+    print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
 def format_eventos(eventos_content, hash_logo_map):
@@ -37,6 +39,7 @@ def format_eventos(eventos_content, hash_logo_map):
             logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
             formatted_lines[-1] = formatted_lines[-1].replace('tvg-logo=""', f'tvg-logo="{logo_url}"')
             formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
+    print(f"Formatted content: {formatted_lines}")
     return "\n".join(formatted_lines)
 
 def main():
