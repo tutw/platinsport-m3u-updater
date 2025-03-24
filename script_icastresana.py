@@ -2,9 +2,9 @@ import requests
 import re
 
 # URL del archivo eventos.m3u
-eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/main/eventos.m3u"
+eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
 # URL del archivo peticiones
-peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/main/peticiones"
+peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
 # Nombre del archivo de salida
 output_file = "lista_icastresana.m3u"
 
@@ -28,10 +28,10 @@ def parse_peticiones(peticiones_content):
             parts = line.split(',')
             if len(parts) == 2 and "acestream://" in parts[1]:
                 try:
-                    logo_url = parts[0].strip()
+                    logo_url = re.search(r'tvg-logo="([^"]+)"', parts[0]).group(1)
                     hash_id = parts[1].split("acestream://")[1].strip()
                     hash_logo_map[hash_id] = logo_url
-                except IndexError:
+                except (IndexError, AttributeError):
                     print(f"Error processing line: {line}")
     print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
@@ -55,7 +55,7 @@ def format_eventos(eventos_content, hash_logo_map):
                     extinf_line = replace_logo(extinf_line, logo_url)
                     formatted_lines.append(extinf_line)
                 
-                formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
+                formatted_lines.append(f"acestream://{hash_id}")
                 extinf_line = ""  # Reset para la siguiente entrada
             except IndexError:
                 print(f"Error processing line: {line}")
