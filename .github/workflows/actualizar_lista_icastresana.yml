@@ -49,7 +49,7 @@ jobs:
         
         git add lista_icastresana.m3u
         git commit -m "Actualizar lista_icastresana.m3u con nuevos logos"
-        git push https://${{ secrets.PERSONAL_ACCESS_TOKEN }}@github.com/${{ github.repository }}.git main
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
