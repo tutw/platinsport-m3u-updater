@@ -44,7 +44,8 @@ for line in eventos_content.splitlines():
             new_eventos_lines[-1] = f'#EXTINF:-1 tvg-logo="{logo_url}",' + previous_line.split(',')[1]
         elif original_logo:
             new_eventos_lines[-1] = f'#EXTINF:-1 tvg-logo="{original_logo}",' + previous_line.split(',')[1]
-        new_eventos_lines.append(line)
+        # Replace 'acestream://' with the correct URL prefix
+        new_eventos_lines.append(line.replace('acestream://', 'http://127.0.0.1:6878/ace/getstream?id='))
     else:
         new_eventos_lines.append(line)
 
