@@ -23,16 +23,14 @@ def parse_peticiones(peticiones_content):
     """Parses the peticiones content and returns a dictionary mapping hash IDs to logo URLs."""
     hash_logo_map = {}
     lines = peticiones_content.splitlines()
-    for line in lines:
-        if line.strip():
-            parts = line.split(',')
-            if len(parts) == 2 and "acestream://" in parts[1]:
-                try:
-                    logo_url = re.search(r'tvg-logo="([^"]+)"', parts[0]).group(1)
-                    hash_id = parts[1].split("acestream://")[1].strip()
-                    hash_logo_map[hash_id] = logo_url
-                except (IndexError, AttributeError):
-                    print(f"Error processing line: {line}")
+    for i in range(0, len(lines), 2):
+        if lines[i].strip() and lines[i+1].strip():
+            try:
+                logo_url = re.search(r'tvg-logo="([^"]+)"', lines[i]).group(1)
+                hash_id = lines[i+1].split("acestream://")[1].strip()
+                hash_logo_map[hash_id] = logo_url
+            except (IndexError, AttributeError):
+                print(f"Error processing lines: {lines[i]} {lines[i+1]}")
     print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
@@ -55,7 +53,7 @@ def format_eventos(eventos_content, hash_logo_map):
                     extinf_line = replace_logo(extinf_line, logo_url)
                     formatted_lines.append(extinf_line)
                 
-                formatted_lines.append(f"acestream://{hash_id}")
+                formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
                 extinf_line = ""  # Reset para la siguiente entrada
             except IndexError:
                 print(f"Error processing line: {line}")
