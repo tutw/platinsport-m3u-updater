@@ -31,20 +31,25 @@ jobs:
       run: |
         git diff --quiet lista_icastresana.m3u || echo "CHANGES_FOUND=1" >> $GITHUB_ENV
 
+    - name: Stash cambios no confirmados
+      if: env.CHANGES_FOUND == '1'
+      run: |
+        git stash
+
+    - name: Pull de la última versión del repositorio
+      run: |
+        git pull --rebase origin main
+
+    - name: Aplicar cambios stashed
+      if: env.CHANGES_FOUND == '1'
+      run: |
+        git stash pop
+
     - name: Commit y push si hay cambios
       if: env.CHANGES_FOUND == '1'
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        
-        # Asegurar que tenemos la última versión del repositorio
-        git pull --rebase origin main
-        
-        if [ $? -ne 0 ]; then
-          echo "Conflicto al hacer pull. Resolviendo conflictos..."
-          git status
-          exit 1
-        fi
         
         git add lista_icastresana.m3u
         git commit -m "Actualizar lista_icastresana.m3u con nuevos logos"
