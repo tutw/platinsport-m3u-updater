@@ -8,6 +8,7 @@ eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/m
 peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
 logos_xml_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/logos.xml"
 socialcreator_url = "https://www.socialcreator.com/xupimarc2/?s=289267&integ_ch=1"
+
 # Nombre del archivo de salida
 output_file = "lista_icastresana.m3u"
 
@@ -26,22 +27,26 @@ def parse_peticiones(peticiones_content):
     """Parses the peticiones content and returns a dictionary mapping hash IDs to logo URLs."""
     hash_logo_map = {}
     lines = peticiones_content.splitlines()
+    
     for i in range(0, len(lines), 2):
-        if i + 1 < len(lines):
-            try:
-                extinf_line = lines[i].strip()
-                acestream_line = lines[i + 1].strip()
-                if extinf_line.startswith("#EXTINF") and "acestream://" in acestream_line:
-                    logo_url_match = re.search(r'tvg-logo="([^"]+)"', extinf_line)
-                    if logo_url_match:
-                        logo_url = logo_url_match.group(1)
-                        hash_id = acestream_line.split("acestream://")[1].strip()
-                        hash_logo_map[hash_id] = logo_url
-            except (AttributeError, IndexError) as e:
-                print(f"Error processing lines: {lines[i] if i < len(lines) else ''} {lines[i + 1] if i + 1 < len(lines) else ''} - {e}")
-        else:
-            print(f"Advertencia: Línea #EXTINF sin su correspondiente línea de enlace en peticiones. Línea: {lines[i]}")
-    print(f"Hash logo map: {hash_logo_map}")
+        try:
+            if i + 1 >= len(lines):  
+                print(f"Advertencia: Línea sin pareja en peticiones. Línea: {lines[i]}")
+                continue  
+
+            extinf_line = lines[i].strip()
+            acestream_line = lines[i + 1].strip()
+
+            if extinf_line.startswith("#EXTINF") and "acestream://" in acestream_line:
+                logo_url_match = re.search(r'tvg-logo="([^"]+)"', extinf_line)
+                if logo_url_match:
+                    logo_url = logo_url_match.group(1)
+                    hash_id = acestream_line.split("acestream://")[1].strip()
+                    hash_logo_map[hash_id] = logo_url
+
+        except (AttributeError, IndexError) as e:
+            print(f"Error processing lines: {lines[i]} - {e}")
+
     return hash_logo_map
 
 def parse_logos_xml(logos_xml_content):
@@ -52,7 +57,6 @@ def parse_logos_xml(logos_xml_content):
         name = logo.find('name').text
         url = logo.find('url').text
         logo_map[name] = url
-    print(f"Logo map from XML: {logo_map}")
     return logo_map
 
 def parse_socialcreator(socialcreator_content):
@@ -65,7 +69,6 @@ def parse_socialcreator(socialcreator_content):
             hash_id = match.group(1)
             logo_url = match.group(2)
             hash_logo_map[hash_id] = logo_url
-    print(f"Hash logo map from socialcreator: {hash_logo_map}")
     return hash_logo_map
 
 def normalizar_nombre(nombre):
@@ -123,47 +126,35 @@ def format_eventos(eventos_content, hash_logo_map, logo_map, socialcreator_map):
     """Formats the eventos content by replacing logos based on hash IDs."""
     formatted_lines = []
     lines = eventos_content.splitlines()
-    extinf_line = ""
+    extinf_line = None  
 
     for line in lines:
         if line.startswith("#EXTINF"):
-            extinf_line = line
+            extinf_line = line  
+
         elif "acestream://" in line:
             try:
                 hash_id = line.split("acestream://")[1].strip()
                 logo_url = get_logo_url(hash_id, hash_logo_map, logo_map, socialcreator_map)
 
-                # Reemplazar o agregar el logo en la línea #EXTINF
                 if extinf_line:
                     extinf_line = replace_logo(extinf_line, logo_url)
                     formatted_lines.append(extinf_line)
+                    extinf_line = None  
 
                 formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
-                extinf_line = ""  # Reset para la siguiente entrada
+
             except IndexError:
                 print(f"Error processing line: {line}")
 
-    print(f"Formatted content: {formatted_lines}")
     return "\n".join(formatted_lines)
 
 def replace_logo(extinf_line, logo_url):
     """Replaces or inserts the tvg-logo attribute in the #EXTINF line."""
     if 'tvg-logo="' in extinf_line:
-        # Reemplazar el logo existente
-        extinf_line = re.sub(r'tvg-logo="([^"]+)"', f'tvg-logo="{logo_url}"', extinf_line)
+        return re.sub(r'tvg-logo="([^"]+)"', f'tvg-logo="{logo_url}"', extinf_line)
     else:
-        # Insertar el logo si no existe
-        match = re.match(r'#EXTINF:(-?\d+)\s*(.*)', extinf_line)
-        if match:
-            duration = match.group(1)
-            rest_of_line = match.group(2).strip()
-            new_extinf = f'#EXTINF:{duration} tvg-logo="{logo_url}",{rest_of_line}'
-            extinf_line = new_extinf
-        else:
-            # Fallback if the EXTINF line doesn't match the expected pattern
-            extinf_line = extinf_line.replace("#EXTINF:", f'#EXTINF:-1 tvg-logo="{logo_url}",', 1)
-
-    return extinf_line
+        return extinf_line.replace("#EXTINF:", f'#EXTINF:-1 tvg-logo="{logo_url}",', 1)
 
 def main():
     """Main function to execute the script."""
@@ -172,36 +163,21 @@ def main():
     logos_xml_content = download_file(logos_xml_url)
     socialcreator_content = download_file(socialcreator_url)
 
-    if eventos_content:
-        print("Contenido de eventos.m3u descargado correctamente")
-    else:
-        print("Error al descargar eventos.m3u")
-
-    if peticiones_content:
-        print("Contenido de peticiones descargado correctamente")
-    else:
-        print("Error al descargar peticiones")
-
-    if logos_xml_content:
-        print("Contenido de logos.xml descargado correctamente")
-    else:
-        print("Error al descargar logos.xml")
-
-    if socialcreator_content:
-        print("Contenido de socialcreator descargado correctamente")
-    else:
-        print("Error al descargar socialcreator")
-
-    if eventos_content and peticiones_content and logos_xml_content and socialcreator_content:
-        hash_logo_map = parse_peticiones(peticiones_content)
-        logo_map = parse_logos_xml(logos_xml_content)
-        socialcreator_map = parse_socialcreator(socialcreator_content)
-        formatted_content = format_eventos(eventos_content, hash_logo_map, logo_map, socialcreator_map)
-        with open(output_file, 'w') as file:
-            file.write(formatted_content)
-        print(f"Archivo formateado y guardado como {output_file}")
-    else:
+    if not eventos_content or not peticiones_content or not logos_xml_content or not socialcreator_content:
         print("No se pudo descargar el contenido necesario.")
+        return  
+
+    print("Archivos descargados correctamente.")
+
+    hash_logo_map = parse_peticiones(peticiones_content)
+    logo_map = parse_logos_xml(logos_xml_content)
+    socialcreator_map = parse_socialcreator(socialcreator_content)
+    formatted_content = format_eventos(eventos_content, hash_logo_map, logo_map, socialcreator_map)
+
+    with open(output_file, 'w') as file:
+        file.write(formatted_content)
+
+    print(f"Archivo formateado y guardado como {output_file}")
 
 if __name__ == "__main__":
     main()
