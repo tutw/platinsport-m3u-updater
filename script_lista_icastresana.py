@@ -49,7 +49,7 @@ for line in eventos_content.splitlines():
         new_eventos_lines.append(line)
 
 # Write the new content back to the file
-with open('updated_eventos.m3u', 'w') as f:
+with open('lista_icastresana.m3u', 'w') as f:
     f.write('\n'.join(new_eventos_lines))
 
-print('Updated logos in eventos.m3u based on AceStream IDs.')
+print('Updated logos in lista_icastresana.m3u based on AceStream IDs.')
