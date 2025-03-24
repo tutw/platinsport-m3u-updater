@@ -26,12 +26,14 @@ def parse_lista_full(html_content):
     channels = soup.find_all('div', class_='channel')
 
     for channel in channels:
-        acestream_match = re.search(r'acestream://([a-f0-9]+)', channel['onclick'])
-        logo_img = channel.find('img')
-        if acestream_match and logo_img:
-            hash_id = acestream_match.group(1)
-            logo_url = logo_img['src']
-            hash_logo_map[hash_id] = logo_url
+        onclick_attr = channel.get('onclick')
+        if onclick_attr:
+            acestream_match = re.search(r'acestream://([a-f0-9]+)', onclick_attr)
+            logo_img = channel.find('img')
+            if acestream_match and logo_img:
+                hash_id = acestream_match.group(1)
+                logo_url = logo_img['src']
+                hash_logo_map[hash_id] = logo_url
 
     return hash_logo_map
 
