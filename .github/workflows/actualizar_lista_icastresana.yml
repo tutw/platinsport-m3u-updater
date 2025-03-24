@@ -43,8 +43,9 @@ jobs:
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
+        git pull origin main  # Realiza un pull antes de push
         git add lista_icastresana.m3u
         git commit -m "Actualizar lista_icastresana.m3u con nuevos logos"
-        git push
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
