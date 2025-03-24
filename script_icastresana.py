@@ -33,14 +33,25 @@ def format_eventos(eventos_content, hash_logo_map):
     lines = eventos_content.splitlines()
     for line in lines:
         if line.startswith("#EXTINF"):
-            formatted_lines.append(line)
+            extinf_line = line
         elif "acestream://" in line:
             hash_id = line.split("acestream://")[1]
             logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
-            formatted_lines[-1] = formatted_lines[-1].replace('tvg-logo=""', f'tvg-logo="{logo_url}"')
+            # Reemplaza cualquier logo existente en la línea #EXTINF
+            extinf_line = replace_logo(extinf_line, logo_url)
+            formatted_lines.append(extinf_line)
             formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
     print(f"Formatted content: {formatted_lines}")
     return "\n".join(formatted_lines)
+
+def replace_logo(extinf_line, logo_url):
+    if 'tvg-logo="' in extinf_line:
+        start_idx = extinf_line.index('tvg-logo="') + len('tvg-logo="')
+        end_idx = extinf_line.index('"', start_idx)
+        extinf_line = extinf_line[:start_idx] + logo_url + extinf_line[end_idx:]
+    else:
+        extinf_line = extinf_line.replace('#EXTINF:', f'#EXTINF:-1 tvg-logo="{logo_url}",')
+    return extinf_line
 
 def main():
     eventos_content = download_file(eventos_url)
