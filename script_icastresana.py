@@ -53,21 +53,15 @@ def format_eventos(eventos_content, hash_logo_map):
         elif "acestream://" in line:
             try:
                 hash_id = line.split("acestream://")[1].strip()
-                logo_url = hash_logo_map.get(hash_id)
-                
-                if logo_url:
-                    # Reemplazar o agregar el logo en la línea #EXTINF
-                    if extinf_line:
-                        extinf_line = replace_logo(extinf_line, logo_url)
-                        formatted_lines.append(extinf_line)
-                    
-                    formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
-                    extinf_line = ""  # Reset para la siguiente entrada
-                else:
-                    # Si no se encuentra logo para el hash_id, mantener el original
+                logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
+
+                # Reemplazar o agregar el logo en la línea #EXTINF
+                if extinf_line:
+                    extinf_line = replace_logo(extinf_line, logo_url)
                     formatted_lines.append(extinf_line)
-                    formatted_lines.append(line)
-                    extinf_line = ""
+
+                formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
+                extinf_line = ""  # Reset para la siguiente entrada
             except IndexError:
                 print(f"Error processing line: {line}")
 
