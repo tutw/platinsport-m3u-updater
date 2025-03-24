@@ -6,16 +6,16 @@ on:
   workflow_dispatch:  # Permite activación manual
 
 permissions:
-  contents: write  # Permite escribir en el repositorio
-  actions: read    # Permite leer las acciones
-  checks: write    # Permite escribir los checks
-  deployments: write  # Permite escribir los deployments
-  issues: write    # Permite escribir issues
-  packages: write  # Permite escribir paquetes
-  pull-requests: write  # Permite escribir pull requests
-  repository-projects: write  # Permite escribir proyectos de repositorio
-  security-events: write  # Permite escribir eventos de seguridad
-  statuses: write  # Permite escribir statuses
+  contents: write
+  actions: read
+  checks: write
+  deployments: write
+  issues: write
+  packages: write
+  pull-requests: write
+  repository-projects: write
+  security-events: write
+  statuses: write
 
 jobs:
   update_script:
@@ -33,7 +33,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests  # Asegúrate de que la librería requests esté instalada
+        pip install requests
 
     - name: Run the script
       run: |
