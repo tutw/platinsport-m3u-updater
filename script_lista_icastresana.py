@@ -2,8 +2,8 @@ import requests
 import xml.etree.ElementTree as ET
 
 # URLs de los archivos en GitHub
-eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
-logos_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/logos_icastresana.xml"
+eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/main/eventos.m3u"
+logos_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/logos_icastresana.xml"
 
 # Ruta de salida
 output_path = "lista_icastresana.m3u"
@@ -63,7 +63,7 @@ def process_eventos_m3u(eventos_content, acestream_to_logo):
             else:
                 new_eventos_lines.append(line)
 
-            new_eventos_lines.append(next_line)
+            new_eventos_lines.append(next_line.replace('acestream://', 'http://127.0.0.1:6878/ace/getstream?id='))
             i += 2
         else:
             new_eventos_lines.append(line)
