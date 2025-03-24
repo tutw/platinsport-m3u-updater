@@ -33,7 +33,7 @@ jobs:
         echo "CHANGES_FOUND=$?" >> $GITHUB_ENV
 
     - name: Commit y push si hay cambios
-      if: env.CHANGES_FOUND == '1'
+      if: env.CHANGES_FOUND != '0'
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
