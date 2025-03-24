@@ -24,23 +24,27 @@ def parse_peticiones(peticiones_content):
         if line.strip():
             parts = line.split(',')
             if len(parts) == 2:
-                hash_logo_map[parts[1].strip()] = parts[0].strip()
+                hash_id = parts[1].split("acestream://")[1].strip()
+                hash_logo_map[hash_id] = parts[0].strip()
     print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
 def format_eventos(eventos_content, hash_logo_map):
     formatted_lines = []
     lines = eventos_content.splitlines()
-    for i, line in enumerate(lines):
+    extinf_line = ""
+    for line in lines:
         if line.startswith("#EXTINF"):
             extinf_line = line
         elif "acestream://" in line:
             hash_id = line.split("acestream://")[1].strip()
             logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
             # Reemplaza cualquier logo existente en la línea #EXTINF
-            extinf_line = replace_logo(extinf_line, logo_url)
-            formatted_lines.append(extinf_line)
+            if extinf_line:
+                extinf_line = replace_logo(extinf_line, logo_url)
+                formatted_lines.append(extinf_line)
             formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
+            extinf_line = ""  # Reset extinf_line for the next entry
     print(f"Formatted content: {formatted_lines}")
     return "\n".join(formatted_lines)
 
@@ -68,13 +72,4 @@ def main():
         print("Error al descargar peticiones")
 
     if eventos_content and peticiones_content:
-        hash_logo_map = parse_peticiones(peticiones_content)
-        formatted_content = format_eventos(eventos_content, hash_logo_map)
-        with open(output_file, 'w') as file:
-            file.write(formatted_content)
-        print(f"Archivo formateado y guardado como {output_file}")
-    else:
-        print("No se pudo descargar el contenido necesario.")
-
-if __name__ == "__main__":
-    main()
+        ▋
