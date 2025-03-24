@@ -1,5 +1,6 @@
 import requests
 import re
+from bs4 import BeautifulSoup
 
 # URLs de los archivos
 eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
@@ -18,16 +19,20 @@ def download_file(url):
         print(f"Error al descargar el archivo desde {url}: {e}")
         return None
 
-def parse_lista_full(lista_full_content):
-    """Parses the lista_full content and returns a dictionary mapping hash IDs to logo URLs."""
+def parse_lista_full(html_content):
+    """Parses the lista_full HTML content and returns a dictionary mapping hash IDs to logo URLs."""
     hash_logo_map = {}
-    lines = lista_full_content.splitlines()
-    for line in lines:
-        match = re.search(r'acestream://([a-f0-9]+).*tvg-logo="([^"]+)"', line)
-        if match:
-            hash_id = match.group(1)
-            logo_url = match.group(2)
+    soup = BeautifulSoup(html_content, 'html.parser')
+    channels = soup.find_all('div', class_='channel')
+
+    for channel in channels:
+        acestream_match = re.search(r'acestream://([a-f0-9]+)', channel['onclick'])
+        logo_img = channel.find('img')
+        if acestream_match and logo_img:
+            hash_id = acestream_match.group(1)
+            logo_url = logo_img['src']
             hash_logo_map[hash_id] = logo_url
+
     return hash_logo_map
 
 def format_eventos(eventos_content, hash_logo_map):
