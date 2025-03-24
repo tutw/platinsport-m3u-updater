@@ -1,4 +1,5 @@
 import requests
+import re
 
 # URL del archivo eventos.m3u
 eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/main/eventos.m3u"
@@ -40,6 +41,7 @@ def format_eventos(eventos_content, hash_logo_map):
     formatted_lines = []
     lines = eventos_content.splitlines()
     extinf_line = ""
+
     for line in lines:
         if line.startswith("#EXTINF"):
             extinf_line = line
@@ -47,25 +49,29 @@ def format_eventos(eventos_content, hash_logo_map):
             try:
                 hash_id = line.split("acestream://")[1].strip()
                 logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
-                # Replace any existing logo in the #EXTINF line
+                
+                # Reemplazar o agregar el logo en la línea #EXTINF
                 if extinf_line:
                     extinf_line = replace_logo(extinf_line, logo_url)
                     formatted_lines.append(extinf_line)
+                
                 formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
-                extinf_line = ""  # Reset extinf_line for the next entry
+                extinf_line = ""  # Reset para la siguiente entrada
             except IndexError:
                 print(f"Error processing line: {line}")
+
     print(f"Formatted content: {formatted_lines}")
     return "\n".join(formatted_lines)
 
 def replace_logo(extinf_line, logo_url):
     """Replaces or inserts the tvg-logo attribute in the #EXTINF line."""
     if 'tvg-logo="' in extinf_line:
-        start_idx = extinf_line.index('tvg-logo="') + len('tvg-logo="')
-        end_idx = extinf_line.index('"', start_idx)
-        extinf_line = extinf_line[:start_idx] + logo_url + extinf_line[end_idx:]
+        # Reemplazar el logo existente
+        extinf_line = re.sub(r'tvg-logo="([^"]+)"', f'tvg-logo="{logo_url}"', extinf_line)
     else:
-        extinf_line = extinf_line.replace('#EXTINF:', f'#EXTINF:-1 tvg-logo="{logo_url}",')
+        # Insertar el logo si no existe
+        extinf_line = extinf_line.replace("#EXTINF:", f'#EXTINF:-1 tvg-logo="{logo_url}",', 1)
+
     return extinf_line
 
 def main():
