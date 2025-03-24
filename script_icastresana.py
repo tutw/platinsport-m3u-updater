@@ -35,7 +35,7 @@ def format_eventos(eventos_content, hash_logo_map):
         if line.startswith("#EXTINF"):
             extinf_line = line
         elif "acestream://" in line:
-            hash_id = line.split("acestream://")[1]
+            hash_id = line.split("acestream://")[1].strip()
             logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
             # Reemplaza cualquier logo existente en la línea #EXTINF
             extinf_line = replace_logo(extinf_line, logo_url)
