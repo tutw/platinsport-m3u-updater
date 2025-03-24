@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 
 # URLs
 eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
-logos_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/logos_icastresana.xml"
+logos_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/logos_icastresana.xml"
 
 # Fetch the eventos.m3u content
 eventos_response = requests.get(eventos_url)
@@ -26,7 +26,7 @@ for logo in logos_root.findall('logo'):
         logo_url = logo_url_elem.text
         acestream_to_logo[acestream_id] = logo_url
 
-# Replace logos in eventos.m3u content
+# Replace logos and URLs in eventos.m3u content
 new_eventos_lines = []
 for line in eventos_content.splitlines():
     if line.startswith('#EXTINF:'):
@@ -34,18 +34,11 @@ for line in eventos_content.splitlines():
         continue
     if line.startswith('acestream://'):
         acestream_id = line.split('acestream://')[1].strip()
-        # Extract original logo from the previous line if available
         previous_line = new_eventos_lines[-1]
-        original_logo = None
-        if 'tvg-logo' in previous_line:
-            original_logo = previous_line.split('tvg-logo="')[1].split('"')[0]
         if acestream_id in acestream_to_logo:
             logo_url = acestream_to_logo[acestream_id]
-            new_eventos_lines[-1] = f'#EXTINF:-1 tvg-logo="{logo_url}",' + previous_line.split(',')[1]
-        elif original_logo:
-            new_eventos_lines[-1] = f'#EXTINF:-1 tvg-logo="{original_logo}",' + previous_line.split(',')[1]
-        # Replace 'acestream://' with the correct URL prefix
-        new_eventos_lines.append(line.replace('acestream://', 'http://127.0.0.1:6878/ace/getstream?id='))
+            new_eventos_lines[-1] = f'#EXTINF:-1 tvg-logo="{logo_url}",' + previous_line.split(',', 1)[1]
+        new_eventos_lines.append(f'http://127.0.0.1:6878/ace/getstream?id={acestream_id}')
     else:
         new_eventos_lines.append(line)
 
