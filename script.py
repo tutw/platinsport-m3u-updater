@@ -139,6 +139,32 @@ def buscar_logo_en_url(nombre_canal):
         return nombres_logos[closest_matches[0]]
     return None
 
+def buscar_logo(nombre_canal):
+    # Prioridad 1: Buscar en el archivo logos.xml
+    logo_url = buscar_logo_en_archive(nombre_canal)
+    if logo_url:
+        return logo_url
+    
+    # Prioridad 2: Buscar en la URL proporcionada
+    logo_url = buscar_logo_en_url(nombre_canal)
+    if logo_url:
+        return logo_url
+    
+    # Prioridad 3: Buscar el logo más probable utilizando solo la primera palabra del nombre del canal
+    primera_palabra = nombre_canal.split(' ')[0]
+    logo_url = buscar_logo_en_archive(primera_palabra)
+    if logo_url:
+        return logo_url
+    logo_url = buscar_logo_en_url(primera_palabra)
+    if logo_url:
+        return logo_url
+    
+    return None
+
+def limpiar_nombre_evento(nombre_evento):
+    # Elimina prefijos como "NORTH AMERICA -", "SPAIN -", etc.
+    return re.sub(r'^[A-Z ]+- ', '', nombre_evento)
+
 def guardar_lista_m3u(eventos, archivo="lista.m3u"):
     eventos.sort(key=lambda x: x["hora"])
     with open(archivo, "w", encoding="utf-8") as f:
@@ -147,19 +173,9 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
             canal_id = normalizar_nombre(item["nombre"]).replace(" ", "_")
             # Eliminar espacios innecesarios en el nombre
-            nombre_evento = " ".join(item['nombre'].split())
-            logo_url = buscar_logo_en_archive(item["canal"])
-            
-            # Si no se encuentra logo, buscar en la URL proporcionada
-            if not logo_url:
-                logo_url = buscar_logo_en_url(item["canal"])
-            
-            # Si aún no se encuentra logo, buscar el logo más probable
-            if not logo_url:
-                logo_url = buscar_logo_en_archive(item["canal"].split(' ')[0])
-                if not logo_url:
-                    logo_url = buscar_logo_en_url(item["canal"].split(' ')[0])
-            
+            nombre_evento = limpiar_nombre_evento(" ".join(item['nombre'].split()))
+            logo_url = buscar_logo(item["canal"])
+
             extinf_line = (f"#EXTINF:-1 tvg-logo=\"{logo_url}\" tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
