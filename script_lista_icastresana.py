@@ -36,7 +36,7 @@ for line in eventos_content.splitlines():
     else:
         new_eventos_lines.append(line)
 
-# Write the new content back to the file (or any other desired output)
+# Write the new content back to the file
 with open('updated_eventos.m3u', 'w') as f:
     f.write('\n'.join(new_eventos_lines))
 
