@@ -1,5 +1,4 @@
 import requests
-import time
 
 # URL del archivo eventos.m3u
 eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
@@ -54,6 +53,4 @@ def main():
         print("No se pudo descargar el contenido necesario.")
 
 if __name__ == "__main__":
-    while True:
-        main()
-        time.sleep(3600)  # Espera 1 hora (3600 segundos) antes de actualizar de nuevo
+    main()
