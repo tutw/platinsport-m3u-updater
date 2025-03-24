@@ -18,6 +18,7 @@ def scrape_url():
 def update_xml(data):
     root = Element('logos')
     for id_acestream, url_logo in data:
+        print(f"Agregando id_acestream: {id_acestream}, url_logo: {url_logo}")  # Mensaje de depuración
         item = SubElement(root, 'item')
         id_elem = SubElement(item, 'id')
         id_elem.text = id_acestream
@@ -27,9 +28,11 @@ def update_xml(data):
     tree = ElementTree(root)
     with open(XML_FILE, "wb") as fh:
         tree.write(fh)
+        print(f"Archivo {XML_FILE} actualizado correctamente.")  # Mensaje de depuración
 
 def main():
     data = scrape_url()
+    print(f"Datos scrapeados: {data}")  # Mensaje de depuración
     update_xml(data)
 
 if __name__ == "__main__":
