@@ -1,56 +1,102 @@
 import requests
+import re
 
-def descargar_archivo(url):
-    """Descarga el contenido de un archivo desde una URL."""
+# URL del archivo eventos.m3u
+eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
+# URL del archivo peticiones
+peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
+# Nombre del archivo de salida
+output_file = "lista_icastresana.m3u"
+
+def download_file(url):
+    """Descarga el contenido de un archivo desde una URL y lo devuelve como una cadena."""
     try:
         response = requests.get(url)
         response.raise_for_status()
         print(f"Descarga exitosa del archivo desde {url}")
         return response.text
-    except requests.RequestException as e:
-        print(f"Error descargando {url}: {e}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error al descargar el archivo desde {url}: {e}")
         return None
 
-def parse_peticiones(content):
-    """Parsea el contenido del archivo peticiones."""
-    lines = content.split("\n")
+def parse_peticiones(peticiones_content):
+    """Parses the peticiones content and returns a dictionary mapping hash IDs to logo URLs."""
     hash_logo_map = {}
-
-    i = 0
-    while i < len(lines):
-        lines[i] = lines[i].strip()
-
-        if not lines[i] or lines[i].startswith("#"):
-            i += 1
-            continue  # Ignorar líneas vacías o comentarios
-
-        if i + 1 < len(lines):  # Verificar que hay una línea siguiente
+    lines = peticiones_content.splitlines()
+    for i in range(0, len(lines), 2):
+        try:
+            extinf_line = lines[i].strip()
             acestream_line = lines[i + 1].strip()
-            hash_logo_map[lines[i]] = acestream_line
-            i += 2  # Saltar a la siguiente entrada válida
-        else:
-            print(f"Warning: No corresponding acestream link for {lines[i]}")
-            i += 1
-
+            if extinf_line.startswith("#EXTINF") and "acestream://" in acestream_line:
+                logo_url = re.search(r'tvg-logo="([^"]+)"', extinf_line).group(1)
+                hash_id = acestream_line.split("acestream://")[1].strip()
+                hash_logo_map[hash_id] = logo_url
+        except (IndexError, AttributeError) as e:
+            print(f"Error processing lines: {lines[i]} {lines[i + 1]}")
+    print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
-def main():
-    """Función principal del script."""
-    url_eventos = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
-    url_peticiones = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
+def format_eventos(eventos_content, hash_logo_map):
+    """Formats the eventos content by replacing logos based on hash IDs."""
+    formatted_lines = []
+    lines = eventos_content.splitlines()
+    extinf_line = ""
 
-    eventos_content = descargar_archivo(url_eventos)
-    peticiones_content = descargar_archivo(url_peticiones)
+    for line in lines:
+        if line.startswith("#EXTINF"):
+            extinf_line = line
+        elif "acestream://" in line:
+            try:
+                hash_id = line.split("acestream://")[1].strip()
+                logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
+                
+                # Reemplazar o agregar el logo en la línea #EXTINF
+                if extinf_line:
+                    extinf_line = replace_logo(extinf_line, logo_url)
+                    formatted_lines.append(extinf_line)
+                
+                formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
+                extinf_line = ""  # Reset para la siguiente entrada
+            except IndexError:
+                print(f"Error processing line: {line}")
+
+    print(f"Formatted content: {formatted_lines}")
+    return "\n".join(formatted_lines)
+
+def replace_logo(extinf_line, logo_url):
+    """Replaces or inserts the tvg-logo attribute in the #EXTINF line."""
+    if 'tvg-logo="' in extinf_line:
+        # Reemplazar el logo existente
+        extinf_line = re.sub(r'tvg-logo="([^"]+)"', f'tvg-logo="{logo_url}"', extinf_line)
+    else:
+        # Insertar el logo si no existe
+        extinf_line = extinf_line.replace("#EXTINF:", f'#EXTINF:-1 tvg-logo="{logo_url}",', 1)
+
+    return extinf_line
+
+def main():
+    """Main function to execute the script."""
+    eventos_content = download_file(eventos_url)
+    peticiones_content = download_file(peticiones_url)
 
     if eventos_content:
         print("Contenido de eventos.m3u descargado correctamente")
+    else:
+        print("Error al descargar eventos.m3u")
 
     if peticiones_content:
         print("Contenido de peticiones descargado correctamente")
-        hash_logo_map = parse_peticiones(peticiones_content)
-        print("Mapa generado correctamente:", hash_logo_map)
+    else:
+        print("Error al descargar peticiones")
 
-    print("Proceso completado.")
+    if eventos_content and peticiones_content:
+        hash_logo_map = parse_peticiones(peticiones_content)
+        formatted_content = format_eventos(eventos_content, hash_logo_map)
+        with open(output_file, 'w') as file:
+            file.write(formatted_content)
+        print(f"Archivo formateado y guardado como {output_file}")
+    else:
+        print("No se pudo descargar el contenido necesario.")
 
 if __name__ == "__main__":
     main()
