@@ -72,7 +72,7 @@ def format_eventos(eventos_content, hash_logo_map):
                 print(f"Error processing line: {line}")
 
     print(f"Formatted content: {formatted_lines}")
-    return "\n.join(formatted_lines)
+    return "\n".join(formatted_lines)
 
 def replace_logo(extinf_line, logo_url):
     """Replaces or inserts the tvg-logo attribute in the #EXTINF line."""
