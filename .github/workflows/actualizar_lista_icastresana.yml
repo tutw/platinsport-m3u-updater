@@ -26,7 +26,14 @@ jobs:
     - name: Ejecutar el script
       run: python script_lista_icastresana.py
 
+    - name: Verificar cambios en lista_icastresana.m3u
+      id: check_changes
+      run: |
+        git diff --quiet lista_icastresana.m3u
+        echo "CHANGES_FOUND=$?" >> $GITHUB_ENV
+
     - name: Commit y push si hay cambios
+      if: env.CHANGES_FOUND == '1'
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
@@ -34,12 +41,18 @@ jobs:
         # Asegurar que tenemos la última versión del repositorio
         git pull --rebase origin main
         
-        if git diff --quiet; then
-          echo "No hay cambios en lista_icastresana.m3u"
-        else
-          git add lista_icastresana.m3u
-          git commit -m "Actualizar lista_icastresana.m3u con nuevos logos"
-          git push origin main
+        if [ $? -ne 0 ]; then
+          echo "Conflicto al hacer pull. Resolviendo conflictos..."
+          git status
+          exit 1
         fi
+        
+        git add lista_icastresana.m3u
+        git commit -m "Actualizar lista_icastresana.m3u con nuevos logos"
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Notificar si no hay cambios
+      if: env.CHANGES_FOUND == '0'
+      run: echo "No hay cambios en lista_icastresana.m3u"
