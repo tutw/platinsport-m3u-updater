@@ -33,16 +33,16 @@ except ET.ParseError as e:
     print(f"Error al parsear logos_icastresana.xml: {e}")
     exit(1)
 
-# Crear el diccionario {id_acestream: url_logo}
+# Crear el diccionario {id_acestream: url_logo} solo si el logo es válido
 acestream_to_logo = {}
 for logo in logos_root.findall("logo"):
     id_elem = logo.find("id")
     url_elem = logo.find("url")
-    
-    if id_elem is not None and url_elem is not None:
+
+    if id_elem is not None and id_elem.text and url_elem is not None and url_elem.text:
         acestream_id = id_elem.text.strip()
         logo_url = url_elem.text.strip()
-        if acestream_id and logo_url:
+        if acestream_id and logo_url:  # Solo guardamos si hay ID y URL válida
             acestream_to_logo[acestream_id] = logo_url
 
 # Procesar eventos.m3u y reemplazar logos
@@ -65,7 +65,7 @@ while i < len(eventos_content):
             i += 1
             continue
 
-        # Reemplazar el logo si hay coincidencia
+        # Solo reemplazar si el ID tiene logo en el diccionario
         if acestream_id in acestream_to_logo:
             logo_url = acestream_to_logo[acestream_id]
             print(f"Reemplazando logo para {acestream_id} -> {logo_url}")
