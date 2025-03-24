@@ -56,7 +56,7 @@ def process_eventos_m3u(eventos_content, acestream_to_logo):
                 print(f"Reemplazando logo para {acestream_id} -> {logo_url}")
                 parts = line.split(",", 1)
                 if len(parts) > 1:
-                    new_extinf_line = f'{parts[0]} tvg-logo="{logo_url}",{parts[1]}'
+                    new_extinf_line = f'{parts[0].split(" tvg-logo=")[0]} tvg-logo="{logo_url}",{parts[1]}'
                 else:
                     new_extinf_line = line
                 new_eventos_lines.append(new_extinf_line)
