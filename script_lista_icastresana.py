@@ -53,45 +53,50 @@ i = 0
 
 while i < len(lines):
     line = lines[i]
-    # Si la línea es una entrada EXTINF
+    # Detectar líneas EXTINF y la siguiente que contiene el ID
     if line.startswith('#EXTINF:'):
-        # Comprobar que la siguiente línea existe y corresponde al stream
-        if i + 1 < len(lines) and lines[i + 1].startswith('acestream://'):
+        # Verificar que la siguiente línea existe
+        if i + 1 < len(lines):
             extinf_line = line
             stream_line = lines[i + 1]
-            # Extraer el ID de AceStream
-            acestream_id = stream_line.split('acestream://')[1].strip()
+            # Buscar el ID, comprobando ambos formatos
+            if "acestream://" in stream_line:
+                acestream_id = stream_line.split("acestream://")[1].strip()
+            elif "ace/getstream?id=" in stream_line:
+                acestream_id = stream_line.split("ace/getstream?id=")[1].strip()
+            else:
+                # Si no se encuentra el patrón esperado, se agregan las líneas sin modificación
+                new_eventos_lines.append(extinf_line)
+                new_eventos_lines.append(stream_line)
+                i += 2
+                continue
+
+            # Si se encuentra un logo para el ID, se reemplaza la URL en la línea EXTINF
             if acestream_id in acestream_to_logo:
                 logo_url = acestream_to_logo[acestream_id]
-                # Separamos en dos partes por la primera coma y actualizamos la URL del logo
+                # Dividir la línea en dos partes (antes y después de la coma)
                 parts = extinf_line.split(',', 1)
                 if len(parts) > 1:
                     new_extinf_line = f'#EXTINF:-1 tvg-logo="{logo_url}",{parts[1]}'
-                    new_eventos_lines.append(new_extinf_line)
                     print(f"Reemplazado logo para ID {acestream_id} con URL {logo_url}")
                 else:
-                    # En caso de que no haya coma, se deja la línea original
-                    new_eventos_lines.append(extinf_line)
+                    new_extinf_line = extinf_line
                     print(f"Línea EXTINF sin coma para ID {acestream_id}. No se pudo reemplazar el logo.")
+                new_eventos_lines.append(new_extinf_line)
             else:
+                # Si no hay logo en el mapping, se deja la línea original
                 new_eventos_lines.append(extinf_line)
                 print(f"No se encontró logo para ID {acestream_id}")
-            # Reemplazar la línea del stream por la URL local del proxy
+
+            # En ambos casos, se reemplaza la línea del stream por la URL en formato proxy
             new_eventos_lines.append(f'http://127.0.0.1:6878/ace/getstream?id={acestream_id}')
             i += 2
-            continue
         else:
             new_eventos_lines.append(line)
-    # Si la línea es un enlace directo de AceStream sin EXTINF previo (caso atípico)
-    elif line.startswith('acestream://'):
-        acestream_id = line.split('acestream://')[1].strip()
-        if acestream_id in acestream_to_logo:
-            logo_url = acestream_to_logo[acestream_id]
-            print(f"ID {acestream_id} encontrado sin EXTINF. Logo: {logo_url}")
-        new_eventos_lines.append(f'http://127.0.0.1:6878/ace/getstream?id={acestream_id}')
+            i += 1
     else:
         new_eventos_lines.append(line)
-    i += 1
+        i += 1
 
 # Escribir el contenido actualizado en el archivo lista_icastresana.m3u
 with open('lista_icastresana.m3u', 'w', encoding='utf-8') as f:
