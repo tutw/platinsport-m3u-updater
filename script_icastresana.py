@@ -72,4 +72,13 @@ def main():
         print("Error al descargar peticiones")
 
     if eventos_content and peticiones_content:
-        ▋
+        hash_logo_map = parse_peticiones(peticiones_content)
+        formatted_content = format_eventos(eventos_content, hash_logo_map)
+        with open(output_file, 'w') as file:
+            file.write(formatted_content)
+        print(f"Archivo formateado y guardado como {output_file}")
+    else:
+        print("No se pudo descargar el contenido necesario.")
+
+if __name__ == "__main__":
+    main()
