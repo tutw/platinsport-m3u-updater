@@ -3,7 +3,7 @@ import re
 
 # URLs de los archivos
 eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
-socialcreator_url = "https://www.socialcreator.com/xupimarc2/?s=289267&integ_ch=1"
+lista_full_url = "http://tvrextv.mywebcommunity.org/1RFEF/LISTA_1RFEF_FULL.html"
 
 # Nombre del archivo de salida
 output_file = "lista_icastresana.m3u"
@@ -19,10 +19,10 @@ def download_file(url):
         print(f"Error al descargar el archivo desde {url}: {e}")
         return None
 
-def parse_socialcreator(socialcreator_content):
-    """Parses the socialcreator content and returns a dictionary mapping hash IDs to logo URLs."""
+def parse_lista_full(lista_full_content):
+    """Parses the lista_full content and returns a dictionary mapping hash IDs to logo URLs."""
     hash_logo_map = {}
-    lines = socialcreator_content.splitlines()
+    lines = lista_full_content.splitlines()
     for line in lines:
         match = re.search(r'acestream://([a-f0-9]+).*tvg-logo="([^"]+)"', line)
         if match:
@@ -68,15 +68,15 @@ def replace_logo(extinf_line, logo_url):
 def main():
     """Main function to execute the script."""
     eventos_content = download_file(eventos_url)
-    socialcreator_content = download_file(socialcreator_url)
+    lista_full_content = download_file(lista_full_url)
 
-    if not eventos_content or not socialcreator_content:
+    if not eventos_content or not lista_full_content:
         print("No se pudo descargar el contenido necesario.")
         return  
 
     print("Archivos descargados correctamente.")
 
-    hash_logo_map = parse_socialcreator(socialcreator_content)
+    hash_logo_map = parse_lista_full(lista_full_content)
     formatted_content = format_eventos(eventos_content, hash_logo_map)
 
     with open(output_file, 'w') as file:
