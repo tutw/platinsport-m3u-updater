@@ -38,3 +38,13 @@ jobs:
     - name: Run the script
       run: |
         python script_lista_icastresana.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add lista_icastresana.m3u
+        git commit -m "Actualizar lista_icastresana.m3u con nuevos logos"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
