@@ -1,10 +1,11 @@
 import requests
 import re
+import xml.etree.ElementTree as ET
 
-# URL del archivo eventos.m3u
+# URLs de los archivos
 eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
-# URL del archivo peticiones
 peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
+logos_xml_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/logos.xml"
 # Nombre del archivo de salida
 output_file = "lista_icastresana.m3u"
 
@@ -41,7 +42,25 @@ def parse_peticiones(peticiones_content):
     print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
-def format_eventos(eventos_content, hash_logo_map):
+def parse_logos_xml(logos_xml_content):
+    """Parses the logos XML content and returns a dictionary mapping names to logo URLs."""
+    logo_map = {}
+    root = ET.fromstring(logos_xml_content)
+    for logo in root.findall('logo'):
+        name = logo.find('name').text
+        url = logo.find('url').text
+        logo_map[name] = url
+    print(f"Logo map from XML: {logo_map}")
+    return logo_map
+
+def get_logo_url(hash_id, hash_logo_map, logo_map):
+    """Gets the logo URL from hash_logo_map or logo_map."""
+    logo_url = hash_logo_map.get(hash_id)
+    if not logo_url:
+        logo_url = logo_map.get(hash_id)
+    return logo_url or "https://i.ibb.co/5cV48dM/handball.png"
+
+def format_eventos(eventos_content, hash_logo_map, logo_map):
     """Formats the eventos content by replacing logos based on hash IDs."""
     formatted_lines = []
     lines = eventos_content.splitlines()
@@ -53,7 +72,7 @@ def format_eventos(eventos_content, hash_logo_map):
         elif "acestream://" in line:
             try:
                 hash_id = line.split("acestream://")[1].strip()
-                logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
+                logo_url = get_logo_url(hash_id, hash_logo_map, logo_map)
 
                 # Reemplazar o agregar el logo en la línea #EXTINF
                 if extinf_line:
@@ -91,6 +110,7 @@ def main():
     """Main function to execute the script."""
     eventos_content = download_file(eventos_url)
     peticiones_content = download_file(peticiones_url)
+    logos_xml_content = download_file(logos_xml_url)
 
     if eventos_content:
         print("Contenido de eventos.m3u descargado correctamente")
@@ -102,9 +122,15 @@ def main():
     else:
         print("Error al descargar peticiones")
 
-    if eventos_content and peticiones_content:
+    if logos_xml_content:
+        print("Contenido de logos.xml descargado correctamente")
+    else:
+        print("Error al descargar logos.xml")
+
+    if eventos_content and peticiones_content and logos_xml_content:
         hash_logo_map = parse_peticiones(peticiones_content)
-        formatted_content = format_eventos(eventos_content, hash_logo_map)
+        logo_map = parse_logos_xml(logos_xml_content)
+        formatted_content = format_eventos(eventos_content, hash_logo_map, logo_map)
         with open(output_file, 'w') as file:
             file.write(formatted_content)
         print(f"Archivo formateado y guardado como {output_file}")
