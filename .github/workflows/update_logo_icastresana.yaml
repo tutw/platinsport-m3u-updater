@@ -1,24 +1,36 @@
-name: Auto Update Logo Icastresana
+name: Update logos_icastresana.xml
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # Ejecutar cada 1 hora
-  workflow_dispatch:  # Permitir ejecución manual
+  push:
+    branches:
+      - main
 
 jobs:
-  update_script:
+  update_logos:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: pip install requests
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
 
-      - name: Run script
-        run: python script_logo_icastresana.py
+    - name: Install dependencies
+      run: |
+        pip install requests
+
+    - name: Run script
+      run: python script_logo_icastresana.py
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add logos_icastresana.xml
+        git commit -m 'Update logos_icastresana.xml'
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
