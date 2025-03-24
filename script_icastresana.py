@@ -26,9 +26,12 @@ def parse_peticiones(peticiones_content):
         if line.strip():
             parts = line.split(',')
             if len(parts) == 2 and "acestream://" in parts[1]:
-                logo_url = parts[0].strip()
-                hash_id = parts[1].split("acestream://")[1].strip()
-                hash_logo_map[hash_id] = logo_url
+                try:
+                    logo_url = parts[0].strip()
+                    hash_id = parts[1].split("acestream://")[1].strip()
+                    hash_logo_map[hash_id] = logo_url
+                except IndexError:
+                    print(f"Error processing line: {line}")
     print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
@@ -41,14 +44,17 @@ def format_eventos(eventos_content, hash_logo_map):
         if line.startswith("#EXTINF"):
             extinf_line = line
         elif "acestream://" in line:
-            hash_id = line.split("acestream://")[1].strip()
-            logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
-            # Replace any existing logo in the #EXTINF line
-            if extinf_line:
-                extinf_line = replace_logo(extinf_line, logo_url)
-                formatted_lines.append(extinf_line)
-            formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
-            extinf_line = ""  # Reset extinf_line for the next entry
+            try:
+                hash_id = line.split("acestream://")[1].strip()
+                logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
+                # Replace any existing logo in the #EXTINF line
+                if extinf_line:
+                    extinf_line = replace_logo(extinf_line, logo_url)
+                    formatted_lines.append(extinf_line)
+                formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
+                extinf_line = ""  # Reset extinf_line for the next entry
+            except IndexError:
+                print(f"Error processing line: {line}")
     print(f"Formatted content: {formatted_lines}")
     return "\n".join(formatted_lines)
 
