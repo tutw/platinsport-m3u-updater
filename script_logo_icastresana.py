@@ -26,9 +26,12 @@ def update_xml(data):
         url_elem.text = url_logo
 
     tree = ElementTree(root)
-    with open(XML_FILE, "wb") as fh:
-        tree.write(fh)
-        print(f"Archivo {XML_FILE} actualizado correctamente.")  # Mensaje de depuración
+    try:
+        with open(XML_FILE, "wb") as fh:
+            tree.write(fh)
+            print(f"Archivo {XML_FILE} actualizado correctamente.")  # Mensaje de depuración
+    except Exception as e:
+        print(f"Error al escribir en el archivo {XML_FILE}: {e}")
 
 def main():
     data = scrape_url()
