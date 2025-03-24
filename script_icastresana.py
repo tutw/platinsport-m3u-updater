@@ -24,7 +24,7 @@ def parse_peticiones(peticiones_content):
         if line.strip():
             parts = line.split(',')
             if len(parts) == 2:
-                hash_logo_map[parts[0].strip()] = parts[1].strip()
+                hash_logo_map[parts[1].strip()] = parts[0].strip()
     print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
