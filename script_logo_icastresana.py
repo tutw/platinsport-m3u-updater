@@ -46,8 +46,18 @@ def update_logos():
             ET.SubElement(logo_elem, "url").text = url_val
 
         tree = ET.ElementTree(root)
-        tree.write("logos_icastresana.xml", encoding="utf-8", xml_declaration=True)
-        print("Archivo 'logos_icastresana.xml' actualizado con éxito.")
+        abs_path = os.path.abspath("logos_icastresana.xml")
+        print(f"Actualizando archivo en: {abs_path}")
+        try:
+            with open(abs_path, "wb") as fh:
+                tree.write(fh, encoding="utf-8", xml_declaration=True)
+                print(f"Archivo 'logos_icastresana.xml' actualizado con éxito.")
+        except Exception as e:
+            print(f"Error al escribir en el archivo {abs_path}: {e}")
+        
+        # Imprimir el contenido del archivo XML para verificación
+        ET.dump(root)
+
     except Exception as e:
         print("Error al actualizar logos:", e)
 
