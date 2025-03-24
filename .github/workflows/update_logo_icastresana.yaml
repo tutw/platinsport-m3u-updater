@@ -33,7 +33,7 @@ jobs:
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git add logos_icastresana.xml
-        git commit -m 'Update logos_icastresana.xml'
+        git commit -m 'Update logos_icastresana.xml' || git commit --allow-empty -m 'Empty commit to trigger workflow'
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
