@@ -7,6 +7,7 @@ from difflib import get_close_matches
 eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
 peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
 logos_xml_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/logos.xml"
+socialcreator_url = "https://www.socialcreator.com/xupimarc2/?s=289267&integ_ch=1"
 # Nombre del archivo de salida
 output_file = "lista_icastresana.m3u"
 
@@ -54,6 +55,19 @@ def parse_logos_xml(logos_xml_content):
     print(f"Logo map from XML: {logo_map}")
     return logo_map
 
+def parse_socialcreator(socialcreator_content):
+    """Parses the socialcreator content and returns a dictionary mapping hash IDs to logo URLs."""
+    hash_logo_map = {}
+    lines = socialcreator_content.splitlines()
+    for line in lines:
+        match = re.search(r'acestream://([a-f0-9]+).*tvg-logo="([^"]+)"', line)
+        if match:
+            hash_id = match.group(1)
+            logo_url = match.group(2)
+            hash_logo_map[hash_id] = logo_url
+    print(f"Hash logo map from socialcreator: {hash_logo_map}")
+    return hash_logo_map
+
 def normalizar_nombre(nombre):
     """Normaliza el nombre eliminando espacios adicionales y convirtiendo a minúsculas."""
     return re.sub(r'\s+', ' ', nombre).strip().lower()
@@ -94,16 +108,18 @@ def buscar_logo_url(nombre_canal):
         return nombres_logos[closest_matches[0]]
     return None
 
-def get_logo_url(hash_id, hash_logo_map, logo_map):
-    """Gets the logo URL from hash_logo_map or logo_map."""
+def get_logo_url(hash_id, hash_logo_map, logo_map, socialcreator_map):
+    """Gets the logo URL from hash_logo_map, logo_map, or socialcreator_map."""
     logo_url = hash_logo_map.get(hash_id)
+    if not logo_url:
+        logo_url = socialcreator_map.get(hash_id)
     if not logo_url:
         logo_url = buscar_logo_en_archive(hash_id, logo_map)
     if not logo_url:
         logo_url = buscar_logo_url(hash_id)
     return logo_url or "https://i.ibb.co/5cV48dM/handball.png"
 
-def format_eventos(eventos_content, hash_logo_map, logo_map):
+def format_eventos(eventos_content, hash_logo_map, logo_map, socialcreator_map):
     """Formats the eventos content by replacing logos based on hash IDs."""
     formatted_lines = []
     lines = eventos_content.splitlines()
@@ -115,7 +131,7 @@ def format_eventos(eventos_content, hash_logo_map, logo_map):
         elif "acestream://" in line:
             try:
                 hash_id = line.split("acestream://")[1].strip()
-                logo_url = get_logo_url(hash_id, hash_logo_map, logo_map)
+                logo_url = get_logo_url(hash_id, hash_logo_map, logo_map, socialcreator_map)
 
                 # Reemplazar o agregar el logo en la línea #EXTINF
                 if extinf_line:
@@ -154,6 +170,7 @@ def main():
     eventos_content = download_file(eventos_url)
     peticiones_content = download_file(peticiones_url)
     logos_xml_content = download_file(logos_xml_url)
+    socialcreator_content = download_file(socialcreator_url)
 
     if eventos_content:
         print("Contenido de eventos.m3u descargado correctamente")
@@ -170,10 +187,16 @@ def main():
     else:
         print("Error al descargar logos.xml")
 
-    if eventos_content and peticiones_content and logos_xml_content:
+    if socialcreator_content:
+        print("Contenido de socialcreator descargado correctamente")
+    else:
+        print("Error al descargar socialcreator")
+
+    if eventos_content and peticiones_content and logos_xml_content and socialcreator_content:
         hash_logo_map = parse_peticiones(peticiones_content)
         logo_map = parse_logos_xml(logos_xml_content)
-        formatted_content = format_eventos(eventos_content, hash_logo_map, logo_map)
+        socialcreator_map = parse_socialcreator(socialcreator_content)
+        formatted_content = format_eventos(eventos_content, hash_logo_map, logo_map, socialcreator_map)
         with open(output_file, 'w') as file:
             file.write(formatted_content)
         print(f"Archivo formateado y guardado como {output_file}")
