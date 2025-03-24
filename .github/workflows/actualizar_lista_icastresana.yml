@@ -5,6 +5,18 @@ on:
     - cron: '0 * * * *'  # Se ejecuta cada hora
   workflow_dispatch:  # Permite activación manual
 
+permissions:
+  contents: write  # Permite escribir en el repositorio
+  actions: read    # Permite leer las acciones
+  checks: write    # Permite escribir los checks
+  deployments: write  # Permite escribir los deployments
+  issues: write    # Permite escribir issues
+  packages: write  # Permite escribir paquetes
+  pull-requests: write  # Permite escribir pull requests
+  repository-projects: write  # Permite escribir proyectos de repositorio
+  security-events: write  # Permite escribir eventos de seguridad
+  statuses: write  # Permite escribir statuses
+
 jobs:
   update_script:
     runs-on: ubuntu-latest
