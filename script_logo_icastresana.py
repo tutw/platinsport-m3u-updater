@@ -8,6 +8,21 @@ import sys
 # Expresión regular para extraer el valor del atributo tvg-logo en la línea EXTINF
 TVG_LOGO_REGEX = re.compile(r'tvg-logo="([^"]*)"')
 
+def indent(elem, level=0):
+    i = "\n" + level * "  "
+    if len(elem):
+        if not elem.text or not elem.text.strip():
+            elem.text = i + "  "
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+        for elem in elem:
+            indent(elem, level + 1)
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+    else:
+        if level and (not elem.tail or not elem.tail.strip()):
+            elem.tail = i
+
 def update_logos():
     peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
     try:
@@ -45,6 +60,7 @@ def update_logos():
             ET.SubElement(logo_elem, "id").text = id_val
             ET.SubElement(logo_elem, "url").text = url_val
 
+        indent(root)
         tree = ET.ElementTree(root)
         abs_path = os.path.abspath("logos_icastresana.xml")
         print(f"Actualizando archivo en: {abs_path}")
