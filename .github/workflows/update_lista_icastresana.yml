@@ -23,3 +23,13 @@ jobs:
 
     - name: Run script
       run: python script_icastresana.py
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        git add lista_icastresana.m3u
+        git commit -m 'Update lista_icastresana.m3u'
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
