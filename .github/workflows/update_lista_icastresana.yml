@@ -1,9 +1,9 @@
-name: Run Script
+name: Actualizar Lista Icastresana
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 * * * *'  # Se ejecuta cada hora
+  workflow_dispatch:  # Permite la ejecución manual desde la pestaña Actions
 
 jobs:
   run-script:
