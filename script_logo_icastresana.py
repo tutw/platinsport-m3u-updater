@@ -10,7 +10,8 @@ def scrape_url():
     lines = response.text.strip().split('\n')
     
     if len(lines) % 2 != 0:
-        raise ValueError("El número de líneas en la respuesta no es par, lo cual es necesario para formar pares de id y URL.")
+        print("Advertencia: El número de líneas en la respuesta no es par, lo cual es necesario para formar pares de id y URL.")
+        lines = lines[:-1]  # Eliminar la última línea para hacer el número de líneas par
     
     return [(lines[i], lines[i + 1]) for i in range(0, len(lines), 2)]
 
