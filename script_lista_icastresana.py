@@ -29,14 +29,22 @@ for logo in logos_root.findall('logo'):
 # Replace logos in eventos.m3u content
 new_eventos_lines = []
 for line in eventos_content.splitlines():
+    if line.startswith('#EXTINF:'):
+        new_eventos_lines.append(line)
+        continue
     if line.startswith('acestream://'):
-        acestream_id = line.split('acestream://')[1]
+        acestream_id = line.split('acestream://')[1].strip()
+        # Extract original logo from the previous line if available
+        previous_line = new_eventos_lines[-1]
+        original_logo = None
+        if 'tvg-logo' in previous_line:
+            original_logo = previous_line.split('tvg-logo="')[1].split('"')[0]
         if acestream_id in acestream_to_logo:
             logo_url = acestream_to_logo[acestream_id]
-            new_eventos_lines.append(f'#EXTINF:-1 tvg-logo="{logo_url}", {line}')
-        else:
-            # If no logo is found, use the original line
-            new_eventos_lines.append(line)
+            new_eventos_lines[-1] = f'#EXTINF:-1 tvg-logo="{logo_url}",' + previous_line.split(',')[1]
+        elif original_logo:
+            new_eventos_lines[-1] = f'#EXTINF:-1 tvg-logo="{original_logo}",' + previous_line.split(',')[1]
+        new_eventos_lines.append(line)
     else:
         new_eventos_lines.append(line)
 
