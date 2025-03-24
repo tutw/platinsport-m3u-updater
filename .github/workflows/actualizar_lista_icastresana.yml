@@ -29,11 +29,10 @@ jobs:
     - name: Verificar cambios en lista_icastresana.m3u
       id: check_changes
       run: |
-        git diff --quiet lista_icastresana.m3u
-        echo "CHANGES_FOUND=$?" >> $GITHUB_ENV
+        git diff --quiet lista_icastresana.m3u || echo "CHANGES_FOUND=1" >> $GITHUB_ENV
 
     - name: Commit y push si hay cambios
-      if: env.CHANGES_FOUND != '0'
+      if: env.CHANGES_FOUND == '1'
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
@@ -54,5 +53,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Notificar si no hay cambios
-      if: env.CHANGES_FOUND == '0'
+      if: env.CHANGES_FOUND != '1'
       run: echo "No hay cambios en lista_icastresana.m3u"
