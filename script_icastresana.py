@@ -1,9 +1,9 @@
 import requests
 
 # URL del archivo eventos.m3u
-eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
+eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/main/eventos.m3u"
 # URL del archivo peticiones
-peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
+peticiones_url = "https://raw.githubusercontent.com/Icastresana/lista1/main/peticiones"
 # Nombre del archivo de salida
 output_file = "lista_icastresana.m3u"
 
@@ -31,7 +31,7 @@ def parse_peticiones(peticiones_content):
 def format_eventos(eventos_content, hash_logo_map):
     formatted_lines = []
     lines = eventos_content.splitlines()
-    for line in lines:
+    for i, line in enumerate(lines):
         if line.startswith("#EXTINF"):
             extinf_line = line
         elif "acestream://" in line:
