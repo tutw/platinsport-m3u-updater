@@ -2,8 +2,8 @@ name: Actualizar Lista Icastresana
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Runs every hour
-  workflow_dispatch:  # Allows manual triggering
+    - cron: '0 * * * *'  # Se ejecuta cada hora
+  workflow_dispatch:  # Permite activación manual
 
 jobs:
   update_script:
@@ -21,7 +21,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install requests  # Ensure the requests library is installed
+        pip install requests  # Asegúrate de que la librería requests esté instalada
 
     - name: Run the script
       run: |
