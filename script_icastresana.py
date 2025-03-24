@@ -25,7 +25,7 @@ def parse_peticiones(peticiones_content):
     for line in lines:
         if line.strip():
             parts = line.split(',')
-            if len(parts) == 2:
+            if len(parts) == 2 and "acestream://" in parts[1]:
                 logo_url = parts[0].strip()
                 hash_id = parts[1].split("acestream://")[1].strip()
                 hash_logo_map[hash_id] = logo_url
