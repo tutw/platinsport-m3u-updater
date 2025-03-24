@@ -13,7 +13,6 @@ def download_file(url):
     try:
         response = requests.get(url)
         response.raise_for_status()
-        print(f"Descarga exitosa del archivo desde {url}")
         return response.text
     except requests.exceptions.RequestException as e:
         print(f"Error al descargar el archivo desde {url}: {e}")
@@ -73,8 +72,6 @@ def main():
     if not eventos_content or not lista_full_content:
         print("No se pudo descargar el contenido necesario.")
         return  
-
-    print("Archivos descargados correctamente.")
 
     hash_logo_map = parse_lista_full(lista_full_content)
     formatted_content = format_eventos(eventos_content, hash_logo_map)
