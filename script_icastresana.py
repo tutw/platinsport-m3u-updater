@@ -38,8 +38,7 @@ def format_eventos(eventos_content, hash_logo_map):
 
     for line in lines:
         if line.startswith("#EXTINF"):
-            extinf_line = line  
-
+            extinf_line = line
         elif "acestream://" in line:
             try:
                 hash_id = line.split("acestream://")[1].strip()
@@ -50,7 +49,7 @@ def format_eventos(eventos_content, hash_logo_map):
                     formatted_lines.append(extinf_line)
                     extinf_line = None  
 
-                formatted_lines.append(line)
+                formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
 
             except IndexError:
                 print(f"Error processing line: {line}")
