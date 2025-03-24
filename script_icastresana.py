@@ -24,15 +24,20 @@ def parse_peticiones(peticiones_content):
     hash_logo_map = {}
     lines = peticiones_content.splitlines()
     for i in range(0, len(lines), 2):
-        try:
-            extinf_line = lines[i].strip()
-            acestream_line = lines[i + 1].strip()
-            if extinf_line.startswith("#EXTINF") and "acestream://" in acestream_line:
-                logo_url = re.search(r'tvg-logo="([^"]+)"', extinf_line).group(1)
-                hash_id = acestream_line.split("acestream://")[1].strip()
-                hash_logo_map[hash_id] = logo_url
-        except (IndexError, AttributeError) as e:
-            print(f"Error processing lines: {lines[i]} {lines[i + 1]}")
+        if i + 1 < len(lines):
+            try:
+                extinf_line = lines[i].strip()
+                acestream_line = lines[i + 1].strip()
+                if extinf_line.startswith("#EXTINF") and "acestream://" in acestream_line:
+                    logo_url_match = re.search(r'tvg-logo="([^"]+)"', extinf_line)
+                    if logo_url_match:
+                        logo_url = logo_url_match.group(1)
+                        hash_id = acestream_line.split("acestream://")[1].strip()
+                        hash_logo_map[hash_id] = logo_url
+            except (AttributeError, IndexError) as e:
+                print(f"Error processing lines: {lines[i] if i < len(lines) else ''} {lines[i + 1] if i + 1 < len(lines) else ''} - {e}")
+        else:
+            print(f"Advertencia: Línea #EXTINF sin su correspondiente línea de enlace en peticiones. Línea: {lines[i]}")
     print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
@@ -49,12 +54,12 @@ def format_eventos(eventos_content, hash_logo_map):
             try:
                 hash_id = line.split("acestream://")[1].strip()
                 logo_url = hash_logo_map.get(hash_id, "https://i.ibb.co/5cV48dM/handball.png")
-                
+
                 # Reemplazar o agregar el logo en la línea #EXTINF
                 if extinf_line:
                     extinf_line = replace_logo(extinf_line, logo_url)
                     formatted_lines.append(extinf_line)
-                
+
                 formatted_lines.append(f"http://127.0.0.1:6878/ace/getstream?id={hash_id}")
                 extinf_line = ""  # Reset para la siguiente entrada
             except IndexError:
@@ -70,7 +75,15 @@ def replace_logo(extinf_line, logo_url):
         extinf_line = re.sub(r'tvg-logo="([^"]+)"', f'tvg-logo="{logo_url}"', extinf_line)
     else:
         # Insertar el logo si no existe
-        extinf_line = extinf_line.replace("#EXTINF:", f'#EXTINF:-1 tvg-logo="{logo_url}",', 1)
+        match = re.match(r'#EXTINF:(-?\d+)\s*(.*)', extinf_line)
+        if match:
+            duration = match.group(1)
+            rest_of_line = match.group(2).strip()
+            new_extinf = f'#EXTINF:{duration} tvg-logo="{logo_url}",{rest_of_line}'
+            extinf_line = new_extinf
+        else:
+            # Fallback if the EXTINF line doesn't match the expected pattern
+            extinf_line = extinf_line.replace("#EXTINF:", f'#EXTINF:-1 tvg-logo="{logo_url}",', 1)
 
     return extinf_line
 
