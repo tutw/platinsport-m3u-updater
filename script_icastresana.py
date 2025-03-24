@@ -24,13 +24,15 @@ def parse_peticiones(peticiones_content):
     hash_logo_map = {}
     lines = peticiones_content.splitlines()
     for i in range(0, len(lines), 2):
-        if lines[i].strip() and lines[i+1].strip():
-            try:
-                logo_url = re.search(r'tvg-logo="([^"]+)"', lines[i]).group(1)
-                hash_id = lines[i+1].split("acestream://")[1].strip()
+        try:
+            extinf_line = lines[i].strip()
+            acestream_line = lines[i + 1].strip()
+            if extinf_line.startswith("#EXTINF") and "acestream://" in acestream_line:
+                logo_url = re.search(r'tvg-logo="([^"]+)"', extinf_line).group(1)
+                hash_id = acestream_line.split("acestream://")[1].strip()
                 hash_logo_map[hash_id] = logo_url
-            except (IndexError, AttributeError):
-                print(f"Error processing lines: {lines[i]} {lines[i+1]}")
+        except (IndexError, AttributeError) as e:
+            print(f"Error processing lines: {lines[i]} {lines[i + 1]}")
     print(f"Hash logo map: {hash_logo_map}")
     return hash_logo_map
 
