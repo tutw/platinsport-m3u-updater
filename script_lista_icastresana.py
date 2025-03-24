@@ -19,9 +19,12 @@ logos_root = ET.fromstring(logos_content)
 # Create a dictionary to map AceStream IDs to logos
 acestream_to_logo = {}
 for logo in logos_root.findall('logo'):
-    acestream_id = logo.find('acestream_id').text
-    logo_url = logo.find('url').text
-    acestream_to_logo[acestream_id] = logo_url
+    acestream_id_elem = logo.find('acestream_id')
+    logo_url_elem = logo.find('url')
+    if acestream_id_elem is not None and logo_url_elem is not None:
+        acestream_id = acestream_id_elem.text
+        logo_url = logo_url_elem.text
+        acestream_to_logo[acestream_id] = logo_url
 
 # Replace logos in eventos.m3u content
 new_eventos_lines = []
