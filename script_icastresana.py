@@ -13,7 +13,7 @@ def download_file(url):
         response.raise_for_status()
         return response.text
     except requests.exceptions.RequestException as e:
-        print(f"Error al descargar el archivo: {e}")
+        print(f"Error al descargar el archivo desde {url}: {e}")
         return None
 
 def parse_peticiones(peticiones_content):
@@ -42,6 +42,16 @@ def format_eventos(eventos_content, hash_logo_map):
 def main():
     eventos_content = download_file(eventos_url)
     peticiones_content = download_file(peticiones_url)
+
+    if eventos_content:
+        print("Contenido de eventos.m3u descargado correctamente")
+    else:
+        print("Error al descargar eventos.m3u")
+
+    if peticiones_content:
+        print("Contenido de peticiones descargado correctamente")
+    else:
+        print("Error al descargar peticiones")
 
     if eventos_content and peticiones_content:
         hash_logo_map = parse_peticiones(peticiones_content)
