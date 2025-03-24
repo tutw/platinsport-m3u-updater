@@ -30,6 +30,10 @@ jobs:
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
+        
+        # Asegurar que tenemos la última versión del repositorio
+        git pull --rebase origin main
+        
         if git diff --quiet; then
           echo "No hay cambios en lista_icastresana.m3u"
         else
