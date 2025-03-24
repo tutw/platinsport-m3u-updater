@@ -35,6 +35,7 @@ for line in eventos_content.splitlines():
             logo_url = acestream_to_logo[acestream_id]
             new_eventos_lines.append(f'#EXTINF:-1 tvg-logo="{logo_url}", {line}')
         else:
+            # If no logo is found, use the original line
             new_eventos_lines.append(line)
     else:
         new_eventos_lines.append(line)
