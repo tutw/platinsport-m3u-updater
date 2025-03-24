@@ -1,6 +1,7 @@
 import requests
 import re
 import xml.etree.ElementTree as ET
+from difflib import get_close_matches
 
 # URLs de los archivos
 eventos_url = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/eventos.m3u"
@@ -53,11 +54,53 @@ def parse_logos_xml(logos_xml_content):
     print(f"Logo map from XML: {logo_map}")
     return logo_map
 
+def normalizar_nombre(nombre):
+    """Normaliza el nombre eliminando espacios adicionales y convirtiendo a minúsculas."""
+    return re.sub(r'\s+', ' ', nombre).strip().lower()
+
+def buscar_logo_en_archive(nombre_canal, logo_map):
+    """Busca el logo en el archivo logos.xml."""
+    nombre_canal_normalizado = normalizar_nombre(nombre_canal)
+    closest_matches = get_close_matches(nombre_canal_normalizado, logo_map.keys(), n=3, cutoff=0.6)
+    if closest_matches:
+        for match in closest_matches:
+            if nombre_canal_normalizado in match:
+                return logo_map[match]
+        return logo_map[closest_matches[0]]
+    return None
+
+def buscar_logo_url(nombre_canal):
+    """Busca el logo en la URL de peticiones."""
+    response = requests.get(peticiones_url)
+    if response.status_code != 200:
+        print("Error al acceder a la URL de logos")
+        return None
+    
+    logos_data = response.text.split('\n')
+    nombre_canal_normalizado = normalizar_nombre(nombre_canal)
+    nombres_logos = {}
+    for line in logos_data:
+        match = re.search(r'tvg-logo="([^"]+)" .*?tvg-id="[^"]+", ([^,]+)', line)
+        if match:
+            logo_url = match.group(1)
+            canal_name = match.group(2).strip().lower()
+            nombres_logos[canal_name] = logo_url
+    
+    closest_matches = get_close_matches(nombre_canal_normalizado, nombres_logos.keys(), n=3, cutoff=0.6)
+    if closest_matches:
+        for match in closest_matches:
+            if nombre_canal_normalizado in match:
+                return nombres_logos[match]
+        return nombres_logos[closest_matches[0]]
+    return None
+
 def get_logo_url(hash_id, hash_logo_map, logo_map):
     """Gets the logo URL from hash_logo_map or logo_map."""
     logo_url = hash_logo_map.get(hash_id)
     if not logo_url:
-        logo_url = logo_map.get(hash_id)
+        logo_url = buscar_logo_en_archive(hash_id, logo_map)
+    if not logo_url:
+        logo_url = buscar_logo_url(hash_id)
     return logo_url or "https://i.ibb.co/5cV48dM/handball.png"
 
 def format_eventos(eventos_content, hash_logo_map, logo_map):
