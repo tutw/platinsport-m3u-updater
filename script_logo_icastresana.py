@@ -1,5 +1,6 @@
 import requests
 from xml.etree.ElementTree import Element, SubElement, tostring, ElementTree
+import os
 
 URL_SCRAPING = "https://raw.githubusercontent.com/Icastresana/lista1/refs/heads/main/peticiones"
 XML_FILE = "logos_icastresana.xml"
@@ -26,12 +27,13 @@ def update_xml(data):
         url_elem.text = url_logo
 
     tree = ElementTree(root)
+    abs_path = os.path.abspath(XML_FILE)
     try:
         with open(XML_FILE, "wb") as fh:
-            tree.write(fh)
-            print(f"Archivo {XML_FILE} actualizado correctamente.")  # Mensaje de depuración
+            tree.write(fh, encoding='utf-8', xml_declaration=True)
+            print(f"Archivo {abs_path} actualizado correctamente.")  # Mensaje de depuración
     except Exception as e:
-        print(f"Error al escribir en el archivo {XML_FILE}: {e}")
+        print(f"Error al escribir en el archivo {abs_path}: {e}")
 
 def main():
     data = scrape_url()
