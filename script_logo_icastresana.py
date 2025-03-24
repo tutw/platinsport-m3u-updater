@@ -8,6 +8,10 @@ def scrape_url():
     response = requests.get(URL_SCRAPING)
     response.raise_for_status()
     lines = response.text.strip().split('\n')
+    
+    if len(lines) % 2 != 0:
+        raise ValueError("El número de líneas en la respuesta no es par, lo cual es necesario para formar pares de id y URL.")
+    
     return [(lines[i], lines[i + 1]) for i in range(0, len(lines), 2)]
 
 def update_xml(data):
