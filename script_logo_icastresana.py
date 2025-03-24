@@ -65,9 +65,8 @@ def update_logos():
         abs_path = os.path.abspath("logos_icastresana.xml")
         print(f"Actualizando archivo en: {abs_path}")
         try:
-            with open(abs_path, "wb") as fh:
-                tree.write(fh, encoding="utf-8", xml_declaration=True)
-                print(f"Archivo 'logos_icastresana.xml' actualizado con éxito.")
+            tree.write(abs_path, encoding="utf-8", xml_declaration=True)
+            print(f"Archivo 'logos_icastresana.xml' actualizado con éxito.")
         except Exception as e:
             print(f"Error al escribir en el archivo {abs_path}: {e}")
         
