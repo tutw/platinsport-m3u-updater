@@ -1,0 +1,35 @@
+name: Actualizar Lista Scraper Acestream API
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Ejecutar cada 1 hora
+  workflow_dispatch:  # Permitir ejecución manual
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del repositorio
+      uses: actions/checkout@v2
+
+    - name: Configurar Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Instalar dependencias
+      run: pip install requests
+
+    - name: Ejecutar script de scraping
+      run: python script_scraper_acestream_api.py
+
+    - name: Subir archivo M3U
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add lista_scraper_acestream_api.m3u
+        git commit -m "Actualizar lista M3U"
+        git push
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
