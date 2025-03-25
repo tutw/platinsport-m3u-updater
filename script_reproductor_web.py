@@ -242,6 +242,7 @@ for line in page_content.splitlines():
     if match:
         date, time, league, teams, channels = match.groups()
         channel_list = channels.split(') (')
+        channel_list = [channel.replace('(', '').replace(')', '') for channel in channel_list]  # Limpiar paréntesis
         for channel in channel_list:
             channel_number = re.search(r'\d+', channel).group()
             channel_name = channel_names.get(channel_number, f'Channel {channel_number}')
@@ -271,7 +272,7 @@ def indent(elem, level=0):
         for subelem in elem:
             indent(subelem, level+1)
         if not subelem.tail or not elem.tail.strip():
-            elem.tail = i
+            subelem.tail = i
     else:
         if level and (not elem.tail or not elem.tail.strip()):
             elem.tail = i
