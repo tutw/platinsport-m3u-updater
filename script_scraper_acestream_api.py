@@ -19,8 +19,8 @@ def scrape_acestream_api():
                 # Asegurarse de que cada item tiene los campos 'name' y 'infohash'
                 name = item.get('name', 'Unknown')
                 infohash = item.get('infohash', '')
-                m3u_content += f"#EXTINF:-1,{name} - {infohash[:40]}\n"
-                m3u_content += f"http://127.0.0.1:6878/ace/manifest.m3u8?id={infohash}\n"
+                m3u_content += f"#EXTINF:-1,{name}\n"
+                m3u_content += f"http://127.0.0.1:6878/ace/getstream?id={infohash}\n"
             
             # Guardar la lista en un archivo
             with open("lista_scraper_acestream_api.m3u", "w") as m3u_file:
