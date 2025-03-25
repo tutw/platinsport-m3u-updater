@@ -1,6 +1,6 @@
 import requests
 import xml.etree.ElementTree as ET
-from difflib import get_close_matches
+from fuzzywuzzy import process
 from datetime import datetime
 
 # URL de la API
@@ -21,9 +21,9 @@ def get_logos():
         return {}
 
 def find_best_match(name, logos):
-    matches = get_close_matches(name, logos.keys(), n=1, cutoff=0.6)
-    if matches:
-        return logos[matches[0]]
+    match = process.extractOne(name, logos.keys(), score_cutoff=60)
+    if match:
+        return logos[match[0]]
     return ''
 
 def scrape_acestream_api():
