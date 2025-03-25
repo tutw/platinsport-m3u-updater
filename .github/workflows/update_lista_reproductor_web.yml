@@ -13,6 +13,16 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install selenium webdriver-manager
+
     - name: Set up Git
       run: |
         git config --local user.email "action@github.com"
@@ -21,7 +31,7 @@ jobs:
     - name: Pull latest changes
       run: git pull origin main
 
-    - name: Run your script or command to update the files
+    - name: Run your script to update the files
       run: python script_reproductor_web.py
 
     - name: Commit and push changes
