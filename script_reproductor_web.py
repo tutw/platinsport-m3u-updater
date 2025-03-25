@@ -270,8 +270,8 @@ def indent(elem, level=0):
             elem.tail = i
         for subelem in elem:
             indent(subelem, level+1)
-        if not subelem.tail or not subelem.tail.strip():
-            subelem.tail = i
+        if not subelem.tail or not elem.tail.strip():
+            elem.tail = i
     else:
         if level and (not elem.tail or not elem.tail.strip()):
             elem.tail = i
