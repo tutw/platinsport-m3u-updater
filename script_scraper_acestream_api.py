@@ -1,6 +1,6 @@
 import requests
 import xml.etree.ElementTree as ET
-from fuzzywuzzy import process
+from fuzzywuzzy import fuzz, process
 from datetime import datetime
 
 # URL de la API
@@ -21,7 +21,9 @@ def get_logos():
         return {}
 
 def find_best_match(name, logos):
-    match = process.extractOne(name, logos.keys(), score_cutoff=60)
+    match = process.extractOne(name, logos.keys(), scorer=fuzz.token_sort_ratio, score_cutoff=80)
+    if not match:
+        match = process.extractOne(name, logos.keys(), scorer=fuzz.partial_ratio, score_cutoff=75)
     if match:
         return logos[match[0]]
     return ''
