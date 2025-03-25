@@ -2,7 +2,6 @@ import re
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import xml.etree.ElementTree as ET
@@ -235,23 +234,22 @@ driver.quit()
 
 # Analizar el contenido con regex
 events = []  # Lista donde almacenaremos los eventos
-event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)  \((.+)\)')
+event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s+\(([^)]+)\)')
 
 for line in page_content.splitlines():
     match = event_pattern.search(line)
     if match:
         date, time, league, teams, channels = match.groups()
-        channel_list = re.findall(r'\((CH\d+)', channels)  # Encuentra todos los canales en el formato (CHxx)
+        channel_list = re.findall(r'CH(\d+)', channels)  # Encuentra todos los canales en el formato CHxx
         for channel in channel_list:
-            channel_number = re.search(r'\d+', channel).group()
-            channel_name = channel_names.get(channel_number, f'Channel {channel_number}')
+            channel_name = channel_names.get(channel, f'Channel {channel}')
             events.append({
                 'datetime': f"{date} {time}",
                 'league': league,
                 'teams': teams,
                 'channel_name': channel_name,
-                'channel_id': channel_number,
-                'url': f'{URL}/player/1/{channel_number}'
+                'channel_id': channel,
+                'url': f'{URL}/player/1/{channel}'
             })
 
 # Verificar los datos obtenidos
