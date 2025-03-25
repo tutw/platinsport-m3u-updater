@@ -1,37 +1,34 @@
-name: Update Lista Reproductor Web
+name: Update lista_reproductor_web.xml and lista_reproductor_web.m3u
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # Ejecutar cada hora
-  workflow_dispatch:  # Permite ejecución manual
+  push:
+    branches:
+      - main
 
 jobs:
-  run-scraping:
+  update-files:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.x'
-
-    - name: Install dependencies
+    - name: Set up Git
       run: |
-        python -m pip install --upgrade pip
-        pip install requests selenium webdriver-manager
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
 
-    - name: Run script
+    - name: Pull latest changes
+      run: git pull origin main
+
+    - name: Run your script or command to update the files
+      # Replace this with the actual command to update your files
       run: python script_reproductor_web.py
 
     - name: Commit and push changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
         git add lista_reproductor_web.xml lista_reproductor_web.m3u
-        git commit -m "Update lista_reproductor_web.xml and lista_reproductor_web.m3u" || echo "No changes to commit"
-        git push
+        git commit -m "Update lista_reproductor_web.xml and lista_reproductor_web.m3u"
+        git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
