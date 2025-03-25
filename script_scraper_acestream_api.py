@@ -1,5 +1,6 @@
 import requests
 import xml.etree.ElementTree as ET
+from difflib import get_close_matches
 from datetime import datetime
 
 # URL de la API
@@ -19,6 +20,12 @@ def get_logos():
         print(f"Error al obtener logos: {e}")
         return {}
 
+def find_best_match(name, logos):
+    matches = get_close_matches(name, logos.keys(), n=1, cutoff=0.6)
+    if matches:
+        return logos[matches[0]]
+    return ''
+
 def scrape_acestream_api():
     try:
         response = requests.get(API_URL)
@@ -32,7 +39,7 @@ def scrape_acestream_api():
             for item in data:
                 name = item.get('name', 'Unknown')
                 infohash = item.get('infohash', '')
-                logo_url = logos.get(name, '')
+                logo_url = find_best_match(name, logos)
                 m3u_content += f'#EXTINF:-1 tvg-logo="{logo_url}",{name}\n'
                 m3u_content += f"http://127.0.0.1:6878/ace/getstream?id={infohash}\n"
             
