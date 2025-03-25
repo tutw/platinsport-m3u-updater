@@ -235,13 +235,13 @@ driver.quit()
 
 # Analizar el contenido con regex
 events = []  # Lista donde almacenaremos los eventos
-event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)  \((.+?)\)')
+event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)  \((.+)\)')
 
 for line in page_content.splitlines():
     match = event_pattern.search(line)
     if match:
         date, time, league, teams, channels = match.groups()
-        channel_list = re.findall(r'\((.*?)\)', channels)  # Encuentra todos los canales en el formato (CHxx)
+        channel_list = re.findall(r'\((CH\d+)', channels)  # Encuentra todos los canales en el formato (CHxx)
         for channel in channel_list:
             channel_number = re.search(r'\d+', channel).group()
             channel_name = channel_names.get(channel_number, f'Channel {channel_number}')
