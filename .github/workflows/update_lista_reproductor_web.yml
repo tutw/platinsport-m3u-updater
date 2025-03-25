@@ -1,9 +1,9 @@
-name: Update lista_reproductor_web.xml and lista_reproductor_web.m3u
+name: Update lista_reproductor_web
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 * * * *'  # Ejecutar cada hora
+  workflow_dispatch:  # Permitir ejecución manual
 
 jobs:
   update-files:
@@ -22,7 +22,6 @@ jobs:
       run: git pull origin main
 
     - name: Run your script or command to update the files
-      # Replace this with the actual command to update your files
       run: python script_reproductor_web.py
 
     - name: Commit and push changes
