@@ -1,4 +1,3 @@
-
 import requests
 import time
 from datetime import datetime
@@ -12,17 +11,24 @@ def scrape_acestream_api():
         response.raise_for_status()
         data = response.json()
         
-        # Crear la lista M3U
-        m3u_content = "#EXTM3U\n"
-        for item in data.get('channels', []):
-            m3u_content += f"#EXTINF:-1,{item.get('name')}\n"
-            m3u_content += f"{item.get('url')}\n"
-        
-        # Guardar la lista en un archivo
-        with open("lista_scraper_acestream_api.m3u", "w") as m3u_file:
-            m3u_file.write(m3u_content)
-        
-        print(f"Lista M3U actualizada: {datetime.now()}")
+        # Verificar que data es una lista
+        if isinstance(data, list):
+            # Crear la lista M3U
+            m3u_content = "#EXTM3U\n"
+            for item in data:
+                # Asegurarse de que cada item tiene los campos 'name' y 'url'
+                name = item.get('name', 'Unknown')
+                url = item.get('url', '')
+                m3u_content += f"#EXTINF:-1,{name}\n"
+                m3u_content += f"{url}\n"
+            
+            # Guardar la lista en un archivo
+            with open("lista_scraper_acestream_api.m3u", "w") as m3u_file:
+                m3u_file.write(m3u_content)
+            
+            print(f"Lista M3U actualizada: {datetime.now()}")
+        else:
+            print("Formato de datos no esperado. Se esperaba una lista.")
     
     except Exception as e:
         print(f"Error al obtener datos de la API: {e}")
