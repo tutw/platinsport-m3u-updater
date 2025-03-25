@@ -24,6 +24,9 @@ jobs:
     - name: Ejecutar script de scraping
       run: python script_scraper_acestream_api.py
 
+    - name: Hacer pull de la rama remota
+      run: git pull origin main
+
     - name: Subir archivo M3U
       run: |
         git config --local user.email "action@github.com"
