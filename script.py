@@ -32,52 +32,56 @@ def extraer_eventos(url):
         return []
     soup = BeautifulSoup(response.text, "html.parser")
     eventos = []
+    ligas = []
 
     contenedor = soup.find("div", class_="myDiv1")
     if not contenedor:
         print("No se encontró el contenedor de eventos (.myDiv1)")
         return eventos
 
-    time_tags = contenedor.find_all("time")
-    for tag in time_tags:
-        time_val = tag.get("datetime", "").strip()
-        try:
-            hora_evento = datetime.fromisoformat(time_val.replace("Z", "")).time()
-        except Exception:
+    liga_actual = None
+    for element in contenedor.children:
+        if element.name == 'p':
+            liga_actual = element.get_text(strip=True)
+        elif element.name == 'time':
+            time_val = element.get("datetime", "").strip()
             try:
-                hora_evento = datetime.strptime(time_val, "%H:%M").time()
+                hora_evento = datetime.fromisoformat(time_val.replace("Z", "")).time()
             except Exception:
-                hora_evento = datetime.strptime("23:59", "%H:%M").time()
+                try:
+                    hora_evento = datetime.strptime(time_val, "%H:%M").time()
+                except Exception:
+                    hora_evento = datetime.strptime("23:59", "%H:%M").time()
 
-        event_text = ""
-        canales = []
-        for sib in tag.next_siblings:
-            if hasattr(sib, "name") and sib.name == "time":
-                break
-            if isinstance(sib, str):
-                event_text += sib.strip() + " "
-            elif hasattr(sib, "name"):
-                if sib.name == "a" and "acestream://" in sib["href"]:
-                    canales.append(sib)
-                else:
-                    event_text += sib.get_text(" ", strip=True) + " "
-        event_text = event_text.strip()
+            event_text = ""
+            canales = []
+            for sib in element.next_siblings:
+                if hasattr(sib, "name") and sib.name == "time":
+                    break
+                if isinstance(sib, str):
+                    event_text += sib.strip() + " "
+                elif hasattr(sib, "name"):
+                    if sib.name == "a" and "acestream://" in sib["href"]:
+                        canales.append(sib)
+                    else:
+                        event_text += sib.get_text(" ", strip=True) + " "
+            event_text = event_text.strip()
 
-        # Asegurar que no haya espacios innecesarios
-        event_text = " ".join(event_text.split())
-        
-        # Eliminar el texto "LIVE STREAM" repetido
-        event_text = eliminar_repeticiones_live_stream(event_text)
+            # Asegurar que no haya espacios innecesarios
+            event_text = " ".join(event_text.split())
+            
+            # Eliminar el texto "LIVE STREAM" repetido
+            event_text = eliminar_repeticiones_live_stream(event_text)
 
-        if canales:
-            for a_tag in canales:
-                canal_text = a_tag.get_text(" ", strip=True)
-                eventos.append({
-                    "hora": hora_evento,
-                    "nombre": event_text if event_text else "Evento Desconocido",
-                    "canal": canal_text,
-                    "url": a_tag["href"]
-                })
+            if canales:
+                for a_tag in canales:
+                    canal_text = a_tag.get_text(" ", strip=True)
+                    eventos.append({
+                        "hora": hora_evento,
+                        "nombre": f"{liga_actual} - {event_text}" if event_text else f"{liga_actual} - Evento Desconocido",
+                        "canal": canal_text,
+                        "url": a_tag["href"]
+                    })
     return eventos
 
 def eliminar_repeticiones_live_stream(event_text):
