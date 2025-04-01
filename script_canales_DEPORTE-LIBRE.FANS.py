@@ -28,7 +28,8 @@ def get_channel_list(main_url):
     return channel_list
 
 # Función para obtener el enlace de streaming de cada canal
-def get_streaming_url(channel_name):
+def get_streaming_urls(channel_name):
+    base_url = 'https://deporte-libre.fans'
     search_url = f'https://deporte-libre.fans/stream/stream-531.php'
     html = get_html(search_url)
     soup = BeautifulSoup(html, 'html.parser')
@@ -36,8 +37,9 @@ def get_streaming_url(channel_name):
     streaming_urls = []
     for a_tag in soup.find_all('a', {'class': 'btn btn-md'}):
         streaming_url = a_tag.get('href')
-        if streaming_url:
-            streaming_urls.append(streaming_url)
+        if streaming_url.startswith('/'):
+            streaming_url = base_url + streaming_url
+        streaming_urls.append(streaming_url)
     
     print(f"Found {len(streaming_urls)} streaming URLs for channel: {channel_name}")
     return streaming_urls
@@ -61,7 +63,7 @@ channel_list = get_channel_list(main_url)
 channel_data = {}
 for channel_name in channel_list:
     try:
-        streaming_urls = get_streaming_url(channel_name)
+        streaming_urls = get_streaming_urls(channel_name)
         channel_data[channel_name] = streaming_urls
     except requests.RequestException as e:
         print(f"Error fetching streaming URLs for channel {channel_name}: {e}")
