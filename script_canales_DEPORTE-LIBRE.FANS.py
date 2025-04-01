@@ -8,7 +8,9 @@ main_url = 'https://deporte-libre.fans/en-vivo-online/+canales/'
 
 # Función para obtener el contenido HTML de una URL
 def get_html(url):
-    response = requests.get(url)
+    print(f"Fetching URL: {url}")
+    response = requests.get(url, timeout=10)  # Agregar un tiempo límite
+    response.raise_for_status()  # Levantar una excepción para códigos de estado HTTP 4xx/5xx
     return response.text
 
 # Función para scrapear la página principal y obtener los nombres de los canales y sus URLs
@@ -22,6 +24,7 @@ def get_channel_list(main_url):
             channel_name = line.strip()
             channel_list.append(channel_name)
     
+    print(f"Found {len(channel_list)} channels")
     return channel_list
 
 # Función para obtener el enlace de streaming de cada canal
@@ -36,6 +39,7 @@ def get_streaming_url(channel_name):
         if streaming_url:
             streaming_urls.append(streaming_url)
     
+    print(f"Found {len(streaming_urls)} streaming URLs for channel: {channel_name}")
     return streaming_urls
 
 # Función para guardar los resultados en un archivo XML
@@ -50,13 +54,17 @@ def save_to_xml(channel_data, output_path):
     tree.write(output_path, encoding='utf-8', xml_declaration=True)
 
 # Scrapeamos la lista de canales
+print("Starting to scrape the channel list")
 channel_list = get_channel_list(main_url)
 
 # Obtenemos los enlaces de streaming para cada canal
 channel_data = {}
 for channel_name in channel_list:
-    streaming_urls = get_streaming_url(channel_name)
-    channel_data[channel_name] = streaming_urls
+    try:
+        streaming_urls = get_streaming_url(channel_name)
+        channel_data[channel_name] = streaming_urls
+    except requests.RequestException as e:
+        print(f"Error fetching streaming URLs for channel {channel_name}: {e}")
 
 # Guardamos los resultados en un archivo XML
 timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
