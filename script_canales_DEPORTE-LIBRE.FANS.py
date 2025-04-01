@@ -30,7 +30,7 @@ def get_channel_list(main_url):
 # Función para obtener el enlace de streaming de cada canal
 def get_streaming_urls(channel_name):
     base_url = 'https://deporte-libre.fans'
-    search_url = f'https://deporte-libre.fans/stream/stream-531.php'
+    search_url = f'https://deporte-libre.fans/stream/stream-538.php'  # URL específica del canal
     html = get_html(search_url)
     soup = BeautifulSoup(html, 'html.parser')
     
