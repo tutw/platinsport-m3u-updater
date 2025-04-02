@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
+from xml.dom import minidom
 
 # URL principal para scrapear
 main_url = 'https://deporte-libre.fans/en-vivo-online/+canales/'
@@ -50,8 +51,15 @@ def save_to_xml(channel_data, output_path):
         for url in streaming_urls:
             ET.SubElement(channel_element, 'url').text = url
     
-    tree = ET.ElementTree(root)
-    tree.write(output_path, encoding='utf-8', xml_declaration=True, method="xml")
+    # Convertir el árbol XML a una cadena
+    xml_str = ET.tostring(root, encoding='utf-8')
+    # "Prettify" la cadena XML
+    parsed_xml = minidom.parseString(xml_str)
+    pretty_xml_str = parsed_xml.toprettyxml(indent="  ")
+
+    # Escribir la cadena "prettify" en el archivo
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(pretty_xml_str)
 
 # Scrapeamos la lista de canales
 print("Starting to scrape the channel list")
