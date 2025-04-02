@@ -68,6 +68,25 @@ for endpoint in endpoints:
                         channel_url_element = ET.SubElement(channel_element, 'url')
                         channel_url_element.text = channel_url
 
+# Función para indentar el árbol XML
+def indent(elem, level=0):
+    i = "\n" + level * "  "
+    if len(elem):
+        if not elem.text or not elem.text.strip():
+            elem.text = i + "  "
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+        for elem in elem:
+            indent(elem, level + 1)
+        if not elem.tail or not elem.tail.strip():
+            elem.tail = i
+    else:
+        if level and (not elem.tail or not elem.tail.strip()):
+            elem.tail = i
+
+# Indentar el árbol XML para mejorar la legibilidad
+indent(agenda_root)
+
 # Guardar el árbol XML de agenda en un archivo
 agenda_tree = ET.ElementTree(agenda_root)
 with open('lista_agenda_DEPORTE-LIBRE.FANS.xml', 'wb') as f:
