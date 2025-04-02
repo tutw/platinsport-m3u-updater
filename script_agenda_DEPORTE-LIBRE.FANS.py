@@ -84,6 +84,7 @@ for endpoint in endpoints:
                 time_element.text = event_datetime.strftime('%H:%M')
                 
                 # Crear elementos para los canales asociados al evento
+                url_set = set()  # Conjunto para almacenar URLs únicas
                 for channel in event.get('channels', []):
                     # Validar que `channel` es un diccionario
                     if isinstance(channel, dict):
@@ -95,18 +96,21 @@ for endpoint in endpoints:
                         player_url = fetch_player_url(channel_url)
                         
                         # Crear un nuevo elemento de canal en el XML de agenda
-                        if player_url:
+                        if player_url and player_url not in url_set:
                             channel_element = ET.SubElement(event_element, 'channel')
                             channel_name_element = ET.SubElement(channel_element, 'name')
                             channel_name_element.text = channel_name
                             channel_url_element = ET.SubElement(channel_element, 'url')
                             channel_url_element.text = player_url
+                            url_set.add(player_url)
                             
                             # Añadir URLs adicionales y logo si coinciden los canales
                             if channel_name in channels_data:
                                 for extra_url in channels_data[channel_name]['urls']:
-                                    extra_url_element = ET.SubElement(channel_element, 'url')
-                                    extra_url_element.text = extra_url
+                                    if extra_url not in url_set:
+                                        extra_url_element = ET.SubElement(channel_element, 'url')
+                                        extra_url_element.text = extra_url
+                                        url_set.add(extra_url)
                                 if channels_data[channel_name]['logo']:
                                     logo_element = ET.SubElement(channel_element, 'logo')
                                     logo_element.text = channels_data[channel_name]['logo']
