@@ -17,6 +17,10 @@ soup = BeautifulSoup(response.content, 'html.parser')
 event_rows = soup.find_all('tr', class_='event-row')
 channel_rows = soup.find_all('tr', class_='channel-row')
 
+# Verificar si se encontraron filas de eventos y canales
+if not event_rows or not channel_rows:
+    raise ValueError("No se encontraron filas de eventos o canales en el HTML.")
+
 # Cargar los datos existentes de lista_canales_DEPORTE-LIBRE.FANS.xml
 channels_tree = ET.parse('lista_canales_DEPORTE-LIBRE.FANS.xml')
 channels_root = channels_tree.getroot()
@@ -26,7 +30,7 @@ agenda_root = ET.Element('agenda')
 
 # Iterar sobre las filas de eventos y canales
 for event_row, channel_row in zip(event_rows, channel_rows):
-    event_time = event_row.find('div', class_='event-time').text
+    event_time = event_row.find('div', class_='event-time').find('strong').text
     event_info = event_row.find('div', class_='event-info').text
 
     event_datetime = datetime.strptime(event_time, '%H:%M') + timedelta(hours=1)  # Convertir a GMT+1
