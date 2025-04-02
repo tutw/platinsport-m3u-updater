@@ -60,7 +60,7 @@ for endpoint in endpoints:
                         channel_name = channel.get('channel_name', 'Desconocido')
                         channel_id = channel.get('channel_id', '0')
                         # Cambiar la URL para usar la versión embebida del reproductor
-                        channel_url = f"{base_url}/embed/stream-{channel_id}.php"
+                        channel_url = f"{base_url}/en-vivo-online/stream-{channel_id}/embed.php"
                         
                         # Crear un nuevo elemento de canal en el XML de agenda
                         channel_element = ET.SubElement(event_element, 'channel')
