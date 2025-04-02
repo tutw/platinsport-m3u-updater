@@ -14,9 +14,13 @@ endpoints = [
 
 # Función para obtener datos desde un endpoint JSON
 def fetch_json_data(endpoint):
-    response = requests.get(base_url + endpoint)
-    response.raise_for_status()
-    return response.json()
+    try:
+        response = requests.get(base_url + endpoint)
+        response.raise_for_status()
+        return response.json()
+    except requests.exceptions.HTTPError as err:
+        print(f"Error: {err} for endpoint: {endpoint}")
+        return None
 
 # Crear un nuevo árbol XML para la lista de agenda
 agenda_root = ET.Element('agenda')
@@ -24,6 +28,10 @@ agenda_root = ET.Element('agenda')
 # Iterar sobre los endpoints y procesar los datos
 for endpoint in endpoints:
     json_data = fetch_json_data(endpoint)
+    
+    # Continuar con el siguiente endpoint si hubo un error
+    if json_data is None:
+        continue
     
     # Imprimir los datos JSON obtenidos para verificar su estructura
     print(f"Datos obtenidos de {endpoint}:")
