@@ -32,9 +32,9 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add lista_agenda_DEPORTE-LIBRE.FANS.xml
           git commit -m 'Auto-update agenda' || echo "No changes to commit"
-          git stash
+          git stash || echo "No local changes to stash"
           git pull --rebase
-          git stash pop
+          git stash pop || echo "No stash entries found"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
