@@ -47,16 +47,18 @@ for endpoint in endpoints:
                 
                 # Crear elementos para los canales asociados al evento
                 for channel in event.get('channels', []):
-                    channel_name = channel['channel_name']
-                    channel_id = channel['channel_id']
-                    channel_url = f"{base_url}/stream/stream-{channel_id}.php"
-                    
-                    # Crear un nuevo elemento de canal en el XML de agenda
-                    channel_element = ET.SubElement(event_element, 'channel')
-                    channel_name_element = ET.SubElement(channel_element, 'name')
-                    channel_name_element.text = channel_name
-                    channel_url_element = ET.SubElement(channel_element, 'url')
-                    channel_url_element.text = channel_url
+                    # Validar que `channel` es un diccionario
+                    if isinstance(channel, dict):
+                        channel_name = channel.get('channel_name', 'Desconocido')
+                        channel_id = channel.get('channel_id', '0')
+                        channel_url = f"{base_url}/stream/stream-{channel_id}.php"
+                        
+                        # Crear un nuevo elemento de canal en el XML de agenda
+                        channel_element = ET.SubElement(event_element, 'channel')
+                        channel_name_element = ET.SubElement(channel_element, 'name')
+                        channel_name_element.text = channel_name
+                        channel_url_element = ET.SubElement(channel_element, 'url')
+                        channel_url_element.text = channel_url
 
 # Guardar el árbol XML de agenda en un archivo
 agenda_tree = ET.ElementTree(agenda_root)
