@@ -41,7 +41,7 @@ print(soup.prettify())
 
 # Buscar todas las filas de eventos y canales
 event_rows = soup.find_all('tr', class_='event-row')
-channel_rows = soup.find_all('tr', class_='channel-row')
+channel_rows = soup.find_all('tr', class_=['channel-row', 'hidden'])
 
 # Verificar si se encontraron filas de eventos y canales
 if not event_rows or not channel_rows:
