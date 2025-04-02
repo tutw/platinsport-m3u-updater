@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
-from datetime import datetime
 
 # URL principal para scrapear
 main_url = 'https://deporte-libre.fans/en-vivo-online/+canales/'
@@ -22,7 +21,7 @@ def get_channel_list(main_url):
     for a_tag in soup.find_all('a'):
         channel_name = a_tag.text.strip()
         channel_url = a_tag.get('href')
-        if channel_name and channel_url and channel_url.startswith('/stream/stream-'):
+        if channel_name and channel_url and channel_url.startswith('/stream/'):
             channel_list.append((channel_name, 'https://deporte-libre.fans' + channel_url))
     
     print(f"Found {len(channel_list)} channels")
@@ -67,9 +66,8 @@ for channel_name, channel_url in channel_list:
     except requests.RequestException as e:
         print(f"Error fetching streaming URLs for channel {channel_name}: {e}")
 
-# Guardamos los resultados en un archivo XML
-timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
-output_path = f'lista_canales_DEPORTE-LIBRE.FANS_{timestamp}.xml'
+# Guardamos los resultados en un archivo XML con un nombre fijo
+output_path = 'lista_canales_DEPORTE-LIBRE.FANS.xml'
 save_to_xml(channel_data, output_path)
 
 print(f'Resultados guardados en {output_path}')
