@@ -1,17 +1,31 @@
-import requests
-from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # URL del sitio a scrapear
-url = "https://deporte-libre.fans"
+url = "https://deporte-libre.fans/schedule/"
 
-# Realizar la solicitud HTTP al sitio web
-response = requests.get(url)
-response.raise_for_status()
+# Configurar Selenium para usar el ChromeDriver
+options = webdriver.ChromeOptions()
+options.add_argument("--headless")  # Ejecutar en modo headless para no abrir el navegador
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 
-# Parsear el contenido HTML con BeautifulSoup
-soup = BeautifulSoup(response.content, 'html.parser')
+# Cargar la página
+driver.get(url)
+
+# Esperar a que la tabla de agenda se cargue
+WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "agenda")))
+
+# Obtener el contenido HTML de la sección de agenda
+soup = BeautifulSoup(driver.page_source, 'html.parser')
+
+# Cerrar el navegador
+driver.quit()
 
 # Buscar todas las filas de eventos y canales
 event_rows = soup.find_all('tr', class_='event-row')
@@ -19,8 +33,6 @@ channel_rows = soup.find_all('tr', class_='channel-row')
 
 # Verificar si se encontraron filas de eventos y canales
 if not event_rows or not channel_rows:
-    print("HTML Content:")
-    print(soup.prettify())
     raise ValueError("No se encontraron filas de eventos o canales en el HTML.")
 
 # Cargar los datos existentes de lista_canales_DEPORTE-LIBRE.FANS.xml
