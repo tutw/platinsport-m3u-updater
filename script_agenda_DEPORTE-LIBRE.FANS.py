@@ -22,9 +22,11 @@ driver.get(url)
 # Esperar a que el contenedor principal de la agenda se cargue
 try:
     WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "main-schedule-container")))
+    # Mostrar los elementos ocultos
+    driver.execute_script("document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));")
     # Esperar a que las filas de eventos y canales se carguen
-    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.event-row')))
-    WebDriverWait(driver, 30).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.channel-row')))
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.event-row')))
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.channel-row')))
 except:
     print("No se pudo cargar el contenido de la agenda dentro del tiempo de espera.")
     print("Contenido de la página:")
