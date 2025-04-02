@@ -41,6 +41,12 @@ def get_streaming_urls(channel_url):
             streaming_url = base_url + streaming_url
         streaming_urls.append(streaming_url)
     
+    # También buscar URLs en los iframes
+    for iframe in soup.find_all('iframe'):
+        iframe_url = iframe.get('src')
+        if iframe_url:
+            streaming_urls.append(iframe_url)
+    
     return streaming_urls
 
 # Función para guardar los resultados en un archivo XML
