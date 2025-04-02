@@ -43,7 +43,7 @@ def fetch_channel_data():
         name = channel.attrib['name']
         urls = [url.text for url in channel.findall('url')]
         logo = channel.find('logo').text if channel.find('logo') is not None else None
-        channels_data[name] = {
+        channels_data[name.lower()] = {
             'urls': urls,
             'logo': logo
         }
@@ -87,7 +87,7 @@ for endpoint in endpoints:
                 for channel in event.get('channels', []):
                     # Validar que `channel` es un diccionario
                     if isinstance(channel, dict):
-                        channel_name = channel.get('channel_name', 'Desconocido')
+                        channel_name = channel.get('channel_name', 'Desconocido').lower()
                         channel_id = channel.get('channel_id', '0')
                         channel_url = f"{base_url}/stream/stream-{channel_id}.php"
                         
