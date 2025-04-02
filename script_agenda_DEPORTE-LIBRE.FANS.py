@@ -30,10 +30,10 @@ try:
     driver.execute_script("document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));")
     # Esperar a que las filas de eventos y canales se carguen
     WebDriverWait(driver, 30).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, '.event-row'))
+        EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.event-row'))
     )
     WebDriverWait(driver, 30).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, '.channel-row'))
+        EC.presence_of_all_elements_located((By.CSS_SELECTOR, '.channel-row'))
     )
 except Exception as e:
     print("No se pudo cargar el contenido de la agenda dentro del tiempo de espera.")
