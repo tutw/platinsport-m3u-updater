@@ -21,14 +21,15 @@ driver.get(url)
 
 # Esperar a que el contenedor principal de la agenda se cargue
 try:
-    WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "main-schedule-container")))
+    WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.ID, "main-schedule-container")))
     # Mostrar los elementos ocultos
     driver.execute_script("document.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));")
     # Esperar a que las filas de eventos y canales se carguen
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.event-row')))
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.channel-row')))
-except:
+    WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.event-row')))
+    WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.channel-row')))
+except Exception as e:
     print("No se pudo cargar el contenido de la agenda dentro del tiempo de espera.")
+    print("Error:", e)
     print("Contenido de la página:")
     print(driver.page_source)
     driver.quit()
@@ -47,6 +48,15 @@ print(soup.prettify())
 # Buscar todas las filas de eventos y canales
 event_rows = soup.find_all('tr', class_='event-row')
 channel_rows = soup.find_all('tr', class_='channel-row')
+
+# Imprimir las clases de las filas encontradas
+print("Clases de filas de eventos encontradas:")
+for row in event_rows:
+    print(row['class'])
+
+print("Clases de filas de canales encontradas:")
+for row in channel_rows:
+    print(row['class'])
 
 # Verificar si se encontraron filas de eventos y canales
 if not event_rows or not channel_rows:
