@@ -19,9 +19,11 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 # Cargar la página
 driver.get(url)
 
-# Esperar a que la tabla de agenda se cargue
+# Esperar a que el contenedor principal de la agenda se cargue
 try:
     WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "main-schedule-container")))
+    # Esperar a que las filas de eventos y canales se carguen
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.event-row, .channel-row')))
 except:
     print("No se pudo cargar el contenido de la agenda dentro del tiempo de espera.")
     print("Contenido de la página:")
