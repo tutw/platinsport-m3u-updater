@@ -20,7 +20,7 @@ driver.get(url)
 
 # Esperar a que la tabla de agenda se cargue
 try:
-    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "agenda")))
+    WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "main-schedule-container")))
 except:
     print("No se pudo cargar el contenido de la agenda dentro del tiempo de espera.")
     print("Contenido de la página:")
