@@ -15,6 +15,11 @@ soup = BeautifulSoup(response.content, 'html.parser')
 
 # Buscar todos los eventos y sus respectivos canales en la ruta especificada
 events_section = soup.select_one('body > div:nth-of-type(2) > div:nth-of-type(2)')
+
+# Verificar si events_section no es None
+if events_section is None:
+    raise ValueError("No se encontró la sección de eventos. Verifica el selector CSS y la estructura del HTML.")
+
 events = events_section.find_all('div', class_='event')
 
 # Cargar los datos existentes de lista_canales_DEPORTE-LIBRE.FANS.xml
