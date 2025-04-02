@@ -1,6 +1,7 @@
 import requests
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
+from bs4 import BeautifulSoup
 
 # URL base del sitio
 base_url = "https://deporte-libre.fans"
@@ -21,6 +22,16 @@ def fetch_json_data(endpoint):
     except requests.exceptions.HTTPError as err:
         print(f"Error: {err} for endpoint: {endpoint}")
         return None
+
+# Función para obtener la URL del reproductor principal desde una página HTML
+def fetch_player_url(channel_url):
+    response = requests.get(channel_url)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.content, "html.parser")
+    iframe = soup.find("iframe")
+    if iframe and 'src' in iframe.attrs:
+        return iframe['src']
+    return None
 
 # Crear un nuevo árbol XML para la lista de agenda
 agenda_root = ET.Element('agenda')
@@ -61,12 +72,16 @@ for endpoint in endpoints:
                         channel_id = channel.get('channel_id', '0')
                         channel_url = f"{base_url}/stream/stream-{channel_id}.php"
                         
+                        # Obtener la URL del reproductor principal
+                        player_url = fetch_player_url(channel_url)
+                        
                         # Crear un nuevo elemento de canal en el XML de agenda
-                        channel_element = ET.SubElement(event_element, 'channel')
-                        channel_name_element = ET.SubElement(channel_element, 'name')
-                        channel_name_element.text = channel_name
-                        channel_url_element = ET.SubElement(channel_element, 'url')
-                        channel_url_element.text = channel_url
+                        if player_url:
+                            channel_element = ET.SubElement(event_element, 'channel')
+                            channel_name_element = ET.SubElement(channel_element, 'name')
+                            channel_name_element.text = channel_name
+                            channel_url_element = ET.SubElement(channel_element, 'url')
+                            channel_url_element.text = player_url
 
 # Función para indentar el árbol XML
 def indent(elem, level=0):
