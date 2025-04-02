@@ -19,7 +19,14 @@ driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install())
 driver.get(url)
 
 # Esperar a que la tabla de agenda se cargue
-WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "agenda")))
+try:
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "agenda")))
+except:
+    print("No se pudo cargar el contenido de la agenda dentro del tiempo de espera.")
+    print("Contenido de la página:")
+    print(driver.page_source)
+    driver.quit()
+    raise
 
 # Obtener el contenido HTML de la sección de agenda
 soup = BeautifulSoup(driver.page_source, 'html.parser')
