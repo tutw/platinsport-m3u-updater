@@ -6,7 +6,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup  # Importar BeautifulSoup
+from bs4 import BeautifulSoup
 
 # URL del sitio a scrapear
 url = "https://deporte-libre.fans/schedule/"
@@ -34,6 +34,10 @@ soup = BeautifulSoup(driver.page_source, 'html.parser')
 
 # Cerrar el navegador
 driver.quit()
+
+# Imprimir el contenido de la página para verificar la estructura HTML
+print("Contenido del HTML:")
+print(soup.prettify())
 
 # Buscar todas las filas de eventos y canales
 event_rows = soup.find_all('tr', class_='event-row')
