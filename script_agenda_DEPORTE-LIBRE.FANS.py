@@ -13,14 +13,9 @@ response.raise_for_status()
 # Parsear el contenido HTML con BeautifulSoup
 soup = BeautifulSoup(response.content, 'html.parser')
 
-# Buscar la sección de eventos utilizando el ID 'agenda'
-events_section = soup.find('div', id='agenda')
-
-# Verificar si events_section no es None
-if events_section is None:
-    raise ValueError("No se encontró la sección de eventos. Verifica el ID y la estructura del HTML.")
-
-events = events_section.find_all('div', class_='event')
+# Buscar todas las filas de eventos y canales
+event_rows = soup.find_all('tr', class_='event-row')
+channel_rows = soup.find_all('tr', class_='channel-row')
 
 # Cargar los datos existentes de lista_canales_DEPORTE-LIBRE.FANS.xml
 channels_tree = ET.parse('lista_canales_DEPORTE-LIBRE.FANS.xml')
@@ -29,29 +24,34 @@ channels_root = channels_tree.getroot()
 # Crear un nuevo árbol XML para la lista de agenda
 agenda_root = ET.Element('agenda')
 
-for event in events:
-    event_name = event.find('h3').text
-    event_time = event.find('span', class_='event-time').text
+# Iterar sobre las filas de eventos y canales
+for event_row, channel_row in zip(event_rows, channel_rows):
+    event_time = event_row.find('div', class_='event-time').text
+    event_info = event_row.find('div', class_='event-info').text
+
     event_datetime = datetime.strptime(event_time, '%H:%M') + timedelta(hours=1)  # Convertir a GMT+1
-    event_channels = event.find_all('a', class_='stream-link')
-    
-    for channel in event_channels:
+
+    # Crear un nuevo elemento en el XML de agenda
+    event_element = ET.SubElement(agenda_root, 'event')
+    name_element = ET.SubElement(event_element, 'name')
+    name_element.text = event_info
+    time_element = ET.SubElement(event_element, 'time')
+    time_element.text = event_datetime.strftime('%H:%M')
+
+    # Buscar canales asociados al evento
+    channels = channel_row.find_all('a', class_='channel-button-small')
+    for channel in channels:
         channel_name = channel.text
         channel_url = channel['href']
-        
+
         # Buscar el logo correspondiente en lista_canales_DEPORTE-LIBRE.FANS.xml
         logo_url = ''
         for ch in channels_root.findall('channel'):
             if ch.find('name').text == channel_name:
                 logo_url = ch.find('logo').text
                 break
-        
-        # Crear un nuevo elemento en el XML de agenda
-        event_element = ET.SubElement(agenda_root, 'event')
-        name_element = ET.SubElement(event_element, 'name')
-        name_element.text = event_name
-        time_element = ET.SubElement(event_element, 'time')
-        time_element.text = event_datetime.strftime('%H:%M')
+
+        # Crear un nuevo elemento de canal en el XML de agenda
         channel_element = ET.SubElement(event_element, 'channel')
         channel_name_element = ET.SubElement(channel_element, 'name')
         channel_name_element.text = channel_name
