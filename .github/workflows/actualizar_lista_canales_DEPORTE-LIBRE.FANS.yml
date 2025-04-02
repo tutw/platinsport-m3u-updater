@@ -32,7 +32,7 @@ jobs:
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
         git pull origin main  # Agregar esta línea para hacer un pull antes del push
         git add lista_canales_DEPORTE-LIBRE.FANS.xml
-        git commit -m 'Update lista_canales_DEPORTE-LIBRE.FANS.xml'
+        git commit -m 'Update lista_canales_DEPORTE-LIBRE.FANS.xml' || echo "No changes to commit"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
