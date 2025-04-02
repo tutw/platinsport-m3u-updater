@@ -51,7 +51,7 @@ def save_to_xml(channel_data, output_path):
             ET.SubElement(channel_element, 'url').text = url
     
     tree = ET.ElementTree(root)
-    tree.write(output_path, encoding='utf-8', xml_declaration=True)
+    tree.write(output_path, encoding='utf-8', xml_declaration=True, method="xml")
 
 # Scrapeamos la lista de canales
 print("Starting to scrape the channel list")
