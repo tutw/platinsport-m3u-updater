@@ -25,6 +25,10 @@ agenda_root = ET.Element('agenda')
 for endpoint in endpoints:
     json_data = fetch_json_data(endpoint)
     
+    # Imprimir los datos JSON obtenidos para verificar su estructura
+    print(f"Datos obtenidos de {endpoint}:")
+    print(json_data)
+    
     for day, day_data in json_data.items():
         for category, events in day_data.items():
             for event in events:
