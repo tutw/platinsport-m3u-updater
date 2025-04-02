@@ -19,6 +19,8 @@ channel_rows = soup.find_all('tr', class_='channel-row')
 
 # Verificar si se encontraron filas de eventos y canales
 if not event_rows or not channel_rows:
+    print("HTML Content:")
+    print(soup.prettify())
     raise ValueError("No se encontraron filas de eventos o canales en el HTML.")
 
 # Cargar los datos existentes de lista_canales_DEPORTE-LIBRE.FANS.xml
