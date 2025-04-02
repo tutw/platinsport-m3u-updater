@@ -33,27 +33,8 @@ def fetch_player_url(channel_url):
         return iframe['src']
     return None
 
-# Función para obtener los datos de los canales y logos
-def fetch_channel_data():
-    response = requests.get("https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_canales_DEPORTE-LIBRE.FANS.xml")
-    response.raise_for_status()
-    channels_tree = ET.fromstring(response.content)
-    channels_data = {}
-    for channel in channels_tree.findall('channel'):
-        name = channel.attrib['name']
-        urls = [url.text for url in channel.findall('url')]
-        logo = channel.find('logo').text if channel.find('logo') is not None else None
-        channels_data[name.lower()] = {
-            'urls': urls,
-            'logo': logo
-        }
-    return channels_data
-
 # Crear un nuevo árbol XML para la lista de agenda
 agenda_root = ET.Element('agenda')
-
-# Obtener los datos de los canales y logos
-channels_data = fetch_channel_data()
 
 # Iterar sobre los endpoints y procesar los datos
 for endpoint in endpoints:
@@ -87,7 +68,7 @@ for endpoint in endpoints:
                 for channel in event.get('channels', []):
                     # Validar que `channel` es un diccionario
                     if isinstance(channel, dict):
-                        channel_name = channel.get('channel_name', 'Desconocido').lower()
+                        channel_name = channel.get('channel_name', 'Desconocido')
                         channel_id = channel.get('channel_id', '0')
                         channel_url = f"{base_url}/stream/stream-{channel_id}.php"
                         
@@ -99,23 +80,8 @@ for endpoint in endpoints:
                             channel_element = ET.SubElement(event_element, 'channel')
                             channel_name_element = ET.SubElement(channel_element, 'name')
                             channel_name_element.text = channel_name
-                            url_set = set()
-                            
-                            if player_url not in url_set:
-                                channel_url_element = ET.SubElement(channel_element, 'url')
-                                channel_url_element.text = player_url
-                                url_set.add(player_url)
-                            
-                            # Añadir URLs adicionales y logo si coinciden los canales
-                            if channel_name in channels_data:
-                                for extra_url in channels_data[channel_name]['urls']:
-                                    if extra_url not in url_set:
-                                        extra_url_element = ET.SubElement(channel_element, 'url')
-                                        extra_url_element.text = extra_url
-                                        url_set.add(extra_url)
-                                if channels_data[channel_name]['logo']:
-                                    logo_element = ET.SubElement(channel_element, 'logo')
-                                    logo_element.text = channels_data[channel_name]['logo']
+                            channel_url_element = ET.SubElement(channel_element, 'url')
+                            channel_url_element.text = player_url
 
 # Función para indentar el árbol XML
 def indent(elem, level=0):
