@@ -2,6 +2,9 @@ import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
@@ -222,15 +225,16 @@ chrome_options.add_argument("--no-sandbox")
 service = ChromeService(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-# Navegar a la URL
-driver.get(URL)
-time.sleep(5)  # Esperar a que la página cargue completamente
-
-# Obtener el contenido de la página
-page_content = driver.page_source
-
-# Cerrar el navegador
-driver.quit()
+try:
+    # Navegar a la URL
+    driver.get(URL)
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'event-item')))
+    
+    # Obtener el contenido de la página
+    page_content = driver.page_source
+finally:
+    # Cerrar el navegador
+    driver.quit()
 
 # Analizar el contenido con BeautifulSoup
 soup = BeautifulSoup(page_content, 'html.parser')
@@ -243,15 +247,19 @@ event_items = soup.find_all('div', class_='event-item')
 
 for item in event_items:
     # Extraer fecha y hora
-    date_time = item.find('div', class_='event-date').get_text(strip=True)
-    datetime_parts = date_time.split(' ')
-    date = datetime_parts[0]
-    time = datetime_parts[1]
-
+    date_time = item.find('div', class_='event-date')
+    if date_time:
+        date_time = date_time.get_text(strip=True)
+        datetime_parts = date_time.split(' ')
+        date = datetime_parts[0]
+        time = datetime_parts[1]
+    
     # Extraer competición y equipos
-    info = item.find('div', class_='event-info').get_text(strip=True)
-    league, teams = info.split(' : ')
-
+    info = item.find('div', class_='event-info')
+    if info:
+        info = info.get_text(strip=True)
+        league, teams = info.split(' : ')
+    
     # Extraer canales
     channels_span = item.find('span', class_='event-channel')
     if channels_span:
