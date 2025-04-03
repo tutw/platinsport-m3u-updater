@@ -1,3 +1,4 @@
+import re
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
@@ -228,49 +229,25 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 
 try:
     driver.get(URL)
-    WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.CLASS_NAME, 'event-item'))
+    WebDriverWait(driver, 30).until(
+        EC.presence_of_element_located((By.TAG_NAME, 'textarea'))
     )
-    # Verificar si los elementos están presentes
-    event_items = driver.find_elements(By.CLASS_NAME, 'event-item')
-    if not event_items:
-        print("No event items found.")
-        driver.quit()
-        exit(1)  # Salir con error si no se encuentran los elementos
 
-    page_content = driver.page_source
+    # Obtener el contenido del textarea
+    textarea_content = driver.find_element(By.TAG_NAME, 'textarea').get_attribute('value')
 finally:
     driver.quit()
 
-# Analizar el contenido con BeautifulSoup
-soup = BeautifulSoup(page_content, 'html.parser')
+# Analizar el contenido del textarea con regex
+events = []  # Lista donde almacenaremos los eventos
+event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s+((?:\(CH\d+\w*\)\s*)+)')
 
-# Lista donde almacenaremos los eventos
-events = []
-
-# Buscar todos los elementos que contienen eventos
-event_items = soup.find_all('div', class_='event-item')
-
-for item in event_items:
-    # Extraer fecha y hora
-    date_time = item.find('div', class_='event-date')
-    if date_time:
-        date_time = date_time.get_text(strip=True)
-        datetime_parts = date_time.split(' ')
-        date = datetime_parts[0]
-        time = datetime_parts[1]
-    
-    # Extraer competición y equipos
-    info = item.find('div', class_='event-info')
-    if info:
-        info = info.get_text(strip=True)
-        league, teams = info.split(' : ')
-    
-    # Extraer canales
-    channels_span = item.find('span', class_='event-channel')
-    if channels_span:
-        channels_text = channels_span.get_text(strip=True)
-        channel_list = re.findall(r'\(CH(\d+)\)', channels_text)
+for line in textarea_content.splitlines():
+    match = event_pattern.search(line)
+    if match:
+        date, time, league, teams, channels = match.groups()
+        # Encuentra todos los canales en el formato (CHxx)
+        channel_list = re.findall(r'\(CH(\d+\w*)\)', channels)
         for channel in channel_list:
             channel_name = channel_names.get(channel, f'Channel {channel}')
             events.append({
