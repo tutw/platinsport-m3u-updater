@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 
 URL = 'https://tarjetarojaenvivo.lat'
 
-# Mapeo de canales (ya validado)
+# Mapeo de canales (correcto)
 channel_names = {
     '1': 'beIN 1',
     '2': 'beIN 2',
@@ -227,7 +227,7 @@ try:
     driver = webdriver.Chrome(service=service, options=chrome_options)
     driver.get(URL)
     
-    # Esperar y extraer contenido
+    # Extraer contenido
     WebDriverWait(driver, 30).until(
         EC.presence_of_element_located((By.TAG_NAME, 'textarea'))
     )
@@ -235,7 +235,7 @@ try:
     content = textarea.get_attribute('value').strip()
     
 except Exception as e:
-    print(f"Error crítico: {e}")
+    print(f"Error crítico: {str(e)}")
     exit(1)
 finally:
     driver.quit()
@@ -243,7 +243,7 @@ finally:
 # Procesar el contenido
 events = []
 event_pattern = re.compile(
-    r'^(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)',
+    r'^(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)(?=\s+\(CH\d+\))', 
     re.MULTILINE
 )
 
@@ -258,16 +258,16 @@ for line in content.splitlines():
         continue
     
     date, time_str, league, teams = match.groups()
-    remaining_part = line[match.end():].strip()  # Parte que contiene los canales
+    remaining_part = line[match.end():].strip()  # Parte con canales
     
-    # Extraer todos los canales de la parte restante
+    # Extraer canales
     channel_numbers = re.findall(r'\(CH(\d+)', remaining_part)
     
     if not channel_numbers:
         print(f"No se encontraron canales válidos en la línea: '{line}'")
         continue
     
-    # Crear el evento con todos los canales
+    # Crear evento
     event = {
         'datetime': f"{date} {time_str}",
         'league': league.strip(),
@@ -285,7 +285,7 @@ for line in content.splitlines():
     
     events.append(event)
 
-# Crear XML
+# Generar XML
 root = ET.Element('events')
 for event in events:
     event_elem = ET.SubElement(root, 'event')
@@ -320,7 +320,7 @@ indent(root)
 tree = ET.ElementTree(root)
 tree.write('lista_reproductor_web.xml', encoding='utf-8', xml_declaration=True)
 
-# Crear M3U
+# Generar M3U
 with open('lista_reproductor_web.m3u', 'w', encoding='utf-8') as f:
     f.write('#EXTM3U\n')
     for event in events:
