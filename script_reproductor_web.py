@@ -222,7 +222,7 @@ chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--no-sandbox")
 
 try:
-    # Inicializar el navegador
+    # Inicializar navegador
     service = ChromeService(executable_path=ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=chrome_options)
     driver.get(URL)
@@ -243,7 +243,7 @@ finally:
 # Procesar el contenido
 events = []
 event_pattern = re.compile(
-    r'^(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)(?=\s+\(CH\d+\))', 
+    r'^(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)(?=\s*\((CH\d+\w*)\))',
     re.MULTILINE
 )
 
@@ -257,11 +257,11 @@ for line in content.splitlines():
         print(f"Formato no reconocido: {line}")
         continue
     
-    date, time_str, league, teams = match.groups()
-    remaining_part = line[match.end():].strip()  # Parte con canales
+    date, time_str, league, teams = match.groups()[:4]
+    remaining_part = line[match.end():].strip()
     
-    # Extraer canales
-    channel_numbers = re.findall(r'\(CH(\d+)', remaining_part)
+    # Extraer todos los canales
+    channel_numbers = re.findall(r'\(CH(\d+)', f"{match.group(5)} {remaining_part}")
     
     if not channel_numbers:
         print(f"No se encontraron canales válidos en la línea: '{line}'")
