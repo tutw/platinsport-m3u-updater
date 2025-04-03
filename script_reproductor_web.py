@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
@@ -226,14 +227,19 @@ service = ChromeService(executable_path=ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
 try:
-    # Navegar a la URL
     driver.get(URL)
-    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'event-item')))
-    
-    # Obtener el contenido de la página
+    WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.CLASS_NAME, 'event-item'))
+    )
+    # Verificar si los elementos están presentes
+    event_items = driver.find_elements(By.CLASS_NAME, 'event-item')
+    if not event_items:
+        print("No event items found.")
+        driver.quit()
+        exit(1)  # Salir con error si no se encuentran los elementos
+
     page_content = driver.page_source
 finally:
-    # Cerrar el navegador
     driver.quit()
 
 # Analizar el contenido con BeautifulSoup
