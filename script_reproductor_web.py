@@ -48,24 +48,24 @@ except Exception as e:
 finally:
     driver.quit()
 
-# Analizar el contenido del textarea con regex
+# Analizar el contenido del textarea con regex ajustada
 events = []
 event_pattern = re.compile(
-    r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s+((?:\(CH\d+\)\s*)+)',
-    re.DOTALL  # Para manejar saltos de línea
+    r'^(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s*(\(CH\w+\)\s*)*$',
+    re.MULTILINE
 )
 
 for line in textarea_content.splitlines():
     line = line.strip()
-    if not line:
-        continue  # Ignorar líneas vacías
+    if not line or line.startswith("'"):
+        continue  # Ignorar líneas vacías o comentarios
 
-    match = event_pattern.search(line)
+    match = event_pattern.match(line)
     if match:
         date, time_str, league, teams, channels_part = match.groups()
         
-        # Extraer solo los números de canal (ej: CH12 → 12)
-        channel_numbers = re.findall(r'\(CH(\d+)\)', channels_part)
+        # Extraer solo los números de canal (ignorar letras como 'es', 'fr', etc.)
+        channel_numbers = re.findall(r'CH(\d+)', channels_part)
         
         for channel in channel_numbers:
             channel_name = channel_names.get(channel, f'Channel {channel}')
