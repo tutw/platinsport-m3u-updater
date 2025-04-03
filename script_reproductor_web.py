@@ -259,7 +259,7 @@ if not events:
 else:
     print(f"Found {len(events)} events.")
 
-# Helper function to add indentation to XML
+# Función auxiliar para agregar sangría al XML
 def indent(elem, level=0):
     i = "\n" + level*"  "
     if len(elem):
