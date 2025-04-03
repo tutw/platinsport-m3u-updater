@@ -1,9 +1,9 @@
-import re
 import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from bs4 import BeautifulSoup
 import xml.etree.ElementTree as ET
 
 URL = 'https://tarjetarojaenvivo.lat'
@@ -232,16 +232,31 @@ page_content = driver.page_source
 # Cerrar el navegador
 driver.quit()
 
-# Analizar el contenido con regex
-events = []  # Lista donde almacenaremos los eventos
-event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s+((?:\(CH\d+\w*\)\s*)+)')
+# Analizar el contenido con BeautifulSoup
+soup = BeautifulSoup(page_content, 'html.parser')
 
-for line in page_content.splitlines():
-    match = event_pattern.search(line)
-    if match:
-        date, time, league, teams, channels = match.groups()
-        # Encuentra todos los canales en el formato (CHxx)
-        channel_list = re.findall(r'\(CH(\d+\w*)\)', channels)
+# Lista donde almacenaremos los eventos
+events = []
+
+# Buscar todos los elementos que contienen eventos
+event_items = soup.find_all('div', class_='event-item')
+
+for item in event_items:
+    # Extraer fecha y hora
+    date_time = item.find('div', class_='event-date').get_text(strip=True)
+    datetime_parts = date_time.split(' ')
+    date = datetime_parts[0]
+    time = datetime_parts[1]
+
+    # Extraer competición y equipos
+    info = item.find('div', class_='event-info').get_text(strip=True)
+    league, teams = info.split(' : ')
+
+    # Extraer canales
+    channels_span = item.find('span', class_='event-channel')
+    if channels_span:
+        channels_text = channels_span.get_text(strip=True)
+        channel_list = re.findall(r'\(CH(\d+)\)', channels_text)
         for channel in channel_list:
             channel_name = channel_names.get(channel, f'Channel {channel}')
             events.append({
