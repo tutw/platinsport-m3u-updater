@@ -269,16 +269,27 @@ for line in textarea_content.splitlines():
         # Extraer solo los números de canal (ignorar letras como 'es', 'fr', etc.)
         channel_numbers = re.findall(r'CH(\d+)', channels_part)
         
+        if not channel_numbers:
+            print(f"No se encontraron canales válidos en la línea: '{line}'")
+            continue
+        
+        # Crear un diccionario para el evento
+        event = {
+            'datetime': f"{date} {time_str}",
+            'league': league.strip(),
+            'teams': teams.strip(),
+            'channels': []
+        }
+        
         for channel in channel_numbers:
             channel_name = channel_names.get(channel, f'Channel {channel}')
-            events.append({
-                'datetime': f"{date} {time_str}",
-                'league': league.strip(),
-                'teams': teams.strip(),
+            event['channels'].append({
                 'channel_name': channel_name,
                 'channel_id': channel,
                 'url': f'{URL}/player/1/{channel}'
             })
+        
+        events.append(event)
     else:
         print(f"Formato no reconocido en línea: '{line}'")
 
@@ -298,7 +309,7 @@ def indent(elem, level=0):
             elem.tail = i
         for subelem in elem:
             indent(subelem, level + 1)
-        if not subelem.tail or not subelem.tail.strip():
+        if not subelem.tail or not elem.tail.strip():
             subelem.tail = i
     else:
         if level and (not elem.tail or not elem.tail.strip()):
@@ -311,8 +322,13 @@ for event in events:
     ET.SubElement(event_elem, 'datetime').text = event['datetime']
     ET.SubElement(event_elem, 'league').text = event['league']
     ET.SubElement(event_elem, 'teams').text = event['teams']
-    ET.SubElement(event_elem, 'channel_name').text = event['channel_name']
-    ET.SubElement(event_elem, 'url').text = event['url']
+    
+    channels_elem = ET.SubElement(event_elem, 'channels')
+    for channel in event['channels']:
+        channel_elem = ET.SubElement(channels_elem, 'channel')
+        ET.SubElement(channel_elem, 'channel_name').text = channel['channel_name']
+        ET.SubElement(channel_elem, 'channel_id').text = channel['channel_id']
+        ET.SubElement(channel_elem, 'url').text = channel['url']
 
 indent(root)
 tree = ET.ElementTree(root)
@@ -322,7 +338,8 @@ tree.write('lista_reproductor_web.xml', encoding='utf-8', xml_declaration=True)
 with open('lista_reproductor_web.m3u', 'w', encoding='utf-8') as m3u_file:
     m3u_file.write('#EXTM3U\n')
     for event in events:
-        m3u_file.write(
-            f'#EXTINF:-1,{event["datetime"]} - {event["league"]} - {event["teams"]} - {event["channel_name"]}\n'
-            f'{event["url"]}\n'
-    )
+        for channel in event['channels']:
+            m3u_file.write(
+                f'#EXTINF:-1,{event["datetime"]} - {event["league"]} - {event["teams"]} - {channel["channel_name"]}\n'
+                f'{channel["url"]}\n'
+            )
