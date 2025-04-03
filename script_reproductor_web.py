@@ -280,7 +280,7 @@ for line in content.splitlines():
         event['channels'].append({
             'channel_name': name,
             'channel_id': channel,
-            'url': f"{URL}/player/1/{channel}"
+            'url': f"{URL}/player/2/{channel}"
         })
     
     events.append(event)
