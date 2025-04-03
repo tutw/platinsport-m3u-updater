@@ -234,24 +234,22 @@ driver.quit()
 
 # Analizar el contenido con regex
 events = []  # Lista donde almacenaremos los eventos
-event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s+')
-channel_pattern = re.compile(r'\(CH\d+\w+\)')
+event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s+((\(CH\d+\w+\)\s*)+)')
 
 for line in page_content.splitlines():
-    event_match = event_pattern.search(line)
-    if event_match:
-        date, time, league, teams = event_match.groups()
-        channels = channel_pattern.findall(line)
-        for channel in channels:
-            channel_id = channel.strip('()').replace('CH', '')  # Extrae el ID del canal
-            channel_name = channel_names.get(channel_id, f'Channel {channel_id}')
+    match = event_pattern.search(line)
+    if match:
+        date, time, league, teams, channels = match.groups()
+        channel_list = re.findall(r'\(CH(\d+\w+)\)', channels)  # Encuentra todos los canales en el formato (CHxx)
+        for channel in channel_list:
+            channel_name = channel_names.get(channel, f'Channel {channel}')
             events.append({
                 'datetime': f"{date} {time}",
                 'league': league,
                 'teams': teams,
                 'channel_name': channel_name,
-                'channel_id': channel_id,
-                'url': f'{URL}/player/1/{channel_id}'
+                'channel_id': channel,
+                'url': f'{URL}/player/1/{channel}'
             })
 
 # Verificar los datos obtenidos
