@@ -25,12 +25,17 @@ def fetch_json_data(endpoint):
 
 # Función para obtener la URL del reproductor principal desde una página HTML
 def fetch_player_url(channel_url):
-    response = requests.get(channel_url)
-    response.raise_for_status()
-    soup = BeautifulSoup(response.content, "html.parser")
-    iframe = soup.find("iframe")
-    if iframe and 'src' in iframe.attrs:
-        return iframe['src']
+    try:
+        response = requests.get(channel_url)
+        response.raise_for_status()
+        soup = BeautifulSoup(response.content, "html.parser")
+        iframe = soup.find("iframe")
+        if iframe and 'src' in iframe.attrs:
+            return iframe['src']
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error occurred: {http_err}")
+    except Exception as err:
+        print(f"An error occurred: {err}")
     return None
 
 # Función para obtener los datos de los canales y logos
