@@ -234,13 +234,14 @@ driver.quit()
 
 # Analizar el contenido con regex
 events = []  # Lista donde almacenaremos los eventos
-event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s+((\(CH\d+\w+\)\s*)+)')
+event_pattern = re.compile(r'(\d{2}-\d{2}-\d{4}) \((\d{2}:\d{2})\) (.+?) : (.+?)\s+((?:\(CH\d+\w+\)\s*)+)')
 
 for line in page_content.splitlines():
     match = event_pattern.search(line)
     if match:
         date, time, league, teams, channels = match.groups()
-        channel_list = re.findall(r'\(CH(\d+\w+)\)', channels)  # Encuentra todos los canales en el formato (CHxx)
+        # Encuentra todos los canales en el formato (CHxx)
+        channel_list = re.findall(r'\(CH(\d+\w+)\)', channels)
         for channel in channel_list:
             channel_name = channel_names.get(channel, f'Channel {channel}')
             events.append({
