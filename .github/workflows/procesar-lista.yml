@@ -25,7 +25,7 @@ jobs:
 
       - name: Procesar listas
         env:
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_API_KEY_LOGOS: ${{ secrets.GOOGLE_API_KEY_LOGOS }}
           GOOGLE_CX: ${{ secrets.GOOGLE_CX }}
         run: python procesar_lista.py
 
