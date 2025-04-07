@@ -38,6 +38,12 @@ jobs:
             salida_lista_agenda.xml
             salida_lista_reproductor.xml
 
+      - name: Registrar detalles del entorno
+        run: |
+          echo "Python version: $(python --version)"
+          echo "PIP packages:"
+          pip list
+
       - name: Commit de cambios
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
