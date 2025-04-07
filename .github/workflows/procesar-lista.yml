@@ -1,0 +1,49 @@
+name: Procesar Listas M3U y XML
+
+on:
+  schedule:
+    - cron: "0 * * * *"  # Cada hora en punto (UTC)
+  workflow_dispatch:
+
+jobs:
+  procesar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Procesar listas
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+          GOOGLE_CX: ${{ secrets.GOOGLE_CX }}
+        run: python procesar_lista.py
+
+      - name: Subir archivos generados
+        uses: actions/upload-artifact@v3
+        with:
+          name: listas-actualizadas
+          path: |
+            salida_lista.m3u
+            salida_lista_agenda.xml
+            salida_lista_reproductor.xml
+
+      - name: Commit de cambios
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add salida_*
+          git commit -m "Actualizar listas con logos" || echo "Sin cambios para commitear"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
