@@ -12,9 +12,7 @@ if not API_KEY or not CX:
 
 # URLs de las listas
 LISTAS = {
-    "lista.m3u": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/lista.m3u",
-    "lista_agenda.xml": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/lista_agenda_DEPORTE-LIBRE.FANS.xml",
-    "lista_reproductor.xml": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/lista_reproductor_web.xml"
+    "listas_con_logos_google.xml": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/listas_con_logos_google.xml"
 }
 
 # Función para buscar el logo usando la API
@@ -50,24 +48,6 @@ def descargar_archivo(url, nombre_salida):
         file.write(response.text)
     return nombre_salida
 
-# Procesar lista M3U
-def procesar_m3u(entrada, salida):
-    with open(entrada, "r", encoding="utf-8") as file:
-        lineas = file.readlines()
-
-    nuevas_lineas = []
-    for linea in lineas:
-        if linea.startswith("#EXTINF:"):
-            nombre_evento = linea.split(",")[-1].strip()
-            logo_url = buscar_logo(nombre_evento)
-            nueva_linea = linea.strip() + f' tvg-logo="{logo_url}"\n'
-            nuevas_lineas.append(nueva_linea)
-        else:
-            nuevas_lineas.append(linea)
-
-    with open(salida, "w", encoding="utf-8") as file:
-        file.writelines(nuevas_lineas)
-
 # Procesar lista XML
 def procesar_xml(entrada, salida):
     tree = ET.parse(entrada)
@@ -90,10 +70,7 @@ def main():
             archivo_entrada = descargar_archivo(url, f"entrada_{nombre}")
             archivo_salida = f"salida_{nombre}"
 
-            if nombre.endswith(".m3u"):
-                print(f"Procesando M3U: {nombre}...")
-                procesar_m3u(archivo_entrada, archivo_salida)
-            elif nombre.endswith(".xml"):
+            if nombre.endswith(".xml"):
                 print(f"Procesando XML: {nombre}...")
                 procesar_xml(archivo_entrada, archivo_salida)
 
