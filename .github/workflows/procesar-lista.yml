@@ -29,6 +29,9 @@ jobs:
           GOOGLE_CX: ${{ secrets.GOOGLE_CX }}
         run: python procesar_lista.py
 
+      - name: Listar archivos generados
+        run: ls -la
+
       - name: Subir archivos generados
         uses: actions/upload-artifact@v4
         with:
@@ -38,12 +41,6 @@ jobs:
             salida_lista_agenda.xml
             salida_lista_reproductor.xml
             salida_listas_con_logos_google.xml
-
-      - name: Registrar detalles del entorno
-        run: |
-          echo "Python version: $(python --version)"
-          echo "PIP packages:"
-          pip list
 
       - name: Commit de cambios
         run: |
