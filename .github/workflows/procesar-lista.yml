@@ -39,19 +39,18 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: listas-con-logos-google
-          path: salida_listas_con_logos_google.xml
+          path: listas_con_logos_google.xml
 
       - name: Commit de cambios
         run: |
-          if [ -f "salida_listas_con_logos_google.xml" ]; then
+          if [ -f "listas_con_logos_google.xml" ]; then
             git config --local user.email "github-actions[bot]@users.noreply.github.com"
             git config --local user.name "github-actions[bot]"
-            mv salida_listas_con_logos_google.xml listas_con_logos_google.xml
             git add listas_con_logos_google.xml
             git commit -m "Actualizar listas con logos" || echo "Sin cambios para commitear"
             git push
           else
-            echo "No se encontró el archivo salida_listas_con_logos_google.xml"
+            echo "No se encontró el archivo listas_con_logos_google.xml"
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
