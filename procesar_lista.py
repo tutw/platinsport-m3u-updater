@@ -10,10 +10,8 @@ CX = os.getenv("GOOGLE_CX")
 if not API_KEY or not CX:
     raise ValueError("Faltan GOOGLE_API_KEY_LOGOS o GOOGLE_CX en las variables de entorno")
 
-# URLs de las listas
-LISTAS = {
-    "listas_con_logos_google.xml": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/listas_con_logos_google.xml"
-}
+# URL del archivo listas_con_logos_google.xml
+URL_LISTA = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/listas_con_logos_google.xml"
 
 # Función para buscar el logo usando la API
 def buscar_logo(evento):
@@ -64,19 +62,17 @@ def procesar_xml(entrada, salida):
 
 # Función principal
 def main():
-    for nombre, url in LISTAS.items():
-        try:
-            print(f"Descargando {nombre}...")
-            archivo_entrada = descargar_archivo(url, f"entrada_{nombre}")
-            archivo_salida = f"salida_{nombre}"
+    try:
+        print(f"Descargando listas_con_logos_google.xml...")
+        archivo_entrada = descargar_archivo(URL_LISTA, "entrada_listas_con_logos_google.xml")
+        archivo_salida = "listas_con_logos_google.xml"
 
-            if nombre.endswith(".xml"):
-                print(f"Procesando XML: {nombre}...")
-                procesar_xml(archivo_entrada, archivo_salida)
+        print(f"Procesando XML: listas_con_logos_google.xml...")
+        procesar_xml(archivo_entrada, archivo_salida)
 
-            print(f"Completado: {archivo_salida}")
-        except Exception as e:
-            print(f"Error procesando {nombre}: {e}")
+        print(f"Completado: {archivo_salida}")
+    except Exception as e:
+        print(f"Error procesando listas_con_logos_google.xml: {e}")
 
 if __name__ == "__main__":
     main()
