@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout del repositorio
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Esto asegura que se obtenga todo el historial del repositorio
 
       - name: Configurar Python
         uses: actions/setup-python@v4
@@ -37,18 +39,23 @@ jobs:
         with:
           name: listas-con-logos-google
           path: listas_con_logos_google.xml
+          if-no-files-found: warn
+          compression-level: 6
+          overwrite: false
+          include-hidden-files: false
 
-      - name: Commit de cambios
-        run: |
-          if [ -f "listas_con_logos_google.xml" ]; then
-            git config --local user.email "github-actions[bot]@users.noreply.github.com"
-            git config --local user.name "github-actions[bot]"
-            git pull --rebase
-            git add listas_con_logos_google.xml
-            git commit -m "Actualizar listas con logos" || echo "Sin cambios para commitear"
-            git push
-          else:
-            echo "No se encontró el archivo listas_con_logos_google.xml"
-          fi
+      - name: Guardar y actualizar cambios
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          
+          if [ -f "listas_con_logos_google.xml" ]; then
+            git add listas_con_logos_google.xml
+            git commit -m "Actualizar listas con logos"
+            git pull --rebase
+            git push
+          else
+            echo "No se encontró el archivo listas_con_logos_google.xml"
+          fi
