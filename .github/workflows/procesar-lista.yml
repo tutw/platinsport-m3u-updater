@@ -23,13 +23,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests
 
+      - name: Listar archivos antes de procesar
+        run: ls -la
+
       - name: Procesar listas
         env:
           GOOGLE_API_KEY_LOGOS: ${{ secrets.GOOGLE_API_KEY_LOGOS }}
           GOOGLE_CX: ${{ secrets.GOOGLE_CX }}
         run: python procesar_lista.py
 
-      - name: Listar archivos generados
+      - name: Listar archivos después de procesar
         run: ls -la
 
       - name: Subir archivos generados
@@ -44,10 +47,14 @@ jobs:
 
       - name: Commit de cambios
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add salida_*
-          git commit -m "Actualizar listas con logos" || echo "Sin cambios para commitear"
-          git push
+          if ls salida_* 1> /dev/null 2>&1; then
+            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+            git config --local user.name "github-actions[bot]"
+            git add salida_*
+            git commit -m "Actualizar listas con logos" || echo "Sin cambios para commitear"
+            git push
+          else
+            echo "No se encontraron archivos para commitear"
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
