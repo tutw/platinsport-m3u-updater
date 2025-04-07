@@ -19,7 +19,7 @@ LISTAS = {
 
 # Función para buscar el logo usando la API
 def buscar_logo(evento):
-    query = f"logo {evento} filetype:png site:*.org | site:*.com -inurl:(login | signup)"
+    query = f"{evento} logo"
     url = "https://www.googleapis.com/customsearch/v1"
     params = {
         "q": query,
@@ -27,7 +27,6 @@ def buscar_logo(evento):
         "cx": CX,
         "searchType": "image",
         "num": 1,
-        "fileType": "png",
     }
     try:
         response = requests.get(url, params=params, timeout=10)
@@ -58,7 +57,8 @@ def procesar_m3u(entrada, salida):
     nuevas_lineas = []
     for linea in lineas:
         if linea.startswith("#EXTINF:"):
-            nombre_evento = linea.split(",")[-1].strip()
+            partes = linea.split(",")
+            nombre_evento = partes[-1].strip()
             logo_url = buscar_logo(nombre_evento)
             nueva_linea = linea.strip() + f' tvg-logo="{logo_url}"\n'
             nuevas_lineas.append(nueva_linea)
