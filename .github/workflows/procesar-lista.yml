@@ -30,7 +30,7 @@ jobs:
         run: python procesar_lista.py
 
       - name: Subir archivos generados
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: listas-actualizadas
           path: |
