@@ -10,8 +10,12 @@ CX = os.getenv("GOOGLE_CX")
 if not API_KEY or not CX:
     raise ValueError("Faltan GOOGLE_API_KEY_LOGOS o GOOGLE_CX en las variables de entorno")
 
-# URL del archivo listas_con_logos_google.xml
-URL_LISTA = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/listas_con_logos_google.xml"
+# URLs de las listas
+LISTAS = {
+    "lista.m3u": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u",
+    "lista_agenda_DEPORTE-LIBRE.FANS.xml": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_agenda_DEPORTE-LIBRE.FANS.xml",
+    "lista_reproductor_web.xml": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_reproductor_web.xml"
+}
 
 # Función para buscar el logo usando la API
 def buscar_logo(evento):
@@ -46,6 +50,24 @@ def descargar_archivo(url, nombre_salida):
         file.write(response.text)
     return nombre_salida
 
+# Procesar lista M3U
+def procesar_m3u(entrada, salida):
+    with open(entrada, "r", encoding="utf-8") as file:
+        lineas = file.readlines()
+
+    nuevas_lineas = []
+    for linea in lineas:
+        if linea.startswith("#EXTINF:"):
+            nombre_evento = linea.split(",")[-1].strip()
+            logo_url = buscar_logo(nombre_evento)
+            nueva_linea = linea.strip() + f' tvg-logo="{logo_url}"\n'
+            nuevas_lineas.append(nueva_linea)
+        else:
+            nuevas_lineas.append(linea)
+
+    with open(salida, "a", encoding="utf-8") as file:
+        file.writelines(nuevas_lineas)
+
 # Procesar lista XML
 def procesar_xml(entrada, salida):
     tree = ET.parse(entrada)
@@ -58,21 +80,29 @@ def procesar_xml(entrada, salida):
             logo_elem = item.find("icon") or ET.SubElement(item, "icon")
             logo_elem.set("src", logo_url)
 
-    tree.write(salida, encoding="utf-8", xml_declaration=True)
+    tree.write(salida, encoding="utf-8", xml_declaration=True, method="xml")
 
 # Función principal
 def main():
-    try:
-        print(f"Descargando listas_con_logos_google.xml...")
-        archivo_entrada = descargar_archivo(URL_LISTA, "entrada_listas_con_logos_google.xml")
-        archivo_salida = "listas_con_logos_google.xml"
+    salida = "listas_con_logos_google.xml"
+    if os.path.exists(salida):
+        os.remove(salida)
+    
+    for nombre, url in LISTAS.items():
+        try:
+            print(f"Descargando {nombre}...")
+            archivo_entrada = descargar_archivo(url, f"entrada_{nombre}")
 
-        print(f"Procesando XML: listas_con_logos_google.xml...")
-        procesar_xml(archivo_entrada, archivo_salida)
+            if nombre.endswith(".m3u"):
+                print(f"Procesando M3U: {nombre}...")
+                procesar_m3u(archivo_entrada, salida)
+            elif nombre.endswith(".xml"):
+                print(f"Procesando XML: {nombre}...")
+                procesar_xml(archivo_entrada, salida)
 
-        print(f"Completado: {archivo_salida}")
-    except Exception as e:
-        print(f"Error procesando listas_con_logos_google.xml: {e}")
+            print(f"Completado: {nombre}")
+        except Exception as e:
+            print(f"Error procesando {nombre}: {e}")
 
 if __name__ == "__main__":
     main()
