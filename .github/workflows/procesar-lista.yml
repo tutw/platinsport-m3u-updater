@@ -46,6 +46,7 @@ jobs:
           if [ -f "listas_con_logos_google.xml" ]; then
             git config --local user.email "github-actions[bot]@users.noreply.github.com"
             git config --local user.name "github-actions[bot]"
+            git pull --rebase
             git add listas_con_logos_google.xml
             git commit -m "Actualizar listas con logos" || echo "Sin cambios para commitear"
             git push
