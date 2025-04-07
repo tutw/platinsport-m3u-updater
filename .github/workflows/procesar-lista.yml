@@ -30,10 +30,13 @@ jobs:
         run: python procesar_lista.py
 
       - name: Subir archivos generados
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: listas-actualizadas
           path: |
+            salida_lista.m3u
+            salida_lista_agenda.xml
+            salida_lista_reproductor.xml
             salida_listas_con_logos_google.xml
 
       - name: Registrar detalles del entorno
