@@ -1,14 +1,8 @@
 import requests
 import os
 import xml.etree.ElementTree as ET
-
-# Configuración de la API desde variables de entorno
-API_KEY = os.getenv("GOOGLE_API_KEY_LOGOS")
-CX = os.getenv("GOOGLE_CX")
-
-# Verificar que las variables estén definidas
-if not API_KEY or not CX:
-    raise ValueError("Faltan GOOGLE_API_KEY_LOGOS o GOOGLE_CX en las variables de entorno")
+from bs4 import BeautifulSoup
+import time
 
 # URLs de las listas
 LISTAS = {
@@ -17,23 +11,21 @@ LISTAS = {
     "lista_reproductor_web.xml": "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_reproductor_web.xml"
 }
 
-# Función para buscar el logo usando la API
+# Función para buscar el logo en Google Imágenes sin usar API
 def buscar_logo(evento):
     query = f"{evento} logo"
-    url = "https://www.googleapis.com/customsearch/v1"
-    params = {
-        "q": query,
-        "key": API_KEY,
-        "cx": CX,
-        "searchType": "image",
-        "num": 1,
+    url = f"https://www.google.com/search?tbm=isch&q={query.replace(' ', '+')}"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
     }
+    
     try:
-        response = requests.get(url, params=params, timeout=10)
+        response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()
-        data = response.json()
-        if "items" in data and len(data["items"]) > 0:
-            return data["items"][0]["link"]
+        soup = BeautifulSoup(response.text, 'html.parser')
+        images = soup.find_all('img')
+        if images:
+            return images[1]['src']  # El primer resultado es el logo de Google, usamos el segundo
         else:
             print(f"No se encontró logo para {evento}")
             return "https://via.placeholder.com/150"
@@ -62,6 +54,7 @@ def procesar_m3u(entrada, salida):
             logo_url = buscar_logo(nombre_evento)
             nueva_linea = linea.strip() + f' tvg-logo="{logo_url}"\n'
             nuevas_lineas.append(nueva_linea)
+            time.sleep(2)  # Esperar 2 segundos entre solicitudes para evitar bloqueos
         else:
             nuevas_lineas.append(linea)
 
@@ -79,6 +72,7 @@ def procesar_xml(entrada, salida):
             logo_url = buscar_logo(nombre.text.strip())
             logo_elem = item.find("icon") or ET.SubElement(item, "icon")
             logo_elem.set("src", logo_url)
+            time.sleep(2)  # Esperar 2 segundos entre solicitudes para evitar bloqueos
 
     tree.write(salida, encoding="utf-8", xml_declaration=True, method="xml")
 
