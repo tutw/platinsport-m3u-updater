@@ -1,15 +1,14 @@
 import requests
 import os
 import xml.etree.ElementTree as ET
-from urllib.parse import urlparse
 
 # Configuración de la API desde variables de entorno
-API_KEY = os.getenv("GOOGLE_API_KEY", "AIzaSyAWJdoVFaYYAeox-CcarL9hc4t9zJNE8Y0")
-CX = os.getenv("GOOGLE_CX", "e214b950b64644d0e")
+API_KEY = os.getenv("GOOGLE_API_KEY_LOGOS")
+CX = os.getenv("GOOGLE_CX")
 
 # Verificar que las variables estén definidas
 if not API_KEY or not CX:
-    raise ValueError("Faltan GOOGLE_API_KEY o GOOGLE_CX en las variables de entorno")
+    raise ValueError("Faltan GOOGLE_API_KEY_LOGOS o GOOGLE_CX en las variables de entorno")
 
 # URLs de las listas
 LISTAS = {
@@ -74,7 +73,7 @@ def procesar_xml(entrada, salida):
     tree = ET.parse(entrada)
     root = tree.getroot()
 
-    for item in root.findall(".//channel") or root.findall(".//event"):  # Adaptarse a diferentes estructuras XML
+    for item in root.findall(".//channel") or root.findall(".//event"):
         nombre = item.find("display-name") or item.find("title")
         if nombre is not None and nombre.text:
             logo_url = buscar_logo(nombre.text.strip())
