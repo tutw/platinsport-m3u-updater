@@ -21,15 +21,12 @@ jobs:
       - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install requests beautifulsoup4
 
       - name: Listar archivos antes de procesar
         run: ls -la
 
       - name: Procesar listas
-        env:
-          GOOGLE_API_KEY_LOGOS: ${{ secrets.GOOGLE_API_KEY_LOGOS }}
-          GOOGLE_CX: ${{ secrets.GOOGLE_CX }}
         run: python procesar_lista.py
 
       - name: Listar archivos después de procesar
@@ -50,7 +47,7 @@ jobs:
             git add listas_con_logos_google.xml
             git commit -m "Actualizar listas con logos" || echo "Sin cambios para commitear"
             git push
-          else
+          else:
             echo "No se encontró el archivo listas_con_logos_google.xml"
           fi
         env:
