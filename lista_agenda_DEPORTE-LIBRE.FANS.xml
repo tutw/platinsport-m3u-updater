@@ -680,18 +680,35 @@
   <event>
     <name>Copa Sudamericana : GV San Jose vs Once Caldas</name>
     <time>01:00</time>
-  </event>
-  <event>
-    <name>Argentina - Primera Nacional : Ferro Carril Oeste vs CA Atlanta</name>
-    <time>01:10</time>
+    <channel>
+      <name>ESPN 2 CO</name>
+      <url>/en-vivo-online/espn-2/embed2.php</url>
+    </channel>
   </event>
   <event>
     <name>Argentina - Primera Division : Independiente Rivadavia vs CA Aldosivi</name>
     <time>01:15</time>
+    <channel>
+      <name>ESPN Premium</name>
+      <url>/en-vivo-online/espn-premium/embed2.php</url>
+    </channel>
   </event>
   <event>
     <name>Copa Libertadores : Colo-Colo vs Racing Club</name>
     <time>01:30</time>
+    <channel>
+      <name>Fox Sports Argentina</name>
+      <url>/en-vivo-online/fox-sports/embed2.php</url>
+      <url>https://deporte-libre.fans/en-vivo-online/fox-sports/embed.php</url>
+      <url>https://deporte-libre.fans/en-vivo-online/fox-sports/embed2.php</url>
+      <url>https://deporte-libre.fans/en-vivo-online/fox-sports/embed3.php</url>
+      <url>https://miztv.top/total/stream-787.php</url>
+      <logo>https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/fox-sports-racing-ca.png</logo>
+    </channel>
+    <channel>
+      <name>ESPN 5</name>
+      <url>/en-vivo-online/espn-5/embed2.php</url>
+    </channel>
     <channel>
       <name>beIN SPORTS USA</name>
       <url>https://miztv.top/total/stream-425.php</url>
@@ -709,15 +726,6 @@
     <channel>
       <name>Cosmote Sport 3 Greece</name>
       <url>https://miztv.top/total/stream-624.php</url>
-    </channel>
-    <channel>
-      <name>Fox Sports Argentina</name>
-      <url>/en-vivo-online/fox-sports/embed2.php</url>
-      <url>https://deporte-libre.fans/en-vivo-online/fox-sports/embed.php</url>
-      <url>https://deporte-libre.fans/en-vivo-online/fox-sports/embed2.php</url>
-      <url>https://deporte-libre.fans/en-vivo-online/fox-sports/embed3.php</url>
-      <url>https://miztv.top/total/stream-787.php</url>
-      <logo>https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/fox-sports-racing-ca.png</logo>
     </channel>
     <channel>
       <name>Arena 2 Premium Serbia</name>
@@ -738,10 +746,6 @@
     <name>Copa Libertadores : Internacional vs Nacional</name>
     <time>01:30</time>
     <channel>
-      <name>Sport TV1 Portugal</name>
-      <url>https://miztv.top/total/stream-49.php</url>
-    </channel>
-    <channel>
       <name>Fox Sports 2 Argentina</name>
       <url>/en-vivo-online/fox-sports-2/embed2.php</url>
       <url>https://deporte-libre.fans/en-vivo-online/fox-sports-2/embed.php</url>
@@ -751,12 +755,20 @@
       <logo>https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/canada/fox-sports-racing-ca.png</logo>
     </channel>
     <channel>
-      <name>SPORT1+ DE</name>
-      <url>https://miztv.top/total/stream-640.php</url>
+      <name>ESPN CO</name>
+      <url>/en-vivo-online/espn/embed2.php</url>
     </channel>
     <channel>
       <name>ESPN3 Mexico</name>
       <url>https://miztv.top/total/stream-927.php</url>
+    </channel>
+    <channel>
+      <name>Sport TV1 Portugal</name>
+      <url>https://miztv.top/total/stream-49.php</url>
+    </channel>
+    <channel>
+      <name>SPORT1+ DE</name>
+      <url>https://miztv.top/total/stream-640.php</url>
     </channel>
     <channel>
       <name>beIN Sports MENA 3</name>
@@ -773,7 +785,7 @@
     <name>Copa Sudamericana : Gualberto Villarroel SJ vs Once Caldas</name>
     <time>01:30</time>
     <channel>
-      <name>ESPN2 Argentina</name>
+      <name>ESPN 2 Argentina</name>
       <url>/en-vivo-online/espn-2/embed2.php</url>
     </channel>
     <channel>
@@ -784,6 +796,10 @@
   <event>
     <name>Copa Sudamericana : Vasco da Gama vs Lanús</name>
     <time>01:30</time>
+    <channel>
+      <name>DSports +</name>
+      <url>/en-vivo-online/dsports-plus/embed2.php</url>
+    </channel>
     <channel>
       <name>Sport TV2 Portugal</name>
       <url>https://miztv.top/total/stream-74.php</url>
@@ -807,8 +823,12 @@
     <name>Copa Libertadores : Barcelona vs Universitario</name>
     <time>03:00</time>
     <channel>
-      <name>beIN SPORTS USA</name>
-      <url>https://miztv.top/total/stream-425.php</url>
+      <name>FOX Sports 3 Argentina</name>
+      <url>/en-vivo-online/fox-sports-3/embed2.php</url>
+    </channel>
+    <channel>
+      <name>ESPN 6</name>
+      <url>/en-vivo-online/espn-6/embed2.php</url>
     </channel>
     <channel>
       <name>beIN SPORTS en Español</name>
@@ -816,12 +836,12 @@
       <logo>https://raw.githubusercontent.com/tv-logo/tv-logos/main/countries/france/bein-sports-fr.png</logo>
     </channel>
     <channel>
-      <name>MAX Sport 4 Bulgaria</name>
-      <url>https://miztv.top/total/stream-475.php</url>
+      <name>beIN SPORTS USA</name>
+      <url>https://miztv.top/total/stream-425.php</url>
     </channel>
     <channel>
-      <name>FOX Sports 3 Argentina</name>
-      <url>/en-vivo-online/fox-sports-3/embed2.php</url>
+      <name>MAX Sport 4 Bulgaria</name>
+      <url>https://miztv.top/total/stream-475.php</url>
     </channel>
     <channel>
       <name>beIN Sports MENA English 1</name>
@@ -836,6 +856,10 @@
   <event>
     <name>Copa Sudamericana : Melgar vs Academia Puerto Cabello</name>
     <time>03:00</time>
+    <channel>
+      <name>DSports</name>
+      <url>/en-vivo-online/dsports/embed.php</url>
+    </channel>
     <channel>
       <name>beIN Sports MENA Xtra 1</name>
       <url>https://miztv.top/total/stream-100.php</url>
