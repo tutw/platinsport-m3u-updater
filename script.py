@@ -53,6 +53,9 @@ def extraer_eventos(url):
                 except Exception:
                     hora_evento = datetime.strptime("23:59", "%H:%M").time()
 
+            # Añadir una hora al horario
+            hora_evento = convertir_a_utc_mas_1(hora_evento)
+
             event_text = ""
             canales = []
             for sib in element.next_siblings:
