@@ -79,7 +79,7 @@ for endpoint in endpoints:
                 event_info = event['event']
                 
                 # Convertir el horario a datetime (se suma 1 hora para ajustar a GMT+1, si es necesario)
-                event_datetime = datetime.strptime(event_time, '%H:%M') + timedelta(hours=2)
+                event_datetime = datetime.strptime(event_time, '%H:%M') + timedelta(hours=1)
                 
                 # Crear un nuevo elemento en el XML de agenda
                 event_element = ET.SubElement(agenda_root, 'event')
