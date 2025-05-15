@@ -1,0 +1,31 @@
+name: Actualizar lista M3U
+
+on:
+  schedule:
+    - cron: "0 * * * *" # Ejecutar cada 1 hora
+  workflow_dispatch: # Permitir ejecución manual
+
+jobs:
+  update_m3u:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configurar el repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Instalar dependencias
+        run: pip install requests
+
+      - name: Ejecutar el script
+        run: python script_lista_sportsonlineci.py
+
+      - name: Subir el archivo actualizado
+        uses: actions/upload-artifact@v3
+        with:
+          name: lista_sportsonlineci
+          path: lista_sportsonlineci.m3u
