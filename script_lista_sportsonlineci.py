@@ -21,6 +21,9 @@ LINEAS_IRRELEVANTES = [
     "UPDATE",
 ]
 
+# Días de la semana en inglés
+DIAS_SEMANA = ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]
+
 def descargar_contenido(url):
     """Descarga el contenido del archivo de texto desde la URL proporcionada."""
     response = requests.get(url)
@@ -40,7 +43,7 @@ def es_linea_irrelevante(linea):
 
 def obtener_dia_actual():
     """Devuelve el día de la semana actual en inglés."""
-    return datetime.now(timezone.utc).strftime("%A")  # Día en inglés
+    return datetime.now(timezone.utc).strftime("%A").upper()  # Día en inglés y en mayúsculas.
 
 def procesar_linea(linea):
     """
@@ -68,6 +71,7 @@ def generar_lista_xml(contenido):
     agrupados = {}
     dia_actual = obtener_dia_actual()  # Día actual en inglés
     dia_encontrado = None  # Día encontrado en el archivo de texto
+    adicionales = []  # Para guardar las líneas adicionales como HD2, BR1, etc.
 
     eventos_encontrados = 0  # Contador para eventos procesados
 
@@ -80,13 +84,19 @@ def generar_lista_xml(contenido):
             continue
 
         # Detectar si la línea indica un día de la semana
-        if linea.upper() in ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]:
+        if linea.upper() in DIAS_SEMANA:
             dia_encontrado = linea.upper()
             print(f"Día detectado: {dia_encontrado}")
             continue
 
+        # Detectar bloques adicionales al final del día
+        if dia_encontrado == dia_actual and re.match(r"^(HD\d+|BR\d+)\s+\w+", linea):
+            adicionales.append(linea)
+            print(f"Línea adicional detectada: {linea}")
+            continue
+
         # Procesar líneas de eventos solo si el día coincide con el actual
-        if dia_encontrado == dia_actual.upper():
+        if dia_encontrado == dia_actual:
             try:
                 titulo_evento, url_streaming = procesar_linea(linea)
                 if titulo_evento not in agrupados:
@@ -101,7 +111,7 @@ def generar_lista_xml(contenido):
     if eventos_encontrados == 0:
         print(f"No se encontraron eventos para el día actual: {dia_actual}")
 
-    # Crear los elementos XML
+    # Crear los elementos XML para los eventos
     for titulo, urls in agrupados.items():
         track = SubElement(root, "track")
         title = SubElement(track, "title")
@@ -109,6 +119,13 @@ def generar_lista_xml(contenido):
         for url in urls:
             url_element = SubElement(track, "url")
             url_element.text = url
+
+    # Agregar las líneas adicionales al final del XML
+    if adicionales:
+        adicionales_section = SubElement(root, "additional")
+        for linea in adicionales:
+            additional_item = SubElement(adicionales_section, "item")
+            additional_item.text = linea
 
     return root
 
