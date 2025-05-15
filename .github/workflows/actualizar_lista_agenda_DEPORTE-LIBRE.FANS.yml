@@ -1,12 +1,12 @@
-name: Actualizar Lista Agenda DEPORTE-LIBRE.FANS
+name: Actualizar Lista SportsOnlineCi
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Ejecutar cada hora
-  workflow_dispatch:  # Permitir ejecución manual
+    - cron: "0 * * * *" # Ejecutar cada hora
+  workflow_dispatch: # Permitir ejecución manual
 
 jobs:
-  update-agenda:
+  update-m3u:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,22 +16,22 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 selenium webdriver-manager
+          pip install requests
 
       - name: Run update script
-        run: python script_agenda_DEPORTE-LIBRE.FANS.py
+        run: python script_lista_sportsonlineci.py
 
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add lista_agenda_DEPORTE-LIBRE.FANS.xml
-          git commit -m 'Auto-update agenda' || echo "No changes to commit"
+          git add lista_sportsonlineci.m3u
+          git commit -m 'Auto-update lista_sportsonlineci' || echo "No changes to commit"
           git stash || echo "No local changes to stash"
           git pull --rebase
           git stash pop || echo "No stash entries found"
