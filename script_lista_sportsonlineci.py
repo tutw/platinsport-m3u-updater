@@ -1,7 +1,7 @@
 import requests
 from xml.etree.ElementTree import Element, SubElement, tostring
 import xml.dom.minidom
-from datetime import datetime
+from datetime import datetime, timezone
 import re
 
 # URL del archivo de texto
@@ -55,7 +55,7 @@ def traducir_dia(dia_ingles):
 
 def obtener_dia_actual():
     """Devuelve el día de la semana actual en español."""
-    dia_actual_ingles = datetime.utcnow().strftime("%A")  # Día en inglés
+    dia_actual_ingles = datetime.now(timezone.utc).strftime("%A")  # Día en inglés
     return traducir_dia(dia_actual_ingles)
 
 def procesar_linea(linea):
@@ -85,6 +85,8 @@ def generar_lista_xml(contenido):
     dia_actual = obtener_dia_actual()  # Día actual en español
     dia_encontrado = None  # Día encontrado en el archivo de texto
 
+    eventos_encontrados = 0  # Contador para eventos procesados
+
     for linea in contenido.split("\n"):
         linea = limpiar_linea(linea)
 
@@ -106,10 +108,14 @@ def generar_lista_xml(contenido):
                 if titulo_evento not in agrupados:
                     agrupados[titulo_evento] = []
                 agrupados[titulo_evento].append(url_streaming)
+                eventos_encontrados += 1
             except ValueError as e:
                 print(f"Línea no válida, se omitirá: {linea}. Error: {e}")
             except Exception as e:
                 print(f"Error procesando la línea: {linea}. Detalles: {e}")
+
+    if eventos_encontrados == 0:
+        print(f"No se encontraron eventos para el día actual: {dia_actual}")
 
     # Crear los elementos XML
     for titulo, urls in agrupados.items():
