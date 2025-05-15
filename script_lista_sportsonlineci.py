@@ -9,17 +9,6 @@ URL_PROG_TXT = "https://sportsonline.ci/prog.txt"
 # Nombre del archivo XML generado
 OUTPUT_FILE = "lista_sportsonlineci.xml"
 
-# Diccionario para traducir días de la semana al español
-DIAS_SEMANA = {
-    "Monday": "Lunes",
-    "Tuesday": "Martes",
-    "Wednesday": "Miércoles",
-    "Thursday": "Jueves",
-    "Friday": "Viernes",
-    "Saturday": "Sábado",
-    "Sunday": "Domingo",
-}
-
 # Patrones de líneas irrelevantes
 LINEAS_IRRELEVANTES = [
     "INFO:",
@@ -49,14 +38,9 @@ def es_linea_irrelevante(linea):
             return True
     return False
 
-def traducir_dia(dia_ingles):
-    """Traduce un día de la semana del inglés al español."""
-    return DIAS_SEMANA.get(dia_ingles.capitalize(), dia_ingles)
-
 def obtener_dia_actual():
-    """Devuelve el día de la semana actual en español."""
-    dia_actual_ingles = datetime.now(timezone.utc).strftime("%A")  # Día en inglés
-    return traducir_dia(dia_actual_ingles)
+    """Devuelve el día de la semana actual en inglés."""
+    return datetime.now(timezone.utc).strftime("%A")  # Día en inglés
 
 def procesar_linea(linea):
     """
@@ -82,7 +66,7 @@ def generar_lista_xml(contenido):
     root.set("version", "1")
 
     agrupados = {}
-    dia_actual = obtener_dia_actual()  # Día actual en español
+    dia_actual = obtener_dia_actual()  # Día actual en inglés
     dia_encontrado = None  # Día encontrado en el archivo de texto
 
     eventos_encontrados = 0  # Contador para eventos procesados
@@ -96,13 +80,13 @@ def generar_lista_xml(contenido):
             continue
 
         # Detectar si la línea indica un día de la semana
-        if linea.upper() in DIAS_SEMANA.keys():
-            dia_encontrado = traducir_dia(linea)
+        if linea.upper() in ["MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY"]:
+            dia_encontrado = linea.upper()
             print(f"Día detectado: {dia_encontrado}")
             continue
 
         # Procesar líneas de eventos solo si el día coincide con el actual
-        if dia_encontrado == dia_actual:
+        if dia_encontrado == dia_actual.upper():
             try:
                 titulo_evento, url_streaming = procesar_linea(linea)
                 if titulo_evento not in agrupados:
