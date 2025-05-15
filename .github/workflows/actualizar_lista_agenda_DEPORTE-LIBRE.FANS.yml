@@ -30,7 +30,7 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add lista_sportsonlineci.m3u
+          git add lista_sportsonlineci.xml
           git commit -m 'Auto-update lista_sportsonlineci' || echo "No changes to commit"
           git stash || echo "No local changes to stash"
           git pull --rebase
