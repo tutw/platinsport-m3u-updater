@@ -2,30 +2,39 @@ name: Actualizar Lista SportsOnlineCi
 
 on:
   schedule:
-    - cron: "0 * * * *" # Ejecutar cada 1 hora
+    - cron: "0 * * * *" # Ejecutar cada hora
   workflow_dispatch: # Permitir ejecución manual
 
 jobs:
-  update_m3u:
+  update-m3u:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Configurar el repositorio
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Configurar Python
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
           python-version: "3.x"
 
-      - name: Instalar dependencias
-        run: pip install requests
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
-      - name: Ejecutar el script
+      - name: Run update script
         run: python script_lista_sportsonlineci.py
 
-      - name: Subir el archivo actualizado
-        uses: actions/upload-artifact@v2
-        with:
-          name: lista_sportsonlineci
-          path: lista_sportsonlineci.m3u
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add lista_sportsonlineci.xml
+          git commit -m 'Auto-update lista_sportsonlineci.xml' || echo "No changes to commit"
+          git stash || echo "No local changes to stash"
+          git pull --rebase
+          git stash pop || echo "No stash entries found"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
