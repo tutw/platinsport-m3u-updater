@@ -1,4 +1,5 @@
 import requests
+from datetime import datetime
 from xml.etree.ElementTree import Element, SubElement, tostring
 import xml.dom.minidom
 
@@ -6,6 +7,17 @@ import xml.dom.minidom
 URL_PROG_TXT = "https://sportsonline.ci/prog.txt"
 # Nombre del archivo XML generado
 OUTPUT_FILE = "lista_sportsonlineci.xml"
+
+# Diccionario para traducir días de la semana al español
+DIAS_SEMANA = {
+    "Monday": "Lunes",
+    "Tuesday": "Martes",
+    "Wednesday": "Miércoles",
+    "Thursday": "Jueves",
+    "Friday": "Viernes",
+    "Saturday": "Sábado",
+    "Sunday": "Domingo"
+}
 
 def descargar_contenido(url):
     """Descarga el contenido del archivo de texto desde la URL proporcionada."""
@@ -17,6 +29,11 @@ def limpiar_linea(linea):
     """Limpia una línea eliminando caracteres no deseados."""
     return linea.strip()
 
+def obtener_dia_semana():
+    """Devuelve el día de la semana actual en español."""
+    dia_actual_ingles = datetime.utcnow().strftime("%A")  # Día en inglés
+    return DIAS_SEMANA.get(dia_actual_ingles, dia_actual_ingles)
+
 def generar_lista_xml(contenido):
     """Genera el contenido de un archivo XML válido agrupando por título."""
     root = Element("playlist")
@@ -24,6 +41,8 @@ def generar_lista_xml(contenido):
 
     # Diccionario para agrupar URLs por título
     agrupados = {}
+
+    dia_semana = obtener_dia_semana()
 
     for linea in contenido.split("\n"):
         linea = limpiar_linea(linea)
@@ -34,13 +53,17 @@ def generar_lista_xml(contenido):
         try:
             # Separar los componentes de la línea
             partes = linea.split(" | ")
-            info_evento = partes[0].strip()
-            url_streaming = partes[1].strip()
+            hora_evento = partes[0].strip()
+            nombre_evento = partes[1].strip()
+            url_streaming = partes[2].strip()
+            
+            # Crear el título con el día de la semana incluido
+            titulo_evento = f"{hora_evento} ({dia_semana}) {nombre_evento}"
             
             # Agrupar las URLs bajo el mismo título
-            if info_evento not in agrupados:
-                agrupados[info_evento] = []
-            agrupados[info_evento].append(url_streaming)
+            if titulo_evento not in agrupados:
+                agrupados[titulo_evento] = []
+            agrupados[titulo_evento].append(url_streaming)
         except Exception as e:
             print(f"Error procesando la línea: {linea}, {e}")
 
