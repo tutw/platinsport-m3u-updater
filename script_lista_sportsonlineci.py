@@ -15,18 +15,35 @@ DIAS_SEMANA = {
     "Thursday": "Jueves",
     "Friday": "Viernes",
     "Saturday": "Sábado",
-    "Sunday": "Domingo"
+    "Sunday": "Domingo",
 }
+
+# Patrones de líneas irrelevantes
+LINEAS_IRRELEVANTES = [
+    "INFO:",
+    "PLEASE USE DOMAIN",
+    "ANY INFO/ISSUES",
+    "IMPORTANT:",
+    "============================================================",
+    "*(W) - Women Event",
+]
 
 def descargar_contenido(url):
     """Descarga el contenido del archivo de texto desde la URL proporcionada."""
     response = requests.get(url)
     response.raise_for_status()  # Lanza una excepción si la solicitud falla
-    return response.text.strip()
+    return response.content.decode('utf-8-sig').strip()
 
 def limpiar_linea(linea):
     """Limpia una línea eliminando caracteres no deseados."""
     return linea.strip()
+
+def es_linea_irrelevante(linea):
+    """Determina si una línea es irrelevante."""
+    for patron in LINEAS_IRRELEVANTES:
+        if patron in linea:
+            return True
+    return False
 
 def traducir_dia(dia_ingles):
     """Traduce un día de la semana del inglés al español."""
@@ -44,26 +61,32 @@ def generar_lista_xml(contenido):
     for linea in contenido.split("\n"):
         linea = limpiar_linea(linea)
 
+        # Ignorar líneas irrelevantes
+        if es_linea_irrelevante(linea):
+            print(f"Línea irrelevante, se omitirá: {linea}")
+            continue
+
         # Detectar si la línea indica un día de la semana
         if linea.upper() in DIAS_SEMANA.keys():
             dia_actual = traducir_dia(linea)
+            print(f"Día detectado: {dia_actual}")
             continue
 
-        # Ignorar líneas vacías o irrelevantes
+        # Ignorar líneas vacías o mal formateadas
         if not linea or " | " not in linea:
             print(f"Línea no válida, se omitirá: {linea}")
             continue
-        
+
         try:
             # Separar los componentes de la línea
             partes = linea.split(" | ")
             hora_evento = partes[0].strip()
             nombre_evento = partes[1].strip()
             url_streaming = partes[2].strip()
-            
+
             # Crear el título con el día de la semana incluido
             titulo_evento = f"{hora_evento} ({dia_actual}) {nombre_evento}" if dia_actual else nombre_evento
-            
+
             # Agrupar las URLs bajo el mismo título
             if titulo_evento not in agrupados:
                 agrupados[titulo_evento] = []
