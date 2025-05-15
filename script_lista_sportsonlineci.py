@@ -35,7 +35,7 @@ def descargar_contenido(url):
     return response.content.decode('utf-8-sig').strip()
 
 def limpiar_linea(linea):
-    """Limpia una línea eliminando caracteres no deseados."""
+    """Limpia una línea eliminando espacios innecesarios."""
     return linea.strip()
 
 def es_linea_irrelevante(linea):
@@ -49,20 +49,33 @@ def traducir_dia(dia_ingles):
     """Traduce un día de la semana del inglés al español."""
     return DIAS_SEMANA.get(dia_ingles.capitalize(), dia_ingles)
 
+def procesar_linea(linea, dia_actual):
+    """Procesa una línea de evento y devuelve el título y la URL."""
+    partes = linea.split(" | ")
+    if len(partes) != 3:
+        raise ValueError("La línea no tiene el formato esperado (hora | evento | url).")
+    
+    hora_evento = partes[0].strip()
+    nombre_evento = partes[1].strip()
+    url_streaming = partes[2].strip()
+
+    # Crear el título con el día de la semana incluido
+    titulo_evento = f"{hora_evento} ({dia_actual}) {nombre_evento}" if dia_actual else nombre_evento
+    return titulo_evento, url_streaming
+
 def generar_lista_xml(contenido):
-    """Genera el contenido de un archivo XML válido agrupando por título."""
+    """Genera el contenido de un archivo XML agrupando eventos bajo títulos."""
     root = Element("playlist")
     root.set("version", "1")
 
-    # Diccionario para agrupar URLs por título
     agrupados = {}
     dia_actual = None  # Día actual al procesar el archivo
 
     for linea in contenido.split("\n"):
         linea = limpiar_linea(linea)
 
-        # Ignorar líneas irrelevantes
-        if es_linea_irrelevante(linea):
+        # Ignorar líneas irrelevantes o vacías
+        if es_linea_irrelevante(linea) or not linea:
             print(f"Línea irrelevante, se omitirá: {linea}")
             continue
 
@@ -72,27 +85,16 @@ def generar_lista_xml(contenido):
             print(f"Día detectado: {dia_actual}")
             continue
 
-        # Ignorar líneas vacías o mal formateadas
-        if not linea or " | " not in linea:
-            print(f"Línea no válida, se omitirá: {linea}")
-            continue
-
+        # Procesar líneas de eventos
         try:
-            # Separar los componentes de la línea
-            partes = linea.split(" | ")
-            hora_evento = partes[0].strip()
-            nombre_evento = partes[1].strip()
-            url_streaming = partes[2].strip()
-
-            # Crear el título con el día de la semana incluido
-            titulo_evento = f"{hora_evento} ({dia_actual}) {nombre_evento}" if dia_actual else nombre_evento
-
-            # Agrupar las URLs bajo el mismo título
+            titulo_evento, url_streaming = procesar_linea(linea, dia_actual)
             if titulo_evento not in agrupados:
                 agrupados[titulo_evento] = []
             agrupados[titulo_evento].append(url_streaming)
+        except ValueError as e:
+            print(f"Línea no válida, se omitirá: {linea}. Error: {e}")
         except Exception as e:
-            print(f"Error procesando la línea: {linea}, {e}")
+            print(f"Error procesando la línea: {linea}. Detalles: {e}")
 
     # Crear los elementos XML
     for titulo, urls in agrupados.items():
