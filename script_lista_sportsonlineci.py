@@ -1,5 +1,4 @@
 import requests
-from datetime import datetime
 from xml.etree.ElementTree import Element, SubElement, tostring
 import xml.dom.minidom
 
@@ -29,10 +28,9 @@ def limpiar_linea(linea):
     """Limpia una línea eliminando caracteres no deseados."""
     return linea.strip()
 
-def obtener_dia_semana():
-    """Devuelve el día de la semana actual en español."""
-    dia_actual_ingles = datetime.utcnow().strftime("%A")  # Día en inglés
-    return DIAS_SEMANA.get(dia_actual_ingles, dia_actual_ingles)
+def traducir_dia(dia_ingles):
+    """Traduce un día de la semana del inglés al español."""
+    return DIAS_SEMANA.get(dia_ingles.capitalize(), dia_ingles)
 
 def generar_lista_xml(contenido):
     """Genera el contenido de un archivo XML válido agrupando por título."""
@@ -41,11 +39,17 @@ def generar_lista_xml(contenido):
 
     # Diccionario para agrupar URLs por título
     agrupados = {}
-
-    dia_semana = obtener_dia_semana()
+    dia_actual = None  # Día actual al procesar el archivo
 
     for linea in contenido.split("\n"):
         linea = limpiar_linea(linea)
+
+        # Detectar si la línea indica un día de la semana
+        if linea.upper() in DIAS_SEMANA.keys():
+            dia_actual = traducir_dia(linea)
+            continue
+
+        # Ignorar líneas vacías o irrelevantes
         if not linea or " | " not in linea:
             print(f"Línea no válida, se omitirá: {linea}")
             continue
@@ -58,7 +62,7 @@ def generar_lista_xml(contenido):
             url_streaming = partes[2].strip()
             
             # Crear el título con el día de la semana incluido
-            titulo_evento = f"{hora_evento} ({dia_semana}) {nombre_evento}"
+            titulo_evento = f"{hora_evento} ({dia_actual}) {nombre_evento}" if dia_actual else nombre_evento
             
             # Agrupar las URLs bajo el mismo título
             if titulo_evento not in agrupados:
