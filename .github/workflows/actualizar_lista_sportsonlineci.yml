@@ -1,4 +1,4 @@
-name: actualizar_lista_sportsonlineci
+name: Actualizar Lista SportsOnlineCi
 
 on:
   schedule:
@@ -25,7 +25,7 @@ jobs:
         run: python script_lista_sportsonlineci.py
 
       - name: Subir el archivo actualizado
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: lista_sportsonlineci
           path: lista_sportsonlineci.m3u
