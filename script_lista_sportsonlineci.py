@@ -1,6 +1,7 @@
 import requests
 from xml.etree.ElementTree import Element, SubElement, tostring
 import xml.dom.minidom
+from datetime import datetime
 import re
 
 # URL del archivo de texto
@@ -52,7 +53,12 @@ def traducir_dia(dia_ingles):
     """Traduce un día de la semana del inglés al español."""
     return DIAS_SEMANA.get(dia_ingles.capitalize(), dia_ingles)
 
-def procesar_linea(linea, dia_actual):
+def obtener_dia_actual():
+    """Devuelve el día de la semana actual en español."""
+    dia_actual_ingles = datetime.utcnow().strftime("%A")  # Día en inglés
+    return traducir_dia(dia_actual_ingles)
+
+def procesar_linea(linea):
     """
     Procesa una línea para extraer hora, evento y URL.
     Devuelve el título y URL si es válido.
@@ -66,8 +72,8 @@ def procesar_linea(linea, dia_actual):
     nombre_evento = match.group(2).strip()
     url_streaming = match.group(3).strip()
 
-    # Crear el título con el día de la semana incluido
-    titulo_evento = f"{hora_evento} ({dia_actual}) {nombre_evento}" if dia_actual else nombre_evento
+    # Crear el título simplificado (sin día)
+    titulo_evento = f"{hora_evento} {nombre_evento}"
     return titulo_evento, url_streaming
 
 def generar_lista_xml(contenido):
@@ -76,7 +82,8 @@ def generar_lista_xml(contenido):
     root.set("version", "1")
 
     agrupados = {}
-    dia_actual = None  # Día actual al procesar el archivo
+    dia_actual = obtener_dia_actual()  # Día actual en español
+    dia_encontrado = None  # Día encontrado en el archivo de texto
 
     for linea in contenido.split("\n"):
         linea = limpiar_linea(linea)
@@ -88,20 +95,21 @@ def generar_lista_xml(contenido):
 
         # Detectar si la línea indica un día de la semana
         if linea.upper() in DIAS_SEMANA.keys():
-            dia_actual = traducir_dia(linea)
-            print(f"Día detectado: {dia_actual}")
+            dia_encontrado = traducir_dia(linea)
+            print(f"Día detectado: {dia_encontrado}")
             continue
 
-        # Procesar líneas de eventos
-        try:
-            titulo_evento, url_streaming = procesar_linea(linea, dia_actual)
-            if titulo_evento not in agrupados:
-                agrupados[titulo_evento] = []
-            agrupados[titulo_evento].append(url_streaming)
-        except ValueError as e:
-            print(f"Línea no válida, se omitirá: {linea}. Error: {e}")
-        except Exception as e:
-            print(f"Error procesando la línea: {linea}. Detalles: {e}")
+        # Procesar líneas de eventos solo si el día coincide con el actual
+        if dia_encontrado == dia_actual:
+            try:
+                titulo_evento, url_streaming = procesar_linea(linea)
+                if titulo_evento not in agrupados:
+                    agrupados[titulo_evento] = []
+                agrupados[titulo_evento].append(url_streaming)
+            except ValueError as e:
+                print(f"Línea no válida, se omitirá: {linea}. Error: {e}")
+            except Exception as e:
+                print(f"Error procesando la línea: {linea}. Detalles: {e}")
 
     # Crear los elementos XML
     for titulo, urls in agrupados.items():
