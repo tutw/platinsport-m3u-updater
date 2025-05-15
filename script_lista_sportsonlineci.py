@@ -11,7 +11,6 @@ def descargar_contenido(url):
     """Descarga el contenido del archivo de texto desde la URL proporcionada."""
     response = requests.get(url)
     response.raise_for_status()  # Lanza una excepción si la solicitud falla
-    # Decodificar el contenido para evitar problemas con caracteres especiales
     return response.text.strip()
 
 def limpiar_linea(linea):
@@ -19,9 +18,12 @@ def limpiar_linea(linea):
     return linea.strip()
 
 def generar_lista_xml(contenido):
-    """Genera el contenido de un archivo XML válido a partir del contenido del archivo de texto."""
+    """Genera el contenido de un archivo XML válido agrupando por título."""
     root = Element("playlist")
     root.set("version", "1")
+
+    # Diccionario para agrupar URLs por título
+    agrupados = {}
 
     for linea in contenido.split("\n"):
         linea = limpiar_linea(linea)
@@ -34,15 +36,22 @@ def generar_lista_xml(contenido):
             partes = linea.split(" | ")
             info_evento = partes[0].strip()
             url_streaming = partes[1].strip()
-
-            # Crear un elemento XML para cada entrada
-            track = SubElement(root, "track")
-            title = SubElement(track, "title")
-            title.text = info_evento
-            location = SubElement(track, "location")
-            location.text = url_streaming
+            
+            # Agrupar las URLs bajo el mismo título
+            if info_evento not in agrupados:
+                agrupados[info_evento] = []
+            agrupados[info_evento].append(url_streaming)
         except Exception as e:
             print(f"Error procesando la línea: {linea}, {e}")
+
+    # Crear los elementos XML
+    for titulo, urls in agrupados.items():
+        track = SubElement(root, "track")
+        title = SubElement(track, "title")
+        title.text = titulo
+        for url in urls:
+            url_element = SubElement(track, "url")
+            url_element.text = url
 
     return root
 
