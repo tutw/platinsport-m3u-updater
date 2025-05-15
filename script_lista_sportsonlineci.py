@@ -1,6 +1,7 @@
 import requests
 from xml.etree.ElementTree import Element, SubElement, tostring
 import xml.dom.minidom
+import re
 
 # URL del archivo de texto
 URL_PROG_TXT = "https://sportsonline.ci/prog.txt"
@@ -26,6 +27,8 @@ LINEAS_IRRELEVANTES = [
     "IMPORTANT:",
     "============================================================",
     "*(W) - Women Event",
+    "READ!",
+    "UPDATE",
 ]
 
 def descargar_contenido(url):
@@ -50,14 +53,18 @@ def traducir_dia(dia_ingles):
     return DIAS_SEMANA.get(dia_ingles.capitalize(), dia_ingles)
 
 def procesar_linea(linea, dia_actual):
-    """Procesa una línea de evento y devuelve el título y la URL."""
-    partes = linea.split(" | ")
-    if len(partes) != 3:
+    """
+    Procesa una línea para extraer hora, evento y URL.
+    Devuelve el título y URL si es válido.
+    """
+    # Usar una expresión regular para capturar los componentes de la línea
+    match = re.match(r"^(\d{2}:\d{2})\s+(.*?)\s+\|\s+(https?://\S+)", linea)
+    if not match:
         raise ValueError("La línea no tiene el formato esperado (hora | evento | url).")
     
-    hora_evento = partes[0].strip()
-    nombre_evento = partes[1].strip()
-    url_streaming = partes[2].strip()
+    hora_evento = match.group(1).strip()
+    nombre_evento = match.group(2).strip()
+    url_streaming = match.group(3).strip()
 
     # Crear el título con el día de la semana incluido
     titulo_evento = f"{hora_evento} ({dia_actual}) {nombre_evento}" if dia_actual else nombre_evento
