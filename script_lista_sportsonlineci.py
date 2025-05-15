@@ -1,5 +1,6 @@
 import requests
-from xml.etree.ElementTree import Element, SubElement, tostring, ElementTree
+from xml.etree.ElementTree import Element, SubElement, ElementTree
+import xml.dom.minidom
 
 # URL del archivo de texto
 URL_PROG_TXT = "https://sportsonline.ci/prog.txt"
@@ -36,10 +37,14 @@ def generar_lista_xml(contenido):
     return root
 
 def guardar_archivo_xml(root):
-    """Guarda el contenido generado en un archivo .xml."""
-    tree = ElementTree(root)
-    with open(OUTPUT_FILE, "wb") as archivo:
-        tree.write(archivo, encoding="utf-8", xml_declaration=True)
+    """Guarda el contenido generado en un archivo XML con formato legible."""
+    # Convertir el árbol XML a una cadena con formato
+    xml_str = ElementTree(root).write(OUTPUT_FILE, encoding="unicode")
+    pretty_xml = xml.dom.minidom.parseString(xml_str).toprettyxml(indent="  ")
+
+    # Guardar el archivo con formato legible
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as archivo:
+        archivo.write(pretty_xml)
 
 def main():
     """Función principal para ejecutar el script."""
