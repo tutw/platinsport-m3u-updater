@@ -1,0 +1,25 @@
+name: Detecta deportes en eventos
+
+on:
+  schedule:
+    - cron: '0 * * * *'        # Cada 1 hora
+  workflow_dispatch:            # Ejecución manual
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Configura Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Instala dependencias
+        run: pip install requests
+      - name: Ejecuta el script de deportes
+        run: python script_detector_deportes.py
+      - name: Sube el XML como artefacto
+        uses: actions/upload-artifact@v4
+        with:
+          name: deportes_detectados
+          path: deportes_detectados.xml
