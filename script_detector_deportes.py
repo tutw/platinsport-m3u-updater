@@ -8,8 +8,8 @@ import unicodedata
 from collections import Counter
 from difflib import SequenceMatcher
 import os
-
-from openmoji_logos import OPENMOJI_LOGOS  # Diccionario externo
+import sys
+from openmoji_logos import OPENMOJI_LOGOS
 
 # ------------- CONFIGURACIÓN -------------
 URLS_EVENTOS = [
@@ -19,9 +19,11 @@ URLS_EVENTOS = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_agenda_DEPORTE-LIBRE.FANS.xml"
 ]
 URL_PALABRAS_CLAVE = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/LISTA%20DE%20PALABRAS%20CLAVE.txt"
-SALIDA_XML = os.path.join(os.path.dirname(__file__), "deportes_detectados.xml")
-DELAY_BETWEEN_REQUESTS = 1  # segundos
-MAX_RETRIES = 3  # reintentos en caso de fallo
+
+# GUARDA SIEMPRE EN LA RAÍZ DEL REPO (donde está este script)
+SALIDA_XML = os.path.abspath(os.path.join(os.path.dirname(__file__), "deportes_detectados.xml"))
+DELAY_BETWEEN_REQUESTS = 1
+MAX_RETRIES = 3
 
 logging.basicConfig(
     level=logging.INFO,
@@ -73,7 +75,6 @@ def extraer_diccionario_deportes(url_txt):
                     deportes[deporte_actual] = set()
                 deportes[deporte_actual].update([normalizar_texto(p) for p in palabras])
     deportes = {dep: set([normalizar_texto(p) for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
-
     # Palabras clave extra manuales y multilingües
     deportes.setdefault("Ciclismo", set()).update([
         "giro de italia", "giro", "tour de francia", "tour", "vuelta a espana", "etapa", "ciclismo", "uci world tour",
@@ -94,8 +95,6 @@ def extraer_diccionario_deportes(url_txt):
     deportes.setdefault("Automovilismo", set()).update([
         "f1", "formula 1", "rally", "nascar", "indycar", "karting", "gt", "dakar", "automovilismo", "racing", "car"
     ])
-    # Añade aquí más según tus necesidades
-
     logging.info(f"Diccionario de deportes generado con {len(deportes)} deportes.")
     return deportes
 
@@ -137,10 +136,8 @@ def detectar_deporte(nombre_evento, deportes_dict, umbral=0.80):
             palabra = palabra.strip()
             if not palabra:
                 continue
-            # Coincidencia exacta o contenida
             if palabra in texto:
                 return deporte
-            # Coincidencia flexible
             tokens_evento = texto.split()
             tokens_palabra = palabra.split()
             for i in range(len(tokens_evento) - len(tokens_palabra) + 1):
@@ -163,25 +160,28 @@ def indent(elem, level=0):
             elem.tail = i
 
 def guardar_xml(eventos, archivo=SALIDA_XML):
-    root = ET.Element("eventos")
-    for evento, deporte, fuente in eventos:
-        nodo_evento = ET.SubElement(root, "evento")
-        ET.SubElement(nodo_evento, "nombre").text = evento
-        ET.SubElement(nodo_evento, "deporte").text = deporte
-        ET.SubElement(nodo_evento, "fuente").text = fuente
-        # Normaliza la clave para buscar el logo
-        logo_url = OPENMOJI_LOGOS.get(deporte, "")
-        if not logo_url:
-            # Intenta con capitalización y minúsculas como fallback
-            logo_url = OPENMOJI_LOGOS.get(deporte.capitalize(), "")
-        if not logo_url:
-            logo_url = OPENMOJI_LOGOS.get(deporte.lower(), "")
-        ET.SubElement(nodo_evento, "logo").text = logo_url
-    indent(root)
-    tree = ET.ElementTree(root)
-    tree.write(archivo, encoding="utf-8", xml_declaration=True)
-    logging.info(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
-    print(f"\nArchivo XML actualizado: {os.path.abspath(archivo)}")
+    try:
+        root = ET.Element("eventos")
+        for evento, deporte, fuente in eventos:
+            nodo_evento = ET.SubElement(root, "evento")
+            ET.SubElement(nodo_evento, "nombre").text = evento
+            ET.SubElement(nodo_evento, "deporte").text = deporte
+            ET.SubElement(nodo_evento, "fuente").text = fuente
+            logo_url = OPENMOJI_LOGOS.get(deporte, "")
+            if not logo_url:
+                logo_url = OPENMOJI_LOGOS.get(deporte.capitalize(), "")
+            if not logo_url:
+                logo_url = OPENMOJI_LOGOS.get(deporte.lower(), "")
+            ET.SubElement(nodo_evento, "logo").text = logo_url
+        indent(root)
+        tree = ET.ElementTree(root)
+        tree.write(archivo, encoding="utf-8", xml_declaration=True)
+        logging.info(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
+        print(f"\nArchivo XML actualizado: {archivo}\n")
+    except Exception as exc:
+        print(f"ERROR al guardar XML: {exc}")
+        logging.error("EXCEPCIÓN al guardar XML", exc_info=True)
+        sys.exit(1)
 
 def sugerir_palabras_clave(no_detectados, topn=15):
     palabras = []
@@ -204,47 +204,53 @@ def sugerir_palabras_clave(no_detectados, topn=15):
         print(f"- '{frase}' aparece en {freq} eventos no detectados")
     print("Revisa estos términos y considera añadirlos a los deportes correspondientes en el diccionario manualmente.\n")
 
-# ------------- EJECUCIÓN PRINCIPAL -------------
 if __name__ == "__main__":
-    inicio = datetime.now()
-    logging.info("Inicio de ejecución de script_detector_deportes.py")
-    deportes_dict = extraer_diccionario_deportes(URL_PALABRAS_CLAVE)
-    if not deportes_dict:
-        logging.error("No se pudo construir el diccionario de deportes. Fin del script.")
-        exit(1)
-    resultados = []
-    no_detectados = []
-    total_eventos = 0
+    try:
+        inicio = datetime.now()
+        print(f"Guardará el XML en: {SALIDA_XML}")
+        logging.info("Inicio de ejecución de script_detector_deportes.py")
+        deportes_dict = extraer_diccionario_deportes(URL_PALABRAS_CLAVE)
+        if not deportes_dict:
+            logging.error("No se pudo construir el diccionario de deportes. Fin del script.")
+            sys.exit(1)
+        resultados = []
+        no_detectados = []
+        total_eventos = 0
 
-    for url in URLS_EVENTOS:
-        time.sleep(DELAY_BETWEEN_REQUESTS)
-        if url.endswith(".m3u"):
-            eventos = parse_m3u(url)
-        elif url.endswith(".xml"):
-            eventos = parse_xml(url)
-        else:
-            logging.warning(f"Extensión no reconocida: {url}")
-            continue
-        for evento in eventos:
-            total_eventos += 1
-            deporte = detectar_deporte(evento, deportes_dict)
-            if not deporte or deporte == "desconocido":
-                no_detectados.append(evento)
-                logging.debug(f"No detectado: {evento}")
+        for url in URLS_EVENTOS:
+            time.sleep(DELAY_BETWEEN_REQUESTS)
+            if url.endswith(".m3u"):
+                eventos = parse_m3u(url)
+            elif url.endswith(".xml"):
+                eventos = parse_xml(url)
             else:
-                logging.debug(f"Detectado: '{evento}' => {deporte}")
-            resultados.append((evento, deporte if deporte else "desconocido", url))
+                logging.warning(f"Extensión no reconocida: {url}")
+                continue
+            for evento in eventos:
+                total_eventos += 1
+                deporte = detectar_deporte(evento, deportes_dict)
+                if not deporte or deporte == "desconocido":
+                    no_detectados.append(evento)
+                    logging.debug(f"No detectado: {evento}")
+                else:
+                    logging.debug(f"Detectado: '{evento}' => {deporte}")
+                resultados.append((evento, deporte if deporte else "desconocido", url))
 
-    print("Eventos a guardar:", len(resultados))
-    print("Ruta de guardado:", SALIDA_XML)
-    guardar_xml(resultados, archivo=SALIDA_XML)
-    fin = datetime.now()
-    logging.info(f"Procesados {total_eventos} eventos en total.")
-    logging.info(f"Deportes no detectados: {len(no_detectados)}")
-    if no_detectados:
-        logging.info("Ejemplos de eventos NO detectados:")
-        for e in no_detectados[:10]:
-            logging.info(f"  - {e}")
-        sugerir_palabras_clave(no_detectados, topn=15)
-        logging.info("Considera ampliar el diccionario de palabras clave si algunos deportes conocidos no se detectan.")
-    logging.info(f"Duración total: {fin-inicio}")
+        print("Eventos a guardar:", len(resultados))
+        print("Ruta de guardado:", SALIDA_XML)
+        guardar_xml(resultados, archivo=SALIDA_XML)
+        fin = datetime.now()
+        logging.info(f"Procesados {total_eventos} eventos en total.")
+        logging.info(f"Deportes no detectados: {len(no_detectados)}")
+        if no_detectados:
+            logging.info("Ejemplos de eventos NO detectados:")
+            for e in no_detectados[:10]:
+                logging.info(f"  - {e}")
+            sugerir_palabras_clave(no_detectados, topn=15)
+            logging.info("Considera ampliar el diccionario de palabras clave si algunos deportes conocidos no se detectan.")
+        logging.info(f"Duración total: {fin-inicio}")
+        print(f"FIN. XML generado en: {SALIDA_XML}\n")
+    except Exception as e:
+        print(f"\nERROR FATAL: {e}\n")
+        logging.error("EXCEPCIÓN NO CAPTURADA", exc_info=True)
+        sys.exit(1)
