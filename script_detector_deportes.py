@@ -15,6 +15,8 @@ URLS_EVENTOS = [
 ]
 
 def normalizar_texto(texto):
+    if not texto:
+        return ""
     texto = texto.lower()
     texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
     texto = re.sub(r'[^\w\s]', '', texto)
@@ -29,8 +31,10 @@ def cargar_diccionario_xml(ruta_xml):
     for deporte in root.findall("Deporte"):
         nombre = deporte.get("Nombre")
         palabras = set()
-        for palabra in deporte.find("PalabrasClave").findall("Palabra"):
-            palabras.add(normalizar_texto(palabra.text or ""))
+        palabras_elem = deporte.find("PalabrasClave")
+        if palabras_elem is not None:
+            for palabra in palabras_elem.findall("Palabra"):
+                palabras.add(normalizar_texto(palabra.text or ""))
         deportes[nombre] = palabras
     return deportes
 
@@ -92,7 +96,7 @@ def guardar_xml(eventos, archivo=SALIDA_XML):
         ET.SubElement(nodo_evento, "nombre").text = evento
         ET.SubElement(nodo_evento, "deporte").text = deporte
         ET.SubElement(nodo_evento, "fuente").text = fuente
-        ET.SubElement(nodo_evento, "logo").text = ""  # Opcional
+        ET.SubElement(nodo_evento, "logo").text = ""
     indent(root)
     tree = ET.ElementTree(root)
     tree.write(archivo, encoding="utf-8", xml_declaration=True)
