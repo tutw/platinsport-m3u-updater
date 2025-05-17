@@ -6,8 +6,9 @@ from datetime import datetime
 import time
 import unicodedata
 from collections import Counter
+from difflib import SequenceMatcher
 
-from openmoji_logos import OPENMOJI_LOGOS  # ¡Importa el diccionario desde el archivo externo!
+from openmoji_logos import OPENMOJI_LOGOS  # Diccionario externo de logos
 
 # ------------- CONFIGURACIÓN -------------
 URLS_EVENTOS = [
@@ -32,6 +33,10 @@ def normalizar_texto(texto):
     texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
     texto = re.sub(r'[^\w\s]', '', texto)
     return texto
+
+def similar(a, b):
+    """Devuelve un valor de similitud entre 0 y 1."""
+    return SequenceMatcher(None, a, b).ratio()
 
 def robust_get(url, retries=MAX_RETRIES, delay=DELAY_BETWEEN_REQUESTS):
     for intento in range(retries):
@@ -69,25 +74,27 @@ def extraer_diccionario_deportes(url_txt):
                 deportes[deporte_actual].update([normalizar_texto(p) for p in palabras])
     deportes = {dep: set([normalizar_texto(p) for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
 
-    # Palabras clave extra manuales (puedes ampliar según tus eventos)
+    # Palabras clave extra manuales y en otros idiomas
     deportes.setdefault("Ciclismo", set()).update([
-        "giro de italia", "giro", "tour de francia", "tour", "vuelta a espana", "etapa", "ciclismo", "uci world tour"
+        "giro de italia", "giro", "tour de francia", "tour", "vuelta a espana", "etapa", "ciclismo", "uci world tour",
+        "cycling", "bicycle", "bicicleta"
     ])
     deportes.setdefault("Fútbol", set()).update([
         "laliga", "la liga", "champions", "uefa", "premier league", "bundesliga", "serie a", "ligue 1",
         "mls", "liga mx", "superliga", "fa cup", "copa del rey", "libertadores", "sudamericana", "concacaf",
-        "gold cup", "mundial", "world cup", "eurocopa", "fifa", "ucl", "epl"
+        "gold cup", "mundial", "world cup", "eurocopa", "fifa", "ucl", "epl",
+        "futbol", "fútbol", "soccer", "football", "fußball", "calcio", "foot"
     ])
     deportes.setdefault("Baloncesto", set()).update([
-        "nba", "acb", "liga endesa", "euroleague", "baloncesto", "basket", "basketball"
+        "nba", "acb", "liga endesa", "euroleague", "baloncesto", "basket", "basketball", "bàsquet"
     ])
     deportes.setdefault("Motociclismo", set()).update([
-        "motogp", "superbike", "motocross", "enduro", "trial", "moto", "gran premio"
+        "motogp", "superbike", "motocross", "enduro", "trial", "moto", "gran premio", "motorcycle"
     ])
     deportes.setdefault("Automovilismo", set()).update([
-        "f1", "formula 1", "rally", "nascar", "indycar", "karting", "gt", "dakar"
+        "f1", "formula 1", "rally", "nascar", "indycar", "karting", "gt", "dakar", "automovilismo", "racing", "car"
     ])
-    # Añade aquí más según tus resultados
+    # Añade aquí más según tus necesidades
 
     logging.info(f"Diccionario de deportes generado con {len(deportes)} deportes.")
     return deportes
@@ -123,12 +130,24 @@ def parse_xml(url):
         logging.error(f"Error parseando {url}: {e}")
     return eventos
 
-def detectar_deporte(nombre_evento, deportes_dict):
+def detectar_deporte(nombre_evento, deportes_dict, umbral=0.80):
     texto = normalizar_texto(nombre_evento)
     for deporte, palabras in deportes_dict.items():
         for palabra in palabras:
-            if palabra and palabra in texto:
+            palabra = palabra.strip()
+            if not palabra:
+                continue
+            # Coincidencia exacta o contenida
+            if palabra in texto:
                 return deporte
+            # Coincidencia por similitud "cercana" (80% por defecto)
+            tokens_evento = texto.split()
+            tokens_palabra = palabra.split()
+            # Busca en todas las ventanas de la misma longitud
+            for i in range(len(tokens_evento) - len(tokens_palabra) + 1):
+                fragmento = ' '.join(tokens_evento[i:i+len(tokens_palabra)])
+                if similar(fragmento, palabra) >= umbral:
+                    return deporte
     return "desconocido"
 
 def indent(elem, level=0):
@@ -151,7 +170,7 @@ def guardar_xml(eventos, archivo=SALIDA_XML):
         ET.SubElement(nodo_evento, "nombre").text = evento
         ET.SubElement(nodo_evento, "deporte").text = deporte
         ET.SubElement(nodo_evento, "fuente").text = fuente
-        logo_url = OPENMOJI_LOGOS.get(deporte, "")  # <--- AQUÍ USAS EL DICCIONARIO EXTERNO
+        logo_url = OPENMOJI_LOGOS.get(deporte, "")
         ET.SubElement(nodo_evento, "logo").text = logo_url
     indent(root)
     tree = ET.ElementTree(root)
