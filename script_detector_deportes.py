@@ -1,17 +1,14 @@
-import requests
-import re
-import xml.etree.ElementTree as ET
-import logging
-from datetime import datetime
-import time
-import unicodedata
-from collections import Counter
-from difflib import SequenceMatcher
 import os
-import sys
-from openmoji_logos import OPENMOJI_LOGOS
+import re
+import time
+import requests
+import unicodedata
+import xml.etree.ElementTree as ET
+from collections import Counter
+from datetime import datetime
 
-# ------------- CONFIGURACIÓN -------------
+DICCIONARIO = "LISTA DE PALABRAS CLAVE.txt"
+SALIDA_XML = os.path.abspath("deportes_detectados.xml")
 URLS_EVENTOS = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u",
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_icastresana.m3u",
@@ -20,46 +17,31 @@ URLS_EVENTOS = [
 ]
 URL_PALABRAS_CLAVE = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/LISTA%20DE%20PALABRAS%20CLAVE.txt"
 
-# GUARDA SIEMPRE EN LA RAÍZ DEL REPO (donde está este script)
-SALIDA_XML = os.path.abspath(os.path.join(os.path.dirname(__file__), "deportes_detectados.xml"))
-DELAY_BETWEEN_REQUESTS = 1
-MAX_RETRIES = 3
-
-logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s]: %(message)s",
-    handlers=[logging.StreamHandler()]
-)
-
 def normalizar_texto(texto):
     texto = texto.lower()
     texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
     texto = re.sub(r'[^\w\s]', '', texto)
     return texto
 
-def similar(a, b):
-    return SequenceMatcher(None, a, b).ratio()
-
-def robust_get(url, retries=MAX_RETRIES, delay=DELAY_BETWEEN_REQUESTS):
-    for intento in range(retries):
+def robust_get(url, retries=3, delay=1):
+    for _ in range(retries):
         try:
-            resp = requests.get(url)
-            resp.raise_for_status()
-            return resp
-        except requests.exceptions.RequestException as e:
-            logging.error(f"Error descargando {url}: {e} (intento {intento+1}/{retries})")
-            if intento < retries - 1:
-                time.sleep(delay)
-    logging.error(f"No se pudo descargar {url} tras {retries} intentos.")
+            r = requests.get(url)
+            r.raise_for_status()
+            return r
+        except Exception:
+            time.sleep(delay)
     return None
 
-def extraer_diccionario_deportes(url_txt):
-    logging.info("Descargando lista de palabras clave de deportes...")
-    r = robust_get(url_txt)
-    if not r:
-        logging.error("No se pudo descargar el archivo de palabras clave.")
-        return {}
-    lines = r.text.splitlines()
+def extraer_diccionario_deportes(local_path):
+    if not os.path.exists(local_path):
+        r = robust_get(URL_PALABRAS_CLAVE)
+        if not r:
+            print("No se pudo descargar el archivo de palabras clave.")
+            return {}
+        with open(local_path, "w", encoding="utf-8") as f:
+            f.write(r.text)
+    lines = open(local_path, encoding="utf-8").read().splitlines()
     deportes = {}
     deporte_actual = None
     for line in lines:
@@ -71,36 +53,12 @@ def extraer_diccionario_deportes(url_txt):
             palabras_str = line.split(":", 1)[1]
             palabras = [p.strip().lower() for p in re.split(r',|\(|\)|/|;', palabras_str) if p.strip()]
             if deporte_actual:
-                if deporte_actual not in deportes:
-                    deportes[deporte_actual] = set()
-                deportes[deporte_actual].update([normalizar_texto(p) for p in palabras])
+                deportes.setdefault(deporte_actual, set()).update([normalizar_texto(p) for p in palabras])
     deportes = {dep: set([normalizar_texto(p) for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
-    # Palabras clave extra manuales y multilingües
-    deportes.setdefault("Ciclismo", set()).update([
-        "giro de italia", "giro", "tour de francia", "tour", "vuelta a espana", "etapa", "ciclismo", "uci world tour",
-        "cycling", "bicycle", "bicicleta"
-    ])
-    deportes.setdefault("Fútbol", set()).update([
-        "laliga", "la liga", "champions", "uefa", "premier league", "bundesliga", "serie a", "ligue 1",
-        "mls", "liga mx", "superliga", "fa cup", "copa del rey", "libertadores", "sudamericana", "concacaf",
-        "gold cup", "mundial", "world cup", "eurocopa", "fifa", "ucl", "epl",
-        "futbol", "fútbol", "soccer", "football", "fußball", "calcio", "foot", "futebol"
-    ])
-    deportes.setdefault("Baloncesto", set()).update([
-        "nba", "acb", "liga endesa", "euroleague", "baloncesto", "basket", "basketball", "bàsquet", "basquete"
-    ])
-    deportes.setdefault("Motociclismo", set()).update([
-        "motogp", "superbike", "motocross", "enduro", "trial", "moto", "gran premio", "motorcycle"
-    ])
-    deportes.setdefault("Automovilismo", set()).update([
-        "f1", "formula 1", "rally", "nascar", "indycar", "karting", "gt", "dakar", "automovilismo", "racing", "car"
-    ])
-    logging.info(f"Diccionario de deportes generado con {len(deportes)} deportes.")
     return deportes
 
 def parse_m3u(url):
     eventos = []
-    logging.info(f"Descargando y procesando archivo M3U: {url}")
     r = robust_get(url)
     if not r:
         return eventos
@@ -110,12 +68,10 @@ def parse_m3u(url):
             if match:
                 nombre_evento = match.group(1).strip()
                 eventos.append(nombre_evento)
-    logging.info(f"{len(eventos)} eventos extraídos de {url}")
     return eventos
 
 def parse_xml(url):
     eventos = []
-    logging.info(f"Descargando y procesando archivo XML: {url}")
     r = robust_get(url)
     if not r:
         return eventos
@@ -124,12 +80,11 @@ def parse_xml(url):
         for elem in root.iter():
             if elem.text and elem.text.strip() and len(elem.text.strip()) > 4:
                 eventos.append(elem.text.strip())
-        logging.info(f"{len(eventos)} eventos extraídos de {url}")
-    except Exception as e:
-        logging.error(f"Error parseando {url}: {e}")
+    except Exception:
+        pass
     return eventos
 
-def detectar_deporte(nombre_evento, deportes_dict, umbral=0.80):
+def detectar_deporte(nombre_evento, deportes_dict):
     texto = normalizar_texto(nombre_evento)
     for deporte, palabras in deportes_dict.items():
         for palabra in palabras:
@@ -138,13 +93,7 @@ def detectar_deporte(nombre_evento, deportes_dict, umbral=0.80):
                 continue
             if palabra in texto:
                 return deporte
-            tokens_evento = texto.split()
-            tokens_palabra = palabra.split()
-            for i in range(len(tokens_evento) - len(tokens_palabra) + 1):
-                fragmento = ' '.join(tokens_evento[i:i+len(tokens_palabra)])
-                if similar(fragmento, palabra) >= umbral:
-                    return deporte
-    return "desconocido"
+    return None
 
 def indent(elem, level=0):
     i = "\n" + level * "  "
@@ -167,90 +116,136 @@ def guardar_xml(eventos, archivo=SALIDA_XML):
             ET.SubElement(nodo_evento, "nombre").text = evento
             ET.SubElement(nodo_evento, "deporte").text = deporte
             ET.SubElement(nodo_evento, "fuente").text = fuente
-            logo_url = OPENMOJI_LOGOS.get(deporte, "")
-            if not logo_url:
-                logo_url = OPENMOJI_LOGOS.get(deporte.capitalize(), "")
-            if not logo_url:
-                logo_url = OPENMOJI_LOGOS.get(deporte.lower(), "")
-            ET.SubElement(nodo_evento, "logo").text = logo_url
+            ET.SubElement(nodo_evento, "logo").text = ""  # Pon aquí lógica para logos si quieres
         indent(root)
         tree = ET.ElementTree(root)
         tree.write(archivo, encoding="utf-8", xml_declaration=True)
-        logging.info(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
-        print(f"\nArchivo XML actualizado: {archivo}\n")
+        print(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
     except Exception as exc:
         print(f"ERROR al guardar XML: {exc}")
-        logging.error("EXCEPCIÓN al guardar XML", exc_info=True)
-        sys.exit(1)
 
-def sugerir_palabras_clave(no_detectados, topn=15):
+def sugerir_palabras_eventos(eventos):
     palabras = []
     frases = []
-    for evento in no_detectados:
+    for evento in eventos:
         evento_norm = normalizar_texto(evento)
-        palabras += [w for w in evento_norm.split() if len(w) >= 4]
         tokens = evento_norm.split()
+        palabras += [w for w in tokens if len(w) >= 4]
         for i in range(len(tokens)-1):
             frases.append(' '.join(tokens[i:i+2]))
         for i in range(len(tokens)-2):
             frases.append(' '.join(tokens[i:i+3]))
     counter_palabras = Counter(palabras)
     counter_frases = Counter(frases)
-    print("\n=== SUGERENCIAS DE PALABRAS CLAVE (palabras sueltas) ===")
-    for palabra, freq in counter_palabras.most_common(topn):
-        print(f"- '{palabra}' aparece en {freq} eventos no detectados")
-    print("\n=== SUGERENCIAS DE PALABRAS CLAVE (frases de 2-3 palabras) ===")
-    for frase, freq in counter_frases.most_common(topn):
-        print(f"- '{frase}' aparece en {freq} eventos no detectados")
-    print("Revisa estos términos y considera añadirlos a los deportes correspondientes en el diccionario manualmente.\n")
+    sugeridas = set()
+    for palabra, freq in counter_palabras.most_common(10):
+        sugeridas.add(palabra)
+    for frase, freq in counter_frases.most_common(10):
+        sugeridas.add(frase)
+    return sugeridas
+
+def buscar_deporte_duckduckgo(evento):
+    # Rotación de user-agent
+    headers = {
+        "User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+    }
+    url = f"https://duckduckgo.com/html/?q={requests.utils.quote(evento)}"
+    try:
+        r = requests.get(url, headers=headers, timeout=10)
+        if not r.ok:
+            return "desconocido"
+        html = r.text.lower()
+        # Inferencia simple por keywords de deporte en SERP
+        claves_deporte = {
+            "Fútbol": ["futbol", "fútbol", "soccer", "liga", "champions", "bundesliga", "serie a", "laliga", "premier league", "segunda division"],
+            "Baloncesto": ["basket", "baloncesto", "nba", "acb", "liga endesa", "bàsquet", "basketball"],
+            "Ciclismo": ["ciclismo", "cycling", "giro", "tour", "vuelta", "uci"],
+            "Automovilismo": ["f1", "formula 1", "nascar", "rally", "indycar", "motogp", "gran premio", "superbike"],
+            "Tenis": ["tenis", "atp", "wta", "grand slam", "open"],
+            "Rugby": ["rugby", "six nations", "top 14", "super rugby"],
+            "Voleibol": ["voleibol", "volleyball", "volei", "superliga", "cev", "liga mundial"],
+            "Balonmano": ["balonmano", "handball", "asobal", "ehf", "liga asobal"],
+            "Hockey": ["hockey", "nhl", "khl", "liga hockey"],
+            "Golf": ["golf", "pga", "masters"],
+            "Beisbol": ["beisbol", "béisbol", "mlb", "major league"],
+            "Esgrima": ["esgrima", "fencing"],
+        }
+        for deporte, palabras in claves_deporte.items():
+            if any(p in html for p in palabras):
+                return deporte
+    except Exception:
+        pass
+    return "desconocido"
+
+def actualizar_diccionario(no_detectados_por_deporte):
+    if not os.path.exists(DICCIONARIO):
+        print(f"¡No se encuentra el diccionario {DICCIONARIO}!")
+        return
+    with open(DICCIONARIO, encoding="utf-8") as f:
+        texto = f.read()
+    for deporte, eventos in no_detectados_por_deporte.items():
+        nuevas_claves = sugerir_palabras_eventos(eventos)
+        patron = r"({}\s*\nPalabras clave:)([^\n]+)".format(re.escape(deporte))
+        m = re.search(patron, texto, re.IGNORECASE)
+        if not m:
+            texto += f"\n{deporte}\nPalabras clave: {', '.join(nuevas_claves)}\n"
+            print(f"Creada nueva sección en el diccionario para: {deporte}")
+            continue
+        inicio, claves = m.groups()
+        lista = [x.strip() for x in claves.split(",")]
+        añadidas = 0
+        for n in nuevas_claves:
+            if n not in lista:
+                lista.append(n)
+                añadidas += 1
+        if añadidas:
+            nuevas_linea = ", ".join(lista)
+            texto = re.sub(patron, r"\1 " + nuevas_linea, texto, flags=re.IGNORECASE)
+            print(f"Actualizado {deporte} con {añadidas} nuevas palabras/frases.")
+    with open(DICCIONARIO, "w", encoding="utf-8") as f:
+        f.write(texto)
+    print("Diccionario retroalimentado automáticamente.")
 
 if __name__ == "__main__":
-    try:
-        inicio = datetime.now()
-        print(f"Guardará el XML en: {SALIDA_XML}")
-        logging.info("Inicio de ejecución de script_detector_deportes.py")
-        deportes_dict = extraer_diccionario_deportes(URL_PALABRAS_CLAVE)
-        if not deportes_dict:
-            logging.error("No se pudo construir el diccionario de deportes. Fin del script.")
-            sys.exit(1)
-        resultados = []
-        no_detectados = []
-        total_eventos = 0
+    inicio = datetime.now()
+    print(f"Guardará el XML en: {SALIDA_XML}")
+    deportes_dict = extraer_diccionario_deportes(DICCIONARIO)
+    resultados = []
+    no_detectados = []
+    no_detectados_por_deporte = {}
+    total_eventos = 0
 
-        for url in URLS_EVENTOS:
-            time.sleep(DELAY_BETWEEN_REQUESTS)
-            if url.endswith(".m3u"):
-                eventos = parse_m3u(url)
-            elif url.endswith(".xml"):
-                eventos = parse_xml(url)
-            else:
-                logging.warning(f"Extensión no reconocida: {url}")
-                continue
-            for evento in eventos:
-                total_eventos += 1
-                deporte = detectar_deporte(evento, deportes_dict)
-                if not deporte or deporte == "desconocido":
-                    no_detectados.append(evento)
-                    logging.debug(f"No detectado: {evento}")
-                else:
-                    logging.debug(f"Detectado: '{evento}' => {deporte}")
-                resultados.append((evento, deporte if deporte else "desconocido", url))
+    for url in URLS_EVENTOS:
+        time.sleep(1)
+        if url.endswith(".m3u"):
+            eventos = parse_m3u(url)
+        elif url.endswith(".xml"):
+            eventos = parse_xml(url)
+        else:
+            continue
+        for evento in eventos:
+            total_eventos += 1
+            deporte = detectar_deporte(evento, deportes_dict)
+            if not deporte:
+                deporte_sugerido = buscar_deporte_duckduckgo(evento)
+                no_detectados.append(evento)
+                no_detectados_por_deporte.setdefault(deporte_sugerido, []).append(evento)
+            resultados.append((evento, deporte if deporte else deporte_sugerido, url))
 
-        print("Eventos a guardar:", len(resultados))
-        print("Ruta de guardado:", SALIDA_XML)
-        guardar_xml(resultados, archivo=SALIDA_XML)
-        fin = datetime.now()
-        logging.info(f"Procesados {total_eventos} eventos en total.")
-        logging.info(f"Deportes no detectados: {len(no_detectados)}")
-        if no_detectados:
-            logging.info("Ejemplos de eventos NO detectados:")
-            for e in no_detectados[:10]:
-                logging.info(f"  - {e}")
-            sugerir_palabras_clave(no_detectados, topn=15)
-            logging.info("Considera ampliar el diccionario de palabras clave si algunos deportes conocidos no se detectan.")
-        logging.info(f"Duración total: {fin-inicio}")
-        print(f"FIN. XML generado en: {SALIDA_XML}\n")
-    except Exception as e:
-        print(f"\nERROR FATAL: {e}\n")
-        logging.error("EXCEPCIÓN NO CAPTURADA", exc_info=True)
-        sys.exit(1)
+    print("Eventos a guardar:", len(resultados))
+    print("Ruta de guardado:", SALIDA_XML)
+    guardar_xml(resultados, archivo=SALIDA_XML)
+
+    if no_detectados_por_deporte:
+        print("\nRetroalimentando el diccionario LISTA DE PALABRAS CLAVE.txt ...")
+        actualizar_diccionario(no_detectados_por_deporte)
+
+    fin = datetime.now()
+    print(f"Procesados {total_eventos} eventos en total.")
+    print(f"Deportes no detectados: {len(no_detectados)}")
+    if no_detectados:
+        print("Ejemplos de eventos NO detectados:")
+        for e in no_detectados[:10]:
+            print(f"  - {e}")
+    print(f"Duración total: {fin-inicio}")
+    print(f"FIN. XML generado en: {SALIDA_XML}\n")
