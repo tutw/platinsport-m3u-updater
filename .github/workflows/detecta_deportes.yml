@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # Necesario para ramas y PR
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -45,3 +45,4 @@ jobs:
             Por favor, revisa y haz merge si es correcto.
           add-paths: deportes_detectados.xml
           delete-branch: true
+          token: ${{ secrets.PAT_PUSH_BOT }}
