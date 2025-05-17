@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 0  # Necesario para ramas y PR
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -40,5 +40,8 @@ jobs:
           commit-message: "Update deportes_detectados.xml [bot]"
           branch: update-deportes-detectados-xml
           title: "Update deportes_detectados.xml [bot]"
-          body: "Actualización automática del archivo deportes_detectados.xml generada por el workflow."
+          body: |
+            Actualización automática del archivo deportes_detectados.xml generada por el workflow.
+            Por favor, revisa y haz merge si es correcto.
           add-paths: deportes_detectados.xml
+          delete-branch: true
