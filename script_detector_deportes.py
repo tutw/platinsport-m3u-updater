@@ -3,16 +3,19 @@ import re
 import xml.etree.ElementTree as ET
 import logging
 from datetime import datetime
+import time
 
+# ------------- CONFIGURACIÓN -------------
 URLS_EVENTOS = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u",
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_icastresana.m3u",
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_sportsonlineci.xml",
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_agenda_DEPORTE-LIBRE.FANS.xml"
 ]
-
 URL_PALABRAS_CLAVE = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/LISTA%20DE%20PALABRAS%20CLAVE.txt"
 SALIDA_XML = "deportes_detectados.xml"
+DELAY_BETWEEN_REQUESTS = 1  # segundos
+MAX_RETRIES = 3  # reintentos en caso de fallo
 
 logging.basicConfig(
     level=logging.INFO,
@@ -20,6 +23,7 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()]
 )
 
+# ------------- DICCIONARIO DE LOGOS -------------
 OPENMOJI_LOGOS = {
     "Fútbol": "https://openmoji.org/data/color/svg/26BD.svg",
     "Fútbol Sala": "https://openmoji.org/data/color/svg/26BD.svg",
@@ -202,13 +206,26 @@ OPENMOJI_LOGOS = {
     "Skibobbing": "",
 }
 
+# ------------- FUNCIONES AUXILIARES -------------
+
+def robust_get(url, retries=MAX_RETRIES, delay=DELAY_BETWEEN_REQUESTS):
+    for intento in range(retries):
+        try:
+            resp = requests.get(url)
+            resp.raise_for_status()
+            return resp
+        except requests.exceptions.RequestException as e:
+            logging.error(f"Error descargando {url}: {e} (intento {intento+1}/{retries})")
+            if intento < retries - 1:
+                time.sleep(delay)
+    logging.error(f"No se pudo descargar {url} tras {retries} intentos.")
+    return None
+
 def extraer_diccionario_deportes(url_txt):
     logging.info("Descargando lista de palabras clave de deportes...")
-    try:
-        r = requests.get(url_txt)
-        r.raise_for_status()
-    except Exception as e:
-        logging.error(f"No se pudo descargar el archivo de palabras clave: {e}")
+    r = robust_get(url_txt)
+    if not r:
+        logging.error("No se pudo descargar el archivo de palabras clave.")
         return {}
     lines = r.text.splitlines()
     deportes = {}
@@ -226,16 +243,10 @@ def extraer_diccionario_deportes(url_txt):
                     deportes[deporte_actual] = set()
                 deportes[deporte_actual].update(palabras)
     deportes = {dep: set([p for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
-
-    # Ampliación de palabras clave (igual que en tu versión anterior, puedes agregar más si lo deseas)
-    deportes.setdefault("Fútbol", set()).update({
-        "fútbol", "football", "soccer", "liga", "bundesliga", "premier league", "serie a", "la liga", "laliga",
-        "champions", "uefa", "ucl", "europa league", "copa del rey", "fa cup", "world cup", "mundial", "liga mx",
-        "mls", "ligue 1", "eredivisie", "primeira liga", "j league", "k league",
-        "superliga", "liga pro", "campeonato brasileiro", "libertadores", "sudamericana", "afc champions",
-        "concacaf", "gold cup", "africa cup", "african cup", "confederations cup", "fifa"
-    })
-    # ... (más deportes y sets, igual que en tu versión anterior)
+    
+    # Ejemplo para ampliar palabras clave:
+    # deportes.setdefault("Ciclismo", set()).update({"giro", "tour", "vuelta", "ciclismo", "etapa"})
+    # Puedes añadir más deportes y palabras clave aquí según los eventos no detectados
 
     logging.info(f"Diccionario de deportes generado con {len(deportes)} deportes.")
     return deportes
@@ -243,26 +254,25 @@ def extraer_diccionario_deportes(url_txt):
 def parse_m3u(url):
     eventos = []
     logging.info(f"Descargando y procesando archivo M3U: {url}")
-    try:
-        r = requests.get(url)
-        r.raise_for_status()
-        for line in r.text.splitlines():
-            if line.startswith("#EXTINF"):
-                match = re.search(r',(.+)$', line)
-                if match:
-                    nombre_evento = match.group(1).strip()
-                    eventos.append(nombre_evento)
-        logging.info(f"{len(eventos)} eventos extraídos de {url}")
-    except Exception as e:
-        logging.error(f"Error procesando {url}: {e}")
+    r = robust_get(url)
+    if not r:
+        return eventos
+    for line in r.text.splitlines():
+        if line.startswith("#EXTINF"):
+            match = re.search(r',(.+)$', line)
+            if match:
+                nombre_evento = match.group(1).strip()
+                eventos.append(nombre_evento)
+    logging.info(f"{len(eventos)} eventos extraídos de {url}")
     return eventos
 
 def parse_xml(url):
     eventos = []
     logging.info(f"Descargando y procesando archivo XML: {url}")
+    r = robust_get(url)
+    if not r:
+        return eventos
     try:
-        r = requests.get(url)
-        r.raise_for_status()
         root = ET.fromstring(r.content)
         for elem in root.iter():
             if elem.text and elem.text.strip() and len(elem.text.strip()) > 4:
@@ -307,6 +317,7 @@ def guardar_xml(eventos, archivo=SALIDA_XML):
     tree.write(archivo, encoding="utf-8", xml_declaration=True)
     logging.info(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
 
+# ------------- EJECUCIÓN PRINCIPAL -------------
 if __name__ == "__main__":
     inicio = datetime.now()
     logging.info("Inicio de ejecución de script_detector_deportes.py")
@@ -319,6 +330,7 @@ if __name__ == "__main__":
     total_eventos = 0
 
     for url in URLS_EVENTOS:
+        time.sleep(DELAY_BETWEEN_REQUESTS)  # Espera entre descargas para evitar 429
         if url.endswith(".m3u"):
             eventos = parse_m3u(url)
         elif url.endswith(".xml"):
@@ -342,6 +354,7 @@ if __name__ == "__main__":
     logging.info(f"Deportes no detectados: {len(no_detectados)}")
     if no_detectados:
         logging.info("Ejemplos de eventos NO detectados:")
-        for e in no_detectados[:5]:
+        for e in no_detectados[:10]:
             logging.info(f"  - {e}")
+        logging.info("Considera ampliar el diccionario de palabras clave si algunos deportes conocidos no se detectan.")
     logging.info(f"Duración total: {fin-inicio}")
