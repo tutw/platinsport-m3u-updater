@@ -1,19 +1,30 @@
-name: Detectar deportes
+name: Actualiza y retroalimenta diccionario deportes
 
 on:
-  workflow_dispatch:  # O el trigger que prefieras
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'
 
 jobs:
-  build:
+  retroalimentar:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
-      - name: Instalar dependencias
-        run: |
-          pip install requests
+      - name: Instala dependencias
+        run: pip install requests
 
-      - name: Ejecutar script de deportes
+      - name: Ejecuta script_detector_deportes.py
+        run: python script_detector_deportes.py
+
+      - name: Commit y push si hay cambios
         run: |
-          python3 script_detector_deportes.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add "LISTA DE PALABRAS CLAVE.txt" "deportes_detectados.xml"
+          git diff --cached --quiet || git commit -m "Actualiza diccionario deportes automáticamente"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
