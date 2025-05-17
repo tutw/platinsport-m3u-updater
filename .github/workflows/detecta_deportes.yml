@@ -1,25 +1,41 @@
-name: Detecta deportes en eventos
+name: Detecta Deportes
 
 on:
-  schedule:
-    - cron: '0 * * * *'        # Cada 1 hora
-  workflow_dispatch:            # Ejecución manual
+  workflow_dispatch:
+  push:
+    paths:
+      - script_detector_deportes.py
+      - .github/workflows/detecta_deportes.yml
 
 jobs:
-  run-script:
+  detecta:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Configura Python
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
-      - name: Instala dependencias
+
+      - name: Install dependencies
         run: pip install requests
-      - name: Ejecuta el script de deportes
+
+      - name: Run detector script
         run: python script_detector_deportes.py
-      - name: Sube el XML como artefacto
+
+      - name: Upload deportes_detectados.xml as artifact
         uses: actions/upload-artifact@v4
         with:
           name: deportes_detectados
           path: deportes_detectados.xml
+
+      - name: Commit deportes_detectados.xml back to repo
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: deportes_detectados.xml
+          author_name: GitHub Actions
+          author_email: actions@github.com
+          message: "Update deportes_detectados.xml [bot]"
