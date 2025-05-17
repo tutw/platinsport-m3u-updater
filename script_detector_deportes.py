@@ -4,6 +4,10 @@ import xml.etree.ElementTree as ET
 import logging
 from datetime import datetime
 import time
+import unicodedata
+from collections import Counter
+
+from openmoji_logos import OPENMOJI_LOGOS  # ¡Importa el diccionario desde el archivo externo!
 
 # ------------- CONFIGURACIÓN -------------
 URLS_EVENTOS = [
@@ -23,190 +27,11 @@ logging.basicConfig(
     handlers=[logging.StreamHandler()]
 )
 
-# ------------- DICCIONARIO DE LOGOS -------------
-OPENMOJI_LOGOS = {
-    "Fútbol": "https://openmoji.org/data/color/svg/26BD.svg",
-    "Fútbol Sala": "https://openmoji.org/data/color/svg/26BD.svg",
-    "Fútbol Playa": "https://openmoji.org/data/color/svg/26BD.svg",
-    "Baloncesto": "https://openmoji.org/data/color/svg/1F3C0.svg",
-    "Béisbol": "https://openmoji.org/data/color/svg/26BE.svg",
-    "Sóftbol": "https://openmoji.org/data/color/svg/26BE.svg",
-    "Fútbol Americano": "https://openmoji.org/data/color/svg/1F3C8.svg",
-    "Fútbol Canadiense": "https://openmoji.org/data/color/svg/1F3C8.svg",
-    "Rugby": "https://openmoji.org/data/color/svg/1F3C9.svg",
-    "Hockey sobre Hielo": "https://openmoji.org/data/color/svg/1F3D2.svg",
-    "Hockey sobre Hierba": "https://openmoji.org/data/color/svg/1F3D1.svg",
-    "Críquet": "https://openmoji.org/data/color/svg/1F3CF.svg",
-    "Voleibol": "https://openmoji.org/data/color/svg/1F3D0.svg",
-    "Vóley Playa": "https://openmoji.org/data/color/svg/1F3D0.svg",
-    "Balonmano": "https://openmoji.org/data/color/svg/1F93E.svg",
-    "Tenis": "https://openmoji.org/data/color/svg/1F3BE.svg",
-    "Bádminton": "https://openmoji.org/data/color/svg/1F3F8.svg",
-    "Tenis de Mesa": "https://openmoji.org/data/color/svg/1F3D3.svg",
-    "Golf": "https://openmoji.org/data/color/svg/26F3.svg",
-    "Atletismo": "https://openmoji.org/data/color/svg/1F3C3.svg",
-    "Natación": "https://openmoji.org/data/color/svg/1F3CA.svg",
-    "Natación Artística": "https://openmoji.org/data/color/svg/1F3CA.svg",
-    "Saltos": "https://openmoji.org/data/color/svg/1F3C2.svg",
-    "Waterpolo": "https://openmoji.org/data/color/svg/1F3CA.svg",
-    "Natación en Aguas Abiertas": "https://openmoji.org/data/color/svg/1F3CA.svg",
-    "Ciclismo en Ruta": "https://openmoji.org/data/color/svg/1F6B4.svg",
-    "Ciclismo en Pista": "https://openmoji.org/data/color/svg/1F6B4.svg",
-    "Ciclismo de Montaña": "https://openmoji.org/data/color/svg/1F6B4.svg",
-    "BMX": "https://openmoji.org/data/color/svg/1F6B2.svg",
-    "Ciclocrós": "https://openmoji.org/data/color/svg/1F6B2.svg",
-    "Gimnasia Artística": "https://openmoji.org/data/color/svg/1F938.svg",
-    "Gimnasia Rítmica": "https://openmoji.org/data/color/svg/1F938.svg",
-    "Gimnasia en Trampolín": "https://openmoji.org/data/color/svg/1F938.svg",
-    "Gimnasia Acrobática": "https://openmoji.org/data/color/svg/1F938.svg",
-    "Gimnasia Aeróbica": "https://openmoji.org/data/color/svg/1F938.svg",
-    "Boxeo": "https://openmoji.org/data/color/svg/1F94A.svg",
-    "Judo": "https://openmoji.org/data/color/svg/1F94B.svg",
-    "Taekwondo": "https://openmoji.org/data/color/svg/1F94B.svg",
-    "Lucha": "https://openmoji.org/data/color/svg/1F93C.svg",
-    "Esgrima": "https://openmoji.org/data/color/svg/1F5E1.svg",
-    "Karate": "https://openmoji.org/data/color/svg/1F94B.svg",
-    "Artes Marciales Mixtas": "https://openmoji.org/data/color/svg/1F94B.svg",
-    "Kickboxing": "https://openmoji.org/data/color/svg/1F94A.svg",
-    "Muay Thai": "https://openmoji.org/data/color/svg/1F94A.svg",
-    "Sumo": "https://openmoji.org/data/color/svg/1F93C.svg",
-    "Kendo": "",
-    "Aikido": "",
-    "Jiu-Jitsu Brasileño": "",
-    "Sambo": "",
-    "Savate": "",
-    "Esquí Alpino": "https://openmoji.org/data/color/svg/1F3C2.svg",
-    "Esquí de Fondo": "https://openmoji.org/data/color/svg/1F3C2.svg",
-    "Saltos de Esquí": "https://openmoji.org/data/color/svg/1F3C2.svg",
-    "Combinada Nórdica": "https://openmoji.org/data/color/svg/1F3C2.svg",
-    "Biatlón": "",
-    "Snowboard": "https://openmoji.org/data/color/svg/1F3C2.svg",
-    "Esquí Acrobático / Estilo Libre": "https://openmoji.org/data/color/svg/1F3C2.svg",
-    "Patinaje Artístico sobre Hielo": "",
-    "Patinaje de Velocidad sobre Hielo": "",
-    "Patinaje de Velocidad sobre Hielo en Pista Corta": "",
-    "Curling": "https://openmoji.org/data/color/svg/1F94C.svg",
-    "Bobsleigh": "",
-    "Skeleton": "",
-    "Luge": "",
-    "Esquí de Montaña": "https://openmoji.org/data/color/svg/1F3C2.svg",
-    "Surf": "https://openmoji.org/data/color/svg/1F3C4.svg",
-    "Windsurf": "",
-    "Kitesurf / Kiteboard": "",
-    "Vela": "https://openmoji.org/data/color/svg/26F5.svg",
-    "Remo": "https://openmoji.org/data/color/svg/1F6A3.svg",
-    "Piragüismo / Canotaje": "https://openmoji.org/data/color/svg/1F6F6.svg",
-    "Kayak Polo": "https://openmoji.org/data/color/svg/1F6F6.svg",
-    "Bote Dragón": "",
-    "Motonáutica": "",
-    "Esquí Acuático": "",
-    "Wakeboard": "",
-    "Pesca Deportiva": "https://openmoji.org/data/color/svg/1F3A3.svg",
-    "Apnea / Buceo Libre": "",
-    "Hockey Subacuático": "",
-    "Rugby Subacuático": "",
-    "Fórmula 1": "https://openmoji.org/data/color/svg/1F3CE.svg",
-    "Rally": "https://openmoji.org/data/color/svg/1F698.svg",
-    "Carreras de Resistencia": "https://openmoji.org/data/color/svg/1F3CE.svg",
-    "Turismos": "https://openmoji.org/data/color/svg/1F698.svg",
-    "NASCAR": "https://openmoji.org/data/color/svg/1F3CE.svg",
-    "IndyCar Series": "https://openmoji.org/data/color/svg/1F3CE.svg",
-    "Fórmula E": "https://openmoji.org/data/color/svg/1F3CE.svg",
-    "Karting": "https://openmoji.org/data/color/svg/1F3CE.svg",
-    "Drifting": "",
-    "Carreras de Aceleración": "",
-    "MotoGP": "https://openmoji.org/data/color/svg/1F3CD.svg",
-    "Superbikes": "https://openmoji.org/data/color/svg/1F3CD.svg",
-    "Motocross": "https://openmoji.org/data/color/svg/1F3CD.svg",
-    "Enduro": "https://openmoji.org/data/color/svg/1F3CD.svg",
-    "Speedway": "https://openmoji.org/data/color/svg/1F3CD.svg",
-    "Trial": "",
-    "Carreras de Resistencia (Endurance Racing - Motos)": "",
-    "Tiro con Arco": "https://openmoji.org/data/color/svg/1F3F9.svg",
-    "Tiro Deportivo": "",
-    "Billar": "https://openmoji.org/data/color/svg/1F3B1.svg",
-    "Dardos": "https://openmoji.org/data/color/svg/1F3AF.svg",
-    "Bolos": "https://openmoji.org/data/color/svg/1F3B3.svg",
-    "Petanca": "",
-    "Bochas / Bocce": "",
-    "Skateboarding": "https://openmoji.org/data/color/svg/1F6F9.svg",
-    "Escalada Deportiva": "https://openmoji.org/data/color/svg/1F9D7.svg",
-    "Parkour / Freerunning": "",
-    "Slackline": "",
-    "Salto BASE": "",
-    "Paracaidismo": "",
-    "Ala Delta": "",
-    "Parapente": "",
-    "Raids de Aventura": "",
-    "Carreras de Obstáculos": "",
-    "Sandboarding / Surf de Arena": "",
-    "Zorbing / Esferismo": "",
-    "Street Luge": "",
-    "Patinaje en Línea Agresivo": "",
-    "Scootering": "",
-    "Ajedrez": "https://openmoji.org/data/color/svg/265F.svg",
-    "Go": "",
-    "Shogi": "https://openmoji.org/data/color/svg/1F004.svg",
-    "Xiangqi": "",
-    "Bridge": "https://openmoji.org/data/color/svg/1F0CF.svg",
-    "Damas": "https://openmoji.org/data/color/svg/1F3B2.svg",
-    "Póker": "https://openmoji.org/data/color/svg/1F0CF.svg",
-    "Esports": "https://openmoji.org/data/color/svg/1F579.svg",
-    "Cubo de Rubik": "",
-    "Pelota Vasca": "",
-    "Fútbol Gaélico": "https://openmoji.org/data/color/svg/26BD.svg",
-    "Hurling": "",
-    "Camogie": "",
-    "Sepak Takraw": "",
-    "Kabaddi": "",
-    "Netball": "",
-    "Korfball": "",
-    "Floorball": "",
-    "Ultimate Frisbee": "https://openmoji.org/data/color/svg/1F94F.svg",
-    "Disc Golf": "",
-    "Fistball": "",
-    "Orientación": "",
-    "Lacrosse": "",
-    "Polo": "",
-    "Patinaje de Velocidad sobre Ruedas": "",
-    "Hockey sobre Patines": "",
-    "Hockey Línea": "",
-    "Patinaje Artístico sobre Ruedas": "",
-    "Squash": "",
-    "Raquetbol": "",
-    "Vuelo a Vela / Planeador": "",
-    "Acrobacia Aérea": "",
-    "Tchoukball": "",
-    "Bossaball": "",
-    "Roller Derby": "",
-    "Quidditch": "",
-    "Tiro de Cuerda / Sokatira": "",
-    "Carreras de Drones": "",
-    "Woodchopping / Deportes de Hacheros": "",
-    "Puenting": "",
-    "Juegos de Fuerza": "",
-    "Halterofilia / Levantamiento de Pesas": "https://openmoji.org/data/color/svg/1F4AA.svg",
-    "Levantamiento de Potencia": "https://openmoji.org/data/color/svg/1F4AA.svg",
-    "Culturismo": "https://openmoji.org/data/color/svg/1F4AA.svg",
-    "Doma Clásica": "",
-    "Salto Ecuestre": "",
-    "Concurso Completo": "",
-    "Enganches": "",
-    "Volteo": "",
-    "Enduro Ecuestre / Raid": "",
-    "Reining": "",
-    "Pentatlón Moderno": "",
-    "Triatlón": "",
-    "Duatlón": "",
-    "Acuatlón": "",
-    "Canicross": "",
-    "Mushing / Trineo de Perros": "",
-    "Patinaje sobre Hielo Sincronizado": "",
-    "Bandy": "",
-    "Skibobbing": "",
-}
-
-# ------------- FUNCIONES AUXILIARES -------------
+def normalizar_texto(texto):
+    texto = texto.lower()
+    texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
+    texto = re.sub(r'[^\w\s]', '', texto)
+    return texto
 
 def robust_get(url, retries=MAX_RETRIES, delay=DELAY_BETWEEN_REQUESTS):
     for intento in range(retries):
@@ -241,12 +66,28 @@ def extraer_diccionario_deportes(url_txt):
             if deporte_actual:
                 if deporte_actual not in deportes:
                     deportes[deporte_actual] = set()
-                deportes[deporte_actual].update(palabras)
-    deportes = {dep: set([p for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
-    
-    # Ejemplo para ampliar palabras clave:
-    # deportes.setdefault("Ciclismo", set()).update({"giro", "tour", "vuelta", "ciclismo", "etapa"})
-    # Puedes añadir más deportes y palabras clave aquí según los eventos no detectados
+                deportes[deporte_actual].update([normalizar_texto(p) for p in palabras])
+    deportes = {dep: set([normalizar_texto(p) for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
+
+    # Palabras clave extra manuales (puedes ampliar según tus eventos)
+    deportes.setdefault("Ciclismo", set()).update([
+        "giro de italia", "giro", "tour de francia", "tour", "vuelta a espana", "etapa", "ciclismo", "uci world tour"
+    ])
+    deportes.setdefault("Fútbol", set()).update([
+        "laliga", "la liga", "champions", "uefa", "premier league", "bundesliga", "serie a", "ligue 1",
+        "mls", "liga mx", "superliga", "fa cup", "copa del rey", "libertadores", "sudamericana", "concacaf",
+        "gold cup", "mundial", "world cup", "eurocopa", "fifa", "ucl", "epl"
+    ])
+    deportes.setdefault("Baloncesto", set()).update([
+        "nba", "acb", "liga endesa", "euroleague", "baloncesto", "basket", "basketball"
+    ])
+    deportes.setdefault("Motociclismo", set()).update([
+        "motogp", "superbike", "motocross", "enduro", "trial", "moto", "gran premio"
+    ])
+    deportes.setdefault("Automovilismo", set()).update([
+        "f1", "formula 1", "rally", "nascar", "indycar", "karting", "gt", "dakar"
+    ])
+    # Añade aquí más según tus resultados
 
     logging.info(f"Diccionario de deportes generado con {len(deportes)} deportes.")
     return deportes
@@ -283,10 +124,10 @@ def parse_xml(url):
     return eventos
 
 def detectar_deporte(nombre_evento, deportes_dict):
-    nombre = nombre_evento.lower()
+    texto = normalizar_texto(nombre_evento)
     for deporte, palabras in deportes_dict.items():
         for palabra in palabras:
-            if palabra and palabra in nombre:
+            if palabra and palabra in texto:
                 return deporte
     return "desconocido"
 
@@ -310,12 +151,34 @@ def guardar_xml(eventos, archivo=SALIDA_XML):
         ET.SubElement(nodo_evento, "nombre").text = evento
         ET.SubElement(nodo_evento, "deporte").text = deporte
         ET.SubElement(nodo_evento, "fuente").text = fuente
-        logo_url = OPENMOJI_LOGOS.get(deporte, "")
+        logo_url = OPENMOJI_LOGOS.get(deporte, "")  # <--- AQUÍ USAS EL DICCIONARIO EXTERNO
         ET.SubElement(nodo_evento, "logo").text = logo_url
     indent(root)
     tree = ET.ElementTree(root)
     tree.write(archivo, encoding="utf-8", xml_declaration=True)
     logging.info(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
+
+def sugerir_palabras_clave(no_detectados, topn=15):
+    palabras = []
+    frases = []
+    for evento in no_detectados:
+        evento_norm = normalizar_texto(evento)
+        palabras += [w for w in evento_norm.split() if len(w) >= 4]
+        # Frases de 2-3 palabras para contextos tipo "giro de italia"
+        tokens = evento_norm.split()
+        for i in range(len(tokens)-1):
+            frases.append(' '.join(tokens[i:i+2]))
+        for i in range(len(tokens)-2):
+            frases.append(' '.join(tokens[i:i+3]))
+    counter_palabras = Counter(palabras)
+    counter_frases = Counter(frases)
+    print("\n=== SUGERENCIAS DE PALABRAS CLAVE (palabras sueltas) ===")
+    for palabra, freq in counter_palabras.most_common(topn):
+        print(f"- '{palabra}' aparece en {freq} eventos no detectados")
+    print("\n=== SUGERENCIAS DE PALABRAS CLAVE (frases de 2-3 palabras) ===")
+    for frase, freq in counter_frases.most_common(topn):
+        print(f"- '{frase}' aparece en {freq} eventos no detectados")
+    print("Revisa estos términos y considera añadirlos a los deportes correspondientes en el diccionario manualmente.\n")
 
 # ------------- EJECUCIÓN PRINCIPAL -------------
 if __name__ == "__main__":
@@ -356,5 +219,6 @@ if __name__ == "__main__":
         logging.info("Ejemplos de eventos NO detectados:")
         for e in no_detectados[:10]:
             logging.info(f"  - {e}")
+        sugerir_palabras_clave(no_detectados, topn=15)
         logging.info("Considera ampliar el diccionario de palabras clave si algunos deportes conocidos no se detectan.")
     logging.info(f"Duración total: {fin-inicio}")
