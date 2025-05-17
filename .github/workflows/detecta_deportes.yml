@@ -1,56 +1,41 @@
-name: Detecta Deportes
+name: Actualizar deportes_detectados.xml
 
 on:
-  workflow_dispatch:
   push:
-    paths:
-      - script_detector_deportes.py
-      - .github/workflows/detecta_deportes.yml
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-  detecta:
+  actualizar-xml:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repositorio
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Set up Python
+      - name: Configurar Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      - name: Install dependencies
+      - name: Instalar dependencias
         run: pip install requests
 
-      - name: Run detector script
+      - name: Ejecutar script de detección de deportes
         run: python script_detector_deportes.py
 
-      - name: Upload deportes_detectados.xml as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: deportes_detectados
-          path: deportes_detectados.xml
-
-      - name: Create Pull Request with updated deportes_detectados.xml
-        id: cpr
+      - name: Crear Pull Request para actualizar deportes_detectados.xml
         uses: peter-evans/create-pull-request@v6
         with:
-          commit-message: "Update deportes_detectados.xml [bot]"
+          commit-message: Update deportes_detectados.xml [bot]
           branch: update-deportes-detectados-xml
-          title: "Update deportes_detectados.xml [bot]"
-          body: |
-            Actualización automática del archivo deportes_detectados.xml generada por el workflow.
-            Por favor, revisa y haz merge si es correcto.
+          title: Update deportes_detectados.xml [bot]
+          body: Actualización automática del archivo deportes_detectados.xml generada por el workflow.
           add-paths: deportes_detectados.xml
           delete-branch: true
-          token: ${{ secrets.PAT_PUSH_BOT }}
-
-      - name: Enable auto-merge for PR
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          token: ${{ secrets.PAT_PUSH_BOT }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: squash
+          base: main               # <--- ¡ESTA LÍNEA ES CLAVE!
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: tutw <197973647+tutw@users.noreply.github.com>
+          signoff: false
+          draft: false
