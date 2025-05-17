@@ -7,6 +7,7 @@ import time
 import unicodedata
 from collections import Counter
 from difflib import SequenceMatcher
+import os
 
 from openmoji_logos import OPENMOJI_LOGOS  # Diccionario externo
 
@@ -18,7 +19,7 @@ URLS_EVENTOS = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_agenda_DEPORTE-LIBRE.FANS.xml"
 ]
 URL_PALABRAS_CLAVE = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/LISTA%20DE%20PALABRAS%20CLAVE.txt"
-SALIDA_XML = "deportes_detectados.xml"
+SALIDA_XML = os.path.join(os.path.dirname(__file__), "deportes_detectados.xml")
 DELAY_BETWEEN_REQUESTS = 1  # segundos
 MAX_RETRIES = 3  # reintentos en caso de fallo
 
@@ -136,8 +137,10 @@ def detectar_deporte(nombre_evento, deportes_dict, umbral=0.80):
             palabra = palabra.strip()
             if not palabra:
                 continue
+            # Coincidencia exacta o contenida
             if palabra in texto:
                 return deporte
+            # Coincidencia flexible
             tokens_evento = texto.split()
             tokens_palabra = palabra.split()
             for i in range(len(tokens_evento) - len(tokens_palabra) + 1):
@@ -166,12 +169,19 @@ def guardar_xml(eventos, archivo=SALIDA_XML):
         ET.SubElement(nodo_evento, "nombre").text = evento
         ET.SubElement(nodo_evento, "deporte").text = deporte
         ET.SubElement(nodo_evento, "fuente").text = fuente
+        # Normaliza la clave para buscar el logo
         logo_url = OPENMOJI_LOGOS.get(deporte, "")
+        if not logo_url:
+            # Intenta con capitalización y minúsculas como fallback
+            logo_url = OPENMOJI_LOGOS.get(deporte.capitalize(), "")
+        if not logo_url:
+            logo_url = OPENMOJI_LOGOS.get(deporte.lower(), "")
         ET.SubElement(nodo_evento, "logo").text = logo_url
     indent(root)
     tree = ET.ElementTree(root)
     tree.write(archivo, encoding="utf-8", xml_declaration=True)
     logging.info(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
+    print(f"\nArchivo XML actualizado: {os.path.abspath(archivo)}")
 
 def sugerir_palabras_clave(no_detectados, topn=15):
     palabras = []
@@ -225,6 +235,8 @@ if __name__ == "__main__":
                 logging.debug(f"Detectado: '{evento}' => {deporte}")
             resultados.append((evento, deporte if deporte else "desconocido", url))
 
+    print("Eventos a guardar:", len(resultados))
+    print("Ruta de guardado:", SALIDA_XML)
     guardar_xml(resultados, archivo=SALIDA_XML)
     fin = datetime.now()
     logging.info(f"Procesados {total_eventos} eventos en total.")
