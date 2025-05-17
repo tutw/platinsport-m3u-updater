@@ -1,6 +1,7 @@
 import os
 import re
 import time
+import random
 import requests
 import unicodedata
 import xml.etree.ElementTree as ET
@@ -116,7 +117,7 @@ def guardar_xml(eventos, archivo=SALIDA_XML):
             ET.SubElement(nodo_evento, "nombre").text = evento
             ET.SubElement(nodo_evento, "deporte").text = deporte
             ET.SubElement(nodo_evento, "fuente").text = fuente
-            ET.SubElement(nodo_evento, "logo").text = ""  # Pon aquí lógica para logos si quieres
+            ET.SubElement(nodo_evento, "logo").text = ""
         indent(root)
         tree = ET.ElementTree(root)
         tree.write(archivo, encoding="utf-8", xml_declaration=True)
@@ -144,18 +145,33 @@ def sugerir_palabras_eventos(eventos):
         sugeridas.add(frase)
     return sugeridas
 
-def buscar_deporte_duckduckgo(evento):
-    # Rotación de user-agent
-    headers = {
-        "User-Agent": "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-    }
-    url = f"https://duckduckgo.com/html/?q={requests.utils.quote(evento)}"
+def buscar_deporte_scraping(evento, buscador_idx=[0]):
+    buscadores = [
+        ("duckduckgo", "https://duckduckgo.com/html/?q={}"),
+        ("bing", "https://www.bing.com/search?q={}"),
+        ("brave", "https://search.brave.com/search?q={}"),
+        ("yandex", "https://yandex.com/search/?text={}"),
+        ("ecosia", "https://www.ecosia.org/search?q={}"),
+        ("google", "https://www.google.com/search?q={}")
+    ]
+    user_agents = [
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
+        "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:117.0) Gecko/20100101 Firefox/117.0",
+        "Mozilla/5.0 (Linux; Android 10; SM-G975F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36",
+    ]
+    headers = {"User-Agent": random.choice(user_agents)}
+    buscador, url_fmt = buscadores[buscador_idx[0] % len(buscadores)]
+    buscador_idx[0] += 1
+    url = url_fmt.format(requests.utils.quote(evento))
+    print(f"Consultando {buscador} para: {evento}")
     try:
-        r = requests.get(url, headers=headers, timeout=10)
+        r = requests.get(url, headers=headers, timeout=3)
+        time.sleep(random.uniform(2, 5))
         if not r.ok:
+            print(f"Error HTTP en {buscador} para: {evento}")
             return "desconocido"
         html = r.text.lower()
-        # Inferencia simple por keywords de deporte en SERP
         claves_deporte = {
             "Fútbol": ["futbol", "fútbol", "soccer", "liga", "champions", "bundesliga", "serie a", "laliga", "premier league", "segunda division"],
             "Baloncesto": ["basket", "baloncesto", "nba", "acb", "liga endesa", "bàsquet", "basketball"],
@@ -172,9 +188,11 @@ def buscar_deporte_duckduckgo(evento):
         }
         for deporte, palabras in claves_deporte.items():
             if any(p in html for p in palabras):
+                print(f"Detectado {deporte} para evento: {evento} usando {buscador}")
                 return deporte
-    except Exception:
-        pass
+        print(f"No detectado para: {evento} usando {buscador}")
+    except Exception as ex:
+        print(f"Excepción en {buscador} para {evento}: {ex}")
     return "desconocido"
 
 def actualizar_diccionario(no_detectados_por_deporte):
@@ -226,8 +244,9 @@ if __name__ == "__main__":
         for evento in eventos:
             total_eventos += 1
             deporte = detectar_deporte(evento, deportes_dict)
+            deporte_sugerido = None
             if not deporte:
-                deporte_sugerido = buscar_deporte_duckduckgo(evento)
+                deporte_sugerido = buscar_deporte_scraping(evento)
                 no_detectados.append(evento)
                 no_detectados_por_deporte.setdefault(deporte_sugerido, []).append(evento)
             resultados.append((evento, deporte if deporte else deporte_sugerido, url))
