@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # <--- IMPORTANTE: traer todo el historial
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -23,11 +25,13 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Pull latest changes
+      - name: Configure git
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
-          git pull --rebase
+
+      - name: Pull latest changes
+        run: git pull --rebase
 
       - name: Run detector script
         run: python script_detector_deportes.py
