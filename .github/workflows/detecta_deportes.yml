@@ -35,6 +35,7 @@ jobs:
           path: deportes_detectados.xml
 
       - name: Create Pull Request with updated deportes_detectados.xml
+        id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "Update deportes_detectados.xml [bot]"
@@ -46,3 +47,10 @@ jobs:
           add-paths: deportes_detectados.xml
           delete-branch: true
           token: ${{ secrets.PAT_PUSH_BOT }}
+
+      - name: Enable auto-merge for PR
+        uses: peter-evans/enable-pull-request-automerge@v3
+        with:
+          token: ${{ secrets.PAT_PUSH_BOT }}
+          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
+          merge-method: squash
