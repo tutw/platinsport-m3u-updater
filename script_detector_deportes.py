@@ -1,14 +1,11 @@
 import os
 import re
-import time
-import random
-import requests
 import unicodedata
 import xml.etree.ElementTree as ET
 from collections import Counter
 from datetime import datetime
 
-DICCIONARIO = "LISTA DE PALABRAS CLAVE.txt"
+DICCIONARIO_XML = "LISTA DE PALABRAS CLAVE.xml"
 SALIDA_XML = os.path.abspath("deportes_detectados.xml")
 URLS_EVENTOS = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u",
@@ -16,67 +13,49 @@ URLS_EVENTOS = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_sportsonlineci.xml",
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_agenda_DEPORTE-LIBRE.FANS.xml"
 ]
-URL_PALABRAS_CLAVE = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/LISTA%20DE%20PALABRAS%20CLAVE.txt"
 
 def normalizar_texto(texto):
     texto = texto.lower()
     texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn')
     texto = re.sub(r'[^\w\s]', '', texto)
-    return texto
+    return texto.strip()
 
-def robust_get(url, retries=3, delay=1):
-    for _ in range(retries):
-        try:
-            r = requests.get(url)
-            r.raise_for_status()
-            return r
-        except Exception:
-            time.sleep(delay)
-    return None
-
-def extraer_diccionario_deportes(local_path):
-    if not os.path.exists(local_path):
-        r = robust_get(URL_PALABRAS_CLAVE)
-        if not r:
-            print("No se pudo descargar el archivo de palabras clave.")
-            return {}
-        with open(local_path, "w", encoding="utf-8") as f:
-            f.write(r.text)
-    lines = open(local_path, encoding="utf-8").read().splitlines()
+def cargar_diccionario_xml(ruta_xml):
+    if not os.path.exists(ruta_xml):
+        raise FileNotFoundError(f"No se encontró el diccionario XML: {ruta_xml}")
+    tree = ET.parse(ruta_xml)
+    root = tree.getroot()
     deportes = {}
-    deporte_actual = None
-    for line in lines:
-        deporte_match = re.match(r'^([A-ZÁÉÍÓÚÑ][a-záéíóúñA-ZÁÉÍÓÚÑ \-/&()]+)\s*$', line.strip())
-        if deporte_match and not line.strip().startswith("Palabras clave"):
-            deporte_actual = deporte_match.group(1).strip()
-            continue
-        if line.lower().startswith("palabras clave:"):
-            palabras_str = line.split(":", 1)[1]
-            palabras = [p.strip().lower() for p in re.split(r',|\(|\)|/|;', palabras_str) if p.strip()]
-            if deporte_actual:
-                deportes.setdefault(deporte_actual, set()).update([normalizar_texto(p) for p in palabras])
-    deportes = {dep: set([normalizar_texto(p) for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
+    for deporte in root.findall("Deporte"):
+        nombre = deporte.get("Nombre")
+        palabras = set()
+        for palabra in deporte.find("PalabrasClave").findall("Palabra"):
+            palabras.add(normalizar_texto(palabra.text or ""))
+        deportes[nombre] = palabras
     return deportes
 
 def parse_m3u(url):
+    import requests
     eventos = []
-    r = robust_get(url)
-    if not r:
-        return eventos
-    for line in r.text.splitlines():
-        if line.startswith("#EXTINF"):
-            match = re.search(r',(.+)$', line)
-            if match:
-                nombre_evento = match.group(1).strip()
-                eventos.append(nombre_evento)
+    try:
+        r = requests.get(url, timeout=8)
+        r.raise_for_status()
+        for line in r.text.splitlines():
+            if line.startswith("#EXTINF"):
+                match = re.search(r',(.+)$', line)
+                if match:
+                    nombre_evento = match.group(1).strip()
+                    eventos.append(nombre_evento)
+    except Exception:
+        pass
     return eventos
 
 def parse_xml(url):
+    import requests
     eventos = []
-    r = robust_get(url)
-    if not r:
-        return eventos
     try:
+        r = requests.get(url, timeout=8)
+        r.raise_for_status()
         root = ET.fromstring(r.content)
         for elem in root.iter():
             if elem.text and elem.text.strip() and len(elem.text.strip()) > 4:
@@ -89,10 +68,7 @@ def detectar_deporte(nombre_evento, deportes_dict):
     texto = normalizar_texto(nombre_evento)
     for deporte, palabras in deportes_dict.items():
         for palabra in palabras:
-            palabra = palabra.strip()
-            if not palabra:
-                continue
-            if palabra in texto:
+            if palabra and palabra in texto:
                 return deporte
     return None
 
@@ -110,20 +86,17 @@ def indent(elem, level=0):
             elem.tail = i
 
 def guardar_xml(eventos, archivo=SALIDA_XML):
-    try:
-        root = ET.Element("eventos")
-        for evento, deporte, fuente in eventos:
-            nodo_evento = ET.SubElement(root, "evento")
-            ET.SubElement(nodo_evento, "nombre").text = evento
-            ET.SubElement(nodo_evento, "deporte").text = deporte
-            ET.SubElement(nodo_evento, "fuente").text = fuente
-            ET.SubElement(nodo_evento, "logo").text = ""
-        indent(root)
-        tree = ET.ElementTree(root)
-        tree.write(archivo, encoding="utf-8", xml_declaration=True)
-        print(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
-    except Exception as exc:
-        print(f"ERROR al guardar XML: {exc}")
+    root = ET.Element("eventos")
+    for evento, deporte, fuente in eventos:
+        nodo_evento = ET.SubElement(root, "evento")
+        ET.SubElement(nodo_evento, "nombre").text = evento
+        ET.SubElement(nodo_evento, "deporte").text = deporte
+        ET.SubElement(nodo_evento, "fuente").text = fuente
+        ET.SubElement(nodo_evento, "logo").text = ""  # Opcional
+    indent(root)
+    tree = ET.ElementTree(root)
+    tree.write(archivo, encoding="utf-8", xml_declaration=True)
+    print(f"Archivo XML guardado con {len(eventos)} eventos: {archivo}")
 
 def sugerir_palabras_eventos(eventos):
     palabras = []
@@ -145,96 +118,44 @@ def sugerir_palabras_eventos(eventos):
         sugeridas.add(frase)
     return sugeridas
 
-def buscar_deporte_scraping(evento, buscador_idx=[0]):
-    buscadores = [
-        ("duckduckgo", "https://duckduckgo.com/html/?q={}"),
-        ("bing", "https://www.bing.com/search?q={}"),
-        ("brave", "https://search.brave.com/search?q={}"),
-        ("yandex", "https://yandex.com/search/?text={}"),
-        ("ecosia", "https://www.ecosia.org/search?q={}"),
-        ("google", "https://www.google.com/search?q={}")
-    ]
-    user_agents = [
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15",
-        "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:117.0) Gecko/20100101 Firefox/117.0",
-        "Mozilla/5.0 (Linux; Android 10; SM-G975F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36",
-    ]
-    headers = {"User-Agent": random.choice(user_agents)}
-    buscador, url_fmt = buscadores[buscador_idx[0] % len(buscadores)]
-    buscador_idx[0] += 1
-    url = url_fmt.format(requests.utils.quote(evento))
-    print(f"Consultando {buscador} para: {evento}")
-    try:
-        r = requests.get(url, headers=headers, timeout=3)
-        time.sleep(random.uniform(2, 5))
-        if not r.ok:
-            print(f"Error HTTP en {buscador} para: {evento}")
-            return "desconocido"
-        html = r.text.lower()
-        claves_deporte = {
-            "Fútbol": ["futbol", "fútbol", "soccer", "liga", "champions", "bundesliga", "serie a", "laliga", "premier league", "segunda division"],
-            "Baloncesto": ["basket", "baloncesto", "nba", "acb", "liga endesa", "bàsquet", "basketball"],
-            "Ciclismo": ["ciclismo", "cycling", "giro", "tour", "vuelta", "uci"],
-            "Automovilismo": ["f1", "formula 1", "nascar", "rally", "indycar", "motogp", "gran premio", "superbike"],
-            "Tenis": ["tenis", "atp", "wta", "grand slam", "open"],
-            "Rugby": ["rugby", "six nations", "top 14", "super rugby"],
-            "Voleibol": ["voleibol", "volleyball", "volei", "superliga", "cev", "liga mundial"],
-            "Balonmano": ["balonmano", "handball", "asobal", "ehf", "liga asobal"],
-            "Hockey": ["hockey", "nhl", "khl", "liga hockey"],
-            "Golf": ["golf", "pga", "masters"],
-            "Beisbol": ["beisbol", "béisbol", "mlb", "major league"],
-            "Esgrima": ["esgrima", "fencing"],
-        }
-        for deporte, palabras in claves_deporte.items():
-            if any(p in html for p in palabras):
-                print(f"Detectado {deporte} para evento: {evento} usando {buscador}")
-                return deporte
-        print(f"No detectado para: {evento} usando {buscador}")
-    except Exception as ex:
-        print(f"Excepción en {buscador} para {evento}: {ex}")
-    return "desconocido"
-
-def actualizar_diccionario(no_detectados_por_deporte):
-    if not os.path.exists(DICCIONARIO):
-        print(f"¡No se encuentra el diccionario {DICCIONARIO}!")
-        return
-    with open(DICCIONARIO, encoding="utf-8") as f:
-        texto = f.read()
+def retroalimentar_diccionario_xml(ruta_xml, no_detectados_por_deporte):
+    tree = ET.parse(ruta_xml)
+    root = tree.getroot()
+    deportes_xml = {deporte.get("Nombre"): deporte for deporte in root.findall("Deporte")}
     for deporte, eventos in no_detectados_por_deporte.items():
         nuevas_claves = sugerir_palabras_eventos(eventos)
-        patron = r"({}\s*\nPalabras clave:)([^\n]+)".format(re.escape(deporte))
-        m = re.search(patron, texto, re.IGNORECASE)
-        if not m:
-            texto += f"\n{deporte}\nPalabras clave: {', '.join(nuevas_claves)}\n"
-            print(f"Creada nueva sección en el diccionario para: {deporte}")
-            continue
-        inicio, claves = m.groups()
-        lista = [x.strip() for x in claves.split(",")]
+        if deporte not in deportes_xml:
+            # Crear nuevo bloque Deporte
+            bloque_dep = ET.SubElement(root, "Deporte", Nombre=deporte)
+            palabras_elem = ET.SubElement(bloque_dep, "PalabrasClave")
+        else:
+            bloque_dep = deportes_xml[deporte]
+            palabras_elem = bloque_dep.find("PalabrasClave")
+            if palabras_elem is None:
+                palabras_elem = ET.SubElement(bloque_dep, "PalabrasClave")
+        # Añadir solo palabras/frases nuevas
+        existentes = set(normalizar_texto(palabra.text or "") for palabra in palabras_elem.findall("Palabra"))
         añadidas = 0
-        for n in nuevas_claves:
-            if n not in lista:
-                lista.append(n)
+        for clave in nuevas_claves:
+            if clave not in existentes:
+                ET.SubElement(palabras_elem, "Palabra").text = clave
                 añadidas += 1
         if añadidas:
-            nuevas_linea = ", ".join(lista)
-            texto = re.sub(patron, r"\1 " + nuevas_linea, texto, flags=re.IGNORECASE)
-            print(f"Actualizado {deporte} con {añadidas} nuevas palabras/frases.")
-    with open(DICCIONARIO, "w", encoding="utf-8") as f:
-        f.write(texto)
-    print("Diccionario retroalimentado automáticamente.")
+            print(f"Retroalimentado '{deporte}' con {añadidas} nuevas palabras/frases.")
+    indent(root)
+    tree.write(ruta_xml, encoding="utf-8", xml_declaration=True)
+    print("Diccionario XML retroalimentado correctamente.")
 
 if __name__ == "__main__":
     inicio = datetime.now()
     print(f"Guardará el XML en: {SALIDA_XML}")
-    deportes_dict = extraer_diccionario_deportes(DICCIONARIO)
+    deportes_dict = cargar_diccionario_xml(DICCIONARIO_XML)
     resultados = []
     no_detectados = []
     no_detectados_por_deporte = {}
     total_eventos = 0
 
     for url in URLS_EVENTOS:
-        time.sleep(1)
         if url.endswith(".m3u"):
             eventos = parse_m3u(url)
         elif url.endswith(".xml"):
@@ -244,20 +165,21 @@ if __name__ == "__main__":
         for evento in eventos:
             total_eventos += 1
             deporte = detectar_deporte(evento, deportes_dict)
-            deporte_sugerido = None
             if not deporte:
-                deporte_sugerido = buscar_deporte_scraping(evento)
+                deporte = "desconocido"
                 no_detectados.append(evento)
-                no_detectados_por_deporte.setdefault(deporte_sugerido, []).append(evento)
-            resultados.append((evento, deporte if deporte else deporte_sugerido, url))
+                no_detectados_por_deporte.setdefault(deporte, []).append(evento)
+            resultados.append((evento, deporte, url))
 
     print("Eventos a guardar:", len(resultados))
     print("Ruta de guardado:", SALIDA_XML)
     guardar_xml(resultados, archivo=SALIDA_XML)
 
-    if no_detectados_por_deporte:
-        print("\nRetroalimentando el diccionario LISTA DE PALABRAS CLAVE.txt ...")
-        actualizar_diccionario(no_detectados_por_deporte)
+    # Retroalimenta el diccionario XML salvo para "desconocido"
+    dict_sin_desconocido = {k: v for k, v in no_detectados_por_deporte.items() if k != "desconocido"}
+    if dict_sin_desconocido:
+        print("\nRetroalimentando el diccionario LISTA DE PALABRAS CLAVE.xml ...")
+        retroalimentar_diccionario_xml(DICCIONARIO_XML, dict_sin_desconocido)
 
     fin = datetime.now()
     print(f"Procesados {total_eventos} eventos en total.")
