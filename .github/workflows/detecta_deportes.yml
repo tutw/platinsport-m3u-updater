@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # <--- IMPORTANTE: traer todo el historial
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -24,14 +24,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install requests
-
-      - name: Configure git
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-
-      - name: Pull latest changes
-        run: git pull --rebase
 
       - name: Run detector script
         run: python script_detector_deportes.py
@@ -42,10 +34,11 @@ jobs:
           name: deportes_detectados
           path: deportes_detectados.xml
 
-      - name: Commit deportes_detectados.xml back to repo
-        uses: EndBug/add-and-commit@v9
+      - name: Create Pull Request with updated deportes_detectados.xml
+        uses: peter-evans/create-pull-request@v6
         with:
-          add: deportes_detectados.xml
-          author_name: GitHub Actions
-          author_email: actions@github.com
-          message: "Update deportes_detectados.xml [bot]"
+          commit-message: "Update deportes_detectados.xml [bot]"
+          branch: update-deportes-detectados-xml
+          title: "Update deportes_detectados.xml [bot]"
+          body: "Actualización automática del archivo deportes_detectados.xml generada por el workflow."
+          add-paths: deportes_detectados.xml
