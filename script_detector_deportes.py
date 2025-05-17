@@ -14,7 +14,6 @@ URLS_EVENTOS = [
 URL_PALABRAS_CLAVE = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/LISTA%20DE%20PALABRAS%20CLAVE.txt"
 SALIDA_XML = "deportes_detectados.xml"
 
-# Configura logs detallados
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s]: %(message)s",
@@ -44,7 +43,7 @@ OPENMOJI_LOGOS = {
     "Atletismo": "https://openmoji.org/data/color/svg/1F3C3.svg",
     "Natación": "https://openmoji.org/data/color/svg/1F3CA.svg",
     "Natación Artística": "https://openmoji.org/data/color/svg/1F3CA.svg",
-    "Saltos": "https://openmoji.org/data/color/svg/1F3C2.svg",  # (aprox)
+    "Saltos": "https://openmoji.org/data/color/svg/1F3C2.svg",
     "Waterpolo": "https://openmoji.org/data/color/svg/1F3CA.svg",
     "Natación en Aguas Abiertas": "https://openmoji.org/data/color/svg/1F3CA.svg",
     "Ciclismo en Ruta": "https://openmoji.org/data/color/svg/1F6B4.svg",
@@ -225,6 +224,66 @@ def extraer_diccionario_deportes(url_txt):
                     deportes[deporte_actual] = set()
                 deportes[deporte_actual].update(palabras)
     deportes = {dep: set([p for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
+    
+    # Mejoras y ampliaciones en palabras clave
+    # ----------------------
+    deportes.setdefault("Fútbol", set()).update({
+        "fútbol", "football", "soccer", "liga", "bundesliga", "premier league", "serie a", "la liga", "laliga",
+        "champions", "uefa", "ucl", "europa league", "copa del rey", "fa cup", "world cup", "mundial", "liga mx",
+        "mls", "ligue 1", "eredivisie", "primeira liga", "j league", "k league",
+        "superliga", "liga pro", "campeonato brasileiro", "libertadores", "sudamericana", "afc champions",
+        "concacaf", "gold cup", "africa cup", "african cup", "confederations cup", "fifa"
+    })
+    deportes.setdefault("Baloncesto", set()).update({
+        "baloncesto", "basket", "basketball", "nba", "acb", "liga endesa", "euroleague", "euroliga", "wnba",
+        "liga leb", "liga femenina", "liga nacional", "liga argentina", "liga brasileña", "liga chilena",
+        "liga venezolana", "liga uruguaya", "liga mexicana", "liga puertorriqueña", "liga dominicana"
+    })
+    deportes.setdefault("Béisbol", set()).update({
+        "béisbol", "beisbol", "baseball", "mlb", "liga mexicana de beisbol", "liga venezolana", "liga dominicana"
+    })
+    deportes.setdefault("Fútbol Americano", set()).update({
+        "fútbol americano", "football", "nfl", "college football", "super bowl", "ncaa", "ncaaf", "afc", "nfc",
+        "pro bowl", "national football league", "american football"
+    })
+    deportes.setdefault("Tenis", set()).update({
+        "tenis", "tennis", "atp", "wta", "grand slam", "australian open", "roland garros", "french open",
+        "wimbledon", "us open", "davis cup", "fed cup", "hopman cup", "masters", "masters 1000", "masters 500",
+        "open", "singles", "doubles", "tie break"
+    })
+    deportes.setdefault("Balonmano", set()).update({
+        "balonmano", "handball", "liga asobal", "ehf", "champions handball"
+    })
+    deportes.setdefault("Rugby", set()).update({
+        "rugby", "six nations", "premiership rugby", "top 14", "pro14", "championship cup", "super rugby"
+    })
+    deportes.setdefault("Fórmula 1", set()).update({
+        "fórmula 1", "formula 1", "f1", "grand prix", "gp", "fia", "circuit", "qualifying"
+    })
+    deportes.setdefault("MotoGP", set()).update({
+        "motogp", "moto2", "moto3", "gran premio", "grand prix", "motociclismo", "circuit"
+    })
+    deportes.setdefault("Voleibol", set()).update({
+        "voleibol", "volleyball", "liga mundial", "champions league volley", "superliga"
+    })
+    deportes.setdefault("Boxeo", set()).update({
+        "boxeo", "boxing", "wbc", "wba", "wbo", "ibf", "fight", "title", "ring"
+    })
+    deportes.setdefault("Ciclismo en Ruta", set()).update({
+        "ciclismo", "cycling", "tour", "vuelta", "giro", "etapa", "stage", "uci"
+    })
+    deportes.setdefault("Natación", set()).update({
+        "natación", "swimming", "fina", "open water", "freestyle", "backstroke", "breaststroke", "butterfly"
+    })
+    deportes.setdefault("Golf", set()).update({
+        "golf", "pga", "masters", "open", "lpga", "us open", "the open", "augusta", "green jacket"
+    })
+    deportes.setdefault("Esports", set()).update({
+        "esports", "e-sports", "videojuego", "league of legends", "lol", "dota", "csgo", "counter strike", "valorant"
+    })
+    # Puedes seguir añadiendo mejoras para otros deportes si lo necesitas
+    # ----------------------
+    
     logging.info(f"Diccionario de deportes generado con {len(deportes)} deportes.")
     return deportes
 
