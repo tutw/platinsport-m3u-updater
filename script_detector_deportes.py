@@ -21,28 +21,61 @@ logging.basicConfig(
 )
 
 OPENMOJI_LOGOS = {
-    # ... (se mantiene igual, omito aquí por espacio, pero en tu script va completo)
     "Fútbol": "https://openmoji.org/data/color/svg/26BD.svg",
-    # ...
+    # ... agrega los demás deportes y logos aquí ...
     "Skibobbing": "",
 }
 
 def extraer_diccionario_deportes(url_txt):
-    # ... (igual que en tu script)
-    # (código omitido aquí por brevedad)
-    pass  # Aquí va la función completa como ya la tienes
+    deportes_dict = {}
+    try:
+        response = requests.get(url_txt)
+        response.raise_for_status()
+        for line in response.text.splitlines():
+            if line.strip():
+                partes = line.split(":")
+                if len(partes) == 2:
+                    clave, valor = partes
+                    deportes_dict[clave.strip().lower()] = valor.strip()
+    except Exception as e:
+        logging.error(f"Error al extraer el diccionario de deportes: {e}")
+    return deportes_dict
 
 def parse_m3u(url):
-    # ... (igual que en tu script)
-    pass
+    eventos = []
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        for line in response.text.splitlines():
+            if line.startswith("#EXTINF"):
+                # Extrae el nombre del evento después de la coma
+                partes = line.split(",", 1)
+                if len(partes) == 2:
+                    eventos.append(partes[1].strip())
+    except Exception as e:
+        logging.error(f"Error al analizar el archivo M3U {url}: {e}")
+    return eventos
 
 def parse_xml(url):
-    # ... (igual que en tu script)
-    pass
+    eventos = []
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        root = ET.fromstring(response.content)
+        for elem in root.iter():
+            if elem.tag.lower() in ["event", "evento", "title", "nombre"]:
+                if elem.text and elem.text.strip():
+                    eventos.append(elem.text.strip())
+    except Exception as e:
+        logging.error(f"Error al analizar el archivo XML {url}: {e}")
+    return eventos
 
 def detectar_deporte(nombre_evento, deportes_dict):
-    # ... (igual que en tu script)
-    pass
+    nombre_evento_lower = nombre_evento.lower()
+    for palabra_clave, deporte in deportes_dict.items():
+        if palabra_clave in nombre_evento_lower:
+            return deporte
+    return "desconocido"
 
 # --- NUEVA FUNCIÓN PARA INDENTAR EL XML ---
 def indent(elem, level=0):
@@ -90,6 +123,8 @@ if __name__ == "__main__":
         else:
             logging.warning(f"Extensión no reconocida: {url}")
             continue
+        if eventos is None:  # Protección extra, aunque las funciones ya devuelven lista
+            eventos = []
         for evento in eventos:
             total_eventos += 1
             deporte = detectar_deporte(evento, deportes_dict)
