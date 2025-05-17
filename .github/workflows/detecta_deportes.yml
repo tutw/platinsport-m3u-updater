@@ -1,41 +1,19 @@
-name: Actualizar deportes_detectados.xml
+name: Detectar deportes
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_dispatch:  # O el trigger que prefieras
 
 jobs:
-  actualizar-xml:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repositorio
-        uses: actions/checkout@v4
-
-      - name: Configurar Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
       - name: Instalar dependencias
-        run: pip install requests
+        run: |
+          pip install requests
 
-      - name: Ejecutar script de detección de deportes
-        run: python script_detector_deportes.py
-
-      - name: Crear Pull Request para actualizar deportes_detectados.xml
-        uses: peter-evans/create-pull-request@v6
-        with:
-          commit-message: Update deportes_detectados.xml [bot]
-          branch: update-deportes-detectados-xml
-          title: Update deportes_detectados.xml [bot]
-          body: Actualización automática del archivo deportes_detectados.xml generada por el workflow.
-          add-paths: deportes_detectados.xml
-          delete-branch: true
-          base: main               # <--- ¡ESTA LÍNEA ES CLAVE!
-          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          author: tutw <197973647+tutw@users.noreply.github.com>
-          signoff: false
-          draft: false
+      - name: Ejecutar script de deportes
+        run: |
+          python3 script_detector_deportes.py
