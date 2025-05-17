@@ -8,7 +8,7 @@ import unicodedata
 from collections import Counter
 from difflib import SequenceMatcher
 
-from openmoji_logos import OPENMOJI_LOGOS  # Diccionario externo de logos
+from openmoji_logos import OPENMOJI_LOGOS  # Diccionario externo
 
 # ------------- CONFIGURACIÓN -------------
 URLS_EVENTOS = [
@@ -35,7 +35,6 @@ def normalizar_texto(texto):
     return texto
 
 def similar(a, b):
-    """Devuelve un valor de similitud entre 0 y 1."""
     return SequenceMatcher(None, a, b).ratio()
 
 def robust_get(url, retries=MAX_RETRIES, delay=DELAY_BETWEEN_REQUESTS):
@@ -74,7 +73,7 @@ def extraer_diccionario_deportes(url_txt):
                 deportes[deporte_actual].update([normalizar_texto(p) for p in palabras])
     deportes = {dep: set([normalizar_texto(p) for p in palabras if len(p) > 2]) for dep, palabras in deportes.items() if dep}
 
-    # Palabras clave extra manuales y en otros idiomas
+    # Palabras clave extra manuales y multilingües
     deportes.setdefault("Ciclismo", set()).update([
         "giro de italia", "giro", "tour de francia", "tour", "vuelta a espana", "etapa", "ciclismo", "uci world tour",
         "cycling", "bicycle", "bicicleta"
@@ -83,10 +82,10 @@ def extraer_diccionario_deportes(url_txt):
         "laliga", "la liga", "champions", "uefa", "premier league", "bundesliga", "serie a", "ligue 1",
         "mls", "liga mx", "superliga", "fa cup", "copa del rey", "libertadores", "sudamericana", "concacaf",
         "gold cup", "mundial", "world cup", "eurocopa", "fifa", "ucl", "epl",
-        "futbol", "fútbol", "soccer", "football", "fußball", "calcio", "foot"
+        "futbol", "fútbol", "soccer", "football", "fußball", "calcio", "foot", "futebol"
     ])
     deportes.setdefault("Baloncesto", set()).update([
-        "nba", "acb", "liga endesa", "euroleague", "baloncesto", "basket", "basketball", "bàsquet"
+        "nba", "acb", "liga endesa", "euroleague", "baloncesto", "basket", "basketball", "bàsquet", "basquete"
     ])
     deportes.setdefault("Motociclismo", set()).update([
         "motogp", "superbike", "motocross", "enduro", "trial", "moto", "gran premio", "motorcycle"
@@ -137,13 +136,10 @@ def detectar_deporte(nombre_evento, deportes_dict, umbral=0.80):
             palabra = palabra.strip()
             if not palabra:
                 continue
-            # Coincidencia exacta o contenida
             if palabra in texto:
                 return deporte
-            # Coincidencia por similitud "cercana" (80% por defecto)
             tokens_evento = texto.split()
             tokens_palabra = palabra.split()
-            # Busca en todas las ventanas de la misma longitud
             for i in range(len(tokens_evento) - len(tokens_palabra) + 1):
                 fragmento = ' '.join(tokens_evento[i:i+len(tokens_palabra)])
                 if similar(fragmento, palabra) >= umbral:
@@ -183,7 +179,6 @@ def sugerir_palabras_clave(no_detectados, topn=15):
     for evento in no_detectados:
         evento_norm = normalizar_texto(evento)
         palabras += [w for w in evento_norm.split() if len(w) >= 4]
-        # Frases de 2-3 palabras para contextos tipo "giro de italia"
         tokens = evento_norm.split()
         for i in range(len(tokens)-1):
             frases.append(' '.join(tokens[i:i+2]))
@@ -212,7 +207,7 @@ if __name__ == "__main__":
     total_eventos = 0
 
     for url in URLS_EVENTOS:
-        time.sleep(DELAY_BETWEEN_REQUESTS)  # Espera entre descargas para evitar 429
+        time.sleep(DELAY_BETWEEN_REQUESTS)
         if url.endswith(".m3u"):
             eventos = parse_m3u(url)
         elif url.endswith(".xml"):
