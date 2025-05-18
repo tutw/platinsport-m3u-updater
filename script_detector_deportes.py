@@ -3,16 +3,14 @@ import xml.etree.ElementTree as ET
 import re
 from transformers import pipeline
 
-# Inicializa el modelo zero-shot de HuggingFace
-classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+# Modelo ligero y rápido
+classifier = pipeline("zero-shot-classification", model="joeddav/distilbert-base-uncased-mnli")
 
-# Lista de deportes candidatos (puedes añadir más si lo deseas)
 deportes = [
     "fútbol", "baloncesto", "tenis", "motociclismo", "fórmula 1",
     "béisbol", "boxeo", "ciclismo", "golf", "rugby", "voleibol", "atletismo"
 ]
 
-# URLs de las listas a analizar
 urls = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/lista.m3u",
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/lista_icastresana.m3u",
@@ -24,7 +22,7 @@ def detectar_deporte_ia(nombre_evento):
     try:
         resultado = classifier(nombre_evento, deportes)
         return resultado["labels"][0]
-    except Exception as e:
+    except Exception:
         return "desconocido"
 
 def parse_m3u(content):
@@ -41,7 +39,6 @@ def parse_xml(content):
     eventos = []
     try:
         root = ET.fromstring(content)
-        # Busca nodos con display-name o name
         for channel in root.findall(".//channel"):
             nombre_evento = None
             for tag in ["display-name", "name"]:
