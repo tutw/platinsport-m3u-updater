@@ -3,30 +3,35 @@ import xml.etree.ElementTree as ET
 import re
 from transformers import pipeline
 
-# Modelo ligero y rápido
-classifier = pipeline("zero-shot-classification", model="joeddav/distilbert-base-uncased-mnli")
+# Modelo ligero y público de HuggingFace (no requiere token)
+classifier = pipeline("zero-shot-classification", model="MoritzLaurer/deberta-v3-base-zeroshot-v1")
 
+# Lista extensa y diversa de deportes
 deportes = [
-"fútbol", "fútbol sala", "baloncesto", "balonmano", "voleibol", "tenis", "pádel",
+    "fútbol", "fútbol sala", "baloncesto", "balonmano", "voleibol", "tenis", "pádel",
     "tenis de mesa", "ping pong", "bádminton", "squash", "béisbol", "softbol", "hockey",
-    "hockey sobre hielo", "hockey sobre césped", "rugby", "fútbol americano", "cricket",
-    "golf", "atletismo", "natación", "waterpolo", "saltos", "nado sincronizado", "remo",
-    "piragüismo", "surf", "windsurf", "vela", "esquí", "snowboard", "patinaje artístico",
-    "patinaje velocidad", "ciclismo", "ciclismo en pista", "ciclismo de montaña", "bmx",
-    "motociclismo", "motoGP", "superbike", "automovilismo", "fórmula 1", "rally", "karting",
-    "boxeo", "kickboxing", "muay thai", "mma", "judo", "karate", "taekwondo", "lucha libre",
-    "lucha grecorromana", "halterofilia", "esgrima", "gimnasia artística", "gimnasia rítmica",
-    "triatlón", "duatlón", "pentatlón", "biatlón", "escalada", "alpinismo", "paracaidismo",
-    "tiro con arco", "tiro olímpico", "polo", "cróquet", "curling", "billar", "snooker",
-    "dardos", "ajedrez", "eSports", "sumo", "petanca", "pesca deportiva", "boccia",
-    "deportes adaptados", "skate", "parkour", "orientación", "canicross", "mountain bike",
-    "maratón", "ultra maratón", "trail running", "senderismo", "marchas", "caminar deportivo",
-    "trineo", "bobsleigh", "luge", "skeleton", "rugby 7", "rugby league", "netball",
-    "floorball", "ultimate frisbee", "lacrosse", "softball", "campeonatos escolares",
-    "campeonatos universitarios", "culturismo", "powerlifting", "strongman", "parkour",
-    "crossfit"
+    "hockey sobre hielo", "hockey sobre césped", "rugby", "rugby 7", "rugby league",
+    "fútbol americano", "cricket", "golf", "atletismo", "maratón", "ultra maratón",
+    "trail running", "natación", "waterpolo", "saltos", "nado sincronizado", "remo",
+    "piragüismo", "canotaje", "surf", "windsurf", "vela", "esquí", "snowboard",
+    "patinaje artístico", "patinaje velocidad", "ciclismo", "ciclismo en pista",
+    "ciclismo de montaña", "mountain bike", "bmx", "motociclismo", "motoGP", "superbike",
+    "automovilismo", "fórmula 1", "rally", "karting", "boxeo", "kickboxing", "muay thai",
+    "mma", "judo", "karate", "taekwondo", "lucha libre", "lucha grecorromana",
+    "halterofilia", "levantamiento de pesas", "powerlifting", "culturismo", "crossfit",
+    "esgrima", "gimnasia artística", "gimnasia rítmica", "triatlón", "duatlón",
+    "pentatlón", "biatlón", "escalada", "alpinismo", "paracaidismo", "tiro con arco",
+    "tiro olímpico", "polo", "cróquet", "curling", "billar", "snooker", "dardos",
+    "ajedrez", "eSports", "sumo", "petanca", "pesca deportiva", "boccia",
+    "deportes adaptados", "skate", "parkour", "orientación", "canicross", "senderismo",
+    "marchas", "caminar deportivo", "trineo", "bobsleigh", "luge", "skeleton",
+    "netball", "floorball", "ultimate frisbee", "lacrosse", "softball",
+    "campeonatos escolares", "campeonatos universitarios", "strongman", "rafting",
+    "paintball", "airsoft", "motocross", "enduro", "trial", "wakeboard", "kitesurf",
+    "bodyboard", "esquí acuático", "natación artística", "apnea", "salvamento y socorrismo"
 ]
 
+# URLs de listas a analizar
 urls = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/lista.m3u",
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/lista_icastresana.m3u",
