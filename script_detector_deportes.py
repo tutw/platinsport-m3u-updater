@@ -3,11 +3,12 @@ import xml.etree.ElementTree as ET
 import re
 from transformers import pipeline
 
-# Modelo ligero y público de HuggingFace (no requiere token)
-classifier = pipeline("zero-shot-classification", model="MoritzLaurer/deberta-v3-base-zeroshot-v1")
+# Modelo multilingüe y público de HuggingFace
+classifier = pipeline("zero-shot-classification", model="joeddav/xlm-roberta-large-xnli")
 
-# Lista extensa y diversa de deportes
+# Lista rica y variada de deportes en español e inglés
 deportes = [
+    # Español
     "fútbol", "fútbol sala", "baloncesto", "balonmano", "voleibol", "tenis", "pádel",
     "tenis de mesa", "ping pong", "bádminton", "squash", "béisbol", "softbol", "hockey",
     "hockey sobre hielo", "hockey sobre césped", "rugby", "rugby 7", "rugby league",
@@ -28,7 +29,29 @@ deportes = [
     "netball", "floorball", "ultimate frisbee", "lacrosse", "softball",
     "campeonatos escolares", "campeonatos universitarios", "strongman", "rafting",
     "paintball", "airsoft", "motocross", "enduro", "trial", "wakeboard", "kitesurf",
-    "bodyboard", "esquí acuático", "natación artística", "apnea", "salvamento y socorrismo"
+    "bodyboard", "esquí acuático", "natación artística", "apnea", "salvamento y socorrismo",
+    # Inglés
+    "football", "soccer", "futsal", "basketball", "handball", "volleyball", "tennis", "padel",
+    "table tennis", "ping pong", "badminton", "squash", "baseball", "softball", "hockey",
+    "ice hockey", "field hockey", "rugby", "rugby sevens", "rugby league",
+    "american football", "cricket", "golf", "athletics", "marathon", "ultra marathon",
+    "trail running", "swimming", "water polo", "diving", "synchronized swimming", "rowing",
+    "canoeing", "kayaking", "surfing", "windsurfing", "sailing", "skiing", "snowboarding",
+    "figure skating", "speed skating", "cycling", "track cycling",
+    "mountain biking", "bmx", "motorcycling", "motoGP", "superbike",
+    "motorsport", "formula 1", "rally", "karting", "boxing", "kickboxing", "muay thai",
+    "mma", "judo", "karate", "taekwondo", "wrestling", "greco-roman wrestling",
+    "weightlifting", "powerlifting", "bodybuilding", "crossfit",
+    "fencing", "artistic gymnastics", "rhythmic gymnastics", "triathlon", "duathlon",
+    "pentathlon", "biathlon", "climbing", "mountaineering", "skydiving", "archery",
+    "shooting", "polo", "croquet", "curling", "billiards", "snooker", "darts",
+    "chess", "eSports", "sumo", "petanque", "sport fishing", "boccia",
+    "adaptive sports", "skateboarding", "parkour", "orienteering", "canicross", "hiking",
+    "walking", "race walking", "sled", "bobsleigh", "luge", "skeleton",
+    "netball", "floorball", "ultimate frisbee", "lacrosse", "softball",
+    "school championships", "university championships", "strongman", "rafting",
+    "paintball", "airsoft", "motocross", "enduro", "trial", "wakeboarding", "kitesurfing",
+    "bodyboarding", "waterskiing", "artistic swimming", "freediving", "lifesaving"
 ]
 
 # URLs de listas a analizar
