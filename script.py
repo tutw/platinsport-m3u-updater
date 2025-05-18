@@ -32,7 +32,6 @@ def extraer_eventos(url):
         return []
     soup = BeautifulSoup(response.text, "html.parser")
     eventos = []
-    ligas = []
 
     contenedor = soup.find("div", class_="myDiv1")
     if not contenedor:
@@ -40,10 +39,13 @@ def extraer_eventos(url):
         return eventos
 
     liga_actual = None
-    for element in contenedor.children:
-        if element.name == 'p':
+    elements = list(contenedor.children)
+    i = 0
+    while i < len(elements):
+        element = elements[i]
+        if hasattr(element, "name") and element.name == 'p':
             liga_actual = element.get_text(strip=True)
-        elif element.name == 'time':
+        elif hasattr(element, "name") and element.name == 'time':
             time_val = element.get("datetime", "").strip()
             try:
                 hora_evento = datetime.fromisoformat(time_val.replace("Z", "")).time()
@@ -53,38 +55,39 @@ def extraer_eventos(url):
                 except Exception:
                     hora_evento = datetime.strptime("23:59", "%H:%M").time()
 
-            # Añadir una hora al horario
             hora_evento = convertir_a_utc_mas_1(hora_evento)
 
             event_text = ""
             canales = []
-            for sib in element.next_siblings:
-                if hasattr(sib, "name") and sib.name == "time":
+
+            j = i + 1
+            while j < len(elements):
+                sib = elements[j]
+                if hasattr(sib, "name") and (sib.name == "time" or sib.name == "p"):
                     break
                 if isinstance(sib, str):
                     event_text += sib.strip() + " "
                 elif hasattr(sib, "name"):
-                    if sib.name == "a" and "acestream://" in sib["href"]:
+                    if sib.name == "a" and "acestream://" in sib.get("href", ""):
                         canales.append(sib)
                     else:
                         event_text += sib.get_text(" ", strip=True) + " "
-            event_text = event_text.strip()
+                j += 1
 
-            # Asegurar que no haya espacios innecesarios
+            event_text = event_text.strip()
             event_text = " ".join(event_text.split())
-            
-            # Eliminar el texto "LIVE STREAM" repetido
             event_text = eliminar_repeticiones_live_stream(event_text)
 
-            if canales:
-                for a_tag in canales:
-                    canal_text = a_tag.get_text(" ", strip=True)
-                    eventos.append({
-                        "hora": hora_evento,
-                        "nombre": f"{liga_actual} - {event_text}" if event_text else f"{liga_actual} - Evento Desconocido",
-                        "canal": canal_text,
-                        "url": a_tag["href"]
-                    })
+            for a_tag in canales:
+                canal_text = a_tag.get_text(" ", strip=True)
+                eventos.append({
+                    "hora": hora_evento,
+                    "nombre": f"{liga_actual} - {event_text}" if event_text else f"{liga_actual} - Evento Desconocido",
+                    "canal": canal_text,
+                    "url": a_tag["href"]
+                })
+            i = j - 1
+        i += 1
     return eventos
 
 def eliminar_repeticiones_live_stream(event_text):
