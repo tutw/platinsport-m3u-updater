@@ -60,19 +60,23 @@ def extraer_eventos(url):
             event_text = ""
             canales = []
 
+            # Solo toma el texto plano hasta el primer <a> acestream
             j = i + 1
             while j < len(elements):
                 sib = elements[j]
                 if hasattr(sib, "name") and (sib.name == "time" or sib.name == "p"):
                     break
-                if isinstance(sib, str):
-                    event_text += sib.strip() + " "
+                if hasattr(sib, "name") and sib.name == "a" and "acestream://" in sib.get("href", ""):
+                    canales.append(sib)
                 elif hasattr(sib, "name"):
-                    if sib.name == "a" and "acestream://" in sib.get("href", ""):
-                        canales.append(sib)
-                    else:
-                        event_text += sib.get_text(" ", strip=True) + " "
+                    # Si el canal está después del primer <a>, no lo añadas al nombre del evento
+                    event_text += sib.get_text(" ", strip=True) + " "
+                elif isinstance(sib, str):
+                    event_text += sib.strip() + " "
                 j += 1
+
+            # Limpiar event_text de posibles nombres de canales infiltrados (opcional, por si acaso)
+            # Puedes añadir aquí una lista de nombres de canales comunes para eliminar si lo prefieres
 
             event_text = event_text.strip()
             event_text = " ".join(event_text.split())
@@ -108,14 +112,9 @@ def normalizar_nombre(nombre):
 def buscar_logo_en_archive(nombre_canal):
     tree = ET.parse('logos.xml')
     root = tree.getroot()
-    
-    # Normalizar nombres y URLs de logos
     nombres_logos = {normalizar_nombre(logo.find('name').text): logo.find('url').text for logo in root.findall('logo') if logo.find('name') is not None}
     nombre_canal_normalizado = normalizar_nombre(nombre_canal)
-    
-    # Mejorar la precisión de la coincidencia
     closest_matches = get_close_matches(nombre_canal_normalizado, nombres_logos.keys(), n=3, cutoff=0.6)
-    
     if closest_matches:
         for match in closest_matches:
             if nombre_canal_normalizado in match:
@@ -128,10 +127,8 @@ def buscar_logo_en_url(nombre_canal):
     if response.status_code != 200:
         print("Error al acceder a la URL de logos")
         return None
-    
     logos_data = response.text.split('\n')
     nombre_canal_normalizado = normalizar_nombre(nombre_canal)
-    
     nombres_logos = {}
     for line in logos_data:
         match = re.search(r'tvg-logo="([^"]+)" .*?tvg-id="[^"]+", ([^,]+)', line)
@@ -139,9 +136,7 @@ def buscar_logo_en_url(nombre_canal):
             logo_url = match.group(1)
             canal_name = match.group(2).strip().lower()
             nombres_logos[canal_name] = logo_url
-    
     closest_matches = get_close_matches(nombre_canal_normalizado, nombres_logos.keys(), n=3, cutoff=0.6)
-    
     if closest_matches:
         for match in closest_matches:
             if nombre_canal_normalizado in match:
@@ -150,17 +145,12 @@ def buscar_logo_en_url(nombre_canal):
     return None
 
 def buscar_logo(nombre_canal):
-    # Prioridad 1: Buscar en el archivo logos.xml
     logo_url = buscar_logo_en_archive(nombre_canal)
     if logo_url:
         return logo_url
-    
-    # Prioridad 2: Buscar en la URL proporcionada
     logo_url = buscar_logo_en_url(nombre_canal)
     if logo_url:
         return logo_url
-    
-    # Prioridad 3: Buscar el logo más probable utilizando solo la primera palabra del nombre del canal
     primera_palabra = nombre_canal.split(' ')[0]
     logo_url = buscar_logo_en_archive(primera_palabra)
     if logo_url:
@@ -168,7 +158,6 @@ def buscar_logo(nombre_canal):
     logo_url = buscar_logo_en_url(primera_palabra)
     if logo_url:
         return logo_url
-    
     return None
 
 def limpiar_nombre_evento(nombre_evento):
@@ -182,15 +171,11 @@ def guardar_lista_m3u(eventos, archivo="lista.m3u"):
         for item in eventos:
             hora_ajustada = convertir_a_utc_mas_1(item["hora"])
             canal_id = normalizar_nombre(item["nombre"]).replace(" ", "_")
-            # Eliminar espacios innecesarios en el nombre
             nombre_evento = limpiar_nombre_evento(" ".join(item['nombre'].split()))
             logo_url = buscar_logo(item["canal"])
-
             extinf_line = (f"#EXTINF:-1 tvg-logo=\"{logo_url}\" tvg-id=\"{canal_id}\" tvg-name=\"{nombre_evento}\","
                            f"{hora_ajustada.strftime('%H:%M')} - {nombre_evento} - {item['canal']}\n")
             f.write(extinf_line)
-            
-            # Generar el enlace acestream con el nuevo formato
             acestream_id = item['url'].split('acestream://')[-1]
             nuevo_enlace = f"http://127.0.0.1:6878/ace/getstream?id={acestream_id}"
             f.write(f"{nuevo_enlace}\n")
@@ -201,13 +186,10 @@ if __name__ == "__main__":
         print("No se pudo determinar la URL diaria.")
         exit(1)
     print("URL diaria:", url_diaria)
-
     eventos_platinsport = extraer_eventos(url_diaria)
     print("Eventos extraídos de Platinsport:", len(eventos_platinsport))
-
     if not eventos_platinsport:
         print("No se encontraron eventos.")
         exit(1)
-
     guardar_lista_m3u(eventos_platinsport)
     print("Lista M3U actualizada correctamente con", len(eventos_platinsport), "eventos.")
