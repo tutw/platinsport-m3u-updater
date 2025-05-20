@@ -54,19 +54,12 @@ def extraer_eventos_xml(url):
 
 def construir_prompt(eventos):
     prompt = (
-        "Te proporciono una lista de nombres de eventos deportivos extraídos de varias fuentes, algunas en formato M3U y otras en XML. "
-        "Ignora el origen y formato de la lista y concéntrate únicamente en el nombre del evento. "
-        "Para cada evento, responde solo con el nombre exacto del deporte principal al que pertenece. "
-        "Si no puedes identificar el deporte, responde únicamente 'Desconocido'. "
-        "Devuelve la respuesta en el siguiente formato exacto, sin explicaciones ni frases adicionales:\n\n"
-        "Evento: <nombre_evento>\nDeporte: <nombre_deporte>\n\n"
-        "Lista de eventos:\n"
+        "Para cada evento de la lista, indica únicamente el nombre exacto del deporte principal. "
+        "Si no puedes identificarlo, responde 'Desconocido'. "
+        "Formato:\nEvento: <nombre_evento>\nDeporte: <nombre_deporte>\n\n"
     )
     for ev in eventos:
         prompt += f"- {ev}\n"
-    prompt += (
-        "\nRecuerda: responde solo con la lista en el formato indicado, un bloque por cada evento."
-    )
     return prompt
 
 def preguntar_mistral(eventos):
@@ -132,7 +125,8 @@ def main():
                 print(f"[INFO] No se encontraron eventos en {url}")
                 continue
             print(f"[INFO] {url}: {len(eventos_unicos)} eventos únicos detectados")
-            for chunk in trocear_lista(eventos_unicos, 20):
+            # Procesar por lotes de 5 para evitar truncamientos
+            for chunk in trocear_lista(eventos_unicos, 5):
                 print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos.")
                 respuesta_mistral = preguntar_mistral(chunk)
                 resultados = parsear_respuesta_mistral(respuesta_mistral)
