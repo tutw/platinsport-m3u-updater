@@ -41,34 +41,34 @@ def extraer_eventos_xml(url):
         resp = requests.get(url, timeout=60)
         resp.raise_for_status()
         root = ET.fromstring(resp.content)
-        # Extraer de <programme>
+        # 1. Extraer de <event> (nombre y hora, si existen)
+        for event in root.findall(".//event"):
+            name = event.findtext("name") or ""
+            time_ = event.findtext("time") or ""
+            if name.strip():
+                if time_.strip():
+                    evento = f"{time_.strip()} - {name.strip()}"
+                else:
+                    evento = name.strip()
+                eventos.append(evento)
+        # 2. Extraer de <programme> (otros XML deportivos)
         for prog in root.findall(".//programme"):
             title = prog.findtext("title") or ""
             name = prog.findtext("name") or ""
             desc = prog.findtext("desc") or ""
             category = prog.findtext("category") or ""
             main_name = title if title.strip() else name
-            partes = [main_name]
-            if category and category.lower() not in main_name.lower():
-                partes.append(f"[{category}]")
-            if desc and desc.lower() not in main_name.lower():
-                partes.append(desc)
-            evento = " - ".join([p for p in partes if p.strip()])
-            if evento.strip():
-                eventos.append(evento.strip())
-        # Extraer de <channel>
-        for channel in root.findall(".//channel"):
-            display_name = channel.findtext("display-name")
-            name = channel.findtext("name")
-            if display_name and display_name.strip():
-                eventos.append(display_name.strip())
-            if name and name.strip():
-                eventos.append(name.strip())
-        # Extraer <name> sueltos en cualquier parte del XML
-        for name_elem in root.findall(".//name"):
-            name_value = name_elem.text
-            if name_value and name_value.strip():
-                eventos.append(name_value.strip())
+            if main_name.strip():
+                partes = [main_name]
+                if category and category.lower() not in main_name.lower():
+                    partes.append(f"[{category}]")
+                if desc and desc.lower() not in main_name.lower():
+                    partes.append(desc)
+                evento = " - ".join([p for p in partes if p.strip()])
+                if evento.strip():
+                    eventos.append(evento.strip())
+        # NO extraer <name> ni <display-name> de <channel>
+        # NO extraer <name> sueltos a nivel de raíz (evita nombres de canales)
     except Exception as e:
         print(f"[ERROR] Leyendo {url}: {e}")
         traceback.print_exc()
@@ -93,7 +93,7 @@ def preguntar_mistral(eventos, max_retries=5):
         "temperature": 0.0
     }
     retries = 0
-    wait_times = [30, 300]  # 30s, 5min (300s) on consecutive 429s
+    wait_times = [30, 300]  # 30s, 5min
     while retries <= max_retries:
         try:
             print("\n[DEBUG] Enviando a Mistral el siguiente prompt:")
@@ -101,10 +101,7 @@ def preguntar_mistral(eventos, max_retries=5):
             print("[/DEBUG]\n")
             resp = requests.post(MISTRAL_API_URL, headers=HEADERS, json=data, timeout=180)
             if resp.status_code == 429:
-                if retries < len(wait_times):
-                    wait = wait_times[retries]
-                else:
-                    wait = wait_times[-1]
+                wait = wait_times[retries] if retries < len(wait_times) else wait_times[-1]
                 print(f"[WARNING] Rate limit excedido. Esperando {wait} segundos antes de reintentar...")
                 time.sleep(wait)
                 retries += 1
@@ -153,8 +150,10 @@ def trocear_lista(lista, n):
 def subir_archivo_a_git(filepath, mensaje_commit):
     try:
         subprocess.run(["git", "add", filepath], check=True)
-        subprocess.run(["git", "-c", "user.name=GitHub Action", "-c", "user.email=action@github.com",
-                        "commit", "-m", mensaje_commit], check=True)
+        subprocess.run([
+            "git", "-c", "user.name=GitHub Action", "-c", "user.email=action@github.com",
+            "commit", "-m", mensaje_commit
+        ], check=True)
         subprocess.run(["git", "push"], check=True)
         print(f"[OK] El archivo {filepath} fue subido al repositorio.")
     except Exception as e:
