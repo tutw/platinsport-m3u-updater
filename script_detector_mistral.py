@@ -5,6 +5,7 @@ import re
 import sys
 import traceback
 import time
+import subprocess
 
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
 MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
@@ -84,7 +85,7 @@ def construir_prompt(eventos):
         prompt += f"- {ev}\n"
     return prompt
 
-def preguntar_mistral(eventos, max_retries=5, wait_seconds=5):
+def preguntar_mistral(eventos, max_retries=5):
     prompt = construir_prompt(eventos)
     data = {
         "model": "mistral-small-2312",
@@ -92,7 +93,7 @@ def preguntar_mistral(eventos, max_retries=5, wait_seconds=5):
         "temperature": 0.0
     }
     retries = 0
-    ws = wait_seconds
+    wait_times = [30, 300]  # 30s, 5min (300s) on consecutive 429s
     while retries <= max_retries:
         try:
             print("\n[DEBUG] Enviando a Mistral el siguiente prompt:")
@@ -100,10 +101,13 @@ def preguntar_mistral(eventos, max_retries=5, wait_seconds=5):
             print("[/DEBUG]\n")
             resp = requests.post(MISTRAL_API_URL, headers=HEADERS, json=data, timeout=180)
             if resp.status_code == 429:
-                print(f"[WARNING] Rate limit excedido. Esperando {ws} segundos antes de reintentar...")
-                time.sleep(ws)
+                if retries < len(wait_times):
+                    wait = wait_times[retries]
+                else:
+                    wait = wait_times[-1]
+                print(f"[WARNING] Rate limit excedido. Esperando {wait} segundos antes de reintentar...")
+                time.sleep(wait)
                 retries += 1
-                ws *= 2  # backoff exponencial
                 continue
             resp.raise_for_status()
             respuesta = resp.json()["choices"][0]["message"]["content"]
@@ -121,8 +125,7 @@ def preguntar_mistral(eventos, max_retries=5, wait_seconds=5):
                 print("Respuesta de la API:")
                 print(e.response.text)
             retries += 1
-            time.sleep(ws)
-            ws *= 2
+            time.sleep(15)
     print(f"[FATAL ERROR] Número máximo de reintentos alcanzado al consultar Mistral.")
     sys.exit(1)
 
@@ -147,6 +150,17 @@ def trocear_lista(lista, n):
     for i in range(0, len(lista), n):
         yield lista[i:i + n]
 
+def subir_archivo_a_git(filepath, mensaje_commit):
+    try:
+        subprocess.run(["git", "add", filepath], check=True)
+        subprocess.run(["git", "-c", "user.name=GitHub Action", "-c", "user.email=action@github.com",
+                        "commit", "-m", mensaje_commit], check=True)
+        subprocess.run(["git", "push"], check=True)
+        print(f"[OK] El archivo {filepath} fue subido al repositorio.")
+    except Exception as e:
+        print(f"[ERROR] Error al subir el archivo {filepath} al repositorio.")
+        traceback.print_exc()
+
 def main():
     todos_resultados = []
     try:
@@ -160,7 +174,6 @@ def main():
                 print(f"[INFO] No se encontraron eventos en {url}")
                 continue
             print(f"[INFO] {url}: {len(eventos_unicos)} eventos únicos detectados")
-            # Procesar por lotes de 10 para evitar truncamientos y respetar rate limit
             for chunk in trocear_lista(eventos_unicos, 10):
                 print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos.")
                 respuesta_mistral = preguntar_mistral(chunk)
@@ -170,7 +183,7 @@ def main():
                 else:
                     print("[WARNING] El lote de eventos no devolvió resultados válidos.")
                 print("[INFO] Esperando 5 segundos para el siguiente lote...")
-                time.sleep(5)  # Espera 5 segundos entre cada petición
+                time.sleep(5)
         vistos = set()
         resultados_finales = []
         for nombre, deporte in todos_resultados:
@@ -180,14 +193,16 @@ def main():
         if not resultados_finales:
             print("[ERROR] No se obtuvieron resultados finales. El XML no se generará.")
             sys.exit(1)
+        archivo_xml = "lista_deportes_detectados_mistral.xml"
         root = ET.Element("deportes_detectados")
         for nombre, deporte in resultados_finales:
             evento_elem = ET.SubElement(root, "evento")
             ET.SubElement(evento_elem, "nombre").text = nombre
             ET.SubElement(evento_elem, "deporte").text = deporte
         tree = ET.ElementTree(root)
-        tree.write("lista_deportes_detectados_mistral.xml", encoding="utf-8", xml_declaration=True)
+        tree.write(archivo_xml, encoding="utf-8", xml_declaration=True)
         print("[OK] Archivo lista_deportes_detectados_mistral.xml generado correctamente.")
+        subir_archivo_a_git(archivo_xml, "Actualiza lista_deportes_detectados_mistral.xml")
     except Exception as ex:
         print("[FATAL ERROR] Excepción no controlada:")
         traceback.print_exc()
