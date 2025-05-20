@@ -39,10 +39,20 @@ def extraer_eventos_xml(url):
         resp = requests.get(url, timeout=60)
         resp.raise_for_status()
         root = ET.fromstring(resp.content)
+        # Enriquecemos cada evento con información adicional si existe
         for prog in root.findall(".//programme"):
-            title = prog.findtext("title")
-            if title:
-                eventos.append(title.strip())
+            title = prog.findtext("title") or ""
+            desc = prog.findtext("desc") or ""
+            category = prog.findtext("category") or ""
+            # Unimos los campos disponibles para dar máximo contexto
+            partes = [title]
+            if category and category.lower() not in title.lower():
+                partes.append(f"[{category}]")
+            if desc and desc.lower() not in title.lower():
+                partes.append(desc)
+            evento = " - ".join([p for p in partes if p.strip()])
+            if evento.strip():
+                eventos.append(evento.strip())
         for channel in root.findall(".//channel"):
             display_name = channel.findtext("display-name")
             if display_name:
@@ -54,9 +64,10 @@ def extraer_eventos_xml(url):
 
 def construir_prompt(eventos):
     prompt = (
-        "Para cada evento de la lista, indica únicamente el nombre exacto del deporte principal. "
-        "Si no puedes identificarlo, responde 'Desconocido'. "
-        "Formato:\nEvento: <nombre_evento>\nDeporte: <nombre_deporte>\n\n"
+        "Para cada evento, indica solo el deporte principal (por ejemplo: Fútbol, Baloncesto, Tenis, Ciclismo, etc). "
+        "Si no lo sabes, pon 'Desconocido'. "
+        "Si el evento contiene solo nombres de equipos o es muy escueto, intenta inferir el deporte. "
+        "Formato:\nEvento: <nombre_evento>\nDeporte: <nombre_deporte>\n"
     )
     for ev in eventos:
         prompt += f"- {ev}\n"
@@ -125,8 +136,8 @@ def main():
                 print(f"[INFO] No se encontraron eventos en {url}")
                 continue
             print(f"[INFO] {url}: {len(eventos_unicos)} eventos únicos detectados")
-            # Procesar por lotes de 5 para evitar truncamientos
-            for chunk in trocear_lista(eventos_unicos, 5):
+            # Procesar por lotes de 3 para evitar truncamientos
+            for chunk in trocear_lista(eventos_unicos, 3):
                 print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos.")
                 respuesta_mistral = preguntar_mistral(chunk)
                 resultados = parsear_respuesta_mistral(respuesta_mistral)
