@@ -17,7 +17,7 @@ LISTAS = [
 def extraer_eventos_m3u(url):
     eventos = []
     try:
-        resp = requests.get(url)
+        resp = requests.get(url, timeout=60)
         for line in resp.text.splitlines():
             if line.startswith("#EXTINF"):
                 nombre = line.split(",", 1)[-1].strip()
@@ -30,7 +30,7 @@ def extraer_eventos_m3u(url):
 def extraer_eventos_xml(url):
     eventos = []
     try:
-        resp = requests.get(url)
+        resp = requests.get(url, timeout=60)
         root = ET.fromstring(resp.content)
         for prog in root.findall(".//programme"):
             title = prog.findtext("title")
@@ -46,24 +46,28 @@ def extraer_eventos_xml(url):
 
 def construir_prompt(eventos):
     prompt = (
-        "Te proporcionaré una lista de eventos deportivos. Para cada evento, responde solo con el nombre exacto del deporte principal al que pertenece el evento. "
+        "Te proporciono una lista de nombres de eventos deportivos. "
+        "Para cada evento, responde solo con el nombre exacto del deporte principal al que pertenece el evento. "
         "Si no puedes identificar el deporte, responde únicamente 'Desconocido'. "
-        "Devuélvelo en formato:\nEvento: <nombre_evento>\nDeporte: <nombre_deporte>\n\nAquí está la lista de eventos:\n"
+        "Devuelve la respuesta en el siguiente formato exacto, sin explicaciones ni frases adicionales:\n\n"
+        "Evento: <nombre_evento>\nDeporte: <nombre_deporte>\n\n"
+        "Lista de eventos:\n"
     )
     for ev in eventos:
         prompt += f"- {ev}\n"
-    prompt += "\nResponde solo con la lista solicitada en el formato especificado, sin explicaciones."
+    prompt += "\nRecuerda: responde solo con la lista en el formato indicado, un bloque por cada evento."
     return prompt
 
 def preguntar_mistral(eventos):
     prompt = construir_prompt(eventos)
     data = {
-        "model": "mistral-tiny",  # O el modelo que prefieras
+        "model": "mistral-small-2312",  # Mistral Small 3.1 (25.03)
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.0
     }
     try:
-        resp = requests.post(MISTRAL_API_URL, headers=HEADERS, json=data, timeout=60)
+        # Timeout largo para esperar la respuesta completa de Mistral
+        resp = requests.post(MISTRAL_API_URL, headers=HEADERS, json=data, timeout=180)
         resp.raise_for_status()
         respuesta = resp.json()["choices"][0]["message"]["content"]
         return respuesta
@@ -73,7 +77,7 @@ def preguntar_mistral(eventos):
 
 def parsear_respuesta_mistral(respuesta):
     resultados = []
-    # Busca pares Evento: ... Deporte: ... en la respuesta (soporta saltos de línea y posibles variantes)
+    # Busca pares Evento: ... Deporte: ... en la respuesta (soporta saltos de línea y variantes)
     eventos = re.findall(r"Evento:\s*(.*?)\s*Deporte:\s*(.*?)(?:\n|$)", respuesta)
     for nombre, deporte in eventos:
         resultados.append((nombre.strip(), deporte.strip()))
