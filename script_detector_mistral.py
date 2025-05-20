@@ -1,6 +1,7 @@
 import requests
 import xml.etree.ElementTree as ET
 import os
+import re
 
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
 MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
@@ -31,12 +32,10 @@ def extraer_eventos_xml(url):
     try:
         resp = requests.get(url)
         root = ET.fromstring(resp.content)
-        # Intenta extraer títulos de programas (EPG)
         for prog in root.findall(".//programme"):
             title = prog.findtext("title")
             if title:
                 eventos.append(title.strip())
-        # Intenta extraer nombres de canales (por si acaso)
         for channel in root.findall(".//channel"):
             display_name = channel.findtext("display-name")
             if display_name:
@@ -45,45 +44,67 @@ def extraer_eventos_xml(url):
         print(f"Error leyendo {url}: {e}")
     return eventos
 
-def preguntar_mistral(nombres_eventos):
+def construir_prompt(eventos):
+    prompt = (
+        "Te proporcionaré una lista de eventos deportivos. Para cada evento, responde solo con el nombre exacto del deporte principal al que pertenece el evento. "
+        "Si no puedes identificar el deporte, responde únicamente 'Desconocido'. "
+        "Devuélvelo en formato:\nEvento: <nombre_evento>\nDeporte: <nombre_deporte>\n\nAquí está la lista de eventos:\n"
+    )
+    for ev in eventos:
+        prompt += f"- {ev}\n"
+    prompt += "\nResponde solo con la lista solicitada en el formato especificado, sin explicaciones."
+    return prompt
+
+def preguntar_mistral(eventos):
+    prompt = construir_prompt(eventos)
+    data = {
+        "model": "mistral-tiny",  # O el modelo que prefieras
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.0
+    }
+    try:
+        resp = requests.post(MISTRAL_API_URL, headers=HEADERS, json=data, timeout=60)
+        resp.raise_for_status()
+        respuesta = resp.json()["choices"][0]["message"]["content"]
+        return respuesta
+    except Exception as e:
+        print(f"Error consultando Mistral: {e}")
+        return ""
+
+def parsear_respuesta_mistral(respuesta):
     resultados = []
-    for nombre in nombres_eventos:
-        prompt = (
-            "Para el siguiente evento deportivo, responde solo con el nombre exacto del deporte principal al que pertenece el evento. "
-            "Si no puedes identificar el deporte, responde únicamente 'Desconocido'. No incluyas explicaciones ni frases adicionales.\n"
-            f"Evento: '{nombre}'"
-        )
-        data = {
-            "model": "mistral-tiny",  # Cambia si usas otro modelo
-            "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.0
-        }
-        try:
-            resp = requests.post(MISTRAL_API_URL, headers=HEADERS, json=data, timeout=10)
-            resp.raise_for_status()
-            deporte = resp.json()["choices"][0]["message"]["content"].strip()
-        except Exception as e:
-            print(f"Error con Mistral para '{nombre}': {e}")
-            deporte = "Desconocido"
-        resultados.append((nombre, deporte))
+    # Busca pares Evento: ... Deporte: ... en la respuesta (soporta saltos de línea y posibles variantes)
+    eventos = re.findall(r"Evento:\s*(.*?)\s*Deporte:\s*(.*?)(?:\n|$)", respuesta)
+    for nombre, deporte in eventos:
+        resultados.append((nombre.strip(), deporte.strip()))
     return resultados
 
 def main():
-    eventos = []
+    todos_resultados = []
     for url in LISTAS:
         if url.endswith(".m3u"):
-            eventos += extraer_eventos_m3u(url)
+            eventos = extraer_eventos_m3u(url)
         else:
-            eventos += extraer_eventos_xml(url)
-    nombres_unicos = sorted(set(eventos))  # Solo nombres únicos, ordenados
-
-    print(f"Total eventos únicos detectados: {len(nombres_unicos)}")
-
-    resultados = preguntar_mistral(nombres_unicos)
+            eventos = extraer_eventos_xml(url)
+        eventos_unicos = sorted(set(eventos))
+        if not eventos_unicos:
+            continue
+        print(f"{url}: {len(eventos_unicos)} eventos únicos detectados")
+        respuesta_mistral = preguntar_mistral(eventos_unicos)
+        resultados = parsear_respuesta_mistral(respuesta_mistral)
+        todos_resultados.extend(resultados)
+    
+    # Elimina duplicados globalmente (por nombre de evento)
+    vistos = set()
+    resultados_finales = []
+    for nombre, deporte in todos_resultados:
+        if nombre not in vistos:
+            vistos.add(nombre)
+            resultados_finales.append((nombre, deporte))
 
     # Generar XML vertical
     root = ET.Element("deportes_detectados")
-    for nombre, deporte in resultados:
+    for nombre, deporte in resultados_finales:
         evento_elem = ET.SubElement(root, "evento")
         ET.SubElement(evento_elem, "nombre").text = nombre
         ET.SubElement(evento_elem, "deporte").text = deporte
