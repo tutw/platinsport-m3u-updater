@@ -6,6 +6,7 @@ import sys
 import traceback
 import time
 import subprocess
+from xml.dom import minidom
 
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
 MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
@@ -174,13 +175,19 @@ def actualizar_y_guardar_xml(deportes_dict, filepath):
         evento_elem = ET.SubElement(root, "evento")
         ET.SubElement(evento_elem, "nombre").text = nombre
         ET.SubElement(evento_elem, "deporte").text = deporte
-    tree = ET.ElementTree(root)
-    tree.write(filepath, encoding="utf-8", xml_declaration=True)
-    print(f"[OK] Archivo {filepath} actualizado.")
+    # Pretty-print usando minidom
+    xmlstr = minidom.parseString(ET.tostring(root, encoding="utf-8")).toprettyxml(indent="  ", encoding="utf-8")
+    with open(filepath, "wb") as f:
+        f.write(xmlstr)
+    print(f"[OK] Archivo {filepath} actualizado (pretty-printed).")
 
 def subir_archivo_a_git(filepath, mensaje_commit):
     try:
         subprocess.run(["git", "add", filepath], check=True)
+        res = subprocess.run(["git", "diff", "--cached", "--quiet"])
+        if res.returncode == 0:
+            print(f"[INFO] No hay cambios en {filepath}, no se hace commit.")
+            return
         subprocess.run([
             "git", "-c", "user.name=GitHub Action", "-c", "user.email=action@github.com",
             "commit", "-m", mensaje_commit
@@ -210,13 +217,12 @@ def main():
                 respuesta_mistral = preguntar_mistral(chunk)
                 resultados = parsear_respuesta_mistral(respuesta_mistral)
                 for nombre, deporte in resultados:
-                    # Solo agrega si todavía no existe (evita sobrescribir)
                     if nombre not in deportes_dict:
                         deportes_dict[nombre] = deporte
-                actualizar_y_guardar_xml(deportes_dict, ARCHIVO_XML)
-                subir_archivo_a_git(ARCHIVO_XML, "Actualiza lista_deportes_detectados_mistral.xml (parcial)")
                 print("[INFO] Esperando 5 segundos para el siguiente lote...")
                 time.sleep(5)
+        actualizar_y_guardar_xml(deportes_dict, ARCHIVO_XML)
+        subir_archivo_a_git(ARCHIVO_XML, "Actualiza lista_deportes_detectados_mistral.xml")
         print("[OK] Todos los eventos han sido procesados y guardados.")
     except Exception as ex:
         print("[FATAL ERROR] Excepción no controlada:")
