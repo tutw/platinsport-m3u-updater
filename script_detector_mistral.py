@@ -40,22 +40,34 @@ def extraer_eventos_xml(url):
         resp = requests.get(url, timeout=60)
         resp.raise_for_status()
         root = ET.fromstring(resp.content)
+        # Extraer de <programme>
         for prog in root.findall(".//programme"):
             title = prog.findtext("title") or ""
+            name = prog.findtext("name") or ""
             desc = prog.findtext("desc") or ""
             category = prog.findtext("category") or ""
-            partes = [title]
-            if category and category.lower() not in title.lower():
+            main_name = title if title.strip() else name
+            partes = [main_name]
+            if category and category.lower() not in main_name.lower():
                 partes.append(f"[{category}]")
-            if desc and desc.lower() not in title.lower():
+            if desc and desc.lower() not in main_name.lower():
                 partes.append(desc)
             evento = " - ".join([p for p in partes if p.strip()])
             if evento.strip():
                 eventos.append(evento.strip())
+        # Extraer de <channel>
         for channel in root.findall(".//channel"):
             display_name = channel.findtext("display-name")
-            if display_name:
+            name = channel.findtext("name")
+            if display_name and display_name.strip():
                 eventos.append(display_name.strip())
+            if name and name.strip():
+                eventos.append(name.strip())
+        # Extraer <name> sueltos en cualquier parte del XML
+        for name_elem in root.findall(".//name"):
+            name_value = name_elem.text
+            if name_value and name_value.strip():
+                eventos.append(name_value.strip())
     except Exception as e:
         print(f"[ERROR] Leyendo {url}: {e}")
         traceback.print_exc()
