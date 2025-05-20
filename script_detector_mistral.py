@@ -20,6 +20,38 @@ LISTAS = [
 ]
 
 ARCHIVO_XML = "lista_deportes_detectados_mistral.xml"
+ARCHIVO_LOGOS = "openmoji_logos.txt"
+
+def cargar_logos(filepath):
+    logos = {}
+    if not os.path.isfile(filepath):
+        print(f"[ERROR] No se encontró el archivo de logos ({filepath}).")
+        return logos
+    with open(filepath, encoding="utf-8") as f:
+        content = f.read()
+    # Extrae todas las líneas tipo "Deporte / Sport": "url",
+    for match in re.finditer(r'"([^"]+)"\s*:\s*"([^"]+)"', content):
+        key, url = match.groups()
+        logos[key.strip().lower()] = url.strip()
+    return logos
+
+def obtener_logo(deporte, logos_dict):
+    deporte_norm = deporte.lower()
+    # Coincidencia exacta
+    if deporte_norm in logos_dict:
+        return logos_dict[deporte_norm]
+    # Coincidencia flexible por inclusión de palabra
+    for key, url in logos_dict.items():
+        key_norm = key.lower()
+        if deporte_norm in key_norm or key_norm in deporte_norm:
+            return url
+        # Coincidencia por palabra clave
+        deporte_tokens = set(deporte_norm.split())
+        key_tokens = set(key_norm.split())
+        if deporte_tokens & key_tokens:
+            return url
+    # Valor por defecto (Genérico)
+    return "https://openmoji.org/data/color/svg/2753.svg"
 
 def extraer_eventos_m3u(url):
     eventos = []
@@ -71,9 +103,6 @@ def extraer_eventos_xml(url):
             title = track.findtext("title") or ""
             if title.strip():
                 eventos.append(title.strip())
-        # NO extraer <name> de <channel>
-        # NO extraer <display-name> de <channel>
-        # NO extraer <name> sueltos fuera de <event> o <programme>
     except Exception as e:
         print(f"[ERROR] Leyendo {url}: {e}")
         traceback.print_exc()
@@ -98,7 +127,7 @@ def preguntar_mistral(eventos, max_retries=5):
         "temperature": 0.0
     }
     retries = 0
-    wait_times = [30, 300]  # 30s, 5min
+    wait_times = [30, 300]
     while retries <= max_retries:
         try:
             print("\n[DEBUG] Enviando a Mistral el siguiente prompt:")
@@ -152,30 +181,13 @@ def trocear_lista(lista, n):
     for i in range(0, len(lista), n):
         yield lista[i:i + n]
 
-def cargar_xml_existente(filepath):
-    deportes_dict = {}
-    if not os.path.isfile(filepath):
-        return deportes_dict
-    try:
-        tree = ET.parse(filepath)
-        root = tree.getroot()
-        for evento_elem in root.findall("evento"):
-            nombre = evento_elem.findtext("nombre") or ""
-            deporte = evento_elem.findtext("deporte") or ""
-            if nombre and deporte:
-                deportes_dict[nombre] = deporte
-    except Exception as e:
-        print(f"[ERROR] Al leer {filepath}: {e}")
-        traceback.print_exc()
-    return deportes_dict
-
-def actualizar_y_guardar_xml(deportes_dict, filepath):
+def actualizar_y_guardar_xml(deportes_dict, logos_dict, filepath):
     root = ET.Element("deportes_detectados")
     for nombre, deporte in sorted(deportes_dict.items()):
         evento_elem = ET.SubElement(root, "evento")
         ET.SubElement(evento_elem, "nombre").text = nombre
         ET.SubElement(evento_elem, "deporte").text = deporte
-    # Pretty-print usando minidom
+        ET.SubElement(evento_elem, "logo").text = obtener_logo(deporte, logos_dict)
     xmlstr = minidom.parseString(ET.tostring(root, encoding="utf-8")).toprettyxml(indent="  ", encoding="utf-8")
     with open(filepath, "wb") as f:
         f.write(xmlstr)
@@ -199,7 +211,8 @@ def subir_archivo_a_git(filepath, mensaje_commit):
         traceback.print_exc()
 
 def main():
-    deportes_dict = cargar_xml_existente(ARCHIVO_XML)
+    deportes_dict = {}
+    logos_dict = cargar_logos(ARCHIVO_LOGOS)
     try:
         for url in LISTAS:
             if url.endswith(".m3u"):
@@ -221,7 +234,7 @@ def main():
                         deportes_dict[nombre] = deporte
                 print("[INFO] Esperando 5 segundos para el siguiente lote...")
                 time.sleep(5)
-        actualizar_y_guardar_xml(deportes_dict, ARCHIVO_XML)
+        actualizar_y_guardar_xml(deportes_dict, logos_dict, ARCHIVO_XML)
         subir_archivo_a_git(ARCHIVO_XML, "Actualiza lista_deportes_detectados_mistral.xml")
         print("[OK] Todos los eventos han sido procesados y guardados.")
     except Exception as ex:
