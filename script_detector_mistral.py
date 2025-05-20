@@ -4,6 +4,7 @@ import os
 import re
 import sys
 import traceback
+import time
 
 MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY")
 MISTRAL_API_URL = "https://api.mistral.ai/v1/chat/completions"
@@ -39,12 +40,10 @@ def extraer_eventos_xml(url):
         resp = requests.get(url, timeout=60)
         resp.raise_for_status()
         root = ET.fromstring(resp.content)
-        # Enriquecemos cada evento con información adicional si existe
         for prog in root.findall(".//programme"):
             title = prog.findtext("title") or ""
             desc = prog.findtext("desc") or ""
             category = prog.findtext("category") or ""
-            # Unimos los campos disponibles para dar máximo contexto
             partes = [title]
             if category and category.lower() not in title.lower():
                 partes.append(f"[{category}]")
@@ -73,34 +72,47 @@ def construir_prompt(eventos):
         prompt += f"- {ev}\n"
     return prompt
 
-def preguntar_mistral(eventos):
+def preguntar_mistral(eventos, max_retries=5, wait_seconds=5):
     prompt = construir_prompt(eventos)
     data = {
         "model": "mistral-small-2312",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.0
     }
-    try:
-        print("\n[DEBUG] Enviando a Mistral el siguiente prompt:")
-        print(prompt)
-        print("[/DEBUG]\n")
-        resp = requests.post(MISTRAL_API_URL, headers=HEADERS, json=data, timeout=180)
-        resp.raise_for_status()
-        respuesta = resp.json()["choices"][0]["message"]["content"]
-        print("\n[DEBUG] Respuesta de Mistral:")
-        print(respuesta)
-        print("[/DEBUG]\n")
-        return respuesta
-    except Exception as e:
-        print("\n[ERROR] Fallo al consultar la API de Mistral.")
-        print("Petición enviada:")
-        print(data)
-        print("Traceback:")
-        traceback.print_exc()
-        if hasattr(e, 'response') and e.response is not None:
-            print("Respuesta de la API:")
-            print(e.response.text)
-        sys.exit(1)
+    retries = 0
+    ws = wait_seconds
+    while retries <= max_retries:
+        try:
+            print("\n[DEBUG] Enviando a Mistral el siguiente prompt:")
+            print(prompt)
+            print("[/DEBUG]\n")
+            resp = requests.post(MISTRAL_API_URL, headers=HEADERS, json=data, timeout=180)
+            if resp.status_code == 429:
+                print(f"[WARNING] Rate limit excedido. Esperando {ws} segundos antes de reintentar...")
+                time.sleep(ws)
+                retries += 1
+                ws *= 2  # backoff exponencial
+                continue
+            resp.raise_for_status()
+            respuesta = resp.json()["choices"][0]["message"]["content"]
+            print("\n[DEBUG] Respuesta de Mistral:")
+            print(respuesta)
+            print("[/DEBUG]\n")
+            return respuesta
+        except Exception as e:
+            print("\n[ERROR] Fallo al consultar la API de Mistral.")
+            print("Petición enviada:")
+            print(data)
+            print("Traceback:")
+            traceback.print_exc()
+            if hasattr(e, 'response') and e.response is not None:
+                print("Respuesta de la API:")
+                print(e.response.text)
+            retries += 1
+            time.sleep(ws)
+            ws *= 2
+    print(f"[FATAL ERROR] Número máximo de reintentos alcanzado al consultar Mistral.")
+    sys.exit(1)
 
 def parsear_respuesta_mistral(respuesta):
     resultados = []
@@ -136,8 +148,8 @@ def main():
                 print(f"[INFO] No se encontraron eventos en {url}")
                 continue
             print(f"[INFO] {url}: {len(eventos_unicos)} eventos únicos detectados")
-            # Procesar por lotes de 3 para evitar truncamientos
-            for chunk in trocear_lista(eventos_unicos, 3):
+            # Procesar por lotes de 10 para evitar truncamientos y respetar rate limit
+            for chunk in trocear_lista(eventos_unicos, 10):
                 print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos.")
                 respuesta_mistral = preguntar_mistral(chunk)
                 resultados = parsear_respuesta_mistral(respuesta_mistral)
@@ -145,6 +157,8 @@ def main():
                     todos_resultados.extend(resultados)
                 else:
                     print("[WARNING] El lote de eventos no devolvió resultados válidos.")
+                print("[INFO] Esperando 5 segundos para el siguiente lote...")
+                time.sleep(5)  # Espera 5 segundos entre cada petición
         vistos = set()
         resultados_finales = []
         for nombre, deporte in todos_resultados:
