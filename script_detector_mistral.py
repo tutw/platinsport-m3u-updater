@@ -18,6 +18,8 @@ LISTAS = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/main/lista_agenda_DEPORTE-LIBRE.FANS.xml"
 ]
 
+ARCHIVO_XML = "lista_deportes_detectados_mistral.xml"
+
 def extraer_eventos_m3u(url):
     eventos = []
     try:
@@ -41,17 +43,14 @@ def extraer_eventos_xml(url):
         resp = requests.get(url, timeout=60)
         resp.raise_for_status()
         root = ET.fromstring(resp.content)
-        # 1. Extraer de <event> (nombre y hora, si existen)
+        # 1. Extraer de <event>
         for event in root.findall(".//event"):
             name = event.findtext("name") or ""
             time_ = event.findtext("time") or ""
             if name.strip():
-                if time_.strip():
-                    evento = f"{time_.strip()} - {name.strip()}"
-                else:
-                    evento = name.strip()
+                evento = f"{time_.strip()} - {name.strip()}" if time_.strip() else name.strip()
                 eventos.append(evento)
-        # 2. Extraer de <programme> (otros XML deportivos)
+        # 2. Extraer de <programme>
         for prog in root.findall(".//programme"):
             title = prog.findtext("title") or ""
             name = prog.findtext("name") or ""
@@ -65,10 +64,15 @@ def extraer_eventos_xml(url):
                 if desc and desc.lower() not in main_name.lower():
                     partes.append(desc)
                 evento = " - ".join([p for p in partes if p.strip()])
-                if evento.strip():
-                    eventos.append(evento.strip())
-        # NO extraer <name> ni <display-name> de <channel>
-        # NO extraer <name> sueltos a nivel de raíz (evita nombres de canales)
+                eventos.append(evento)
+        # 3. Extraer de <track>
+        for track in root.findall(".//track"):
+            title = track.findtext("title") or ""
+            if title.strip():
+                eventos.append(title.strip())
+        # NO extraer <name> de <channel>
+        # NO extraer <display-name> de <channel>
+        # NO extraer <name> sueltos fuera de <event> o <programme>
     except Exception as e:
         print(f"[ERROR] Leyendo {url}: {e}")
         traceback.print_exc()
@@ -147,6 +151,33 @@ def trocear_lista(lista, n):
     for i in range(0, len(lista), n):
         yield lista[i:i + n]
 
+def cargar_xml_existente(filepath):
+    deportes_dict = {}
+    if not os.path.isfile(filepath):
+        return deportes_dict
+    try:
+        tree = ET.parse(filepath)
+        root = tree.getroot()
+        for evento_elem in root.findall("evento"):
+            nombre = evento_elem.findtext("nombre") or ""
+            deporte = evento_elem.findtext("deporte") or ""
+            if nombre and deporte:
+                deportes_dict[nombre] = deporte
+    except Exception as e:
+        print(f"[ERROR] Al leer {filepath}: {e}")
+        traceback.print_exc()
+    return deportes_dict
+
+def actualizar_y_guardar_xml(deportes_dict, filepath):
+    root = ET.Element("deportes_detectados")
+    for nombre, deporte in sorted(deportes_dict.items()):
+        evento_elem = ET.SubElement(root, "evento")
+        ET.SubElement(evento_elem, "nombre").text = nombre
+        ET.SubElement(evento_elem, "deporte").text = deporte
+    tree = ET.ElementTree(root)
+    tree.write(filepath, encoding="utf-8", xml_declaration=True)
+    print(f"[OK] Archivo {filepath} actualizado.")
+
 def subir_archivo_a_git(filepath, mensaje_commit):
     try:
         subprocess.run(["git", "add", filepath], check=True)
@@ -161,7 +192,7 @@ def subir_archivo_a_git(filepath, mensaje_commit):
         traceback.print_exc()
 
 def main():
-    todos_resultados = []
+    deportes_dict = cargar_xml_existente(ARCHIVO_XML)
     try:
         for url in LISTAS:
             if url.endswith(".m3u"):
@@ -173,35 +204,20 @@ def main():
                 print(f"[INFO] No se encontraron eventos en {url}")
                 continue
             print(f"[INFO] {url}: {len(eventos_unicos)} eventos únicos detectados")
-            for chunk in trocear_lista(eventos_unicos, 10):
+            eventos_pendientes = [e for e in eventos_unicos if e not in deportes_dict]
+            for chunk in trocear_lista(eventos_pendientes, 10):
                 print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos.")
                 respuesta_mistral = preguntar_mistral(chunk)
                 resultados = parsear_respuesta_mistral(respuesta_mistral)
-                if resultados:
-                    todos_resultados.extend(resultados)
-                else:
-                    print("[WARNING] El lote de eventos no devolvió resultados válidos.")
+                for nombre, deporte in resultados:
+                    # Solo agrega si todavía no existe (evita sobrescribir)
+                    if nombre not in deportes_dict:
+                        deportes_dict[nombre] = deporte
+                actualizar_y_guardar_xml(deportes_dict, ARCHIVO_XML)
+                subir_archivo_a_git(ARCHIVO_XML, "Actualiza lista_deportes_detectados_mistral.xml (parcial)")
                 print("[INFO] Esperando 5 segundos para el siguiente lote...")
                 time.sleep(5)
-        vistos = set()
-        resultados_finales = []
-        for nombre, deporte in todos_resultados:
-            if nombre not in vistos:
-                vistos.add(nombre)
-                resultados_finales.append((nombre, deporte))
-        if not resultados_finales:
-            print("[ERROR] No se obtuvieron resultados finales. El XML no se generará.")
-            sys.exit(1)
-        archivo_xml = "lista_deportes_detectados_mistral.xml"
-        root = ET.Element("deportes_detectados")
-        for nombre, deporte in resultados_finales:
-            evento_elem = ET.SubElement(root, "evento")
-            ET.SubElement(evento_elem, "nombre").text = nombre
-            ET.SubElement(evento_elem, "deporte").text = deporte
-        tree = ET.ElementTree(root)
-        tree.write(archivo_xml, encoding="utf-8", xml_declaration=True)
-        print("[OK] Archivo lista_deportes_detectados_mistral.xml generado correctamente.")
-        subir_archivo_a_git(archivo_xml, "Actualiza lista_deportes_detectados_mistral.xml")
+        print("[OK] Todos los eventos han sido procesados y guardados.")
     except Exception as ex:
         print("[FATAL ERROR] Excepción no controlada:")
         traceback.print_exc()
