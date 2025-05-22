@@ -4,10 +4,11 @@ import difflib
 import re
 
 M3U_URLS = [
-    ("https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_icastresana.m3u", "eventos_icastresana_OPENMOJI.m3u"),
-    ("https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u", "eventos_platinsport_OPENMOJI.m3u")
+    "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_icastresana.m3u",
+    "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u"
 ]
 XML_URL = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_deportes_detectados_mistral.xml"
+OUTPUT_M3U = "lista_eventos_UNIFICADOS.m3u"
 
 def descargar_archivo(url):
     resp = requests.get(url)
@@ -42,22 +43,29 @@ def reemplazar_logo_por_evento(linea, logos_dict):
                 linea = linea.replace('#EXTINF:-1', f'#EXTINF:-1 tvg-logo="{logo_nuevo}"')
     return linea
 
-def procesar_y_guardar_m3u(url, nombre_salida, logos_dict):
-    contenido = descargar_archivo(url)
-    lineas = contenido.strip().splitlines()
-    with open(nombre_salida, "w", encoding="utf-8") as f:
+def unificar_m3u_y_reemplazar_logos():
+    # Descargar y unir los M3U
+    eventos = []
+    for url in M3U_URLS:
+        contenido = descargar_archivo(url)
+        lineas = contenido.strip().splitlines()
+        eventos.extend(lineas)
+
+    # Descargar y parsear el XML
+    xml_content = descargar_archivo(XML_URL)
+    logos_dict = parsear_logos_xml(xml_content)
+
+    # Procesar y escribir el archivo unificado
+    with open(OUTPUT_M3U, "w", encoding="utf-8") as f:
         encabezado = "#EXTM3U"
-        if lineas and lineas[0].startswith("#EXTM3U"):
+        if eventos and eventos[0].startswith("#EXTM3U"):
             f.write(encabezado + "\n")
-            lineas = [l for l in lineas if l.strip() != "#EXTM3U"]
-        for linea in lineas:
+            eventos = [l for l in eventos if l.strip() != "#EXTM3U"]
+        for linea in eventos:
             if linea.startswith("#EXTINF"):
                 linea = reemplazar_logo_por_evento(linea, logos_dict)
             f.write(linea + "\n")
 
 if __name__ == "__main__":
-    xml_content = descargar_archivo(XML_URL)
-    logos_dict = parsear_logos_xml(xml_content)
-    for url, nombre_salida in M3U_URLS:
-        procesar_y_guardar_m3u(url, nombre_salida, logos_dict)
-    print("Archivos generados: eventos_icastresana_OPENMOJI.m3u y eventos_platinsport_OPENMOJI.m3u")
+    unificar_m3u_y_reemplazar_logos()
+    print(f"Archivo unificado guardado como: {OUTPUT_M3U}")
