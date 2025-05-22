@@ -1,9 +1,9 @@
 name: Unificar eventos M3U
 
 on:
-  workflow_dispatch:  # Permite ejecución manual desde la pestaña Actions
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'  # Cada hora (UTC)
+    - cron: '0 * * * *'
 
 jobs:
   build:
@@ -13,14 +13,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Pull con rebase para evitar errores de push
+        run: git pull --rebase origin main
+
       - name: Instalar dependencias
         run: pip install requests
 
       - name: Ejecutar script de unificación
         run: python script_eventos_UNIFICADOS.py
-
-      - name: Pull con rebase para evitar errores de push
-        run: git pull --rebase origin main
 
       - name: Auto-commit y push si hay cambios
         uses: stefanzweifel/git-auto-commit-action@v5
