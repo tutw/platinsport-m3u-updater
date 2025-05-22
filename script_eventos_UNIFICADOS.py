@@ -18,18 +18,16 @@ def descargar_archivo(url):
 def parsear_logos_xml(xml_content):
     logos_dict = {}
     root = ET.fromstring(xml_content)
-    for channel in root.findall(".//channel"):
-        display_name = channel.findtext("display-name")
-        icon = channel.find("icon")
-        if display_name and icon is not None:
-            # Guardamos solo el display-name en minúsculas y sin espacios extra para el matching laxo
-            logos_dict[display_name.strip().lower()] = icon.attrib.get("src", "").strip()
+    for evento in root.findall(".//evento"):
+        nombre_evento = evento.findtext("nombre")
+        logo = evento.findtext("logo")
+        if nombre_evento and logo:
+            logos_dict[nombre_evento.strip().lower()] = logo.strip()
     return logos_dict
 
 def buscar_logo_laxo(nombre_evento, logos_dict):
-    # Matching laxo entre el nombre del evento y los display-name del XML
     nombre_evento = nombre_evento.lower().strip()
-    posibles = difflib.get_close_matches(nombre_evento, logos_dict.keys(), n=1, cutoff=0.5)
+    posibles = difflib.get_close_matches(nombre_evento, logos_dict.keys(), n=1, cutoff=0.6)
     if posibles:
         return logos_dict[posibles[0]]
     return None
