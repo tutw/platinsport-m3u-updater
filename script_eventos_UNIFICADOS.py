@@ -5,7 +5,6 @@ import re
 
 M3U_URLS = [
     "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_icastresana.m3u",
-    "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista.m3u"
 ]
 XML_URL = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/lista_deportes_detectados_mistral.xml"
 OUTPUT_M3U = "lista_eventos_UNIFICADOS.m3u"
@@ -33,6 +32,7 @@ def buscar_logo_laxo(nombre_evento, logos_dict):
     return None
 
 def reemplazar_logo_por_evento(linea, logos_dict):
+    # Extrae el nombre del evento tras la coma en la línea #EXTINF
     if ',' in linea:
         nombre_evento = linea.split(',', 1)[1].strip()
         logo_nuevo = buscar_logo_laxo(nombre_evento, logos_dict)
