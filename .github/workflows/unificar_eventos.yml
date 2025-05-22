@@ -1,16 +1,17 @@
 name: Unificar eventos M3U
 
 on:
-  workflow_dispatch:  # Permite ejecución manual
+  workflow_dispatch:  # Permite ejecución manual desde la pestaña Actions
   schedule:
-    - cron: '0 * * * *'  # Cada hora
+    - cron: '0 * * * *'  # Cada hora (UTC)
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
       - name: Instalar dependencias
         run: pip install requests
@@ -18,7 +19,10 @@ jobs:
       - name: Ejecutar script de unificación
         run: python script_eventos_UNIFICADOS.py
 
-      - name: Subir archivo generado
+      - name: Pull con rebase para evitar errores de push
+        run: git pull --rebase origin main
+
+      - name: Auto-commit y push si hay cambios
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Actualización automática de lista_eventos_UNIFICADOS.m3u
