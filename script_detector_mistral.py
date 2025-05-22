@@ -22,9 +22,20 @@ LISTAS = [
 ARCHIVO_XML = "lista_deportes_detectados_mistral.xml"
 ARCHIVO_LOGOS = "openmoji_logos.txt"
 
-DEPORTES_VALIDOS = """
-Fútbol / Soccer, Fútbol Sala / Futsal, Fútbol Playa / Beach Soccer, Baloncesto / Basketball, Béisbol / Baseball, Sóftbol / Softball, Fútbol Americano / American Football, Fútbol Canadiense / Canadian Football, Rugby / Rugby, Hockey sobre Hielo / Ice Hockey, Hockey sobre Hierba / Field Hockey, Críquet / Cricket, Voleibol / Volleyball, Vóley Playa / Beach Volleyball, Balonmano / Handball, Tenis / Tennis, Bádminton / Badminton, Tenis de Mesa / Table Tennis, Golf / Golf, Atletismo / Athletics, Natación / Swimming, Natación Artística / Artistic Swimming, Saltos / Diving, Waterpolo / Water Polo, Natación en Aguas Abiertas / Open Water Swimming, Ciclismo en Ruta / Road Cycling, Ciclismo en Pista / Track Cycling, Ciclismo de Montaña / Mountain Biking, BMX / BMX, Ciclocrós / Cyclocross, Gimnasia Artística / Artistic Gymnastics, Gimnasia Rítmica / Rhythmic Gymnastics, Gimnasia en Trampolín / Trampoline Gymnastics, Gimnasia Acrobática / Acrobatic Gymnastics, Gimnasia Aeróbica / Aerobic Gymnastics, Boxeo / Boxing, Judo / Judo, Taekwondo / Taekwondo, Lucha / Wrestling, Esgrima / Fencing, Karate / Karate, Artes Marciales Mixtas / Mixed Martial Arts, Kickboxing / Kickboxing, Muay Thai / Muay Thai, Sumo / Sumo, Kendo / Kendo, Aikido / Aikido, Jiu-Jitsu Brasileño / Brazilian Jiu-Jitsu, Sambo / Sambo, Savate / Savate, Esquí Alpino / Alpine Skiing, Esquí de Fondo / Cross-Country Skiing, Saltos de Esquí / Ski Jumping, Combinada Nórdica / Nordic Combined, Biatlón / Biathlon, Snowboard / Snowboarding, Esquí Acrobático / Freestyle Skiing, Patinaje Artístico sobre Hielo / Figure Skating, Patinaje de Velocidad sobre Hielo / Speed Skating, Patinaje de Velocidad sobre Hielo en Pista Corta / Short Track Speed Skating, Curling / Curling, Bobsleigh / Bobsleigh, Skeleton / Skeleton, Luge / Luge, Esquí de Montaña / Mountain Skiing, Surf / Surfing, Windsurf / Windsurfing, Kitesurf / Kiteboarding, Vela / Sailing, Remo / Rowing, Piragüismo / Canoeing, Kayak Polo / Kayak Polo, Bote Dragón / Dragon Boat, Motonáutica / Powerboating, Esquí Acuático / Water Skiing, Wakeboard / Wakeboarding, Pesca Deportiva / Sport Fishing, Apnea / Freediving, Hockey Subacuático / Underwater Hockey, Rugby Subacuático / Underwater Rugby, Fórmula 1 / Formula 1, Rally / Rally, Carreras de Resistencia / Endurance Racing, Turismos / Touring Car Racing, NASCAR / NASCAR, IndyCar Series / IndyCar Series, Fórmula E / Formula E, Karting / Karting, Drifting / Drifting, Carreras de Aceleración / Drag Racing, MotoGP / MotoGP, Superbikes / Superbikes, Motocross / Motocross, Enduro / Enduro, Speedway / Speedway, Trial / Trial, Carreras de Resistencia (Endurance Racing - Motos) / Endurance Racing (Motorcycles), Tiro con Arco / Archery, Tiro Deportivo / Shooting, Billar / Billiards, Dardos / Darts, Bolos / Bowling, Petanca / Pétanque, Bochas / Bocce, Skateboarding / Skateboarding, Escalada Deportiva / Sport Climbing, Parkour / Parkour, Slackline / Slacklining, Salto BASE / BASE Jumping, Paracaidismo / Skydiving, Ala Delta / Hang Gliding, Parapente / Paragliding, Raids de Aventura / Adventure Racing, Carreras de Obstáculos / Obstacle Racing, Sandboarding / Sandboarding, Zorbing / Zorbing, Street Luge / Street Luge, Patinaje en Línea Agresivo / Aggressive Inline Skating, Scootering / Scootering, Ajedrez / Chess, Go / Go, Shogi / Shogi, Xiangqi / Xiangqi, Bridge / Bridge, Damas / Checkers, Póker / Poker, Esports / Esports, Cubo de Rubik / Rubik's Cube, Pelota Vasca / Basque Pelota, Fútbol Gaélico / Gaelic Football, Hurling / Hurling, Camogie / Camogie, Sepak Takraw / Sepak Takraw, Kabaddi / Kabaddi, Netball / Netball, Korfball / Korfball, Floorball / Floorball, Ultimate Frisbee / Ultimate Frisbee, Disc Golf / Disc Golf, Fistball / Fistball, Orientación / Orienteering, Lacrosse / Lacrosse, Polo / Polo, Patinaje de Velocidad sobre Ruedas / Roller Speed Skating, Hockey sobre Patines / Roller Hockey, Hockey Línea / Inline Hockey, Patinaje Artístico sobre Ruedas / Artistic Roller Skating, Squash / Squash, Raquetbol / Racquetball, Vuelo a Vela / Gliding, Acrobacia Aérea / Aerobatics, Tchoukball / Tchoukball, Bossaball / Bossaball, Roller Derby / Roller Derby, Quidditch / Quidditch, Tiro de Cuerda / Tug of War, Carreras de Drones / Drone Racing, Woodchopping / Woodchopping, Puenting / Bungee Jumping, Juegos de Fuerza / Strength Sports, Halterofilia / Weightlifting, Levantamiento de Potencia / Powerlifting, Culturismo / Bodybuilding, Doma Clásica / Dressage, Salto Ecuestre / Show Jumping, Concurso Completo / Eventing, Enganches / Driving, Volteo / Vaulting, Enduro Ecuestre / Endurance Riding, Reining / Reining, Pentatlón Moderno / Modern Pentathlon, Triatlón / Triathlon, Duatlón / Duathlon, Acuatlón / Aquathlon, Canicross / Canicross, Mushing / Dog Sledding, Patinaje sobre Hielo Sincronizado / Synchronized Skating, Bandy / Bandy, Skibobbing / Skibobbing
-""".replace('\n', '').strip()
+# Diccionario de palabras clave para deportes comunes
+PALABRAS_CLAVE_DEPORTES = {
+    "fútbol": ["futbol", "soccer", "premier", "liga", "champions", "copa"],
+    "baloncesto": ["basket", "nba", "acb", "euroliga"],
+    "tenis": ["tennis", "atp", "wta", "grand slam"],
+    "ciclismo": ["tour", "giro", "vuelta", "cycling"],
+    "atletismo": ["atletismo", "maratón", "100m", "sprint"],
+    "natación": ["natacion", "swimming", "piscina", "olímpico"],
+    "boxeo": ["box", "boxeo", "pelea", "ring"],
+    "golf": ["golf", "pga", "hoyo", "green"],
+    "rugby": ["rugby", "scrum", "try", "tackle"],
+    "hockey": ["hockey", "stick", "puck", "pista"],
+    "voleibol": ["voleibol", "volleyball", "set", "saque"],
+}
 
 def cargar_logos(filepath):
     logos = {}
@@ -51,6 +62,14 @@ def obtener_logo(deporte, logos_dict):
         if deporte_tokens & key_tokens:
             return url
     return "https://openmoji.org/data/color/svg/2753.svg"
+
+def inferir_deporte(evento):
+    evento_norm = evento.lower()
+    for deporte, palabras_clave in PALABRAS_CLAVE_DEPORTES.items():
+        for palabra in palabras_clave:
+            if palabra in evento_norm:
+                return deporte
+    return "Desconocido"
 
 def extraer_eventos_m3u(url):
     eventos = []
@@ -104,38 +123,15 @@ def extraer_eventos_xml(url):
         traceback.print_exc()
     return eventos
 
-def quitar_nombre_canal(evento):
-    # Quita el último " - Canal" si existe al final del string
-    return re.sub(r'\s*-\s*[^-]+$', '', evento).strip()
-
-def obtener_eventos_unicos(eventos):
-    """
-    Devuelve un diccionario: evento original -> evento base (sin canal)
-    Y una lista de eventos base únicos para consultar a Mistral.
-    """
-    evento_base_map = {}
-    eventos_base_set = set()
-    for ev in eventos:
-        ev_base = quitar_nombre_canal(ev)
-        evento_base_map[ev] = ev_base
-        eventos_base_set.add(ev_base)
-    return evento_base_map, sorted(eventos_base_set)
-
 def construir_prompt(eventos):
     prompt = (
-        f"Para cada evento de la lista, indica únicamente el deporte principal al que corresponde, "
-        f"seleccionando solo entre los siguientes deportes (usa exactamente el nombre de la lista):\n\n"
-        f"{DEPORTES_VALIDOS}\n\n"
-        "Si no puedes determinar el deporte o el evento no encaja con ninguno de la lista, responde exactamente con \"Desconocido\".\n"
-        "No expliques nada, solo responde con este formato (uno por línea):\n"
-        "Evento: <nombre_evento>\nDeporte: <nombre_deporte>\n\n"
-        "Ejemplo de respuesta:\n"
-        "Evento: Real Madrid vs Barcelona\nDeporte: Fútbol / Soccer\n"
-        "Evento: Roland Garros - Final\nDeporte: Tenis / Tennis\n"
-        "Evento: Equipo A vs Equipo B\nDeporte: Desconocido\n\n"
+        "Para cada evento, indica solo el deporte principal (por ejemplo: Fútbol, Baloncesto, Tenis, Ciclismo, etc). "
+        "Si no lo sabes, pon 'Desconocido'. "
+        "Si el evento contiene solo nombres de equipos o es muy escueto, intenta inferir el deporte. "
+        "Formato:\nEvento: <nombre_evento>\nDeporte: <nombre_deporte>\n"
     )
     for ev in eventos:
-        prompt += f"Evento: {ev}\n"
+        prompt += f"- {ev}\n"
     return prompt
 
 def preguntar_mistral(eventos, max_retries=5):
@@ -179,24 +175,23 @@ def preguntar_mistral(eventos, max_retries=5):
     print(f"[FATAL ERROR] Número máximo de reintentos alcanzado al consultar Mistral.")
     sys.exit(1)
 
-def parsear_respuesta_mistral(respuesta, eventos_enviados):
-    resultados = {}
+def parsear_respuesta_mistral(respuesta):
+    resultados = []
     if not respuesta:
         print("[WARNING] Respuesta vacía de Mistral.")
-        for ev in eventos_enviados:
-            resultados[ev] = "Desconocido"
         return resultados
-    encontrados = set()
-    for nombre, deporte in re.findall(r"Evento:\s*(.*?)\s*Deporte:\s*(.*?)(?:\n|$)", respuesta, re.DOTALL):
+    eventos = re.findall(r"Evento:\s*(.*?)\s*Deporte:\s*(.*?)(?:\n|$)", respuesta, re.DOTALL)
+    if not eventos:
+        print("[WARNING] No se encontraron pares evento-deporte en la respuesta de Mistral.")
+        print("Respuesta recibida:")
+        print(respuesta)
+    for nombre, deporte in eventos:
         nombre = nombre.strip()
         deporte = deporte.strip()
-        if nombre:
-            resultados[nombre] = deporte if deporte else "Desconocido"
-            encontrados.add(nombre)
-    for ev in eventos_enviados:
-        if ev not in encontrados:
-            print(f"[WARNING] Evento '{ev}' no devuelto por Mistral. Se asigna 'Desconocido'.")
-            resultados[ev] = "Desconocido"
+        if nombre and deporte:
+            if deporte.lower() == "desconocido":
+                deporte = inferir_deporte(nombre)
+            resultados.append((nombre, deporte))
     return resultados
 
 def trocear_lista(lista, n):
@@ -241,36 +236,21 @@ def main():
                 eventos = extraer_eventos_m3u(url)
             else:
                 eventos = extraer_eventos_xml(url)
-            evento_base_map, eventos_base_unicos = obtener_eventos_unicos(eventos)
-            if not eventos_base_unicos:
+            eventos_unicos = sorted(set(eventos))
+            if not eventos_unicos:
                 print(f"[INFO] No se encontraron eventos en {url}")
                 continue
-            print(f"[INFO] {url}: {len(eventos_base_unicos)} eventos base únicos detectados")
-            deportes_detectados = {}
-            eventos_pendientes = [e for e in eventos_base_unicos if e not in deportes_detectados]
+            print(f"[INFO] {url}: {len(eventos_unicos)} eventos únicos detectados")
+            eventos_pendientes = [e for e in eventos_unicos if e not in deportes_dict]
             for chunk in trocear_lista(eventos_pendientes, 10):
-                print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos base.")
+                print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos.")
                 respuesta_mistral = preguntar_mistral(chunk)
-                resultados = parsear_respuesta_mistral(respuesta_mistral, chunk)
-
-                # Reintento extra para los eventos NO resueltos
-                faltantes = [ev for ev in chunk if resultados.get(ev, "Desconocido") == "Desconocido"]
-                if faltantes:
-                    print(f"[INFO] Reintentando Mistral para {len(faltantes)} eventos base faltantes...")
-                    time.sleep(2)
-                    respuesta_reintento = preguntar_mistral(faltantes)
-                    resultados_reintento = parsear_respuesta_mistral(respuesta_reintento, faltantes)
-                    for nombre, deporte in resultados_reintento.items():
-                        if deporte != "Desconocido":
-                            resultados[nombre] = deporte
-                for nombre, deporte in resultados.items():
-                    if nombre not in deportes_detectados:
-                        deportes_detectados[nombre] = deporte
+                resultados = parsear_respuesta_mistral(respuesta_mistral)
+                for nombre, deporte in resultados:
+                    if nombre not in deportes_dict:
+                        deportes_dict[nombre] = deporte
                 print("[INFO] Esperando 5 segundos para el siguiente lote...")
                 time.sleep(5)
-            # Asignar a cada evento original el deporte de su evento base
-            for evento_original, evento_base in evento_base_map.items():
-                deportes_dict[evento_original] = deportes_detectados.get(evento_base, "Desconocido")
         actualizar_y_guardar_xml(deportes_dict, logos_dict, ARCHIVO_XML)
         subir_archivo_a_git(ARCHIVO_XML, "Actualiza lista_deportes_detectados_mistral.xml")
         print("[OK] Todos los eventos han sido procesados y guardados.")
