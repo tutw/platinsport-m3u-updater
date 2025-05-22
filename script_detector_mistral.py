@@ -104,6 +104,23 @@ def extraer_eventos_xml(url):
         traceback.print_exc()
     return eventos
 
+def quitar_nombre_canal(evento):
+    # Quita el último " - Canal" si existe al final del string
+    return re.sub(r'\s*-\s*[^-]+$', '', evento).strip()
+
+def obtener_eventos_unicos(eventos):
+    """
+    Devuelve un diccionario: evento original -> evento base (sin canal)
+    Y una lista de eventos base únicos para consultar a Mistral.
+    """
+    evento_base_map = {}
+    eventos_base_set = set()
+    for ev in eventos:
+        ev_base = quitar_nombre_canal(ev)
+        evento_base_map[ev] = ev_base
+        eventos_base_set.add(ev_base)
+    return evento_base_map, sorted(eventos_base_set)
+
 def construir_prompt(eventos):
     prompt = (
         f"Para cada evento de la lista, indica únicamente el deporte principal al que corresponde, "
@@ -163,10 +180,6 @@ def preguntar_mistral(eventos, max_retries=5):
     sys.exit(1)
 
 def parsear_respuesta_mistral(respuesta, eventos_enviados):
-    """
-    Se asegura de que TODOS los eventos_enviados tengan un deporte asociado.
-    Si falta alguno en la respuesta, le asigna 'Desconocido'.
-    """
     resultados = {}
     if not respuesta:
         print("[WARNING] Respuesta vacía de Mistral.")
@@ -180,7 +193,6 @@ def parsear_respuesta_mistral(respuesta, eventos_enviados):
         if nombre:
             resultados[nombre] = deporte if deporte else "Desconocido"
             encontrados.add(nombre)
-    # Asegurar que todos los eventos enviados tienen resultado
     for ev in eventos_enviados:
         if ev not in encontrados:
             print(f"[WARNING] Evento '{ev}' no devuelto por Mistral. Se asigna 'Desconocido'.")
@@ -229,34 +241,36 @@ def main():
                 eventos = extraer_eventos_m3u(url)
             else:
                 eventos = extraer_eventos_xml(url)
-            eventos_unicos = sorted(set(eventos))
-            if not eventos_unicos:
+            evento_base_map, eventos_base_unicos = obtener_eventos_unicos(eventos)
+            if not eventos_base_unicos:
                 print(f"[INFO] No se encontraron eventos en {url}")
                 continue
-            print(f"[INFO] {url}: {len(eventos_unicos)} eventos únicos detectados")
-            eventos_pendientes = [e for e in eventos_unicos if e not in deportes_dict]
+            print(f"[INFO] {url}: {len(eventos_base_unicos)} eventos base únicos detectados")
+            deportes_detectados = {}
+            eventos_pendientes = [e for e in eventos_base_unicos if e not in deportes_detectados]
             for chunk in trocear_lista(eventos_pendientes, 10):
-                print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos.")
+                print(f"[INFO] Consultando Mistral para un lote de {len(chunk)} eventos base.")
                 respuesta_mistral = preguntar_mistral(chunk)
                 resultados = parsear_respuesta_mistral(respuesta_mistral, chunk)
 
                 # Reintento extra para los eventos NO resueltos
                 faltantes = [ev for ev in chunk if resultados.get(ev, "Desconocido") == "Desconocido"]
                 if faltantes:
-                    print(f"[INFO] Reintentando Mistral para {len(faltantes)} eventos faltantes...")
+                    print(f"[INFO] Reintentando Mistral para {len(faltantes)} eventos base faltantes...")
                     time.sleep(2)
                     respuesta_reintento = preguntar_mistral(faltantes)
                     resultados_reintento = parsear_respuesta_mistral(respuesta_reintento, faltantes)
                     for nombre, deporte in resultados_reintento.items():
-                        # Solo actualiza si se obtuvo algo distinto a 'Desconocido'
                         if deporte != "Desconocido":
                             resultados[nombre] = deporte
-
                 for nombre, deporte in resultados.items():
-                    if nombre not in deportes_dict:
-                        deportes_dict[nombre] = deporte
+                    if nombre not in deportes_detectados:
+                        deportes_detectados[nombre] = deporte
                 print("[INFO] Esperando 5 segundos para el siguiente lote...")
                 time.sleep(5)
+            # Asignar a cada evento original el deporte de su evento base
+            for evento_original, evento_base in evento_base_map.items():
+                deportes_dict[evento_original] = deportes_detectados.get(evento_base, "Desconocido")
         actualizar_y_guardar_xml(deportes_dict, logos_dict, ARCHIVO_XML)
         subir_archivo_a_git(ARCHIVO_XML, "Actualiza lista_deportes_detectados_mistral.xml")
         print("[OK] Todos los eventos han sido procesados y guardados.")
