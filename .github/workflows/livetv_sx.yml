@@ -2,9 +2,8 @@ name: Scraping LiveTV y commit XML
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
+  schedule:
+    - cron: '0 7 * * *' # Ejecuta todos los días a las 7:00 UTC (ajusta si lo deseas)
 
 jobs:
   scraping:
@@ -14,7 +13,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
         with:
-          persist-credentials: true  # Necesario para hacer push
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
