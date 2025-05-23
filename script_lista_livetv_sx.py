@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import xml.etree.ElementTree as ET
 import urllib3
+import os
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -37,23 +38,36 @@ URLS = [
 ]
 
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
-TODAY = datetime.now().strftime('%d %b %Y')  # Por ejemplo '23 May 2025'
+TODAY = datetime.now().strftime('%d %b %Y')
+LOGFILE = 'scraping_log.txt'
 
 def log_step(msg):
     print(f"[INFO] {msg}")
+    with open(LOGFILE, "a", encoding="utf-8") as f:
+        f.write("[INFO] " + msg + "\n")
 
 def log_warning(msg):
     print(f"[WARN] {msg}")
+    with open(LOGFILE, "a", encoding="utf-8") as f:
+        f.write("[WARN] " + msg + "\n")
 
 def log_error(msg):
     print(f"[ERROR] {msg}")
+    with open(LOGFILE, "a", encoding="utf-8") as f:
+        f.write("[ERROR] " + msg + "\n")
 
-def get_events_from_url(url):
+def get_events_from_url(url, save_html=False):
     events = []
     log_step(f"Procesando URL: {url}")
     try:
         page = requests.get(url, headers=HEADERS, verify=False, timeout=20)
         soup = BeautifulSoup(page.content, 'html.parser')
+
+        # Guarda el HTML descargado de la primera URL para depuración
+        if save_html:
+            with open("debug_livetv.html", "w", encoding="utf-8") as f:
+                f.write(page.text)
+            log_step("Guardado el HTML de la primera URL en debug_livetv.html para inspección manual.")
 
         current = soup.body
         if not current:
@@ -192,15 +206,22 @@ def get_events_from_url(url):
                         'nombre': event_name,
                         'url': event_url
                     })
-        log_step(f"Eventos encontrados en esta URL: {len(events)}")
+        if not events:
+            log_warning("No se encontraron eventos en esta URL para la fecha de hoy.")
+        else:
+            log_step(f"Eventos encontrados en esta URL: {len(events)}")
     except Exception as e:
         log_error(f"Excepción procesando {url}: {e}")
     return events
 
 def main():
+    # Limpia el log al inicio
+    if os.path.exists(LOGFILE):
+        os.remove(LOGFILE)
+
     all_events = []
-    for url in URLS:
-        eventos = get_events_from_url(url)
+    for i, url in enumerate(URLS):
+        eventos = get_events_from_url(url, save_html=(i == 0))
         all_events.extend(eventos)
 
     log_step(f"Total de eventos encontrados: {len(all_events)}")
@@ -218,6 +239,8 @@ def main():
     tree = ET.ElementTree(root)
     tree.write('eventos_livetv_sx.xml', encoding='utf-8', xml_declaration=True)
     print('Archivo eventos_livetv_sx.xml generado con éxito.')
+    print(f'Consulta el log detallado en {LOGFILE}')
+    print('Si necesitas depuración avanzada, revisa también debug_livetv.html (solo para la primera URL).')
 
 if __name__ == '__main__':
     main()
