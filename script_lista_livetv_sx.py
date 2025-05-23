@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from datetime import datetime
+from dateutil import parser
 import xml.etree.ElementTree as ET
 import subprocess
 import time
@@ -40,7 +41,6 @@ URLS = [
 ]
 
 LOGFILE = 'scraping_log.txt'
-FECHA_HOY = datetime.now().strftime('%d %b %Y')
 
 def log_step(msg):
     print(f"[INFO] {msg}")
@@ -56,6 +56,23 @@ def log_error(msg):
     print(f"[ERROR] {msg}")
     with open(LOGFILE, "a", encoding="utf-8") as f:
         f.write("[ERROR] " + msg + "\n")
+
+def normaliza_fecha(fecha_str):
+    # Normaliza meses de español a inglés para el parser
+    meses = {
+        'Ene': 'Jan', 'Feb': 'Feb', 'Mar': 'Mar', 'Abr': 'Apr', 'May': 'May', 'Jun': 'Jun',
+        'Jul': 'Jul', 'Ago': 'Aug', 'Sep': 'Sep', 'Oct': 'Oct', 'Nov': 'Nov', 'Dic': 'Dec',
+        'ene': 'Jan', 'feb': 'Feb', 'mar': 'Mar', 'abr': 'Apr', 'may': 'May', 'jun': 'Jun',
+        'jul': 'Jul', 'ago': 'Aug', 'sep': 'Sep', 'oct': 'Oct', 'nov': 'Nov', 'dic': 'Dec'
+    }
+    for esp, eng in meses.items():
+        if f" {esp} " in fecha_str:
+            fecha_str = fecha_str.replace(f" {esp} ", f" {eng} ")
+    try:
+        return parser.parse(fecha_str, dayfirst=True).date()
+    except Exception as e:
+        print(f"Error parseando fecha: {fecha_str} - {e}")
+        return None
 
 def get_events_from_url(url, save_html=False):
     events = []
@@ -90,7 +107,9 @@ def get_events_from_url(url, save_html=False):
                     fecha = tds[1].get_text(strip=True) if len(tds) > 1 else ''
                     nombre = a.get_text(strip=True)
                     url_evento = 'https://livetv.sx' + a['href']
-                    if fecha == FECHA_HOY:
+                    fecha_evento = normaliza_fecha(fecha)
+                    hoy = datetime.now().date()
+                    if fecha_evento == hoy:
                         events.append({
                             'hora': hora,
                             'fecha': fecha,
