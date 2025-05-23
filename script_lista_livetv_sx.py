@@ -96,20 +96,20 @@ def get_events_from_url(url, save_html=False):
             if len(tds) >= 5:
                 time_str = tds[0].get_text(strip=True)
                 date_str = tds[1].get_text(strip=True)
-                name_tag = tds[2].find('a')
-                if not name_tag:
+                name_tag = tds[2].find('a', href=True)
+                if not name_tag or not name_tag['href'].startswith('/es/eventinfo/'):
                     continue
                 event_name = name_tag.get_text(strip=True)
                 event_url = "https://livetv.sx" + name_tag['href']
-                if TODAY in date_str:
-                    events.append({
-                        'hora': time_str,
-                        'nombre': event_name,
-                        'url': event_url
-                    })
+                events.append({
+                    'hora': time_str,
+                    'fecha': date_str,
+                    'nombre': event_name,
+                    'url': event_url
+                })
         driver.quit()
         if not events:
-            log_warning("No se encontraron eventos en esta URL para la fecha de hoy.")
+            log_warning("No se encontraron eventos en esta URL.")
         else:
             log_step(f"Eventos encontrados en esta URL: {len(events)}")
     except Exception as e:
@@ -132,6 +132,8 @@ def main():
         evento = ET.SubElement(root, 'evento')
         hora = ET.SubElement(evento, 'hora')
         hora.text = ev['hora']
+        fecha = ET.SubElement(evento, 'fecha')
+        fecha.text = ev['fecha']
         nombre = ET.SubElement(evento, 'nombre')
         nombre.text = ev['nombre']
         url = ET.SubElement(evento, 'url')
