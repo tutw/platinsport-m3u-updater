@@ -63,159 +63,68 @@ def get_events_from_url(url, save_html=False):
         page = requests.get(url, headers=HEADERS, verify=False, timeout=20)
         soup = BeautifulSoup(page.content, 'html.parser')
 
-        # Guarda el HTML descargado de la primera URL para depuración
         if save_html:
             with open("debug_livetv.html", "w", encoding="utf-8") as f:
                 f.write(page.text)
             log_step("Guardado el HTML de la primera URL en debug_livetv.html para inspección manual.")
 
-        current = soup.body
-        if not current:
-            log_warning("No se encontró <body>")
-            return events
-        log_step("Encontrado <body>")
+        # Navegación según el XPath proporcionado
+        try:
+            current = soup.body
+            current = current.find_all('table')[0]
+            current = current.find_all('tbody')[0]
+            current = current.find_all('tr')[0]
+            tds = current.find_all('td')
+            current = tds[1].find_all('table')[0]
+            current = current.find_all('tbody')[0]
+            current = current.find_all('tr')[3]
+            current = current.find_all('td')[0].find_all('table')[0]
+            current = current.find_all('tbody')[0]
+            current = current.find_all('tr')[0]
+            current = current.find_all('td')[1].find_all('table')[0]
+            current = current.find_all('tbody')[0]
+            current = current.find_all('tr')[0]
+            current = current.find_all('td')[0].find_all('table')[0]
+            current = current.find_all('tbody')[0]
+            current = current.find_all('tr')[1].find_all('td')[0].find_all('table')[0]
+            current = current.find_all('tbody')[0]
+            current = current.find_all('tr')[0]
+            current = current.find_all('td')[0].find_all('table')[0]
+            current = current.find_all('tbody')[0]
+            current = current.find_all('tr')[0]
+            current = current.find_all('td')[1].find_all('table')[3]
+            # Ya estamos en la tabla de eventos
+            tbody = current.find_all('tbody')[0]
+            rows = tbody.find_all('tr')
 
-        current = current.find('table')
-        if not current:
-            log_warning("No se encontró primer <table> en <body>")
-            return events
-        log_step("Encontrada primera <table>")
+            for row in rows:
+                tds = row.find_all('td')
+                if len(tds) >= 5:
+                    time_str = tds[0].get_text(strip=True)
+                    date_str = tds[1].get_text(strip=True)
+                    name_tag = tds[2].find('a')
+                    if not name_tag:
+                        continue
+                    event_name = name_tag.get_text(strip=True)
+                    event_url = "https://livetv.sx" + name_tag['href']
+                    if TODAY in date_str:
+                        events.append({
+                            'hora': time_str,
+                            'nombre': event_name,
+                            'url': event_url
+                        })
+            if not events:
+                log_warning("No se encontraron eventos en esta URL para la fecha de hoy.")
+            else:
+                log_step(f"Eventos encontrados en esta URL: {len(events)}")
+        except Exception as e:
+            log_error(f"Error navegando el árbol según el XPath: {e}")
 
-        current = current.find('tbody')
-        if not current:
-            log_warning("No se encontró <tbody> en la primera tabla")
-            return events
-        log_step("Encontrado <tbody> en la primera tabla")
-
-        trs = current.find_all('tr')
-        if len(trs) < 1:
-            log_warning("No hay <tr> en el primer <tbody>")
-            return events
-        current = trs[0]
-        log_step("Seleccionado primer <tr>")
-
-        tds = current.find_all('td')
-        if len(tds) < 2:
-            log_warning("No hay suficientes <td> en primer <tr>")
-            return events
-        current = tds[1].find('table')
-        if not current:
-            log_warning("No se encontró <table> en segundo <td> del primer <tr>")
-            return events
-        log_step("Descendiendo a siguiente <table>")
-
-        current = current.find('tbody')
-        trs = current.find_all('tr')
-        if len(trs) < 4:
-            log_warning("No hay suficientes <tr> en este <tbody>")
-            return events
-        current = trs[3]
-        log_step("Selección: cuarto <tr>")
-
-        tds = current.find_all('td')
-        if len(tds) < 1:
-            log_warning("No hay <td> en cuarto <tr>")
-            return events
-        current = tds[0].find('table')
-        if not current:
-            log_warning("No se encontró <table> en primer <td> del cuarto <tr>")
-            return events
-        log_step("Descendiendo a siguiente <table>")
-
-        current = current.find('tbody')
-        current = current.find('tr')
-        tds = current.find_all('td')
-        if len(tds) < 2:
-            log_warning("No hay suficientes <td> en este <tr>")
-            return events
-        current = tds[1].find('table')
-        if not current:
-            log_warning("No se encontró <table> en segundo <td>")
-            return events
-        log_step("Descendiendo a siguiente <table>")
-
-        current = current.find('tbody')
-        current = current.find('tr')
-        tds = current.find_all('td')
-        if len(tds) < 1:
-            log_warning("No hay <td> en <tr>")
-            return events
-        current = tds[0].find('table')
-        if not current:
-            log_warning("No se encontró <table> en primer <td>")
-            return events
-        log_step("Descendiendo a siguiente <table>")
-
-        current = current.find('tbody')
-        current = current.find('tr')
-        tds = current.find_all('td')
-        if len(tds) < 1:
-            log_warning("No hay <td> en <tr>")
-            return events
-        current = tds[0].find('table')
-        if not current:
-            log_warning("No se encontró <table> en primer <td>")
-            return events
-        log_step("Descendiendo a siguiente <table>")
-
-        current = current.find('tbody')
-        current = current.find('tr')
-        tds = current.find_all('td')
-        if len(tds) < 1:
-            log_warning("No hay <td> en <tr>")
-            return events
-        target_tables = tds[0].find_all('table')
-        if not target_tables:
-            log_warning("No se encontraron <table> en último <td>")
-            return events
-        log_step(f"Encontradas {len(target_tables)} tablas en el último <td>")
-
-        current = target_tables[0]
-        current = current.find('tbody')
-        tds = current.find_all('tr')[0].find_all('td')
-        if len(tds) < 2:
-            log_warning("No hay suficientes <td> en <tr> final")
-            return events
-        tables_list = tds[1].find_all('table')
-        if len(tables_list) < 4:
-            log_warning(f"Esperaba al menos 4 tablas en el último <td>, encontradas: {len(tables_list)}")
-            return events
-        log_step("Tomando la cuarta tabla (target)")
-
-        target_table = tables_list[3]
-        tbody = target_table.find('tbody')
-        if not tbody:
-            log_warning("No se encontró <tbody> en la tabla objetivo")
-            return events
-        rows = tbody.find_all('tr')
-        log_step(f"Total filas en la tabla objetivo: {len(rows)}")
-
-        for row in rows:
-            tds = row.find_all('td')
-            if len(tds) >= 5:
-                time_str = tds[0].get_text(strip=True)
-                date_str = tds[1].get_text(strip=True)
-                name_tag = tds[2].find('a')
-                if not name_tag:
-                    continue
-                event_name = name_tag.get_text(strip=True)
-                event_url = "https://livetv.sx" + name_tag['href']
-                if TODAY in date_str:
-                    events.append({
-                        'hora': time_str,
-                        'nombre': event_name,
-                        'url': event_url
-                    })
-        if not events:
-            log_warning("No se encontraron eventos en esta URL para la fecha de hoy.")
-        else:
-            log_step(f"Eventos encontrados en esta URL: {len(events)}")
     except Exception as e:
         log_error(f"Excepción procesando {url}: {e}")
     return events
 
 def main():
-    # Limpia el log al inicio
     if os.path.exists(LOGFILE):
         os.remove(LOGFILE)
 
