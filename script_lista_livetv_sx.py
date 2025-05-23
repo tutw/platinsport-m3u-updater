@@ -1,8 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
-from datetime import datetime
 import xml.etree.ElementTree as ET
 import time
 import os
@@ -64,9 +64,10 @@ def get_events_from_url(url, save_html=False):
         options.add_argument('--no-sandbox')
         options.add_argument('--window-size=1920,1080')
         options.add_argument('--disable-dev-shm-usage')
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service, options=options)
         driver.get(url)
-        time.sleep(4)  # Espera a que cargue JS
+        time.sleep(4)
 
         html = driver.page_source
 
@@ -77,14 +78,11 @@ def get_events_from_url(url, save_html=False):
 
         soup = BeautifulSoup(html, 'html.parser')
 
-        # Busca todas las filas de todas las tablas, sin importar la estructura
         for row in soup.find_all('tr'):
             tds = row.find_all('td')
             if len(tds) >= 3:
-                # Busca el enlace que corresponde a un evento (eventinfo)
                 a = tds[2].find('a', href=True)
                 if a and a['href'].startswith('/es/eventinfo/'):
-                    # Intenta extraer hora y fecha en las primeras celdas (si están)
                     hora = tds[0].get_text(strip=True) if len(tds) > 0 else ''
                     fecha = tds[1].get_text(strip=True) if len(tds) > 1 else ''
                     nombre = a.get_text(strip=True)
