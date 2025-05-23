@@ -4,7 +4,6 @@ from datetime import datetime
 import xml.etree.ElementTree as ET
 import urllib3
 
-# Desactivar advertencias por deshabilitar la verificación SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 URLS = [
@@ -40,88 +39,142 @@ URLS = [
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
 TODAY = datetime.now().strftime('%d %b %Y')  # Por ejemplo '23 May 2025'
 
+def log_step(msg):
+    print(f"[INFO] {msg}")
+
+def log_warning(msg):
+    print(f"[WARN] {msg}")
+
+def log_error(msg):
+    print(f"[ERROR] {msg}")
+
 def get_events_from_url(url):
     events = []
+    log_step(f"Procesando URL: {url}")
     try:
         page = requests.get(url, headers=HEADERS, verify=False, timeout=20)
         soup = BeautifulSoup(page.content, 'html.parser')
 
-        # Navegación exacta siguiendo tu XPath
         current = soup.body
         if not current:
+            log_warning("No se encontró <body>")
             return events
+        log_step("Encontrado <body>")
+
         current = current.find('table')
         if not current:
+            log_warning("No se encontró primer <table> en <body>")
             return events
+        log_step("Encontrada primera <table>")
+
         current = current.find('tbody')
         if not current:
+            log_warning("No se encontró <tbody> en la primera tabla")
             return events
+        log_step("Encontrado <tbody> en la primera tabla")
+
         trs = current.find_all('tr')
         if len(trs) < 1:
+            log_warning("No hay <tr> en el primer <tbody>")
             return events
         current = trs[0]
+        log_step("Seleccionado primer <tr>")
+
         tds = current.find_all('td')
         if len(tds) < 2:
+            log_warning("No hay suficientes <td> en primer <tr>")
             return events
         current = tds[1].find('table')
         if not current:
+            log_warning("No se encontró <table> en segundo <td> del primer <tr>")
             return events
+        log_step("Descendiendo a siguiente <table>")
+
         current = current.find('tbody')
         trs = current.find_all('tr')
         if len(trs) < 4:
+            log_warning("No hay suficientes <tr> en este <tbody>")
             return events
         current = trs[3]
+        log_step("Selección: cuarto <tr>")
+
         tds = current.find_all('td')
         if len(tds) < 1:
+            log_warning("No hay <td> en cuarto <tr>")
             return events
         current = tds[0].find('table')
         if not current:
+            log_warning("No se encontró <table> en primer <td> del cuarto <tr>")
             return events
+        log_step("Descendiendo a siguiente <table>")
+
         current = current.find('tbody')
         current = current.find('tr')
         tds = current.find_all('td')
         if len(tds) < 2:
+            log_warning("No hay suficientes <td> en este <tr>")
             return events
         current = tds[1].find('table')
         if not current:
+            log_warning("No se encontró <table> en segundo <td>")
             return events
+        log_step("Descendiendo a siguiente <table>")
+
         current = current.find('tbody')
         current = current.find('tr')
         tds = current.find_all('td')
         if len(tds) < 1:
+            log_warning("No hay <td> en <tr>")
             return events
         current = tds[0].find('table')
         if not current:
+            log_warning("No se encontró <table> en primer <td>")
             return events
+        log_step("Descendiendo a siguiente <table>")
+
         current = current.find('tbody')
         current = current.find('tr')
         tds = current.find_all('td')
         if len(tds) < 1:
+            log_warning("No hay <td> en <tr>")
             return events
         current = tds[0].find('table')
         if not current:
+            log_warning("No se encontró <table> en primer <td>")
             return events
+        log_step("Descendiendo a siguiente <table>")
+
         current = current.find('tbody')
         current = current.find('tr')
         tds = current.find_all('td')
         if len(tds) < 1:
+            log_warning("No hay <td> en <tr>")
             return events
-        current = tds[0].find_all('table')[0]
-        if not current:
+        target_tables = tds[0].find_all('table')
+        if not target_tables:
+            log_warning("No se encontraron <table> en último <td>")
             return events
+        log_step(f"Encontradas {len(target_tables)} tablas en el último <td>")
+
+        current = target_tables[0]
         current = current.find('tbody')
         tds = current.find_all('tr')[0].find_all('td')
         if len(tds) < 2:
+            log_warning("No hay suficientes <td> en <tr> final")
             return events
-        # La tabla objetivo: cuarta tabla dentro de este td
-        target_tables = tds[1].find_all('table')
-        if len(target_tables) < 4:
+        tables_list = tds[1].find_all('table')
+        if len(tables_list) < 4:
+            log_warning(f"Esperaba al menos 4 tablas en el último <td>, encontradas: {len(tables_list)}")
             return events
-        target_table = target_tables[3]
+        log_step("Tomando la cuarta tabla (target)")
+
+        target_table = tables_list[3]
         tbody = target_table.find('tbody')
         if not tbody:
+            log_warning("No se encontró <tbody> en la tabla objetivo")
             return events
         rows = tbody.find_all('tr')
+        log_step(f"Total filas en la tabla objetivo: {len(rows)}")
 
         for row in rows:
             tds = row.find_all('td')
@@ -139,8 +192,9 @@ def get_events_from_url(url):
                         'nombre': event_name,
                         'url': event_url
                     })
+        log_step(f"Eventos encontrados en esta URL: {len(events)}")
     except Exception as e:
-        print(f"Error en {url}: {e}")
+        log_error(f"Excepción procesando {url}: {e}")
     return events
 
 def main():
@@ -148,6 +202,8 @@ def main():
     for url in URLS:
         eventos = get_events_from_url(url)
         all_events.extend(eventos)
+
+    log_step(f"Total de eventos encontrados: {len(all_events)}")
 
     root = ET.Element('eventos')
     for ev in all_events:
