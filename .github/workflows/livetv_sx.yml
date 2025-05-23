@@ -1,43 +1,62 @@
-name: Scrape LiveTV.sx Events
+name: Scraping LiveTV
 
 on:
-  schedule:
-    - cron: '0 * * * *'  # Cada hora
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  scrape_and_push:
+  scraping:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: 3.11
+
+      - name: Upgrade pip and install wheel
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run script
+      - name: Install Google Chrome
+        run: |
+          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Install Chromium driver (chromedriver)
+        run: |
+          sudo apt-get install -y chromium-chromedriver
+          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver || true
+
+      - name: Run scraping script
         run: python script_lista_livetv_sx.py
 
-      - name: Commit and push eventos_livetv_sx.xml
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add eventos_livetv_sx.xml
-          git commit -m "update eventos_livetv_sx.xml [auto]" || echo "No changes to commit"
-          git pull --rebase https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git ${{ github.ref_name }}
-          git push https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
-
-      - name: Upload XML as artifact
+      - name: Upload eventos_livetv_sx.xml
         uses: actions/upload-artifact@v4
         with:
           name: eventos_livetv_sx
           path: eventos_livetv_sx.xml
+
+      - name: Upload scraping log
+        uses: actions/upload-artifact@v4
+        with:
+          name: scraping_log
+          path: scraping_log.txt
+
+      - name: Upload debug html (first URL)
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug_livetv_html
+          path: debug_livetv.html
