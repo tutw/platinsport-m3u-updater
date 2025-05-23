@@ -37,7 +37,6 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/93/",
 ]
 
-TODAY = datetime.now().strftime('%d %b %Y')
 LOGFILE = 'scraping_log.txt'
 
 def log_step(msg):
@@ -78,35 +77,24 @@ def get_events_from_url(url, save_html=False):
 
         soup = BeautifulSoup(html, 'html.parser')
 
-        # Busca la tabla de eventos por contenido
-        all_tables = soup.find_all('table')
-        target_table = None
-        for table in all_tables:
-            if ("Hora" in table.text and "Fecha" in table.text) or ("Time" in table.text and "Date" in table.text):
-                target_table = table
-                break
-        if not target_table:
-            log_warning("No se encontró la tabla de eventos por contenido.")
-            driver.quit()
-            return events
-
-        rows = target_table.find_all('tr')
-        for row in rows:
+        # Busca todas las filas de todas las tablas, sin importar la estructura
+        for row in soup.find_all('tr'):
             tds = row.find_all('td')
-            if len(tds) >= 5:
-                time_str = tds[0].get_text(strip=True)
-                date_str = tds[1].get_text(strip=True)
-                name_tag = tds[2].find('a', href=True)
-                if not name_tag or not name_tag['href'].startswith('/es/eventinfo/'):
-                    continue
-                event_name = name_tag.get_text(strip=True)
-                event_url = "https://livetv.sx" + name_tag['href']
-                events.append({
-                    'hora': time_str,
-                    'fecha': date_str,
-                    'nombre': event_name,
-                    'url': event_url
-                })
+            if len(tds) >= 3:
+                # Busca el enlace que corresponde a un evento (eventinfo)
+                a = tds[2].find('a', href=True)
+                if a and a['href'].startswith('/es/eventinfo/'):
+                    # Intenta extraer hora y fecha en las primeras celdas (si están)
+                    hora = tds[0].get_text(strip=True) if len(tds) > 0 else ''
+                    fecha = tds[1].get_text(strip=True) if len(tds) > 1 else ''
+                    nombre = a.get_text(strip=True)
+                    url_evento = 'https://livetv.sx' + a['href']
+                    events.append({
+                        'hora': hora,
+                        'fecha': fecha,
+                        'nombre': nombre,
+                        'url': url_evento
+                    })
         driver.quit()
         if not events:
             log_warning("No se encontraron eventos en esta URL.")
