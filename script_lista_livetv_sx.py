@@ -1,11 +1,11 @@
-import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from datetime import datetime
 import xml.etree.ElementTree as ET
-import urllib3
+import time
 import os
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 URLS = [
     "https://livetv.sx/es/allupcomingsports/1/",
@@ -37,7 +37,6 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/93/",
 ]
 
-HEADERS = {'User-Agent': 'Mozilla/5.0'}
 TODAY = datetime.now().strftime('%d %b %Y')
 LOGFILE = 'scraping_log.txt'
 
@@ -60,65 +59,59 @@ def get_events_from_url(url, save_html=False):
     events = []
     log_step(f"Procesando URL: {url}")
     try:
-        page = requests.get(url, headers=HEADERS, verify=False, timeout=20)
-        soup = BeautifulSoup(page.content, 'html.parser')
+        options = Options()
+        options.add_argument('--headless')
+        options.add_argument('--disable-gpu')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--window-size=1920,1080')
+        options.add_argument('--disable-dev-shm-usage')
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        driver.get(url)
+        time.sleep(4)  # Espera a que cargue JS
+
+        html = driver.page_source
 
         if save_html:
             with open("debug_livetv.html", "w", encoding="utf-8") as f:
-                f.write(page.text)
+                f.write(html)
             log_step("Guardado el HTML de la primera URL en debug_livetv.html para inspección manual.")
 
-        try:
-            # Navegación exacta según tu XPath
-            current = soup.body
-            current = current.find_all('table')[0]      # /body/table
-            current = current.find_all('tbody')[0]
-            current = current.find_all('tr')[0]
-            tds = current.find_all('td')
-            current = tds[1].find_all('table')[0]
-            current = current.find_all('tbody')[0]
-            current = current.find_all('tr')[3]
-            current = current.find_all('td')[0].find_all('table')[0]
-            current = current.find_all('tbody')[0]
-            current = current.find_all('tr')[0]
-            current = current.find_all('td')[1].find_all('table')[0]
-            current = current.find_all('tbody')[0]
-            current = current.find_all('tr')[0]
-            current = current.find_all('td')[0].find_all('table')[0]
-            current = current.find_all('tbody')[0]
-            current = current.find_all('tr')[1].find_all('td')[0].find_all('table')[0]
-            current = current.find_all('tbody')[0]
-            current = current.find_all('tr')[0]
-            current = current.find_all('td')[0].find_all('table')[0]
-            current = current.find_all('tbody')[0]
-            current = current.find_all('tr')[0]
-            current = current.find_all('td')[1].find_all('table')[3]  # table[4]
-            current = current.find_all('tbody')[0]  # este es tu tbody objetivo
+        soup = BeautifulSoup(html, 'html.parser')
 
-            rows = current.find_all('tr')
-            for row in rows:
-                tds = row.find_all('td')
-                if len(tds) >= 5:
-                    time_str = tds[0].get_text(strip=True)
-                    date_str = tds[1].get_text(strip=True)
-                    name_tag = tds[2].find('a')
-                    if not name_tag:
-                        continue
-                    event_name = name_tag.get_text(strip=True)
-                    event_url = "https://livetv.sx" + name_tag['href']
-                    if TODAY in date_str:
-                        events.append({
-                            'hora': time_str,
-                            'nombre': event_name,
-                            'url': event_url
-                        })
-            if not events:
-                log_warning("No se encontraron eventos en esta URL para la fecha de hoy.")
-            else:
-                log_step(f"Eventos encontrados en esta URL: {len(events)}")
-        except Exception as e:
-            log_error(f"Error navegando el árbol según el XPath: {e}")
+        # Busca la tabla de eventos por contenido
+        all_tables = soup.find_all('table')
+        target_table = None
+        for table in all_tables:
+            if ("Hora" in table.text and "Fecha" in table.text) or ("Time" in table.text and "Date" in table.text):
+                target_table = table
+                break
+        if not target_table:
+            log_warning("No se encontró la tabla de eventos por contenido.")
+            driver.quit()
+            return events
 
+        rows = target_table.find_all('tr')
+        for row in rows:
+            tds = row.find_all('td')
+            if len(tds) >= 5:
+                time_str = tds[0].get_text(strip=True)
+                date_str = tds[1].get_text(strip=True)
+                name_tag = tds[2].find('a')
+                if not name_tag:
+                    continue
+                event_name = name_tag.get_text(strip=True)
+                event_url = "https://livetv.sx" + name_tag['href']
+                if TODAY in date_str:
+                    events.append({
+                        'hora': time_str,
+                        'nombre': event_name,
+                        'url': event_url
+                    })
+        driver.quit()
+        if not events:
+            log_warning("No se encontraron eventos en esta URL para la fecha de hoy.")
+        else:
+            log_step(f"Eventos encontrados en esta URL: {len(events)}")
     except Exception as e:
         log_error(f"Excepción procesando {url}: {e}")
     return events
