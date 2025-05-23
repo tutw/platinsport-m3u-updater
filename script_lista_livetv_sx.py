@@ -3,7 +3,9 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
+from datetime import datetime
 import xml.etree.ElementTree as ET
+import subprocess
 import time
 import os
 
@@ -38,6 +40,7 @@ URLS = [
 ]
 
 LOGFILE = 'scraping_log.txt'
+FECHA_HOY = datetime.now().strftime('%d %b %Y')
 
 def log_step(msg):
     print(f"[INFO] {msg}")
@@ -87,20 +90,32 @@ def get_events_from_url(url, save_html=False):
                     fecha = tds[1].get_text(strip=True) if len(tds) > 1 else ''
                     nombre = a.get_text(strip=True)
                     url_evento = 'https://livetv.sx' + a['href']
-                    events.append({
-                        'hora': hora,
-                        'fecha': fecha,
-                        'nombre': nombre,
-                        'url': url_evento
-                    })
+                    if fecha == FECHA_HOY:
+                        events.append({
+                            'hora': hora,
+                            'fecha': fecha,
+                            'nombre': nombre,
+                            'url': url_evento
+                        })
         driver.quit()
         if not events:
-            log_warning("No se encontraron eventos en esta URL.")
+            log_warning("No se encontraron eventos de hoy en esta URL.")
         else:
-            log_step(f"Eventos encontrados en esta URL: {len(events)}")
+            log_step(f"Eventos de hoy encontrados en esta URL: {len(events)}")
     except Exception as e:
         log_error(f"Excepción procesando {url}: {e}")
     return events
+
+def git_commit_push():
+    try:
+        subprocess.run(['git', 'config', '--global', 'user.email', 'github-actions[bot]@users.noreply.github.com'], check=True)
+        subprocess.run(['git', 'config', '--global', 'user.name', 'github-actions[bot]'], check=True)
+        subprocess.run(['git', 'add', 'eventos_livetv_sx.xml'], check=True)
+        subprocess.run(['git', 'commit', '-m', f'update eventos_livetv_sx.xml with today\'s events'], check=True)
+        subprocess.run(['git', 'push'], check=True)
+        print("Commit y push realizados correctamente.")
+    except Exception as e:
+        print(f"Error en commit/push: {e}")
 
 def main():
     if os.path.exists(LOGFILE):
@@ -111,7 +126,7 @@ def main():
         eventos = get_events_from_url(url, save_html=(i == 0))
         all_events.extend(eventos)
 
-    log_step(f"Total de eventos encontrados: {len(all_events)}")
+    log_step(f"Total de eventos de hoy encontrados: {len(all_events)}")
 
     root = ET.Element('eventos')
     for ev in all_events:
@@ -130,6 +145,9 @@ def main():
     print('Archivo eventos_livetv_sx.xml generado con éxito.')
     print(f'Consulta el log detallado en {LOGFILE}')
     print('Si necesitas depuración avanzada, revisa también debug_livetv.html (solo para la primera URL).')
+
+    # Commit y push automático
+    git_commit_push()
 
 if __name__ == '__main__':
     main()
