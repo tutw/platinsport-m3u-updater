@@ -5,7 +5,6 @@ import xml.etree.ElementTree as ET
 import urllib3
 import os
 
-# Evita los warnings de SSL en requests
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 URLS = [
@@ -94,7 +93,7 @@ def get_events_from_url(url, save_html=False):
             current = current.find_all('tbody')[0]
             current = current.find_all('tr')[0]
             current = current.find_all('td')[1].find_all('table')[3]  # table[4]
-            current = current.find_all('tbody')[0]  # <--- este es tu tbody objetivo
+            current = current.find_all('tbody')[0]  # este es tu tbody objetivo
 
             rows = current.find_all('tr')
             for row in rows:
