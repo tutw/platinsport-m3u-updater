@@ -1,0 +1,31 @@
+name: Scrape LiveTV.sx Events
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Cada hora
+  workflow_dispatch:      # Permitir ejecución manual
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: Scrape LiveTV.sx
+        run: python script_lista_livetv_sx.py
+
+      - name: Upload XML artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eventos_livetv_sx
+          path: eventos_livetv_sx.xml
