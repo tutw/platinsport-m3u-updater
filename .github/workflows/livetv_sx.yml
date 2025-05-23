@@ -1,73 +1,33 @@
-name: Scraping LiveTV y commit XML
+name: Scrape LiveTV SX
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *' # Ejecuta todos los días a las 7:00 UTC (ajusta si lo deseas)
+    - cron: '0 * * * *'  # Cada 1 hora
+  workflow_dispatch:      # Permite ejecución manual
 
 jobs:
-  scraping:
+  scrape:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: true
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.11
-
-      - name: Upgrade pip and install wheel
-        run: |
-          python -m pip install --upgrade pip
-          pip install wheel
+          python-version: '3.x'
 
       - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Install Google Chrome
-        run: |
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
-
-      - name: Install Chromium driver (chromedriver)
-        run: |
-          sudo apt-get install -y chromium-chromedriver
-          sudo ln -sf /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver || true
+        run: pip install requests
 
       - name: Run scraping script
         run: python script_lista_livetv_sx.py
 
-      - name: Commit and push updated XML
+      - name: Commit and push XML
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add eventos_livetv_sx.xml
-          git commit -m "Update eventos_livetv_sx.xml with today's events" || echo "No changes to commit"
+          git commit -m "Update eventos_livetv_sx.xml [bot]" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload eventos_livetv_sx.xml (artifact)
-        uses: actions/upload-artifact@v4
-        with:
-          name: eventos_livetv_sx
-          path: eventos_livetv_sx.xml
-
-      - name: Upload scraping log
-        uses: actions/upload-artifact@v4
-        with:
-          name: scraping_log
-          path: scraping_log.txt
-
-      - name: Upload debug html (first URL)
-        uses: actions/upload-artifact@v4
-        with:
-          name: debug_livetv_html
-          path: debug_livetv.html
