@@ -1,4 +1,4 @@
-name: Scraping LiveTV
+name: Scraping LiveTV y commit XML
 
 on:
   workflow_dispatch:
@@ -11,8 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true  # Necesario para hacer push
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -38,12 +40,22 @@ jobs:
       - name: Install Chromium driver (chromedriver)
         run: |
           sudo apt-get install -y chromium-chromedriver
-          sudo ln -s /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver || true
+          sudo ln -sf /usr/lib/chromium-browser/chromedriver /usr/bin/chromedriver || true
 
       - name: Run scraping script
         run: python script_lista_livetv_sx.py
 
-      - name: Upload eventos_livetv_sx.xml
+      - name: Commit and push updated XML
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add eventos_livetv_sx.xml
+          git commit -m "Update eventos_livetv_sx.xml with today's events" || echo "No changes to commit"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload eventos_livetv_sx.xml (artifact)
         uses: actions/upload-artifact@v4
         with:
           name: eventos_livetv_sx
