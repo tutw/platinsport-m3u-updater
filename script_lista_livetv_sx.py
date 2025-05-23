@@ -45,7 +45,85 @@ def get_events_from_url(url):
     try:
         page = requests.get(url, headers=HEADERS, verify=False, timeout=20)
         soup = BeautifulSoup(page.content, 'html.parser')
-        for row in soup.select("table.table-main tr[onmouseover]"):
+
+        # Navegación exacta siguiendo tu XPath
+        current = soup.body
+        if not current:
+            return events
+        current = current.find('table')
+        if not current:
+            return events
+        current = current.find('tbody')
+        if not current:
+            return events
+        trs = current.find_all('tr')
+        if len(trs) < 1:
+            return events
+        current = trs[0]
+        tds = current.find_all('td')
+        if len(tds) < 2:
+            return events
+        current = tds[1].find('table')
+        if not current:
+            return events
+        current = current.find('tbody')
+        trs = current.find_all('tr')
+        if len(trs) < 4:
+            return events
+        current = trs[3]
+        tds = current.find_all('td')
+        if len(tds) < 1:
+            return events
+        current = tds[0].find('table')
+        if not current:
+            return events
+        current = current.find('tbody')
+        current = current.find('tr')
+        tds = current.find_all('td')
+        if len(tds) < 2:
+            return events
+        current = tds[1].find('table')
+        if not current:
+            return events
+        current = current.find('tbody')
+        current = current.find('tr')
+        tds = current.find_all('td')
+        if len(tds) < 1:
+            return events
+        current = tds[0].find('table')
+        if not current:
+            return events
+        current = current.find('tbody')
+        current = current.find('tr')
+        tds = current.find_all('td')
+        if len(tds) < 1:
+            return events
+        current = tds[0].find('table')
+        if not current:
+            return events
+        current = current.find('tbody')
+        current = current.find('tr')
+        tds = current.find_all('td')
+        if len(tds) < 1:
+            return events
+        current = tds[0].find_all('table')[0]
+        if not current:
+            return events
+        current = current.find('tbody')
+        tds = current.find_all('tr')[0].find_all('td')
+        if len(tds) < 2:
+            return events
+        # La tabla objetivo: cuarta tabla dentro de este td
+        target_tables = tds[1].find_all('table')
+        if len(target_tables) < 4:
+            return events
+        target_table = target_tables[3]
+        tbody = target_table.find('tbody')
+        if not tbody:
+            return events
+        rows = tbody.find_all('tr')
+
+        for row in rows:
             tds = row.find_all('td')
             if len(tds) >= 5:
                 time_str = tds[0].get_text(strip=True)
