@@ -1,9 +1,14 @@
 import requests
 import re
 import xml.etree.ElementTree as ET
+import urllib3
 
-# URLs a analizar
+# Silencia los warnings de SSL
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+# Todas las URLs posibles de eventos próximos en LiveTV.sx (puedes agregar/quitar según necesidad)
 URLS = [
+    "https://livetv.sx/es/allupcoming/",
     "https://livetv.sx/es/allupcomingsports/1/",
     "https://livetv.sx/es/allupcomingsports/2/",
     "https://livetv.sx/es/allupcomingsports/3/",
@@ -11,38 +16,35 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/5/",
     "https://livetv.sx/es/allupcomingsports/6/",
     "https://livetv.sx/es/allupcomingsports/7/",
+    "https://livetv.sx/es/allupcomingsports/8/",
     "https://livetv.sx/es/allupcomingsports/9/",
-    "https://livetv.sx/es/allupcomingsports/12/",
-    "https://livetv.sx/es/allupcomingsports/13/",
-    "https://livetv.sx/es/allupcomingsports/17/",
-    "https://livetv.sx/es/allupcomingsports/19/",
-    "https://livetv.sx/es/allupcomingsports/23/",
-    "https://livetv.sx/es/allupcomingsports/27/",
-    "https://livetv.sx/es/allupcomingsports/29/",
-    "https://livetv.sx/es/allupcomingsports/30/",
-    "https://livetv.sx/es/allupcomingsports/31/",
-    "https://livetv.sx/es/allupcomingsports/33/",
-    "https://livetv.sx/es/allupcomingsports/37/",
-    "https://livetv.sx/es/allupcomingsports/38/",
-    "https://livetv.sx/es/allupcomingsports/39/",
-    "https://livetv.sx/es/allupcomingsports/40/",
-    "https://livetv.sx/es/allupcomingsports/41/",
-    "https://livetv.sx/es/allupcomingsports/52/",
-    "https://livetv.sx/es/allupcomingsports/66/",
-    "https://livetv.sx/es/allupcomingsports/75/",
-    "https://livetv.sx/es/allupcomingsports/93/",
+    "https://livetv.sx/es/allupcomingsports/10/",
+    "https://livetv.sx/es/allupcoming/1/",
+    "https://livetv.sx/es/allupcoming/2/",
+    "https://livetv.sx/es/allupcoming/3/",
+    "https://livetv.sx/es/allupcoming/4/",
+    "https://livetv.sx/es/allupcoming/5/",
+    "https://livetv.sx/es/allupcoming/6/",
+    "https://livetv.sx/es/allupcoming/7/",
+    "https://livetv.sx/es/allupcoming/8/",
+    "https://livetv.sx/es/allupcoming/9/",
+    "https://livetv.sx/es/allupcoming/10/",
 ]
-# Patrón regex para encontrar solo los enlaces con números y "__" al final
-PATTERN = re.compile(r"https://livetv\.sx/es/eventinfo/(\d+)__/?")
+
+# Patrón para solo los enlaces con números + "__/" al final, nada de texto
+PATTERN = re.compile(r"https://livetv\.sx/es/eventinfo/(\d+)__/")
 
 def scrape_links():
     found_links = set()
     for url in URLS:
-        resp = requests.get(url)
-        resp.raise_for_status()
-        matches = PATTERN.findall(resp.text)
-        for match in matches:
-            found_links.add(f"https://livetv.sx/es/eventinfo/{match}__/")
+        try:
+            resp = requests.get(url, verify=False, timeout=20)
+            resp.raise_for_status()
+            matches = PATTERN.findall(resp.text)
+            for match in matches:
+                found_links.add(f"https://livetv.sx/es/eventinfo/{match}__/")
+        except Exception as e:
+            print(f"Error accediendo a {url}: {e}")
     return sorted(found_links)
 
 def save_to_xml(links, filename="eventos_livetv_sx.xml"):
