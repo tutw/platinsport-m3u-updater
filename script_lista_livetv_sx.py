@@ -31,7 +31,6 @@ URLS = [
     "https://livetv.sx/es/allupcoming/10/",
 ]
 
-# Patrón para solo los enlaces con números + "__/" al final, nada de texto
 PATTERN = re.compile(r"https://livetv\.sx/es/eventinfo/(\d+)__/")
 
 def scrape_links():
