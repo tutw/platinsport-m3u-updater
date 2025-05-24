@@ -28,6 +28,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add eventos_livetv_sx.xml
           git commit -m "Update eventos_livetv_sx.xml [bot]" || echo "No changes to commit"
+          git pull --rebase origin main
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
