@@ -1,6 +1,5 @@
 import re
 import xml.etree.ElementTree as ET
-import traceback
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -8,7 +7,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
-import time
+from concurrent.futures import ThreadPoolExecutor
 
 URLS = [
     "https://livetv.sx/es/allupcomingsports/1/",
@@ -40,43 +39,43 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/93/",
 ]
 
-PATTERN = re.compile(r"https://livetv\.sx/es/eventinfo/\d+__/")
+PATTERN = re.compile(r"https://livetv\.sx/es/eventinfo/\d+_[^/]+/")
 
 def get_page_source_with_age_confirm(driver, url):
     driver.get(url)
-    time.sleep(5)  # Aumenta el tiempo de espera
     try:
-        btn = WebDriverWait(driver, 10).until(
+        btn = WebDriverWait(driver, 3).until(
             EC.element_to_be_clickable((By.XPATH, '/html/body/table/tbody/tr/td[2]/table/tbody/tr[7]/td/noindex/table/tbody/tr/td[2]/div[2]/table/tr/td[2]/table/tr[3]/td/button[1]'))
         )
         btn.click()
-        time.sleep(5)  # Aumenta el tiempo de espera
     except Exception:
-        print("No apareció el popup de edad o falló el click.")
+        pass  # Ignorar si no se encuentra el popup
+
+    WebDriverWait(driver, 5).until(
+        lambda d: d.execute_script('return document.readyState') == 'complete'
+    )
     return driver.page_source
+
+def scrape_links_from_url(driver, url):
+    try:
+        html = get_page_source_with_age_confirm(driver, url)
+        return PATTERN.findall(html)
+    except Exception:
+        return []
 
 def scrape_links():
     found_links = set()
     options = Options()
-    options.add_argument("--headless=new")  # Borra esta línea si quieres ver el navegador
+    options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-    try:
-        for url in URLS:
-            try:
-                print(f"Accediendo a: {url}")
-                html = get_page_source_with_age_confirm(driver, url)
-                print(html)  # Imprime el HTML para depuración
-                matches = PATTERN.findall(html)
-                for match in matches:
-                    found_links.add(match)
-            except Exception as e:
-                print(f"Error accediendo a {url}: {e}")
-                traceback.print_exc()
-    finally:
-        driver.quit()
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
+            futures = [executor.submit(scrape_links_from_url, driver, url) for url in URLS]
+            for future in futures:
+                found_links.update(future.result())
+
     return sorted(found_links)
 
 def save_to_xml(links, filename="eventos_livetv_sx.xml"):
