@@ -48,8 +48,8 @@ def get_page_source_with_age_confirm(driver, url):
             EC.element_to_be_clickable((By.XPATH, '/html/body/table/tbody/tr/td[2]/table/tbody/tr[7]/td/noindex/table/tbody/tr/td[2]/div[2]/table/tr/td[2]/table/tr[3]/td/button[1]'))
         )
         btn.click()
-    except Exception:
-        pass  # Ignorar si no se encuentra el popup
+    except Exception as e:
+        print(f"No apareció el popup de edad o falló el click en {url}. Error: {e}. Continuando...")
 
     WebDriverWait(driver, 5).until(
         lambda d: d.execute_script('return document.readyState') == 'complete'
@@ -58,9 +58,21 @@ def get_page_source_with_age_confirm(driver, url):
 
 def scrape_links_from_url(driver, url):
     try:
+        print(f"Accediendo a: {url}")
         html = get_page_source_with_age_confirm(driver, url)
-        return PATTERN.findall(html)
-    except Exception:
+
+        # Imprimir una parte del HTML para depuración
+        print(f"Primeros 500 caracteres del HTML de {url}: {html[:500]}...")
+
+        matches = PATTERN.findall(html)
+        if not matches:
+            print(f"No se encontraron enlaces en {url}. Verifica el patrón de expresión regular y el HTML.")
+        else:
+            print(f"Enlaces encontrados en {url}: {matches}")
+
+        return matches
+    except Exception as e:
+        print(f"Error accediendo a {url}: {e}")
         return []
 
 def scrape_links():
