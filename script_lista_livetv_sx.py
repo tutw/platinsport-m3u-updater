@@ -2,6 +2,7 @@ import requests
 import re
 import xml.etree.ElementTree as ET
 import urllib3
+import traceback
 
 # Silencia los warnings de SSL
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -37,6 +38,7 @@ def scrape_links():
     found_links = set()
     for url in URLS:
         try:
+            print(f"Accediendo a: {url}")
             resp = requests.get(url, verify=False, timeout=20)
             resp.raise_for_status()
             matches = PATTERN.findall(resp.text)
@@ -44,6 +46,7 @@ def scrape_links():
                 found_links.add(f"https://livetv.sx/es/eventinfo/{match}__/")
         except Exception as e:
             print(f"Error accediendo a {url}: {e}")
+            traceback.print_exc()  # Muestra el traceback completo
     return sorted(found_links)
 
 def save_to_xml(links, filename="eventos_livetv_sx.xml"):
