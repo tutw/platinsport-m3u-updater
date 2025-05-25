@@ -1,34 +1,49 @@
-name: Scrape LiveTV SX
+name: Scraping LiveTV y commit XML
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'  # Cada 1 hora
-  workflow_dispatch:      # Permite ejecución manual
+    - cron: '0 7 * * *'  # Corre cada día a las 7:00 UTC (ajusta si lo deseas)
 
 jobs:
-  scrape:
+  scraping:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: 3.11
+
+      - name: Upgrade pip and install wheel
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
 
       - name: Install dependencies
-        run: pip install requests
+        run: |
+          pip install -r requirements.txt
 
       - name: Run scraping script
         run: python script_lista_livetv_sx.py
 
-      - name: Commit and push XML
+      - name: Commit and push updated XML
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
           git add eventos_livetv_sx.xml
-          git commit -m "Update eventos_livetv_sx.xml [bot]" || echo "No changes to commit"
-          git pull --rebase origin main
+          git commit -m "Update eventos_livetv_sx.xml with today's events" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload eventos_livetv_sx.xml (artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: eventos_livetv_sx
+          path: eventos_livetv_sx.xml
