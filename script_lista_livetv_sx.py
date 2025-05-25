@@ -1,5 +1,4 @@
 import requests
-import re
 import xml.etree.ElementTree as ET
 import urllib3
 import traceback
@@ -7,7 +6,6 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from dateutil import parser as dateparser
 import subprocess
-import os
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
@@ -59,6 +57,7 @@ def normaliza_fecha(fecha_str):
 def scrape_events():
     all_events = []
     today = datetime.now().date()
+    print(f"[DEBUG] Hoy (sistema): {today}")
     for url in URLS:
         try:
             print(f"Accediendo a: {url}")
@@ -75,6 +74,7 @@ def scrape_events():
                         nombre = a.get_text(strip=True)
                         url_evento = "https://livetv.sx" + a['href']
                         fecha_evento = normaliza_fecha(fecha)
+                        print(f"[DEBUG] Fecha extraída: '{fecha}' -> '{fecha_evento}'")
                         if fecha_evento == today:
                             all_events.append({
                                 'hora': hora,
