@@ -69,8 +69,9 @@ def extract_event_info(html, link):
     evdesc = evdesc_match.group(1).strip() if evdesc_match else "Fecha y hora no encontradas"
     league = evdesc_match.group(2).strip() if evdesc_match else "Liga no encontrada"
 
-    # Separar fecha y hora
-    date_time = evdesc.split(' a ')
+    # Limpiar la fecha y hora
+    evdesc_clean = re.sub(r'<.*?>', '', evdesc)  # Eliminar etiquetas HTML
+    date_time = evdesc_clean.split(' a ')
     date = date_time[0] if len(date_time) > 0 else "Fecha no encontrada"
     time = date_time[1] if len(date_time) > 1 else "Hora no encontrada"
 
