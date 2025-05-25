@@ -1,5 +1,6 @@
 import re
 import xml.etree.ElementTree as ET
+from xml.dom import minidom
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -40,7 +41,8 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/93/",
 ]
 
-PATTERN = re.compile(r"/es/eventinfo/\d+_[^/]+/")
+# Detecta /es/eventinfo/290907651__/ o variantes similares
+PATTERN = re.compile(r"/es/eventinfo/\d+__?/")
 
 def get_page_source_with_age_confirm(driver, url):
     driver.get(url)
@@ -58,7 +60,6 @@ def get_page_source_with_age_confirm(driver, url):
     return driver.page_source
 
 def extract_event_info(html, link):
-    # Extraer información del evento
     event_name_pattern = re.compile(r'<a class="live" href="' + re.escape(link) + r'">(.*?)</a>')
     evdesc_pattern = re.compile(r'<span class="evdesc">(.*?)<br>.*?<br>.*?\((.*?)\)</span>')
 
@@ -69,7 +70,6 @@ def extract_event_info(html, link):
     evdesc = evdesc_match.group(1).strip() if evdesc_match else "Fecha y hora no encontradas"
     league = evdesc_match.group(2).strip() if evdesc_match else "Liga no encontrada"
 
-    # Limpiar la fecha y hora
     evdesc_clean = re.sub(r'<.*?>', '', evdesc)  # Eliminar etiquetas HTML
     date_time = evdesc_clean.split(' a ')
     date = date_time[0] if len(date_time) > 0 else "Fecha no encontrada"
@@ -83,20 +83,20 @@ def scrape_links_from_url(driver, url):
         html = get_page_source_with_age_confirm(driver, url)
         matches = PATTERN.findall(html)
         if not matches:
-            print(f"No se encontraron enlaces en {url}. Verifica el patrón de expresión regular y el HTML.")
+            print(f"No se encontraron enlaces en {url}.")
         else:
             print(f"Enlaces encontrados en {url}: {matches}")
 
-        # Extraer información de cada enlace
         events_info = []
         for link in matches:
+            full_url = f"https://livetv.sx{link}"
             event_name, date, time, league = extract_event_info(html, link)
             events_info.append({
                 "nombre": event_name,
                 "fecha": date,
                 "hora": time,
                 "liga": league,
-                "url": f"https://livetv.sx{link}"
+                "url": full_url
             })
 
         return events_info
@@ -120,7 +120,6 @@ def scrape_links():
             for future in futures:
                 found_events.extend(future.result())
 
-    # Eliminar duplicados
     unique_events = {event['url']: event for event in found_events}.values()
     return list(unique_events)
 
@@ -134,8 +133,11 @@ def save_to_xml(events, filename="eventos_livetv_sx.xml"):
         ET.SubElement(evento, "liga").text = event["liga"]
         ET.SubElement(evento, "url").text = event["url"]
 
-    tree = ET.ElementTree(root)
-    tree.write(filename, encoding="utf-8", xml_declaration=True)
+    # Guardado indentado con minidom
+    xml_str = ET.tostring(root, encoding='utf-8')
+    parsed_xml = minidom.parseString(xml_str)
+    with open(filename, "w", encoding="utf-8") as f:
+        f.write(parsed_xml.toprettyxml(indent="  "))
 
 if __name__ == "__main__":
     events = scrape_links()
