@@ -41,8 +41,8 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/93/",
 ]
 
-# Detecta /es/eventinfo/290907651__/ o variantes similares
-PATTERN = re.compile(r"/es/eventinfo/\d+__?/")
+# Patrón corregido para detectar /es/eventinfo/ID_nombre/ 
+PATTERN = re.compile(r"/es/eventinfo/\d+_[^/]+/")
 
 def get_page_source_with_age_confirm(driver, url):
     driver.get(url)
@@ -60,21 +60,56 @@ def get_page_source_with_age_confirm(driver, url):
     return driver.page_source
 
 def extract_event_info(html, link):
-    event_name_pattern = re.compile(r'<a class="live" href="' + re.escape(link) + r'">(.*?)</a>')
-    evdesc_pattern = re.compile(r'<span class="evdesc">(.*?)<br>.*?<br>.*?\((.*?)\)</span>')
-
+    # Escapar el link para usar en regex
+    escaped_link = re.escape(link)
+    
+    # Patrón para extraer el nombre del evento
+    event_name_pattern = re.compile(
+        r'<a class="live" href="' + escaped_link + r'"[^>]*>(.*?)</a>', 
+        re.DOTALL
+    )
+    
+    # Patrón para extraer la información del evento (fecha, hora y liga)
+    # Busca el patrón: <span class="evdesc">FECHA a HORA<br>(LIGA)</span>
+    evdesc_pattern = re.compile(
+        r'<a class="live" href="' + escaped_link + r'"[^>]*>.*?</a>.*?'
+        r'<span class="evdesc"[^>]*>(.*?)<br[^>]*>\s*\((.*?)\)</span>', 
+        re.DOTALL
+    )
+    
+    # Buscar coincidencias
     event_name_match = event_name_pattern.search(html)
     evdesc_match = evdesc_pattern.search(html)
-
-    event_name = event_name_match.group(1).replace('&ndash;', '-').strip() if event_name_match else "Nombre no encontrado"
-    evdesc = evdesc_match.group(1).strip() if evdesc_match else "Fecha y hora no encontradas"
-    league = evdesc_match.group(2).strip() if evdesc_match else "Liga no encontrada"
-
-    evdesc_clean = re.sub(r'<.*?>', '', evdesc)  # Eliminar etiquetas HTML
-    date_time = evdesc_clean.split(' a ')
-    date = date_time[0] if len(date_time) > 0 else "Fecha no encontrada"
-    time = date_time[1] if len(date_time) > 1 else "Hora no encontrada"
-
+    
+    # Extraer nombre del evento
+    if event_name_match:
+        event_name = event_name_match.group(1).replace('&ndash;', '-').strip()
+        # Limpiar etiquetas HTML del nombre
+        event_name = re.sub(r'<[^>]+>', '', event_name)
+    else:
+        event_name = "Nombre no encontrado"
+    
+    # Extraer fecha/hora y liga
+    if evdesc_match:
+        datetime_info = evdesc_match.group(1).strip()
+        league = evdesc_match.group(2).strip()
+        
+        # Limpiar etiquetas HTML de la información de fecha/hora
+        datetime_clean = re.sub(r'<[^>]+>', '', datetime_info).strip()
+        
+        # Separar fecha y hora (formato: "25 de mayo a 21:00")
+        if ' a ' in datetime_clean:
+            parts = datetime_clean.split(' a ')
+            date = parts[0].strip()
+            time = parts[1].strip()
+        else:
+            date = datetime_clean
+            time = "Hora no especificada"
+    else:
+        date = "Fecha no encontrada"
+        time = "Hora no encontrada"
+        league = "Liga no encontrada"
+    
     return event_name, date, time, league
 
 def scrape_links_from_url(driver, url):
@@ -82,10 +117,11 @@ def scrape_links_from_url(driver, url):
         print(f"Accediendo a: {url}")
         html = get_page_source_with_age_confirm(driver, url)
         matches = PATTERN.findall(html)
+        
         if not matches:
             print(f"No se encontraron enlaces en {url}.")
         else:
-            print(f"Enlaces encontrados en {url}: {matches}")
+            print(f"Enlaces encontrados en {url}: {len(matches)}")
 
         events_info = []
         for link in matches:
@@ -98,6 +134,7 @@ def scrape_links_from_url(driver, url):
                 "liga": league,
                 "url": full_url
             })
+            print(f"  - {event_name} | {date} {time} | {league}")
 
         return events_info
     except StaleElementReferenceException:
@@ -120,6 +157,7 @@ def scrape_links():
             for future in futures:
                 found_events.extend(future.result())
 
+    # Eliminar duplicados basados en URL
     unique_events = {event['url']: event for event in found_events}.values()
     return list(unique_events)
 
@@ -141,5 +179,6 @@ def save_to_xml(events, filename="eventos_livetv_sx.xml"):
 
 if __name__ == "__main__":
     events = scrape_links()
-    print(f"Total de eventos encontrados: {len(events)}")
+    print(f"\nTotal de eventos únicos encontrados: {len(events)}")
     save_to_xml(events)
+    print("Archivo XML guardado como 'eventos_livetv_sx.xml'")
