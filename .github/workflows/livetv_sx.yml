@@ -31,6 +31,9 @@ jobs:
       - name: Run scraping script
         run: python script_lista_livetv_sx.py
 
+      - name: Pull latest changes
+        run: git pull
+
       - name: Commit and push updated XML
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
