@@ -61,7 +61,6 @@ def scrape_links_from_url(driver, url):
     try:
         print(f"Accediendo a: {url}")
         html = get_page_source_with_age_confirm(driver, url)
-        print(f"Primeros 500 caracteres del HTML de {url}: {html[:500]}...")  # Imprime solo los primeros 500 caracteres del HTML
         matches = PATTERN.findall(html)
         if not matches:
             print(f"No se encontraron enlaces en {url}. Verifica el patrón de expresión regular y el HTML.")
@@ -74,6 +73,25 @@ def scrape_links_from_url(driver, url):
     except Exception as e:
         print(f"Error accediendo a {url}: {e}")
         return []
+
+def extract_event_info(html, link):
+    # Extraer información del evento
+    event_name_pattern = re.compile(r'<a class="live" href="' + re.escape(link) + r'">(.*?)</a>')
+    evdesc_pattern = re.compile(r'<span class="evdesc">(.*?)<br>.*?<br>.*?\((.*?)\)</span>')
+
+    event_name_match = event_name_pattern.search(html)
+    evdesc_match = evdesc_pattern.search(html)
+
+    event_name = event_name_match.group(1).replace('&ndash;', '-').strip() if event_name_match else "Nombre no encontrado"
+    evdesc = evdesc_match.group(1).strip() if evdesc_match else "Fecha y hora no encontradas"
+    league = evdesc_match.group(2).strip() if evdesc_match else "Liga no encontrada"
+
+    # Separar fecha y hora
+    date_time = evdesc.split(' a ')
+    date = date_time[0] if len(date_time) > 0 else "Fecha no encontrada"
+    time = date_time[1] if len(date_time) > 1 else "Hora no encontrada"
+
+    return event_name, date, time, league
 
 def scrape_links():
     found_links = set()
@@ -93,9 +111,19 @@ def scrape_links():
 def save_to_xml(links, filename="eventos_livetv_sx.xml"):
     root = ET.Element("eventos")
     for link in links:
+        # Convertir enlace a formato absoluto
+        absolute_link = f"https://livetv.sx{link}"
+
+        # Extraer información del evento
+        event_name, date, time, league = extract_event_info(driver.page_source, link)
+
         evento = ET.SubElement(root, "evento")
-        url_elem = ET.SubElement(evento, "url")
-        url_elem.text = link
+        ET.SubElement(evento, "nombre").text = event_name
+        ET.SubElement(evento, "fecha").text = date
+        ET.SubElement(evento, "hora").text = time
+        ET.SubElement(evento, "liga").text = league
+        ET.SubElement(evento, "url").text = absolute_link
+
     tree = ET.ElementTree(root)
     tree.write(filename, encoding="utf-8", xml_declaration=True)
 
