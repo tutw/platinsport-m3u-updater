@@ -57,23 +57,6 @@ def get_page_source_with_age_confirm(driver, url):
     )
     return driver.page_source
 
-def scrape_links_from_url(driver, url):
-    try:
-        print(f"Accediendo a: {url}")
-        html = get_page_source_with_age_confirm(driver, url)
-        matches = PATTERN.findall(html)
-        if not matches:
-            print(f"No se encontraron enlaces en {url}. Verifica el patrón de expresión regular y el HTML.")
-        else:
-            print(f"Enlaces encontrados en {url}: {matches}")
-        return matches
-    except StaleElementReferenceException:
-        print(f"Error de referencia de elemento obsoleto en {url}. Recargando la página...")
-        return scrape_links_from_url(driver, url)
-    except Exception as e:
-        print(f"Error accediendo a {url}: {e}")
-        return []
-
 def extract_event_info(html, link):
     # Extraer información del evento
     event_name_pattern = re.compile(r'<a class="live" href="' + re.escape(link) + r'">(.*?)</a>')
@@ -93,8 +76,38 @@ def extract_event_info(html, link):
 
     return event_name, date, time, league
 
+def scrape_links_from_url(driver, url):
+    try:
+        print(f"Accediendo a: {url}")
+        html = get_page_source_with_age_confirm(driver, url)
+        matches = PATTERN.findall(html)
+        if not matches:
+            print(f"No se encontraron enlaces en {url}. Verifica el patrón de expresión regular y el HTML.")
+        else:
+            print(f"Enlaces encontrados en {url}: {matches}")
+
+        # Extraer información de cada enlace
+        events_info = []
+        for link in matches:
+            event_name, date, time, league = extract_event_info(html, link)
+            events_info.append({
+                "nombre": event_name,
+                "fecha": date,
+                "hora": time,
+                "liga": league,
+                "url": f"https://livetv.sx{link}"
+            })
+
+        return events_info
+    except StaleElementReferenceException:
+        print(f"Error de referencia de elemento obsoleto en {url}. Recargando la página...")
+        return scrape_links_from_url(driver, url)
+    except Exception as e:
+        print(f"Error accediendo a {url}: {e}")
+        return []
+
 def scrape_links():
-    found_links = set()
+    found_events = []
     options = Options()
     options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
@@ -104,30 +117,24 @@ def scrape_links():
         with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
             futures = [executor.submit(scrape_links_from_url, driver, url) for url in URLS]
             for future in futures:
-                found_links.update(future.result())
+                found_events.extend(future.result())
 
-    return sorted(found_links)
+    return found_events
 
-def save_to_xml(links, filename="eventos_livetv_sx.xml"):
+def save_to_xml(events, filename="eventos_livetv_sx.xml"):
     root = ET.Element("eventos")
-    for link in links:
-        # Convertir enlace a formato absoluto
-        absolute_link = f"https://livetv.sx{link}"
-
-        # Extraer información del evento
-        event_name, date, time, league = extract_event_info(driver.page_source, link)
-
+    for event in events:
         evento = ET.SubElement(root, "evento")
-        ET.SubElement(evento, "nombre").text = event_name
-        ET.SubElement(evento, "fecha").text = date
-        ET.SubElement(evento, "hora").text = time
-        ET.SubElement(evento, "liga").text = league
-        ET.SubElement(evento, "url").text = absolute_link
+        ET.SubElement(evento, "nombre").text = event["nombre"]
+        ET.SubElement(evento, "fecha").text = event["fecha"]
+        ET.SubElement(evento, "hora").text = event["hora"]
+        ET.SubElement(evento, "liga").text = event["liga"]
+        ET.SubElement(evento, "url").text = event["url"]
 
     tree = ET.ElementTree(root)
     tree.write(filename, encoding="utf-8", xml_declaration=True)
 
 if __name__ == "__main__":
-    links = scrape_links()
-    print(f"Total de enlaces encontrados: {len(links)}")
-    save_to_xml(links)
+    events = scrape_links()
+    print(f"Total de eventos encontrados: {len(events)}")
+    save_to_xml(events)
