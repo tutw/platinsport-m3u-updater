@@ -1,10 +1,14 @@
-import requests
 import re
 import xml.etree.ElementTree as ET
-import urllib3
 import traceback
-
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from webdriver_manager.chrome import ChromeDriverManager
+import time
 
 URLS = [
     "https://livetv.sx/es/allupcomingsports/1/",
@@ -39,19 +43,41 @@ URLS = [
 # Solo los enlaces que terminan en __/ (número + dos guiones bajos + barra)
 PATTERN = re.compile(r"https://livetv\.sx/es/eventinfo/\d+__/")
 
+def get_page_source_with_age_confirm(driver, url):
+    driver.get(url)
+    try:
+        # Espera a que aparezca el botón y haz clic (el texto puede variar ligeramente por idioma)
+        WebDriverWait(driver, 6).until(
+            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Tengo mas de 18')]"))
+        ).click()
+        # Espera a que desaparezca el popup (o se cargue el contenido)
+        time.sleep(1)
+    except Exception:
+        # Si no aparece el popup, sigue como si nada
+        pass
+    return driver.page_source
+
 def scrape_links():
     found_links = set()
-    for url in URLS:
-        try:
-            print(f"Accediendo a: {url}")
-            resp = requests.get(url, verify=False, timeout=20)
-            resp.raise_for_status()
-            matches = PATTERN.findall(resp.text)
-            for match in matches:
-                found_links.add(match)
-        except Exception as e:
-            print(f"Error accediendo a {url}: {e}")
-            traceback.print_exc()
+    options = Options()
+    options.add_argument("--headless=new")  # Borra esta línea si quieres ver el navegador
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
+    try:
+        for url in URLS:
+            try:
+                print(f"Accediendo a: {url}")
+                html = get_page_source_with_age_confirm(driver, url)
+                matches = PATTERN.findall(html)
+                for match in matches:
+                    found_links.add(match)
+            except Exception as e:
+                print(f"Error accediendo a {url}: {e}")
+                traceback.print_exc()
+    finally:
+        driver.quit()
     return sorted(found_links)
 
 def save_to_xml(links, filename="eventos_livetv_sx.xml"):
