@@ -120,7 +120,9 @@ def scrape_links():
             for future in futures:
                 found_events.extend(future.result())
 
-    return found_events
+    # Eliminar duplicados
+    unique_events = {event['url']: event for event in found_events}.values()
+    return list(unique_events)
 
 def save_to_xml(events, filename="eventos_livetv_sx.xml"):
     root = ET.Element("eventos")
