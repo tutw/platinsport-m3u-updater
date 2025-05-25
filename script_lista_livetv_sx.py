@@ -40,21 +40,19 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/93/",
 ]
 
-# Solo los enlaces que terminan en __/ (número + dos guiones bajos + barra)
 PATTERN = re.compile(r"https://livetv\.sx/es/eventinfo/\d+__/")
 
 def get_page_source_with_age_confirm(driver, url):
     driver.get(url)
+    time.sleep(2)  # Espera a que cargue el popup
     try:
-        # Espera a que aparezca el botón y haz clic (el texto puede variar ligeramente por idioma)
-        WebDriverWait(driver, 6).until(
-            EC.element_to_be_clickable((By.XPATH, "//button[contains(text(),'Tengo mas de 18')]"))
-        ).click()
-        # Espera a que desaparezca el popup (o se cargue el contenido)
-        time.sleep(1)
+        btn = WebDriverWait(driver, 6).until(
+            EC.element_to_be_clickable((By.XPATH, '/html/body/table/tbody/tr/td[2]/table/tbody/tr[7]/td/noindex/table/tbody/tr/td[2]/div[2]/table/tr/td[2]/table/tr[3]/td/button[1]'))
+        )
+        btn.click()
+        time.sleep(2)  # Espera a que desaparezca el popup
     except Exception:
-        # Si no aparece el popup, sigue como si nada
-        pass
+        print("No apareció el popup de edad o falló el click.")
     return driver.page_source
 
 def scrape_links():
