@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import StaleElementReferenceException
 from webdriver_manager.chrome import ChromeDriverManager
 from concurrent.futures import ThreadPoolExecutor
 
@@ -39,7 +40,7 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/93/",
 ]
 
-PATTERN = re.compile(r"https://livetv\.sx/es/eventinfo/\d+_[^/]+/")
+PATTERN = re.compile(r"/es/eventinfo/\d+_[^/]+/")
 
 def get_page_source_with_age_confirm(driver, url):
     driver.get(url)
@@ -60,17 +61,16 @@ def scrape_links_from_url(driver, url):
     try:
         print(f"Accediendo a: {url}")
         html = get_page_source_with_age_confirm(driver, url)
-
-        # Imprimir una parte del HTML para depuración
-        print(f"Primeros 500 caracteres del HTML de {url}: {html[:500]}...")
-
+        print(f"Primeros 500 caracteres del HTML de {url}: {html[:500]}...")  # Imprime solo los primeros 500 caracteres del HTML
         matches = PATTERN.findall(html)
         if not matches:
             print(f"No se encontraron enlaces en {url}. Verifica el patrón de expresión regular y el HTML.")
         else:
             print(f"Enlaces encontrados en {url}: {matches}")
-
         return matches
+    except StaleElementReferenceException:
+        print(f"Error de referencia de elemento obsoleto en {url}. Recargando la página...")
+        return scrape_links_from_url(driver, url)
     except Exception as e:
         print(f"Error accediendo a {url}: {e}")
         return []
