@@ -2,45 +2,49 @@ name: Scrape LiveTV.sx Events
 
 on:
   schedule:
-    # Ejecuta cada hora (en el minuto 0 de cada hora)
-    # Puedes ajustar la frecuencia según tus necesidades
     - cron: '0 */1 * * *' 
-  workflow_dispatch: # Permite la ejecución manual desde la pestaña Actions
+  workflow_dispatch:
 
 permissions:
-  contents: write # Necesario para que el bot de GitHub pueda hacer commit de los cambios
+  contents: write
 
 jobs:
   scrape-and-commit:
-    runs-on: ubuntu-latest # El sistema operativo del runner de GitHub Actions
+    runs-on: ubuntu-latest
+
+    env:
+      # Definimos esta variable de entorno a nivel de job para que todos los steps la vean.
+      # Esto debería asegurar que Playwright use esta ruta para todo.
+      PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/ms-playwright-browsers 
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4 # Clona tu repositorio en el runner
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v5 # Configura el entorno Python en el runner
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11' # Especifica la versión de Python a usar
+          python-version: '3.11'
 
       - name: Install Python dependencies
         run: |
           echo "Installing Python dependencies..."
-          python -m pip install --upgrade pip # Asegura que pip esté actualizado
-          pip install requests beautifulsoup4 lxml # Instala las librerías de Python
-          pip install playwright # Instala el paquete Python de Playwright
-          playwright install     # Descarga e instala los binarios de los navegadores (Chromium, Firefox, WebKit)
-          playwright install-deps # Instala las dependencias del sistema operativo que los navegadores necesitan
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 lxml
+          pip install playwright
+          
+          # Primero, instala las dependencias del sistema operativo (para que los navegadores puedan ejecutarse)
+          playwright install-deps
+          
+          # Luego, instala los navegadores en la ruta especificada por PLAYWRIGHT_BROWSERS_PATH
+          # Playwright ya debería conocer esta variable de entorno al ejecutarse aquí.
+          playwright install 
           echo "Dependencies installed."
-        env:
-          # Define dónde Playwright debe instalar los navegadores.
-          # Usar `github.workspace` es una buena práctica para entornos CI/CD.
-          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/ms-playwright-browsers 
 
       - name: Run scraping script
         run: |
           echo "Running scraping script..."
-          python script_lista_livetv_sx.py # Ejecuta tu script de Python
+          python script_lista_livetv_sx.py
           echo "Scraping script finished."
 
       - name: Commit and push if XML changed
@@ -48,9 +52,8 @@ jobs:
           echo "Checking for changes and committing..."
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add ${{ env.XML_FILENAME }} # Añade el archivo XML al staging area de Git
+          git add ${{ env.XML_FILENAME }}
           
-          # Comprueba si hay cambios en el archivo XML para hacer commit
           if git diff --staged --quiet; then
             echo "No changes to commit in ${{ env.XML_FILENAME }}."
           else
@@ -59,4 +62,4 @@ jobs:
             echo "${{ env.XML_FILENAME }} updated and pushed."
           fi
         env:
-          XML_FILENAME: eventos_livetv_sx.xml # Define el nombre del archivo XML generado por el script
+          XML_FILENAME: eventos_livetv_sx.xml
