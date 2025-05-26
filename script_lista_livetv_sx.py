@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 # URLs base para scrapear
 BASE_URLS_TO_SCRAPE = [
-    f"https://livetv.sx/es/allupcomingsports/{i}/" for i in range(1, 201)
+    f"https://livetv.sx/es/allupcomingsports/{i}/" for i in range(1, 11)
 ]
 
 # Archivo XML de salida
