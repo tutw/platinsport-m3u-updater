@@ -11,25 +11,35 @@ permissions:
 
 jobs:
   scrape-and-commit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # O el sistema operativo de tu runner (ubuntu-latest es común y funciona bien)
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Paso para clonar tu repositorio
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5 # Configura el entorno Python
         with:
-          python-version: '3.11' # Puedes usar la versión de Python que prefieras
+          python-version: '3.11' # Usa la versión de Python que prefieras (3.11 está bien)
 
-      - name: Install dependencies
+      - name: Install Python dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          python -m pip install --upgrade pip # Asegura que pip esté actualizado
+          pip install requests beautifulsoup4 lxml # Tus dependencias actuales (requests se mantiene por si acaso)
+          # --- ¡AQUÍ ESTÁN LOS CAMBIOS IMPORTANTES! ---
+          pip install playwright # Instala el paquete Python de Playwright
+          playwright install     # Instala los binarios de los navegadores para Playwright (MUY IMPORTANTE)
+          # --- FIN DE LOS CAMBIOS IMPORTANTES ---
+        env:
+          # Opcional pero recomendado: para controlar dónde Playwright instala los navegadores
+          # y evitar problemas con permisos o limpieza de caché en el runner.
+          PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/ms-playwright-browsers 
 
       - name: Run scraping script
-        run: python script_lista_livetv_sx.py # <--- NOMBRE DEL SCRIPT ACTUALIZADO AQUÍ
+        run: python script_lista_livetv_sx.py # El nombre de tu script
 
       - name: Commit and push if XML changed
+        # Este paso está bien y se encarga de guardar el XML actualizado.
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
@@ -43,4 +53,4 @@ jobs:
             echo "${{ env.XML_FILENAME }} updated and pushed."
           fi
         env:
-          XML_FILENAME: eventos_livetv_sx.xml # <--- NOMBRE DEL XML ACTUALIZADO AQUÍ (ya coincidía)
+          XML_FILENAME: eventos_livetv_sx.xml # El nombre de tu archivo XML
