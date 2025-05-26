@@ -1,4 +1,4 @@
-iimport re
+import re
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 from selenium import webdriver
@@ -10,7 +10,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 from webdriver_manager.chrome import ChromeDriverManager
 from concurrent.futures import ThreadPoolExecutor
-from bs4 import BeautifulSoup
 
 URLS = [
     "https://livetv.sx/es/allupcomingsports/1/",
@@ -42,11 +41,14 @@ URLS = [
     "https://livetv.sx/es/allupcomingsports/93/",
 ]
 
+# Patrón corregido para detectar /es/eventinfo/ID_nombre/ 
+PATTERN = re.compile(r"/es/eventinfo/\d+_[^/]+/")
+
 def get_page_source_with_age_confirm(driver, url):
     driver.get(url)
     try:
         btn = WebDriverWait(driver, 3).until(
-            EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Sí, tengo más de 18 años")]'))
+            EC.element_to_be_clickable((By.XPATH, '/html/body/table/tbody/tr/td[2]/table/tbody/tr[7]/td/noindex/table/tbody/tr/td[2]/div[2]/table/tr/td[2]/table/tr[3]/td/button[1]'))
         )
         btn.click()
     except Exception as e:
@@ -57,29 +59,74 @@ def get_page_source_with_age_confirm(driver, url):
     )
     return driver.page_source
 
-def extract_event_info(html):
-    soup = BeautifulSoup(html, 'html.parser')
-    events_info = []
+def extract_event_info(html, link):
+    # Escapar el link para usar en regex
+    escaped_link = re.escape(link)
+    
+    # Patrón para extraer el nombre del evento
+    event_name_pattern = re.compile(
+        r'<a class="live" href="' + escaped_link + r'"[^>]*>(.*?)</a>', 
+        re.DOTALL
+    )
+    
+    # Patrón para extraer la información del evento (fecha, hora y liga)
+    # Busca el patrón: <span class="evdesc">FECHA a HORA<br>(LIGA)</span>
+    evdesc_pattern = re.compile(
+        r'<a class="live" href="' + escaped_link + r'"[^>]*>.*?</a>.*?'
+        r'<span class="evdesc"[^>]*>(.*?)<br[^>]*>\s*\((.*?)\)</span>', 
+        re.DOTALL
+    )
+    
+    # Buscar coincidencias
+    event_name_match = event_name_pattern.search(html)
+    evdesc_match = evdesc_pattern.search(html)
+    
+    # Extraer nombre del evento
+    if event_name_match:
+        event_name = event_name_match.group(1).replace('&ndash;', '-').strip()
+        # Limpiar etiquetas HTML del nombre
+        event_name = re.sub(r'<[^>]+>', '', event_name)
+    else:
+        event_name = "Nombre no encontrado"
+    
+    # Extraer fecha/hora y liga
+    if evdesc_match:
+        datetime_info = evdesc_match.group(1).strip()
+        league = evdesc_match.group(2).strip()
+        
+        # Limpiar etiquetas HTML de la información de fecha/hora
+        datetime_clean = re.sub(r'<[^>]+>', '', datetime_info).strip()
+        
+        # Separar fecha y hora (formato: "25 de mayo a 21:00")
+        if ' a ' in datetime_clean:
+            parts = datetime_clean.split(' a ')
+            date = parts[0].strip()
+            time = parts[1].strip()
+        else:
+            date = datetime_clean
+            time = "Hora no especificada"
+    else:
+        date = "Fecha no encontrada"
+        time = "Hora no encontrada"
+        league = "Liga no encontrada"
+    
+    return event_name, date, time, league
 
-    for a_tag in soup.find_all("a", class_="live", href=True):
-        href = a_tag["href"]
-        if "/es/eventinfo/" in href:
-            full_url = f"https://livetv.sx{href}"
-            event_name = a_tag.get_text(strip=True).replace('&ndash;', '-')
+def scrape_links_from_url(driver, url):
+    try:
+        print(f"Accediendo a: {url}")
+        html = get_page_source_with_age_confirm(driver, url)
+        matches = PATTERN.findall(html)
+        
+        if not matches:
+            print(f"No se encontraron enlaces en {url}.")
+        else:
+            print(f"Enlaces encontrados en {url}: {len(matches)}")
 
-            evdesc_span = a_tag.find_next("span", class_="evdesc")
-            if evdesc_span:
-                evdesc_text = evdesc_span.get_text(separator=" ", strip=True)
-                match = re.match(r"(.+?)\s+a\s+(\d{1,2}:\d{2})\s+\((.+)\)", evdesc_text)
-                if match:
-                    date = match.group(1).strip()
-                    time = match.group(2).strip()
-                    league = match.group(3).strip()
-                else:
-                    date = time = league = "Información no disponible"
-            else:
-                date = time = league = "Información no disponible"
-
+        events_info = []
+        for link in matches:
+            full_url = f"https://livetv.sx{link}"
+            event_name, date, time, league = extract_event_info(html, link)
             events_info.append({
                 "nombre": event_name,
                 "fecha": date,
@@ -87,35 +134,28 @@ def extract_event_info(html):
                 "liga": league,
                 "url": full_url
             })
+            print(f"  - {event_name} | {date} {time} | {league}")
 
-    return events_info
+        return events_info
+    except StaleElementReferenceException:
+        print(f"Error de referencia de elemento obsoleto en {url}. Recargando la página...")
+        return scrape_links_from_url(driver, url)
+    except Exception as e:
+        print(f"Error accediendo a {url}: {e}")
+        return []
 
-def scrape_links_from_url(url):
+def scrape_links():
+    found_events = []
     options = Options()
     options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
-    with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
-        try:
-            print(f"Accediendo a: {url}")
-            html = get_page_source_with_age_confirm(driver, url)
-            events_info = extract_event_info(html)
-            print(f"Eventos encontrados en {url}: {len(events_info)}")
-            return events_info
-        except StaleElementReferenceException:
-            print(f"Error de referencia de elemento obsoleto en {url}. Recargando la página...")
-            return scrape_links_from_url(url)
-        except Exception as e:
-            print(f"Error accediendo a {url}: {e}")
-            return []
-
-def scrape_links():
-    found_events = []
     with ThreadPoolExecutor(max_workers=5) as executor:
-        futures = [executor.submit(scrape_links_from_url, url) for url in URLS]
-        for future in futures:
-            found_events.extend(future.result())
+        with webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options) as driver:
+            futures = [executor.submit(scrape_links_from_url, driver, url) for url in URLS]
+            for future in futures:
+                found_events.extend(future.result())
 
     # Eliminar duplicados basados en URL
     unique_events = {event['url']: event for event in found_events}.values()
