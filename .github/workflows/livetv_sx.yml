@@ -1,55 +1,46 @@
-name: Scrape LiveTV links
+name: Scrape LiveTV.sx Events
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *'  # Corre todos los días a las 7:00 UTC
+    # Ejecuta cada hora (en el minuto 0 de cada hora)
+    - cron: '0 */1 * * *'
+  workflow_dispatch: # Permite la ejecución manual desde la pestaña Actions
+
+permissions:
+  contents: write # Necesario para hacer commit de los cambios al repositorio
 
 jobs:
-  scrape:
+  scrape-and-commit:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.11
+          python-version: '3.11' # Puedes usar la versión de Python que prefieras
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Install Google Chrome
-        uses: browser-actions/setup-chrome@v1
+          pip install requests beautifulsoup4
 
       - name: Run scraping script
-        run: python script_lista_livetv_sx.py
+        run: python script_lista_livetv_sx.py # <--- NOMBRE DEL SCRIPT ACTUALIZADO AQUÍ
 
-      - name: Configure Git
+      - name: Commit and push if XML changed
         run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-
-      - name: Commit local changes if any
-        run: |
-          git add eventos_livetv_sx.xml
-          git diff --cached --quiet || git commit -m "Update eventos_livetv_sx.xml with latest links"
-
-      - name: Pull with rebase and push
-        run: |
-          git pull origin main --rebase
-          git push origin main
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add ${{ env.XML_FILENAME }}
+          # Comprueba si hay cambios para hacer commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit in ${{ env.XML_FILENAME }}."
+          else
+            git commit -m "Automated update of event URLs in ${{ env.XML_FILENAME }}"
+            git push
+            echo "${{ env.XML_FILENAME }} updated and pushed."
+          fi
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload XML as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: eventos_livetv_sx
-          path: eventos_livetv_sx.xml
+          XML_FILENAME: eventos_livetv_sx.xml # <--- NOMBRE DEL XML ACTUALIZADO AQUÍ (ya coincidía)
