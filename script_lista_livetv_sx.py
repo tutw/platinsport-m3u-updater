@@ -8,7 +8,7 @@ import os
 import logging
 from typing import List, Dict, TypedDict
 from datetime import datetime, timedelta
-import random # Para posibles esperas aleatorias si es necesario
+import random
 
 # Importa la función stealth_async
 from playwright_stealth import stealth_async
@@ -68,24 +68,20 @@ async def fetch_html_with_playwright(url: str) -> str | None:
             logging.info(f"Página {url} cargada (networkidle). Intentando scroll y esperar selector.")
             
             # === Simular scroll para cargar contenido dinámico ===
-            # Desplazar 500 píxeles hacia abajo, para simular interacción humana
             await page.evaluate("window.scrollBy(0, 500)")
-            await asyncio.sleep(random.uniform(2, 4)) # Espera aleatoria para simular humano
+            await asyncio.sleep(random.uniform(2, 4)) 
             
-            # Desplazar al final de la página
             await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-            await asyncio.sleep(random.uniform(2, 4)) # Otra espera aleatoria
+            await asyncio.sleep(random.uniform(2, 4))
             
             # === Esperar a que el selector de la tabla sea visible ===
-            # Con el ID correcto, si la página lo expone después de JS
+            # Cambiado de 'table#allmatches' a 'table.schtable'
             try:
                 # Esperamos 30 segundos después de los scrolls
-                await page.wait_for_selector('table#allmatches', state='visible', timeout=30000)
-                logging.info(f"Tabla 'allmatches' encontrada y visible en {url} después de scroll.")
+                await page.wait_for_selector('table.schtable', state='visible', timeout=30000)
+                logging.info(f"Tabla con clase 'schtable' encontrada y visible en {url} después de scroll.")
             except Exception as selector_error:
-                logging.warning(f"La tabla con id='allmatches' no se encontró o no se hizo visible en {url} después de scroll y espera: {selector_error}")
-                # Aquí, si la tabla no aparece, significa que la detección sigue activa
-                # y necesitamos considerar otras rutas (como la API si la encontraste).
+                logging.warning(f"La tabla con clase 'schtable' no se encontró o no se hizo visible en {url} después de scroll y espera: {selector_error}")
                 
             html_content = await page.content()
 
@@ -106,13 +102,11 @@ async def fetch_html_with_playwright(url: str) -> str | None:
         finally:
             await browser.close()
 
-# --- Resto del script (parse_event_urls_and_details, create_or_update_xml, main_async, if __name__ == "__main__) ---
-# El resto del script es el mismo, ya que el problema es la obtención del HTML, no el parsing.
-
+# --- FUNCION PARA PARSEAR EL HTML CON BEAUTIFULSOUP ---
 def parse_event_urls_and_details(html_content: str) -> List[Event]:
     """
     Analiza el contenido HTML y extrae las URLs, nombres, fechas, horas y deportes de los eventos.
-    Se enfoca en la tabla con id='allmatches' y procesa los eventos después de los encabezados de fecha.
+    Se enfoca en la tabla con la clase 'schtable' y procesa los eventos después de los encabezados de fecha.
     """
     found_events: List[Event] = []
     if not html_content:
@@ -120,21 +114,19 @@ def parse_event_urls_and_details(html_content: str) -> List[Event]:
 
     soup = BeautifulSoup(html_content, 'html.parser')
     
-    current_date_str = datetime.now().strftime("%Y-%m-%d") # Fecha por defecto (hoy)
-    parsing_events_after_date = False # Flag para saber si estamos en una sección de eventos procesables
+    current_date_str = datetime.now().strftime("%Y-%m-%d")
+    parsing_events_after_date = False
 
-    # === ENFOQUE: Encontrar la tabla por su ID 'allmatches' ===
-    # Aunque no se encuentre por el bot, esta es la lógica si se encontrara
-    main_table = soup.find('table', id='allmatches')
+    # === CAMBIO CLAVE AQUÍ: Buscar por clase en lugar de ID ===
+    # Aunque la tabla real tiene ID, vamos a probar si buscar por clase ayuda
+    main_table = soup.find('table', class_='schtable')
 
     if not main_table:
-        logging.warning("No se encontró la tabla principal de eventos con id='allmatches'.")
-        # logging.debug(f"HTML para depuración (primeros 1000 chars): {html_content[:1000]}") # Útil para depurar si falla
+        logging.warning("No se encontró la tabla principal de eventos con clase 'schtable'.")
+        # logging.debug(f"HTML para depuración (primeros 1000 chars): {html_content[:1000]}")
         return found_events
 
-    # Iterar sobre las filas (<tr>) dentro de la tabla principal
     for tr in main_table.find_all('tr'): 
-        # === Detección de encabezados de fecha ===
         date_span = tr.find('span', class_='date')
         if date_span:
             date_text = date_span.get_text(strip=True)
