@@ -1,5 +1,5 @@
 import asyncio
-import requests # Se mantiene solo si hubiera alguna otra necesidad, pero no para el scraping principal
+import requests
 from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
 import re
@@ -9,14 +9,15 @@ import logging
 from typing import List, Dict, TypedDict
 from datetime import datetime, timedelta
 
+# Importa la función stealth_async
+from playwright_stealth import stealth_async
+
 # Configuración del logging
-# Se recomienda usar INFO para producción y DEBUG para depuración.
-# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s') # Usar DEBUG para ver más detalle durante la depuración
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s') # Volvemos a INFO para menos verbosidad
 
 # URLs base para scrapear
 BASE_URLS_TO_SCRAPE = [
-    f"https://livetv.sx/es/allupcomingsports/{i}/" for i in range(1, 10)
+    f"https://livetv.sx/es/allupcomingsports/{i}/" for i in range(1, 201)
 ]
 
 # Archivo XML de salida
@@ -26,8 +27,6 @@ OUTPUT_XML_FILE = "eventos_livetv_sx.xml"
 EVENT_PATH_REGEX = r"^/es/eventinfo/(\d+(_+)?([a-zA-Z0-9_-]+)?)/?$"
 
 # User-Agent para simular un navegador
-# (Playwright maneja su propio User-Agent por defecto, pero se mantiene aquí para claridad
-# o si en el futuro se usara requests para algo más)
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 }
@@ -45,26 +44,24 @@ async def fetch_html_with_playwright(url: str) -> str | None:
     """
     Obtiene el contenido HTML de una URL utilizando Playwright para ejecutar JavaScript.
     Guarda el HTML renderizado en un archivo para depuración.
+    Utiliza playwright-stealth para evadir la detección de bots.
     """
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True) 
         page = await browser.new_page()
+        
+        # --- APLICAR STEALTH ---
+        # Esto modificará la página para que se comporte de forma más parecida a un usuario real.
+        await stealth_async(page) 
+        # --- FIN STEALTH ---
+
         try:
             logging.info(f"Navegando a {url} con Playwright...")
-            # wait_until='networkidle' espera a que no haya actividad de red durante 500ms
-            # Esto ayuda a asegurar que el JavaScript haya cargado el contenido.
-            await page.goto(url, wait_until='networkidle', timeout=60000) # 60 segundos de timeout
+            await page.goto(url, wait_until='networkidle', timeout=60000) 
             
-            # Opcional: Esperar a que la tabla específica esté visible
-            # Si `wait_until='networkidle'` no es suficiente, se puede esperar a un selector.
-            # Puedes intentar descomentar esta línea si la tabla sigue sin aparecer
-            # await page.wait_for_selector('table#allmatches', timeout=15000) # Espera 15 segundos a que el elemento aparezca
-
             html_content = await page.content()
 
             # --- PARA DEPURACIÓN: Guardar el HTML renderizado en un archivo ---
-            # Esto es lo que nos ayudará a ver lo que Playwright realmente obtuvo.
-            # Los archivos se guardarán en la raíz de tu repositorio en GitHub Actions.
             filename = f"debug_playwright_html_{url.replace('https://', '').replace('/', '_').replace('.', '_')}.html"
             try:
                 with open(filename, 'w', encoding='utf-8') as f:
@@ -319,11 +316,7 @@ async def main_async(): # Esta es la función principal que se ejecutará
 
 # --- PUNTO DE ENTRADA DEL SCRIPT ---
 if __name__ == "__main__":
-    # Importar urllib3 para deshabilitar advertencias SSL si se usa verify=False en requests
-    # (aunque Playwright maneja las conexiones de forma diferente, es una buena práctica si requests se usara en otro lado)
     import urllib3
     urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     
-    # Ejecuta la función principal asíncrona.
-    # asyncio.run() es necesario para ejecutar funciones async/await.
     asyncio.run(main_async())
