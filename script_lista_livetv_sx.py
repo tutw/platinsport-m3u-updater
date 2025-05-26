@@ -13,11 +13,12 @@ from datetime import datetime, timedelta
 from playwright_stealth import stealth_async
 
 # Configuración del logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s') # Volvemos a INFO para menos verbosidad
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # URLs base para scrapear
+# CONSIDERACIÓN: Si descubrimos una API, esta lista podría ser innecesaria
 BASE_URLS_TO_SCRAPE = [
-    f"https://livetv.sx/es/allupcomingsports/{i}/" for i in range(1, 11)
+    f"https://livetv.sx/es/allupcomingsports/{i}/" for i in range(1, 201)
 ]
 
 # Archivo XML de salida
@@ -26,10 +27,8 @@ OUTPUT_XML_FILE = "eventos_livetv_sx.xml"
 # Patrón de regex para encontrar los enlaces de eventos
 EVENT_PATH_REGEX = r"^/es/eventinfo/(\d+(_+)?([a-zA-Z0-9_-]+)?)/?$"
 
-# User-Agent para simular un navegador
-HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-}
+# User-Agent para simular un navegador - Usaremos este con Playwright ahora
+DEFAULT_USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
 
 # Definimos un tipo para la estructura de un evento
 class Event(TypedDict):
@@ -44,21 +43,39 @@ async def fetch_html_with_playwright(url: str) -> str | None:
     """
     Obtiene el contenido HTML de una URL utilizando Playwright para ejecutar JavaScript.
     Guarda el HTML renderizado en un archivo para depuración.
-    Utiliza playwright-stealth para evadir la detección de bots.
+    Utiliza playwright-stealth y argumentos de lanzamiento para evadir la detección de bots.
     """
     async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True) 
-        page = await browser.new_page()
+        # Lanzar Chromium con argumentos adicionales para evitar la detección de bot
+        # Y asegurarnos de que el navegador no se ejecute como root
+        browser = await p.chromium.launch(
+            headless=True,
+            args=[
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-gpu',
+                '--disable-dev-shm-usage',
+                '--single-process'
+            ]
+        )
+        # Crear una nueva página con un User-Agent específico
+        page = await browser.new_page(user_agent=DEFAULT_USER_AGENT)
         
         # --- APLICAR STEALTH ---
-        # Esto modificará la página para que se comporte de forma más parecida a un usuario real.
         await stealth_async(page) 
         # --- FIN STEALTH ---
 
         try:
             logging.info(f"Navegando a {url} con Playwright...")
-            await page.goto(url, wait_until='networkidle', timeout=60000) 
+            await page.goto(url, wait_until='load', timeout=60000) 
             
+            # === IMPORTANTE: Esperar a que el selector de la tabla sea visible ===
+            try:
+                await page.wait_for_selector('table#allmatches', state='visible', timeout=25000)
+                logging.info(f"Tabla 'allmatches' encontrada y visible en {url}.")
+            except Exception as selector_error:
+                logging.warning(f"La tabla con id='allmatches' no se encontró o no se hizo visible en {url} después de 25s: {selector_error}")
+
             html_content = await page.content()
 
             # --- PARA DEPURACIÓN: Guardar el HTML renderizado en un archivo ---
@@ -73,7 +90,7 @@ async def fetch_html_with_playwright(url: str) -> str | None:
             
             return html_content
         except Exception as e:
-            logging.error(f"Error con Playwright al obtener {url}: {e}")
+            logging.error(f"Error general con Playwright al obtener {url}: {e}")
             return None
         finally:
             await browser.close()
@@ -288,7 +305,7 @@ def create_or_update_xml(events: List[Event], xml_filepath: str):
         logging.error(f"Error al escribir el archivo XML '{xml_filepath}': {e}")
 
 # --- FUNCIÓN PRINCIPAL ASÍNCRONA ---
-async def main_async(): # Esta es la función principal que se ejecutará
+async def main_async():
     """Función principal del script utilizando Playwright para el scraping."""
     logging.info("Iniciando el proceso de scraping de eventos con Playwright...")
     all_unique_events: Dict[str, Event] = {} # Usamos un diccionario para deduplicar por URL
@@ -296,12 +313,11 @@ async def main_async(): # Esta es la función principal que se ejecutará
     # Itera sobre un rango de páginas para obtener más eventos
     for page_url in BASE_URLS_TO_SCRAPE:
         logging.info(f"Scrapeando página: {page_url}")
-        html = await fetch_html_with_playwright(page_url) # <--- Aquí se llama a la función de Playwright
+        html = await fetch_html_with_playwright(page_url)
         if html:
             events_from_page = parse_event_urls_and_details(html)
             logging.info(f"Eventos encontrados en {page_url} (antes de deduplicación): {len(events_from_page)}")
             for event in events_from_page:
-                # Deduplicación: La URL es la clave única
                 if event['url'] not in all_unique_events:
                     all_unique_events[event['url']] = event
             logging.info(f"Total únicos hasta ahora: {len(all_unique_events)}")
