@@ -10,14 +10,11 @@ from typing import List, Dict, TypedDict
 from datetime import datetime, timedelta
 
 # Configuración del logging
-# Configuración del logging para que DEBUG también se muestre si lo necesitas para depuración
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-# Para ver los logs de DEBUG, cambia la línea de arriba a:
-# logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
-
+# Se recomienda usar INFO para producción y DEBUG para depuración.
+# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s') # Usar DEBUG para ver más detalle durante la depuración
 
 # URLs base para scrapear
-# Mantendremos el rango alto, asumiendo que eventualmente las páginas sí tendrán contenido distinto
 BASE_URLS_TO_SCRAPE = [
     f"https://livetv.sx/es/allupcomingsports/{i}/" for i in range(1, 201)
 ]
@@ -47,11 +44,9 @@ class Event(TypedDict):
 async def fetch_html_with_playwright(url: str) -> str | None:
     """
     Obtiene el contenido HTML de una URL utilizando Playwright para ejecutar JavaScript.
+    Guarda el HTML renderizado en un archivo para depuración.
     """
     async with async_playwright() as p:
-        # Se puede cambiar p.chromium, p.firefox, o p.webkit
-        # headless=True: el navegador no se abre visualmente (recomendado para scraping)
-        # headless=False: el navegador se abre visualmente (útil para depuración)
         browser = await p.chromium.launch(headless=True) 
         page = await browser.new_page()
         try:
@@ -60,19 +55,24 @@ async def fetch_html_with_playwright(url: str) -> str | None:
             # Esto ayuda a asegurar que el JavaScript haya cargado el contenido.
             await page.goto(url, wait_until='networkidle', timeout=60000) # 60 segundos de timeout
             
-            # --- Opcional: Esperar a que la tabla específica esté visible ---
+            # Opcional: Esperar a que la tabla específica esté visible
             # Si `wait_until='networkidle'` no es suficiente, se puede esperar a un selector.
+            # Puedes intentar descomentar esta línea si la tabla sigue sin aparecer
             # await page.wait_for_selector('table#allmatches', timeout=15000) # Espera 15 segundos a que el elemento aparezca
 
             html_content = await page.content()
 
-            # --- Opcional para depuración: Guardar el HTML renderizado ---
-            # Descomenta las siguientes líneas si necesitas ver el HTML que Playwright está obteniendo
-            # para verificar que 'id="allmatches"' está presente.
-            # filename = f"debug_playwright_html_{url.replace('https://', '').replace('/', '_').replace('.', '_')}.html"
-            # with open(filename, 'w', encoding='utf-8') as f:
-            #     f.write(html_content)
-            # logging.info(f"HTML renderizado para {url} guardado en {filename}")
+            # --- PARA DEPURACIÓN: Guardar el HTML renderizado en un archivo ---
+            # Esto es lo que nos ayudará a ver lo que Playwright realmente obtuvo.
+            # Los archivos se guardarán en la raíz de tu repositorio en GitHub Actions.
+            filename = f"debug_playwright_html_{url.replace('https://', '').replace('/', '_').replace('.', '_')}.html"
+            try:
+                with open(filename, 'w', encoding='utf-8') as f:
+                    f.write(html_content)
+                logging.info(f"HTML renderizado para {url} guardado en {filename}")
+            except Exception as file_error:
+                logging.error(f"Error al guardar el archivo de depuración {filename}: {file_error}")
+            # --- FIN DEPURACIÓN ---
             
             return html_content
         except Exception as e:
@@ -93,22 +93,21 @@ def parse_event_urls_and_details(html_content: str) -> List[Event]:
 
     soup = BeautifulSoup(html_content, 'html.parser')
     
-    current_date_str = datetime.now().strftime("%Y-%m-%d") # Fecha por defecto
+    current_date_str = datetime.now().strftime("%Y-%m-%d") # Fecha por defecto (hoy)
     parsing_events_after_date = False # Flag para saber si estamos en una sección de eventos procesables
 
-    # === ENFOQUE FINAL: Encontrar la tabla por su ID 'allmatches' ===
-    # Esta es la parte crucial que ahora debería funcionar porque Playwright renderiza el JS.
+    # === ENFOQUE: Encontrar la tabla por su ID 'allmatches' ===
     main_table = soup.find('table', id='allmatches')
 
     if not main_table:
         logging.warning("No se encontró la tabla principal de eventos con id='allmatches'.")
-        # logging.debug(f"HTML para depuración (primeros 500 chars): {html_content[:500]}") # Útil para depurar si falla
+        # logging.debug(f"HTML para depuración (primeros 1000 chars): {html_content[:1000]}") # Útil para depurar si falla
         return found_events
 
     # Iterar sobre las filas (<tr>) dentro de la tabla principal
-    # find_all('tr') sin recursive=False busca todos los tr dentro de la tabla, anidados o no.
     for tr in main_table.find_all('tr'): 
         # === Detección de encabezados de fecha ===
+        # Buscamos <tr> que contengan un <span> con clase 'date'
         date_span = tr.find('span', class_='date')
         if date_span:
             date_text = date_span.get_text(strip=True)
@@ -120,7 +119,7 @@ def parse_event_urls_and_details(html_content: str) -> List[Event]:
                 continue 
 
             # Si es un encabezado de fecha real, activamos el flag y actualizamos la fecha
-            # Usamos un regex más específico para evitar "Hoy" sin paréntesis si no es un encabezado de fecha.
+            # Regex más flexible para capturar "Hoy (DD de Mes, DíaSemana)" o fechas futuras.
             if re.search(r'\((\d{1,2}\s+de\s+\w+,\s+\w+)\)', date_text) or \
                "Hoy (" in date_text or "Mañana (" in date_text:
                 
@@ -166,12 +165,15 @@ def parse_event_urls_and_details(html_content: str) -> List[Event]:
         # === Detección de eventos individuales ===
         # Solo procesamos eventos si el flag 'parsing_events_after_date' está activado
         if parsing_events_after_date:
+            # Buscamos el <td> que contiene la lógica de onmouseover y la tabla interna
             event_td_container = tr.find('td', attrs={'onmouseover': re.compile(r'\$\(\'#cv\d+\'\)\.show\(\);')})
             
             if event_td_container:
+                # La información del evento suele estar dentro de una tabla anidada en ese <td>
                 inner_table = event_td_container.find('table', cellpadding='1', cellspacing='2', width='100%')
                 
                 if inner_table:
+                    # Encontrar el enlace del evento
                     link = inner_table.find('a', class_=['live', 'bottomgray'])
                     
                     if link and 'href' in link.attrs:
@@ -188,6 +190,7 @@ def parse_event_urls_and_details(html_content: str) -> List[Event]:
                             event_time = "N/A"
                             event_sport = "N/A"
 
+                            # Extraer hora y deporte del span con clase 'evdesc'
                             evdesc_span = inner_table.find('span', class_='evdesc')
                             if evdesc_span:
                                 desc_text = evdesc_span.get_text(strip=True)
@@ -196,32 +199,32 @@ def parse_event_urls_and_details(html_content: str) -> List[Event]:
                                     event_time = time_category_match.group(1)
                                     event_sport = time_category_match.group(2).strip()
                                 elif desc_text and ':' not in desc_text and '(' not in desc_text:
+                                    # Si no hay hora, el texto restante es el deporte.
                                     event_sport = desc_text.strip()
                             
+                            # Extraer deporte de la imagen (alt text)
                             img_tag = inner_table.find('td', width='34').find('img', alt=True)
                             if img_tag and img_tag['alt']:
                                 sport_from_img = img_tag['alt'].strip()
-                                # Limpiar el nombre del deporte de la imagen
-                                sport_from_img = re.sub(r'^(Tenis|Fútbol|Críquet|Automovilismo|Baloncesto|Hockey|Voleibol|Rugby|Béisbol|Boxeo|MMA|Formula 1)\.\s*', '', sport_from_img, flags=re.IGNORECASE).strip()
-                                sport_from_img = re.sub(r'^(ATP|WTA|NHL|NBA|Liga MX|Ligue 1|Premier League|Serie A|Bundesliga|LaLiga|Champions League|Europa League|Copa Libertadores|Copa Sudamericana|NFL|MLB|UFC)\.\s*', '', sport_from_img, flags=re.IGNORECASE).strip()
                                 
+                                # Limpiar el nombre del deporte de la imagen si contiene prefijos comunes
+                                cleaned_sport_from_img = re.sub(
+                                    r'^(Tenis|Fútbol|Críquet|Automovilismo|Baloncesto|Hockey|Voleibol|Rugby|Béisbol|Boxeo|MMA|Formula 1|'
+                                    r'ATP|WTA|NHL|NBA|Liga MX|Ligue 1|Premier League|Serie A|Bundesliga|LaLiga|Champions League|'
+                                    r'Europa League|Copa Libertadores|Copa Sudamericana|NFL|MLB|UFC)\.\s*', 
+                                    '', sport_from_img, flags=re.IGNORECASE
+                                ).strip()
+
                                 # Lógica para preferir el deporte más específico o completo
                                 if event_sport == "N/A" or not event_sport:
-                                    event_sport = sport_from_img
-                                elif sport_from_img and sport_from_img not in event_sport:
-                                    # Si la imagen tiene una versión más corta y precisa, preferirla
-                                    if len(sport_from_img) < len(event_sport) and sport_from_img in event_sport:
-                                        event_sport = sport_from_img
-                                    # Si la imagen tiene algo completamente diferente o más detallado
-                                    elif sport_from_img not in event_sport:
-                                        # Aquí optamos por mantener evdesc_span si ya tiene algo decente,
-                                        # a menos que img_tag sea claramente superior (ej. más descriptivo).
-                                        # Para este caso, si el de la imagen es más largo, lo preferimos.
-                                        if len(sport_from_img) > len(event_sport):
-                                            event_sport = sport_from_img
+                                    event_sport = cleaned_sport_from_img # Usar el de la imagen si no hay nada
+                                elif cleaned_sport_from_img and cleaned_sport_from_img not in event_sport:
+                                    # Si el de la imagen es más descriptivo o diferente, usarlo
+                                    if len(cleaned_sport_from_img) > len(event_sport) or cleaned_sport_from_img.lower() != event_sport.lower():
+                                        event_sport = cleaned_sport_from_img
                                 
-                                if event_sport == "N/A" and sport_from_img: # Último recurso si no se encontró nada
-                                    event_sport = sport_from_img
+                                if event_sport == "N/A" and cleaned_sport_from_img: # Último recurso si aún es N/A
+                                    event_sport = cleaned_sport_from_img
 
 
                             event_data: Event = {
@@ -293,6 +296,7 @@ async def main_async(): # Esta es la función principal que se ejecutará
     logging.info("Iniciando el proceso de scraping de eventos con Playwright...")
     all_unique_events: Dict[str, Event] = {} # Usamos un diccionario para deduplicar por URL
 
+    # Itera sobre un rango de páginas para obtener más eventos
     for page_url in BASE_URLS_TO_SCRAPE:
         logging.info(f"Scrapeando página: {page_url}")
         html = await fetch_html_with_playwright(page_url) # <--- Aquí se llama a la función de Playwright
