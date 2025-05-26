@@ -1,3 +1,5 @@
+# .github/workflows/scrape-livetv.yml
+
 name: Scrape LiveTV.sx Events
 
 on:
@@ -13,8 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      # Definimos esta variable de entorno a nivel de job para que todos los steps la vean.
-      # Esto debería asegurar que Playwright use esta ruta para todo.
       PLAYWRIGHT_BROWSERS_PATH: ${{ github.workspace }}/ms-playwright-browsers 
 
     steps:
@@ -32,12 +32,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests beautifulsoup4 lxml
           pip install playwright
-          
-          # Primero, instala las dependencias del sistema operativo (para que los navegadores puedan ejecutarse)
           playwright install-deps
-          
-          # Luego, instala los navegadores en la ruta especificada por PLAYWRIGHT_BROWSERS_PATH
-          # Playwright ya debería conocer esta variable de entorno al ejecutarse aquí.
           playwright install 
           echo "Dependencies installed."
 
@@ -47,13 +42,23 @@ jobs:
           python script_lista_livetv_sx.py
           echo "Scraping script finished."
 
+      # --- Nuevo paso para guardar los archivos de depuración ---
+      - name: Save Playwright debug HTML as artifact
+        if: always() # Ejecutar siempre, incluso si hay fallos anteriores
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-debug-html
+          path: debug_playwright_html_*.html # Guarda todos los archivos HTML generados
+          retention-days: 5 # Opcional: cuántos días guardar los artifacts
+      # --- Fin del nuevo paso ---
+
       - name: Commit and push if XML changed
         run: |
           echo "Checking for changes and committing..."
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add ${{ env.XML_FILENAME }}
-          
+
           if git diff --staged --quiet; then
             echo "No changes to commit in ${{ env.XML_FILENAME }}."
           else
