@@ -15,7 +15,7 @@ BASE_URLS_TO_SCRAPE = [
 ]
 
 # Archivo XML de salida
-OUTPUT_XML_FILE = "eventos_livetv_sx.xml" # Este ya coincide con tu nombre deseado
+OUTPUT_XML_FILE = "eventos_livetv_sx.xml"
 
 # Patrón de regex para encontrar los enlaces de eventos
 # /es/eventinfo/DIGITOS__/  O  /es/eventinfo/DIGITOS_TEXTO_ADICIONAL/
@@ -29,7 +29,8 @@ HEADERS = {
 def fetch_html(url: str) -> str | None:
     """Obtiene el contenido HTML de una URL."""
     try:
-        response = requests.get(url, headers=HEADERS, timeout=15)
+        # === CAMBIO CLAVE AQUÍ: verify=False ===
+        response = requests.get(url, headers=HEADERS, timeout=15, verify=False)
         response.raise_for_status()  # Lanza una excepción para códigos de error HTTP
         return response.text
     except requests.exceptions.RequestException as e:
@@ -87,7 +88,7 @@ def create_or_update_xml(event_urls: List[str], xml_filepath: str):
 
 def main():
     """Función principal del script."""
-    logging.info(f"Iniciando el proceso de scraping desde '{__file__}'...") # Nombre de archivo dinámico
+    logging.info("Iniciando el proceso de scraping de eventos...")
     all_event_urls: Set[str] = set()
 
     for page_url in BASE_URLS_TO_SCRAPE:
@@ -106,4 +107,7 @@ def main():
     logging.info("Proceso de scraping finalizado.")
 
 if __name__ == "__main__":
+    # Opcional: Para evitar advertencias de SSL en el log si verify=False
+    import urllib3
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
     main()
