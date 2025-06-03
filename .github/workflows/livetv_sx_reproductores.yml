@@ -25,7 +25,7 @@ jobs:
 
     - name: Update stream links
       run: |
-        python update_streams.py
+        python script_lista_livetv_sx_reproductores.py
 
     - name: Commit and push changes
       run: |
