@@ -27,7 +27,7 @@ jobs:
     - name: Run scraper
       run: |
         echo "Iniciando proceso de scraping..."
-        python scraper.py
+        python script_lista_livetv_sx.py
         echo "Proceso de scraping completado."
 
     - name: Check for changes
