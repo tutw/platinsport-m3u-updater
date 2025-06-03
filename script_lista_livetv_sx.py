@@ -9,7 +9,7 @@ import xml.dom.minidom
 from datetime import datetime, timedelta
 import time
 import random
-from urllib.parse import urljoin
+from urllib.parse import urljoin, urlparse
 from concurrent.futures import ThreadPoolExecutor
 import logging
 import urllib3
@@ -30,50 +30,22 @@ logging.basicConfig(
     ]
 )
 
-# Mapeo de números de página a deportes (basado en la estructura de livetv.sx)
-SPORT_MAPPING = {
-    1: "Fútbol",
-    2: "Hockey sobre hielo", 
-    3: "Baloncesto",
-    4: "Tenis",
-    5: "Voleibol",
-    6: "Boxeo",
-    7: "Automovilismo",
-    8: "Futsal",
-    9: "Balonmano",
-    10: "Rugby League",
-    11: "Béisbol",
-    12: "Fútbol americano",
-    13: "Billar",
-    14: "Dardos",
-    15: "Badminton",
-    16: "Rugby Union",
-    17: "Ciclismo",
-    18: "Críquet",
-    19: "Fútbol australiano",
-    20: "Deporte de combate",
-    # Agregar más según sea necesario
-}
-
 # Patrón de regex para encontrar los enlaces de eventos
 EVENT_PATH_REGEX = r"^/es/eventinfo/(\d+(_+)?([a-zA-Z0-9_-]+)?)/?$"
 
 # Patrones para extraer información de fecha y hora mejorados
 DATE_TIME_PATTERNS = [
-    # Patrones completos con fecha y hora
-    r'(\d{1,2})\s+de\s+(\w+)[\s,]*(\d{1,2}):(\d{2})',  # "4 de junio, 15:00"
-    r'(\d{1,2})\s+de\s+(\w+)[\s,]+\w+[\s,]*(\d{1,2}):(\d{2})',  # "4 de junio, miércoles, 15:00"
-    r'(\d{1,2})/(\d{1,2})/(\d{4})\s+(\d{1,2}):(\d{2})',  # "04/06/2024 15:00"
-    r'(\d{1,2})-(\d{1,2})-(\d{4})\s+(\d{1,2}):(\d{2})',  # "04-06-2024 15:00"
-    # Patrones solo de hora (para asociar con fecha del contexto)
-    r'(\d{1,2}):(\d{2})',  # Solo hora "15:00"
+    r'(\d{1,2})\s+de\s+(\w+)[\s,]*(\d{1,2}):(\d{2})',
+    r'(\d{1,2})\s+de\s+(\w+)[\s,]+\w+[\s,]*(\d{1,2}):(\d{2})',
+    r'(\d{1,2})/(\d{1,2})/(\d{4})\s+(\d{1,2}):(\d{2})',
+    r'(\d{1,2})-(\d{1,2})-(\d{4})\s+(\d{1,2}):(\d{2})',
+    r'(\d{1,2}):(\d{2})',
 ]
 
-# Patrones para extraer solo fechas
 DATE_PATTERNS = [
-    r'(\d{1,2})\s+de\s+(\w+)[\s,]*(\w+)?',  # "4 de junio, miércoles" o "4 de junio"
-    r'Hoy\s*\((\d{1,2})\s+de\s+(\w+)[\s,]*(\w+)?\)',  # "Hoy (3 de junio, martes)"
-    r'(\d{1,2})\s+(\w+)[\s,]*(\w+)?',  # "4 junio, miércoles"
+    r'(\d{1,2})\s+de\s+(\w+)[\s,]*(\w+)?',
+    r'Hoy\s*\((\d{1,2})\s+de\s+(\w+)[\s,]*(\w+)?\)',
+    r'(\d{1,2})\s+(\w+)[\s,]*(\w+)?',
 ]
 
 # Diccionario de meses en español
@@ -109,35 +81,154 @@ class EventScraper:
         self.session = requests.Session()
         self.session.headers.update(headers)
         self.current_date_context = None
+        self.sports_mapping = {}  # Mapeo dinámico de deportes
+        self.sports_urls = {}     # URLs de deportes extraídas
+
+    def extract_sports_mapping(self):
+        """
+        Extrae dinámicamente el mapeo de deportes desde la página principal
+        usando el XPath específico proporcionado
+        """
+        url = f"{self.base_url}/es/"
+        logging.info(f"Extrayendo mapeo de deportes desde: {url}")
+        
+        try:
+            response = self.session.get(url, verify=False, timeout=30)
+            if response.status_code != 200:
+                logging.error(f"Error {response.status_code} al acceder a la página principal")
+                return False
+
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            # Implementar diferentes estrategias para encontrar los enlaces de deportes
+            sport_links = []
+            
+            # Estrategia 1: Buscar en el área específica mencionada en el XPath
+            # /html/body/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr/td/table/tbody/tr[2]/td/table/tbody/tr/td/table/tbody/tr/td/table[1]/tbody/tr/td[1]
+            
+            # Buscar tabla principal
+            main_tables = soup.find_all('table')
+            for table in main_tables:
+                # Buscar enlaces que contengan "allupcomingsports"
+                links = table.find_all('a', href=re.compile(r'/es/allupcomingsports/\d+/?'))
+                sport_links.extend(links)
+            
+            # Estrategia 2: Buscar directamente por patrón de URL
+            if not sport_links:
+                sport_links = soup.find_all('a', href=re.compile(r'/es/allupcomingsports/\d+/?'))
+            
+            # Estrategia 3: Buscar en el sidebar o menú de navegación
+            if not sport_links:
+                sidebar_elements = soup.find_all(['div', 'td'], class_=re.compile(r'(sidebar|menu|nav)', re.I))
+                for element in sidebar_elements:
+                    links = element.find_all('a', href=re.compile(r'/es/allupcomingsports/\d+/?'))
+                    sport_links.extend(links)
+            
+            # Procesar los enlaces encontrados
+            for link in sport_links:
+                try:
+                    href = link.get('href', '')
+                    text = link.get_text(strip=True)
+                    
+                    # Extraer número de página de la URL
+                    match = re.search(r'/es/allupcomingsports/(\d+)/?', href)
+                    if match:
+                        page_num = int(match.group(1))
+                        
+                        # Limpiar y validar el texto del deporte
+                        if text and len(text.strip()) > 0:
+                            sport_name = text.strip()
+                            
+                            # Filtrar textos que no parecen nombres de deportes
+                            if not re.match(r'^\d+$', sport_name) and len(sport_name) > 1:
+                                self.sports_mapping[page_num] = sport_name
+                                self.sports_urls[page_num] = urljoin(self.base_url, href)
+                                logging.debug(f"Deporte encontrado: {page_num} -> {sport_name}")
+                
+                except Exception as e:
+                    logging.debug(f"Error procesando enlace de deporte: {e}")
+                    continue
+            
+            # Si no se encontraron deportes, usar estrategia de fallback
+            if not self.sports_mapping:
+                logging.warning("No se pudieron extraer deportes automáticamente. Usando estrategia de fallback.")
+                self.fallback_sports_detection()
+                return len(self.sports_mapping) > 0
+            
+            logging.info(f"✅ Extraídos {len(self.sports_mapping)} deportes dinámicamente:")
+            for page_num, sport_name in sorted(self.sports_mapping.items()):
+                logging.info(f"   {page_num}: {sport_name}")
+            
+            return True
+            
+        except Exception as e:
+            logging.error(f"Error extrayendo mapeo de deportes: {e}")
+            self.fallback_sports_detection()
+            return len(self.sports_mapping) > 0
+
+    def fallback_sports_detection(self):
+        """
+        Estrategia de fallback: intentar extraer deportes probando URLs secuenciales
+        """
+        logging.info("Ejecutando estrategia de fallback para detectar deportes...")
+        
+        # Probar las primeras 20 páginas para detectar deportes válidos
+        for page_num in range(1, 21):
+            try:
+                url = f"{self.base_url}/es/allupcomingsports/{page_num}/"
+                response = self.session.get(url, verify=False, timeout=10)
+                
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+                    
+                    # Buscar indicadores del nombre del deporte en la página
+                    title_elements = soup.find_all(['title', 'h1', 'h2', 'h3'])
+                    for element in title_elements:
+                        text = element.get_text().strip()
+                        # Buscar patrones que indiquen nombre de deporte
+                        sport_match = re.search(r'(Fútbol|Hockey|Baloncesto|Tenis|Voleibol|Boxeo|Automovilismo|Futsal|Balonmano|Rugby|Béisbol|Fútbol americano|Billar|Dardos|Badminton|Ciclismo|Críquet)', text, re.IGNORECASE)
+                        if sport_match:
+                            sport_name = sport_match.group(1)
+                            self.sports_mapping[page_num] = sport_name
+                            self.sports_urls[page_num] = url
+                            logging.debug(f"Deporte detectado por fallback: {page_num} -> {sport_name}")
+                            break
+                    
+                    # Si no se encontró en títulos, usar nombre genérico
+                    if page_num not in self.sports_mapping:
+                        self.sports_mapping[page_num] = f"Deporte_{page_num}"
+                        self.sports_urls[page_num] = url
+                
+                # Pequeña pausa para evitar bloqueos
+                time.sleep(0.5)
+                
+            except Exception as e:
+                logging.debug(f"Error en fallback para página {page_num}: {e}")
+                continue
 
     def extract_date_from_context(self, soup):
         """Extrae la fecha del contexto de la página"""
         try:
-            # Buscar encabezados de fecha como "Hoy (3 de junio, martes)"
             date_headers = soup.find_all(text=re.compile(r'(Hoy|Mañana|\d+\s+de\s+\w+)'))
             
             for header in date_headers:
                 header_text = header.strip()
                 
-                # Buscar patrones de fecha en el encabezado
                 for pattern in DATE_PATTERNS:
                     match = re.search(pattern, header_text, re.IGNORECASE)
                     if match:
                         groups = match.groups()
                         
                         if "hoy" in header_text.lower():
-                            # Es "Hoy (3 de junio, martes)"
                             if len(groups) >= 2:
                                 dia, mes = groups[0], groups[1]
                                 mes_num = MESES_ES.get(mes.lower(), mes)
                                 return f"{dia} de {mes}"
                         else:
-                            # Es una fecha normal "4 de junio"
                             if len(groups) >= 2:
                                 dia, mes = groups[0], groups[1]
                                 return f"{dia} de {mes}"
             
-            # Si no se encuentra fecha específica, usar fecha actual
             today = datetime.now()
             mes_nombre = list(MESES_ES.keys())[int(today.strftime('%m')) - 1]
             return f"{today.day} de {mes_nombre}"
@@ -155,35 +246,30 @@ class EventScraper:
             return fecha_contexto, "No especificado"
         
         text = text.strip()
-        original_text = text
-        text_lower = text.lower()
         
-        # Primero intentar extraer fecha y hora juntas
         for pattern in DATE_TIME_PATTERNS:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
                 groups = match.groups()
                 
-                if len(groups) == 4:  # Formato con mes en texto
+                if len(groups) == 4:
                     dia, mes, hora, minuto = groups
                     mes_lower = mes.lower()
                     if mes_lower in MESES_ES:
                         fecha = f"{dia} de {mes}"
                         tiempo = f"{hora.zfill(2)}:{minuto}"
                         return fecha, tiempo
-                elif len(groups) == 5:  # Formato completo con año
+                elif len(groups) == 5:
                     dia, mes, año, hora, minuto = groups
                     fecha = f"{dia.zfill(2)}/{mes.zfill(2)}/{año}"
                     tiempo = f"{hora.zfill(2)}:{minuto}"
                     return fecha, tiempo
-                elif len(groups) == 2:  # Solo hora
+                elif len(groups) == 2:
                     hora, minuto = groups
                     tiempo = f"{hora.zfill(2)}:{minuto}"
-                    # Usar fecha del contexto de la página
                     fecha_contexto = self.extract_date_from_context(page_soup) if page_soup else "No especificado"
                     return fecha_contexto, tiempo
         
-        # Si no se encontró fecha completa, buscar solo hora
         hora_match = re.search(r'(\d{1,2}):(\d{2})', text)
         if hora_match:
             hora, minuto = hora_match.groups()
@@ -191,7 +277,6 @@ class EventScraper:
             fecha_contexto = self.extract_date_from_context(page_soup) if page_soup else "No especificado"
             return fecha_contexto, tiempo
         
-        # Como último recurso, buscar cualquier fecha en el texto
         for pattern in DATE_PATTERNS:
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
@@ -202,39 +287,35 @@ class EventScraper:
                         fecha = f"{dia} de {mes}"
                         return fecha, "No especificado"
         
-        # Si no se encuentra nada, usar contexto de la página
         fecha_contexto = self.extract_date_from_context(page_soup) if page_soup else "No especificado"
         return fecha_contexto, "No especificado"
 
     def extract_sport_and_competition(self, event_container, soup, page_num):
-        """Función mejorada para extraer deporte y competición"""
-        # Obtener deporte basado en el número de página
-        sport = SPORT_MAPPING.get(page_num, f"Deporte_{page_num}")
+        """Función mejorada para extraer deporte y competición usando mapeo dinámico"""
+        # Usar el mapeo dinámico extraído
+        sport = self.sports_mapping.get(page_num, f"Deporte_{page_num}")
         
         competition = "No especificado"
         
         try:
-            # Buscar información de competición en el texto del evento
             if event_container:
                 event_text = event_container.get_text()
                 
-                # Patrones comunes para competiciones mejorados
                 competition_patterns = [
-                    r'\(([^)]+)\)',  # Texto entre paréntesis
-                    r'(\w+\.\s*\w+(?:\s+\w+)*)',  # Formato "Liga. Nombre"
-                    r'(Copa\s+[^,\n]+)',  # Copa
-                    r'(Liga\s+[^,\n]+)',  # Liga
-                    r'(Championship\s+[^,\n]+)', # Championship
-                    r'(Premier\s+[^,\n]+)', # Premier
-                    r'(Champions\s+[^,\n]+)', # Champions
-                    r'(\w+\s+Division)', # Division
-                    r'(\w+\.\s*\w+)', # Formato con punto
+                    r'\(([^)]+)\)',
+                    r'(\w+\.\s*\w+(?:\s+\w+)*)',
+                    r'(Copa\s+[^,\n]+)',
+                    r'(Liga\s+[^,\n]+)',
+                    r'(Championship\s+[^,\n]+)',
+                    r'(Premier\s+[^,\n]+)',
+                    r'(Champions\s+[^,\n]+)',
+                    r'(\w+\s+Division)',
+                    r'(\w+\.\s*\w+)',
                 ]
                 
                 for pattern in competition_patterns:
                     matches = re.findall(pattern, event_text, re.IGNORECASE)
                     if matches:
-                        # Tomar la primera coincidencia que sea relevante
                         for match in matches:
                             if len(match.strip()) > 3 and not re.match(r'^\d+:\d+$', match.strip()):
                                 competition = match.strip()
@@ -248,11 +329,17 @@ class EventScraper:
         return sport, competition
 
     def extract_events_from_page(self, page_num):
-        url = f"{self.base_url}/es/allupcomingsports/{page_num}/"
-        logging.info(f"Procesando página {page_num}: {url}")
+        """Extrae eventos de una página específica usando el mapeo dinámico"""
+        # Usar URL del mapeo dinámico si está disponible
+        if page_num in self.sports_urls:
+            url = self.sports_urls[page_num]
+        else:
+            url = f"{self.base_url}/es/allupcomingsports/{page_num}/"
+        
+        sport_name = self.sports_mapping.get(page_num, f"Deporte_{page_num}")
+        logging.info(f"Procesando página {page_num} ({sport_name}): {url}")
 
         try:
-            # Agregar delay aleatorio para evitar bloqueos
             time.sleep(random.uniform(1, 3))
 
             response = self.session.get(url, verify=False, timeout=30)
@@ -263,13 +350,10 @@ class EventScraper:
             soup = BeautifulSoup(response.text, 'html.parser')
             events = []
 
-            # Extraer el contexto de fecha de la página
             self.current_date_context = self.extract_date_from_context(soup)
 
-            # Método principal: buscar enlaces de eventos
             event_links = soup.find_all('a', href=re.compile(EVENT_PATH_REGEX))
             
-            # Método alternativo: buscar en filas específicas
             if not event_links:
                 event_rows = soup.find_all('tr', class_=['evdesc', 'evdesc_LIVE'])
                 for row in event_rows:
@@ -281,30 +365,23 @@ class EventScraper:
                     href = link['href']
                     event_container = link.find_parent('tr') or link.parent
 
-                    # Extraer nombre del evento
                     event_name = link.get_text(strip=True)
                     if not event_name or len(event_name) < 3:
                         continue
 
-                    # Extraer deporte y competición usando el número de página
                     sport, competition = self.extract_sport_and_competition(event_container, soup, page_num)
 
-                    # Buscar fecha y hora en el contexto del evento
                     date_time_text = ""
                     
                     if event_container:
-                        # Buscar en celdas hermanas del enlace
                         parent_row = event_container
                         all_text = parent_row.get_text()
                         date_time_text = all_text
                     
-                    # Procesar fecha y hora
                     fecha, hora = self.parse_date_time(date_time_text, soup)
 
-                    # Construir URL completa
                     full_url = urljoin(self.base_url, href)
 
-                    # Crear objeto de evento
                     event = {
                         "nombre": event_name,
                         "deporte": sport,
@@ -321,7 +398,7 @@ class EventScraper:
                     logging.error(f"Error al procesar evento en página {page_num}: {e}")
                     continue
 
-            logging.info(f"Extraídos {len(events)} eventos de la página {page_num} ({SPORT_MAPPING.get(page_num, 'Desconocido')})")
+            logging.info(f"Extraídos {len(events)} eventos de la página {page_num} ({sport_name})")
             return events
             
         except requests.RequestException as e:
@@ -336,22 +413,18 @@ class EventScraper:
         root.set("generado", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
         root.set("total", str(len(events)))
 
-        # Crear un conjunto para rastrear URLs ya vistas (para eliminar duplicados)
         seen_urls = set()
         unique_count = 0
 
         for event in events:
-            # Verificar duplicados por URL
             if event["url"] in seen_urls:
                 continue
 
             seen_urls.add(event["url"])
             unique_count += 1
 
-            # Crear elemento XML para el evento
             evento_elem = ET.SubElement(root, "evento")
 
-            # Añadir subelementos con la información del evento
             nombre_elem = ET.SubElement(evento_elem, "nombre")
             nombre_elem.text = event["nombre"]
 
@@ -370,15 +443,12 @@ class EventScraper:
             url_elem = ET.SubElement(evento_elem, "url")
             url_elem.text = event["url"]
 
-        # Actualizar el total de eventos únicos
         root.set("total", str(unique_count))
 
-        # Crear un XML formateado
         rough_string = ET.tostring(root, encoding="utf-8")
         reparsed = xml.dom.minidom.parseString(rough_string)
         pretty_xml = reparsed.toprettyxml(indent="  ", encoding="utf-8").decode("utf-8")
 
-        # Guardar el XML
         with open(output_file, "w", encoding="utf-8") as file:
             file.write(pretty_xml)
 
@@ -389,30 +459,41 @@ class EventScraper:
         logging.info(f"Iniciando scraping de eventos deportivos en {start_time}")
 
         try:
-            # Procesar páginas específicas de deportes
-            pages_to_process = list(range(1, min(self.max_pages + 1, 21)))  # Máximo 20 deportes principales
+            # PASO 1: Extraer mapeo dinámico de deportes
+            logging.info("🔍 Paso 1: Extrayendo mapeo dinámico de deportes...")
+            if not self.extract_sports_mapping():
+                logging.error("❌ Error crítico: No se pudo extraer el mapeo de deportes")
+                return False
+
+            # PASO 2: Procesar páginas de deportes encontrados
+            pages_to_process = list(self.sports_mapping.keys())
+            if self.max_pages < len(pages_to_process):
+                pages_to_process = pages_to_process[:self.max_pages]
+            
+            logging.info(f"🔍 Paso 2: Procesando {len(pages_to_process)} páginas de deportes...")
             
             # Procesar primera página para verificar conectividad
-            test_events = self.extract_events_from_page(1)
-            if test_events:
-                self.all_events.extend(test_events)
-                logging.info("✅ Conexión verificada exitosamente")
-            else:
-                logging.warning("⚠️ No se pudieron extraer eventos de la primera página. Continuando...")
+            if pages_to_process:
+                test_events = self.extract_events_from_page(pages_to_process[0])
+                if test_events:
+                    self.all_events.extend(test_events)
+                    logging.info("✅ Conexión verificada exitosamente")
+                else:
+                    logging.warning("⚠️ No se pudieron extraer eventos de la primera página. Continuando...")
 
-            # Procesar el resto de páginas con ThreadPoolExecutor
-            if len(pages_to_process) > 1:
-                with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-                    future_to_page = {executor.submit(self.extract_events_from_page, page_num): page_num 
-                                    for page_num in pages_to_process[1:]}
+                # Procesar el resto de páginas con ThreadPoolExecutor
+                if len(pages_to_process) > 1:
+                    with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+                        future_to_page = {executor.submit(self.extract_events_from_page, page_num): page_num 
+                                        for page_num in pages_to_process[1:]}
 
-                    for future in future_to_page:
-                        try:
-                            page_events = future.result()
-                            self.all_events.extend(page_events)
-                        except Exception as exc:
-                            page_num = future_to_page[future]
-                            logging.error(f"Página {page_num} generó una excepción: {exc}")
+                        for future in future_to_page:
+                            try:
+                                page_events = future.result()
+                                self.all_events.extend(page_events)
+                            except Exception as exc:
+                                page_num = future_to_page[future]
+                                logging.error(f"Página {page_num} generó una excepción: {exc}")
 
             logging.info(f"Total de eventos extraídos antes de eliminar duplicados: {len(self.all_events)}")
 
@@ -420,7 +501,7 @@ class EventScraper:
                 logging.error("❌ No se extrajo ningún evento. Verifique la conectividad y la estructura del sitio web.")
                 return False
 
-            # Crear el archivo XML
+            # PASO 3: Crear el archivo XML
             unique_count = self.create_xml(self.all_events)
             logging.info(f"✅ Total de eventos únicos guardados en XML: {unique_count}")
 
@@ -447,35 +528,20 @@ class EventScraper:
 if __name__ == "__main__":
     try:
         import argparse
-        parser = argparse.ArgumentParser(description='Scraper mejorado de eventos deportivos de livetv.sx')
+        parser = argparse.ArgumentParser(description='Scraper mejorado de eventos deportivos con extracción dinámica')
         parser.add_argument('--pages', type=int, default=20, help='Número máximo de páginas a procesar (default: 20)')
         parser.add_argument('--workers', type=int, default=3, help='Número máximo de trabajadores concurrentes (default: 3)')
         parser.add_argument('--output', type=str, default="eventos_livetv_sx.xml", help='Nombre del archivo XML de salida')
         parser.add_argument('--debug', action='store_true', help='Activar logging de debug')
-        parser.add_argument('--sports', type=str, help='Lista de deportes específicos separados por coma (ej: 1,2,3 para Fútbol,Hockey,Baloncesto)')
         args = parser.parse_args()
 
         if args.debug:
             logging.getLogger().setLevel(logging.DEBUG)
 
-        # Mostrar mapeo de deportes disponibles
-        logging.info("🏆 Deportes disponibles:")
-        for num, sport in list(SPORT_MAPPING.items())[:20]:
-            logging.info(f"   {num}: {sport}")
+        logging.info("🚀 Iniciando scraper con extracción dinámica de deportes...")
 
         # Crear y ejecutar el scraper
         scraper = EventScraper(max_pages=args.pages, max_workers=args.workers)
-        
-        # Si se especificaron deportes específicos, modificar las páginas a procesar
-        if args.sports:
-            try:
-                sport_pages = [int(x.strip()) for x in args.sports.split(',')]
-                scraper.max_pages = max(sport_pages)
-                logging.info(f"🎯 Procesando deportes específicos: {[SPORT_MAPPING.get(p, f'Página {p}') for p in sport_pages]}")
-            except ValueError:
-                logging.error("❌ Error en formato de deportes. Use números separados por coma (ej: 1,2,3)")
-                sys.exit(1)
-        
         success = scraper.run()
 
         if success:
@@ -483,7 +549,6 @@ if __name__ == "__main__":
         else:
             print("❌ El scraping falló. Revise los logs para más detalles.")
 
-        # Establecer el código de salida
         sys.exit(0 if success else 1)
         
     except KeyboardInterrupt:
