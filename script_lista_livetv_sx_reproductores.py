@@ -78,19 +78,23 @@ class StreamExtractor:
         })
         
         # Configurar adaptadores con reintentos
-        from requests.adapters import HTTPAdapter
-        from urllib3.util.retry import Retry
-        
-        retry_strategy = Retry(
-            total=3,
-            status_forcelist=[429, 500, 502, 503, 504],
-            method_whitelist=["HEAD", "GET", "OPTIONS"],
-            backoff_factor=1
-        )
-        
-        adapter = HTTPAdapter(max_retries=retry_strategy, pool_connections=10, pool_maxsize=20)
-        session.mount("http://", adapter)
-        session.mount("https://", adapter)
+        try:
+            from requests.adapters import HTTPAdapter
+            from urllib3.util.retry import Retry
+            
+            retry_strategy = Retry(
+                total=3,
+                status_forcelist=[429, 500, 502, 503, 504],
+                allowed_methods=["HEAD", "GET", "OPTIONS"],  # Cambiado de method_whitelist
+                backoff_factor=1
+            )
+            
+            adapter = HTTPAdapter(max_retries=retry_strategy, pool_connections=10, pool_maxsize=20)
+            session.mount("http://", adapter)
+            session.mount("https://", adapter)
+        except ImportError:
+            # Fallback si urllib3 no tiene Retry
+            pass
         
         return session
     
@@ -131,6 +135,7 @@ class StreamExtractor:
         # 1. Descargar y parsear XML
         eventos = self._download_and_parse_xml(xml_url, limit)
         if not eventos:
+            self.logger.error("❌ No se pudieron obtener eventos")
             return
         
         # 2. Procesar eventos en paralelo
@@ -494,7 +499,7 @@ class StreamExtractor:
         
         for evento_data in eventos:
             evento_elem = ET.SubElement(eventos_elem, 'evento')
-            reproductores = evento_data.pop('reproductores', [])
+            reproductores = evento_data.get('reproductores', [])
             
             # Datos del evento
             for key, value in evento_data.items():
@@ -518,18 +523,23 @@ class StreamExtractor:
     
     def _prettify_and_save_xml(self, root: ET.Element, filename: str):
         """Guarda XML con formato legible"""
-        from xml.dom import minidom
-        
-        rough_string = ET.tostring(root, encoding='unicode')
-        reparsed = minidom.parseString(rough_string)
-        pretty = reparsed.toprettyxml(indent="  ")
-        
-        # Remover líneas vacías extra
-        pretty_lines = [line for line in pretty.split('\n') if line.strip()]
-        pretty_final = '\n'.join(pretty_lines)
-        
-        with open(filename, 'w', encoding='utf-8') as f:
-            f.write(pretty_final)
+        try:
+            from xml.dom import minidom
+            
+            rough_string = ET.tostring(root, encoding='unicode')
+            reparsed = minidom.parseString(rough_string)
+            pretty = reparsed.toprettyxml(indent="  ")
+            
+            # Remover líneas vacías extra
+            pretty_lines = [line for line in pretty.split('\n') if line.strip()]
+            pretty_final = '\n'.join(pretty_lines)
+            
+            with open(filename, 'w', encoding='utf-8') as f:
+                f.write(pretty_final)
+        except ImportError:
+            # Fallback sin prettify
+            tree = ET.ElementTree(root)
+            tree.write(filename, encoding='utf-8', xml_declaration=True)
     
     def _save_detailed_json(self, eventos: List[Dict], stats: Dict):
         """Guarda JSON con información detallada"""
@@ -661,21 +671,4 @@ def main():
     
     parser = argparse.ArgumentParser(description='Stream Extractor Premium para LiveTV.sx')
     parser.add_argument('limite', nargs='?', type=int, default=30, 
-                       help='Número máximo de eventos a procesar (default: 30)')
-    parser.add_argument('--workers', type=int, default=3, 
-                       help='Número de hilos paralelos (default: 3)')
-    parser.add_argument('--no-cache', action='store_true', 
-                       help='Deshabilitar cache de URLs')
-    
-    args = parser.parse_args()
-    
-    # Validar argumentos
-    if args.limite <= 0 or args.limite > 1000:
-        print("❌ Error: El límite debe estar entre 1 y 1000")
-        sys.exit(1)
-    
-    if args.workers <= 0 or args.workers > 10:
-        print("❌ Error: Los workers deben estar entre 1 y 10")
-        sys.exit(1)
-    
-    #
+                       help='Número máximo de
