@@ -29,7 +29,7 @@ jobs:
       uses: actions/checkout@v4
       
     - name: Configurar Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5  # Updated to v5
       with:
         python-version: '3.11'
         cache: 'pip'
@@ -60,10 +60,12 @@ jobs:
           echo "file_size=$file_size" >> $GITHUB_OUTPUT
           
           # Contar eventos
-          event_count=$(grep -c "> $GITHUB_OUTPUT
+          event_count=$(grep -c "<evento " eventos_livetv_sx_con_reproductores.xml || echo "0")
+          echo "📈 Eventos procesados: $event_count"
+          echo "event_count=$event_count" >> $GITHUB_OUTPUT
           
           # Contar streams
-          stream_count=$(grep -c "" eventos_livetv_sx_con_reproductores.xml || echo "0")
+          stream_count=$(grep -c "<stream>" eventos_livetv_sx_con_reproductores.xml || echo "0")
           echo "🎥 Streams encontrados: $stream_count"
           echo "stream_count=$stream_count" >> $GITHUB_OUTPUT
         else
@@ -156,12 +158,12 @@ jobs:
         
     - name: Crear Release (semanal)
       if: github.event.schedule == '0 0 * * 0'  # Solo los domingos a medianoche
-      uses: actions/create-release@v1
+      uses: softprops/action-gh-release@v2  # Updated to modern release action
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: weekly-${{ github.run_number }}
-        release_name: Release Semanal ${{ github.run_number }}
+        name: Release Semanal ${{ github.run_number }}
         body: |
           🤖 Release automático semanal
           
@@ -170,12 +172,15 @@ jobs:
           - Streams encontrados: ${{ steps.extract.outputs.stream_count }}
           - Tamaño del archivo: ${{ steps.extract.outputs.file_size }} bytes
           
-          📅 Generado: ${{ github.run_date }}
+          📅 Generado: ${{ github.event.head_commit.timestamp }}
         draft: false
         prerelease: false
+        files: |
+          eventos_livetv_sx_con_reproductores.xml
+          resumen_procesamiento.json
         
     - name: Subir artefactos
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4  # Updated to v4
       with:
         name: eventos-livetv-${{ github.run_number }}
         path: |
