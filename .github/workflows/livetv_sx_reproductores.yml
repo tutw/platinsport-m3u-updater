@@ -1,438 +1,198 @@
-name: 🎯 Extractor LiveTV.sx Reproductores Premium
+name: Extractor LiveTV.sx Reproductores
 
 on:
+  # Ejecutar cada hora
   schedule:
-    # Ejecutar cada 6 horas
-    - cron: '0 */6 * * *'
+    - cron: '0 * * * *'  # Cada hora en el minuto 0
+  
+  # Permitir ejecución manual
   workflow_dispatch:
     inputs:
-      limite_eventos:
-        description: 'Número máximo de eventos a procesar (1-500)'
+      debug_mode:
+        description: 'Modo debug (true/false)'
         required: false
-        default: '50'
-        type: string
-      workers:
-        description: 'Número de hilos paralelos (1-10)'
-        required: false
-        default: '3'
-        type: string
-      disable_cache:
-        description: 'Deshabilitar cache de URLs'
-        required: false
-        default: false
+        default: 'false'
         type: boolean
 
-# Permisos explícitos necesarios
+# Permisos necesarios
 permissions:
   contents: write
   actions: read
-  pages: read
-  deployments: read
-
-env:
-  PYTHONUNBUFFERED: 1
-  PYTHONDONTWRITEBYTECODE: 1
 
 jobs:
-  validar-parametros:
-    name: 🔍 Validar Parámetros
+  extract_streams:
     runs-on: ubuntu-latest
-    outputs:
-      limite: ${{ steps.validate.outputs.limite }}
-      workers: ${{ steps.validate.outputs.workers }}
-      cache_flag: ${{ steps.validate.outputs.cache_flag }}
+    timeout-minutes: 60  # Timeout de 1 hora
     
     steps:
-    - name: Validar entradas
-      id: validate
-      run: |
-        # Validar límite de eventos
-        LIMITE="${{ github.event.inputs.limite_eventos || '50' }}"
-        if ! [[ "$LIMITE" =~ ^[0-9]+$ ]] || [ "$LIMITE" -lt 1 ] || [ "$LIMITE" -gt 500 ]; then
-          echo "❌ Error: límite_eventos debe ser un número entre 1 y 500"
-          exit 1
-        fi
-        
-        # Validar workers
-        WORKERS="${{ github.event.inputs.workers || '3' }}"
-        if ! [[ "$WORKERS" =~ ^[0-9]+$ ]] || [ "$WORKERS" -lt 1 ] || [ "$WORKERS" -gt 10 ]; then
-          echo "❌ Error: workers debe ser un número entre 1 y 10"
-          exit 1
-        fi
-        
-        # Configurar cache
-        CACHE_FLAG=""
-        if [ "${{ github.event.inputs.disable_cache }}" = "true" ]; then
-          CACHE_FLAG="--no-cache"
-        fi
-        
-        echo "limite=$LIMITE" >> $GITHUB_OUTPUT
-        echo "workers=$WORKERS" >> $GITHUB_OUTPUT
-        echo "cache_flag=$CACHE_FLAG" >> $GITHUB_OUTPUT
-        
-        echo "✅ Parámetros validados:"
-        echo "   - Límite de eventos: $LIMITE"
-        echo "   - Workers: $WORKERS"
-        echo "   - Cache: $([ -z "$CACHE_FLAG" ] && echo "Habilitado" || echo "Deshabilitado")"
-
-  extraer-reproductores:
-    name: 🎬 Extraer Reproductores
-    runs-on: ubuntu-latest
-    needs: validar-parametros
-    timeout-minutes: 120
-    
-    steps:
-    - name: 📥 Checkout código
+    - name: Checkout código
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 1
-        
-    - name: 🐍 Configurar Python
-      uses: actions/setup-python@v5
+      
+    - name: Configurar Python
+      uses: actions/setup-python@v4
       with:
         python-version: '3.11'
         cache: 'pip'
         
-    - name: 📦 Configurar cache de dependencias
-      uses: actions/cache@v4
-      with:
-        path: ~/.cache/pip
-        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-        restore-keys: |
-          ${{ runner.os }}-pip-
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests beautifulsoup4 lxml urllib3
+        
+    - name: Verificar archivos
+      run: |
+        ls -la
+        echo "Python version: $(python --version)"
+        echo "Pip packages:"
+        pip list
+        
+    - name: Ejecutar extractor de streams
+      id: extract
+      run: |
+        echo "🚀 Iniciando extracción de streams..."
+        python script_lista_livetv_sx_reproductores.py
+        
+        # Verificar que el archivo se generó
+        if [ -f "eventos_livetv_sx_con_reproductores.xml" ]; then
+          echo "✅ XML generado exitosamente"
+          file_size=$(wc -c < eventos_livetv_sx_con_reproductores.xml)
+          echo "📊 Tamaño del archivo: $file_size bytes"
+          echo "file_size=$file_size" >> $GITHUB_OUTPUT
           
-    - name: ⚡ Instalar dependencias optimizadas
-      run: |
-        python -m pip install --upgrade pip wheel setuptools
-        pip install --no-cache-dir \
-          requests==2.31.0 \
-          beautifulsoup4==4.12.2 \
-          lxml==4.9.3 \
-          urllib3==2.0.7
-        
-        # Verificar instalación
-        python -c "
-        import requests, bs4, lxml
-        print('✅ Todas las dependencias instaladas correctamente')
-        print(f'   - requests: {requests.__version__}')
-        print(f'   - beautifulsoup4: {bs4.__version__}')
-        print(f'   - lxml: {lxml.__version__}')
-        "
-        
-    - name: 🔧 Preparar entorno de ejecución
-      run: |
-        # Crear directorio de salida
-        mkdir -p output
-        
-        # Configurar límites del sistema
-        ulimit -n 4096
-        
-        # Mostrar información del sistema
-        echo "📊 Información del sistema:"
-        echo "   - OS: $(uname -a)"
-        echo "   - Python: $(python --version)"
-        echo "   - CPU cores: $(nproc)"
-        echo "   - RAM: $(free -h | grep Mem | awk '{print $2}')"
-        echo "   - Disk: $(df -h / | tail -1 | awk '{print $4}' | sed 's/G/ GB/')"
-        
-    - name: 🚀 Ejecutar extractor premium
-      run: |
-        echo "🎯 Iniciando extracción con parámetros:"
-        echo "   - Límite: ${{ needs.validar-parametros.outputs.limite }}"
-        echo "   - Workers: ${{ needs.validar-parametros.outputs.workers }}"
-        echo "   - Cache: $([ -n "${{ needs.validar-parametros.outputs.cache_flag }}" ] && echo "Deshabilitado" || echo "Habilitado")"
-        echo ""
-        
-        # Ejecutar con timeout y manejo de errores
-        timeout 6000 python script_lista_livetv_sx_reproductores.py \
-          ${{ needs.validar-parametros.outputs.limite }} \
-          --workers ${{ needs.validar-parametros.outputs.workers }} \
-          ${{ needs.validar-parametros.outputs.cache_flag }} \
-        || {
-          EXIT_CODE=$?
-          if [ $EXIT_CODE -eq 124 ]; then
-            echo "⏰ Extracción interrumpida por timeout (100 minutos)"
-          else
-            echo "❌ Error en la extracción (código: $EXIT_CODE)"
-          fi
-          exit $EXIT_CODE
-        }
-        
-    - name: 📊 Mostrar resultados preliminares
-      if: always()
-      run: |
-        echo "📋 RESULTADOS PRELIMINARES:"
-        echo "=========================="
-        
-        if [ -f output/livetv_detailed_report.json ]; then
-          echo "✅ Reporte JSON generado"
-          python -c "
-          import json
-          with open('output/livetv_detailed_report.json', 'r') as f:
-              data = json.load(f)
-              meta = data.get('metadata', {})
-              print(f'📊 Eventos procesados: {meta.get(\"total_eventos\", \"N/A\")}')
-              print(f'✅ Extracciones exitosas: {meta.get(\"eventos_exitosos\", \"N/A\")}')
-              print(f'🎯 Tasa de éxito: {meta.get(\"tasa_exito\", \"N/A\")}')
-              print(f'🔗 Total reproductores: {meta.get(\"total_reproductores\", \"N/A\")}')
-          "
+          # Contar eventos
+          event_count=$(grep -c "> $GITHUB_OUTPUT
+          
+          # Contar streams
+          stream_count=$(grep -c "" eventos_livetv_sx_con_reproductores.xml || echo "0")
+          echo "🎥 Streams encontrados: $stream_count"
+          echo "stream_count=$stream_count" >> $GITHUB_OUTPUT
+        else
+          echo "❌ Error: No se generó el archivo XML"
+          exit 1
         fi
         
-        if [ -f output/extraction_detailed_log.txt ]; then
-          echo -e "\n📄 Primeras líneas del log:"
-          head -20 output/extraction_detailed_log.txt
-        fi
-        
-        echo -e "\n📁 Archivos generados:"
-        ls -la output/ 2>/dev/null || echo "❌ No se generaron archivos"
-        
-    - name: 🔍 Validar calidad de resultados
-      if: success()
+    - name: Validar XML generado
       run: |
+        # Validar que el XML sea válido
         python -c "
-        import json, sys
-        
+        import xml.etree.ElementTree as ET
         try:
-            with open('output/livetv_detailed_report.json', 'r') as f:
-                data = json.load(f)
-                meta = data.get('metadata', {})
-                
-            total = meta.get('total_eventos', 0)
-            exitosos = meta.get('eventos_exitosos', 0)
-            reproductores = meta.get('total_reproductores', 0)
+            tree = ET.parse('eventos_livetv_sx_con_reproductores.xml')
+            root = tree.getroot()
+            print(f'✅ XML válido - Elemento raíz: {root.tag}')
+            print(f'📊 Atributos: {root.attrib}')
             
-            if total == 0:
-                print('❌ Error: No se procesaron eventos')
-                sys.exit(1)
-                
-            tasa_exito = (exitosos / total) * 100 if total > 0 else 0
+            eventos = root.findall('evento')
+            print(f'📈 Total eventos: {len(eventos)}')
             
-            print(f'📊 Calidad de resultados:')
-            print(f'   - Tasa de éxito: {tasa_exito:.1f}%')
-            print(f'   - Promedio reproductores: {reproductores/exitosos:.1f}' if exitosos > 0 else '   - Promedio reproductores: 0')
-            
-            # Validaciones de calidad
-            if tasa_exito < 10:
-                print('⚠️ Advertencia: Tasa de éxito muy baja')
-            elif tasa_exito >= 50:
-                print('✅ Excelente tasa de éxito')
-            else:
-                print('✅ Tasa de éxito aceptable')
-                
+            stats = root.find('estadisticas')
+            if stats:
+                for stat in stats:
+                    print(f'📋 {stat.tag}: {stat.text}')
         except Exception as e:
-            print(f'❌ Error validando resultados: {e}')
-            sys.exit(1)
+            print(f'❌ XML inválido: {e}')
+            exit(1)
         "
         
-    - name: 📦 Crear archivo comprimido
-      if: success()
+    - name: Preparar commit
       run: |
-        cd output
+        # Configurar git
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
         
-        # Crear timestamp para el archivo
-        TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+        # Obtener timestamp
+        timestamp=$(date '+%Y-%m-%d %H:%M:%S UTC')
         
-        # Comprimir todos los archivos
-        tar -czf "../livetv_reproductores_${TIMESTAMP}.tar.gz" ./*
+        # Preparar mensaje de commit
+        commit_msg="🤖 Actualización automática - $timestamp
+
+        📊 Estadísticas:
+        - Eventos: ${{ steps.extract.outputs.event_count }}
+        - Streams: ${{ steps.extract.outputs.stream_count }}
+        - Tamaño: ${{ steps.extract.outputs.file_size }} bytes
         
-        echo "✅ Archivo comprimido creado: livetv_reproductores_${TIMESTAMP}.tar.gz"
-        ls -lh "../livetv_reproductores_${TIMESTAMP}.tar.gz"
+        🔄 Ejecutado por GitHub Actions"
         
-    - name: 📤 Subir artefactos (CORREGIDO)
-      uses: actions/upload-artifact@v4
-      if: always()
-      with:
-        name: reproductores-livetv-${{ github.run_number }}
-        path: |
-          output/
-          livetv_reproductores_*.tar.gz
-          extractor.log
-        retention-days: 30
-        compression-level: 6
+        echo "$commit_msg" > commit_message.txt
         
-    - name: 💾 Commit resultados a rama dedicada
-      if: github.event_name == 'schedule' && success()
+    - name: Commit y push cambios
       run: |
-        # Configurar Git
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "GitHub Actions Bot"
-        git config --local pull.rebase true
+        # Añadir archivos
+        git add eventos_livetv_sx_con_reproductores.xml
+        git add resumen_procesamiento.json
         
-        # Información del commit
-        TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S UTC')
-        COMMIT_MSG="🤖 Actualizar reproductores LiveTV.sx - $TIMESTAMP"
-        
-        echo "📝 Preparando commit: $COMMIT_MSG"
-        
-        # Intentar cambiar a rama de resultados
-        git fetch origin || true
-        
-        if git rev-parse --verify origin/resultados-reproductores >/dev/null 2>&1; then
-          echo "✅ Rama 'resultados-reproductores' existe, cambiando..."
-          git checkout -B resultados-reproductores origin/resultados-reproductores
-          git pull origin resultados-reproductores --rebase || {
-            echo "⚠️ Error en pull, resolviendo conflictos..."
-            git rebase --abort || true
-            git reset --hard origin/resultados-reproductores
-          }
-        else
-          echo "🆕 Creando nueva rama 'resultados-reproductores'..."
-          git checkout -b resultados-reproductores
-        fi
-        
-        # Preparar directorio de datos
-        mkdir -p reproductores_data/latest
-        mkdir -p reproductores_data/historical
-        
-        # Copiar archivos generados
-        cp -r output/* reproductores_data/latest/ 2>/dev/null || true
-        
-        # Crear archivo de histórico con timestamp
-        HISTORICAL_DIR="reproductores_data/historical/$(date +%Y%m%d_%H%M%S)"
-        mkdir -p "$HISTORICAL_DIR"
-        cp -r output/* "$HISTORICAL_DIR/" 2>/dev/null || true
-        
-        # Crear índice README actualizado
-        cat > reproductores_data/README.md << EOF
-        # 📡 LiveTV.sx Reproductores Extraídos
-        
-        ## 📊 Última Extracción
-        - **Fecha**: $TIMESTAMP
-        - **Archivos**: \`latest/\`
-        - **Histórico**: \`historical/\`
-        
-        ## 📁 Estructura
-        - \`latest/\` - Última extracción realizada
-        - \`historical/\` - Archivo histórico de extracciones
-        
-        ## 🔄 Actualización Automática
-        Este repositorio se actualiza automáticamente cada 6 horas mediante GitHub Actions.
-        
-        ---
-        *Generado automáticamente por GitHub Actions*
-        EOF
-        
-        # Añadir cambios
-        git add reproductores_data/
-        
-        # Verificar si hay cambios para commitear
+        # Verificar si hay cambios
         if git diff --staged --quiet; then
-          echo "ℹ️ No hay cambios nuevos para commitear"
+          echo "ℹ️ No hay cambios para commitear"
         else
-          echo "💾 Commiteando cambios..."
-          git commit -m "$COMMIT_MSG"
+          echo "📝 Commiteando cambios..."
+          git commit -F commit_message.txt
           
-          # Intentar push con reintentos
-          for i in {1..3}; do
-            if git push origin resultados-reproductores; then
-              echo "✅ Push exitoso en intento $i"
+          # Push con reintentos
+          max_attempts=3
+          attempt=1
+          
+          while [ $attempt -le $max_attempts ]; do
+            echo "🔄 Intento de push $attempt/$max_attempts"
+            if git push; then
+              echo "✅ Push exitoso"
               break
             else
-              echo "⚠️ Error en push, intento $i/3"
-              if [ $i -lt 3 ]; then
-                sleep 5
-                git pull origin resultados-reproductores --rebase || true
+              echo "❌ Push falló, reintentando en 10 segundos..."
+              sleep 10
+              attempt=$((attempt + 1))
+              
+              if [ $attempt -le $max_attempts ]; then
+                git pull --rebase
               fi
             fi
           done
+          
+          if [ $attempt -gt $max_attempts ]; then
+            echo "❌ Push falló después de $max_attempts intentos"
+            exit 1
+          fi
         fi
-
-  post-procesamiento:
-    name: 📈 Post-procesamiento y Notificación
-    needs: [validar-parametros, extraer-reproductores]
-    runs-on: ubuntu-latest
-    if: always()
-    
-    steps:
-    - name: 📥 Descargar artefactos
-      if: needs.extraer-reproductores.result != 'skipped'
-      uses: actions/download-artifact@v4
+        
+    - name: Crear Release (semanal)
+      if: github.event.schedule == '0 0 * * 0'  # Solo los domingos a medianoche
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: reproductores-livetv-${{ github.run_number }}
-        path: resultados/
+        tag_name: weekly-${{ github.run_number }}
+        release_name: Release Semanal ${{ github.run_number }}
+        body: |
+          🤖 Release automático semanal
+          
+          📊 Estadísticas:
+          - Eventos procesados: ${{ steps.extract.outputs.event_count }}
+          - Streams encontrados: ${{ steps.extract.outputs.stream_count }}
+          - Tamaño del archivo: ${{ steps.extract.outputs.file_size }} bytes
+          
+          📅 Generado: ${{ github.run_date }}
+        draft: false
+        prerelease: false
         
-    - name: 📊 Análisis final de resultados
-      if: needs.extraer-reproductores.result == 'success'
+    - name: Subir artefactos
+      uses: actions/upload-artifact@v3
+      with:
+        name: eventos-livetv-${{ github.run_number }}
+        path: |
+          eventos_livetv_sx_con_reproductores.xml
+          resumen_procesamiento.json
+        retention-days: 30
+        
+    - name: Notificación final
       run: |
-        echo "🎉 ANÁLISIS FINAL DE RESULTADOS"
-        echo "=============================="
-        
-        cd resultados
-        
-        if [ -f livetv_detailed_report.json ]; then
-          echo "📋 Generando reporte final..."
-          python3 -c "
-          import json
-          from datetime import datetime
-          
-          with open('livetv_detailed_report.json', 'r') as f:
-              data = json.load(f)
-              meta = data.get('metadata', {})
-              
-          print('📊 ESTADÍSTICAS FINALES:')
-          print('========================')
-          print(f'Total eventos procesados: {meta.get(\"total_eventos\", \"N/A\")}')
-          print(f'Extracciones exitosas: {meta.get(\"eventos_exitosos\", \"N/A\")}')
-          print(f'Tasa de éxito: {meta.get(\"tasa_exito\", \"N/A\")}')
-          print(f'Total reproductores: {meta.get(\"total_reproductores\", \"N/A\")}')
-          print(f'Promedio por evento: {meta.get(\"promedio_reproductores\", \"N/A\")}')
-          print(f'Peticiones realizadas: {meta.get(\"total_requests\", \"N/A\")}')
-          
-          tipos = meta.get('tipos_streams', {})
-          if tipos:
-              print('\n🎬 TIPOS DE STREAMS:')
-              print('===================')
-              for tipo, count in tipos.items():
-                  print(f'{tipo}: {count}')
-          "
-        fi
-        
-        echo -e "\n📁 Archivos generados:"
-        ls -la
-        
-    - name: 🔔 Estado final y notificación
-      run: |
-        echo "📢 ESTADO FINAL DEL WORKFLOW"
-        echo "============================="
-        
-        # Determinar estado general
-        if [ "${{ needs.extraer-reproductores.result }}" == "success" ]; then
-          echo "✅ ÉXITO: Extracción de reproductores completada exitosamente"
-          echo ""
-          echo "🎯 Resultados disponibles:"
-          echo "   • Artefactos: reproductores-livetv-${{ github.run_number }}"
-          echo "   • Rama: resultados-reproductores (si es ejecución programada)"
-          echo "   • Retención: 30 días"
-          echo ""
-          echo "📊 Parámetros utilizados:"
-          echo "   • Límite de eventos: ${{ needs.validar-parametros.outputs.limite }}"
-          echo "   • Workers paralelos: ${{ needs.validar-parametros.outputs.workers }}"
-          echo "   • Cache: $([ -n "${{ needs.validar-parametros.outputs.cache_flag }}" ] && echo "Deshabilitado" || echo "Habilitado")"
-          
-        elif [ "${{ needs.extraer-reproductores.result }}" == "failure" ]; then
-          echo "❌ ERROR: Fallo en la extracción de reproductores"
-          echo ""
-          echo "🔍 Pasos para resolución:"
-          echo "   1. Revisar logs del job 'extraer-reproductores'"
-          echo "   2. Verificar conectividad con LiveTV.sx"
-          echo "   3. Comprobar formato del XML fuente"
-          echo "   4. Validar parámetros de entrada"
-          
-        elif [ "${{ needs.extraer-reproductores.result }}" == "cancelled" ]; then
-          echo "⏸️ CANCELADO: Extracción interrumpida"
-          echo "   • Motivo: Cancelación manual o timeout"
-          
-        else
-          echo "⚠️ ESTADO DESCONOCIDO: Verificar logs detallados"
-        fi
-        
+        echo "🎉 ¡Proceso completado exitosamente!"
+        echo "📄 Archivos generados:"
+        ls -la eventos_livetv_sx_con_reproductores.xml resumen_procesamiento.json
         echo ""
-        echo "🔗 Enlaces útiles:"
-        echo "   • Repositorio: ${{ github.server_url }}/${{ github.repository }}"
-        echo "   • Workflow: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-        echo "   • Artefactos: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}#artifacts"
-
-# Configuración adicional para el workflow
-concurrency:
-  group: extractor-livetv-${{ github.ref }}
-  cancel-in-progress: false
+        echo "🔗 El archivo está disponible en:"
+        echo "https://github.com/${{ github.repository }}/blob/main/eventos_livetv_sx_con_reproductores.xml"
+        echo ""
+        echo "📊 Estadísticas finales:"
+        echo "- Eventos: ${{ steps.extract.outputs.event_count }}"
+        echo "- Streams: ${{ steps.extract.outputs.stream_count }}"
+        echo "- Tamaño: ${{ steps.extract.outputs.file_size }} bytes"
