@@ -1,37 +1,183 @@
-name: Update LiveTV.sx Stream Links
+name: Extraer Reproductores LiveTV.sx
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Cada 6 horas
-  workflow_dispatch:  # Permitir ejecución manual
+    # Ejecutar cada 6 horas
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      max_eventos:
+        description: 'Número máximo de eventos a procesar'
+        required: false
+        default: '50'
+        type: string
+      delay:
+        description: 'Delay entre peticiones (segundos)'
+        required: false
+        default: '1.5'
+        type: string
+      output_branch:
+        description: 'Rama donde guardar resultados'
+        required: false
+        default: 'reproductores'
+        type: string
+
+env:
+  PYTHON_VERSION: '3.9'
+  OUTPUT_DIR: 'output'
 
 jobs:
-  update-streams:
+  extraer-reproductores:
     runs-on: ubuntu-latest
-
+    timeout-minutes: 120
+    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
+    - name: 🛠️ Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: 🐍 Configurar Python
+      uses: actions/setup-python@v4
       with:
-        python-version: '3.8'
-
-    - name: Install dependencies
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: 📦 Instalar dependencias
       run: |
         python -m pip install --upgrade pip
-        pip install requests lxml beautifulsoup4 fake-useragent
-
-    - name: Update stream links
+        pip install requests beautifulsoup4 lxml
+        echo "✅ Dependencias instaladas"
+        
+    - name: 📁 Crear directorio de salida
       run: |
-        python script_lista_livetv_sx_reproductores.py
-
-    - name: Commit and push changes
+        mkdir -p ${{ env.OUTPUT_DIR }}
+        echo "✅ Directorio creado: ${{ env.OUTPUT_DIR }}"
+        
+    - name: 🎯 Ejecutar extractor de reproductores
       run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'actions@github.com'
-        git pull origin main
-        git add eventos_livetv_sx_con_reproductores.xml
-        git diff --staged --quiet || git commit -m "Actualización automática de enlaces de streaming $(date '+%Y-%m-%d %H:%M:%S')"
-        git push
+        echo "🚀 Iniciando extracción de reproductores..."
+        python script_lista_livetv_sx_reproductores.py \
+          ${{ github.event.inputs.max_eventos || '50' }} \
+          ${{ github.event.inputs.delay || '1.5' }}
+        echo "✅ Extracción completada"
+        
+    - name: 📊 Mostrar estadísticas
+      run: |
+        echo "📈 Estadísticas de la ejecución:"
+        if [ -f "${{ env.OUTPUT_DIR }}/estadisticas.json" ]; then
+          cat ${{ env.OUTPUT_DIR }}/estadisticas.json
+        fi
+        echo ""
+        echo "📋 Archivos generados:"
+        ls -la ${{ env.OUTPUT_DIR }}/
+        
+    - name: 🔍 Validar archivos generados
+      run: |
+        echo "🔍 Validando archivos generados..."
+        
+        # Verificar XML principal
+        if [ -f "${{ env.OUTPUT_DIR }}/eventos_livetv_sx_con_reproductores.xml" ]; then
+          echo "✅ XML principal generado correctamente"
+          xmllint --noout ${{ env.OUTPUT_DIR }}/eventos_livetv_sx_con_reproductores.xml || echo "⚠️ XML no válido"
+        else
+          echo "❌ XML principal no encontrado"
+          exit 1
+        fi
+        
+        # Verificar JSON
+        if [ -f "${{ env.OUTPUT_DIR }}/reproductores_detalle.json" ]; then
+          echo "✅ JSON detallado generado correctamente"
+          python -m json.tool ${{ env.OUTPUT_DIR }}/reproductores_detalle.json > /dev/null || echo "⚠️ JSON no válido"
+        else
+          echo "❌ JSON detallado no encontrado"
+        fi
+        
+        # Verificar reporte
+        if [ -f "${{ env.OUTPUT_DIR }}/reporte_extraccion.md" ]; then
+          echo "✅ Reporte generado correctamente"
+        else
+          echo "❌ Reporte no encontrado"
+        fi
+        
+    - name: 📤 Subir artefactos
+      uses: actions/upload-artifact@v3
+      with:
+        name: reproductores-livetv-sx-${{ github.run_number }}
+        path: |
+          ${{ env.OUTPUT_DIR }}/
+        retention-days: 30
+        
+    - name: 🔄 Actualizar rama de resultados
+      if: github.event_name == 'schedule' || github.event.inputs.output_branch
+      env:
+        BRANCH_NAME: ${{ github.event.inputs.output_branch || 'reproductores' }}
+      run: |
+        echo "🔄 Actualizando rama: $BRANCH_NAME"
+        
+        # Configurar git
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action Bot"
+        
+        # Crear/cambiar a rama de resultados
+        git checkout -b $BRANCH_NAME 2>/dev/null || git checkout $BRANCH_NAME
+        
+        # Copiar archivos nuevos
+        cp -r ${{ env.OUTPUT_DIR }}/* . 2>/dev/null || true
+        
+        # Crear README para la rama
+        cat > README.md << EOF
+        # Reproductores Extraídos de LiveTV.sx
+        
+        ## Última actualización
+        $(date)
+        
+        ## Archivos disponibles
+        - \`eventos_livetv_sx_con_reproductores.xml\` - XML principal con reproductores
+        - \`reproductores_detalle.json\` - Datos detallados en JSON
+        - \`reporte_extraccion.md\` - Reporte de la extracción
+        - \`estadisticas.json\` - Estadísticas de ejecución
+        
+        ## Automatización
+        Este contenido se actualiza automáticamente cada 6 horas mediante GitHub Actions.
+        
+        ## Uso
+        El XML principal puede ser usado directamente en aplicaciones de streaming.
+        EOF
+        
+        # Añadir cambios
+        git add .
+        
+        # Hacer commit si hay cambios
+        if git diff --staged --quiet; then
+          echo "ℹ️ No hay cambios para commitear"
+        else
+          git commit -m "🔄 Actualizar reproductores - $(date '+%Y-%m-%d %H:%M:%S')"
+          git push origin $BRANCH_NAME
+          echo "✅ Cambios enviados a la rama $BRANCH_NAME"
+        fi
+
+  notificar-resultado:
+    needs: extraer-reproductores
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: 📢 Notificar resultado
+      run: |
+        if [ "${{ needs.extraer-reproductores.result }}" == "success" ]; then
+          echo "✅ Extracción de reproductores completada exitosamente"
+          echo "🎯 Resultado: SUCCESS"
+        else
+          echo "❌ Error en la extracción de reproductores"
+          echo "🎯 Resultado: FAILURE"
+          exit 1
+        fi
+        
+    - name: 📊 Resumen de ejecución
+      run: |
+        echo "📊 RESUMEN DE EJECUCIÓN"
+        echo "====================="
+        echo "🕐 Iniciado: ${{ github.event.head_commit.timestamp || github.run_number }}"
+        echo "🏃 Ejecutor: ${{ github.actor }}"
+        echo "🌿 Rama: ${{ github.ref }}"
+        echo "📝 Evento: ${{ github.event_name }}"
+        echo "🔢 Run ID: ${{ github.run_id }}"
+        echo "====================="
