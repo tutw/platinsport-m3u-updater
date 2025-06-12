@@ -1,591 +1,465 @@
 import requests
 import xml.etree.ElementTree as ET
-from xml.dom import minidom
-import time
-import random
 import re
-from bs4 import BeautifulSoup
-from urllib.parse import urljoin, urlparse, parse_qs, unquote
-from requests.adapters import HTTPAdapter
-from requests.packages.urllib3.util.retry import Retry
-import logging
 from datetime import datetime, timedelta
+from bs4 import BeautifulSoup
+import urllib.parse
+import time
 import json
-import warnings
-from urllib3.exceptions import InsecureRequestWarning
-import base64
+import ssl
+import urllib3
+from pathlib import Path
 import os
-import hashlib
-import pickle
-import threading
-import gzip
-from queue import Queue
-from threading import Thread
 
-# Suprimir todas las advertencias
-warnings.simplefilter('ignore', InsecureRequestWarning)
-warnings.filterwarnings("ignore", category=DeprecationWarning)
+# Deshabilitar advertencias SSL
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# Configuración global
-CONFIG = {
-    'BASE_URL': 'https://livetv.sx/es/',
-    'CACHE_TTL': 3600,  # Tiempo de vida de caché en segundos
-    'USER_AGENTS_ROTATE': True,
-    'REQUEST_DELAY': (1, 3),  # Rango de delay entre requests en segundos
-    'MAX_THREADS': 5,
-    'CACHE_DIR': './cache',
-    'OUTPUT_DIR': './output',
-    'SITEMAP_FILE': 'livetv_sitemap.xml',
-    'MAX_RETRIES': 3,
-    'TIMEOUT': 30,
-    'LANGUAGES': ['es', 'en'],
-    'SPORTS': {
-        'fútbol': '/es/allupcoming/1/',
-        'baloncesto': '/es/allupcoming/3/',
-        'tenis': '/es/allupcoming/5/',
-        'hockey': '/es/allupcoming/2/',
-        'formula1': '/es/allupcoming/10/',
-        'rugby': '/es/allupcoming/6/',
-        'balonmano': '/es/allupcoming/13/',
-        'voleibol': '/es/allupcoming/12/',
-        'béisbol': '/es/allupcoming/4/',
-        'mma': '/es/allupcoming/15/',
-        'boxeo': '/es/allupcoming/28/',
-        'golf': '/es/allupcoming/19/',
-        'otros': '/es/allupcoming/0/'
-    }
-}
-
-# Configurar logging mejorado
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("update_streams_definitivo.log", encoding='utf-8'),
-        logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger()
-
-# Crear carpetas necesarias
-os.makedirs(CONFIG['CACHE_DIR'], exist_ok=True)
-os.makedirs(CONFIG['OUTPUT_DIR'], exist_ok=True)
-
-def get_session():
-    """Crear una sesión HTTP con configuración optimizada para LiveTV.sx"""
-    session = requests.Session()
-    retry = Retry(
-        total=5,
-        backoff_factor=2,
-        status_forcelist=[429, 500, 502, 503, 504, 520, 521, 522, 523, 524],
-        allowed_methods=["HEAD", "GET", "OPTIONS"]
-    )
-    adapter = HTTPAdapter(max_retries=retry, pool_connections=10, pool_maxsize=20)
-    session.mount('http://', adapter)
-    session.mount('https://', adapter)
-    
-    user_agents = [
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15',
-        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edge/121.0.0.0'
-    ]
-    user_agent = random.choice(user_agents)
-    
-    session.headers.update({
-        'User-Agent': user_agent,
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-        'Accept-Language': 'es-ES,es;q=0.9,en-US;q=0.8,en;q=0.7',
-        'Accept-Encoding': 'gzip, deflate, br',
-        'Connection': 'keep-alive',
-        'Upgrade-Insecure-Requests': '1',
-        'Cache-Control': 'max-age=0',
-        'DNT': '1',
-        'Referer': 'https://livetv.sx/es/',
-        'Sec-Fetch-Dest': 'document',
-        'Sec-Fetch-Mode': 'navigate',
-        'Sec-Fetch-Site': 'same-origin',
-        'Sec-Fetch-User': '?1',
-        'Sec-CH-UA': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
-        'Sec-CH-UA-Mobile': '?0',
-        'Sec-CH-UA-Platform': '"Windows"'
-    })
-    
-    session.verify = False
-    return session
-
-def detect_language_from_page(soup, url):
-    """
-    Detectar el idioma del reproductor usando múltiples métodos
-    Incluyendo el selector CSS proporcionado por el usuario
-    """
-    language_info = {
-        'idioma': 'desconocido',
-        'bandera': '',
-        'codigo_pais': '',
-        'metodo_deteccion': ''
-    }
-    
+def parse_event_datetime(fecha_str, hora_str):
+    """Parsea fecha y hora de evento y las convierte a datetime"""
     try:
-        # Método 1: Usar el selector CSS específico proporcionado por el usuario
-        try:
-            flag_img = soup.select_one("#links_block > table:nth-child(2) > tbody > tr:nth-child(2) > td > table > tbody > tr > td:nth-child(1) > img")
-            if flag_img:
-                src = flag_img.get('src', '')
-                alt = flag_img.get('alt', '')
-                title = flag_img.get('title', '')
-                
-                if src:
-                    country_match = re.search(r'/(\w{2})\.(?:png|jpg|gif)', src.lower())
-                    if country_match:
-                        language_info['codigo_pais'] = country_match.group(1).upper()
-                        language_info['metodo_deteccion'] = 'selector_css_usuario'
-                
-                if alt:
-                    language_info['idioma'] = alt.strip()
-                elif title:
-                    language_info['idioma'] = title.strip()
-                
-                language_info['bandera'] = src
-        except Exception as e:
-            logger.debug(f"Error en selector CSS usuario: {e}")
-        
-        # Método 2: Buscar en toda la sección de enlaces (links_block)
-        if language_info['idioma'] == 'desconocido':
-            try:
-                links_block = soup.find(id='links_block')
-                if links_block:
-                    flag_imgs = links_block.find_all('img', src=re.compile(r'\.(png|jpg|gif)$'))
-                    for img in flag_imgs:
-                        src = img.get('src', '')
-                        if '/flags/' in src or '/flag/' in src or re.search(r'/\w{2}\.(?:png|jpg|gif)', src):
-                            language_info['bandera'] = src
-                            alt = img.get('alt', '')
-                            if alt:
-                                language_info['idioma'] = alt.strip()
-                                language_info['metodo_deteccion'] = 'links_block_flags'
-                                break
-            except Exception as e:
-                logger.debug(f"Error en método links_block: {e}")
-        
-        # Método 3: Buscar todas las imágenes de banderas en la página
-        if language_info['idioma'] == 'desconocido':
-            try:
-                flag_patterns = [
-                    r'/flags?/\w{2}\.(?:png|jpg|gif)',
-                    r'/country/\w{2}\.(?:png|jpg|gif)',
-                    r'/lang/\w{2}\.(?:png|jpg|gif)',
-                    r'flag.*\.(?:png|jpg|gif)',
-                    r'/\w{2}\.(?:png|jpg|gif)$'
-                ]
-                
-                for pattern in flag_patterns:
-                    flag_imgs = soup.find_all('img', src=re.compile(pattern, re.IGNORECASE))
-                    for img in flag_imgs:
-                        src = img.get('src', '')
-                        alt = img.get('alt', '')
-                        title = img.get('title', '')
-                        
-                        if alt or title:
-                            language_info['idioma'] = (alt or title).strip()
-                            language_info['bandera'] = src
-                            language_info['metodo_deteccion'] = f'pattern_{pattern}'
-                            break
-                    
-                    if language_info['idioma'] != 'desconocido':
-                        break
-            except Exception as e:
-                logger.debug(f"Error en búsqueda de patrones: {e}")
-        
-        # Método 4: Detectar por URL del evento
-        if language_info['idioma'] == 'desconocido':
-            try:
-                url_path = urlparse(url).path
-                if '/es/' in url_path:
-                    language_info['idioma'] = 'Español'
-                    language_info['codigo_pais'] = 'ES'
-                    language_info['metodo_deteccion'] = 'url_path'
-                elif '/en/' in url_path:
-                    language_info['idioma'] = 'English'
-                    language_info['codigo_pais'] = 'EN'
-                    language_info['metodo_deteccion'] = 'url_path'
-                elif '/fr/' in url_path:
-                    language_info['idioma'] = 'Français'
-                    language_info['codigo_pais'] = 'FR'
-                    language_info['metodo_deteccion'] = 'url_path'
-            except Exception as e:
-                logger.debug(f"Error en detección por URL: {e}")
-        
-        # Método 5: Buscar texto de idiomas en la página
-        if language_info['idioma'] == 'desconocido':
-            try:
-                text_content = soup.get_text().lower()
-                language_indicators = {
-                    'español': ['español', 'spanish', 'es', 'españa'],
-                    'english': ['english', 'inglés', 'en', 'usa', 'uk'],
-                    'français': ['français', 'french', 'fr', 'france'],
-                    'português': ['português', 'portuguese', 'pt', 'brasil', 'portugal'],
-                    'italiano': ['italiano', 'italian', 'it', 'italia'],
-                    'deutsch': ['deutsch', 'german', 'de', 'alemania'],
-                    'русский': ['русский', 'russian', 'ru', 'russia'],
-                    'العربية': ['عربي', 'arabic', 'ar']
-                }
-                
-                for lang, indicators in language_indicators.items():
-                    if any(indicator in text_content for indicator in indicators):
-                        language_info['idioma'] = lang
-                        language_info['metodo_deteccion'] = 'text_analysis'
-                        break
-            except Exception as e:
-                logger.debug(f"Error en análisis de texto: {e}")
-        
-        # Método 6: Por defecto usar español si está en el dominio .sx/es/
-        if language_info['idioma'] == 'desconocido' and '/es/' in url:
-            language_info['idioma'] = 'Español'
-            language_info['codigo_pais'] = 'ES'
-            language_info['metodo_deteccion'] = 'default_spanish'
-    
-    except Exception as e:
-        logger.error(f"Error en detección de idioma: {e}")
-    
-    return language_info
-
-def extract_youtube_players(html_content):
-    """Extraer reproductores de YouTube embebidos"""
-    youtube_players = []
-    
-    youtube_patterns = [
-        r'(?:https?://)?(?:www\.)?(?:youtube\.com/(?:embed/|watch\?v=)|youtu\.be/)([a-zA-Z0-9_-]{11})',
-        r'youtube\.com/embed/([a-zA-Z0-9_-]{11})',
-        r'youtu\.be/([a-zA-Z0-9_-]{11})',
-        r'youtube-nocookie\.com/embed/([a-zA-Z0-9_-]{11})'
-    ]
-    
-    for pattern in youtube_patterns:
-        matches = re.finditer(pattern, html_content, re.IGNORECASE)
-        for match in matches:
-            video_id = match.group(1)
-            youtube_url = f"https://www.youtube.com/watch?v={video_id}"
-            youtube_players.append({
-                'tipo': 'youtube-embed',
-                'texto': f'YouTube Video ({video_id})',
-                'enlace': youtube_url,
-                'video_id': video_id
-            })
-    
-    return youtube_players
-
-def extract_advanced_streams(html_content, url_base):
-    """Extraer streams avanzados usando técnicas especializadas"""
-    advanced_streams = []
-    
-    try:
-        # 1. Extraer streams M3U8
-        m3u8_pattern = r'(https?://[^"\'\s]+\.m3u8(?:\?[^"\'\s]*)?)'
-        m3u8_matches = re.finditer(m3u8_pattern, html_content, re.IGNORECASE)
-        for match in m3u8_matches:
-            url = match.group(1)
-            advanced_streams.append({
-                'tipo': 'hls-m3u8',
-                'texto': 'HLS Stream (M3U8)',
-                'enlace': url
-            })
-        
-        # 2. Extraer streams DASH (MPD)
-        mpd_pattern = r'(https?://[^"\'\s]+\.mpd(?:\?[^"\'\s]*)?)'
-        mpd_matches = re.finditer(mpd_pattern, html_content, re.IGNORECASE)
-        for match in mpd_matches:
-            url = match.group(1)
-            advanced_streams.append({
-                'tipo': 'dash-mpd',
-                'texto': 'DASH Stream (MPD)',
-                'enlace': url
-            })
-        
-        # 3. Extraer Acestream links
-        acestream_patterns = [
-            r'acestream://([a-f0-9]{40})',
-            r'(https?://[^"\'\s]*acestream[^"\'\s]*)',
-            r'magnet:\?[^"\'\s]*acestream[^"\'\s]*'
-        ]
-        
-        for pattern in acestream_patterns:
-            matches = re.finditer(pattern, html_content, re.IGNORECASE)
-            for match in matches:
-                url = match.group(0)
-                advanced_streams.append({
-                    'tipo': 'acestream',
-                    'texto': 'Acestream Link',
-                    'enlace': url
-                })
-        
-        # 4. Extraer SopCast links
-        sopcast_patterns = [
-            r'sop://[^"\'\s]+',
-            r'(https?://[^"\'\s]*sopcast[^"\'\s]*)'
-        ]
-        
-        for pattern in sopcast_patterns:
-            matches = re.finditer(pattern, html_content, re.IGNORECASE)
-            for match in matches:
-                url = match.group(0)
-                advanced_streams.append({
-                    'tipo': 'sopcast',
-                    'texto': 'SopCast Link',
-                    'enlace': url
-                })
-        
-        # 5. Extraer streams MP4 directos
-        mp4_pattern = r'(https?://[^"\'\s]+\.mp4(?:\?[^"\'\s]*)?)'
-        mp4_matches = re.finditer(mp4_pattern, html_content, re.IGNORECASE)
-        for match in mp4_matches:
-            url = match.group(1)
-            advanced_streams.append({
-                'tipo': 'direct-mp4',
-                'texto': 'Direct MP4 Stream',
-                'enlace': url
-            })
-        
-        # 6. Extraer streams de otros servicios populares
-        other_streaming_patterns = {
-            'twitch': r'(https?://(?:www\.)?twitch\.tv/[^"\'\s]+)',
-            'dailymotion': r'(https?://(?:www\.)?dailymotion\.com/[^"\'\s]+)',
-            'vimeo': r'(https?://(?:www\.)?vimeo\.com/[^"\'\s]+)',
-            'facebook': r'(https?://(?:www\.)?facebook\.com/[^"\'\s]*videos?[^"\'\s]*)',
-            'streamable': r'(https?://streamable\.com/[^"\'\s]+)',
-            'daddylive': r'(https?://[^"\'\s]*daddylive[^"\'\s]*)',
-            'streamlabs': r'(https?://[^"\'\s]*streamlabs[^"\'\s]*)'
+        meses = {
+            'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4,
+            'mayo': 5, 'junio': 6, 'julio': 7, 'agosto': 8,
+            'septiembre': 9, 'octubre': 10, 'noviembre': 11, 'diciembre': 12
         }
-        
-        for service, pattern in other_streaming_patterns.items():
-            matches = re.finditer(pattern, html_content, re.IGNORECASE)
-            for match in matches:
-                url = match.group(1)
-                advanced_streams.append({
-                    'tipo': f'{service}-embed',
-                    'texto': f'{service.title()} Stream',
-                    'enlace': url
-                })
-    
-    except Exception as e:
-        logger.error(f"Error extrayendo streams avanzados: {e}")
-    
-    return advanced_streams
 
-def extract_javascript_players(html_content, url_base):
-    """Extraer reproductores desde código JavaScript"""
-    js_players = []
+        parts = fecha_str.lower().split()
+        if len(parts) >= 3 and parts[1] == 'de':
+            dia = int(parts[0])
+            mes_str = parts[2]
+            mes = meses.get(mes_str, 6)
+            año = datetime.now().year
+
+            if ':' in hora_str:
+                hora_parts = hora_str.split(':')
+                hora = int(hora_parts[0])
+                minuto = int(hora_parts[1])
+
+                return datetime(año, mes, dia, hora, minuto)
+
+        return None
+    except Exception:
+        return None
+
+def is_near_current_time(event_datetime, threshold_hours=3):
+    """Determina si un evento está cerca de la hora actual"""
+    if not event_datetime:
+        return False
+
+    current_time = datetime.now()
+    time_diff = abs((event_datetime - current_time).total_seconds() / 3600)
+    return time_diff <= threshold_hours
+
+def is_valid_stream_url_improved(url):
+    """Versión mejorada de validación de URLs de streaming"""
+    if not url or not isinstance(url, str):
+        return False
+
+    url_lower = url.lower()
+
+    exclude_patterns = [
+        r'facebook\.com/share', r'twitter\.com/home', r'plus\.google\.com/share',
+        r'livescore', r'\.css', r'\.js', r'\.png', r'\.jpg', r'\.gif',
+        r'/share', r'/login', r'/register'
+    ]
+
+    for pattern in exclude_patterns:
+        if re.search(pattern, url_lower):
+            return False
+
+    streaming_patterns = [
+        r'youtube\.com/(watch|embed)', r'youtu\.be/', r'twitch\.tv/(embed|[^/]+$)',
+        r'dailymotion\.com/(embed|video)', r'vimeo\.com/(video/)?[0-9]+',
+        r'facebook\.com/.+/videos/[0-9]+', r'\.m3u8', r'\.mpd', r'\.mp4',
+        r'stream[0-9]*\.', r'live[0-9]*\.', r'player[0-9]*\.',
+        r'embed\.', r'/embed/', r'/player/', r'/live/', r'/stream/',
+        r'webplayer\.php'
+    ]
+
+    return any(re.search(pattern, url_lower) for pattern in streaming_patterns)
+
+def detect_platform_improved(url):
+    """Versión mejorada de detección de plataforma"""
+    url_lower = url.lower()
+
+    if 'youtube.com' in url_lower or 'youtu.be' in url_lower or 't=youtube' in url_lower:
+        return 'youtube'
+    elif 'twitch.tv' in url_lower or 't=twitch' in url_lower:
+        return 'twitch'
+    elif 'dailymotion.com' in url_lower or 't=dailymotion' in url_lower:
+        return 'dailymotion'
+    elif 'vimeo.com' in url_lower or 't=vimeo' in url_lower:
+        return 'vimeo'
+    elif 'facebook.com' in url_lower and 'videos' in url_lower:
+        return 'facebook'
+    elif '.m3u8' in url_lower or 't=hls' in url_lower:
+        return 'hls'
+    elif '.mpd' in url_lower or 't=dash' in url_lower:
+        return 'dash'
+    elif 'webplayer.php' in url_lower:
+        return 'webplayer'
+    elif 'cdn.' in url_lower or 'stream' in url_lower:
+        return 'cdn_stream'
+    else:
+        return 'unknown'
+
+def process_iframe_url(src, base_url):
+    """Procesa y normaliza URLs de iframe"""
+    if not src:
+        return None
+
+    if src.startswith('//'):
+        src = 'https:' + src
+    elif src.startswith('/'):
+        parsed_base = urllib.parse.urlparse(base_url)
+        src = f'{parsed_base.scheme}://{parsed_base.netloc}{src}'
+    elif not src.startswith('http'):
+        parsed_base = urllib.parse.urlparse(base_url)
+        src = f'{parsed_base.scheme}://{parsed_base.netloc}/{src}'
+
+    return src
+
+def extract_iframe_from_webplayer(webplayer_url, timeout=10):
+    """Extrae iframe real desde una URL de webplayer"""
+    iframes_found = []
     
     try:
-        soup = BeautifulSoup(html_content, 'html.parser')
-        scripts = soup.find_all('script')
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'es-ES,es;q=0.5',
+            'Referer': 'https://livetv.sx/',
+            'Connection': 'keep-alive',
+        }
+
+        session = requests.Session()
+        session.verify = False
         
+        response = session.get(webplayer_url, headers=headers, timeout=timeout)
+        if response.status_code != 200:
+            return iframes_found
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        iframes = soup.find_all('iframe')
+        
+        for iframe in iframes:
+            src = iframe.get('src') or iframe.get('data-src')
+            if src:
+                processed_url = process_iframe_url(src, webplayer_url)
+                if processed_url and not processed_url.startswith(webplayer_url):
+                    platform = detect_platform_improved(processed_url)
+                    iframes_found.append({
+                        'url': processed_url,
+                        'platform': platform,
+                        'source': 'webplayer_iframe',
+                        'type': 'iframe_extracted'
+                    })
+        
+        scripts = soup.find_all('script')
         for script in scripts:
             if script.string:
-                content = script.string
-                
-                js_patterns = [
-                    r'(?:src|url|stream|player)\s*[:=]\s*["\']([^"\']+)["\']',
-                    r'(?:play|load|stream)\s*\(\s*["\']([^"\']+)["\']',
-                    r'"(?:url|src|stream)"\s*:\s*"([^"]+)"',
-                    r'(?:atob|decode)\s*\(\s*["\']([A-Za-z0-9+/=]+)["\']',
-                    r'var\s+\w+\s*=\s*["\']([^"\']*(?:http|stream|player)[^"\']*)["\']'
-                ]
-                
-                for pattern in js_patterns:
-                    matches = re.finditer(pattern, content, re.IGNORECASE)
-                    for match in matches:
-                        potential_url = match.group(1)
-                        
-                        if potential_url.startswith(('http', '//', 'data:')):
-                            js_players.append({
-                                'tipo': 'javascript-extracted',
-                                'texto': 'JavaScript Player',
-                                'enlace': potential_url if potential_url.startswith('http') else urljoin(url_base, potential_url)
-                            })
-                        elif len(potential_url) > 20 and '=' in potential_url:
-                            try:
-                                decoded = base64.b64decode(potential_url).decode('utf-8')
-                                if decoded.startswith(('http', '//')):
-                                    js_players.append({
-                                        'tipo': 'javascript-base64',
-                                        'texto': 'Base64 Decoded Player',
-                                        'enlace': decoded
-                                    })
-                            except:
-                                pass
-    
+                js_urls = re.findall(r'["\']https?://[^"\']+["\']', script.string)
+                for url_match in js_urls:
+                    clean_url = url_match.strip('"\'')
+                    if is_valid_stream_url_improved(clean_url) and 'webplayer.php' not in clean_url:
+                        platform = detect_platform_improved(clean_url)
+                        iframes_found.append({
+                            'url': clean_url,
+                            'platform': platform,
+                            'source': 'webplayer_javascript',
+                            'type': 'js_extracted'
+                        })
+        
+        print(f"    -> Webplayer procesado: {len(iframes_found)} streams extraídos")
+        
     except Exception as e:
-        logger.error(f"Error extrayendo reproductores JavaScript: {e}")
+        print(f"    -> Error procesando webplayer: {e}")
     
-    return js_players
+    return iframes_found
 
-def extract_reproductor_links(html_content, url_base):
-    """
-    Extraer enlaces de reproductores de LiveTV.sx usando múltiples estrategias
-    """
-    soup = BeautifulSoup(html_content, 'html.parser')
-    reproductores = []
-    
-    language_info = detect_language_from_page(soup, url_base)
-    
-    event_id_match = re.search(r'/eventinfo/(\d+)_', url_base)
-    event_id = event_id_match.group(1) if event_id_match else None
-    
-    logger.info(f"Procesando evento ID: {event_id}, Idioma detectado: {language_info}")
-    
-    # Método 1: URLs webplayer.php
-    webplayer_patterns = [
-        r'https?://[^"\'\s]*\.livetv\d*\.(?:sx|me|tv|cc)/[^"\'\s]*webplayer\.php[^"\'\s]*',
-        r'https?://cdn\.livetv\d*\.(?:sx|me|tv|cc)/webplayer\.php[^"\'\s]*',
-        r'https?://[^"\'\s]*livetv[^"\'\s]*webplayer[^"\'\s]*\.php[^"\'\s]*'
-    ]
-    
-    for pattern in webplayer_patterns:
-        webplayer_urls = re.findall(pattern, html_content, re.IGNORECASE)
-        for url in webplayer_urls:
-            reproductores.append({
-                'tipo': 'webplayer-direct',
-                'texto': 'WebPlayer Directo',
-                'enlace': url,
-                'idioma': language_info['idioma'],
-                'bandera': language_info['bandera']
-            })
-    
-    # Método 2: YouTube players
-    youtube_players = extract_youtube_players(html_content)
-    for player in youtube_players:
-        player['idioma'] = language_info['idioma']
-        player['bandera'] = language_info['bandera']
-        reproductores.append(player)
-    
-    # Método 3: Streams avanzados
-    advanced_streams = extract_advanced_streams(html_content, url_base)
-    for stream in advanced_streams:
-        stream['idioma'] = language_info['idioma']
-        stream['bandera'] = language_info['bandera']
-        reproductores.append(stream)
-    
-    # Método 4: JavaScript players
-    js_players = extract_javascript_players(html_content, url_base)
-    for player in js_players:
-        player['idioma'] = language_info['idioma']
-        player['bandera'] = language_info['bandera']
-        reproductores.append(player)
-    
-    # Método 5: Browser Links
-    browser_links_patterns = [
-        'Browser Links', 'Enlaces del navegador', 'Web Links', 'Enlaces web',
-        'Stream Links', 'Enlaces de stream', 'Direct Links', 'Enlaces directos'
-    ]
-    
-    for pattern in browser_links_patterns:
-        browser_links_section = soup.find('td', string=re.compile(pattern, re.IGNORECASE))
-        if browser_links_section:
-            parent_section = browser_links_section.find_parent('table')
-            if parent_section:
-                links = parent_section.find_all('a', href=True)
-                for link in links:
-                    href = link.get('href')
-                    if href and any(keyword in href.lower() for keyword in ['webplayer', 'player', 'stream', 'watch', 'live']):
-                        reproductores.append({
-                            'tipo': 'browser-links',
-                            'texto': link.get_text().strip() or 'Browser Link',
-                            'enlace': href if href.startswith('http') else urljoin(url_base, href),
-                            'idioma': language_info['idioma'],
-                            'bandera': language_info['bandera']
-                        })
-    
-    # Método 6: Iframes
-    iframes = soup.find_all('iframe')
-    for iframe in iframes:
-        src = iframe.get('src')
-        if src:
-            valid_domains = [
-                'webplayer', 'player', 'stream', 'daddylive', 'livetv', 'youtube', 'youtu.be',
-                'dailymotion', 'vimeo', 'twitch', 'facebook', 'streamable', 'embed'
-            ]
-            
-            if any(domain in src.lower() for domain in valid_domains):
-                reproductores.append({
-                    'tipo': 'iframe-embed',
-                    'texto': f'Reproductor embebido ({urlparse(src).netloc})',
-                    'enlace': src if src.startswith('http') else urljoin(url_base, src),
-                    'idioma': language_info['idioma'],
-                    'bandera': language_info['bandera']
-                })
-    
-    # Método 7: Reconstruir URLs webplayer
-    if event_id:
-        param_patterns = {
-            'lid': re.findall(r'(?:lid|linkid)[=:]\s*(\d+)', html_content, re.IGNORECASE),
-            'c': re.findall(r'[&?]c[=:]\s*(\d+)', html_content, re.IGNORECASE),
-            'ci': re.findall(r'ci[=:]\s*(\d+)', html_content, re.IGNORECASE),
-            'si': re.findall(r'si[=:]\s*(\d+)', html_content, re.IGNORECASE),
-            'eid': re.findall(r'eid[=:]\s*(\d+)', html_content, re.IGNORECASE)
+def extract_streaming_urls_final(page_url, timeout=15):
+    """Versión final de extracción de URLs de streaming"""
+    streams = []
+
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'es-ES,es;q=0.5',
+            'Referer': 'https://livetv.sx/',
+            'Connection': 'keep-alive',
         }
-        
-        lids = set(param_patterns['lid'] + param_patterns['c'])
-        cis = set(param_patterns['ci']) if param_patterns['ci'] else ['1', '2']
-        sis = set(param_patterns['si']) if param_patterns['si'] else ['1', '2', '3']
-        
-        domains = ['cdn.livetv853.me', 'cdn.livetv854.me', 'cdn.livetv855.me']
-        
-        for domain in domains:
-            for lid in lids:
-                for ci in cis:
-                    for si in sis:
-                        webplayer_url = f"https://{domain}/webplayer.php?t=ifr&c={lid}&lang=es&eid={event_id}&lid={lid}&ci={ci}&si={si}"
-                        reproductores.append({
-                            'tipo': 'reconstructed-webplayer',
-                            'texto': f'WebPlayer Reconstruido ({domain} - lid:{lid}, ci:{ci}, si:{si})',
-                            'enlace': webplayer_url,
-                            'idioma': language_info['idioma'],
-                            'bandera': language_info['bandera']
-                        })
-    
-    # Método 8: Enlaces con patrones específicos
-    all_links = soup.find_all('a', href=True)
-    for link in all_links:
-        href = link.get('href')
-        text = link.get_text().strip()
-        
-        if href:
-            reproductor_keywords = [
-                'webplayer', 'player', 'stream', 'acestream', 'sopcast', 'torrent',
-                'embed', 'watch', 'live', 'directo', 'ver', 'play', 'video',
-                'canal', 'channel', 'link', 'enlace', 'mirror', 'servidor'
-            ]
-            
-            if any(keyword in href.lower() for keyword in reproductor_keywords):
-                full_url = href if href.startswith('http') else urljoin(url_base, href)
-                reproductores.append({
-                    'tipo': 'pattern-link',
-                    'texto': text or f'Enlace de reproductor ({urlparse(full_url).netloc})',
-                    'enlace': full_url,
-                    'idioma': language_info['idioma'],
-                    'bandera': language_info['bandera']
-                })
-    
-    seen_urls = set()
-    unique_reproductores = []
-    
-    for reproductor in reproductores:
-        url = reproductor['enlace']
-        if url not in seen_urls:
-            seen_urls.add(url)
-            unique_reproductores.append(reproductor)
-    
-    return unique_reproductores
 
-class CacheManager:
-    """Gestor de caché para URLs y contenido HTML"""
+        session = requests.Session()
+        session.verify = False
+
+        response = session.get(page_url, headers=headers, timeout=timeout)
+        if response.status_code != 200:
+            return streams
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+
+        containers = []
+
+        links_block = soup.find(id='links_block')
+        if links_block:
+            containers.append(('links_block', links_block))
+
+        for selector in ['.links', '.streams', '.player-links', '.broadcast-links', '.live-links']:
+            elements = soup.select(selector)
+            for elem in elements:
+                containers.append((selector, elem))
+
+        if not containers:
+            containers.append(('full_page', soup))
+
+        for container_name, container in containers:
+            iframes = container.find_all('iframe')
+
+            for iframe in iframes:
+                src = iframe.get('src') or iframe.get('data-src')
+                if src:
+                    processed_url = process_iframe_url(src, page_url)
+                    if processed_url and is_valid_stream_url_improved(processed_url):
+                        if 'webplayer.php' in processed_url:
+                            webplayer_streams = extract_iframe_from_webplayer(processed_url)
+                            streams.extend(webplayer_streams)
+                        else:
+                            platform = detect_platform_improved(processed_url)
+                            streams.append({
+                                'url': processed_url,
+                                'platform': platform,
+                                'source': f'iframe_{container_name}',
+                                'type': 'iframe'
+                            })
+
+            links = container.find_all('a', href=True)
+            for link in links:
+                href = link.get('href')
+                if href and is_valid_stream_url_improved(href):
+                    processed_url = process_iframe_url(href, page_url)
+                    if 'webplayer.php' in processed_url:
+                        webplayer_streams = extract_iframe_from_webplayer(processed_url)
+                        streams.extend(webplayer_streams)
+                    else:
+                        platform = detect_platform_improved(processed_url)
+                        streams.append({
+                            'url': processed_url,
+                            'platform': platform,
+                            'source': f'link_{container_name}',
+                            'type': 'link'
+                        })
+
+        unique_streams = []
+        seen_urls = set()
+        for stream in streams:
+            if stream['url'] not in seen_urls:
+                unique_streams.append(stream)
+                seen_urls.add(stream['url'])
+
+        return unique_streams
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return streams
+
+def extract_youtube_id_from_stream(stream_url):
+    """Extrae ID de YouTube si está disponible en el stream"""
+    patterns = [
+        r'[?&]c=([a-zA-Z0-9_-]+)',
+        r'youtube\.com/watch\?v=([a-zA-Z0-9_-]+)',
+        r'youtu\.be/([a-zA-Z0-9_-]+)',
+        r'youtube\.com/embed/([a-zA-Z0-9_-]+)'
+    ]
+
+    for pattern in patterns:
+        match = re.search(pattern, stream_url)
+        if match:
+            return match.group(1)
+    return None
+
+def process_extracted_streams(streams, event_datetime, current_time):
+    """Procesa streams extraídos y determina tipo (live/highlight)"""
+    processed_streams = []
+
+    for stream in streams:
+        platform = detect_platform_improved(stream['url'])
+        is_near_time = is_near_current_time(event_datetime, threshold_hours=2)
+        stream_type = 'live' if is_near_time else 'highlight'
+
+        youtube_id = extract_youtube_id_from_stream(stream['url'])
+
+        processed_stream = {
+            'url': stream['url'],
+            'platform': platform,
+            'type': stream_type,
+            'source': stream.get('source', 'unknown'),
+            'extraction_method': stream.get('type', 'unknown')
+        }
+
+        if youtube_id:
+            processed_stream['youtube_id'] = youtube_id
+            processed_stream['youtube_url'] = f'https://www.youtube.com/watch?v={youtube_id}'
+
+        processed_streams.append(processed_stream)
+
+    return processed_streams
+
+def create_enhanced_xml(root_xml):
+    """Crea XML mejorado con streams extraídos - SIN LÍMITE DE EVENTOS"""
+
+    new_root = ET.Element('eventos_con_streams')
+    new_root.set('generado', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+    new_root.set('version', '2.0')
+    new_root.set('procesamiento', 'ilimitado')
+
+    eventos_procesados = 0
+    eventos_con_streams = 0
+    total_streams = 0
     
-    def __init__(self, cache_dir='./cache', ttl=3600):
-        self.cache_dir = cache_dir
-        self.ttl = ttl
-        os.makedirs(cache_dir, exist_ok=True)
-        self.lock = threading.Lock()
-    
-    def
+    total_eventos = len(root_xml.findall('evento'))
+    print(f"Procesando TODOS los eventos ({total_eventos})...")
+
+    for i, evento in enumerate(root_xml.findall('evento')):
+        try:
+            nombre = evento.find('nombre').text if evento.find('nombre') is not None else ""
+            deporte = evento.find('deporte').text if evento.find('deporte') is not None else ""
+            competicion = evento.find('competicion').text if evento.find('competicion') is not None else ""
+            fecha = evento.find('fecha').text if evento.find('fecha') is not None else ""
+            hora = evento.find('hora').text if evento.find('hora') is not None else ""
+            url = evento.find('url').text if evento.find('url') is not None else ""
+
+            if not url or not nombre:
+                continue
+
+            event_datetime = parse_event_datetime(fecha, hora)
+
+            nuevo_evento = ET.SubElement(new_root, 'evento')
+            nuevo_evento.set('id', str(eventos_procesados + 1))
+
+            ET.SubElement(nuevo_evento, 'nombre').text = nombre
+            ET.SubElement(nuevo_evento, 'deporte').text = deporte
+            ET.SubElement(nuevo_evento, 'competicion').text = competicion
+            ET.SubElement(nuevo_evento, 'fecha').text = fecha
+            ET.SubElement(nuevo_evento, 'hora').text = hora
+            ET.SubElement(nuevo_evento, 'url').text = url
+
+            if event_datetime:
+                ET.SubElement(nuevo_evento, 'datetime_iso').text = event_datetime.isoformat()
+                is_near = is_near_current_time(event_datetime)
+                ET.SubElement(nuevo_evento, 'cerca_hora_actual').text = str(is_near)
+
+            porcentaje = (eventos_procesados + 1) / total_eventos * 100
+            print(f"  {eventos_procesados + 1}/{total_eventos} ({porcentaje:.1f}%): {nombre[:50]}{'...' if len(nombre) > 50 else ''}")
+
+            streams = extract_streaming_urls_final(url)
+            processed_streams = process_extracted_streams(streams, event_datetime, datetime.now())
+
+            streams_element = ET.SubElement(nuevo_evento, 'streams')
+            streams_element.set('total', str(len(processed_streams)))
+
+            for stream in processed_streams:
+                stream_element = ET.SubElement(streams_element, 'stream')
+                ET.SubElement(stream_element, 'url').text = stream['url']
+                ET.SubElement(stream_element, 'plataforma').text = stream['platform']
+                ET.SubElement(stream_element, 'tipo').text = stream['type']
+                ET.SubElement(stream_element, 'fuente').text = stream['source']
+                ET.SubElement(stream_element, 'metodo_extraccion').text = stream['extraction_method']
+
+                if 'youtube_url' in stream:
+                    ET.SubElement(stream_element, 'youtube_url').text = stream['youtube_url']
+                    ET.SubElement(stream_element, 'youtube_id').text = stream.get('youtube_id', '')
+
+            if processed_streams:
+                eventos_con_streams += 1
+                total_streams += len(processed_streams)
+                print(f"    -> {len(processed_streams)} streams encontrados")
+            else:
+                print(f"    -> Sin streams")
+
+            eventos_procesados += 1
+            time.sleep(0.2)
+
+        except Exception as e:
+            print(f"    -> Error en evento {eventos_procesados + 1}: {e}")
+            continue
+
+    stats = ET.SubElement(new_root, 'estadisticas')
+    ET.SubElement(stats, 'eventos_procesados').text = str(eventos_procesados)
+    ET.SubElement(stats, 'eventos_con_streams').text = str(eventos_con_streams)
+    ET.SubElement(stats, 'total_streams').text = str(total_streams)
+    ET.SubElement(stats, 'fecha_procesamiento').text = datetime.now().isoformat()
+    ET.SubElement(stats, 'procesamiento_completo').text = 'true'
+
+    return new_root, {
+        'eventos_procesados': eventos_procesados,
+        'eventos_con_streams': eventos_con_streams,
+        'total_streams': total_streams
+    }
+
+def save_enhanced_xml(xml_root, filename):
+    """Guarda XML con formato mejorado"""
+    xml_str = ET.tostring(xml_root, encoding='unicode', method='xml')
+
+    from xml.dom import minidom
+    dom = minidom.parseString(xml_str)
+    pretty_xml = dom.toprettyxml(indent='  ', encoding=None)
+
+    lines = pretty_xml.split('\n')
+    cleaned_lines = [line for line in lines if line.strip()]
+    final_xml = '\n'.join(cleaned_lines)
+
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(final_xml)
+
+    return filename
+
+def main():
+    """Función principal"""
+    print("=== EXTRACTOR DE STREAMS LIVETV.SX - GITHUB ACTIONS ===")
+    print("✓ Procesamiento ILIMITADO de eventos")
+    print("✓ Extracción mejorada de iframes desde webplayers")
+    print(f"Iniciando procesamiento: {datetime.now()}")
+
+    xml_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/eventos_livetv_sx.xml"
+
+    try:
+        response = requests.get(xml_url, timeout=30)
+        response.raise_for_status()
+        xml_content = response.text
+        print(f"XML descargado: {len(xml_content)} caracteres")
+
+        root = ET.fromstring(xml_content)
+        total_eventos = len(root.findall('evento'))
+        print(f"Total eventos a procesar: {total_eventos}")
+
+    except Exception as e:
+        print(f"Error al descargar XML: {e}")
+        return
+
+    enhanced_xml, stats = create_enhanced_xml(root)
+
+    # Nombre específico solicitado
+    output_filename = 'eventos_livetv_sx_con_reproductores.xml'
+    save_enhanced_xml(enhanced_xml, output_filename)
+
+    summary_data = {
+        'fecha_procesamiento': datetime.now().isoformat(),
+        'version': '2.0',
+        'github_actions': True,
+        'estadisticas': stats,
+        'archivo_generado': output_filename
+    }
+
+    with open('resumen_procesamiento.json', 'w', encoding='utf-8') as f:
+        json.dump(summary_data, f, indent=2, ensure_ascii=False)
+
+    print(f"\n=== PROCESAMIENTO COMPLETADO ===")
+    print(f"✓ Eventos procesados: {stats['eventos_procesados']}")
+    print(f"✓ Eventos con streams: {stats['eventos_con_streams']}")  
+    print(f"✓ Total streams extraídos: {stats['total_streams']}")
+    print(f"✓ Archivo generado: {output_filename}")
+
+if __name__ == "__main__":
+    main()
