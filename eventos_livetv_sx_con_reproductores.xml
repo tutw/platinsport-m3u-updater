@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<eventos_con_streams generado="2025-06-13 05:09:57" version="2.0" procesamiento="ilimitado">
+<eventos_con_streams generado="2025-06-13 06:14:00" version="2.0" procesamiento="ilimitado">
   <evento id="1">
     <nombre>Jeremy Kennedy –  Adam Borics</nombre>
     <deporte>Deporte_1</deporte>
@@ -9,38 +9,7 @@
     <url>https://livetv.sx/es/eventinfo/290914414_jeremy_kennedy_adam_borics/</url>
     <datetime_iso>2025-06-13T05:00:00</datetime_iso>
     <cerca_hora_actual>True</cerca_hora_actual>
-    <streams total="4">
-      <stream>
-        <url>https://voodc.com/embed/1/85818a9aa38f9c8a847a85959f8a9885897f.html</url>
-        <plataforma>unknown</plataforma>
-        <tipo>live</tipo>
-        <fuente>webplayer_iframe</fuente>
-        <metodo_extraccion>iframe_extracted</metodo_extraccion>
-      </stream>
-      <stream>
-        <url>https://voodc.com/embed/1/85818a9aa38f9c8a847a85959f899885897e.html</url>
-        <plataforma>unknown</plataforma>
-        <tipo>live</tipo>
-        <fuente>webplayer_iframe</fuente>
-        <metodo_extraccion>iframe_extracted</metodo_extraccion>
-      </stream>
-      <stream>
-        <url>https://dovkembed.pw/livetv/ex8036454</url>
-        <plataforma>unknown</plataforma>
-        <tipo>live</tipo>
-        <fuente>webplayer_iframe</fuente>
-        <metodo_extraccion>iframe_extracted</metodo_extraccion>
-      </stream>
-      <stream>
-        <url>https://cdn.livetv853.me/webplayer2.php?t=acestream&amp;c=42fe2ce3ef6b92653a74d85b6e98c2ba0abee707&amp;lang=es&amp;eid=290914414&amp;lid=2756468&amp;ci=3745&amp;si=110</url>
-        <plataforma>cdn_stream</plataforma>
-        <tipo>live</tipo>
-        <fuente>link_links_block</fuente>
-        <metodo_extraccion>link</metodo_extraccion>
-        <youtube_url>https://www.youtube.com/watch?v=42fe2ce3ef6b92653a74d85b6e98c2ba0abee707</youtube_url>
-        <youtube_id>42fe2ce3ef6b92653a74d85b6e98c2ba0abee707</youtube_id>
-      </stream>
-    </streams>
+    <streams total="0"/>
   </evento>
   <evento id="2">
     <nombre>Dunedin Thunder –  Botany Swarm</nombre>
@@ -50,8 +19,18 @@
     <hora>09:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914169_dunedin_thunder_botany_swarm/</url>
     <datetime_iso>2025-06-13T09:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="1">
+      <stream>
+        <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=JfX9HG4F4Og&amp;lang=es&amp;eid=290914169&amp;lid=2761124&amp;ci=2599&amp;si=2</url>
+        <plataforma>youtube</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>link_links_block</fuente>
+        <metodo_extraccion>link</metodo_extraccion>
+        <youtube_url>https://www.youtube.com/watch?v=JfX9HG4F4Og</youtube_url>
+        <youtube_id>JfX9HG4F4Og</youtube_id>
+      </stream>
+    </streams>
   </evento>
   <evento id="3">
     <nombre>Crusaders –  Blues</nombre>
@@ -61,8 +40,65 @@
     <hora>09:05</hora>
     <url>https://livetv.sx/es/eventinfo/290913472_crusaders_blues/</url>
     <datetime_iso>2025-06-13T09:05:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="8">
+      <stream>
+        <url>https://voodc.com/embed/1/85818a9aa390a187847a8595a08898858980.html</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://e2link.link/ch.php?id=5</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/SuperSportRugby[SouthAfrica]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/SuperSportRugby[SA]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/SuperSportGrandstand[SouthAfrica]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/SuperSportGrandstand[SA]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/SkySportsAction[UK]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/SkySportsAction[UK]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="4">
     <nombre>Liga de Naciones Juvenil U21. Asia-Pacífico</nombre>
@@ -8628,9 +8664,9 @@
   </evento>
   <estadisticas>
     <eventos_procesados>781</eventos_procesados>
-    <eventos_con_streams>1</eventos_con_streams>
-    <total_streams>4</total_streams>
-    <fecha_procesamiento>2025-06-13T05:33:18.293014</fecha_procesamiento>
+    <eventos_con_streams>2</eventos_con_streams>
+    <total_streams>9</total_streams>
+    <fecha_procesamiento>2025-06-13T06:34:44.538387</fecha_procesamiento>
     <procesamiento_completo>true</procesamiento_completo>
   </estadisticas>
 </eventos_con_streams>
