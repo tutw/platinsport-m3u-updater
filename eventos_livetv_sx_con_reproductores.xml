@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<eventos_con_streams generado="2025-06-13 07:10:00" version="2.0" procesamiento="ilimitado">
+<eventos_con_streams generado="2025-06-13 08:13:13" version="2.0" procesamiento="ilimitado">
   <evento id="1">
     <nombre>Dunedin Thunder –  Botany Swarm</nombre>
     <deporte>Deporte_1</deporte>
@@ -32,6 +32,13 @@
     <cerca_hora_actual>True</cerca_hora_actual>
     <streams total="8">
       <stream>
+        <url>https://antenasport.online/channel/SuperSportGrandstand[SA]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>live</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
         <url>https://voodc.com/embed/1/85818a9aa390a187847a8595a08898858980.html</url>
         <plataforma>unknown</plataforma>
         <tipo>live</tipo>
@@ -46,8 +53,8 @@
         <metodo_extraccion>iframe_extracted</metodo_extraccion>
       </stream>
       <stream>
-        <url>https://daddylive2.top/live/stream-37.php</url>
-        <plataforma>cdn_stream</plataforma>
+        <url>https://antenasport.online/channel/SkySportsAction[UK]</url>
+        <plataforma>unknown</plataforma>
         <tipo>live</tipo>
         <fuente>webplayer_iframe</fuente>
         <metodo_extraccion>iframe_extracted</metodo_extraccion>
@@ -60,28 +67,21 @@
         <metodo_extraccion>iframe_extracted</metodo_extraccion>
       </stream>
       <stream>
-        <url>https://dovkembed.pw/livetv/SuperSportRugby[SouthAfrica]</url>
+        <url>https://wikisport.best/embed/sk1nz.php</url>
         <plataforma>unknown</plataforma>
         <tipo>live</tipo>
         <fuente>webplayer_iframe</fuente>
         <metodo_extraccion>iframe_extracted</metodo_extraccion>
       </stream>
       <stream>
-        <url>https://antenasport.online/channel/SuperSportRugby[SA]</url>
-        <plataforma>unknown</plataforma>
+        <url>https://daddylive2.top/live/stream-37.php</url>
+        <plataforma>cdn_stream</plataforma>
         <tipo>live</tipo>
         <fuente>webplayer_iframe</fuente>
         <metodo_extraccion>iframe_extracted</metodo_extraccion>
       </stream>
       <stream>
-        <url>https://dovkembed.pw/livetv/SkySportsAction[UK]</url>
-        <plataforma>unknown</plataforma>
-        <tipo>live</tipo>
-        <fuente>webplayer_iframe</fuente>
-        <metodo_extraccion>iframe_extracted</metodo_extraccion>
-      </stream>
-      <stream>
-        <url>https://antenasport.online/channel/SuperSportGrandstand[SA]</url>
+        <url>https://wikisport.best/0nhl/62.php</url>
         <plataforma>unknown</plataforma>
         <tipo>live</tipo>
         <fuente>webplayer_iframe</fuente>
@@ -102,7 +102,7 @@
       <stream>
         <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=-tHAx-WakWQ&amp;lang=es&amp;eid=290913652&amp;lid=2759384&amp;ci=1395&amp;si=3</url>
         <plataforma>youtube</plataforma>
-        <tipo>highlight</tipo>
+        <tipo>live</tipo>
         <fuente>link_links_block</fuente>
         <metodo_extraccion>link</metodo_extraccion>
         <youtube_url>https://www.youtube.com/watch?v=-tHAx-WakWQ</youtube_url>
@@ -123,7 +123,7 @@
       <stream>
         <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=EzhNEFRBOEY&amp;lang=es&amp;eid=290913694&amp;lid=2759449&amp;ci=613&amp;si=48</url>
         <plataforma>youtube</plataforma>
-        <tipo>highlight</tipo>
+        <tipo>live</tipo>
         <fuente>link_links_block</fuente>
         <metodo_extraccion>link</metodo_extraccion>
         <youtube_url>https://www.youtube.com/watch?v=EzhNEFRBOEY</youtube_url>
@@ -144,7 +144,7 @@
       <stream>
         <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=Qx5m5EExa90&amp;lang=es&amp;eid=290914251&amp;lid=2760568&amp;ci=1395&amp;si=3</url>
         <plataforma>youtube</plataforma>
-        <tipo>highlight</tipo>
+        <tipo>live</tipo>
         <fuente>link_links_block</fuente>
         <metodo_extraccion>link</metodo_extraccion>
         <youtube_url>https://www.youtube.com/watch?v=Qx5m5EExa90</youtube_url>
@@ -161,7 +161,35 @@
     <url>https://livetv.sx/es/eventinfo/290913560_wtt_contender_skopje/</url>
     <datetime_iso>2025-06-13T10:00:00</datetime_iso>
     <cerca_hora_actual>True</cerca_hora_actual>
-    <streams total="0"/>
+    <streams total="3">
+      <stream>
+        <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=6bTGvmMAd0k&amp;lang=es&amp;eid=290913560&amp;lid=2761402&amp;ci=4340&amp;si=39</url>
+        <plataforma>youtube</plataforma>
+        <tipo>live</tipo>
+        <fuente>link_links_block</fuente>
+        <metodo_extraccion>link</metodo_extraccion>
+        <youtube_url>https://www.youtube.com/watch?v=6bTGvmMAd0k</youtube_url>
+        <youtube_id>6bTGvmMAd0k</youtube_id>
+      </stream>
+      <stream>
+        <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=aUdpK1mdwP4&amp;lang=es&amp;eid=290913560&amp;lid=2761404&amp;ci=4340&amp;si=39</url>
+        <plataforma>youtube</plataforma>
+        <tipo>live</tipo>
+        <fuente>link_links_block</fuente>
+        <metodo_extraccion>link</metodo_extraccion>
+        <youtube_url>https://www.youtube.com/watch?v=aUdpK1mdwP4</youtube_url>
+        <youtube_id>aUdpK1mdwP4</youtube_id>
+      </stream>
+      <stream>
+        <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=Js6XgIRUdr4&amp;lang=es&amp;eid=290913560&amp;lid=2761403&amp;ci=4340&amp;si=39</url>
+        <plataforma>youtube</plataforma>
+        <tipo>live</tipo>
+        <fuente>link_links_block</fuente>
+        <metodo_extraccion>link</metodo_extraccion>
+        <youtube_url>https://www.youtube.com/watch?v=Js6XgIRUdr4</youtube_url>
+        <youtube_id>Js6XgIRUdr4</youtube_id>
+      </stream>
+    </streams>
   </evento>
   <evento id="7">
     <nombre>Superbike, Misano</nombre>
@@ -171,8 +199,67 @@
     <hora>10:30</hora>
     <url>https://livetv.sx/es/eventinfo/290913519_superbike_misano/</url>
     <datetime_iso>2025-06-13T10:30:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="8">
+      <stream>
+        <url>https://livestreamhd247.live/frame021.html</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://thesocolive.site/ch2.htm</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://wikisport.best/strm/28.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://wikisport.best/embed/bt2.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://daddylive2.top/live/stream-32.php</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://oklips.xyz/player2/tnt2.html</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://wikisport.best/embed/sk5nz.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://cdn.livetv853.me/webplayer2.php?t=acestream&amp;c=d63d8a57cf471394bfa9f619bbd68b01ae27a801&amp;lang=es&amp;eid=290913519&amp;lid=2760309&amp;ci=452&amp;si=7</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>link_links_block</fuente>
+        <metodo_extraccion>link</metodo_extraccion>
+        <youtube_url>https://www.youtube.com/watch?v=d63d8a57cf471394bfa9f619bbd68b01ae27a801</youtube_url>
+        <youtube_id>d63d8a57cf471394bfa9f619bbd68b01ae27a801</youtube_id>
+      </stream>
+    </streams>
   </evento>
   <evento id="8">
     <nombre>Liga de Naciones Juvenil U21. Europa 4</nombre>
@@ -182,8 +269,18 @@
     <hora>10:30</hora>
     <url>https://livetv.sx/es/eventinfo/290913653_liga_de_naciones_juvenil_u21_europa_4/</url>
     <datetime_iso>2025-06-13T10:30:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="1">
+      <stream>
+        <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=oqdcYD3DKdk&amp;lang=es&amp;eid=290913653&amp;lid=2759385&amp;ci=1395&amp;si=3</url>
+        <plataforma>youtube</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>link_links_block</fuente>
+        <metodo_extraccion>link</metodo_extraccion>
+        <youtube_url>https://www.youtube.com/watch?v=oqdcYD3DKdk</youtube_url>
+        <youtube_id>oqdcYD3DKdk</youtube_id>
+      </stream>
+    </streams>
   </evento>
   <evento id="9">
     <nombre>Phoenix Fuel Masters –  Blackwater Elite</nombre>
@@ -193,7 +290,7 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290913344_phoenix_fuel_masters_blackwater_elite/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
+    <cerca_hora_actual>True</cerca_hora_actual>
     <streams total="0"/>
   </evento>
   <evento id="10">
@@ -204,8 +301,65 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290913379_jap__n_serbia/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="8">
+      <stream>
+        <url>https://flixxlive.pro/live/arenapre1_serbia.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://flixxlive.pro/live/klub1_croatia.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://livestreamhd247.live/frame011.html</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://daddylive2.top/live/stream-134.php</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenaplanet.store/polsat1.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenaplanet.store/sportklub1.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ArenaPremium1[Serbia]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://daddylive2.top/live/stream-47.php</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="11">
     <nombre>University Azzurri –  Darwin Hearts</nombre>
@@ -215,7 +369,7 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290910556_university_azzurri_darwin_hearts/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
+    <cerca_hora_actual>True</cerca_hora_actual>
     <streams total="0"/>
   </evento>
   <evento id="12">
@@ -226,8 +380,23 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914490__veronika_kudermetova_m__ekaterina_alexandrova_m/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="2">
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMDcxMTE=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8107111</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="13">
     <nombre>Clement Tabur –  Yu Hsiou Hsu</nombre>
@@ -237,8 +406,23 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914453_clement_tabur_yu_hsiou_hsu/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="2">
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTE4Mzg=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8111838</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="14">
     <nombre>Justin Engel –  Felix Auger-Aliassime</nombre>
@@ -248,8 +432,51 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914469_justin_engel_felix_auger_aliassime/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="6">
+      <stream>
+        <url>https://wikisport.best/court/wik8.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTAzMzM=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://wikisport.best/court/wik3.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenaplanet.store/beinsport2en.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://oklips.xyz/player/pl-atpstutgart.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110333</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="15">
     <nombre>Jermar J./Latinovic S. –  Barnat J./Duda F.</nombre>
@@ -259,8 +486,23 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914500_jermar_jlatinovic_s_barnat_jduda_f/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="2">
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8111421</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTE0MjE=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="16">
     <nombre>Nuno Borges –  Ugo Humbert</nombre>
@@ -270,8 +512,44 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914463_nuno_borges_ugo_humbert/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="5">
+      <stream>
+        <url>https://wikisport.best/court/wik7.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTAxNTU=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110155</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenaplanet.store/beinsport3en.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://oklips.xyz/player/pl-wtaherto.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="17">
     <nombre>Hozumi E./Sutjiadi A. –  Khromacheva I./Stollar F.</nombre>
@@ -281,8 +559,23 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914504_hozumi_esutjiadi_a_khromacheva_istollar_f/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="2">
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110562</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTA1NjI=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="18">
     <nombre>ATP. Stuttgart</nombre>
@@ -292,8 +585,37 @@
     <hora>11:05</hora>
     <url>https://livetv.sx/es/eventinfo/290912404_atp_stuttgart/</url>
     <datetime_iso>2025-06-13T11:05:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="4">
+      <stream>
+        <url>https://wikisport.best/court/wik8.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTAzMzM=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110333</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://oklips.xyz/player/pl-atpstutgart.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="19">
     <nombre>ATP Challenger. Bratislava</nombre>
@@ -303,8 +625,16 @@
     <hora>11:10</hora>
     <url>https://livetv.sx/es/eventinfo/290912509_atp_challenger_bratislava/</url>
     <datetime_iso>2025-06-13T11:10:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="1">
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTE0MjE=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="20">
     <nombre>WTA. Hertogenbosch</nombre>
@@ -314,8 +644,44 @@
     <hora>11:10</hora>
     <url>https://livetv.sx/es/eventinfo/290912397_wta_hertogenbosch/</url>
     <datetime_iso>2025-06-13T11:10:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="5">
+      <stream>
+        <url>https://wikisport.best/court/wik3.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMDcxMTE=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8107111</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTA1NjI=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110562</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="21">
     <nombre>Gwangju – Seúl</nombre>
@@ -435,7 +801,7 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290910556__/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
+    <cerca_hora_actual>True</cerca_hora_actual>
     <streams total="0"/>
   </evento>
   <evento id="32">
@@ -5214,7 +5580,7 @@
       <stream>
         <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=-tHAx-WakWQ&amp;lang=es&amp;eid=290913652&amp;lid=2759384&amp;ci=1395&amp;si=3</url>
         <plataforma>youtube</plataforma>
-        <tipo>highlight</tipo>
+        <tipo>live</tipo>
         <fuente>link_links_block</fuente>
         <metodo_extraccion>link</metodo_extraccion>
         <youtube_url>https://www.youtube.com/watch?v=-tHAx-WakWQ</youtube_url>
@@ -5235,7 +5601,7 @@
       <stream>
         <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=Qx5m5EExa90&amp;lang=es&amp;eid=290914251&amp;lid=2760568&amp;ci=1395&amp;si=3</url>
         <plataforma>youtube</plataforma>
-        <tipo>highlight</tipo>
+        <tipo>live</tipo>
         <fuente>link_links_block</fuente>
         <metodo_extraccion>link</metodo_extraccion>
         <youtube_url>https://www.youtube.com/watch?v=Qx5m5EExa90</youtube_url>
@@ -5252,8 +5618,18 @@
     <hora>10:30</hora>
     <url>https://livetv.sx/es/eventinfo/290913653_youth_nations_league_u21_europe_4/</url>
     <datetime_iso>2025-06-13T10:30:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="1">
+      <stream>
+        <url>https://cdn.livetv853.me/webplayer2.php?t=youtube&amp;c=oqdcYD3DKdk&amp;lang=es&amp;eid=290913653&amp;lid=2759385&amp;ci=1395&amp;si=3</url>
+        <plataforma>youtube</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>link_links_block</fuente>
+        <metodo_extraccion>link</metodo_extraccion>
+        <youtube_url>https://www.youtube.com/watch?v=oqdcYD3DKdk</youtube_url>
+        <youtube_id>oqdcYD3DKdk</youtube_id>
+      </stream>
+    </streams>
   </evento>
   <evento id="468">
     <nombre>Phoenix Fuel Masters – Blackwater Elite</nombre>
@@ -5263,7 +5639,7 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290913344__/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
+    <cerca_hora_actual>True</cerca_hora_actual>
     <streams total="0"/>
   </evento>
   <evento id="469">
@@ -5274,8 +5650,16 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290913345__/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="1">
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex7918761</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="470">
     <nombre>Gira mundial, Viena</nombre>
@@ -5882,8 +6266,23 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914504_hozumi_e_sutjiadi_a_khromacheva_i_stollar_f/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="2">
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110562</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTA1NjI=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="525">
     <nombre>Mertens (M) /  Kudermetova (M) –  Samsonova (M) /  Melichar (M)</nombre>
@@ -5904,8 +6303,23 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914453__/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="2">
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8111838</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTE4Mzg=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="527">
     <nombre>Nuno Borges – Ugo Humbert</nombre>
@@ -5915,8 +6329,44 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914463__/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="5">
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110155</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://wikisport.best/court/wik7.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTAxNTU=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenaplanet.store/beinsport3en.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://oklips.xyz/player/pl-wtaherto.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="528">
     <nombre>Justin Engel – Felix Auger-Aliassime</nombre>
@@ -5926,8 +6376,51 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914469__/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="6">
+      <stream>
+        <url>https://antenaplanet.store/beinsport2en.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://wikisport.best/court/wik8.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTAzMzM=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://wikisport.best/court/wik3.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://oklips.xyz/player/pl-atpstutgart.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110333</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="529">
     <nombre>Veronika Kudermetova (M) –  Ekaterina Alexandrova (M)</nombre>
@@ -5937,8 +6430,23 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914490__/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="2">
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8107111</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMDcxMTE=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="530">
     <nombre>Jermar J./Latinovic S. – Barnat J./Duda F.</nombre>
@@ -5948,8 +6456,23 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290914500_jermar_j_latinovic_s_barnat_j_duda_f/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="2">
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8111421</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTE0MjE=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="531">
     <nombre>ATP Challenger. Ilkley</nombre>
@@ -5959,7 +6482,7 @@
     <hora>11:10</hora>
     <url>https://livetv.sx/es/eventinfo/290912532_atp_challenger_ilkley/</url>
     <datetime_iso>2025-06-13T11:10:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
+    <cerca_hora_actual>True</cerca_hora_actual>
     <streams total="0"/>
   </evento>
   <evento id="532">
@@ -5970,8 +6493,16 @@
     <hora>11:10</hora>
     <url>https://livetv.sx/es/eventinfo/290912550_atp_challenger_lyon/</url>
     <datetime_iso>2025-06-13T11:10:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="1">
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTE4Mzg=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="533">
     <nombre>ATP. Hertogenbosch</nombre>
@@ -5981,8 +6512,37 @@
     <hora>11:10</hora>
     <url>https://livetv.sx/es/eventinfo/290912390_atp_hertogenbosch/</url>
     <datetime_iso>2025-06-13T11:10:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="4">
+      <stream>
+        <url>https://wikisport.best/court/wik7.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenasport.online/channel/exY3VzdG9tU2FsdDgxMTAxNTU=</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://oklips.xyz/player/pl-wtaherto.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ex8110155</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="534">
     <nombre>Diane Parry (M) –  Viktorija Golubic (M)</nombre>
@@ -6663,8 +7223,65 @@
     <hora>11:00</hora>
     <url>https://livetv.sx/es/eventinfo/290913379__/</url>
     <datetime_iso>2025-06-13T11:00:00</datetime_iso>
-    <cerca_hora_actual>False</cerca_hora_actual>
-    <streams total="0"/>
+    <cerca_hora_actual>True</cerca_hora_actual>
+    <streams total="8">
+      <stream>
+        <url>https://flixxlive.pro/live/arenapre1_serbia.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://flixxlive.pro/live/klub1_croatia.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://livestreamhd247.live/frame011.html</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://daddylive2.top/live/stream-134.php</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenaplanet.store/polsat1.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://antenaplanet.store/sportklub1.php</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://dovkembed.pw/livetv/ArenaPremium1[Serbia]</url>
+        <plataforma>unknown</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+      <stream>
+        <url>https://daddylive2.top/live/stream-47.php</url>
+        <plataforma>cdn_stream</plataforma>
+        <tipo>highlight</tipo>
+        <fuente>webplayer_iframe</fuente>
+        <metodo_extraccion>iframe_extracted</metodo_extraccion>
+      </stream>
+    </streams>
   </evento>
   <evento id="596">
     <nombre>Países Bajos – Turquía</nombre>
@@ -8703,9 +9320,9 @@
   </evento>
   <estadisticas>
     <eventos_procesados>780</eventos_procesados>
-    <eventos_con_streams>7</eventos_con_streams>
-    <total_streams>14</total_streams>
-    <fecha_procesamiento>2025-06-13T07:35:27.178946</fecha_procesamiento>
+    <eventos_con_streams>31</eventos_con_streams>
+    <total_streams>97</total_streams>
+    <fecha_procesamiento>2025-06-13T08:39:15.399986</fecha_procesamiento>
     <procesamiento_completo>true</procesamiento_completo>
   </estadisticas>
 </eventos_con_streams>
