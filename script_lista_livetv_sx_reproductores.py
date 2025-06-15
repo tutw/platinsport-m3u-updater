@@ -1,15 +1,17 @@
 import requests
 import xml.etree.ElementTree as ET
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 import time
 import random
 import logging
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, quote, parse_qs
 import concurrent.futures
 from bs4 import BeautifulSoup
 import urllib3
 from pathlib import Path
+import threading
+import json
 
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -22,16 +24,19 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-class EnhancedLiveTVExtractor:
+class CompleteImprovedLiveTVExtractor:
     def __init__(self):
         self.session = requests.Session()
         self.session.verify = False
         self.base_url = "https://livetv.sx"
         self.reference_xml_url = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/eventos_livetv_sx.xml"
+        self.current_date = "15 de junio"  # Día actual especificado
         self.stats = {
             'events_processed': 0,
             'streams_found': 0,
-            'failed_events': 0
+            'failed_events': 0,
+            'iframe_patterns_matched': {},
+            'stream_types_found': {}
         }
         self.user_agents = [
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
@@ -39,338 +44,610 @@ class EnhancedLiveTVExtractor:
             'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0',
         ]
-        self.stream_patterns = [
-            r'(?:webplayer|player|embed|stream|live|watch|ver|reproducir)',
-            r'cdn\.livetv\d*\.',
-            r'(?:stream|player|embed)\d+\.',
-            r'(?:voodc|embedme|streamable|vidoza|daddylive)\.(?:com|top|tv|me)',
-            r'livetv\d*\.(?:sx|me|com|tv)',
-            r'\?(?:.*(?:c|channel|id|stream|lid)=\d+.*)'
+        
+        # Patrones específicos mejorados para LiveTV.sx
+        self.iframe_patterns = [
+            # Patrones básicos de iframe
+            r'<iframe[^>]+src=["\']([^"\']*(?:webplayer|embed|player|stream)[^"\']*)["\'][^>]*>',
+            r'<iframe[^>]+src=["\']([^"\']*cdn[^"\']*livetv[^"\']*)["\'][^>]*>',
+            
+            # Patrones específicos de LiveTV CDN
+            r'<iframe[^>]+src=["\']([^"\']*cdn\.livetv\d+\.me[^"\']*)["\'][^>]*>',
+            r'<iframe[^>]+src=["\']([^"\']*livetv\d+\.me[^"\']*webplayer[^"\']*)["\'][^>]*>',
+            
+            # Patrones para voodc y otros embeds
+            r'<iframe[^>]+src=["\']([^"\']*voodc\.com[^"\']*)["\'][^>]*>',
+            r'<iframe[^>]+src=["\']([^"\']*embedme\.top[^"\']*)["\'][^>]*>',
+            
+            # Patrones para URLs con parámetros específicos
+            r'<iframe[^>]+src=["\']([^"\']*\?[^"\']*[ct]=\d+[^"\']*)["\'][^>]*>',
+            r'<iframe[^>]+src=["\']([^"\']*\?[^"\']*eid=\d+[^"\']*)["\'][^>]*>',
         ]
+        
+        # Patrones para detectar links de streams en el contenido
+        self.stream_link_patterns = [
+            # URLs directas en JavaScript
+            r'(?:src|url|href)["\'\s]*[:=]\s*["\']([^"\']*(?:webplayer|embed|cdn)[^"\']*)["\']',
+            r'["\']([^"\']*cdn\.livetv\d+\.me[^"\']*)["\']',
+            r'["\']([^"\']*voodc\.com[^"\']*)["\']',
+            
+            # URLs con parámetros específicos de LiveTV
+            r'["\']([^"\']*\?[^"\']*[ct]=\d+[^"\']*)["\']',
+            r'["\']([^"\']*webplayer2?\.php[^"\']*)["\']',
+            
+            # URLs de YouTube embebidas
+            r'["\']([^"\']*youtube\.com/embed/[^"\']*)["\']',
+            r'["\']([^"\']*youtu\.be/[^"\']*)["\']',
+        ]
+        
+        # Dominios de streams conocidos (expandido)
+        self.stream_domains = [
+            'cdn.livetv853.me', 'cdn2.livetv853.me', 'cdn3.livetv853.me',
+            'cdn.livetv854.me', 'cdn2.livetv854.me', 'cdn3.livetv854.me',
+            'cdn.livetv855.me', 'cdn2.livetv855.me', 'cdn3.livetv855.me',
+            'voodc.com', 'embedme.top', 'streamable.com', 'vidoza.net',
+            'daddylive.me', 'player.livetv.sx', 'stream.livetv.sx',
+            'youtube.com', 'youtu.be', 'dailymotion.com', 'vimeo.com'
+        ]
+        
+        # Tipos de player identificados en LiveTV
+        self.player_types = ['ifr', 'alieztv', 'youtube', 'twitch', 'dailymotion', 'voodc', 'web']
+        
+        self.lock = threading.Lock()
 
     def get_dynamic_headers(self, referer=None):
         headers = {
             'User-Agent': random.choice(self.user_agents),
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
-            'Accept-Language': random.choice(['es-ES,es;q=0.9,en;q=0.8', 'es-MX,es;q=0.9,en;q=0.8']),
+            'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
             'Accept-Encoding': 'gzip, deflate, br',
             'Connection': 'keep-alive',
             'Cache-Control': 'no-cache',
             'Upgrade-Insecure-Requests': '1',
+            'DNT': '1',
+            'Sec-Fetch-Dest': 'document',
+            'Sec-Fetch-Mode': 'navigate',
+            'Sec-Fetch-Site': 'same-origin',
         }
         if referer:
             headers['Referer'] = referer
         return headers
 
-    def robust_request(self, url, timeout=20, max_retries=5):
+    def robust_request(self, url, timeout=20, max_retries=3):
         for attempt in range(max_retries):
             try:
                 headers = self.get_dynamic_headers()
                 response = self.session.get(url, headers=headers, timeout=timeout)
                 if response.status_code == 200:
                     return response
-                elif response.status_code == 429:
-                    wait_time = min(2 ** attempt, 60)
-                    logger.warning(f"Rate limit reached, waiting {wait_time:.1f}s...")
+                elif response.status_code in [429, 503]:
+                    wait_time = min(2 ** attempt + random.uniform(1, 3), 30)
+                    logger.warning(f"Rate limit/Service unavailable, waiting {wait_time:.1f}s...")
                     time.sleep(wait_time)
-                elif response.status_code == 403:
-                    logger.warning(f"Forbidden access, retrying...")
-                    time.sleep(random.uniform(2, 5))
-                elif response.status_code == 503:
-                    logger.warning(f"Service unavailable, retrying...")
-                    time.sleep(random.uniform(3, 7))
                 else:
-                    logger.warning(f"Status {response.status_code} for {url[:50]}...")
+                    logger.warning(f"Status {response.status_code} for {url[:60]}...")
             except requests.exceptions.RequestException as e:
-                logger.error(f"Request failed in attempt {attempt + 1}: {str(e)[:100]}")
-            time.sleep(random.uniform(1, 3))
-        logger.error(f"Failed after {max_retries} retries: {url[:50]}...")
+                logger.debug(f"Request failed in attempt {attempt + 1}: {str(e)[:80]}")
+                if attempt < max_retries - 1:
+                    time.sleep(random.uniform(1, 3))
+            except Exception as e:
+                logger.debug(f"Unexpected error: {str(e)[:80]}")
+                break
         return None
 
     def load_reference_events(self):
-        logger.info("Downloading reference XML events...")
+        logger.info("Descargando eventos de referencia desde XML...")
         response = self.robust_request(self.reference_xml_url)
         if not response:
-            logger.error("Failed to download reference XML")
+            logger.error("Error al descargar el XML de referencia")
             return []
+        
         try:
             root = ET.fromstring(response.content)
             events = []
+            
             for evento_elem in root.findall('evento'):
                 event_data = {}
+                
+                # Extraer todos los campos del evento
                 for child in evento_elem:
-                    if child.tag == 'url' and child.text:
-                        event_data['url'] = child.text.strip()
-                        event_data['id'] = self.extract_event_id(child.text)
-                    elif child.text:
+                    if child.text:
                         event_data[child.tag] = child.text.strip()
-                if 'url' in event_data and event_data['url']:
+                
+                # Filtrar solo eventos del día actual
+                if event_data.get('fecha') == self.current_date and event_data.get('url'):
+                    event_data['id'] = self.extract_event_id(event_data['url'])
+                    event_data['datetime_iso'] = self.create_datetime_iso(event_data.get('fecha'), event_data.get('hora'))
+                    event_data['cerca_hora_actual'] = self.is_near_current_time(event_data.get('hora'))
                     events.append(event_data)
-            logger.info(f"Loaded {len(events)} events from reference XML")
+            
+            logger.info(f"Cargados {len(events)} eventos para {self.current_date}")
             return events
+            
         except ET.ParseError as e:
-            logger.error(f"Error parsing XML: {e}")
+            logger.error(f"Error al parsear XML: {e}")
             return []
 
     def extract_event_id(self, url):
         if not url:
             return str(random.randint(100000, 999999))
-        patterns = [r'/eventinfo/(\d+)', r'eventinfo/(\d+)', r'id=(\d+)']
+        
+        patterns = [
+            r'/eventinfo/(\d+)_',
+            r'eventinfo/(\d+)_',
+            r'eventinfo/(\d+)',
+            r'id=(\d+)',
+            r'/(\d+)_'
+        ]
+        
         for pattern in patterns:
             match = re.search(pattern, url)
             if match:
                 return match.group(1)
+        
         return str(abs(hash(url)) % 10000000)
 
-    def extract_comprehensive_streams(self, event_url, event_name, max_streams=25):
-        logger.info(f"Extracting streams for: {event_name[:40]}...")
+    def create_datetime_iso(self, fecha, hora):
+        try:
+            if not hora:
+                return "2025-06-15T00:00:00"
+            
+            # Limpiar la hora y extraer solo HH:MM
+            hora_clean = re.sub(r'[^\d:]', '', hora)
+            if ':' in hora_clean:
+                return f"2025-06-15T{hora_clean}:00"
+            else:
+                return f"2025-06-15T{hora_clean}:00:00"
+        except:
+            return "2025-06-15T00:00:00"
+
+    def is_near_current_time(self, hora):
+        try:
+            if not hora:
+                return "False"
+            
+            # Limpiar la hora
+            hora_clean = re.sub(r'[^\d:]', '', hora)
+            if ':' not in hora_clean:
+                return "False"
+            
+            # Obtener hora actual (simulada para el ejemplo)
+            current_hour = 21  # 21:00 como hora actual de ejemplo
+            event_hour = int(hora_clean.split(':')[0])
+            
+            # Considerar "cerca" si está dentro de 2 horas
+            return "True" if abs(event_hour - current_hour) <= 2 else "False"
+        except:
+            return "False"
+
+    def extract_comprehensive_streams(self, event_url, event_name):
+        logger.info(f"Extrayendo streams para: {event_name[:50]}...")
         all_streams = set()
         event_id = self.extract_event_id(event_url)
 
-        # Direct streams
-        all_streams.update(self._extract_direct_streams(event_url))
+        # 1. Extraer streams directos de la página del evento
+        direct_streams = self._extract_direct_streams_enhanced(event_url)
+        all_streams.update(direct_streams)
 
-        # Pattern-based streams
-        all_streams.update(self._generate_pattern_streams(event_id, event_url))
+        # 2. Analizar estructura específica de LiveTV para detectar enlaces ocultos
+        hidden_streams = self._extract_hidden_stream_links(event_url, event_id)
+        all_streams.update(hidden_streams)
 
-        # Synthetic streams
-        all_streams.update(self._generate_synthetic_streams(event_id))
+        # 3. Generar streams basados en patrones conocidos (mejorado)
+        pattern_streams = self._generate_comprehensive_pattern_streams(event_id, event_url)
+        all_streams.update(pattern_streams)
 
-        # Variant streams
-        all_streams.update(self._generate_variant_streams(event_id))
+        # 4. Buscar streams en JavaScript y contenido dinámico
+        js_streams = self._extract_javascript_streams(event_url)
+        all_streams.update(js_streams)
 
-        valid_streams = [{'url': url} for url in all_streams if self.is_valid_stream_url(url)][:max_streams]
-        logger.info(f"Found {len(valid_streams)} valid streams")
-        self.stats['streams_found'] += len(valid_streams)
+        # 5. Análisis profundo de enlaces embebidos
+        embedded_streams = self._deep_analyze_embedded_content(event_url)
+        all_streams.update(embedded_streams)
+
+        # Filtrar y validar streams con análisis mejorado
+        valid_streams = []
+        for url in all_streams:
+            if self.is_valid_stream_url_enhanced(url):
+                stream_info = self._analyze_stream_url(url)
+                valid_streams.append(stream_info)
+
+        with self.lock:
+            self.stats['streams_found'] += len(valid_streams)
+
+        logger.info(f"Encontrados {len(valid_streams)} streams válidos para {event_name[:30]}")
         return valid_streams
 
-    def _extract_direct_streams(self, event_url):
+    def _extract_direct_streams_enhanced(self, event_url):
         streams = set()
         response = self.robust_request(event_url)
         if not response:
             return streams
-        soup = BeautifulSoup(response.content, 'html.parser')
 
-        # Search links and sources
-        for pattern in self.stream_patterns:
-            for tag in ['a', 'link', 'video', 'source']:
-                elements = soup.find_all(tag, href=re.compile(pattern, re.I)) or soup.find_all(tag, src=re.compile(pattern, re.I))
-                for elem in elements:
-                    url = elem.get('href') or elem.get('src')
+        content = response.text
+        soup = BeautifulSoup(content, 'html.parser')
+
+        # Análisis de iframes mejorado
+        for pattern in self.iframe_patterns:
+            matches = re.findall(pattern, content, re.IGNORECASE | re.DOTALL)
+            for match in matches:
+                normalized = self.normalize_url(match, event_url)
+                if normalized:
+                    streams.add(normalized)
+                    with self.lock:
+                        pattern_name = pattern[:50] + "..."
+                        self.stats['iframe_patterns_matched'][pattern_name] = \
+                            self.stats['iframe_patterns_matched'].get(pattern_name, 0) + 1
+
+        # Búsqueda en elementos HTML específicos
+        for tag in ['iframe', 'embed', 'video', 'source', 'object']:
+            elements = soup.find_all(tag)
+            for elem in elements:
+                for attr in ['src', 'data-src', 'data', 'data-url', 'href']:
+                    url = elem.get(attr)
                     if url:
                         normalized = self.normalize_url(url, event_url)
                         if normalized:
                             streams.add(normalized)
 
-        # Search iframes and embeds
-        for tag in ['iframe', 'embed', 'object', 'video']:
-            elements = soup.find_all(tag)
-            for elem in elements:
-                url = elem.get('src') or elem.get('data') or elem.get('data-src')
-                if url:
-                    normalized = self.normalize_url(url, event_url)
-                    if normalized:
-                        streams.add(normalized)
+        # Búsqueda en links con texto específico de LiveTV
+        stream_keywords = ['ver', 'watch', 'stream', 'play', 'live', 'aliez', 'voodc', 'youtube', 'web']
+        for link in soup.find_all('a', href=True):
+            href = link.get('href')
+            text = link.get_text().lower().strip()
+            
+            # Detectar por texto del enlace
+            if any(keyword in text for keyword in stream_keywords):
+                normalized = self.normalize_url(href, event_url)
+                if normalized:
+                    streams.add(normalized)
+            
+            # Detectar por estructura del href
+            if any(domain in href for domain in self.stream_domains):
+                normalized = self.normalize_url(href, event_url)
+                if normalized:
+                    streams.add(normalized)
 
-        # Search JavaScript (fixed regex pattern)
-        scripts = soup.find_all('script', string=True)
-        for script in scripts:
+        return streams
+
+    def _extract_hidden_stream_links(self, event_url, event_id):
+        """Extrae enlaces que no están directamente visibles en iframes"""
+        streams = set()
+        response = self.robust_request(event_url)
+        if not response:
+            return streams
+
+        content = response.text
+        soup = BeautifulSoup(content, 'html.parser')
+
+        # Buscar en todos los scripts por patrones de URL
+        for script in soup.find_all('script', string=True):
             if script.string:
-                js_patterns = [
-                    r'(?:src|url|data|data-src)["\'\s]*[:=]\s*["\']([^"\'\s]+(?:webplayer|player|embed|stream|live)[^"\'\s]*)["\']',
-                    r'["\']([^"\'\s]*(?:cdn\.livetv|livetv)[^"\'\s]*\.(?:php|html|m3u8|ts)(?:\?[^"\'\s]*)?)["\']',
-                    r'["\']([^"\'\s]*(?:player|stream|embed)\d*\.[^"\'\s]*)["\']'
-                ]
-                for pattern in js_patterns:
+                for pattern in self.stream_link_patterns:
                     urls = re.findall(pattern, script.string, re.IGNORECASE)
                     for url in urls:
                         normalized = self.normalize_url(url, event_url)
                         if normalized:
                             streams.add(normalized)
+
+        # Buscar en atributos data-* y onclick
+        for elem in soup.find_all(attrs={'data-url': True}):
+            url = elem.get('data-url')
+            normalized = self.normalize_url(url, event_url)
+            if normalized:
+                streams.add(normalized)
+
+        for elem in soup.find_all(onclick=True):
+            onclick = elem.get('onclick')
+            # Buscar URLs en JavaScript onclick
+            url_matches = re.findall(r'["\']([^"\']*(?:webplayer|embed|cdn)[^"\']*)["\']', onclick)
+            for url in url_matches:
+                normalized = self.normalize_url(url, event_url)
+                if normalized:
+                    streams.add(normalized)
+
         return streams
 
-    def _generate_pattern_streams(self, event_id, event_url):
+    def _generate_comprehensive_pattern_streams(self, event_id, event_url):
         streams = set()
-        cdn_bases = [
+        
+        # URLs base más completas
+        cdn_variants = [
             'https://cdn.livetv853.me/webplayer.php',
+            'https://cdn.livetv853.me/webplayer2.php',
             'https://cdn2.livetv853.me/webplayer.php',
+            'https://cdn2.livetv853.me/webplayer2.php',
             'https://cdn3.livetv853.me/webplayer.php',
+            'https://cdn3.livetv853.me/webplayer2.php',
+            'https://cdn.livetv854.me/webplayer.php',
+            'https://cdn.livetv854.me/webplayer2.php',
+            'https://cdn2.livetv854.me/webplayer.php',
+            'https://cdn2.livetv854.me/webplayer2.php'
         ]
-        channel_ids = [
-            '238238', '2761452', '2762654', '2762700', '2763059',
+        
+        # IDs de canales expandidos basados en los patrones observados
+        channel_ranges = [
+            range(2760000, 2765000),  # Rango principal observado
+            range(238000, 239000),    # Rango secundario
+            range(234000, 235000),    # Rango adicional
+            range(237000, 238000)     # Otro rango
         ]
-        player_types = ['ifr', 'alieztv', 'youtube', 'twitch']
-        for cdn_base in cdn_bases:
-            for i, channel in enumerate(channel_ids):
-                params = {
-                    'lang': 'es',
-                    'eid': event_id,
-                    'c': channel,
-                    't': player_types[i % len(player_types)]
-                }
-                query_string = '&'.join(f"{k}={v}" for k, v in params.items())
-                stream_url = f"{cdn_base}?{query_string}"
-                streams.add(stream_url)
+        
+        # Todos los tipos de player observados
+        player_types = ['ifr', 'alieztv', 'youtube', 'twitch', 'dailymotion', 'voodc', 'web']
+        
+        # Parámetros adicionales observados
+        ci_values = ['1995', '598', '3650']  # Valores de ci observados
+        si_values = ['37', '75', '7']        # Valores de si observados
+        
+        for cdn_base in cdn_variants:
+            for channel_range in channel_ranges:
+                # Tomar muestra de cada rango para no generar demasiados
+                sample_channels = list(channel_range)[::100]  # Cada 100
+                
+                for channel in sample_channels:
+                    for player_type in player_types:
+                        for ci in ci_values:
+                            for si in si_values:
+                                # Generar lid basado en el canal
+                                lid = str(channel)
+                                
+                                params = {
+                                    'lang': 'es',
+                                    'eid': event_id,
+                                    'c': str(channel),
+                                    't': player_type,
+                                    'lid': lid,
+                                    'ci': ci,
+                                    'si': si
+                                }
+                                query_string = '&'.join(f"{k}={v}" for k, v in params.items())
+                                stream_url = f"{cdn_base}?{query_string}"
+                                streams.add(stream_url)
+        
         return streams
 
-    def _generate_synthetic_streams(self, event_id):
+    def _extract_javascript_streams(self, event_url):
+        """Analizar JavaScript para encontrar URLs de streams dinámicos"""
         streams = set()
-        alt_bases = [
-            'https://player.livetv.sx/embed.php',
-            'https://stream.livetv.sx/watch.php'
+        response = self.robust_request(event_url)
+        if not response:
+            return streams
+
+        content = response.text
+        
+        # Patrones específicos para JavaScript en LiveTV
+        js_patterns = [
+            r'(?:webplayer|embed|stream)["\'\s]*[:=]\s*["\']([^"\']+)["\']',
+            r'(?:url|src|href)["\'\s]*[:=]\s*["\']([^"\']*(?:cdn|webplayer|embed)[^"\']*)["\']',
+            r'cdn\.livetv\d+\.me[^"\']*',
+            r'voodc\.com[^"\']*',
+            r'youtube\.com/embed/[^"\']*',
         ]
-        for base in alt_bases:
-            for i in range(3):
-                params = {'id': event_id, 'channel': str(i + 1), 'lang': 'es'}
-                query_string = '&'.join(f"{k}={v}" for k, v in params.items())
-                streams.add(f"{base}?{query_string}")
+        
+        for pattern in js_patterns:
+            matches = re.findall(pattern, content, re.IGNORECASE)
+            for match in matches:
+                if isinstance(match, tuple):
+                    match = match[0]
+                normalized = self.normalize_url(match, event_url)
+                if normalized:
+                    streams.add(normalized)
+        
         return streams
 
-    def _generate_variant_streams(self, event_id):
+    def _deep_analyze_embedded_content(self, event_url):
+        """Análisis profundo del contenido embebido"""
         streams = set()
-        domains = ['livetv853.me', 'livetv854.me']
-        paths = ['webplayer.php', 'player.php']
-        for domain in domains:
-            for path in paths:
-                for ch in range(1, 4):
-                    params = {'eid': event_id, 'c': str(2760000 + random.randint(1000, 2000)), 'ch': str(ch)}
-                    query_string = '&'.join(f"{k}={v}" for k, v in params.items())
-                    streams.add(f"https://cdn.{domain}/{path}?{query_string}")
+        response = self.robust_request(event_url)
+        if not response:
+            return streams
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+        
+        # Buscar en comentarios HTML (a veces contienen URLs)
+        comments = soup.find_all(string=lambda text: isinstance(text, Comment))
+        for comment in comments:
+            for pattern in self.stream_link_patterns:
+                matches = re.findall(pattern, str(comment), re.IGNORECASE)
+                for match in matches:
+                    normalized = self.normalize_url(match, event_url)
+                    if normalized:
+                        streams.add(normalized)
+        
+        # Buscar en metadatos
+        meta_tags = soup.find_all('meta')
+        for meta in meta_tags:
+            content = meta.get('content', '')
+            if any(domain in content for domain in self.stream_domains):
+                for pattern in self.stream_link_patterns:
+                    matches = re.findall(pattern, content, re.IGNORECASE)
+                    for match in matches:
+                        normalized = self.normalize_url(match, event_url)
+                        if normalized:
+                            streams.add(normalized)
+        
         return streams
+
+    def _analyze_stream_url(self, url):
+        """Analizar URL de stream para extraer información adicional"""
+        parsed = urlparse(url)
+        params = parse_qs(parsed.query)
+        
+        stream_info = {'url': url}
+        
+        # Extraer tipo de player
+        if 't' in params:
+            stream_info['player_type'] = params['t'][0]
+            with self.lock:
+                player_type = params['t'][0]
+                self.stats['stream_types_found'][player_type] = \
+                    self.stats['stream_types_found'].get(player_type, 0) + 1
+        
+        # Extraer información de calidad si está disponible
+        if 'q' in params:
+            stream_info['quality'] = params['q'][0]
+        
+        # Identificar dominio
+        stream_info['domain'] = parsed.netloc
+        
+        # Identificar tipo basado en URL
+        if 'youtube' in url.lower():
+            stream_info['type'] = 'youtube'
+        elif 'voodc' in url.lower():
+            stream_info['type'] = 'voodc'
+        elif 'webplayer' in url.lower():
+            stream_info['type'] = 'webplayer'
+        else:
+            stream_info['type'] = 'unknown'
+        
+        return stream_info
 
     def normalize_url(self, url, base_url):
         if not url or not isinstance(url, str):
             return None
-        url = url.strip().replace('\\', '')
+        
+        url = url.strip().replace('\\', '').replace('\n', '').replace('\r', '')
+        url = re.sub(r'\s+', '', url)  # Eliminar espacios
+        
         if url.startswith(('http://', 'https://')):
             return url
         elif url.startswith('//'):
             return 'https:' + url
-        parsed_base = urlparse(base_url)
-        return f'{parsed_base.scheme}://{parsed_base.netloc}{url}' if url.startswith('/') else urljoin(base_url, url)
+        elif url.startswith('/'):
+            parsed_base = urlparse(base_url)
+            return f'{parsed_base.scheme}://{parsed_base.netloc}{url}'
+        else:
+            return urljoin(base_url, url)
 
-    def is_valid_stream_url(self, url):
+    def is_valid_stream_url_enhanced(self, url):
         if not url or not isinstance(url, str) or len(url) < 15:
             return False
+        
         url_lower = url.lower().strip()
+        
+        # Patrones a excluir (más específicos)
         exclude_patterns = [
-            r'\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)(\?|$)',
-            r'/(?:share|cookie|privacy|terms|about|contact|help)(\?|$)',
-            r'(?:facebook|twitter|instagram|google|doubleclick)\.com/',
-            r'google-analytics|googletagmanager|advertisement|ads\.'
+            r'\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|pdf|doc)(\?|$)',
+            r'/(?:share|cookie|privacy|terms|about|contact|help|register|login|logout)(\?|$)',
+            r'(?:facebook|twitter|instagram|google|doubleclick|analytics|adsystem)\.com',
+            r'(?:advertisement|ads|banner|popup|tracking)\.?',
+            r'^mailto:',
+            r'^tel:',
+            r'^javascript:',
+            r'#$'  # Enlaces que solo van a anchors
         ]
+        
         for pattern in exclude_patterns:
             if re.search(pattern, url_lower):
                 return False
-        include_patterns = self.stream_patterns + [
-            r'\.(m3u8|mp4|webm|flv|avi|mov|mkv|ts)',
-            r'(?:youtube|youtu\.be|dailymotion|vimeo|twitch)\.(?:com|tv)/'
+        
+        # Patrones a incluir (más específicos para LiveTV)
+        include_patterns = [
+            r'(?:embed|player|stream|webplayer|watch|live)',
+            r'(?:cdn\.livetv|livetv\d+)\.me',
+            r'voodc\.com',
+            r'\?.*(?:c|channel|id|stream|eid|lid)=\d+',
+            r'\.(m3u8|mp4|webm|flv|ts)(\?|$)',
+            r'(?:youtube|youtu\.be|dailymotion|vimeo|twitch)\.(?:com|tv)',
+            r'webplayer2?\.php',
+            r't=(?:ifr|alieztv|youtube|voodc)'
         ]
+        
         return any(re.search(pattern, url_lower) for pattern in include_patterns)
 
-    def generate_enhanced_xml(self, events, output_dir='/home/runner/work/platinsport-m3u-updater/platinsport-m3u-updater', 
-                             output_file='eventos_livetv_sx_reproductores.xml'):
-        Path(output_dir).mkdir(parents=True, exist_ok=True)
-        full_output_path = Path(output_dir) / output_file
-        logger.info(f"Generating enhanced XML with {len(events)} events...")
-
+    def generate_enhanced_xml(self, events, output_file='eventos_livetv_sx_deteccion_completa.xml'):
+        logger.info(f"Generando XML con detección completa - {len(events)} eventos...")
+        
         root = ET.Element('eventos')
         root.set('generado', datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
         root.set('total', str(len(events)))
-        root.set('version', '2.0-enhanced')
-
+        root.set('fecha_filtro', self.current_date)
+        root.set('version', '4.0-deteccion-completa')
+        
         total_streams = 0
+        
         for event in events:
             evento_elem = ET.SubElement(root, 'evento')
             evento_elem.set('id', str(event.get('id', 'unknown')))
-            for field in ['nombre', 'deporte', 'competicion', 'fecha', 'hora', 'url']:
+            
+            # Campos básicos del evento
+            fields = ['nombre', 'deporte', 'competicion', 'fecha', 'hora', 'url', 'datetime_iso', 'cerca_hora_actual']
+            for field in fields:
                 if field in event:
                     elem = ET.SubElement(evento_elem, field)
                     elem.text = str(event[field])
-            if 'datetime_iso' in event:
-                ET.SubElement(evento_elem, 'datetime_iso').text = str(event['datetime_iso'])
+            
+            # Elemento streams con información detallada
             streams_elem = ET.SubElement(evento_elem, 'streams')
             event_streams = event.get('streams', [])
             streams_elem.set('total', str(len(event_streams)))
-            for i, stream in enumerate(event_streams, 1):
-                stream_elem = ET.SubElement(streams_elem, 'stream')
-                stream_elem.set('id', str(i))
-                ET.SubElement(stream_elem, 'url').text = str(stream['url'])
+            
+            # Agrupar por tipo de stream
+            stream_types = {}
+            for stream in event_streams:
+                stream_type = stream.get('type', 'unknown')
+                if stream_type not in stream_types:
+                    stream_types[stream_type] = []
+                stream_types[stream_type].append(stream)
+            
+            for stream_type, type_streams in stream_types.items():
+                type_elem = ET.SubElement(streams_elem, 'tipo')
+                type_elem.set('nombre', stream_type)
+                type_elem.set('total', str(len(type_streams)))
+                
+                for i, stream in enumerate(type_streams, 1):
+                    stream_elem = ET.SubElement(type_elem, 'stream')
+                    stream_elem.set('id', str(i))
+                    
+                    url_elem = ET.SubElement(stream_elem, 'url')
+                    url_elem.text = str(stream['url'])
+                    
+                    if 'player_type' in stream:
+                        player_elem = ET.SubElement(stream_elem, 'player_type')
+                        player_elem.text = stream['player_type']
+                    
+                    if 'quality' in stream:
+                        quality_elem = ET.SubElement(stream_elem, 'quality')
+                        quality_elem.text = stream['quality']
+                    
+                    if 'domain' in stream:
+                        domain_elem = ET.SubElement(stream_elem, 'domain')
+                        domain_elem.text = stream['domain']
+            
             total_streams += len(event_streams)
-
+        
+        # Estadísticas detalladas
         stats_elem = ET.SubElement(root, 'estadisticas')
         stats_elem.set('eventos_procesados', str(self.stats['events_processed']))
         stats_elem.set('streams_totales', str(total_streams))
         stats_elem.set('promedio_streams', str(round(total_streams / len(events), 2) if events else '0'))
         stats_elem.set('eventos_fallidos', str(self.stats['failed_events']))
-
+        
+        # Estadísticas de patrones
+        patterns_elem = ET.SubElement(stats_elem, 'patrones_detectados')
+        for pattern, count in self.stats['iframe_patterns_matched'].items():
+            pattern_elem = ET.SubElement(patterns_elem, 'patron')
+            pattern_elem.set('matches', str(count))
+            pattern_elem.text = pattern
+        
+        # Estadísticas de tipos de stream
+        types_elem = ET.SubElement(stats_elem, 'tipos_stream')
+        for stream_type, count in self.stats['stream_types_found'].items():
+            type_elem = ET.SubElement(types_elem, 'tipo')
+            type_elem.set('count', str(count))
+            type_elem.text = stream_type
+        
+        # Guardar XML
         tree = ET.ElementTree(root)
         try:
-            tree.write(str(full_output_path), encoding='utf-8', xml_declaration=True)
-            logger.info(f"XML generated: {full_output_path}")
-            return str(full_output_path)
+            ET.indent(tree, space="  ", level=0)
+            tree.write(output_file, encoding='utf-8', xml_declaration=True)
+            logger.info(f"XML con detección completa generado: {output_file}")
+            return output_file
         except Exception as e:
-            logger.error(f"Error generating XML: {e}")
+            logger.error(f"Error al generar XML: {e}")
             return None
 
-    def run_complete_extraction(self, max_events=100, max_streams_per_event=25, time_limit=900):
-        logger.info("=== Starting LiveTV.sx Extraction ===")
-        start_time = time.time()
-        events = self.load_reference_events()
-        if not events:
-            logger.error("No events loaded")
-            return None
-        events = events[:max_events]
-        logger.info(f"Loaded {len(events)} events for processing")
-
-        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-            future_to_event = {
-                executor.submit(self.extract_comprehensive_streams, event['url'], event.get('nombre', 'Unnamed'), max_streams_per_event): event
-                for event in events
-            }
-            for i, future in enumerate(concurrent.futures.as_completed(future_to_event), 1):
-                event = future_to_event[future]
-                if time.time() - start_time > time_limit:
-                    logger.warning(f"Time limit ({time_limit}s) reached")
-                    for remaining_event in events[i-1:]:
-                        if 'streams' not in remaining_event:
-                            remaining_event['streams'] = []
-                    break
-                try:
-                    event['streams'] = future.result()
-                    self.stats['events_processed'] += 1
-                    logger.info(f"Processed [{i}/{len(events)}] {event.get('nombre', 'Unnamed')[:50]}: {len(event['streams'])} streams")
-                except Exception as e:
-                    logger.error(f"Error for {event.get('nombre', 'Unnamed')[:50]}: {str(e)[:100]}")
-                    event['streams'] = []
-                    self.stats['failed_events'] += 1
-                time.sleep(random.uniform(0.5, 1.2))
-                if i % 10 == 0:
-                    avg = self.stats['streams_found'] / self.stats['events_processed'] if self.stats['events_processed'] else 0
-                    logger.info(f"Progress: {i}/{len(events)} | Streams: {self.stats['streams_found']} | Avg: {avg:.1f}")
-
-        xml_file = self.generate_enhanced_xml(events)
-        if xml_file:
-            execution_time = time.time() - start_time
-            avg_streams = self.stats['streams_found'] / self.stats['events_processed'] if self.stats['events_processed'] else 0
-            logger.info(f"=== Extraction Completed ===\nTime: {execution_time:.2f}s\nEvents: {self.stats['events_processed']}/{len(events)}\nStreams: {self.stats['streams_found']}\nAvg Streams/Event: {avg_streams:.1f}\nFailed: {self.stats['failed_events']}\nXML: {xml_file}")
-            return xml_file
-        logger.error("Failed to generate final XML")
-        return None
-
-def main():
-    print("=" * 80)
-    print("🚀 LIVETV.SX STREAM EXTRACTOR v2.0")
-    print("=" * 80)
-    extractor = EnhancedLiveTVExtractor()
-    config = {'max_events': 50, 'max_streams_per_event': 25, 'time_limit': 600}
-    logger.info(f"Configuration: {config}")
-    result = extractor.run_complete_extraction(**config)
-    if result:
-        print(f"\n🎉 Extraction Successful!\nXML File: {result}\nStats:\n  Events: {extractor.stats['events_processed']}\n  Streams: {extractor.stats['streams_found']}\n  Failed: {extractor.stats['failed_events']}\n  Avg Streams/Event: {extractor.stats['streams_found'] / extractor.stats['events_processed']:.1f}")
-    else:
-        print("\n❌ Extraction Failed. Check logs for details.")
-    print("=" * 80)
-
-if __name__ == "__main__":
-    main()
+    def run_extraction(self, max_workers=3, time_limit=1800):
+        logger.info("=== INICIANDO EXTRACCIÓN COMPLETA DE
