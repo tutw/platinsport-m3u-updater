@@ -303,7 +303,7 @@ class CompleteLiveTVExtractor:
             return streams
 
         content = response.text
-        soup = BeautifulSoup(content, 'html.parser')
+        soup = BeautifulSoup(response.text, 'html.parser')  # Corrección aquí
 
         # 🎯 APLICAR TODOS LOS PATRONES MEJORADOS
         for pattern in self.enhanced_iframe_patterns:
@@ -350,7 +350,7 @@ class CompleteLiveTVExtractor:
             return streams
 
         content = response.text
-        soup = BeautifulSoup(content, 'html.parser')
+        soup = BeautifulSoup(response.text, 'html.parser')  # Corrección aquí
 
         # 📜 ANALIZAR TODOS LOS SCRIPTS
         scripts = soup.find_all('script', string=True)
@@ -427,7 +427,7 @@ class CompleteLiveTVExtractor:
         if not response:
             return streams
 
-        soup = BeautifulSoup(content=response.text, features='html.parser')
+        soup = BeautifulSoup(response.text, 'html.parser')  # Corrección aquí
 
         # 🎯 BUSCAR EN DIVS CON CLASES ESPECÍFICAS
         stream_containers = soup.find_all(['div', 'span', 'td'], class_=re.compile(r'(?i)stream|player|link'))
@@ -869,6 +869,12 @@ def main():
     result = extractor.run_complete_extraction(**config)
     
     if result:
+        # Calcular promedio con protección contra división por cero
+        if extractor.stats['events_processed'] > 0:
+            avg_streams = extractor.stats['streams_found'] / extractor.stats['events_processed']
+        else:
+            avg_streams = 0
+        
         print(f"""
 🎉 ¡EXTRACCIÓN COMPLETA EXITOSA!
 
@@ -880,7 +886,7 @@ def main():
    • iFrames desde JavaScript: {extractor.stats['iframe_javascript']}
    • iFrames generados automáticamente: {extractor.stats['iframe_generated']}
    • Eventos fallidos: {extractor.stats['failed_events']}
-   • Promedio streams/evento: {extractor.stats['streams_found'] / extractor.stats['events_processed']:.1f}
+   • Promedio streams/evento: {avg_streams:.1f}
 
 🔍 El script ahora detecta:
    ✅ iFrames directos en HTML
