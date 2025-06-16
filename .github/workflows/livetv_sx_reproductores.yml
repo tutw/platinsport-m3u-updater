@@ -31,7 +31,7 @@ jobs:
         python script_lista_livetv_sx_reproductores.py
 
     - name: Upload XML artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: eventos-livetv-xml
         path: eventos_livetv_sx_con_reproductores.xml
