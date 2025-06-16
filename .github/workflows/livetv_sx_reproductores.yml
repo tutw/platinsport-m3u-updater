@@ -1,28 +1,76 @@
-name: LiveTV Stream Extractor
+name: Extractor de Eventos LiveTV.sx
 
 on:
   schedule:
-    - cron: '0 */4 * * *' # Runs every 4 hours
+    # Ejecutar cada hora
+    - cron: '0 * * * *'
+
+  # Permitir ejecución manual
   workflow_dispatch:
 
 jobs:
-  extract-streams:
+  extract-events:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 lxml urllib3 pytz
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-      - name: Run extraction script
-        run: |
-          echo "🚀 Iniciando extracción de streams..."
-          python script_lista_livetv_sx_reproductores.py
+    - name: Extract events and streams
+      run: |
+        python extractor_livetv.py
+
+    - name: Upload XML artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: eventos-livetv-xml
+        path: eventos_livetv_sx_con_reproductores.xml
+        retention-days: 7
+
+    - name: Display results
+      run: |
+        echo "📊 Resultados de la extracción:"
+        if [ -f "eventos_livetv_sx_con_reproductores.xml" ]; then
+          echo "✅ Archivo XML generado exitosamente"
+          echo "📄 Tamaño del archivo: $(wc -c < eventos_livetv_sx_con_reproductores.xml) bytes"
+          echo "📝 Líneas totales: $(wc -l < eventos_livetv_sx_con_reproductores.xml)"
+          echo ""
+          echo "🔍 Vista previa del contenido:"
+          head -20 eventos_livetv_sx_con_reproductores.xml
+        else
+          echo "❌ Error: No se pudo generar el archivo XML"
+          exit 1
+        fi
+
+    - name: Commit and push changes (optional)
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add eventos_livetv_sx_con_reproductores.xml
+        git diff --staged --quiet || git commit -m "Actualizar eventos LiveTV.sx - $(date +'%Y-%m-%d %H:%M:%S')"
+        git push
+      continue-on-error: true
+
+  notification:
+    needs: extract-events
+    runs-on: ubuntu-latest
+    if: always()
+
+    steps:
+    - name: Notify completion
+      run: |
+        if [ "${{ needs.extract-events.result }}" == "success" ]; then
+          echo "🎉 Extracción completada exitosamente"
+        else
+          echo "❌ Error en la extracción de eventos"
+        fi
