@@ -1,203 +1,28 @@
-name: Extractor LiveTV.sx Reproductores
+name: LiveTV Stream Extractor
 
 on:
-  # Ejecutar cada hora
   schedule:
-    - cron: '0 * * * *'  # Cada hora en el minuto 0
-  
-  # Permitir ejecución manual
+    - cron: '0 */4 * * *' # Runs every 4 hours
   workflow_dispatch:
-    inputs:
-      debug_mode:
-        description: 'Modo debug (true/false)'
-        required: false
-        default: 'false'
-        type: boolean
-
-# Permisos necesarios
-permissions:
-  contents: write
-  actions: read
 
 jobs:
-  extract_streams:
+  extract-streams:
     runs-on: ubuntu-latest
-    timeout-minutes: 60  # Timeout de 1 hora
-    
     steps:
-    - name: Checkout código
-      uses: actions/checkout@v4
-      
-    - name: Configurar Python
-      uses: actions/setup-python@v5  # Updated to v5
-      with:
-        python-version: '3.11'
-        cache: 'pip'
-        
-    - name: Instalar dependencias
-      run: |
-        python -m pip install --upgrade pip
-        pip install requests beautifulsoup4 lxml urllib3
-        
-    - name: Verificar archivos
-      run: |
-        ls -la
-        echo "Python version: $(python --version)"
-        echo "Pip packages:"
-        pip list
-        
-    - name: Ejecutar extractor de streams
-      id: extract
-      run: |
-        echo "🚀 Iniciando extracción de streams..."
-        python script_lista_livetv_sx_reproductores.py
-        
-        # Verificar que el archivo se generó
-        if [ -f "eventos_livetv_sx_con_reproductores.xml" ]; then
-          echo "✅ XML generado exitosamente"
-          file_size=$(wc -c < eventos_livetv_sx_con_reproductores.xml)
-          echo "📊 Tamaño del archivo: $file_size bytes"
-          echo "file_size=$file_size" >> $GITHUB_OUTPUT
-          
-          # Contar eventos
-          event_count=$(grep -c "<evento " eventos_livetv_sx_con_reproductores.xml || echo "0")
-          echo "📈 Eventos procesados: $event_count"
-          echo "event_count=$event_count" >> $GITHUB_OUTPUT
-          
-          # Contar streams
-          stream_count=$(grep -c "<stream>" eventos_livetv_sx_con_reproductores.xml || echo "0")
-          echo "🎥 Streams encontrados: $stream_count"
-          echo "stream_count=$stream_count" >> $GITHUB_OUTPUT
-        else
-          echo "❌ Error: No se generó el archivo XML"
-          exit 1
-        fi
-        
-    - name: Validar XML generado
-      run: |
-        # Validar que el XML sea válido
-        python -c "
-        import xml.etree.ElementTree as ET
-        try:
-            tree = ET.parse('eventos_livetv_sx_con_reproductores.xml')
-            root = tree.getroot()
-            print(f'✅ XML válido - Elemento raíz: {root.tag}')
-            print(f'📊 Atributos: {root.attrib}')
-            
-            eventos = root.findall('evento')
-            print(f'📈 Total eventos: {len(eventos)}')
-            
-            stats = root.find('estadisticas')
-            if stats:
-                for stat in stats:
-                    print(f'📋 {stat.tag}: {stat.text}')
-        except Exception as e:
-            print(f'❌ XML inválido: {e}')
-            exit(1)
-        "
-        
-    - name: Preparar commit
-      run: |
-        # Configurar git
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        
-        # Obtener timestamp
-        timestamp=$(date '+%Y-%m-%d %H:%M:%S UTC')
-        
-        # Preparar mensaje de commit
-        commit_msg="🤖 Actualización automática - $timestamp
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-        📊 Estadísticas:
-        - Eventos: ${{ steps.extract.outputs.event_count }}
-        - Streams: ${{ steps.extract.outputs.stream_count }}
-        - Tamaño: ${{ steps.extract.outputs.file_size }} bytes
-        
-        🔄 Ejecutado por GitHub Actions"
-        
-        echo "$commit_msg" > commit_message.txt
-        
-    - name: Commit y push cambios
-      run: |
-        # Añadir archivos
-        git add eventos_livetv_sx_con_reproductores.xml
-        git add resumen_procesamiento.json
-        
-        # Verificar si hay cambios
-        if git diff --staged --quiet; then
-          echo "ℹ️ No hay cambios para commitear"
-        else
-          echo "📝 Commiteando cambios..."
-          git commit -F commit_message.txt
-          
-          # Push con reintentos
-          max_attempts=3
-          attempt=1
-          
-          while [ $attempt -le $max_attempts ]; do
-            echo "🔄 Intento de push $attempt/$max_attempts"
-            if git push; then
-              echo "✅ Push exitoso"
-              break
-            else
-              echo "❌ Push falló, reintentando en 10 segundos..."
-              sleep 10
-              attempt=$((attempt + 1))
-              
-              if [ $attempt -le $max_attempts ]; then
-                git pull --rebase
-              fi
-            fi
-          done
-          
-          if [ $attempt -gt $max_attempts ]; then
-            echo "❌ Push falló después de $max_attempts intentos"
-            exit 1
-          fi
-        fi
-        
-    - name: Crear Release (semanal)
-      if: github.event.schedule == '0 0 * * 0'  # Solo los domingos a medianoche
-      uses: softprops/action-gh-release@v2  # Updated to modern release action
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: weekly-${{ github.run_number }}
-        name: Release Semanal ${{ github.run_number }}
-        body: |
-          🤖 Release automático semanal
-          
-          📊 Estadísticas:
-          - Eventos procesados: ${{ steps.extract.outputs.event_count }}
-          - Streams encontrados: ${{ steps.extract.outputs.stream_count }}
-          - Tamaño del archivo: ${{ steps.extract.outputs.file_size }} bytes
-          
-          📅 Generado: ${{ github.event.head_commit.timestamp }}
-        draft: false
-        prerelease: false
-        files: |
-          eventos_livetv_sx_con_reproductores.xml
-          resumen_procesamiento.json
-        
-    - name: Subir artefactos
-      uses: actions/upload-artifact@v4  # Updated to v4
-      with:
-        name: eventos-livetv-${{ github.run_number }}
-        path: |
-          eventos_livetv_sx_con_reproductores.xml
-          resumen_procesamiento.json
-        retention-days: 30
-        
-    - name: Notificación final
-      run: |
-        echo "🎉 ¡Proceso completado exitosamente!"
-        echo "📄 Archivos generados:"
-        ls -la eventos_livetv_sx_con_reproductores.xml resumen_procesamiento.json
-        echo ""
-        echo "🔗 El archivo está disponible en:"
-        echo "https://github.com/${{ github.repository }}/blob/main/eventos_livetv_sx_con_reproductores.xml"
-        echo ""
-        echo "📊 Estadísticas finales:"
-        echo "- Eventos: ${{ steps.extract.outputs.event_count }}"
-        echo "- Streams: ${{ steps.extract.outputs.stream_count }}"
-        echo "- Tamaño: ${{ steps.extract.outputs.file_size }} bytes"
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 lxml urllib3 pytz
+
+      - name: Run extraction script
+        run: |
+          echo "🚀 Iniciando extracción de streams..."
+          python script_lista_livetv_sx_reproductores.py
