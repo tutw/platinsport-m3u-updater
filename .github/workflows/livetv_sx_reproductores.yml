@@ -28,7 +28,7 @@ jobs:
 
     - name: Extract events and streams
       run: |
-        python extractor_livetv.py
+        python script_lista_livetv_sx_reproductores.py
 
     - name: Upload XML artifact
       uses: actions/upload-artifact@v3
