@@ -80,8 +80,8 @@ def extraer_streams_evento(url):
                     elif not href.startswith('http'):
                         href = urljoin(url, href)
 
-                    # Extraer idioma usando el selector específico (ajustado aquí)
-                    idioma_img = extraer_idioma_stream(soup, i)
+                    # CORRECCIÓN: Extraer idioma específico para cada stream (índice i+2 porque empieza en tr:nth-child(2))
+                    idioma_img = extraer_idioma_stream(soup, i + 2)
                     
                     iframe_url = extraer_iframe_real(href)
                     if iframe_url:
@@ -145,32 +145,55 @@ def buscar_iframes_ocultos(soup, base_url):
     
     return iframes_ocultos
 
-def extraer_idioma_stream(soup, stream_index):
-    """Extrae la imagen de bandera del idioma usando el selector específico"""
+def extraer_idioma_stream(soup, row_index):
+    """MEJORA 2: Extrae la imagen de bandera del idioma usando el selector específico para cada stream"""
     try:
-        # El primer stream está en tr:nth-child(2), el segundo en tr:nth-child(3), etc.
-        selector = f"#links_block > table:nth-child(2) > tbody > tr:nth-child({stream_index+2}) > td:nth-child(1) > table > tbody > tr > td:nth-child(1) > img"
+        # CORRECCIÓN: Usar el índice correcto para cada fila (row_index corresponde a nth-child)
+        selector = f"#links_block > table:nth-child(2) > tbody > tr:nth-child({row_index}) > td:nth-child(1) > table > tbody > tr > td:nth-child(1) > img"
+        
         img_element = soup.select_one(selector)
         if img_element and img_element.get('src'):
             src = img_element.get('src')
-            # Si ya es una url absoluta del CDN, solo asegúrate que lleva https:
-            if "cdn.livetv853.me" in src:
-                if src.startswith("//"):
-                    src = "https:" + src
-                elif src.startswith("http"):
-                    pass  # Ya está bien
-                else:
-                    src = "https://" + src.lstrip("/")
-                return src
             # Convertir URL relativa a absoluta si es necesario
-            if src.startswith("/"):
+            if src.startswith('/'):
                 src = 'https://livetv.sx' + src
-            elif src.startswith("//"):
+            elif src.startswith('//'):
                 src = 'https:' + src
+            elif not src.startswith('http'):
+                src = 'https://livetv.sx/' + src.lstrip('/')
             return src
-
+        
+        # Búsqueda alternativa: buscar en la fila específica
+        links_block = soup.find(id='links_block')
+        if links_block:
+            # Encontrar la tabla principal
+            main_table = links_block.find('table')
+            if main_table and main_table.find('tbody'):
+                tbody = main_table.find('tbody')
+                rows = tbody.find_all('tr')
+                
+                # Verificar que el índice esté dentro del rango (restar 1 porque nth-child empieza en 1)
+                if row_index - 1 < len(rows):
+                    target_row = rows[row_index - 1]
+                    # Buscar imagen en la primera celda
+                    first_cell = target_row.find('td')
+                    if first_cell:
+                        inner_table = first_cell.find('table')
+                        if inner_table:
+                            img = inner_table.find('img')
+                            if img and img.get('src'):
+                                src = img.get('src')
+                                if src.startswith('/'):
+                                    src = 'https://livetv.sx' + src
+                                elif src.startswith('//'):
+                                    src = 'https:' + src
+                                elif not src.startswith('http'):
+                                    src = 'https://livetv.sx/' + src.lstrip('/')
+                                return src
+        
         return ''
     except Exception as e:
+        print(f"Error extrayendo idioma para stream {row_index}: {e}")
         return ''
 
 def extraer_iframe_real(stream_url):
