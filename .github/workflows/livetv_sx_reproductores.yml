@@ -2,10 +2,7 @@ name: Extractor de Eventos LiveTV.sx
 
 on:
   schedule:
-    # Ejecutar cada hora
     - cron: '0 * * * *'
-
-  # Permitir ejecución manual
   workflow_dispatch:
 
 jobs:
@@ -30,6 +27,12 @@ jobs:
       run: |
         python script_lista_livetv_sx_reproductores.py
 
+    - name: Rename output (si tu script genera el archivo _mejorado.xml)
+      run: |
+        if [ -f "eventos_livetv_sx_con_reproductores_mejorado.xml" ]; then
+          mv eventos_livetv_sx_con_reproductores_mejorado.xml eventos_livetv_sx_con_reproductores.xml
+        fi
+
     - name: Upload XML artifact
       uses: actions/upload-artifact@v4
       with:
@@ -52,13 +55,15 @@ jobs:
           exit 1
         fi
 
-    - name: Commit and push changes (optional)
+    - name: Commit and push changes (con pull --rebase)
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
+        git fetch origin main
         git add eventos_livetv_sx_con_reproductores.xml
         git diff --staged --quiet || git commit -m "Actualizar eventos LiveTV.sx - $(date +'%Y-%m-%d %H:%M:%S')"
-        git push
+        git pull --rebase origin main
+        git push origin HEAD:main
       continue-on-error: true
 
   notification:
