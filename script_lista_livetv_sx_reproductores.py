@@ -80,8 +80,8 @@ def extraer_streams_evento(url):
                     elif not href.startswith('http'):
                         href = urljoin(url, href)
 
-                    # Extraer idioma usando el selector específico
-                    idioma_img = extraer_idioma_stream(soup, i + 1)
+                    # Extraer idioma usando el selector específico (ajustado aquí)
+                    idioma_img = extraer_idioma_stream(soup, i)
                     
                     iframe_url = extraer_iframe_real(href)
                     if iframe_url:
@@ -146,9 +146,10 @@ def buscar_iframes_ocultos(soup, base_url):
     return iframes_ocultos
 
 def extraer_idioma_stream(soup, stream_index):
-    """MEJORA 2: Extrae la imagen de bandera del idioma usando el selector específico"""
+    """Extrae la imagen de bandera del idioma usando el selector específico"""
     try:
-        selector = f"#links_block > table:nth-child(2) > tbody > tr:nth-child({stream_index + 1}) > td:nth-child(1) > table > tbody > tr > td:nth-child(1) > img"
+        # El primer stream está en tr:nth-child(2), el segundo en tr:nth-child(3), etc.
+        selector = f"#links_block > table:nth-child(2) > tbody > tr:nth-child({stream_index+2}) > td:nth-child(1) > table > tbody > tr > td:nth-child(1) > img"
         img_element = soup.select_one(selector)
         if img_element and img_element.get('src'):
             src = img_element.get('src')
@@ -167,30 +168,6 @@ def extraer_idioma_stream(soup, stream_index):
             elif src.startswith("//"):
                 src = 'https:' + src
             return src
-
-        # Búsqueda alternativa más flexible
-        links_block = soup.find(id='links_block')
-        if links_block:
-            tables = links_block.find_all('table')
-            for table in tables:
-                imgs = table.find_all('img')
-                for img in imgs:
-                    src = img.get('src', '')
-                    if 'flag' in src or 'img/linkflag' in src:
-                        # Igual aquí, arregla el caso CDN
-                        if "cdn.livetv853.me" in src:
-                            if src.startswith("//"):
-                                src = "https:" + src
-                            elif src.startswith("http"):
-                                pass
-                            else:
-                                src = "https://" + src.lstrip("/")
-                            return src
-                        if src.startswith('/'):
-                            src = 'https://livetv.sx' + src
-                        elif src.startswith('//'):
-                            src = 'https:' + src
-                        return src
 
         return ''
     except Exception as e:
