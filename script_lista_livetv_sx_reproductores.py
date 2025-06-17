@@ -493,7 +493,7 @@ def main():
     formatear_xml(xml_final)
 
     # Guardar archivo
-    output_path = 'eventos_livetv_sx_con_reproductores_mejorado.xml'
+    output_path = 'eventos_livetv_sx_con_reproductores.xml'
     tree = ET.ElementTree(xml_final)
     tree.write(output_path, encoding='utf-8', xml_declaration=True)
 
