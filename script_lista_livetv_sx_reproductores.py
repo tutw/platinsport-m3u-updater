@@ -49,70 +49,9 @@ def filtrar_eventos_hoy(root):
 
     return eventos_hoy
 
-def extraer_iframe_real_con_idioma(stream_url, evento_url):
-    """Extrae el iframe real y el idioma (bandera) de una URL de stream - MEJORA 2"""
-    try:
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-        }
-
-        response = requests.get(stream_url, headers=headers, timeout=10, verify=False)
-        response.raise_for_status()
-
-        soup = BeautifulSoup(response.content, 'html.parser')
-
-        # MEJORA 2: Extraer idioma de la bandera usando el selector específico
-        idioma_url = None
-        try:
-            # Selector específico para la bandera del idioma
-            bandera_img = soup.select_one("#links_block > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(1) > table > tbody > tr > td:nth-child(1) > img")
-            if bandera_img and bandera_img.get('src'):
-                idioma_url = bandera_img.get('src')
-                # Convertir a URL absoluta si es necesaria
-                if idioma_url.startswith('//'):
-                    idioma_url = 'https:' + idioma_url
-                elif idioma_url.startswith('/'):
-                    idioma_url = urljoin(evento_url, idioma_url)
-                elif not idioma_url.startswith('http'):
-                    idioma_url = urljoin(evento_url, idioma_url)
-        except Exception as e:
-            # Si falla la extracción de idioma, continuamos sin él
-            pass
-
-        # Extraer iframe (lógica original)
-        iframes = soup.find_all('iframe', src=True)
-
-        for iframe in iframes:
-            src = iframe.get('src')
-            if src and ('antenasport' in src or 'embed' in src or 'player' in src or 'stream' in src):
-                if src.startswith('//'):
-                    src = 'https:' + src
-                elif src.startswith('/'):
-                    src = urljoin(stream_url, src)
-                return src, idioma_url
-
-        if iframes:
-            src = iframes[0].get('src')
-            if src.startswith('//'):
-                src = 'https:' + src
-            elif src.startswith('/'):
-                src = urljoin(stream_url, src)
-            return src, idioma_url
-
-        return None, idioma_url
-
-    except Exception as e:
-        return None, None
-
-def extraer_iframe_real(stream_url):
-    """Función original mantenida para compatibilidad"""
-    iframe_url, _ = extraer_iframe_real_con_idioma(stream_url, stream_url)
-    return iframe_url
-
 def extraer_streams_evento(url):
-    """Extrae streams de un evento específico - MEJORADO con búsqueda de iframes ocultos - MEJORA 1"""
+    """Extrae streams de un evento específico con búsqueda de iframes ocultos y idiomas"""
     streams = []
-    idiomas = []  # Lista para almacenar idiomas correspondientes
 
     try:
         headers = {
@@ -131,10 +70,9 @@ def extraer_streams_evento(url):
         links_block = soup.find(id='links_block')
 
         if links_block:
-            # MEJORA 1: Buscar enlaces directos
             enlaces = links_block.find_all('a', href=True)
 
-            for enlace in enlaces:
+            for i, enlace in enumerate(enlaces):
                 href = enlace.get('href')
                 if href:
                     if href.startswith('/'):
@@ -142,47 +80,140 @@ def extraer_streams_evento(url):
                     elif not href.startswith('http'):
                         href = urljoin(url, href)
 
-                    # MEJORA 1: Extraer idioma y iframe
-                    iframe_url, idioma_url = extraer_iframe_real_con_idioma(href, url)
+                    # Extraer idioma usando el selector específico
+                    idioma_img = extraer_idioma_stream(soup, i + 1)
+                    
+                    iframe_url = extraer_iframe_real(href)
                     if iframe_url:
-                        streams.append(iframe_url)
-                        idiomas.append(idioma_url)
+                        stream_data = {
+                            'url': iframe_url,
+                            'idioma': idioma_img
+                        }
+                        streams.append(stream_data)
 
-            # MEJORA 1: Buscar iframes ocultos adicionales en el bloque de enlaces
-            iframes_ocultos = links_block.find_all('iframe', src=True)
-            for iframe in iframes_ocultos:
-                src = iframe.get('src')
-                if src:
-                    if src.startswith('//'):
-                        src = 'https:' + src
-                    elif src.startswith('/'):
-                        src = urljoin(url, src)
+            # MEJORA 1: Buscar iframes adicionales que puedan estar ocultos
+            iframes_ocultos = buscar_iframes_ocultos(soup, url)
+            for iframe_oculto in iframes_ocultos:
+                # Evitar duplicados
+                if not any(stream['url'] == iframe_oculto['url'] for stream in streams):
+                    streams.append(iframe_oculto)
 
-                    if src not in streams:  # Evitar duplicados
-                        streams.append(src)
-                        idiomas.append(None)  # No hay idioma asociado para iframes directos
-
-            # MEJORA 1: Buscar más iframes en elementos ocultos (display:none, visibility:hidden)
-            elementos_ocultos = soup.find_all(style=re.compile(r'display\s*:\s*none|visibility\s*:\s*hidden'))
-            for elemento in elementos_ocultos:
-                iframes_en_oculto = elemento.find_all('iframe', src=True)
-                for iframe in iframes_en_oculto:
-                    src = iframe.get('src')
-                    if src:
-                        if src.startswith('//'):
-                            src = 'https:' + src
-                        elif src.startswith('/'):
-                            src = urljoin(url, src)
-
-                        if src not in streams:  # Evitar duplicados
-                            streams.append(src)
-                            idiomas.append(None)
-
-        return streams, idiomas
+        return streams
 
     except Exception as e:
         print(f"Error al extraer streams de {url}: {e}")
-        return [], []
+        return []
+
+def buscar_iframes_ocultos(soup, base_url):
+    """MEJORA 1: Busca iframes adicionales que puedan estar ocultos"""
+    iframes_ocultos = []
+    
+    try:
+        # Buscar iframes directamente en el HTML que puedan estar ocultos
+        all_iframes = soup.find_all('iframe', src=True)
+        
+        for iframe in all_iframes:
+            src = iframe.get('src')
+            if src and ('embed' in src or 'player' in src or 'stream' in src):
+                if src.startswith('//'):
+                    src = 'https:' + src
+                elif src.startswith('/'):
+                    src = urljoin(base_url, src)
+                
+                iframe_data = {
+                    'url': src,
+                    'idioma': ''  # No hay información de idioma para iframes ocultos
+                }
+                iframes_ocultos.append(iframe_data)
+
+        # Buscar scripts que puedan contener URLs de iframes
+        scripts = soup.find_all('script')
+        for script in scripts:
+            if script.string:
+                # Buscar URLs de embed en el JavaScript
+                iframe_urls = re.findall(r'["\']https?://[^"\']*(?:embed|player|stream)[^"\']*["\']', script.string)
+                for url_match in iframe_urls:
+                    clean_url = url_match.strip('"\'')
+                    iframe_data = {
+                        'url': clean_url,
+                        'idioma': ''
+                    }
+                    iframes_ocultos.append(iframe_data)
+
+    except Exception as e:
+        print(f"Error buscando iframes ocultos: {e}")
+    
+    return iframes_ocultos
+
+def extraer_idioma_stream(soup, stream_index):
+    """MEJORA 2: Extrae la imagen de bandera del idioma usando el selector específico"""
+    try:
+        # Selector base modificado para cada stream
+        selector = f"#links_block > table:nth-child(2) > tbody > tr:nth-child({stream_index + 1}) > td:nth-child(1) > table > tbody > tr > td:nth-child(1) > img"
+        
+        img_element = soup.select_one(selector)
+        if img_element and img_element.get('src'):
+            src = img_element.get('src')
+            # Convertir URL relativa a absoluta si es necesario
+            if src.startswith('/'):
+                src = 'https://livetv.sx' + src
+            elif src.startswith('//'):
+                src = 'https:' + src
+            return src
+        
+        # Búsqueda alternativa más flexible
+        links_block = soup.find(id='links_block')
+        if links_block:
+            tables = links_block.find_all('table')
+            for table in tables:
+                imgs = table.find_all('img')
+                for img in imgs:
+                    src = img.get('src', '')
+                    if 'flag' in src or 'img/linkflag' in src:
+                        if src.startswith('/'):
+                            src = 'https://livetv.sx' + src
+                        elif src.startswith('//'):
+                            src = 'https:' + src
+                        return src
+        
+        return ''
+    except Exception as e:
+        return ''
+
+def extraer_iframe_real(stream_url):
+    """Extrae el iframe real de una URL de stream"""
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+        }
+
+        response = requests.get(stream_url, headers=headers, timeout=10, verify=False)
+        response.raise_for_status()
+
+        soup = BeautifulSoup(response.content, 'html.parser')
+        iframes = soup.find_all('iframe', src=True)
+
+        for iframe in iframes:
+            src = iframe.get('src')
+            if src and ('antenasport' in src or 'embed' in src or 'player' in src or 'stream' in src):
+                if src.startswith('//'):
+                    src = 'https:' + src
+                elif src.startswith('/'):
+                    src = urljoin(stream_url, src)
+                return src
+
+        if iframes:
+            src = iframes[0].get('src')
+            if src.startswith('//'):
+                src = 'https:' + src
+            elif src.startswith('/'):
+                src = urljoin(stream_url, src)
+            return src
+
+        return None
+
+    except Exception as e:
+        return None
 
 def convertir_a_datetime_iso(fecha_str, hora_str):
     """Convierte fecha y hora en formato español a datetime ISO"""
@@ -217,7 +248,7 @@ def convertir_a_datetime_iso(fecha_str, hora_str):
         return f"{datetime.now().year}-{datetime.now().month:02d}-{datetime.now().day:02d}T00:00:00"
 
 def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
-    """Procesa todos los eventos del día y extrae sus streams con idiomas - MEJORADO"""
+    """Procesa todos los eventos del día y extrae sus streams"""
     eventos_procesados = []
     total_eventos = len(eventos_hoy) if max_eventos is None else min(len(eventos_hoy), max_eventos)
 
@@ -234,22 +265,7 @@ def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
 
             print(f"Procesando evento {i+1}/{total_eventos}: {nombre}")
 
-            # MEJORA: Usar la función mejorada que devuelve streams e idiomas
-            streams, idiomas = extraer_streams_evento(url)
-
-            # Combinar streams únicos con sus idiomas correspondientes
-            streams_con_idiomas = []
-            streams_unicos = []
-
-            for j, stream in enumerate(streams):
-                if stream not in streams_unicos:  # Evitar duplicados
-                    streams_unicos.append(stream)
-                    idioma = idiomas[j] if j < len(idiomas) else None
-                    streams_con_idiomas.append({
-                        'url': stream,
-                        'idioma': idioma
-                    })
-
+            streams = extraer_streams_evento(url)
             datetime_iso = convertir_a_datetime_iso(fecha, hora)
 
             evento_procesado = {
@@ -261,12 +277,11 @@ def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
                 'hora': hora,
                 'url': url,
                 'datetime_iso': datetime_iso,
-                'streams': streams_unicos,  # Para compatibilidad con código existente
-                'streams_con_idiomas': streams_con_idiomas  # Nueva estructura con idiomas
+                'streams': streams
             }
 
             eventos_procesados.append(evento_procesado)
-            print(f"Evento {i+1} procesado: {len(streams_unicos)} streams únicos")
+            print(f"Evento {i+1} procesado: {len(streams)} streams encontrados")
 
             time.sleep(1)  # Pausa para no sobrecargar el servidor
 
@@ -274,29 +289,24 @@ def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
             print(f"Error procesando evento {i+1}: {e}")
             continue
 
+    # MEJORA 3: Ordenar eventos por orden cronológico
+    eventos_procesados.sort(key=lambda x: x['datetime_iso'])
+    
+    # Reasignar IDs después del ordenamiento
+    for i, evento in enumerate(eventos_procesados):
+        evento['id'] = i + 1
+
     return eventos_procesados
 
 def generar_xml_final(eventos_procesados):
-    """Genera el XML final con ordenación cronológica y idiomas - MEJORA 3"""
-
-    # MEJORA 3: Ordenar eventos cronológicamente
-    def obtener_datetime_para_ordenar(evento):
-        try:
-            return datetime.fromisoformat(evento['datetime_iso'])
-        except:
-            return datetime.min  # Si hay error, ponerlo al principio
-
-    eventos_ordenados = sorted(eventos_procesados, key=obtener_datetime_para_ordenar)
-    print(f"✅ Eventos ordenados cronológicamente: {len(eventos_ordenados)}")
-
+    """Genera el XML final con la estructura solicitada incluyendo idiomas"""
     root = ET.Element("eventos")
     root.set("generado", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
-    root.set("total", str(len(eventos_ordenados)))
+    root.set("total", str(len(eventos_procesados)))
 
-    # Reasignar IDs después del ordenamiento
-    for i, evento_data in enumerate(eventos_ordenados):
+    for evento_data in eventos_procesados:
         evento_elem = ET.SubElement(root, "evento")
-        evento_elem.set("id", str(i + 1))  # ID secuencial tras ordenamiento
+        evento_elem.set("id", str(evento_data['id']))
 
         nombre_elem = ET.SubElement(evento_elem, "nombre")
         nombre_elem.text = evento_data['nombre']
@@ -319,30 +329,23 @@ def generar_xml_final(eventos_procesados):
         datetime_iso_elem = ET.SubElement(evento_elem, "datetime_iso")
         datetime_iso_elem.text = evento_data['datetime_iso']
 
-        # MEJORA 2: Usar streams con idiomas si están disponibles
-        if 'streams_con_idiomas' in evento_data and evento_data['streams_con_idiomas']:
-            streams_elem = ET.SubElement(evento_elem, "streams")
-            streams_elem.set("total", str(len(evento_data['streams_con_idiomas'])))
+        streams_elem = ET.SubElement(evento_elem, "streams")
+        streams_elem.set("total", str(len(evento_data['streams'])))
 
-            for stream_data in evento_data['streams_con_idiomas']:
-                stream_elem = ET.SubElement(streams_elem, "stream")
-
-                url_stream_elem = ET.SubElement(stream_elem, "url")
+        for stream_data in evento_data['streams']:
+            stream_elem = ET.SubElement(streams_elem, "stream")
+            
+            url_stream_elem = ET.SubElement(stream_elem, "url")
+            if isinstance(stream_data, dict):
                 url_stream_elem.text = stream_data['url']
-
-                # MEJORA 2: Agregar idioma si está disponible
-                if stream_data['idioma']:
+                
+                # MEJORA 2: Agregar elemento idioma con la URL de la imagen
+                if stream_data.get('idioma'):
                     idioma_elem = ET.SubElement(stream_elem, "idioma")
                     idioma_elem.text = stream_data['idioma']
-        else:
-            # Fallback a estructura original si no hay streams con idiomas
-            streams_elem = ET.SubElement(evento_elem, "streams")
-            streams_elem.set("total", str(len(evento_data['streams'])))
-
-            for stream_url in evento_data['streams']:
-                stream_elem = ET.SubElement(streams_elem, "stream")
-                url_stream_elem = ET.SubElement(stream_elem, "url")
-                url_stream_elem.text = stream_url
+            else:
+                # Compatibilidad con streams antiguos (solo URL)
+                url_stream_elem.text = stream_data
 
     return root
 
@@ -363,14 +366,9 @@ def formatear_xml(elem, level=0):
             elem.tail = i
 
 def main():
-    """Función principal - VERSIÓN MEJORADA con todas las mejoras"""
-    print("=== EXTRACTOR DE EVENTOS DEPORTIVOS LIVETV.SX (MEJORADO) ===")
+    """Función principal"""
+    print("=== EXTRACTOR DE EVENTOS DEPORTIVOS LIVETV.SX ===")
     print(f"Ejecutado el: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print()
-    print("🚀 MEJORAS IMPLEMENTADAS:")
-    print("   1. Búsqueda de iframes ocultos")
-    print("   2. Extracción de idiomas con banderas")
-    print("   3. Ordenación cronológica de eventos")
     print()
 
     # Paso 1: Descargar XML fuente
@@ -391,40 +389,29 @@ def main():
         print("⚠️  No hay eventos para procesar hoy")
         return
 
-    # Paso 3: Procesar eventos (CON MEJORAS)
-    print("\n3. Procesando eventos y extrayendo streams (CON MEJORAS)...")
+    # Paso 3: Procesar eventos
+    print("\n3. Procesando eventos y extrayendo streams...")
     eventos_procesados = procesar_todos_los_eventos(eventos_hoy)
     print(f"✅ Total eventos procesados: {len(eventos_procesados)}")
 
-    # Paso 4: Generar XML final (CON MEJORAS)
-    print("\n4. Generando XML final (CON MEJORAS)...")
+    # Paso 4: Generar XML final
+    print("\n4. Generando XML final...")
     xml_final = generar_xml_final(eventos_procesados)
     formatear_xml(xml_final)
 
     # Guardar archivo
-    output_path = 'eventos_livetv_sx_con_reproductores_mejorado.xml'
+    output_path = 'eventos_livetv_sx_con_reproductores.xml'
     tree = ET.ElementTree(xml_final)
     tree.write(output_path, encoding='utf-8', xml_declaration=True)
 
     print(f"✅ XML generado exitosamente: {output_path}")
     print(f"📊 Resumen: {len(eventos_procesados)} eventos procesados")
 
-    # Mostrar estadísticas mejoradas
+    # Mostrar estadísticas
     total_streams = sum(len(evento['streams']) for evento in eventos_procesados)
-    total_streams_con_idioma = sum(
-        len([s for s in evento.get('streams_con_idiomas', []) if s.get('idioma')])
-        for evento in eventos_procesados
-    )
-
     print(f"📺 Total streams encontrados: {total_streams}")
-    print(f"🌍 Streams con idioma identificado: {total_streams_con_idioma}")
-    print(f"🔍 Streams con iframes ocultos encontrados: {total_streams - len(eventos_procesados)}")
 
-    print("\n🎉 Proceso completado exitosamente con todas las mejoras!")
-    print("\n📋 MEJORAS APLICADAS:")
-    print("   ✅ Búsqueda ampliada de iframes (incluyendo ocultos)")
-    print("   ✅ Extracción de idiomas mediante banderas")
-    print("   ✅ Ordenación cronológica automática")
+    print("\n🎉 Proceso completado exitosamente!")
 
 if __name__ == "__main__":
     main()
