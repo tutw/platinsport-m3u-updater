@@ -142,9 +142,12 @@ def extraer_streams_evento(url):
                                         # Extraer iframe real
                                         iframe_url = extraer_iframe_real(href)
                                         if iframe_url:
+                                            # CORREGIDO: forzar formato de idioma
+                                            idioma_url = f'https://cdn.livetv853.me/img/linkflag/{numero_bandera}.png'
+
                                             stream_data = {
                                                 'url': iframe_url,
-                                                'idioma': f'https://livetv.sx{src}' if src.startswith('/') else src,
+                                                'idioma': idioma_url,
                                                 'idioma_nombre': idioma,
                                                 'enlace_original': href
                                             }
