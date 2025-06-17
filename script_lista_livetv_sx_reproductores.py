@@ -27,15 +27,12 @@ def obtener_eventos_xml():
 def filtrar_eventos_hoy(root):
     """Filtra eventos del día actual"""
     eventos_hoy = []
-    fecha_hoy = datetime.now().strftime("%d de %B").replace("June", "junio").replace("December", "diciembre")
-
     # Mapeo de meses en inglés a español
     meses_map = {
         "January": "enero", "February": "febrero", "March": "marzo", "April": "abril",
         "May": "mayo", "June": "junio", "July": "julio", "August": "agosto",
         "September": "septiembre", "October": "octubre", "November": "noviembre", "December": "diciembre"
     }
-
     fecha_actual = datetime.now()
     dia = fecha_actual.day
     mes_ingles = fecha_actual.strftime("%B")
@@ -348,7 +345,6 @@ def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
             
             print(f"✅ Evento {i+1} procesado: {len(streams)} streams encontrados")
             
-            # Mostrar detalles de streams con idiomas
             for j, stream in enumerate(streams):
                 idioma_nombre = stream.get('idioma_nombre', 'Sin idioma')
                 print(f"   🎯 Stream {j+1}: {idioma_nombre}")
@@ -359,10 +355,7 @@ def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
             print(f"❌ Error procesando evento {i+1}: {e}")
             continue
 
-    # Ordenar eventos por orden cronológico
     eventos_procesados.sort(key=lambda x: x['datetime_iso'])
-    
-    # Reasignar IDs después del ordenamiento
     for i, evento in enumerate(eventos_procesados):
         evento['id'] = i + 1
 
@@ -409,15 +402,12 @@ def generar_xml_final(eventos_procesados):
             url_stream_elem = ET.SubElement(stream_elem, "url")
             url_stream_elem.text = stream_data.get('url', '')
             
-            # Elemento idioma con URL de bandera
             idioma_elem = ET.SubElement(stream_elem, "idioma")
             idioma_elem.text = stream_data.get('idioma', '')
             
-            # Elemento nombre del idioma
             idioma_nombre_elem = ET.SubElement(stream_elem, "idioma_nombre")
             idioma_nombre_elem.text = stream_data.get('idioma_nombre', '')
             
-            # Enlace original para debugging
             enlace_original_elem = ET.SubElement(stream_elem, "enlace_original")
             enlace_original_elem.text = stream_data.get('enlace_original', '')
 
@@ -448,7 +438,6 @@ def main():
     print(f"⏰ Ejecutado el: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
 
-    # Paso 1: Descargar XML fuente
     print("1️⃣ Descargando XML fuente...")
     xml_root = obtener_eventos_xml()
     if xml_root is None:
@@ -457,7 +446,6 @@ def main():
 
     print(f"✅ XML descargado. Total eventos: {xml_root.get('total', 'N/A')}")
 
-    # Paso 2: Filtrar eventos del día
     print("\n2️⃣ Filtrando eventos del día actual...")
     eventos_hoy = filtrar_eventos_hoy(xml_root)
     print(f"✅ Eventos encontrados para hoy: {len(eventos_hoy)}")
@@ -466,24 +454,21 @@ def main():
         print("⚠️  No hay eventos para procesar hoy")
         return
 
-    # Paso 3: Procesar eventos
     print("\n3️⃣ Procesando eventos con detección corregida de banderas...")
     eventos_procesados = procesar_todos_los_eventos(eventos_hoy)
     print(f"\n✅ Total eventos procesados: {len(eventos_procesados)}")
 
-    # Paso 4: Generar XML final
     print("\n4️⃣ Generando XML final...")
     xml_final = generar_xml_final(eventos_procesados)
     formatear_xml(xml_final)
 
-    # Guardar archivo
-    output_path = 'eventos_livetv_sx_con_reproductores_corregido.xml'
+    # Aquí la corrección: nombre correcto del archivo de salida
+    output_path = 'eventos_livetv_sx_con_reproductores.xml'
     tree = ET.ElementTree(xml_final)
     tree.write(output_path, encoding='utf-8', xml_declaration=True)
 
     print(f"✅ XML generado exitosamente: {output_path}")
 
-    # Estadísticas finales
     total_streams = sum(len(evento['streams']) for evento in eventos_procesados)
     streams_con_idioma = sum(
         len([s for s in evento['streams'] if s.get('idioma_nombre') and s.get('idioma_nombre') != 'Sin idioma'])
