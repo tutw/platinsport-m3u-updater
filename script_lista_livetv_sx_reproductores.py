@@ -148,19 +148,26 @@ def buscar_iframes_ocultos(soup, base_url):
 def extraer_idioma_stream(soup, stream_index):
     """MEJORA 2: Extrae la imagen de bandera del idioma usando el selector específico"""
     try:
-        # Selector base modificado para cada stream
         selector = f"#links_block > table:nth-child(2) > tbody > tr:nth-child({stream_index + 1}) > td:nth-child(1) > table > tbody > tr > td:nth-child(1) > img"
-        
         img_element = soup.select_one(selector)
         if img_element and img_element.get('src'):
             src = img_element.get('src')
+            # Si ya es una url absoluta del CDN, solo asegúrate que lleva https:
+            if "cdn.livetv853.me" in src:
+                if src.startswith("//"):
+                    src = "https:" + src
+                elif src.startswith("http"):
+                    pass  # Ya está bien
+                else:
+                    src = "https://" + src.lstrip("/")
+                return src
             # Convertir URL relativa a absoluta si es necesario
-            if src.startswith('/'):
+            if src.startswith("/"):
                 src = 'https://livetv.sx' + src
-            elif src.startswith('//'):
+            elif src.startswith("//"):
                 src = 'https:' + src
             return src
-        
+
         # Búsqueda alternativa más flexible
         links_block = soup.find(id='links_block')
         if links_block:
@@ -170,12 +177,21 @@ def extraer_idioma_stream(soup, stream_index):
                 for img in imgs:
                     src = img.get('src', '')
                     if 'flag' in src or 'img/linkflag' in src:
+                        # Igual aquí, arregla el caso CDN
+                        if "cdn.livetv853.me" in src:
+                            if src.startswith("//"):
+                                src = "https:" + src
+                            elif src.startswith("http"):
+                                pass
+                            else:
+                                src = "https://" + src.lstrip("/")
+                            return src
                         if src.startswith('/'):
                             src = 'https://livetv.sx' + src
                         elif src.startswith('//'):
                             src = 'https:' + src
                         return src
-        
+
         return ''
     except Exception as e:
         return ''
