@@ -2,44 +2,44 @@ name: Extractor de Reproductores LiveTV.sx
 
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '*/30 * * * *'  # Cada 30 minutos
   workflow_dispatch:
 
 jobs:
   extract-events:
     runs-on: ubuntu-latest
-
+    
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-
+    
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
-
+    
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
+    
     - name: Extract events and streams
       run: |
         python script_lista_livetv_sx_reproductores.py
-
+    
     - name: Rename output (si tu script genera el archivo _mejorado.xml)
       run: |
         if [ -f "eventos_livetv_sx_con_reproductores_mejorado.xml" ]; then
           mv eventos_livetv_sx_con_reproductores_mejorado.xml eventos_livetv_sx_con_reproductores.xml
         fi
-
+    
     - name: Upload XML artifact
       uses: actions/upload-artifact@v4
       with:
         name: eventos-livetv-xml
         path: eventos_livetv_sx_con_reproductores.xml
         retention-days: 7
-
+    
     - name: Display results
       run: |
         echo "📊 Resultados de la extracción:"
@@ -54,7 +54,7 @@ jobs:
           echo "❌ Error: No se pudo generar el archivo XML"
           exit 1
         fi
-
+    
     - name: Commit and push changes (con pull --rebase)
       run: |
         git config --local user.email "action@github.com"
@@ -70,7 +70,7 @@ jobs:
     needs: extract-events
     runs-on: ubuntu-latest
     if: always()
-
+    
     steps:
     - name: Notify completion
       run: |
