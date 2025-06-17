@@ -8,9 +8,35 @@ from urllib.parse import urljoin, urlparse
 import warnings
 import ssl
 from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
+import os
 
 warnings.filterwarnings('ignore')
 ssl._create_default_https_context = ssl._create_unverified_context
+
+def configurar_driver():
+    """Configura el driver de Selenium"""
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    chrome_options.add_argument('--disable-gpu')
+    chrome_options.add_argument('--disable-extensions')
+    chrome_options.add_argument('--disable-plugins')
+    chrome_options.add_argument('--disable-images')
+    chrome_options.add_argument('--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
+
+    try:
+        driver = webdriver.Chrome(options=chrome_options)
+        return driver
+    except Exception as e:
+        print(f"Error configurando driver: {e}")
+        return None
 
 def obtener_eventos_xml():
     """Descarga y parsea el XML fuente"""
@@ -49,8 +75,121 @@ def filtrar_eventos_hoy(root):
 
     return eventos_hoy
 
+def extraer_streams_con_selenium(url, driver):
+    """Extrae streams usando Selenium para manejar JavaScript y elementos ocultos"""
+    streams_data = []
+
+    try:
+        print(f"Navegando a: {url}")
+        driver.get(url)
+
+        # Esperar a que cargue la página
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.ID, "links_block"))
+        )
+
+        # Buscar el botón para mostrar más enlaces
+        try:
+            expand_button = driver.find_element(By.CSS_SELECTOR, "#links_block > a")
+            if expand_button and expand_button.is_displayed():
+                print("Encontrado botón para expandir enlaces ocultos, haciendo clic...")
+                driver.execute_script("arguments[0].click();", expand_button)
+                time.sleep(2)  # Esperar a que se carguen los enlaces adicionales
+        except NoSuchElementException:
+            print("No se encontró botón de expansión, continuando con enlaces visibles")
+
+        # Obtener todos los enlaces de streams
+        links_block = driver.find_element(By.ID, "links_block")
+        enlaces = links_block.find_elements(By.TAG_NAME, "a")
+
+        print(f"Total enlaces encontrados: {len(enlaces)}")
+
+        for i, enlace in enumerate(enlaces):
+            try:
+                href = enlace.get_attribute('href')
+                if href and '/link/' in href:
+                    print(f"Procesando enlace {i+1}: {href}")
+
+                    # Extraer stream y datos de idioma
+                    stream_data = extraer_stream_individual(href, driver)
+                    if stream_data:
+                        streams_data.append(stream_data)
+
+            except Exception as e:
+                print(f"Error procesando enlace {i+1}: {e}")
+                continue
+
+        return streams_data
+
+    except Exception as e:
+        print(f"Error extrayendo streams de {url}: {e}")
+        return []
+
+def extraer_stream_individual(stream_url, driver):
+    """Extrae un stream individual y su información de idioma"""
+    try:
+        print(f"Extrayendo stream individual: {stream_url}")
+        driver.get(stream_url)
+
+        # Esperar a que cargue la página
+        WebDriverWait(driver, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "body"))
+        )
+
+        # Buscar iframe del reproductor
+        iframe_url = None
+        try:
+            iframes = driver.find_elements(By.TAG_NAME, "iframe")
+            for iframe in iframes:
+                src = iframe.get_attribute('src')
+                if src and ('embed' in src or 'player' in src or 'stream' in src):
+                    iframe_url = src
+                    if src.startswith('//'):
+                        iframe_url = 'https:' + src
+                    elif src.startswith('/'):
+                        iframe_url = urljoin(stream_url, src)
+                    break
+        except Exception as e:
+            print(f"Error buscando iframe: {e}")
+
+        # Buscar imagen de idioma
+        idioma_img = None
+        try:
+            # Intentar varios selectores para la imagen de idioma
+            selectores_idioma = [
+                "#links_block > table:nth-child(2) > tbody > tr:nth-child(2) > td:nth-child(1) > table > tbody > tr > td:nth-child(1) > img",
+                "img[src*='linkflag']",
+                "img[src*='flag']",
+                "td img[src*='cdn.livetv']"
+            ]
+
+            for selector in selectores_idioma:
+                try:
+                    img_element = driver.find_element(By.CSS_SELECTOR, selector)
+                    idioma_img = img_element.get_attribute('src')
+                    if idioma_img:
+                        print(f"Imagen de idioma encontrada: {idioma_img}")
+                        break
+                except NoSuchElementException:
+                    continue
+
+        except Exception as e:
+            print(f"Error extrayendo imagen de idioma: {e}")
+
+        if iframe_url:
+            return {
+                'url': iframe_url,
+                'idioma': idioma_img or "N/A"
+            }
+
+        return None
+
+    except Exception as e:
+        print(f"Error en extraer_stream_individual: {e}")
+        return None
+
 def extraer_streams_evento(url):
-    """Extrae streams de un evento específico"""
+    """Extrae streams de un evento específico usando método tradicional como fallback"""
     streams = []
 
     try:
@@ -82,7 +221,10 @@ def extraer_streams_evento(url):
 
                     iframe_url = extraer_iframe_real(href)
                     if iframe_url:
-                        streams.append(iframe_url)
+                        streams.append({
+                            'url': iframe_url,
+                            'idioma': 'N/A'  # Método fallback no puede extraer imagen
+                        })
 
         return streams
 
@@ -162,6 +304,15 @@ def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
     eventos_procesados = []
     total_eventos = len(eventos_hoy) if max_eventos is None else min(len(eventos_hoy), max_eventos)
 
+    # Configurar driver de Selenium
+    driver = configurar_driver()
+    usar_selenium = driver is not None
+
+    if usar_selenium:
+        print("✅ Selenium configurado correctamente - usando método avanzado")
+    else:
+        print("⚠️ Selenium no disponible - usando método tradicional")
+
     print(f"Procesando {total_eventos} eventos...")
 
     for i, evento in enumerate(eventos_hoy[:total_eventos]):
@@ -175,8 +326,12 @@ def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
 
             print(f"Procesando evento {i+1}/{total_eventos}: {nombre}")
 
-            streams = extraer_streams_evento(url)
-            streams_unicos = list(set(streams))
+            # Usar Selenium si está disponible, sino usar método tradicional
+            if usar_selenium:
+                streams_data = extraer_streams_con_selenium(url, driver)
+            else:
+                streams_data = extraer_streams_evento(url)
+
             datetime_iso = convertir_a_datetime_iso(fecha, hora)
 
             evento_procesado = {
@@ -188,22 +343,26 @@ def procesar_todos_los_eventos(eventos_hoy, max_eventos=None):
                 'hora': hora,
                 'url': url,
                 'datetime_iso': datetime_iso,
-                'streams': streams_unicos
+                'streams': streams_data
             }
 
             eventos_procesados.append(evento_procesado)
-            print(f"Evento {i+1} procesado: {len(streams_unicos)} streams únicos")
+            print(f"Evento {i+1} procesado: {len(streams_data)} streams encontrados")
 
-            time.sleep(1)  # Pausa para no sobrecargar el servidor
+            time.sleep(2)  # Pausa para no sobrecargar el servidor
 
         except Exception as e:
             print(f"Error procesando evento {i+1}: {e}")
             continue
 
+    # Cerrar driver si se usó
+    if usar_selenium and driver:
+        driver.quit()
+
     return eventos_procesados
 
 def generar_xml_final(eventos_procesados):
-    """Genera el XML final con la estructura solicitada"""
+    """Genera el XML final con la estructura solicitada incluyendo imágenes de idioma"""
     root = ET.Element("eventos")
     root.set("generado", datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
     root.set("total", str(len(eventos_procesados)))
@@ -236,10 +395,21 @@ def generar_xml_final(eventos_procesados):
         streams_elem = ET.SubElement(evento_elem, "streams")
         streams_elem.set("total", str(len(evento_data['streams'])))
 
-        for stream_url in evento_data['streams']:
+        for stream_data in evento_data['streams']:
             stream_elem = ET.SubElement(streams_elem, "stream")
+
             url_stream_elem = ET.SubElement(stream_elem, "url")
-            url_stream_elem.text = stream_url
+            if isinstance(stream_data, dict):
+                url_stream_elem.text = stream_data.get('url', '')
+
+                idioma_elem = ET.SubElement(stream_elem, "idioma")
+                idioma_elem.text = stream_data.get('idioma', 'N/A')
+            else:
+                # Compatibilidad con formato anterior
+                url_stream_elem.text = str(stream_data)
+
+                idioma_elem = ET.SubElement(stream_elem, "idioma")
+                idioma_elem.text = 'N/A'
 
     return root
 
@@ -259,11 +429,40 @@ def formatear_xml(elem, level=0):
         if level and (not elem.tail or not elem.tail.strip()):
             elem.tail = i
 
+def test_selenium_setup():
+    """Prueba la configuración de Selenium"""
+    print("🧪 Probando configuración de Selenium...")
+    driver = configurar_driver()
+
+    if driver:
+        try:
+            driver.get("https://www.google.com")
+            print("✅ Selenium funcionando correctamente")
+            driver.quit()
+            return True
+        except Exception as e:
+            print(f"❌ Error en prueba de Selenium: {e}")
+            driver.quit()
+            return False
+    else:
+        print("❌ No se pudo configurar Selenium")
+        return False
+
 def main():
     """Función principal"""
-    print("=== EXTRACTOR DE EVENTOS DEPORTIVOS LIVETV.SX ===")
+    print("=== EXTRACTOR MEJORADO DE EVENTOS DEPORTIVOS LIVETV.SX ===")
     print(f"Ejecutado el: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print()
+
+    # Probar Selenium
+    selenium_ok = test_selenium_setup()
+
+    if not selenium_ok:
+        print("⚠️ Selenium no está disponible. Instalando dependencias...")
+        print("Para usar todas las funcionalidades, instala selenium y chromedriver:")
+        print("pip install selenium")
+        print("Y descarga ChromeDriver desde: https://chromedriver.chromium.org/")
+        print()
 
     # Paso 1: Descargar XML fuente
     print("1. Descargando XML fuente...")
@@ -280,7 +479,7 @@ def main():
     print(f"✅ Eventos encontrados para hoy: {len(eventos_hoy)}")
 
     if not eventos_hoy:
-        print("⚠️  No hay eventos para procesar hoy")
+        print("⚠️ No hay eventos para procesar hoy")
         return
 
     # Paso 3: Procesar eventos
@@ -294,7 +493,7 @@ def main():
     formatear_xml(xml_final)
 
     # Guardar archivo
-    output_path = 'eventos_livetv_sx_con_reproductores.xml'
+    output_path = 'eventos_livetv_sx_con_reproductores_mejorado.xml'
     tree = ET.ElementTree(xml_final)
     tree.write(output_path, encoding='utf-8', xml_declaration=True)
 
@@ -303,9 +502,15 @@ def main():
 
     # Mostrar estadísticas
     total_streams = sum(len(evento['streams']) for evento in eventos_procesados)
+    streams_con_idioma = sum(1 for evento in eventos_procesados 
+                           for stream in evento['streams'] 
+                           if isinstance(stream, dict) and stream.get('idioma') != 'N/A')
+
     print(f"📺 Total streams encontrados: {total_streams}")
+    print(f"🌍 Streams con información de idioma: {streams_con_idioma}")
 
     print("\n🎉 Proceso completado exitosamente!")
+    print(f"📁 Archivo generado: {output_path}")
 
 if __name__ == "__main__":
     main()
