@@ -168,6 +168,14 @@ def extraer_streams_evento(url):
         else:
             print("❌ No se encontró links_block")
 
+        # --- MEJORA: eliminar streams duplicados por URL ---
+        unique_streams = {}
+        for s in streams:
+            if s['url'] not in unique_streams:
+                unique_streams[s['url']] = s
+        streams = list(unique_streams.values())
+        # --- FIN MEJORA ---
+
         return streams
 
     except Exception as e:
