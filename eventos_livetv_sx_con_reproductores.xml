@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<eventos generado="2025-07-22 11:01:16" total="167">
+<eventos generado="2025-07-22 11:32:06" total="205">
   <evento id="1">
     <nombre>ITTF World Para Elite Nakhon Ratchasima 2025</nombre>
     <deporte>Fútbol</deporte>
@@ -60,16 +60,6 @@
     </streams>
   </evento>
   <evento id="2">
-    <nombre>Italia –  Montenegro</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Campeonato mundial</competicion>
-    <fecha>22 de julio</fecha>
-    <hora>10:00</hora>
-    <url>https://livetv.sx/es/eventinfo/290926901_italia_montenegro/</url>
-    <datetime_iso>2025-07-22T10:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="3">
     <nombre>ATP Challenger. Zug</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -77,20 +67,32 @@
     <hora>10:10</hora>
     <url>https://livetv.sx/es/eventinfo/290926648_atp_challenger_zug/</url>
     <datetime_iso>2025-07-22T10:10:00</datetime_iso>
-    <streams total="3">
+    <streams total="5">
       <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDMzMTM=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781693&amp;lang=es&amp;eid=290926648&amp;lid=2781693&amp;ci=6139&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTM1OTc=</url>
         <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
         <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781688&amp;lang=es&amp;eid=290926648&amp;lid=2781688&amp;ci=6139&amp;si=4</enlace_original>
       </stream>
-      <stream id="2">
+      <stream id="3">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTM1OTQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781692&amp;lang=es&amp;eid=290926648&amp;lid=2781692&amp;ci=6139&amp;si=4</enlace_original>
+      </stream>
+      <stream id="4">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTM1OTY=</url>
         <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
         <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781690&amp;lang=es&amp;eid=290926648&amp;lid=2781690&amp;ci=6139&amp;si=4</enlace_original>
       </stream>
-      <stream id="3">
+      <stream id="5">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDU0NTY=</url>
         <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
@@ -98,7 +100,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="4">
+  <evento id="3">
     <nombre>Santiago Rodríguez Taverna –  Lukas Klein</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -115,7 +117,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="5">
+  <evento id="4">
     <nombre>Remy Bertola –  Elias Ymer</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -132,7 +134,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="6">
+  <evento id="5">
     <nombre>Stefanos Sakellaridis –  Benjamin Hassan</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -149,7 +151,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="7">
+  <evento id="6">
     <nombre>Santiago Rodríguez Taverna – Lukas Klein</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -166,7 +168,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="8">
+  <evento id="7">
     <nombre>Remy Bertola – Elias Ymer</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -183,7 +185,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="9">
+  <evento id="8">
     <nombre>Stefanos Sakellaridis – Benjamin Hassan</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -200,7 +202,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="10">
+  <evento id="9">
     <nombre>Eliakim Coulibaly –  Raul Brancaccio</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -217,7 +219,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="11">
+  <evento id="10">
     <nombre>Mateus Alves –  Inaki Montes</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -234,7 +236,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="12">
+  <evento id="11">
     <nombre>Matias Soto –  Oliver Crawford</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -251,7 +253,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="13">
+  <evento id="12">
     <nombre>Eliakim Coulibaly – Raul Brancaccio</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -268,7 +270,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="14">
+  <evento id="13">
     <nombre>Mateus Alves – Inaki Montes</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -285,7 +287,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="15">
+  <evento id="14">
     <nombre>Matias Soto – Oliver Crawford</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -302,7 +304,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="16">
+  <evento id="15">
     <nombre>ATP Challenger. Segovia</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -349,7 +351,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="17">
+  <evento id="16">
     <nombre>Nina Stojanovic (M) –   Jessika Ponchet (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Praga</competicion>
@@ -366,7 +368,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="18">
+  <evento id="17">
     <nombre>Barbora Palicova (M) –   Priscilla Hon (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Praga</competicion>
@@ -395,7 +397,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="19">
+  <evento id="18">
     <nombre>Laura Samson (M) –   Dominika Salkova (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Praga</competicion>
@@ -424,7 +426,7 @@
       </stream>
     </streams>
   </evento>
-  <evento id="20">
+  <evento id="19">
     <nombre>Botic Van de Zandschulp –  Nicolas Jarry</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP. Kitzbuhel</competicion>
@@ -448,7 +450,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="21">
+  <evento id="20">
     <nombre>Yannick Hanfmann –  Lukas Neumayer</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP. Kitzbuhel</competicion>
@@ -465,7 +467,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="22">
+  <evento id="21">
     <nombre>Nicolai Budkov Kjaer –  Alex Barrena</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -482,7 +484,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="23">
+  <evento id="22">
     <nombre>Federico Cina –  Matheus Pucinelli De Almeida</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -499,7 +501,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="24">
+  <evento id="23">
     <nombre>Daniel Michalski –  Hynek Barton</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -516,7 +518,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="25">
+  <evento id="24">
     <nombre>Nicolai Budkov Kjaer – Alex Barrena</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -533,7 +535,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="26">
+  <evento id="25">
     <nombre>Federico Cina – Matheus Pucinelli De Almeida</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -550,7 +552,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="27">
+  <evento id="26">
     <nombre>Daniel Michalski – Hynek Barton</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -567,7 +569,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="28">
+  <evento id="27">
     <nombre>Botic Van de Zandschulp – Nicolas Jarry</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel</competicion>
@@ -591,7 +593,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="29">
+  <evento id="28">
     <nombre>Yannick Hanfmann – Lukas Neumayer</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel</competicion>
@@ -608,7 +610,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="30">
+  <evento id="29">
     <nombre>Nina Stojanovic (M) –  Jessika Ponchet (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
@@ -625,7 +627,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="31">
+  <evento id="30">
     <nombre>Barbora Palicova (M) –  Priscilla Hon (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
@@ -635,16 +637,16 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T11:00:00</datetime_iso>
     <streams total="3">
       <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMDY=</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781713&amp;lang=es&amp;eid=290927048&amp;lid=2781713&amp;ci=3281&amp;si=4</enlace_original>
-      </stream>
-      <stream id="2">
         <url>https://wikisport.best/court/t2.php</url>
         <idioma>https://cdn.livetv853.me/img/linkflag/25.png</idioma>
         <idioma_nombre>Danés</idioma_nombre>
         <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781233&amp;lang=es&amp;eid=290927048&amp;lid=2781233&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMDY=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781713&amp;lang=es&amp;eid=290927048&amp;lid=2781713&amp;ci=3281&amp;si=4</enlace_original>
       </stream>
       <stream id="3">
         <url>https://wikisport.best/court/wik2.php</url>
@@ -654,7 +656,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="32">
+  <evento id="31">
     <nombre>Laura Samson (M) –  Dominika Salkova (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
@@ -683,7 +685,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="33">
+  <evento id="32">
     <nombre>WTA. Praga</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Praga</competicion>
@@ -736,7 +738,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="34">
+  <evento id="33">
     <nombre>ATP. Kitzbuhel</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP. Kitzbuhel</competicion>
@@ -771,7 +773,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="35">
+  <evento id="34">
     <nombre>ATP Challenger. Tampere</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -818,7 +820,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="36">
+  <evento id="35">
     <nombre>WTA. Praga</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
@@ -871,7 +873,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="37">
+  <evento id="36">
     <nombre>Darwin Olympic –  Nunawading City</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Australia. Copa</competicion>
@@ -894,7 +896,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="38">
+  <evento id="37">
     <nombre>Avondale –  Stirling Lions</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Australia. Copa</competicion>
@@ -917,7 +919,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="39">
+  <evento id="38">
     <nombre>Peninsula Power –  Western Sídney</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Australia. Copa</competicion>
@@ -940,7 +942,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="40">
+  <evento id="39">
     <nombre>Lorenzo Giustino –  Geoffrey Blancaneaux</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -957,7 +959,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="41">
+  <evento id="40">
     <nombre>Harold Mayot –  Petr Brunclik</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -974,7 +976,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="42">
+  <evento id="41">
     <nombre>Darwin Olympic – Nunawading City</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Australia. Copa</competicion>
@@ -997,7 +999,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="43">
+  <evento id="42">
     <nombre>Avondale – Stirling Lions</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Australia. Copa</competicion>
@@ -1020,7 +1022,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="44">
+  <evento id="43">
     <nombre>Peninsula Power – Western Sídney</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Australia. Copa</competicion>
@@ -1043,7 +1045,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="45">
+  <evento id="44">
     <nombre>Harold Mayot – Petr Brunclik</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -1060,7 +1062,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="46">
+  <evento id="45">
     <nombre>Lorenzo Giustino – Geoffrey Blancaneaux</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -1077,7 +1079,7 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="47">
+  <evento id="46">
     <nombre>Grecia –  España</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Campeonato mundial</competicion>
@@ -1085,17 +1087,9 @@ player/live.php?id=238719&amp;w=700&amp;h=480</url>
     <hora>11:35</hora>
     <url>https://livetv.sx/es/eventinfo/290926902_grecia_espaandntilde_a/</url>
     <datetime_iso>2025-07-22T11:35:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://emb.apl375.me/
-player/live.php?id=238471&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/3.png</idioma>
-        <idioma_nombre>Español</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer2.php?t=alieztv&amp;c=238471&amp;lang=es&amp;eid=290926902&amp;lid=2771037&amp;ci=514&amp;si=22</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="48">
+  <evento id="47">
     <nombre>First Nations &amp; Pasifika XV –  British and Irish Lions</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Torneo amistoso</competicion>
@@ -1130,7 +1124,7 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="49">
+  <evento id="48">
     <nombre>Tour de Francia</nombre>
     <deporte>Fútbol</deporte>
     <competicion>UCI Europe Tour</competicion>
@@ -1153,7 +1147,7 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="50">
+  <evento id="49">
     <nombre>Schnaitter / Wallner –  Barrientos / Reyes Varela</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP. Kitzbuhel. Doubles</competicion>
@@ -1170,7 +1164,7 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="51">
+  <evento id="50">
     <nombre>Schnaitter / Wallner – Barrientos / Reyes Varela</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel. Doubles</competicion>
@@ -1187,7 +1181,7 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="52">
+  <evento id="51">
     <nombre>Arthur Reymond –  Johannus Monday</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -1204,7 +1198,7 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="53">
+  <evento id="52">
     <nombre>Arthur Reymond – Johannus Monday</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -1221,7 +1215,7 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="54">
+  <evento id="53">
     <nombre>Celta de Vigo –  Nacional</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Partido amistoso</competicion>
@@ -1229,9 +1223,190 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
     <hora>12:30</hora>
     <url>https://livetv.sx/es/eventinfo/290926983_celta_de_vigo_nacional/</url>
     <datetime_iso>2025-07-22T12:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/ux_5gWSpR0k?autoplay=1</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer2.php?t=youtub&amp;c=ux_5gWSpR0k&amp;lang=es&amp;eid=290926983&amp;lid=2781872&amp;ci=5&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="54">
+    <nombre>Anyang –  Daegu</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Corea del Sur. K-League</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926221_anyang_daegu/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDc4NTUzMzI=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/31.png</idioma>
+        <idioma_nombre>Bandera #31</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781746&amp;lang=es&amp;eid=290926221&amp;lid=2781746&amp;ci=21&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
   <evento id="55">
+    <nombre>Gwangju –  Gimcheon Sangmu</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Corea del Sur. K-League</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926222_gwangju_gimcheon_sangmu/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="4">
+      <stream id="1">
+        <url>https://emb.apl375.me/
+player/live.php?id=238031&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer2.php?t=alieztv&amp;c=238031&amp;lang=es&amp;eid=290926222&amp;lid=2781273&amp;ci=21&amp;si=1</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl375.me/
+player/live.php?id=238032&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer2.php?t=alieztv&amp;c=238032&amp;lang=es&amp;eid=290926222&amp;lid=2781274&amp;ci=21&amp;si=1</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://daddylive2.top/my/stream-124.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781756&amp;lang=es&amp;eid=290926222&amp;lid=2781756&amp;ci=21&amp;si=1</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDc4NTUzMzE=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781745&amp;lang=es&amp;eid=290926222&amp;lid=2781745&amp;ci=21&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="56">
+    <nombre>Pohang Steelers –  Suwon</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Corea del Sur. K-League</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926223_pohang_steelers_suwon/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDc4NTUzMzA=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781744&amp;lang=es&amp;eid=290926223&amp;lid=2781744&amp;ci=21&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="57">
+    <nombre>Universiada de verano 2025</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Natación sincronizada</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926971_universiada_de_verano_2025/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://emb.apl375.me/
+player/live.php?id=238039&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer2.php?t=alieztv&amp;c=238039&amp;lang=es&amp;eid=290926971&amp;lid=2780790&amp;ci=711&amp;si=46</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="58">
+    <nombre>Jay Clarke –  Sumit Nagal</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP Challenger. Tampere</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926997_jay_clarke_sumit_nagal/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDM1NDY=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781732&amp;lang=es&amp;eid=290926997&amp;lid=2781732&amp;ci=4010&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="59">
+    <nombre>Aristotelis Thanos –  Gauthier Onclin</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP Challenger. Tampere</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926998_aristotelis_thanos_gauthier_onclin/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTA4MTA=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781731&amp;lang=es&amp;eid=290926998&amp;lid=2781731&amp;ci=4010&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="60">
+    <nombre>Alex Molcan –  Ivan Gakhov</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP Challenger. Tampere</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926999_alex_molcan_ivan_gakhov/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.googletagmanager.com/ns.html?id=GTM-KP6F8L8</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://tinyurl.com/fuf4sya6</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="61">
+    <nombre>Adria-Soriano Barrera –  Arthur Bouquier</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP Challenger. Segovia</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926987_adria_soriano_barrera_arthur_bouquier/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTE3Njk=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781707&amp;lang=es&amp;eid=290926987&amp;lid=2781707&amp;ci=4055&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="62">
+    <nombre>Antoine Escoffier –  John  Echeverria</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP Challenger. Segovia</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290926988_antoine_escoffier_john__echeverria/</url>
+    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTE3Njg=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781706&amp;lang=es&amp;eid=290926988&amp;lid=2781706&amp;ci=4055&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="63">
     <nombre>Celta de Vigo – Nacional</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Partido amistoso</competicion>
@@ -1239,9 +1414,16 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
     <hora>12:30</hora>
     <url>https://livetv.sx/es/eventinfo/290926983_celta_vigo_nacional/</url>
     <datetime_iso>2025-07-22T12:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/ux_5gWSpR0k?autoplay=1</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer2.php?t=youtub&amp;c=ux_5gWSpR0k&amp;lang=es&amp;eid=290926983&amp;lid=2781872&amp;ci=5&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="56">
+  <evento id="64">
     <nombre>Anyang – Daegu</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Corea del Sur. K-League</competicion>
@@ -1258,7 +1440,7 @@ player/live.php?id=238471&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="57">
+  <evento id="65">
     <nombre>Gwangju – Gimcheon Sangmu</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Corea del Sur. K-League</competicion>
@@ -1295,7 +1477,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="58">
+  <evento id="66">
     <nombre>Pohang Steelers – Suwon</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Corea del Sur. K-League</competicion>
@@ -1312,7 +1494,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="59">
+  <evento id="67">
     <nombre>Adria-Soriano Barrera – Arthur Bouquier</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -1329,7 +1511,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="60">
+  <evento id="68">
     <nombre>Antoine Escoffier – John  Echeverria</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -1346,7 +1528,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="61">
+  <evento id="69">
     <nombre>Jay Clarke – Sumit Nagal</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -1363,7 +1545,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="62">
+  <evento id="70">
     <nombre>Aristotelis Thanos – Gauthier Onclin</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -1380,7 +1562,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="63">
+  <evento id="71">
     <nombre>Alex Molcan – Ivan Gakhov</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -1397,77 +1579,14 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="64">
-    <nombre>Jakub Paul – Maximilian Neuchrist</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Zug</competicion>
-    <fecha>22 de julio</fecha>
-    <hora>12:30</hora>
-    <url>https://livetv.sx/es/eventinfo/290927011__/</url>
-    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTM1OTQ=</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781692&amp;lang=es&amp;eid=290927011&amp;lid=2781692&amp;ci=6139&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="65">
-    <nombre>Arthur Cazaux – Ignacio Buse</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP. Kitzbuhel</competicion>
-    <fecha>22 de julio</fecha>
-    <hora>12:30</hora>
-    <url>https://livetv.sx/es/eventinfo/290927034__/</url>
-    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMjA=</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781724&amp;lang=es&amp;eid=290927034&amp;lid=2781724&amp;ci=3285&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="66">
-    <nombre>Sebastian Ofner – Jan-lennard Struff</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP. Kitzbuhel</competicion>
-    <fecha>22 de julio</fecha>
-    <hora>12:30</hora>
-    <url>https://livetv.sx/es/eventinfo/290927035__/</url>
-    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://wikisport.best/court/wik7.php</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780915&amp;lang=es&amp;eid=290927035&amp;lid=2780915&amp;ci=3285&amp;si=4</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDY3NzQ=</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781723&amp;lang=es&amp;eid=290927035&amp;lid=2781723&amp;ci=3285&amp;si=4</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://wikisport.best/court/t7.php</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780916&amp;lang=es&amp;eid=290927035&amp;lid=2780916&amp;ci=3285&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="67">
-    <nombre>Aoi Ito (M) –  Tereza Valentova (M)</nombre>
-    <deporte>Tenis</deporte>
+  <evento id="72">
+    <nombre>Aoi Ito (M) –   Tereza Valentova (M)</nombre>
+    <deporte>Fútbol</deporte>
     <competicion>WTA. Praga</competicion>
     <fecha>22 de julio</fecha>
-    <hora>12:30</hora>
-    <url>https://livetv.sx/es/eventinfo/290927050__/</url>
-    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <hora>12:50</hora>
+    <url>https://livetv.sx/es/eventinfo/290927050__aoi_ito_m__tereza_valentova_m/</url>
+    <datetime_iso>2025-07-22T12:50:00</datetime_iso>
     <streams total="3">
       <stream id="1">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMDQ=</url>
@@ -1489,14 +1608,289 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="68">
+  <evento id="73">
+    <nombre>Jakub Paul –  Maximilian Neuchrist</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP Challenger. Zug</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:50</hora>
+    <url>https://livetv.sx/es/eventinfo/290927011_jakub_paul_maximilian_neuchrist/</url>
+    <datetime_iso>2025-07-22T12:50:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTM1OTQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781692&amp;lang=es&amp;eid=290927011&amp;lid=2781692&amp;ci=6139&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="74">
+    <nombre>Jakub Paul – Maximilian Neuchrist</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Zug</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:50</hora>
+    <url>https://livetv.sx/es/eventinfo/290927011__/</url>
+    <datetime_iso>2025-07-22T12:50:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTM1OTQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781692&amp;lang=es&amp;eid=290927011&amp;lid=2781692&amp;ci=6139&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="75">
+    <nombre>Aoi Ito (M) –  Tereza Valentova (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Praga</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>12:50</hora>
+    <url>https://livetv.sx/es/eventinfo/290927050__/</url>
+    <datetime_iso>2025-07-22T12:50:00</datetime_iso>
+    <streams total="3">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMDQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781717&amp;lang=es&amp;eid=290927050&amp;lid=2781717&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://wikisport.best/court/wik1.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780919&amp;lang=es&amp;eid=290927050&amp;lid=2780919&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://wikisport.best/court/t1.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780918&amp;lang=es&amp;eid=290927050&amp;lid=2780918&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="76">
+    <nombre>Championship League</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Snooker</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927085_championship_league/</url>
+    <datetime_iso>2025-07-22T13:00:00</datetime_iso>
+    <streams total="3">
+      <stream id="1">
+        <url>https://daddylive2.top/my/stream-449.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781784&amp;lang=es&amp;eid=290927085&amp;lid=2781784&amp;ci=234&amp;si=29</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://antenasport.org/channel/Sportklub3[RS]</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781820&amp;lang=es&amp;eid=290927085&amp;lid=2781820&amp;ci=234&amp;si=29</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://daddylive2.top/my/stream-591.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781785&amp;lang=es&amp;eid=290927085&amp;lid=2781785&amp;ci=234&amp;si=29</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="77">
+    <nombre>Nueva Zelanda –  Sudáfrica</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Twenty20</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927070_nueva_zelanda_sud__frica/</url>
+    <datetime_iso>2025-07-22T13:00:00</datetime_iso>
+    <streams total="2">
+      <stream id="1">
+        <url>https://daddylive2.top/my/stream-32.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780869&amp;lang=es&amp;eid=290927070&amp;lid=2780869&amp;ci=261&amp;si=41</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://daddylive2.top/my/stream-346.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781779&amp;lang=es&amp;eid=290927070&amp;lid=2781779&amp;ci=261&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="78">
+    <nombre>Qingdao Youth Island –  Beijing Guoan</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>China. Copa</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290925396_qingdao_youth_island_beijing_guoan/</url>
+    <datetime_iso>2025-07-22T13:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgxNjIzNjM=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/6.png</idioma>
+        <idioma_nombre>Español (España)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781747&amp;lang=es&amp;eid=290925396&amp;lid=2781747&amp;ci=724&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="79">
+    <nombre>Qingdao Youth Island – Beijing Guoan</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>China. Copa</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290925396__/</url>
+    <datetime_iso>2025-07-22T13:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgxNjIzNjM=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/6.png</idioma>
+        <idioma_nombre>Español (España)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781747&amp;lang=es&amp;eid=290925396&amp;lid=2781747&amp;ci=724&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="80">
+    <nombre>Fakundo Mena – Adolfo Daniel Vallejo</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Zug</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:10</hora>
+    <url>https://livetv.sx/es/eventinfo/290927015__/</url>
+    <datetime_iso>2025-07-22T13:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDMzMTM=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781693&amp;lang=es&amp;eid=290927015&amp;lid=2781693&amp;ci=6139&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="81">
+    <nombre>Sebastian Ofner – Jan-lennard Struff</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Kitzbuhel</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:10</hora>
+    <url>https://livetv.sx/es/eventinfo/290927035__/</url>
+    <datetime_iso>2025-07-22T13:10:00</datetime_iso>
+    <streams total="3">
+      <stream id="1">
+        <url>https://wikisport.best/court/wik7.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780915&amp;lang=es&amp;eid=290927035&amp;lid=2780915&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDY3NzQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781723&amp;lang=es&amp;eid=290927035&amp;lid=2781723&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://wikisport.best/court/t7.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780916&amp;lang=es&amp;eid=290927035&amp;lid=2780916&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="82">
+    <nombre>Sebastian Ofner –  Jan-lennard Struff</nombre>
+    <deporte>Deporte_8</deporte>
+    <competicion>ATP. Kitzbuhel</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:10</hora>
+    <url>https://livetv.sx/es/eventinfo/290927035_sebastian_ofner_jan_lennard_struff/</url>
+    <datetime_iso>2025-07-22T13:10:00</datetime_iso>
+    <streams total="3">
+      <stream id="1">
+        <url>https://wikisport.best/court/wik7.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780915&amp;lang=es&amp;eid=290927035&amp;lid=2780915&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDY3NzQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781723&amp;lang=es&amp;eid=290927035&amp;lid=2781723&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://wikisport.best/court/t7.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780916&amp;lang=es&amp;eid=290927035&amp;lid=2780916&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="83">
+    <nombre>Fakundo Mena –  Adolfo Daniel Vallejo</nombre>
+    <deporte>Deporte_8</deporte>
+    <competicion>ATP Challenger. Zug</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:10</hora>
+    <url>https://livetv.sx/es/eventinfo/290927015_fakundo_mena_adolfo_daniel_vallejo/</url>
+    <datetime_iso>2025-07-22T13:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDMzMTM=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781693&amp;lang=es&amp;eid=290927015&amp;lid=2781693&amp;ci=6139&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="84">
+    <nombre>Denis Yevseyev – Calvin Hemery</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Zug</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:20</hora>
+    <url>https://livetv.sx/es/eventinfo/290927014__/</url>
+    <datetime_iso>2025-07-22T13:20:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDMzMTE=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781694&amp;lang=es&amp;eid=290927014&amp;lid=2781694&amp;ci=6139&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="85">
+    <nombre>Arthur Cazaux – Ignacio Buse</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Kitzbuhel</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>13:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927034__/</url>
+    <datetime_iso>2025-07-22T13:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMjA=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781724&amp;lang=es&amp;eid=290927034&amp;lid=2781724&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="86">
     <nombre>Leolia Jeanjean (M) –  Nuria Parrizas-Diaz (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
     <fecha>22 de julio</fecha>
-    <hora>12:30</hora>
+    <hora>13:30</hora>
     <url>https://livetv.sx/es/eventinfo/290927051__/</url>
-    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <datetime_iso>2025-07-22T13:30:00</datetime_iso>
     <streams total="3">
       <stream id="1">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMDg=</url>
@@ -1518,14 +1912,14 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="69">
+  <evento id="87">
     <nombre>Xinyu Wang (M) –  Harriet Dart (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
     <fecha>22 de julio</fecha>
-    <hora>12:30</hora>
+    <hora>13:30</hora>
     <url>https://livetv.sx/es/eventinfo/290927052__/</url>
-    <datetime_iso>2025-07-22T12:30:00</datetime_iso>
+    <datetime_iso>2025-07-22T13:30:00</datetime_iso>
     <streams total="3">
       <stream id="1">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMDk=</url>
@@ -1547,68 +1941,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="70">
-    <nombre>Qingdao Youth Island – Beijing Guoan</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>China. Copa</competicion>
-    <fecha>22 de julio</fecha>
-    <hora>13:00</hora>
-    <url>https://livetv.sx/es/eventinfo/290925396__/</url>
-    <datetime_iso>2025-07-22T13:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgxNjIzNjM=</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/6.png</idioma>
-        <idioma_nombre>Español (España)</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781747&amp;lang=es&amp;eid=290925396&amp;lid=2781747&amp;ci=724&amp;si=1</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="71">
-    <nombre>Zsombor Piros – Alexander Ritschard</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Zug</competicion>
-    <fecha>22 de julio</fecha>
-    <hora>13:00</hora>
-    <url>https://livetv.sx/es/eventinfo/290927013__/</url>
-    <datetime_iso>2025-07-22T13:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="72">
-    <nombre>Denis Yevseyev – Calvin Hemery</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Zug</competicion>
-    <fecha>22 de julio</fecha>
-    <hora>13:00</hora>
-    <url>https://livetv.sx/es/eventinfo/290927014__/</url>
-    <datetime_iso>2025-07-22T13:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDMzMTE=</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781694&amp;lang=es&amp;eid=290927014&amp;lid=2781694&amp;ci=6139&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="73">
-    <nombre>Fakundo Mena – Adolfo Daniel Vallejo</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Zug</competicion>
-    <fecha>22 de julio</fecha>
-    <hora>13:00</hora>
-    <url>https://livetv.sx/es/eventinfo/290927015__/</url>
-    <datetime_iso>2025-07-22T13:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDMzMTM=</url>
-        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781693&amp;lang=es&amp;eid=290927015&amp;lid=2781693&amp;ci=6139&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="74">
+  <evento id="88">
     <nombre>Yunnan Yukun – Guangdong GZ-Power</nombre>
     <deporte>Fútbol</deporte>
     <competicion>China. Copa</competicion>
@@ -1616,9 +1949,16 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290925397__/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgxNjIzNDQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781751&amp;lang=es&amp;eid=290925397&amp;lid=2781751&amp;ci=724&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="75">
+  <evento id="89">
     <nombre>Patrick Zahraj – Viktor Durasovic</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -1626,9 +1966,16 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927000__/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDM1NDk=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781734&amp;lang=es&amp;eid=290927000&amp;lid=2781734&amp;ci=4010&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="76">
+  <evento id="90">
     <nombre>Nicolas Kicker – Michael Geerts</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -1636,9 +1983,33 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927001__/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMTA4MTE=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781733&amp;lang=es&amp;eid=290927001&amp;lid=2781733&amp;ci=4010&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="77">
+  <evento id="91">
+    <nombre>Zsombor Piros – Alexander Ritschard</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Zug</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>14:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927013__/</url>
+    <datetime_iso>2025-07-22T14:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDMzMTY=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781701&amp;lang=es&amp;eid=290927013&amp;lid=2781701&amp;ci=6139&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="92">
     <nombre>Filip Misolic – Tomas Etcheverry</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel</competicion>
@@ -1646,9 +2017,28 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927036__/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="3">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMjE=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781726&amp;lang=es&amp;eid=290927036&amp;lid=2781726&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://wikisport.best/court/t7.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780916&amp;lang=es&amp;eid=290927036&amp;lid=2780916&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://wikisport.best/court/wik7.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780915&amp;lang=es&amp;eid=290927036&amp;lid=2780915&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="78">
+  <evento id="93">
     <nombre>Jaime Faria – Thiago Tirante</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel</competicion>
@@ -1656,9 +2046,16 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927037__/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMjQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781725&amp;lang=es&amp;eid=290927037&amp;lid=2781725&amp;ci=3285&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="79">
+  <evento id="94">
     <nombre>Lusi Gavlichkova (M) –  Alena Kovackova (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
@@ -1666,9 +2063,28 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927053__/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="3">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDY3Mzk=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781719&amp;lang=es&amp;eid=290927053&amp;lid=2781719&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://wikisport.best/court/t2.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781233&amp;lang=es&amp;eid=290927053&amp;lid=2781233&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://wikisport.best/court/wik2.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781234&amp;lang=es&amp;eid=290927053&amp;lid=2781234&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="80">
+  <evento id="95">
     <nombre>Katerina Siniakova (M) –  Elena-Gabriela Ruse (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
@@ -1676,9 +2092,28 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927054__/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="3">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDEwMTE=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781718&amp;lang=es&amp;eid=290927054&amp;lid=2781718&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://wikisport.best/court/wik1.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780919&amp;lang=es&amp;eid=290927054&amp;lid=2780919&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://wikisport.best/court/t1.php</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2780918&amp;lang=es&amp;eid=290927054&amp;lid=2780918&amp;ci=3281&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="81">
+  <evento id="96">
     <nombre>Bertrand R./Kalyanpur A. – Chidekh C./Stepanov R.</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia. Doubles</competicion>
@@ -1686,9 +2121,16 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927058_bertrand_r_kalyanpur_a_chidekh_c_stepanov_r/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDE0ODc=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781750&amp;lang=es&amp;eid=290927058&amp;lid=2781750&amp;ci=6157&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="82">
+  <evento id="97">
     <nombre>Cui J./Sultanov K. – Jodar R./Sanchez Quilez A.Jodar R./Sanchez Quilez</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia. Doubles</competicion>
@@ -1698,7 +2140,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="83">
+  <evento id="98">
     <nombre>Maleckova J./Skoch M. – Friedsam A-L./Kubka M.</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga. Doubles</competicion>
@@ -1706,9 +2148,16 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927060_maleckova_j_skoch_m_friedsam_a_l_kubka_m/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDM4MjQ=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781749&amp;lang=es&amp;eid=290927060&amp;lid=2781749&amp;ci=5792&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="84">
+  <evento id="99">
     <nombre>Gonzalez S./Krajicek A. – Martinez P./Shevchenko A.</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel. Doubles</competicion>
@@ -1716,9 +2165,16 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/290927065_gonzalez_s_krajicek_a_martinez_p_shevchenko_a/</url>
     <datetime_iso>2025-07-22T14:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDgzMDExOTc=</url>
+        <idioma>https://cdn.livetv853.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv858.me/webplayer.php?t=ifr&amp;c=2781748&amp;lang=es&amp;eid=290927065&amp;lid=2781748&amp;ci=4629&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="85">
+  <evento id="100">
     <nombre>Facundo Diaz Acosta – Marat Sharipov</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -1728,7 +2184,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T14:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="86">
+  <evento id="101">
     <nombre>Tailandia U23 – Birmania U23</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Campeonato del AFF U23</competicion>
@@ -1738,7 +2194,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="87">
+  <evento id="102">
     <nombre>Vietnam U23 – Camboya U23</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Campeonato del AFF U23</competicion>
@@ -1748,7 +2204,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="88">
+  <evento id="103">
     <nombre>Kielan S./Pieczonka F. – Feldbausch K./Von der Schulenburg J.</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug. Doubles</competicion>
@@ -1758,7 +2214,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="89">
+  <evento id="104">
     <nombre>Abedallah Shelbayh – Edas Butvilas</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -1768,7 +2224,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="90">
+  <evento id="105">
     <nombre>Sun Fajing – Nicolas Alvarez Varona</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -1778,7 +2234,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="91">
+  <evento id="106">
     <nombre>Mathys Erhard – Oskari Paldanius</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -1788,7 +2244,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="92">
+  <evento id="107">
     <nombre>Dmitry Popko – Gilles Arnaud Bailly</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -1798,7 +2254,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="93">
+  <evento id="108">
     <nombre>Timofey Skatov – Thomas Faurel</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -1808,7 +2264,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="94">
+  <evento id="109">
     <nombre>Thiago Seyboth Wild – Justin Engel</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel</competicion>
@@ -1818,7 +2274,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="95">
+  <evento id="110">
     <nombre>Olivetti / Jebens – Romios / Matuszewski</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel. Doubles</competicion>
@@ -1828,7 +2284,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="96">
+  <evento id="111">
     <nombre>Linda Noskova (M) –  Anastasia Gasanova (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga</competicion>
@@ -1838,7 +2294,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="97">
+  <evento id="112">
     <nombre>Dart (M) /  Lumsden (M) –  Appleton (M) /  Haverlag (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga. Doubles</competicion>
@@ -1848,7 +2304,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="98">
+  <evento id="113">
     <nombre>Uchijima M./Zheng S. – Detiuc A./Kalashnikova O.</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Praga. Doubles</competicion>
@@ -1858,7 +2314,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="99">
+  <evento id="114">
     <nombre>Rojer J./Van De Zandschulp B. – Oberleitner N./Schwaerzler J. J.</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Kitzbuhel. Doubles</competicion>
@@ -1868,7 +2324,37 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="100">
+  <evento id="115">
+    <nombre>Rio Noguchi – Shintaro Mochizuki</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>16:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927107__/</url>
+    <datetime_iso>2025-07-22T16:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="116">
+    <nombre>Patrick Kypson – Alexis Galarneau</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>16:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927108__/</url>
+    <datetime_iso>2025-07-22T16:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="117">
+    <nombre>Nicolas Mejia – Yuta Shimizu</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>16:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927109__/</url>
+    <datetime_iso>2025-07-22T16:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="118">
     <nombre>Ricca / Pokorny – Molchanov / Vega Hernández</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug. Doubles</competicion>
@@ -1878,7 +2364,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="101">
+  <evento id="119">
     <nombre>Zachary Svajda – Miomir Kecmanovic</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington</competicion>
@@ -1888,7 +2374,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="102">
+  <evento id="120">
     <nombre>Gael Monfils – Yibing Wu</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington</competicion>
@@ -1898,7 +2384,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="103">
+  <evento id="121">
     <nombre>David Goffin – Bu Yunchaokete</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington</competicion>
@@ -1908,7 +2394,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="104">
+  <evento id="122">
     <nombre>Quentin Halys – Aleksandar Kovacevic</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington</competicion>
@@ -1918,7 +2404,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="105">
+  <evento id="123">
     <nombre>Jaume Munar – Marcos Giron</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington</competicion>
@@ -1928,7 +2414,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="106">
+  <evento id="124">
     <nombre>Gonzalez / Molteni – King / Harrison</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington. Doubles</competicion>
@@ -1938,7 +2424,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="107">
+  <evento id="125">
     <nombre>Ram / Mektic – Smith / Skupski</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington. Doubles</competicion>
@@ -1948,7 +2434,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="108">
+  <evento id="126">
     <nombre>Bhambri / Venus – Verbeek / Goransson</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington. Doubles</competicion>
@@ -1958,7 +2444,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="109">
+  <evento id="127">
     <nombre>Bolelli / Vavassori – Doumbia / Reboul</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington. Doubles</competicion>
@@ -1968,7 +2454,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="110">
+  <evento id="128">
     <nombre>Winline. IBA. Pro 2</nombre>
     <deporte>Boxeo</deporte>
     <competicion>Boxeo</competicion>
@@ -1978,7 +2464,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="111">
+  <evento id="129">
     <nombre>ATP Challenger. Bloomfield Hills</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Bloomfield Hills</competicion>
@@ -1988,7 +2474,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:10:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="112">
+  <evento id="130">
     <nombre>ATP. Umag</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Umag</competicion>
@@ -1998,7 +2484,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:10:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="113">
+  <evento id="131">
     <nombre>ATP. Washington</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington</competicion>
@@ -2008,7 +2494,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:10:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="114">
+  <evento id="132">
     <nombre>WTA. Washington</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Washington</competicion>
@@ -2018,7 +2504,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:10:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="115">
+  <evento id="133">
     <nombre>Aziz Dougaz –  Robin Catry (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -2028,7 +2514,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="116">
+  <evento id="134">
     <nombre>Daniel Mérida Aguilar – Marc-Andrea Huesler</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -2038,7 +2524,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="117">
+  <evento id="135">
     <nombre>Donski / Siddhant – Cornea / Martos Gornes</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug. Doubles</competicion>
@@ -2048,7 +2534,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="118">
+  <evento id="136">
     <nombre>Francesco Passaro – Camilo Ugo Carabelli</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Umag</competicion>
@@ -2058,7 +2544,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="119">
+  <evento id="137">
     <nombre>Cervantes I./Middelkoop M. – Pavlasek A./Zielinski J.</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Umag. Doubles</competicion>
@@ -2068,7 +2554,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T16:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="120">
+  <evento id="138">
     <nombre>KuPS – Kairat</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2078,7 +2564,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="121">
+  <evento id="139">
     <nombre>Athletic de Bilbao – Coritiba</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Brasil. Serie B</competicion>
@@ -2088,7 +2574,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="122">
+  <evento id="140">
     <nombre>Dino Prizmic – Elmer Moller</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Umag</competicion>
@@ -2098,7 +2584,37 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="123">
+  <evento id="141">
+    <nombre>Brandon Nakashima – Ethan Quinn</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927119__/</url>
+    <datetime_iso>2025-07-22T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="142">
+    <nombre>Kessler McCartney (M) –  Caroline Dolehide (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927126__/</url>
+    <datetime_iso>2025-07-22T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="143">
+    <nombre>Taylor Townsend (M) –  Tatjana Maria (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927127__/</url>
+    <datetime_iso>2025-07-22T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="144">
     <nombre>Vesa Ahti – Max Houkes</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -2108,7 +2624,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="124">
+  <evento id="145">
     <nombre>Joao Lucas – Gonzalo Bueno</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -2118,7 +2634,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="125">
+  <evento id="146">
     <nombre>Jesper De Jong – Mili Poljicak</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Umag</competicion>
@@ -2128,7 +2644,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="126">
+  <evento id="147">
     <nombre>Murray / Dodig – Escobar / Hidalgo</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Umag. Doubles</competicion>
@@ -2138,7 +2654,37 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="127">
+  <evento id="148">
+    <nombre>Eliot Spizzirri – Rei Sakamoto</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>17:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927110__/</url>
+    <datetime_iso>2025-07-22T17:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="149">
+    <nombre>Mark Lajal – Omar Jasika</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>17:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927111__/</url>
+    <datetime_iso>2025-07-22T17:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="150">
+    <nombre>Nicolas Ian Kotzen – Li  Tu</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>17:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927112__/</url>
+    <datetime_iso>2025-07-22T17:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="151">
     <nombre>Rafael Jodar – Max Wiskandt</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Segovia</competicion>
@@ -2148,7 +2694,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="128">
+  <evento id="152">
     <nombre>Arribage T./Luz O. – Harper C./Seggerman R.</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Umag. Doubles</competicion>
@@ -2158,7 +2704,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="129">
+  <evento id="153">
     <nombre>Universiada de verano 2025</nombre>
     <deporte>Deporte_9</deporte>
     <competicion>Universiadas</competicion>
@@ -2168,7 +2714,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="130">
+  <evento id="154">
     <nombre>Noah – Ferencvaros</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2178,7 +2724,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="131">
+  <evento id="155">
     <nombre>Lincoln Red Imps – Estrella Roja</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2188,7 +2734,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="132">
+  <evento id="156">
     <nombre>Moenchengladbach – Metalist 1925</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Partido amistoso</competicion>
@@ -2198,7 +2744,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="133">
+  <evento id="157">
     <nombre>Nigeria (M) – Sudáfrica (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Africana de Naciones</competicion>
@@ -2208,7 +2754,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="134">
+  <evento id="158">
     <nombre>Egersund – Aalesund</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Noruega. 1. Divisjon</competicion>
@@ -2218,7 +2764,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="135">
+  <evento id="159">
     <nombre>Nigeria (M) –  Sudáfrica (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Africana de Naciones</competicion>
@@ -2228,7 +2774,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="136">
+  <evento id="160">
     <nombre>Alex Michelsen – Daniel Evans</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Washington</competicion>
@@ -2238,7 +2784,27 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="137">
+  <evento id="161">
+    <nombre>Pablo Llamas Ruiz – Terence Atmane</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Umag</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>18:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927124__/</url>
+    <datetime_iso>2025-07-22T18:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="162">
+    <nombre>Anna Kalinskaya (M) –  Kamilla Rakhimova (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>18:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927128__/</url>
+    <datetime_iso>2025-07-22T18:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="163">
     <nombre>Sascha Gueymard Wayenburg – Kimmer Coppejans</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Tampere</competicion>
@@ -2248,7 +2814,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="138">
+  <evento id="164">
     <nombre>Ashdod – Hapoel Jerusalem</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Copa Toto</competicion>
@@ -2258,7 +2824,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T18:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="139">
+  <evento id="165">
     <nombre>Copenhague – Drita</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2268,7 +2834,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="140">
+  <evento id="166">
     <nombre>Hamrun Spartans – Dinamo de Kiev</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2278,7 +2844,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="141">
+  <evento id="167">
     <nombre>RFS – Malmoe</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2288,7 +2854,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="142">
+  <evento id="168">
     <nombre>Viktoria Pilsen – Servette</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2298,7 +2864,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="143">
+  <evento id="169">
     <nombre>Pafos – Maccabi Tel Aviv</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2308,7 +2874,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="144">
+  <evento id="170">
     <nombre>Sankt Gallen – Villarreal</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Partido amistoso</competicion>
@@ -2318,7 +2884,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="145">
+  <evento id="171">
     <nombre>Nancy – Estrasburgo</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Partido amistoso</competicion>
@@ -2328,7 +2894,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="146">
+  <evento id="172">
     <nombre>Alavés – Athletic de Bilbao</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Partido amistoso</competicion>
@@ -2338,7 +2904,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="147">
+  <evento id="173">
     <nombre>Hapoel P-T – Hapoel T-A</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Copa Toto</competicion>
@@ -2348,7 +2914,47 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="148">
+  <evento id="174">
+    <nombre>Alex Bolt – Arthur Fery</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>19:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927113__/</url>
+    <datetime_iso>2025-07-22T19:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="175">
+    <nombre>Alibek Kachmazov – Aidan Mayo</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>19:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927114__/</url>
+    <datetime_iso>2025-07-22T19:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="176">
+    <nombre>Nishesh Basavareddy – Yu Hsiou Hsu</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>19:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927115__/</url>
+    <datetime_iso>2025-07-22T19:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="177">
+    <nombre>Hailey Baptiste (M) –  Sofia Kenin (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>19:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927129__/</url>
+    <datetime_iso>2025-07-22T19:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="178">
     <nombre>Andreozzi G./Arends S. – Trhac P./Willis M.</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Umag. Doubles</competicion>
@@ -2358,7 +2964,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="149">
+  <evento id="179">
     <nombre>Swedish Elitserien</nombre>
     <deporte>Automovilismo</deporte>
     <competicion>Speedway</competicion>
@@ -2368,7 +2974,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="150">
+  <evento id="180">
     <nombre>Skendija – FCSB</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2378,7 +2984,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="151">
+  <evento id="181">
     <nombre>Qatar SC – Blackburn</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Partido amistoso</competicion>
@@ -2388,7 +2994,17 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="152">
+  <evento id="182">
+    <nombre>Cameron Norrie – Lorenzo Musetti</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>20:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927120__/</url>
+    <datetime_iso>2025-07-22T20:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="183">
     <nombre>Slovan Bratislava – Zrinjski</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2398,7 +3014,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:15:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="153">
+  <evento id="184">
     <nombre>Dominic-Stephan Stricker – Roman-Andres Burruchaga</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Zug</competicion>
@@ -2408,7 +3024,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:15:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="154">
+  <evento id="185">
     <nombre>Balkani – Floriana</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga Europa Conferencia. Calificación</competicion>
@@ -2418,7 +3034,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="155">
+  <evento id="186">
     <nombre>Lech Poznan – Breidablik</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2428,7 +3044,27 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="156">
+  <evento id="187">
+    <nombre>Alexander Blockx – Tsung-Hao Huang</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>20:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927116__/</url>
+    <datetime_iso>2025-07-22T20:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="188">
+    <nombre>Patrick Maloney – Wu Tung-Lin</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>20:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927117__/</url>
+    <datetime_iso>2025-07-22T20:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="189">
     <nombre>Motherwell – Greenock Morton</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Escocia. Copa de la Liga</competicion>
@@ -2438,7 +3074,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="157">
+  <evento id="190">
     <nombre>Rijeka – Ludogorets</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2448,7 +3084,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="158">
+  <evento id="191">
     <nombre>Rangers – Panathinaikos</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones. Calificación</competicion>
@@ -2458,7 +3094,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="159">
+  <evento id="192">
     <nombre>Burton Albion – Sheffield Utd</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Partido amistoso</competicion>
@@ -2468,7 +3104,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T20:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="160">
+  <evento id="193">
     <nombre>Inglaterra (M) – Italia (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Campeonato de Europa</competicion>
@@ -2478,7 +3114,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="161">
+  <evento id="194">
     <nombre>Marruecos (M) – Ghana (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Africana de Naciones</competicion>
@@ -2488,7 +3124,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="162">
+  <evento id="195">
     <nombre>Marruecos (M) –  Ghana (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Africana de Naciones</competicion>
@@ -2498,7 +3134,57 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="163">
+  <evento id="196">
+    <nombre>Dino Prizmic – Elmer Moller</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Umag</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>21:00</hora>
+    <url>https://livetv.sx/es/eventinfo/290927125__/</url>
+    <datetime_iso>2025-07-22T21:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="197">
+    <nombre>Garrett Johns – August Holmgren</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bloomfield Hills</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>21:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927118__/</url>
+    <datetime_iso>2025-07-22T21:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="198">
+    <nombre>Fabian Marozsan – Gabriel Diallo</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>21:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927121__/</url>
+    <datetime_iso>2025-07-22T21:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="199">
+    <nombre>Naomi Osaka (M) –  Yulia Putintseva (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>21:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927130__/</url>
+    <datetime_iso>2025-07-22T21:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="200">
+    <nombre>Marta Kostyuk (M) –  Emma Raducanu (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Washington</competicion>
+    <fecha>22 de julio</fecha>
+    <hora>21:30</hora>
+    <url>https://livetv.sx/es/eventinfo/290927131__/</url>
+    <datetime_iso>2025-07-22T21:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="201">
     <nombre>Deportivo Pasto – América de Cali</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Colombia. Primera A</competicion>
@@ -2508,7 +3194,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T22:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="164">
+  <evento id="202">
     <nombre>Atl Bucaramanga – Once Caldas</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Colombia. Primera A</competicion>
@@ -2518,7 +3204,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T22:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="165">
+  <evento id="203">
     <nombre>22 de Julio – Chacaritas</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie B</competicion>
@@ -2528,7 +3214,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T22:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="166">
+  <evento id="204">
     <nombre>Colombia (M) –  Bolivia (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa América</competicion>
@@ -2538,7 +3224,7 @@ player/live.php?id=238032&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-07-22T23:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="167">
+  <evento id="205">
     <nombre>Alianza Valledupar – Deportes Tolima</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Colombia. Primera A</competicion>
