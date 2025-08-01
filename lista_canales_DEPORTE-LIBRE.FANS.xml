@@ -351,7 +351,15 @@
     <url>/en-vivo-online/tnt-sports-chile/embed.php</url>
   </channel>
   <channel name="VTV+ Uruguay">
-    <url>https://miztv.top/tele/stream-391.php</url>
+    <url>&lt;br /&gt;
+&lt;b&gt;Warning&lt;/b&gt;:  include(../embeddomain.php): failed to open stream: No such file or directory in &lt;b&gt;/www/wwwroot/Deporte-libre.click/stream/stream-391.php&lt;/b&gt; on line &lt;b&gt;26&lt;/b&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;b&gt;Warning&lt;/b&gt;:  include(): Failed opening '../embeddomain.php' for inclusion (include_path='.:') in &lt;b&gt;/www/wwwroot/Deporte-libre.click/stream/stream-391.php&lt;/b&gt; on line &lt;b&gt;26&lt;/b&gt;&lt;br /&gt;
+/&lt;br /&gt;
+&lt;b&gt;Warning&lt;/b&gt;:  include(../domainnametext.php): failed to open stream: No such file or directory in &lt;b&gt;/www/wwwroot/Deporte-libre.click/stream/stream-391.php&lt;/b&gt; on line &lt;b&gt;26&lt;/b&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;b&gt;Warning&lt;/b&gt;:  include(): Failed opening '../domainnametext.php' for inclusion (include_path='.:') in &lt;b&gt;/www/wwwroot/Deporte-libre.click/stream/stream-391.php&lt;/b&gt; on line &lt;b&gt;26&lt;/b&gt;&lt;br /&gt;
+/stream-391.php</url>
     <url>https://deporte-libre.fans/en-vivo-online/vtv-plus/embed2.php</url>
     <url>https://deporte-libre.fans/en-vivo-online/vtv-plus/embed3.php</url>
     <url>https://miztv.top/total/stream-391.php</url>
