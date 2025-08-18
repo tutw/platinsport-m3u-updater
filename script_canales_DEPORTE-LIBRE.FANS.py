@@ -5,7 +5,7 @@ from xml.dom import minidom
 import difflib
 
 # URL principal para scrapear
-main_url = 'https://deporte-libre.fans/en-vivo-online/+canales/'
+main_url = 'https://deporte-libre.click/en-vivo-online/+canales/'
 logos_url = 'https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/logos.xml'
 
 # Función para obtener el contenido HTML de una URL
@@ -25,14 +25,14 @@ def get_channel_list(main_url):
         channel_name = a_tag.text.strip()
         channel_url = a_tag.get('href')
         if channel_name and channel_url and channel_url.startswith('/stream/'):
-            channel_list.append((channel_name, 'https://deporte-libre.fans' + channel_url))
+            channel_list.append((channel_name, 'https://deporte-libre.click' + channel_url))
     
     print(f"Found {len(channel_list)} channels")
     return channel_list
 
 # Función para obtener los enlaces de streaming de cada canal
 def get_streaming_urls(channel_url):
-    base_url = 'https://deporte-libre.fans'
+    base_url = 'https://deporte-libre.click'
     html = get_html(channel_url)
     soup = BeautifulSoup(html, 'html.parser')
     
