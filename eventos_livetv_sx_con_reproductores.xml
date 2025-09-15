@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<eventos generado="2025-09-15 12:50:38" total="199">
+<eventos generado="2025-09-15 13:40:46" total="199">
   <evento id="1">
     <nombre>WTA. Seúl</nombre>
     <deporte>Fútbol</deporte>
@@ -129,16 +129,6 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     </streams>
   </evento>
   <evento id="3">
-    <nombre>Jessika Ponchet (M) –  Ella Seidel (M)</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>WTA. Seúl</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>09:35</hora>
-    <url>https://livetv.sx/es/eventinfo/298172566__/</url>
-    <datetime_iso>2025-09-15T09:35:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="4">
     <nombre>ATP Challenger. Bad Waltersdorf</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bad Waltersdorf</competicion>
@@ -146,16 +136,28 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     <hora>10:10</hora>
     <url>https://livetv.sx/es/eventinfo/298305557_atp_challenger_bad_waltersdorf/</url>
     <datetime_iso>2025-09-15T10:10:00</datetime_iso>
-    <streams total="1">
+    <streams total="3">
       <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjQ=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822036&amp;lang=es&amp;eid=298305557&amp;lid=2822036&amp;ci=7063&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjI=</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
         <idioma_nombre>Polaco</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822151&amp;lang=es&amp;eid=298305557&amp;lid=2822151&amp;ci=7063&amp;si=4</enlace_original>
       </stream>
+      <stream id="3">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjg=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822038&amp;lang=es&amp;eid=298305557&amp;lid=2822038&amp;ci=7063&amp;si=4</enlace_original>
+      </stream>
     </streams>
   </evento>
-  <evento id="5">
+  <evento id="4">
     <nombre>ATP Challenger. Targu Mureș 2</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Clasificación</competicion>
@@ -165,16 +167,16 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T10:10:00</datetime_iso>
     <streams total="4">
       <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyODE=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822150&amp;lang=es&amp;eid=298309201&amp;lid=2822150&amp;ci=8524&amp;si=4</enlace_original>
-      </stream>
-      <stream id="2">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyODM=</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
         <idioma_nombre>Polaco</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2821990&amp;lang=es&amp;eid=298309201&amp;lid=2821990&amp;ci=8524&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyODE=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822150&amp;lang=es&amp;eid=298309201&amp;lid=2822150&amp;ci=8524&amp;si=4</enlace_original>
       </stream>
       <stream id="3">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyNzg=</url>
@@ -190,7 +192,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="6">
+  <evento id="5">
     <nombre>ATP Challenger. Targu Mureș 2</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Târgu Mureș 2. Clasificación</competicion>
@@ -225,7 +227,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="7">
+  <evento id="6">
     <nombre>MODUS Super Series</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Modus League</competicion>
@@ -242,7 +244,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="8">
+  <evento id="7">
     <nombre>ATP Challenger. Saint-Tropez</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Saint-Tropez</competicion>
@@ -250,7 +252,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     <hora>10:40</hora>
     <url>https://livetv.sx/es/eventinfo/298307588_atp_challenger_saint_tropez/</url>
     <datetime_iso>2025-09-15T10:40:00</datetime_iso>
-    <streams total="4">
+    <streams total="5">
       <stream id="1">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjU2NDY=</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
@@ -258,18 +260,24 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2821988&amp;lang=es&amp;eid=298307588&amp;lid=2821988&amp;ci=4237&amp;si=4</enlace_original>
       </stream>
       <stream id="2">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjI0NDc=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822152&amp;lang=es&amp;eid=298307588&amp;lid=2822152&amp;ci=4237&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyOTA=</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
         <idioma_nombre>Polaco</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822009&amp;lang=es&amp;eid=298307588&amp;lid=2822009&amp;ci=4237&amp;si=4</enlace_original>
       </stream>
-      <stream id="3">
+      <stream id="4">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyODU=</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
         <idioma_nombre>Polaco</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822008&amp;lang=es&amp;eid=298307588&amp;lid=2822008&amp;ci=4237&amp;si=4</enlace_original>
       </stream>
-      <stream id="4">
+      <stream id="5">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjQ3NDI=</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
         <idioma_nombre>Polaco</idioma_nombre>
@@ -277,24 +285,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="9">
-    <nombre>Laura Siegemund (M) –   Sofia Kenin (M)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>WTA. Seúl</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>10:40</hora>
-    <url>https://livetv.sx/es/eventinfo/297744473__laura_siegemund_m__sofia_kenin_m/</url>
-    <datetime_iso>2025-09-15T10:40:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b98a5899d88847a859aa48798858a.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822017&amp;lang=es&amp;eid=297744473&amp;lid=2822017&amp;ci=5145&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="10">
+  <evento id="8">
     <nombre>Laura Siegemund (M) –  Sofia Kenin (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Seúl</competicion>
@@ -302,16 +293,9 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     <hora>10:40</hora>
     <url>https://livetv.sx/es/eventinfo/297744473__/</url>
     <datetime_iso>2025-09-15T10:40:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b98a5899d88847a859aa48798858a.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822017&amp;lang=es&amp;eid=297744473&amp;lid=2822017&amp;ci=5145&amp;si=4</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="11">
+  <evento id="9">
     <nombre>Surrey –  Nottinghamshire</nombre>
     <deporte>Fútbol</deporte>
     <competicion>County Championship One</competicion>
@@ -328,137 +312,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="12">
-    <nombre>Tokio –  Tokio Verdy</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Japón. J League</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/294918099_tokio_tokio_verdy/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="13">
-    <nombre>Países Bajos –  Rumania</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Campeonato mundial</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/294917857_pa__ses_bajos_rumania/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="14">
-    <nombre>Roasso Kumamoto –  Tokushima Vortis</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Japón. J2 League</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/294918109_roasso_kumamoto_tokushima_vortis/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="15">
-    <nombre>Gyeongju KHNP (M) –   Sejong Sportstoto (M)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>WK-League</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298163055__gyeongju_khnp_m__sejong_sportstoto_m/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="16">
-    <nombre>Changnyeong (M) –  Suwon (M)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>WK-League</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298487175_changnyeong_m_suwon_m/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="17">
-    <nombre>Incheon Hyundai Steel (W) –  Hwacheon (M)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>WK-League</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298487176_incheon_hyundai_steel_w_hwacheon_m/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="18">
-    <nombre>Seúl (M) –  Mungyeong Sangmu (W)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>WK-League</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298487177_seanduacute_l_m_mungyeong_sangmu_w/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="19">
-    <nombre>Farense Sub-23 –   Torreense Sub-23</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Portugal. Liga U23</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298168940__farense_sub_23__torreense_sub_23/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="20">
-    <nombre>Kairat (W) –  Aktobe (W)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Campeonato</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296451096_kairat_w_aktobe_w/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="21">
-    <nombre>Oqschetpes (W) –  Tobol (W)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Campeonato</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296451097_oqschetpes_w_tobol_w/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="22">
-    <nombre>Farense Sub-23 –  Torreense Sub-23</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Portugal. Liga U23</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298168940__/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="23">
-    <nombre>Tokio – Tokio Verdy</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Japón. J League</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/294918099__/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="24">
-    <nombre>Roasso Kumamoto – Tokushima Vortis</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Japón. J2 League</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:00</hora>
-    <url>https://livetv.sx/es/eventinfo/294918109__/</url>
-    <datetime_iso>2025-09-15T12:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="25">
+  <evento id="10">
     <nombre>Werner Caroline (M) –   Lola Radivojevic (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -475,17 +329,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="26">
-    <nombre>Daniel Siniakov –  Kirill Kivattsev</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Clasificación</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:10</hora>
-    <url>https://livetv.sx/es/eventinfo/298309608_daniel_siniakov_kirill_kivattsev/</url>
-    <datetime_iso>2025-09-15T12:10:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="27">
+  <evento id="11">
     <nombre>Werner Caroline (M) –  Lola Radivojevic (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -502,7 +346,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="28">
+  <evento id="12">
     <nombre>Noemi Basiletti (M) –   Alice Rame (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -519,7 +363,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="29">
+  <evento id="13">
     <nombre>Noemi Basiletti (M) –  Alice Rame (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -536,7 +380,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="30">
+  <evento id="14">
     <nombre>Perez (M) /  Stollar (M) –   Shuvey (M) /  Cristian (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Seúl. Doubles</competicion>
@@ -553,7 +397,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="31">
+  <evento id="15">
     <nombre>Perez (M) /  Stollar (M) –  Shuvey (M) /  Cristian (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Seúl. Doubles</competicion>
@@ -570,7 +414,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="32">
+  <evento id="16">
     <nombre>Campeonato Mundial, Tokio</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Campeonato mundial</competicion>
@@ -622,30 +466,20 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
         <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242807&amp;lang=es&amp;eid=298371671&amp;lid=2822014&amp;ci=274&amp;si=9</enlace_original>
       </stream>
       <stream id="7">
+        <url>https://daddylive3.com/live/stream-353.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822254&amp;lang=es&amp;eid=298371671&amp;lid=2822254&amp;ci=274&amp;si=9</enlace_original>
+      </stream>
+      <stream id="8">
         <url>https://wikisport.best/embed/bt3.php</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822004&amp;lang=es&amp;eid=298371671&amp;lid=2822004&amp;ci=274&amp;si=9</enlace_original>
       </stream>
-      <stream id="8">
-        <url>https://wikisport.best/strm/t1.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822003&amp;lang=es&amp;eid=298371671&amp;lid=2822003&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
     </streams>
   </evento>
-  <evento id="33">
-    <nombre>Jack Loge –  Darius Florin Pop</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Clasificación</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:30</hora>
-    <url>https://livetv.sx/es/eventinfo/298309606_jack_loge_darius_florin_pop/</url>
-    <datetime_iso>2025-09-15T12:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="34">
+  <evento id="17">
     <nombre>Campeonato Mundial, Tokio</nombre>
     <deporte>Deporte_9</deporte>
     <competicion>Campeonato mundial</competicion>
@@ -653,64 +487,9 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
     <hora>12:30</hora>
     <url>https://livetv.sx/es/eventinfo/298371671_world_championships_tokyo/</url>
     <datetime_iso>2025-09-15T12:30:00</datetime_iso>
-    <streams total="8">
-      <stream id="1">
-        <url>https://emb.apl378.me/
-player/live.php?id=239951&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
-        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=239951&amp;lang=es&amp;eid=298371671&amp;lid=2792208&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl378.me/
-player/live.php?id=242562&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242562&amp;lang=es&amp;eid=298371671&amp;lid=2816126&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://emb.apl378.me/
-player/live.php?id=242610&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/26.png</idioma>
-        <idioma_nombre>Finlandés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242610&amp;lang=es&amp;eid=298371671&amp;lid=2816395&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://emb.apl378.me/
-player/live.php?id=242793&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/12.png</idioma>
-        <idioma_nombre>Turco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242793&amp;lang=es&amp;eid=298371671&amp;lid=2821938&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
-      <stream id="5">
-        <url>https://emb.apl378.me/
-player/live.php?id=242803&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/12.png</idioma>
-        <idioma_nombre>Turco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242803&amp;lang=es&amp;eid=298371671&amp;lid=2822007&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
-      <stream id="6">
-        <url>https://emb.apl378.me/
-player/live.php?id=242807&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/3.png</idioma>
-        <idioma_nombre>Español</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242807&amp;lang=es&amp;eid=298371671&amp;lid=2822014&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
-      <stream id="7">
-        <url>https://wikisport.best/embed/bt3.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822004&amp;lang=es&amp;eid=298371671&amp;lid=2822004&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
-      <stream id="8">
-        <url>https://wikisport.best/strm/t1.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822003&amp;lang=es&amp;eid=298371671&amp;lid=2822003&amp;ci=274&amp;si=9</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="35">
+  <evento id="18">
     <nombre>Julie Belgraver (M) –   Daria Snigur (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -727,7 +506,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="36">
+  <evento id="19">
     <nombre>Julie Belgraver (M) –  Daria Snigur (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -744,41 +523,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="37">
-    <nombre>Florent Bax –  Etienne Donnet</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>ATP Challenger. Saint-Tropez</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:45</hora>
-    <url>https://livetv.sx/es/eventinfo/298307748_florent_bax_etienne_donnet/</url>
-    <datetime_iso>2025-09-15T12:45:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjQ3NDI=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2821997&amp;lang=es&amp;eid=298307748&amp;lid=2821997&amp;ci=4237&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="38">
-    <nombre>Alexey Vatutin –  Louis Tessa</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>ATP Challenger. Saint-Tropez</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>12:45</hora>
-    <url>https://livetv.sx/es/eventinfo/298307754_alexey_vatutin_louis_tessa/</url>
-    <datetime_iso>2025-09-15T12:45:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyODU=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822008&amp;lang=es&amp;eid=298307754&amp;lid=2822008&amp;ci=4237&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="39">
+  <evento id="20">
     <nombre>Ana-Filipa Santos (M) –   Tamara Korpatsch (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -795,7 +540,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="40">
+  <evento id="21">
     <nombre>Ana-Filipa Santos (M) –  Tamara Korpatsch (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -812,7 +557,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="41">
+  <evento id="22">
     <nombre>Hong Kong U16 (M) –  Tonga U16 (W)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Asiática</competicion>
@@ -822,7 +567,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T13:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="42">
+  <evento id="23">
     <nombre>Atyrau (W) –  Astana (W)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Campeonato</competicion>
@@ -830,26 +575,9 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
     <hora>13:00</hora>
     <url>https://livetv.sx/es/eventinfo/296451098_atyrau_w_astana_w/</url>
     <datetime_iso>2025-09-15T13:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/41mjva4__2g?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=41mjva4__2g&amp;lang=es&amp;eid=296451098&amp;lid=2822020&amp;ci=7848&amp;si=1</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="43">
-    <nombre>Hong Kong U16 (M) – Tonga U16 (W)</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Mujeres. Copa Asiática</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>13:00</hora>
-    <url>https://livetv.sx/es/eventinfo/297176401_hong_kong_u16_w_tonga_u16_w/</url>
-    <datetime_iso>2025-09-15T13:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="44">
+  <evento id="24">
     <nombre>Vitalia Diatchenko (M) –   Carol Young-Suh-Lee (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -866,7 +594,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="45">
+  <evento id="25">
     <nombre>Vitalia Diatchenko (M) –  Carol Young-Suh-Lee (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -883,7 +611,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="46">
+  <evento id="26">
     <nombre>Astana –  CHAMP1ON</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Kazajistán. Copa</competicion>
@@ -891,16 +619,9 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
     <hora>13:15</hora>
     <url>https://livetv.sx/es/eventinfo/298500106_astana_champ1on/</url>
     <datetime_iso>2025-09-15T13:15:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/HJO4q0uV4CI?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=HJO4q0uV4CI&amp;lang=es&amp;eid=298500106&amp;lid=2822163&amp;ci=1541&amp;si=3</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="47">
+  <evento id="27">
     <nombre>Elias Ymer –  Sandro  Kopp</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bad Waltersdorf</competicion>
@@ -917,7 +638,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="48">
+  <evento id="28">
     <nombre>Tamara Zidansek (M) –   Jennifer Ruggeri (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -934,7 +655,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="49">
+  <evento id="29">
     <nombre>Tamara Zidansek (M) –  Jennifer Ruggeri (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -951,7 +672,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="50">
+  <evento id="30">
     <nombre>Elias Ymer – Sandro  Kopp</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Bad Waltersdorf</competicion>
@@ -968,7 +689,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="51">
+  <evento id="31">
     <nombre>Trey Hilderbrand –  Aryan Shah</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Saint-Tropez</competicion>
@@ -985,7 +706,7 @@ player/live.php?id=242807&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="52">
+  <evento id="32">
     <nombre>Lois Boisson (M) –   Yeon Ku (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Seúl</competicion>
@@ -1037,7 +758,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="53">
+  <evento id="33">
     <nombre>Lois Boisson (M) –  Yeon Ku (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Seúl</competicion>
@@ -1089,7 +810,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="54">
+  <evento id="34">
     <nombre>EAU –  Omán</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Twenty20</competicion>
@@ -1118,7 +839,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="55">
+  <evento id="35">
     <nombre>Sokol Krasnoyarsk –  Buran Voronezh</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Rusia. VHL</competicion>
@@ -1135,7 +856,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="56">
+  <evento id="36">
     <nombre>Zaglebie Sosnowiec –  TTH Torun</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Polonia. PLH</competicion>
@@ -1145,7 +866,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T14:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="57">
+  <evento id="37">
     <nombre>Al Hilal –  Singida Black Stars</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Copa CECAFA</competicion>
@@ -1162,7 +883,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="58">
+  <evento id="38">
     <nombre>Kulager –  Almaty</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Kazajistán. Campeonato</competicion>
@@ -1172,24 +893,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T14:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="59">
-    <nombre>Dan Added –  Kyrian Jacquet</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>ATP Challenger. Saint-Tropez</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>14:00</hora>
-    <url>https://livetv.sx/es/eventinfo/297962097_dan_added_kyrian_jacquet/</url>
-    <datetime_iso>2025-09-15T14:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjI0NDc=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822152&amp;lang=es&amp;eid=297962097&amp;lid=2822152&amp;ci=4237&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="60">
+  <evento id="39">
     <nombre>Rodrigo Pacheco Mendez –  Nikolay Vylegzhanin</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Saint-Tropez</competicion>
@@ -1206,7 +910,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="61">
+  <evento id="40">
     <nombre>Semkir –  Dynamo</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Azerbaiyan. 2 Liga</competicion>
@@ -1223,7 +927,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="62">
+  <evento id="41">
     <nombre>Sokol Krasnoyarsk – Buran Voronezh</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. VHL</competicion>
@@ -1240,7 +944,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="63">
+  <evento id="42">
     <nombre>Zaglebie Sosnowiec – TTH Torun</nombre>
     <deporte>Hockey</deporte>
     <competicion>Polonia. PLH</competicion>
@@ -1250,7 +954,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T14:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="64">
+  <evento id="43">
     <nombre>Kulager – Almaty</nombre>
     <deporte>Hockey</deporte>
     <competicion>Kazajistán. Campeonato</competicion>
@@ -1260,24 +964,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T14:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="65">
-    <nombre>Dan Added – Kyrian Jacquet</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Saint-Tropez</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>14:00</hora>
-    <url>https://livetv.sx/es/eventinfo/297962097__/</url>
-    <datetime_iso>2025-09-15T14:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjI0NDc=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822152&amp;lang=es&amp;eid=297962097&amp;lid=2822152&amp;ci=4237&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="66">
+  <evento id="44">
     <nombre>Sofia Rocchetti (M) –   Barbora Palicova (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -1294,7 +981,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="67">
+  <evento id="45">
     <nombre>Sofia Rocchetti (M) –  Barbora Palicova (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -1311,7 +998,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="68">
+  <evento id="46">
     <nombre>Gianluca Cadenasso –  Alejandro Berge</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Clasificación</competicion>
@@ -1328,7 +1015,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="69">
+  <evento id="47">
     <nombre>Amaury Raynel –  Filippo Romano</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Clasificación</competicion>
@@ -1345,7 +1032,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="70">
+  <evento id="48">
     <nombre>Kato (M) /  Wu (M) –   Zhaoxuan (M) /  Yifan (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Seúl. Doubles</competicion>
@@ -1362,7 +1049,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="71">
+  <evento id="49">
     <nombre>Eva Vedder (M) –   Katherine Sebov (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -1379,7 +1066,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="72">
+  <evento id="50">
     <nombre>Eva Vedder (M) –  Katherine Sebov (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -1396,7 +1083,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="73">
+  <evento id="51">
     <nombre>Kato (M) /  Wu (M) –  Zhaoxuan (M) /  Yifan (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Seúl. Doubles</competicion>
@@ -1413,8 +1100,25 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="74">
-    <nombre>Agdash – Sirvan</nombre>
+  <evento id="52">
+    <nombre>Vasco Da Gama Sub-22 –   Uniao Corinthians Sub-22</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Brasil. LDB</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>14:30</hora>
+    <url>https://livetv.sx/es/eventinfo/298518242__vasco_da_gama_sub_22__uniao_corinthians_sub_22/</url>
+    <datetime_iso>2025-09-15T14:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/6JdNrLXFoos?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=6JdNrLXFoos&amp;lang=es&amp;eid=298518242&amp;lid=2822244&amp;ci=6165&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="53">
+    <nombre>Agdash –  Sirvan</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Azerbaiyan. 2 Liga</competicion>
     <fecha>15 de septiembre</fecha>
@@ -1430,14 +1134,292 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="75">
-    <nombre>Wagner (M) /  Christie (M) –  Oz (M) /  Noha (M)</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>WTA. Tolentino. Dobles</competicion>
+  <evento id="54">
+    <nombre>Vasco Da Gama Sub-22 –  Uniao Corinthians Sub-22</nombre>
+    <deporte>Baloncesto</deporte>
+    <competicion>Brasil. LDB</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>14:30</hora>
-    <url>https://livetv.sx/es/eventinfo/298487358__/</url>
+    <url>https://livetv.sx/es/eventinfo/298518242__/</url>
     <datetime_iso>2025-09-15T14:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/6JdNrLXFoos?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=6JdNrLXFoos&amp;lang=es&amp;eid=298518242&amp;lid=2822244&amp;ci=6165&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="55">
+    <nombre>Penang –  Melaka</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Malasia. Copa</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>14:45</hora>
+    <url>https://livetv.sx/es/eventinfo/298518655_penang_melaka/</url>
+    <datetime_iso>2025-09-15T14:45:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg0NjgwMjM=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822257&amp;lang=es&amp;eid=298518655&amp;lid=2822257&amp;ci=781&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="56">
+    <nombre>Penang – Melaka</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Malasia. Copa</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>14:45</hora>
+    <url>https://livetv.sx/es/eventinfo/298518655__/</url>
+    <datetime_iso>2025-09-15T14:45:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg0NjgwMjM=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822257&amp;lang=es&amp;eid=298518655&amp;lid=2822257&amp;ci=781&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="57">
+    <nombre>EUA –  Portugal</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Campeonato mundial</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/294935966_eua_portugal/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="7">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=238586&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=238586&amp;lang=es&amp;eid=294935966&amp;lid=2796777&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=241801&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241801&amp;lang=es&amp;eid=294935966&amp;lid=2819132&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl378.me/
+player/live.php?id=242274&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242274&amp;lang=es&amp;eid=294935966&amp;lid=2818486&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl378.me/
+player/live.php?id=242285&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242285&amp;lang=es&amp;eid=294935966&amp;lid=2818485&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://daddylive3.com/live/stream-50.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
+        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822212&amp;lang=es&amp;eid=294935966&amp;lid=2822212&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://powerover.site/live1/stream2.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822167&amp;lang=es&amp;eid=294935966&amp;lid=2822167&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://daddylive3.com/live/stream-102.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822221&amp;lang=es&amp;eid=294935966&amp;lid=2822221&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="58">
+    <nombre>Durham –  Worcestershire</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>County Championship One</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487071_durham_worcestershire/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/CcKfZECiD5U?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=CcKfZECiD5U&amp;lang=es&amp;eid=298487071&amp;lid=2822092&amp;ci=2788&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="59">
+    <nombre>Somerset –  Hampshire</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>County Championship One</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487072_somerset_hampshire/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/p3bTCSL5fak?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=p3bTCSL5fak&amp;lang=es&amp;eid=298487072&amp;lid=2822091&amp;ci=2788&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="60">
+    <nombre>Sussex Sharks –  Yorkshire</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>County Championship One</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487074_sussex_sharks_yorkshire/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/tRfojDHnQ6o?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=tRfojDHnQ6o&amp;lang=es&amp;eid=298487074&amp;lid=2822089&amp;ci=2788&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="61">
+    <nombre>Warwickshire –  Essex</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>County Championship One</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487075_warwickshire_essex/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/8aKA3of7SGA?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=8aKA3of7SGA&amp;lang=es&amp;eid=298487075&amp;lid=2822088&amp;ci=2788&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="62">
+    <nombre>Derbyshire –  Glamorgan</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>County Championship Two</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487091_derbyshire_glamorgan/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/GEB56cEeXpc?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=GEB56cEeXpc&amp;lang=es&amp;eid=298487091&amp;lid=2822086&amp;ci=2789&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="63">
+    <nombre>Gloucestershire –  Northamptonshire</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>County Championship Two</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487092_gloucestershire_northamptonshire/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/ojedBoxgCvI?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=ojedBoxgCvI&amp;lang=es&amp;eid=298487092&amp;lid=2822087&amp;ci=2789&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="64">
+    <nombre>Lancashire –  Middlesex</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>County Championship Two</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487093_lancashire_middlesex/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/DfzqKnIFGwk?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=DfzqKnIFGwk&amp;lang=es&amp;eid=298487093&amp;lid=2822085&amp;ci=2789&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="65">
+    <nombre>Leicestershire –  Kent</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>County Championship Two</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487094_leicestershire_kent/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/5Qq0hBq774M?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=5Qq0hBq774M&amp;lang=es&amp;eid=298487094&amp;lid=2822084&amp;ci=2789&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="66">
+    <nombre>Kaisar (W) –  Ulytau (W)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Campeonato</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296451099_kaisar_w_ulytau_w/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/1_W8fCGaris?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/37.png</idioma>
+        <idioma_nombre>Bandera #37</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=1_W8fCGaris&amp;lang=es&amp;eid=296451099&amp;lid=2822018&amp;ci=7848&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="67">
+    <nombre>Tomiris-Turan (W) –  Kyzylzhar (W)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Campeonato</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296451100_tomiris_turan_w_kyzylzhar_w/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/krsOAF8Px8U?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/37.png</idioma>
+        <idioma_nombre>Bandera #37</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=krsOAF8Px8U&amp;lang=es&amp;eid=296451100&amp;lid=2822019&amp;ci=7848&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="68">
+    <nombre>Wagner (M) /  Christie (M) –   Oz (M) /  Noha (M)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>WTA. Tolentino. Dobles</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487358__wagner_m___christie_m__oz_m___noha_m/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
     <streams total="1">
       <stream id="1">
         <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjUzNzc=</url>
@@ -1447,143 +1429,41 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="76">
-    <nombre>Daniel Uta – Peter Fajta</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Târgu Mureș 2. Clasificación</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>14:30</hora>
-    <url>https://livetv.sx/es/eventinfo/298309611_daniel_uta_peter_fajta/</url>
-    <datetime_iso>2025-09-15T14:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyNzc=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822011&amp;lang=es&amp;eid=298309611&amp;lid=2822011&amp;ci=8524&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="77">
-    <nombre>Tommaso Compagnucci – Stefan Palosi</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Târgu Mureș 2. Clasificación</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>14:30</hora>
-    <url>https://livetv.sx/es/eventinfo/298309612_tommaso_compagnucci_stefan_palosi/</url>
-    <datetime_iso>2025-09-15T14:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyNzY=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822035&amp;lang=es&amp;eid=298309612&amp;lid=2822035&amp;ci=8524&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="78">
-    <nombre>Iannis Miletich – Dan Alexandru Tomescu</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Târgu Mureș 2. Clasificación</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>14:30</hora>
-    <url>https://livetv.sx/es/eventinfo/298309613_iannis_miletich_dan_alexandru_tomescu/</url>
-    <datetime_iso>2025-09-15T14:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyNzk=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822034&amp;lang=es&amp;eid=298309613&amp;lid=2822034&amp;ci=8524&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="79">
-    <nombre>Gabriele Pennaforti – Imanol Lopez Morillo</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Târgu Mureș 2. Clasificación</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>14:30</hora>
-    <url>https://livetv.sx/es/eventinfo/298309614_gabriele_pennaforti_imanol_lopez_morillo/</url>
-    <datetime_iso>2025-09-15T14:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyODA=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822033&amp;lang=es&amp;eid=298309614&amp;lid=2822033&amp;ci=8524&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="80">
-    <nombre>Dart (M) /  Lumsden (M) –  Morderger (M) /  Morderger (M)</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>WTA. Caldas da Rainha. Dobles</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>14:45</hora>
-    <url>https://livetv.sx/es/eventinfo/298487315__/</url>
-    <datetime_iso>2025-09-15T14:45:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjU2NDE=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822156&amp;lang=es&amp;eid=298487315&amp;lid=2822156&amp;ci=8522&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="81">
-    <nombre>Kaisar (W) – Ulytau (W)</nombre>
+  <evento id="69">
+    <nombre>Zantedeschi (M) /  Moratelli (M) –   Basiletti (M) /  Urgesi (M)</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Kazajistán. Mujeres. Campeonato</competicion>
+    <competicion>WTA. Tolentino. Dobles</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296451099_kaisar_w_ulytau_w/</url>
+    <url>https://livetv.sx/es/eventinfo/298487359__zantedeschi_m___moratelli_m__basiletti_m___urgesi_m/</url>
     <datetime_iso>2025-09-15T15:00:00</datetime_iso>
     <streams total="1">
       <stream id="1">
-        <url>https://www.youtube.com/embed/1_W8fCGaris?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=1_W8fCGaris&amp;lang=es&amp;eid=296451099&amp;lid=2822018&amp;ci=7848&amp;si=1</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="82">
-    <nombre>Tomiris-Turan (W) – Kyzylzhar (W)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Kazajistán. Mujeres. Campeonato</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296451100_tomiris_turan_w_kyzylzhar_w/</url>
-    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/krsOAF8Px8U?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=krsOAF8Px8U&amp;lang=es&amp;eid=296451100&amp;lid=2822019&amp;ci=7848&amp;si=1</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="83">
-    <nombre>Polina Iatcenko (M) –  Matilde Jorge (M)</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>WTA. Caldas da Rainha</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298487308__/</url>
-    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjUzMTI=</url>
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjQ5OTQ=</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
         <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822196&amp;lang=es&amp;eid=298487308&amp;lid=2822196&amp;ci=8521&amp;si=4</enlace_original>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822195&amp;lang=es&amp;eid=298487359&amp;lid=2822195&amp;ci=8518&amp;si=4</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="84">
+  <evento id="70">
+    <nombre>Wagner (M) /  Christie (M) –  Oz (M) /  Noha (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Tolentino. Dobles</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487358__/</url>
+    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjUzNzc=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822158&amp;lang=es&amp;eid=298487358&amp;lid=2822158&amp;ci=8518&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="71">
     <nombre>Zantedeschi (M) /  Moratelli (M) –  Basiletti (M) /  Urgesi (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Tolentino. Dobles</competicion>
@@ -1600,58 +1480,7 @@ player/live.php?id=242379&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="85">
-    <nombre>Thiago Monteiro – Daniel Mérida Aguilar</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Bad Waltersdorf</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/297913479__/</url>
-    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjg=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822038&amp;lang=es&amp;eid=297913479&amp;lid=2822038&amp;ci=7063&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="86">
-    <nombre>Francesco Passaro – Dusan Lajovic</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Bad Waltersdorf</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/297913481__/</url>
-    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjc=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822037&amp;lang=es&amp;eid=297913481&amp;lid=2822037&amp;ci=7063&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="87">
-    <nombre>Jan Choinski – Vitaliy Sachko</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Bad Waltersdorf</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/297913482__/</url>
-    <datetime_iso>2025-09-15T15:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjQ=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822036&amp;lang=es&amp;eid=297913482&amp;lid=2822036&amp;ci=7063&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="88">
+  <evento id="72">
     <nombre>EUA – Portugal</nombre>
     <deporte>Voleibol</deporte>
     <competicion>Campeonato mundial</competicion>
@@ -1669,76 +1498,152 @@ player/live.php?id=238586&amp;w=700&amp;h=480</url>
       </stream>
       <stream id="2">
         <url>https://emb.apl378.me/
-player/live.php?id=239186&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
-        <idioma_nombre>Coreano</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=239186&amp;lang=es&amp;eid=294935966&amp;lid=2782067&amp;ci=272&amp;si=5</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://emb.apl378.me/
 player/live.php?id=241801&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241801&amp;lang=es&amp;eid=294935966&amp;lid=2819132&amp;ci=272&amp;si=5</enlace_original>
       </stream>
-      <stream id="4">
+      <stream id="3">
         <url>https://emb.apl378.me/
 player/live.php?id=242274&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
         <idioma_nombre>Inglés</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242274&amp;lang=es&amp;eid=294935966&amp;lid=2818486&amp;ci=272&amp;si=5</enlace_original>
       </stream>
-      <stream id="5">
+      <stream id="4">
         <url>https://emb.apl378.me/
 player/live.php?id=242285&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
         <idioma_nombre>Inglés</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242285&amp;lang=es&amp;eid=294935966&amp;lid=2818485&amp;ci=272&amp;si=5</enlace_original>
       </stream>
-      <stream id="6">
-        <url>https://powerover.site/live1/stream2.php</url>
+      <stream id="5">
+        <url>https://voodc.com/embed/1/85818b98a58b9a86847a859a9c8f988d.html</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
         <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822167&amp;lang=es&amp;eid=294935966&amp;lid=2822167&amp;ci=272&amp;si=5</enlace_original>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822295&amp;lang=es&amp;eid=294935966&amp;lid=2822295&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://daddylive3.com/live/stream-50.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
+        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822212&amp;lang=es&amp;eid=294935966&amp;lid=2822212&amp;ci=272&amp;si=5</enlace_original>
       </stream>
       <stream id="7">
-        <url>https://daddylive3.com/live/stream-102.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822221&amp;lang=es&amp;eid=294935966&amp;lid=2822221&amp;ci=272&amp;si=5</enlace_original>
+        <url>https://powerover.site/live1/stream2.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822167&amp;lang=es&amp;eid=294935966&amp;lid=2822167&amp;ci=272&amp;si=5</enlace_original>
       </stream>
       <stream id="8">
-        <url>https://daddylive3.com/live/stream-50.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822212&amp;lang=es&amp;eid=294935966&amp;lid=2822212&amp;ci=272&amp;si=5</enlace_original>
+        <url>https://daddylive3.com/live/stream-102.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822221&amp;lang=es&amp;eid=294935966&amp;lid=2822221&amp;ci=272&amp;si=5</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="89">
-    <nombre>ATP Challenger. Villa Maria</nombre>
+  <evento id="73">
+    <nombre>Jan Choinski –  Vitaliy Sachko</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Bad Waltersdorf</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:05</hora>
+    <url>https://livetv.sx/es/eventinfo/297913482_jan_choinski_vitaliy_sachko/</url>
+    <datetime_iso>2025-09-15T15:05:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjQ=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822036&amp;lang=es&amp;eid=297913482&amp;lid=2822036&amp;ci=7063&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="74">
+    <nombre>Jan Choinski – Vitaliy Sachko</nombre>
     <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bad Waltersdorf</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:05</hora>
+    <url>https://livetv.sx/es/eventinfo/297913482__/</url>
+    <datetime_iso>2025-09-15T15:05:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjQ=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822036&amp;lang=es&amp;eid=297913482&amp;lid=2822036&amp;ci=7063&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="75">
+    <nombre>Dan Added –  Kyrian Jacquet</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP Challenger. Saint-Tropez</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:10</hora>
+    <url>https://livetv.sx/es/eventinfo/297962097_dan_added_kyrian_jacquet/</url>
+    <datetime_iso>2025-09-15T15:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjI0NDc=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822152&amp;lang=es&amp;eid=297962097&amp;lid=2822152&amp;ci=4237&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="76">
+    <nombre>ATP Challenger. Villa Maria</nombre>
+    <deporte>Fútbol</deporte>
     <competicion>ATP Challenger. Villa Maria</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>15:10</hora>
     <url>https://livetv.sx/es/eventinfo/298308394_atp_challenger_villa_maria/</url>
     <datetime_iso>2025-09-15T15:10:00</datetime_iso>
-    <streams total="0" />
+    <streams total="3">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyODk=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822040&amp;lang=es&amp;eid=298308394&amp;lid=2822040&amp;ci=6364&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://www.googletagmanager.com/ns.html?id=GTM-KP6F8L8</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://tinyurl.com/rmf7jbbp</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjY4ODk=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822039&amp;lang=es&amp;eid=298308394&amp;lid=2822039&amp;ci=6364&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="90">
-    <nombre>Hernan Casanova – Alejo Lorenzo Lingua Lavallen</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Villa Maria. Clasificatoria</competicion>
+  <evento id="77">
+    <nombre>Hernan Casanova –  Alejo Lorenzo Lingua Lavallen</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Clasificatoria</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>15:10</hora>
     <url>https://livetv.sx/es/eventinfo/298308399_hernan_casanova_alejo_lorenzo_lingua_lavallen/</url>
     <datetime_iso>2025-09-15T15:10:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.googletagmanager.com/ns.html?id=GTM-KP6F8L8</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://tinyurl.com/rmf7jbbp</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="91">
-    <nombre>Facundo Juarez – Arklon Huertas Del Pino Cordova</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Villa Maria. Clasificatoria</competicion>
+  <evento id="78">
+    <nombre>Facundo Juarez –  Arklon Huertas Del Pino Cordova</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Clasificatoria</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>15:10</hora>
     <url>https://livetv.sx/es/eventinfo/298308400_facundo_juarez_arklon_huertas_del_pino_cordova/</url>
@@ -1752,10 +1657,10 @@ player/live.php?id=242285&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="92">
-    <nombre>Franco Ribero – Lautaro Agustin Falabella</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP Challenger. Villa Maria. Clasificatoria</competicion>
+  <evento id="79">
+    <nombre>Franco Ribero –  Lautaro Agustin Falabella</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Clasificatoria</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>15:10</hora>
     <url>https://livetv.sx/es/eventinfo/298308401_franco_ribero_lautaro_agustin_falabella/</url>
@@ -1769,65 +1674,166 @@ player/live.php?id=242285&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="93">
-    <nombre>Avangard – Dinamo Mn</nombre>
-    <deporte>Hockey</deporte>
-    <competicion>No especificado</competicion>
+  <evento id="80">
+    <nombre>Thiago Monteiro –  Daniel Mérida Aguilar</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Bad Waltersdorf</competicion>
     <fecha>15 de septiembre</fecha>
-    <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/294937909__/</url>
-    <datetime_iso>2025-09-15T15:30:00</datetime_iso>
-    <streams total="2">
-      <stream id="1">
-        <url>https://emb.apl378.me/
-player/live.php?id=242563&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/30.png</idioma>
-        <idioma_nombre>Serbio</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242563&amp;lang=es&amp;eid=294937909&amp;lid=2816132&amp;ci=167&amp;si=2</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl378.me/
-player/live.php?id=242806&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242806&amp;lang=es&amp;eid=294937909&amp;lid=2822013&amp;ci=167&amp;si=2</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="94">
-    <nombre>Tolpar – Stalnye Lisy</nombre>
-    <deporte>Hockey</deporte>
-    <competicion>Rusia. MHL</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/294938747__/</url>
-    <datetime_iso>2025-09-15T15:30:00</datetime_iso>
+    <hora>15:10</hora>
+    <url>https://livetv.sx/es/eventinfo/297913479_thiago_monteiro_daniel_m__rida_aguilar/</url>
+    <datetime_iso>2025-09-15T15:10:00</datetime_iso>
     <streams total="1">
       <stream id="1">
-        <url>https://www.youtube.com/embed/P2hn2W595s0?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=P2hn2W595s0&amp;lang=es&amp;eid=294938747&amp;lid=2822055&amp;ci=279&amp;si=2</enlace_original>
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjg=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822038&amp;lang=es&amp;eid=297913479&amp;lid=2822038&amp;ci=7063&amp;si=4</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="95">
-    <nombre>Atyrau-2 – Atyrau</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Kazajistán. Copa</competicion>
+  <evento id="81">
+    <nombre>Polina Iatcenko (M) –   Matilde Jorge (M)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>WTA. Caldas da Rainha</competicion>
     <fecha>15 de septiembre</fecha>
-    <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/298500107_atyrau_2_atyrau/</url>
-    <datetime_iso>2025-09-15T15:30:00</datetime_iso>
-    <streams total="0" />
+    <hora>15:10</hora>
+    <url>https://livetv.sx/es/eventinfo/298487308__polina_iatcenko_m__matilde_jorge_m/</url>
+    <datetime_iso>2025-09-15T15:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjUzMTI=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822196&amp;lang=es&amp;eid=298487308&amp;lid=2822196&amp;ci=8521&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="96">
-    <nombre>Polonia – Qatar</nombre>
-    <deporte>Voleibol</deporte>
+  <evento id="82">
+    <nombre>Polina Iatcenko (M) –  Matilde Jorge (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Caldas da Rainha</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:10</hora>
+    <url>https://livetv.sx/es/eventinfo/298487308__/</url>
+    <datetime_iso>2025-09-15T15:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjUzMTI=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822196&amp;lang=es&amp;eid=298487308&amp;lid=2822196&amp;ci=8521&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="83">
+    <nombre>Dan Added – Kyrian Jacquet</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Saint-Tropez</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:10</hora>
+    <url>https://livetv.sx/es/eventinfo/297962097__/</url>
+    <datetime_iso>2025-09-15T15:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjI0NDc=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822152&amp;lang=es&amp;eid=297962097&amp;lid=2822152&amp;ci=4237&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="84">
+    <nombre>Thiago Monteiro – Daniel Mérida Aguilar</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bad Waltersdorf</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:10</hora>
+    <url>https://livetv.sx/es/eventinfo/297913479__/</url>
+    <datetime_iso>2025-09-15T15:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjg=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822038&amp;lang=es&amp;eid=297913479&amp;lid=2822038&amp;ci=7063&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="85">
+    <nombre>Francesco Passaro –  Dusan Lajovic</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Bad Waltersdorf</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:15</hora>
+    <url>https://livetv.sx/es/eventinfo/297913481_francesco_passaro_dusan_lajovic/</url>
+    <datetime_iso>2025-09-15T15:15:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjc=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822037&amp;lang=es&amp;eid=297913481&amp;lid=2822037&amp;ci=7063&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="86">
+    <nombre>Dart (M) /  Lumsden (M) –   Morderger (M) /  Morderger (M)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>WTA. Caldas da Rainha. Dobles</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:15</hora>
+    <url>https://livetv.sx/es/eventinfo/298487315__dart_m___lumsden_m__morderger_m___morderger_m/</url>
+    <datetime_iso>2025-09-15T15:15:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjU2NDE=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822156&amp;lang=es&amp;eid=298487315&amp;lid=2822156&amp;ci=8522&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="87">
+    <nombre>Dart (M) /  Lumsden (M) –  Morderger (M) /  Morderger (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Caldas da Rainha. Dobles</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:15</hora>
+    <url>https://livetv.sx/es/eventinfo/298487315__/</url>
+    <datetime_iso>2025-09-15T15:15:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjU2NDE=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822156&amp;lang=es&amp;eid=298487315&amp;lid=2822156&amp;ci=8522&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="88">
+    <nombre>Francesco Passaro – Dusan Lajovic</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Bad Waltersdorf</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:15</hora>
+    <url>https://livetv.sx/es/eventinfo/297913481__/</url>
+    <datetime_iso>2025-09-15T15:15:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjIwNjc=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822037&amp;lang=es&amp;eid=297913481&amp;lid=2822037&amp;ci=7063&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="89">
+    <nombre>Polonia –  Qatar</nombre>
+    <deporte>Fútbol</deporte>
     <competicion>Campeonato mundial</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/294939175__/</url>
+    <url>https://livetv.sx/es/eventinfo/294939175_polonia_qatar/</url>
     <datetime_iso>2025-09-15T15:30:00</datetime_iso>
     <streams total="8">
       <stream id="1">
@@ -1887,7 +1893,191 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="97">
+  <evento id="90">
+    <nombre>Avangard –  Dinamo Mn</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>No especificado</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:30</hora>
+    <url>https://livetv.sx/es/eventinfo/294937909_avangard_dinamo_mn/</url>
+    <datetime_iso>2025-09-15T15:30:00</datetime_iso>
+    <streams total="5">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=242563&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/30.png</idioma>
+        <idioma_nombre>Serbio</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242563&amp;lang=es&amp;eid=294937909&amp;lid=2816132&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=242806&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242806&amp;lang=es&amp;eid=294937909&amp;lid=2822013&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://voodc.com/embed/85818b98a58b9c84847a859a9c89988584.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822236&amp;lang=es&amp;eid=294937909&amp;lid=2822236&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://www.hlsplayer.org/play?url=https%3A%2F%2Fedge52.dc.beltelecom.by%2Fngtrk%2F_definst_%2Fsmil%3Abelarus5int.smil%2Fplaylist.m3u8</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/30.png</idioma>
+        <idioma_nombre>Serbio</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822025&amp;lang=es&amp;eid=294937909&amp;lid=2822025&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://www.hlsplayer.org/play?url=https%3A%2F%2Fedge52.dc.beltelecom.by%2Fngtrk%2F_definst_%2Fsmil%3Abelarus5.smil%2Fplaylist.m3u8</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/30.png</idioma>
+        <idioma_nombre>Serbio</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822024&amp;lang=es&amp;eid=294937909&amp;lid=2822024&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="91">
+    <nombre>Avangard – Dinamo Mn</nombre>
+    <deporte>Hockey</deporte>
+    <competicion>No especificado</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:30</hora>
+    <url>https://livetv.sx/es/eventinfo/294937909__/</url>
+    <datetime_iso>2025-09-15T15:30:00</datetime_iso>
+    <streams total="5">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=242563&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/30.png</idioma>
+        <idioma_nombre>Serbio</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242563&amp;lang=es&amp;eid=294937909&amp;lid=2816132&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=242806&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242806&amp;lang=es&amp;eid=294937909&amp;lid=2822013&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://voodc.com/embed/85818b98a58b9c84847a859a9c89988584.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822236&amp;lang=es&amp;eid=294937909&amp;lid=2822236&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://www.hlsplayer.org/play?url=https%3A%2F%2Fedge52.dc.beltelecom.by%2Fngtrk%2F_definst_%2Fsmil%3Abelarus5int.smil%2Fplaylist.m3u8</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/30.png</idioma>
+        <idioma_nombre>Serbio</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822025&amp;lang=es&amp;eid=294937909&amp;lid=2822025&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://www.hlsplayer.org/play?url=https%3A%2F%2Fedge52.dc.beltelecom.by%2Fngtrk%2F_definst_%2Fsmil%3Abelarus5.smil%2Fplaylist.m3u8</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/30.png</idioma>
+        <idioma_nombre>Serbio</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822024&amp;lang=es&amp;eid=294937909&amp;lid=2822024&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="92">
+    <nombre>Tolpar – Stalnye Lisy</nombre>
+    <deporte>Hockey</deporte>
+    <competicion>Rusia. MHL</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:30</hora>
+    <url>https://livetv.sx/es/eventinfo/294938747__/</url>
+    <datetime_iso>2025-09-15T15:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/P2hn2W595s0?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=P2hn2W595s0&amp;lang=es&amp;eid=294938747&amp;lid=2822055&amp;ci=279&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="93">
+    <nombre>Atyrau-2 – Atyrau</nombre>
+    <deporte>Baloncesto</deporte>
+    <competicion>Kazajistán. Copa</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:30</hora>
+    <url>https://livetv.sx/es/eventinfo/298500107_atyrau_2_atyrau/</url>
+    <datetime_iso>2025-09-15T15:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/PAkOM60112w?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=PAkOM60112w&amp;lang=es&amp;eid=298500107&amp;lid=2822251&amp;ci=1541&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="94">
+    <nombre>Polonia – Qatar</nombre>
+    <deporte>Voleibol</deporte>
+    <competicion>Campeonato mundial</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>15:30</hora>
+    <url>https://livetv.sx/es/eventinfo/294939175__/</url>
+    <datetime_iso>2025-09-15T15:30:00</datetime_iso>
+    <streams total="8">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=239188&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
+        <idioma_nombre>Croata</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=239188&amp;lang=es&amp;eid=294939175&amp;lid=2821657&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=242357&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242357&amp;lang=es&amp;eid=294939175&amp;lid=2812169&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl378.me/
+player/live.php?id=242305&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242305&amp;lang=es&amp;eid=294939175&amp;lid=2819131&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl378.me/
+player/live.php?id=242312&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242312&amp;lang=es&amp;eid=294939175&amp;lid=2812105&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://emb.apl378.me/
+player/live.php?id=242313&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242313&amp;lang=es&amp;eid=294939175&amp;lid=2819130&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://voodc.com/embed/1/85818b98a58b9c84847a859a9c90988585.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822297&amp;lang=es&amp;eid=294939175&amp;lid=2822297&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://antenasport.org/polsatsport1.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
+        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2819659&amp;lang=es&amp;eid=294939175&amp;lid=2819659&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://daddylive3.com/live/stream-103.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822222&amp;lang=es&amp;eid=294939175&amp;lid=2822222&amp;ci=272&amp;si=5</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="95">
     <nombre>Sharjah – Al-Gharafa</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones Élite de la AFC</competicion>
@@ -1895,19 +2085,81 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>15:45</hora>
     <url>https://livetv.sx/es/eventinfo/294937952__/</url>
     <datetime_iso>2025-09-15T15:45:00</datetime_iso>
-    <streams total="0" />
+    <streams total="8">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=239403&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/4.png</idioma>
+        <idioma_nombre>Italiano (Italia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=239403&amp;lang=es&amp;eid=294937952&amp;lid=2782748&amp;ci=53&amp;si=1</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=242621&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242621&amp;lang=es&amp;eid=294937952&amp;lid=2816812&amp;ci=53&amp;si=1</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl378.me/
+player/live.php?id=242622&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242622&amp;lang=es&amp;eid=294937952&amp;lid=2816813&amp;ci=53&amp;si=1</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl378.me/
+player/live.php?id=242327&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242327&amp;lang=es&amp;eid=294937952&amp;lid=2812868&amp;ci=53&amp;si=1</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://emb.apl378.me/
+player/live.php?id=242328&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/5.png</idioma>
+        <idioma_nombre>Alemán (Alemania)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242328&amp;lang=es&amp;eid=294937952&amp;lid=2812869&amp;ci=53&amp;si=1</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://emb.apl378.me/
+player/live.php?id=242346&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242346&amp;lang=es&amp;eid=294937952&amp;lid=2814481&amp;ci=53&amp;si=1</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://www.youtube.com/embed/LU4M65A0jC0?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/5.png</idioma>
+        <idioma_nombre>Alemán (Alemania)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=LU4M65A0jC0&amp;lang=es&amp;eid=294937952&amp;lid=2819448&amp;ci=53&amp;si=1</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://daddylive3.com/live/stream-101.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822220&amp;lang=es&amp;eid=294937952&amp;lid=2822220&amp;ci=53&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="98">
-    <nombre>Kolb (M) /  Kolb (M) –  Tikhonova (M) /  Brooks (M)</nombre>
+  <evento id="96">
+    <nombre>Tommaso Compagnucci – Stefan Palosi</nombre>
     <deporte>Tenis</deporte>
-    <competicion>WTA. Caldas da Rainha. Dobles</competicion>
+    <competicion>ATP Challenger. Târgu Mureș 2. Clasificación</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>15:45</hora>
-    <url>https://livetv.sx/es/eventinfo/298487316__/</url>
+    <url>https://livetv.sx/es/eventinfo/298309612_tommaso_compagnucci_stefan_palosi/</url>
     <datetime_iso>2025-09-15T15:45:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyNzY=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822035&amp;lang=es&amp;eid=298309612&amp;lid=2822035&amp;ci=8524&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="99">
+  <evento id="97">
     <nombre>Graficar – Dinamo Jug</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Serbia. Prva Liga</competicion>
@@ -1915,9 +2167,16 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/297172275_graficar_dinamo_jug/</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/a3qMbejQbKg?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=a3qMbejQbKg&amp;lang=es&amp;eid=297172275&amp;lid=2819486&amp;ci=2427&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="100">
+  <evento id="98">
     <nombre>Doqarah – Amman</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Jordania. División 1</competicion>
@@ -1927,7 +2186,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="101">
+  <evento id="99">
     <nombre>Maan – Al-Sareeh</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Jordania. División 1</competicion>
@@ -1937,7 +2196,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="102">
+  <evento id="100">
     <nombre>Rosario Central (M) –  Talleres de Cordoba (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Argentina. Mujeres. Primera División</competicion>
@@ -1947,7 +2206,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="103">
+  <evento id="101">
     <nombre>Ufá – Ural</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Rusia. FNL</competicion>
@@ -1955,9 +2214,30 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/298500249__/</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="3">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=242315&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242315&amp;lang=es&amp;eid=298500249&amp;lid=2812094&amp;ci=65&amp;si=1</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=242326&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242326&amp;lang=es&amp;eid=298500249&amp;lid=2814480&amp;ci=65&amp;si=1</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://daddylive3.com/live/stream-573.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822271&amp;lang=es&amp;eid=298500249&amp;lid=2822271&amp;ci=65&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="104">
+  <evento id="102">
     <nombre>Avtomobilist – Salavat Yulaev</nombre>
     <deporte>Hockey</deporte>
     <competicion>No especificado</competicion>
@@ -1965,9 +2245,52 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/294941162__/</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="4">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=240344&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=240344&amp;lang=es&amp;eid=294941162&amp;lid=2794819&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://voodc.com/embed/85818b98a58b9d8c847a859a9c8a988587.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822259&amp;lang=es&amp;eid=294941162&amp;lid=2822259&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://daddylivestream.com/embed/stream-16.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822258&amp;lang=es&amp;eid=294941162&amp;lid=2822258&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://daddylive3.com/live/stream-16.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822207&amp;lang=es&amp;eid=294941162&amp;lid=2822207&amp;ci=167&amp;si=2</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="105">
+  <evento id="103">
+    <nombre>Kolb (M) /  Kolb (M) –  Tikhonova (M) /  Brooks (M)</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>WTA. Caldas da Rainha. Dobles</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>16:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298487316__/</url>
+    <datetime_iso>2025-09-15T16:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjU2NDI=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822093&amp;lang=es&amp;eid=298487316&amp;lid=2822093&amp;ci=8522&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="104">
     <nombre>Antoine Ghibaudo – Erik Arutiunian</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus. Clasificatoria</competicion>
@@ -1975,9 +2298,16 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/298486974_antoine_ghibaudo_erik_arutiunian/</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjcwNzA=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822042&amp;lang=es&amp;eid=298486974&amp;lid=2822042&amp;ci=5270&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="106">
+  <evento id="105">
     <nombre>Tristan McCormick – Daniel Masur</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus. Clasificatoria</competicion>
@@ -1985,9 +2315,50 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/298486975_tristan_mccormick_daniel_masur/</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYzNjQ=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822041&amp;lang=es&amp;eid=298486975&amp;lid=2822041&amp;ci=5270&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="106">
+    <nombre>Iannis Miletich – Dan Alexandru Tomescu</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Târgu Mureș 2. Clasificación</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>16:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298309613_iannis_miletich_dan_alexandru_tomescu/</url>
+    <datetime_iso>2025-09-15T16:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyNzk=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822034&amp;lang=es&amp;eid=298309613&amp;lid=2822034&amp;ci=8524&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
   <evento id="107">
+    <nombre>Gabriele Pennaforti – Imanol Lopez Morillo</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP Challenger. Târgu Mureș 2. Clasificación</competicion>
+    <fecha>15 de septiembre</fecha>
+    <hora>16:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298309614_gabriele_pennaforti_imanol_lopez_morillo/</url>
+    <datetime_iso>2025-09-15T16:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjYyODA=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822033&amp;lang=es&amp;eid=298309614&amp;lid=2822033&amp;ci=8524&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="108">
     <nombre>Polish Speedway. 2 Liga</nombre>
     <deporte>Automovilismo</deporte>
     <competicion>Speedway</competicion>
@@ -1995,9 +2366,16 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/298500314_polish_speedway_2_liga/</url>
     <datetime_iso>2025-09-15T16:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://daddylivestream.com/embed/stream-75.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
+        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822260&amp;lang=es&amp;eid=298500314&amp;lid=2822260&amp;ci=130&amp;si=7</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="108">
+  <evento id="109">
     <nombre>ATP Challenger. Columbus</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus</competicion>
@@ -2007,7 +2385,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T16:10:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="109">
+  <evento id="110">
     <nombre>Daugavpils – Grobina</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Letonia. Virsliga</competicion>
@@ -2015,9 +2393,16 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:30</hora>
     <url>https://livetv.sx/es/eventinfo/294944382__/</url>
     <datetime_iso>2025-09-15T16:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg0NTMxNjQ=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822095&amp;lang=es&amp;eid=294944382&amp;lid=2822095&amp;ci=107&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="110">
+  <evento id="111">
     <nombre>Barys – Dynamo Msk</nombre>
     <deporte>Hockey</deporte>
     <competicion>No especificado</competicion>
@@ -2027,7 +2412,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T16:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="111">
+  <evento id="112">
     <nombre>Karolina Pliskova (M) –  Tessah Andrianjafitrimo (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Caldas da Rainha</competicion>
@@ -2035,9 +2420,16 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:30</hora>
     <url>https://livetv.sx/es/eventinfo/298487309__/</url>
     <datetime_iso>2025-09-15T16:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjUzMTU=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822094&amp;lang=es&amp;eid=298487309&amp;lid=2822094&amp;ci=8521&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="112">
+  <evento id="113">
     <nombre>Facundo Bagnis – Leonardo Aboian</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Villa Maria. Clasificatoria</competicion>
@@ -2045,9 +2437,16 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:30</hora>
     <url>https://livetv.sx/es/eventinfo/298308402_facundo_bagnis_leonardo_aboian/</url>
     <datetime_iso>2025-09-15T16:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjY1Mjc=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822045&amp;lang=es&amp;eid=298308402&amp;lid=2822045&amp;ci=6379&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="113">
+  <evento id="114">
     <nombre>Santiago De La Fuente – Julian Cundom</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Villa Maria. Clasificatoria</competicion>
@@ -2055,9 +2454,16 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:30</hora>
     <url>https://livetv.sx/es/eventinfo/298482792_santiago_de_la_fuente_julian_cundom/</url>
     <datetime_iso>2025-09-15T16:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjcwNzg=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822044&amp;lang=es&amp;eid=298482792&amp;lid=2822044&amp;ci=6379&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="114">
+  <evento id="115">
     <nombre>Ignacio Monzon – Carlos Maria Zarate</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Villa Maria. Clasificatoria</competicion>
@@ -2065,9 +2471,16 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <hora>16:30</hora>
     <url>https://livetv.sx/es/eventinfo/298482793_ignacio_monzon_carlos_maria_zarate/</url>
     <datetime_iso>2025-09-15T16:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2MjcwNzY=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822043&amp;lang=es&amp;eid=298482793&amp;lid=2822043&amp;ci=6379&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="115">
+  <evento id="116">
     <nombre>FarDU – Jayxun</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Uzbekistán. Pro Liga</competicion>
@@ -2077,7 +2490,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="116">
+  <evento id="117">
     <nombre>Hermannstadt – Unirea Slobozia</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Rumania. Liga 1</competicion>
@@ -2087,7 +2500,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="117">
+  <evento id="118">
     <nombre>CSKA 1948 – Slavia Sofia</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bulgaria. Parva Liga</competicion>
@@ -2097,7 +2510,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="118">
+  <evento id="119">
     <nombre>CSK VVS – Khimik Vs</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. VHL</competicion>
@@ -2107,7 +2520,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="119">
+  <evento id="120">
     <nombre>Bars – Zvezda Moscú</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. VHL</competicion>
@@ -2117,7 +2530,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="120">
+  <evento id="121">
     <nombre>Chaika – Krasnoyarskiye Rysi</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. MHL</competicion>
@@ -2127,7 +2540,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="121">
+  <evento id="122">
     <nombre>Sputnik Almetyevsk – Snezhnye Barsy</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. MHL</competicion>
@@ -2137,7 +2550,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="122">
+  <evento id="123">
     <nombre>Loko-76 – JHC Molot</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. MHL</competicion>
@@ -2147,7 +2560,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="123">
+  <evento id="124">
     <nombre>Irbis – Sibirskie Snaypery</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. MHL</competicion>
@@ -2157,7 +2570,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="124">
+  <evento id="125">
     <nombre>Samir Banerjee – Nikita Filin</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus. Clasificatoria</competicion>
@@ -2167,7 +2580,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="125">
+  <evento id="126">
     <nombre>Brandon Nakashima – Justin Boulais</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus. Clasificatoria</competicion>
@@ -2177,7 +2590,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="126">
+  <evento id="127">
     <nombre>Al Wahda – Al-Ittihad Yeda</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones Élite de la AFC</competicion>
@@ -2187,7 +2600,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="127">
+  <evento id="128">
     <nombre>Nof HaGalil – Rishon LeZion</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -2197,7 +2610,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="128">
+  <evento id="129">
     <nombre>Kiryat Yam – Maccabi Herzliya</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -2207,7 +2620,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="129">
+  <evento id="130">
     <nombre>Hapoel Raanana – Hapoel Kfar Shalem</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -2217,7 +2630,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="130">
+  <evento id="131">
     <nombre>Ittihad Tanger – Olympic Safi</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Marruecos. Botola Pro</competicion>
@@ -2227,7 +2640,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="131">
+  <evento id="132">
     <nombre>Dinamo Brest – Neman</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bielorrusia. Vysheyshaya Liga</competicion>
@@ -2237,7 +2650,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="132">
+  <evento id="133">
     <nombre>Leverkusen (M) –  Union Berlin (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Alemania. Mujeres. Bundesliga</competicion>
@@ -2247,7 +2660,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="133">
+  <evento id="134">
     <nombre>Levadia Sub-21 –  Nomme Kalju Sub-21</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Estonia. Esiliiga</competicion>
@@ -2257,7 +2670,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="134">
+  <evento id="135">
     <nombre>Dinamo St Pburg – Omskiye Kryliya</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. VHL</competicion>
@@ -2267,7 +2680,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="135">
+  <evento id="136">
     <nombre>Dominika Salkova (M) –  Silvia Ambrosio (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -2277,7 +2690,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="136">
+  <evento id="137">
     <nombre>Francesco Maestrelli – Lorenzo Joaquin Rodriguez</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Villa Maria</competicion>
@@ -2287,7 +2700,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="137">
+  <evento id="138">
     <nombre>Maximus Jones – Joao Lucas</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Villa Maria</competicion>
@@ -2297,7 +2710,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="138">
+  <evento id="139">
     <nombre>Mae Malige – Michael Mmoh</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Saint-Tropez</competicion>
@@ -2307,7 +2720,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="139">
+  <evento id="140">
     <nombre>Stal Mielec – Chrobry Glogovia</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Polonia. Superliga</competicion>
@@ -2317,7 +2730,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="140">
+  <evento id="141">
     <nombre>Hellas Verona – Cremonese</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Italia. Serie A</competicion>
@@ -2327,7 +2740,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="141">
+  <evento id="142">
     <nombre>Rodina – Fakel</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Rusia. FNL</competicion>
@@ -2337,7 +2750,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="142">
+  <evento id="143">
     <nombre>IA Akranes – Afturelding</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Islandia. Besta deild</competicion>
@@ -2347,7 +2760,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T18:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="143">
+  <evento id="144">
     <nombre>Rizespor – Genclerbirligi</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Turquía. Superliga</competicion>
@@ -2357,7 +2770,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="144">
+  <evento id="145">
     <nombre>Rakow – Gornik Zabrze</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Polonia. Ekstraklasa</competicion>
@@ -2367,7 +2780,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="145">
+  <evento id="146">
     <nombre>AIK – Brommapojkarna</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Suecia. Allsvenskan</competicion>
@@ -2377,7 +2790,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="146">
+  <evento id="147">
     <nombre>BB Erzurumspor – Sakaryaspor</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Turquía. 1 Lig</competicion>
@@ -2387,7 +2800,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="147">
+  <evento id="148">
     <nombre>Norrkoeping (M) –  Djurgarden (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Suecia. Mujeres. Damallsvenskan</competicion>
@@ -2397,7 +2810,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="148">
+  <evento id="149">
     <nombre>Oergryte – Umea</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Suecia. Superettan</competicion>
@@ -2407,7 +2820,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="149">
+  <evento id="150">
     <nombre>Fredericia – Vejle</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Dinamarca. Superliga</competicion>
@@ -2417,7 +2830,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="150">
+  <evento id="151">
     <nombre>Maccabi Haifa – Asdod</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Premier</competicion>
@@ -2427,7 +2840,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="151">
+  <evento id="152">
     <nombre>Wieczysta – Stal Mielec</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Polonia. I Liga</competicion>
@@ -2437,7 +2850,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="152">
+  <evento id="153">
     <nombre>Esbjerg Energy – Odense</nombre>
     <deporte>Hockey</deporte>
     <competicion>Dinamarca. Metal Ligaen</competicion>
@@ -2447,7 +2860,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="153">
+  <evento id="154">
     <nombre>Daniel Milavsky – Sebastian Dominko</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus. Clasificatoria</competicion>
@@ -2457,7 +2870,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="154">
+  <evento id="155">
     <nombre>Peyton Stearns – Kaylan Bigun</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus. Clasificatoria</competicion>
@@ -2467,7 +2880,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="155">
+  <evento id="156">
     <nombre>Flensburgo – Hannover-Burgdorf</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Alemania. Bundesliga</competicion>
@@ -2477,7 +2890,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="156">
+  <evento id="157">
     <nombre>Metaloplastika – Estrella Roja</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Serbia. Superliga</competicion>
@@ -2487,7 +2900,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="157">
+  <evento id="158">
     <nombre>Haecken – Goeteborg</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Suecia. Allsvenskan</competicion>
@@ -2497,7 +2910,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:10:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="158">
+  <evento id="159">
     <nombre>KI Klaksvik – Vikingur</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Islas Feroe. Liga Premier</competicion>
@@ -2507,7 +2920,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="159">
+  <evento id="160">
     <nombre>Erbil – Al-Náyaf</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Irak. Liga Premier</competicion>
@@ -2517,7 +2930,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="160">
+  <evento id="161">
     <nombre>Al-Karkh – Al-Quwa</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Irak. Liga Premier</competicion>
@@ -2527,7 +2940,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="161">
+  <evento id="162">
     <nombre>Hapoel Tel Aviv – Beitar Jerusalén</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Premier</competicion>
@@ -2537,7 +2950,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="162">
+  <evento id="163">
     <nombre>Cherno More – Dobrudzha</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bulgaria. Parva Liga</competicion>
@@ -2547,7 +2960,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="163">
+  <evento id="164">
     <nombre>Basel / Ribero – Aboian / Aboian</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Villa Maria. Doubles</competicion>
@@ -2557,7 +2970,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="164">
+  <evento id="165">
     <nombre>Emilio Nava – Daniel Dutra da Silva</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Villa Maria</competicion>
@@ -2567,7 +2980,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="165">
+  <evento id="166">
     <nombre>Nordhorn-Lingen – Bayer Dormagen</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Alemania. 2 Bundesliga</competicion>
@@ -2577,7 +2990,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="166">
+  <evento id="167">
     <nombre>Gómel – Vitebsk</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bielorrusia. Vysheyshaya Liga</competicion>
@@ -2587,7 +3000,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T19:55:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="167">
+  <evento id="168">
     <nombre>Petrolul – Dinamo de Bucarest</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Rumania. Liga 1</competicion>
@@ -2597,7 +3010,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="168">
+  <evento id="169">
     <nombre>Jong PSV – Roda JC</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Países Bajos. Eerste Divisie</competicion>
@@ -2607,7 +3020,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="169">
+  <evento id="170">
     <nombre>Jong Ajax – Den Haag</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Países Bajos. Eerste Divisie</competicion>
@@ -2617,7 +3030,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="170">
+  <evento id="171">
     <nombre>Dordrecht – Jong AZ</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Países Bajos. Eerste Divisie</competicion>
@@ -2627,7 +3040,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="171">
+  <evento id="172">
     <nombre>Almere City – Eindhoven</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Países Bajos. Eerste Divisie</competicion>
@@ -2637,7 +3050,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="172">
+  <evento id="173">
     <nombre>Breidablik – IBV Vestmannaeyjar</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Islandia. Besta deild</competicion>
@@ -2647,7 +3060,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="173">
+  <evento id="174">
     <nombre>Sara Bejlek (M) –  Nuria Brancaccio (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Tolentino</competicion>
@@ -2657,7 +3070,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="174">
+  <evento id="175">
     <nombre>Al Ahli Yeda – Nasaf</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones Élite de la AFC</competicion>
@@ -2667,7 +3080,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:15:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="175">
+  <evento id="176">
     <nombre>Al-Shorta – Al-Sadd</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga de Campeones Élite de la AFC</competicion>
@@ -2677,7 +3090,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:15:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="176">
+  <evento id="177">
     <nombre>Real Zaragoza – Albacete</nombre>
     <deporte>Fútbol</deporte>
     <competicion>España. Segunda División</competicion>
@@ -2687,7 +3100,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="177">
+  <evento id="178">
     <nombre>Agropecuario – Gimnasia Mendoza</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Argentina. Primera Nacional</competicion>
@@ -2697,7 +3110,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="178">
+  <evento id="179">
     <nombre>Dock Sud – Sportivo Italiano</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Argentina. Primera B Metropolitana</competicion>
@@ -2707,7 +3120,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="179">
+  <evento id="180">
     <nombre>Villa San Carlos – UAI Urquiza</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Argentina. Primera B Metropolitana</competicion>
@@ -2717,7 +3130,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="180">
+  <evento id="181">
     <nombre>Cittadella – Vicenza Virtus</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Italia. Serie C. Grupo A</competicion>
@@ -2727,7 +3140,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="181">
+  <evento id="182">
     <nombre>Fénix M – Colón</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Uruguay. Segunda División</competicion>
@@ -2737,7 +3150,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="182">
+  <evento id="183">
     <nombre>Cavese – Giugliano</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Italia. Serie C. Grupo C</competicion>
@@ -2747,7 +3160,7 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="183">
+  <evento id="184">
     <nombre>Philip Sekulic – James Kent Trotter</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus</competicion>
@@ -2757,23 +3170,13 @@ player/live.php?id=242313&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="184">
+  <evento id="185">
     <nombre>Michael Zheng – Garrett Johns</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Columbus</competicion>
     <fecha>15 de septiembre</fecha>
     <hora>20:30</hora>
     <url>https://livetv.sx/es/eventinfo/298021902__/</url>
-    <datetime_iso>2025-09-15T20:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="185">
-    <nombre>La Premiership (Reino Unido)</nombre>
-    <deporte>Automovilismo</deporte>
-    <competicion>Reino Unido</competicion>
-    <fecha>15 de septiembre</fecha>
-    <hora>20:30</hora>
-    <url>https://livetv.sx/es/eventinfo/298500315_the_premiership_united_kingdom/</url>
     <datetime_iso>2025-09-15T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
