@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<eventos generado="2025-09-21 22:48:39" total="109">
+<eventos generado="2025-09-21 23:23:26" total="94">
   <evento id="1">
     <nombre>Rosario Central –  Talleres de Córdoba</nombre>
     <deporte>Fútbol</deporte>
@@ -84,11 +84,21 @@ player/live.php?id=242041&amp;w=700&amp;h=480</url>
     </streams>
   </evento>
   <evento id="3">
+    <nombre>Seattle Seahawks –  New Orleans Saints</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>EUA. NFL</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>44:13</hora>
+    <url>https://livetv.sx/es/eventinfo/298856763_seattle_seahawks_new_orleans_saints/</url>
+    <datetime_iso>2025-09-21T00:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="4">
     <nombre>Chicago Bears –  Dallas Cowboys</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. NFL</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>24:14</hora>
+    <hora>31:14</hora>
     <url>https://livetv.sx/es/eventinfo/298863464_chicago_bears_dallas_cowboys/</url>
     <datetime_iso>2025-09-21T00:00:00</datetime_iso>
     <streams total="8">
@@ -139,35 +149,6 @@ player/live.php?id=242041&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2824489&amp;lang=es&amp;eid=298863464&amp;lid=2824489&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="4">
-    <nombre>Minnesota Lynx (M) –   Phoenix Mercury (M)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>WNBA</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>46:49</hora>
-    <url>https://livetv.sx/es/eventinfo/299847129__minnesota_lynx_m__phoenix_mercury_m/</url>
-    <datetime_iso>2025-09-21T00:00:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a58b9887857b.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827899&amp;lang=es&amp;eid=299847129&amp;lid=2827899&amp;ci=373&amp;si=3</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a58a9887857a.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827898&amp;lang=es&amp;eid=299847129&amp;lid=2827898&amp;ci=373&amp;si=3</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2NTc5NTQ=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827897&amp;lang=es&amp;eid=299847129&amp;lid=2827897&amp;ci=373&amp;si=3</enlace_original>
       </stream>
     </streams>
   </evento>
@@ -416,6 +397,23 @@ player/live.php?id=242041&amp;w=700&amp;h=480</url>
     </streams>
   </evento>
   <evento id="18">
+    <nombre>Fuerza Regia –  Panteras</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>México. LNBP</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>50:44</hora>
+    <url>https://livetv.sx/es/eventinfo/296338061_fuerza_regia_panteras/</url>
+    <datetime_iso>2025-09-21T00:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/P1nJ_iHDYgk?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=P1nJ_iHDYgk&amp;lang=es&amp;eid=296338061&amp;lid=2827915&amp;ci=2074&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="19">
     <nombre>Oshawa Generals –  Kingston Frontenacs</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Canadá. OHL</competicion>
@@ -432,673 +430,398 @@ player/live.php?id=242041&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="19">
-    <nombre>Los Angeles Chargers –  Denver Broncos</nombre>
+  <evento id="20">
+    <nombre>Sport Huancayo –  Cienciano</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>EUA. NFL</competicion>
+    <competicion>Perú. Liga 1</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>10:17</hora>
-    <url>https://livetv.sx/es/eventinfo/298856762_los_angeles_chargers_denver_broncos/</url>
-    <datetime_iso>2025-09-21T10:17:00</datetime_iso>
-    <streams total="8">
+    <hora>00:30</hora>
+    <url>https://livetv.sx/es/eventinfo/296344223_sport_huancayo_cienciano/</url>
+    <datetime_iso>2025-09-21T00:30:00</datetime_iso>
+    <streams total="2">
       <stream id="1">
-        <url>https://flixxlive.pro/live/ch12_english.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2686656&amp;lang=es&amp;eid=298856762&amp;lid=2686656&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://daddylive3.com/live/stream-59.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826719&amp;lang=es&amp;eid=296344223&amp;lid=2826719&amp;ci=110&amp;si=1</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://flixxlive.pro/live/nfl10_english.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2814474&amp;lang=es&amp;eid=298856762&amp;lid=2814474&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://streamhd247.world/frame0022.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825488&amp;lang=es&amp;eid=298856762&amp;lid=2825488&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://e2link.link/ch.php?id=31</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2824407&amp;lang=es&amp;eid=298856762&amp;lid=2824407&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="5">
-        <url>https://streamsgate.live/hd/hd-10.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2824320&amp;lang=es&amp;eid=298856762&amp;lid=2824320&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="6">
-        <url>https://daddylive3.com/live/stream-111.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826662&amp;lang=es&amp;eid=298856762&amp;lid=2826662&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="7">
-        <url>https://thesoclive.online/ch11.htm</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2818059&amp;lang=es&amp;eid=298856762&amp;lid=2818059&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="8">
-        <url>https://daddylive3.com/live/stream-3.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826636&amp;lang=es&amp;eid=298856762&amp;lid=2826636&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="20">
-    <nombre>ATP Challenger. Buenos Aires 3</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Clasificatoria</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>15:10</hora>
-    <url>https://livetv.sx/es/eventinfo/300291857_atp_challenger_buenos_aires_3/</url>
-    <datetime_iso>2025-09-21T15:10:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2NjM3MzM=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827706&amp;lang=es&amp;eid=300291857&amp;lid=2827706&amp;ci=6044&amp;si=4</enlace_original>
+        <url>https://voodc.com/embed/1/85818b99a0909c8c847a859a9d9098878681.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827763&amp;lang=es&amp;eid=296344223&amp;lid=2827763&amp;ci=110&amp;si=1</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="21">
-    <nombre>India –  Pakistán</nombre>
+    <nombre>EUA (M) –  México (M)</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Copa Asiática T20</competicion>
+    <competicion>Mujeres. Copa Panamericana</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>16:30</hora>
-    <url>https://livetv.sx/es/eventinfo/299908548_india_pakistandaacute_n/</url>
-    <datetime_iso>2025-09-21T16:30:00</datetime_iso>
-    <streams total="2">
+    <hora>00:30</hora>
+    <url>https://livetv.sx/es/eventinfo/300296987_eua_m_mandeacute_xico_m/</url>
+    <datetime_iso>2025-09-21T00:30:00</datetime_iso>
+    <streams total="1">
       <stream id="1">
-        <url>https://emb.apl378.me/
-player/live.php?id=241397&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241397&amp;lang=es&amp;eid=299908548&amp;lid=2802786&amp;ci=6289&amp;si=41</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://daddylive3.com/live/stream-346.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826829&amp;lang=es&amp;eid=299908548&amp;lid=2826829&amp;ci=6289&amp;si=41</enlace_original>
+        <url>https://www.youtube.com/embed/6OV439SHWXg?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=6OV439SHWXg&amp;lang=es&amp;eid=300296987&amp;lid=2827918&amp;ci=2258&amp;si=5</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="22">
-    <nombre>The NFL Redzone</nombre>
+    <nombre>Carlos Alcaraz –  Francisco Cerundolo</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>EUA. NFL</competicion>
+    <competicion>Laver Cup</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>19:00</hora>
-    <url>https://livetv.sx/es/eventinfo/299581820_the_nfl_redzone/</url>
-    <datetime_iso>2025-09-21T19:00:00</datetime_iso>
-    <streams total="6">
+    <hora>00:45</hora>
+    <url>https://livetv.sx/es/eventinfo/300318800_carlos_alcaraz_francisco_cerundolo/</url>
+    <datetime_iso>2025-09-21T00:45:00</datetime_iso>
+    <streams total="8">
       <stream id="1">
-        <url>https://flixxlive.pro/live/ch2_english.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2661170&amp;lang=es&amp;eid=299581820&amp;lid=2661170&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://emb.apl378.me/
+player/live.php?id=241821&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241821&amp;lang=es&amp;eid=300318800&amp;lid=2826734&amp;ci=6399&amp;si=4</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://flixxlive.pro/live/redzone_english.php</url>
+        <url>https://emb.apl378.me/
+player/live.php?id=241822&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827579&amp;lang=es&amp;eid=299581820&amp;lid=2827579&amp;ci=142&amp;si=27</enlace_original>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241822&amp;lang=es&amp;eid=300318800&amp;lid=2826736&amp;ci=6399&amp;si=4</enlace_original>
       </stream>
       <stream id="3">
-        <url>https://daddylive3.com/live/stream-667.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826815&amp;lang=es&amp;eid=299581820&amp;lid=2826815&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://emb.apl378.me/
+player/live.php?id=242262&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242262&amp;lang=es&amp;eid=300318800&amp;lid=2814483&amp;ci=6399&amp;si=4</enlace_original>
       </stream>
       <stream id="4">
-        <url>https://daddylive3.com/live/stream-449.php</url>
+        <url>https://voodc.com/embed/1/85818b99a0909b84847a859aa39098878b7e.html</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826683&amp;lang=es&amp;eid=299581820&amp;lid=2826683&amp;ci=142&amp;si=27</enlace_original>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827761&amp;lang=es&amp;eid=300318800&amp;lid=2827761&amp;ci=6399&amp;si=4</enlace_original>
       </stream>
       <stream id="5">
-        <url>https://daddylive3.com/live/stream-427.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826680&amp;lang=es&amp;eid=299581820&amp;lid=2826680&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://wikisport.best/court/wik20.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827920&amp;lang=es&amp;eid=300318800&amp;lid=2827920&amp;ci=6399&amp;si=4</enlace_original>
       </stream>
       <stream id="6">
-        <url>https://e2link.link/ch.php?id=4</url>
+        <url>https://wikisport.best/court/wik9.php</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2822843&amp;lang=es&amp;eid=299581820&amp;lid=2822843&amp;ci=142&amp;si=27</enlace_original>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826175&amp;lang=es&amp;eid=300318800&amp;lid=2826175&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://wikisport.best/court/t20.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827919&amp;lang=es&amp;eid=300318800&amp;lid=2827919&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://wikisport.best/court/t9.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826174&amp;lang=es&amp;eid=300318800&amp;lid=2826174&amp;ci=6399&amp;si=4</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="23">
-    <nombre>ATP Challenger. Las Vegas</nombre>
+    <nombre>Daniel Milavsky –  Luca Castagnola</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Clasificatoria</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>19:10</hora>
-    <url>https://livetv.sx/es/eventinfo/300291659_atp_challenger_las_vegas/</url>
-    <datetime_iso>2025-09-21T19:10:00</datetime_iso>
+    <hora>00:55</hora>
+    <url>https://livetv.sx/es/eventinfo/300291764_daniel_milavsky_luca_castagnola/</url>
+    <datetime_iso>2025-09-21T00:55:00</datetime_iso>
     <streams total="1">
       <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2NjQwNDc=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827717&amp;lang=es&amp;eid=300291659&amp;lid=2827717&amp;ci=4671&amp;si=4</enlace_original>
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2NjQwNTA=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827886&amp;lang=es&amp;eid=300291764&amp;lid=2827886&amp;ci=4671&amp;si=4</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="24">
-    <nombre>Laver Cup</nombre>
+    <nombre>Austin –  Seattle Sounders</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Laver Cup</competicion>
+    <competicion>EUA. MLS</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>21:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298504781_laver_cup/</url>
-    <datetime_iso>2025-09-21T21:00:00</datetime_iso>
-    <streams total="5">
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296350486_austin_seattle_sounders/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
+    <streams total="6">
       <stream id="1">
-        <url>https://emb.apl378.me/
-player/live.php?id=241821&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241821&amp;lang=es&amp;eid=298504781&amp;lid=2826734&amp;ci=6399&amp;si=4</enlace_original>
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8c9887877d.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827771&amp;lang=es&amp;eid=296350486&amp;lid=2827771&amp;ci=64&amp;si=1</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://emb.apl378.me/
-player/live.php?id=241822&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241822&amp;lang=es&amp;eid=298504781&amp;lid=2826736&amp;ci=6399&amp;si=4</enlace_original>
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8d9887877e.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827770&amp;lang=es&amp;eid=296350486&amp;lid=2827770&amp;ci=64&amp;si=1</enlace_original>
       </stream>
       <stream id="3">
-        <url>https://emb.apl378.me/
-player/live.php?id=242262&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242262&amp;lang=es&amp;eid=298504781&amp;lid=2814483&amp;ci=6399&amp;si=4</enlace_original>
+        <url>https://e2link.link/ch.php?id=35</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825176&amp;lang=es&amp;eid=296350486&amp;lid=2825176&amp;ci=64&amp;si=1</enlace_original>
       </stream>
       <stream id="4">
-        <url>https://streamhd247.world/frame0030.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
-        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825495&amp;lang=es&amp;eid=298504781&amp;lid=2825495&amp;ci=6399&amp;si=4</enlace_original>
+        <url>https://daddylive3.com/live/stream-1.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826689&amp;lang=es&amp;eid=296350486&amp;lid=2826689&amp;ci=64&amp;si=1</enlace_original>
       </stream>
       <stream id="5">
-        <url>https://daddylive3.com/live/stream-33.php</url>
+        <url>https://streamhd247.world/frame0023.html</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826648&amp;lang=es&amp;eid=298504781&amp;lid=2826648&amp;ci=6399&amp;si=4</enlace_original>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825489&amp;lang=es&amp;eid=296350486&amp;lid=2825489&amp;ci=64&amp;si=1</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://streamsgate.live/hd/hd-16.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825309&amp;lang=es&amp;eid=296350486&amp;lid=2825309&amp;ci=64&amp;si=1</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="25">
-    <nombre>Ottawa – Toronto</nombre>
-    <deporte>Hockey</deporte>
-    <competicion>NHL. Pretemporada</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>21:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296301411__/</url>
-    <datetime_iso>2025-09-21T21:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="26">
-    <nombre>Colorado – LA Angels</nombre>
-    <deporte>Béisbol</deporte>
-    <competicion>No especificado</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>21:10</hora>
-    <url>https://livetv.sx/es/eventinfo/296301302__/</url>
-    <datetime_iso>2025-09-21T21:10:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="27">
-    <nombre>Ruud / Alcaraz –  Opelka / Michelsen</nombre>
+    <nombre>Santos Laguna –  Atlético de San Luis</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Laver Cup. Doubles</competicion>
+    <competicion>México. Liga MX</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>21:25</hora>
-    <url>https://livetv.sx/es/eventinfo/300318802_ruud__alcaraz_opelka__michelsen/</url>
-    <datetime_iso>2025-09-21T21:25:00</datetime_iso>
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296349452_santos_laguna_atl__tico_de_san_luis/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
     <streams total="4">
       <stream id="1">
-        <url>https://emb.apl378.me/
-player/live.php?id=241821&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241821&amp;lang=es&amp;eid=300318802&amp;lid=2826734&amp;ci=6400&amp;si=4</enlace_original>
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8b9887877f.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827769&amp;lang=es&amp;eid=296349452&amp;lid=2827769&amp;ci=68&amp;si=1</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://emb.apl378.me/
-player/live.php?id=241822&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241822&amp;lang=es&amp;eid=300318802&amp;lid=2826736&amp;ci=6400&amp;si=4</enlace_original>
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8c98878780.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827768&amp;lang=es&amp;eid=296349452&amp;lid=2827768&amp;ci=68&amp;si=1</enlace_original>
       </stream>
       <stream id="3">
-        <url>https://emb.apl378.me/
-player/live.php?id=242262&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242262&amp;lang=es&amp;eid=300318802&amp;lid=2814483&amp;ci=6400&amp;si=4</enlace_original>
+        <url>https://e2link.link/ch.php?id=30</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825165&amp;lang=es&amp;eid=296349452&amp;lid=2825165&amp;ci=68&amp;si=1</enlace_original>
       </stream>
       <stream id="4">
-        <url>https://voodc.com/embed/1/85818b99a08f9a86847a859aa39098878b80.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827861&amp;lang=es&amp;eid=300318802&amp;lid=2827861&amp;ci=6400&amp;si=4</enlace_original>
+        <url>https://daddylive3.com/live/stream-66.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826721&amp;lang=es&amp;eid=296349452&amp;lid=2826721&amp;ci=68&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="26">
+    <nombre>Deportivo Mictlán –  Coban Imperial</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Guatemala. Liga Nacional</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296312504_deportivo_mictl__n_coban_imperial/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8a9887877b.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827767&amp;lang=es&amp;eid=296312504&amp;lid=2827767&amp;ci=472&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="27">
+    <nombre>BJJ Clubes</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>No especificado</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/300399305_bjj_clubes/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8798878682.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827764&amp;lang=es&amp;eid=300399305&amp;lid=2827764&amp;ci=840&amp;si=75</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="28">
-    <nombre>Ruud / Alcaraz – Opelka / Michelsen</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>Laver Cup. Doubles</competicion>
+    <nombre>Westchester –  Texoma</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>EUA. USL1</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>21:25</hora>
-    <url>https://livetv.sx/es/eventinfo/300318802__/</url>
-    <datetime_iso>2025-09-21T21:25:00</datetime_iso>
-    <streams total="4">
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296350546_westchester_texoma/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
+    <streams total="2">
       <stream id="1">
-        <url>https://emb.apl378.me/
-player/live.php?id=241821&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241821&amp;lang=es&amp;eid=300318802&amp;lid=2826734&amp;ci=6400&amp;si=4</enlace_original>
+        <url>https://www.youtube.com/embed/Ydyo2C53Urw?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=Ydyo2C53Urw&amp;lang=es&amp;eid=296350546&amp;lid=2823709&amp;ci=2623&amp;si=1</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://emb.apl378.me/
-player/live.php?id=241822&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241822&amp;lang=es&amp;eid=300318802&amp;lid=2826736&amp;ci=6400&amp;si=4</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://emb.apl378.me/
-player/live.php?id=242262&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242262&amp;lang=es&amp;eid=300318802&amp;lid=2814483&amp;ci=6400&amp;si=4</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://voodc.com/embed/1/85818b99a08f9a86847a859aa39098878b80.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827861&amp;lang=es&amp;eid=300318802&amp;lid=2827861&amp;ci=6400&amp;si=4</enlace_original>
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c9098878782.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827774&amp;lang=es&amp;eid=296350546&amp;lid=2827774&amp;ci=2623&amp;si=1</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="29">
-    <nombre>Godoy Cruz –  Instituto</nombre>
+    <nombre>Spokane Velocity –  Chattanooga RW</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Argentina. Liga Profesional</competicion>
+    <competicion>EUA. USL1</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>21:45</hora>
-    <url>https://livetv.sx/es/eventinfo/296306044_godoy_cruz_instituto/</url>
-    <datetime_iso>2025-09-21T21:45:00</datetime_iso>
-    <streams total="0" />
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296350547_spokane_velocity_chattanooga_rw/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
+    <streams total="2">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/Aj8wAC7nI2E?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=Aj8wAC7nI2E&amp;lang=es&amp;eid=296350547&amp;lid=2823708&amp;ci=2623&amp;si=1</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8f98878781.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827773&amp;lang=es&amp;eid=296350547&amp;lid=2827773&amp;ci=2623&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
   <evento id="30">
-    <nombre>Central Norte –  Chacarita Juniors</nombre>
+    <nombre>Utah –  Colorado</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Argentina. Primera Nacional</competicion>
+    <competicion>NHL. Pretemporada</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296039466_central_norte_chacarita_juniors/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296338380_utah_colorado/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
     <streams total="0" />
   </evento>
   <evento id="31">
-    <nombre>Colon Santa Fe –  Deportivo Morón</nombre>
+    <nombre>Nashville –  Florida</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Argentina. Primera Nacional</competicion>
+    <competicion>NHL. Pretemporada</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296039470_colon_santa_fe_deportivo_mor__n/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296349831_nashville_florida/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
+    <streams total="3">
+      <stream id="1">
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8898878683.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827765&amp;lang=es&amp;eid=296349831&amp;lid=2827765&amp;ci=2688&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://players.brightcove.net/6415718365001/D3UCGynRWU_default/index.html?videoId=6340222345112</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827873&amp;lang=es&amp;eid=296349831&amp;lid=2827873&amp;ci=2688&amp;si=2</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://players.brightcove.net/6415718365001/D3UCGynRWU_default/index.html?videoId=6336966274112</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827872&amp;lang=es&amp;eid=296349831&amp;lid=2827872&amp;ci=2688&amp;si=2</enlace_original>
+      </stream>
+    </streams>
   </evento>
   <evento id="32">
-    <nombre>República Dominicana (M) –  Puerto Rico (M)</nombre>
+    <nombre>NY Islanders –  Filadelfia</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Mujeres. Copa Panamericana</competicion>
+    <competicion>NHL. Pretemporada</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/300296986_repanduacute_blica_dominicana_m_puerto_rico_m/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="33">
-    <nombre>Shawinigan Cataractes –  Drummondville</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Canadá. QMJHL</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296313238_shawinigan_cataractes_drummondville/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="34">
-    <nombre>Andre Alcantara –  Pietro Orlando Fellin</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Clasificatoria</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/300291760_andre_alcantara_pietro_orlando_fellin/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="35">
-    <nombre>Antoine Ghibaudo –  Hayden Jones</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Clasificatoria</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/300291761_antoine_ghibaudo_hayden_jones/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="36">
-    <nombre>Quinn Vandecasteele –  Bor Artnak</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Clasificatoria</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/300291762_quinn_vandecasteele_bor_artnak/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="37">
-    <nombre>Minnesota United II –  North Texas</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>EUA. MLS Next Pro</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298920104_minnesota_united_ii_north_texas/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="38">
-    <nombre>Atlantico –  Moca</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>República Dominicana. LDF</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/300265247_atlantico_moca/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="39">
-    <nombre>Atlantico – Moca</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>República Dominicana. LDF</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/300265247__/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="40">
-    <nombre>Central Norte – Chacarita Juniors</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Argentina. Primera Nacional</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296039466__/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="41">
-    <nombre>Colon Santa Fe – Deportivo Morón</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Argentina. Primera Nacional</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296039470__/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="42">
-    <nombre>Minnesota United II – North Texas</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>EUA. MLS Next Pro</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/298920104__/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="43">
-    <nombre>Shawinigan Cataractes – Drummondville</nombre>
-    <deporte>Hockey</deporte>
-    <competicion>Canadá. QMJHL</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/296313238__/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="44">
-    <nombre>República Dominicana (M) – Puerto Rico (M)</nombre>
-    <deporte>Voleibol</deporte>
-    <competicion>Mujeres. Copa Panamericana</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/300296986_dominican_republic_w_puerto_rico_w/</url>
-    <datetime_iso>2025-09-21T22:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="45">
-    <nombre>Seattle Seahawks –  New Orleans Saints</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>EUA. NFL</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:05</hora>
-    <url>https://livetv.sx/es/eventinfo/298856763_seattle_seahawks_new_orleans_saints/</url>
-    <datetime_iso>2025-09-21T22:05:00</datetime_iso>
-    <streams total="8">
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/296349832_ny_islanders_filadelfia/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
+    <streams total="5">
       <stream id="1">
-        <url>https://flixxlive.pro/live/ch13_english.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2710049&amp;lang=es&amp;eid=298856763&amp;lid=2710049&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c899887877a.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827766&amp;lang=es&amp;eid=296349832&amp;lid=2827766&amp;ci=2688&amp;si=2</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://flixxlive.pro/live/nfl11_english.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2814473&amp;lang=es&amp;eid=298856763&amp;lid=2814473&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://embedstreams.top/embed/foxtrot/68d0244b4471232e7290d2ff/2</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827925&amp;lang=es&amp;eid=296349832&amp;lid=2827925&amp;ci=2688&amp;si=2</enlace_original>
       </stream>
       <stream id="3">
-        <url>https://streamhd247.world/frame0028.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825493&amp;lang=es&amp;eid=298856763&amp;lid=2825493&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://players.brightcove.net/6415718365001/D3UCGynRWU_default/index.html?videoId=6336965184112</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827924&amp;lang=es&amp;eid=296349832&amp;lid=2827924&amp;ci=2688&amp;si=2</enlace_original>
       </stream>
       <stream id="4">
-        <url>https://streamsgate.live/hd/hd-11.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825306&amp;lang=es&amp;eid=298856763&amp;lid=2825306&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://players.brightcove.net/6415718365001/D3UCGynRWU_default/index.html?videoId=6336966271112</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827923&amp;lang=es&amp;eid=296349832&amp;lid=2827923&amp;ci=2688&amp;si=2</enlace_original>
       </stream>
       <stream id="5">
-        <url>https://e2link.link/ch.php?id=32</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2819368&amp;lang=es&amp;eid=298856763&amp;lid=2819368&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="6">
-        <url>https://thesoclive.online/ch6.htm</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2814619&amp;lang=es&amp;eid=298856763&amp;lid=2814619&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="7">
-        <url>https://daddylive3.com/live/stream-7.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826637&amp;lang=es&amp;eid=298856763&amp;lid=2826637&amp;ci=142&amp;si=27</enlace_original>
-      </stream>
-      <stream id="8">
-        <url>https://scobor.net/acd/cal3/box.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826623&amp;lang=es&amp;eid=298856763&amp;lid=2826623&amp;ci=142&amp;si=27</enlace_original>
+        <url>https://castweb.xyz/player1.php?hd=237</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827922&amp;lang=es&amp;eid=296349832&amp;lid=2827922&amp;ci=2688&amp;si=2</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="46">
-    <nombre>Arizona –  Filadelfia</nombre>
+  <evento id="33">
+    <nombre>Orlando City B –  Huntsville City</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>No especificado</competicion>
+    <competicion>EUA. MLS Next Pro</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>22:10</hora>
-    <url>https://livetv.sx/es/eventinfo/296313888_arizona_filadelfia/</url>
-    <datetime_iso>2025-09-21T22:10:00</datetime_iso>
-    <streams total="3">
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298920107_orlando_city_b_huntsville_city/</url>
+    <datetime_iso>2025-09-21T01:00:00</datetime_iso>
+    <streams total="2">
       <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08f9e88847a8599a48898868b83.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827865&amp;lang=es&amp;eid=296313888&amp;lid=2827865&amp;ci=14&amp;si=19</enlace_original>
+        <url>https://www.youtube.com/embed/hgmFKxwA-wU?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=hgmFKxwA-wU&amp;lang=es&amp;eid=298920107&amp;lid=2827921&amp;ci=6785&amp;si=1</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://voodc.com/embed/1/85818b99a08f9e88847a8599a48798868b82.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827864&amp;lang=es&amp;eid=296313888&amp;lid=2827864&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://daddylive3.com/live/stream-110.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826747&amp;lang=es&amp;eid=296313888&amp;lid=2826747&amp;ci=14&amp;si=19</enlace_original>
+        <url>https://voodc.com/embed/1/85818b99a0909e8a847a85959c8e9887877c.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827772&amp;lang=es&amp;eid=298920107&amp;lid=2827772&amp;ci=6785&amp;si=1</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="47">
-    <nombre>LA Dodgers –  San Francisco</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>No especificado</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:10</hora>
-    <url>https://livetv.sx/es/eventinfo/296313889_la_dodgers_san_francisco/</url>
-    <datetime_iso>2025-09-21T22:10:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08f9e88847a8599a48a98868c7b.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827863&amp;lang=es&amp;eid=296313889&amp;lid=2827863&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://voodc.com/embed/1/85818b99a08f9e88847a8599a48998868c7a.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827862&amp;lang=es&amp;eid=296313889&amp;lid=2827862&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://daddylive3.com/live/stream-152.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826666&amp;lang=es&amp;eid=296313889&amp;lid=2826666&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="48">
-    <nombre>Arizona – Filadelfia</nombre>
-    <deporte>Béisbol</deporte>
-    <competicion>No especificado</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:10</hora>
-    <url>https://livetv.sx/es/eventinfo/296313888__/</url>
-    <datetime_iso>2025-09-21T22:10:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08f9e88847a8599a48898868b83.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827865&amp;lang=es&amp;eid=296313888&amp;lid=2827865&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://voodc.com/embed/1/85818b99a08f9e88847a8599a48798868b82.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827864&amp;lang=es&amp;eid=296313888&amp;lid=2827864&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://daddylive3.com/live/stream-110.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826747&amp;lang=es&amp;eid=296313888&amp;lid=2826747&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="49">
-    <nombre>LA Dodgers – San Francisco</nombre>
-    <deporte>Béisbol</deporte>
-    <competicion>No especificado</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:10</hora>
-    <url>https://livetv.sx/es/eventinfo/296313889__/</url>
-    <datetime_iso>2025-09-21T22:10:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08f9e88847a8599a48a98868c7b.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827863&amp;lang=es&amp;eid=296313889&amp;lid=2827863&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://voodc.com/embed/1/85818b99a08f9e88847a8599a48998868c7a.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827862&amp;lang=es&amp;eid=296313889&amp;lid=2827862&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://daddylive3.com/live/stream-152.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826666&amp;lang=es&amp;eid=296313889&amp;lid=2826666&amp;ci=14&amp;si=19</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="50">
-    <nombre>Juan Pablo II –  Sporting Cristal</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Perú. Liga 1</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:15</hora>
-    <url>https://livetv.sx/es/eventinfo/296314106_juan_pablo_ii_sporting_cristal/</url>
-    <datetime_iso>2025-09-21T22:15:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="51">
-    <nombre>Juan Pablo II – Sporting Cristal</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Perú. Liga 1</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:15</hora>
-    <url>https://livetv.sx/es/eventinfo/296314106__/</url>
-    <datetime_iso>2025-09-21T22:15:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="52">
+  <evento id="34">
     <nombre>San Francisco 49ers –  Arizona Cardinals</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. NFL</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>22:25</hora>
+    <hora>13:15</hora>
     <url>https://livetv.sx/es/eventinfo/298863465_san_francisco_49ers_arizona_cardinals/</url>
-    <datetime_iso>2025-09-21T22:25:00</datetime_iso>
+    <datetime_iso>2025-09-21T13:15:00</datetime_iso>
     <streams total="8">
       <stream id="1">
         <url>https://flixxlive.pro/live/ch15_english.php</url>
@@ -1150,7 +873,223 @@ player/live.php?id=242262&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="53">
+  <evento id="35">
+    <nombre>ATP Challenger. Buenos Aires 3</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Clasificatoria</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>15:10</hora>
+    <url>https://livetv.sx/es/eventinfo/300291857_atp_challenger_buenos_aires_3/</url>
+    <datetime_iso>2025-09-21T15:10:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="36">
+    <nombre>India –  Pakistán</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Copa Asiática T20</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>16:30</hora>
+    <url>https://livetv.sx/es/eventinfo/299908548_india_pakistandaacute_n/</url>
+    <datetime_iso>2025-09-21T16:30:00</datetime_iso>
+    <streams total="2">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=241397&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241397&amp;lang=es&amp;eid=299908548&amp;lid=2802786&amp;ci=6289&amp;si=41</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://daddylive3.com/live/stream-346.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826829&amp;lang=es&amp;eid=299908548&amp;lid=2826829&amp;ci=6289&amp;si=41</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="37">
+    <nombre>ATP Challenger. Las Vegas</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Clasificatoria</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>19:10</hora>
+    <url>https://livetv.sx/es/eventinfo/300291659_atp_challenger_las_vegas/</url>
+    <datetime_iso>2025-09-21T19:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2NjQwNTA=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827886&amp;lang=es&amp;eid=300291659&amp;lid=2827886&amp;ci=4671&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="38">
+    <nombre>Los Angeles Chargers –  Denver Broncos</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>EUA. NFL</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>20:20</hora>
+    <url>https://livetv.sx/es/eventinfo/298856762_los_angeles_chargers_denver_broncos/</url>
+    <datetime_iso>2025-09-21T20:20:00</datetime_iso>
+    <streams total="8">
+      <stream id="1">
+        <url>https://flixxlive.pro/live/ch12_english.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2686656&amp;lang=es&amp;eid=298856762&amp;lid=2686656&amp;ci=142&amp;si=27</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://flixxlive.pro/live/nfl10_english.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2814474&amp;lang=es&amp;eid=298856762&amp;lid=2814474&amp;ci=142&amp;si=27</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://streamhd247.world/frame0022.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825488&amp;lang=es&amp;eid=298856762&amp;lid=2825488&amp;ci=142&amp;si=27</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://e2link.link/ch.php?id=31</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2824407&amp;lang=es&amp;eid=298856762&amp;lid=2824407&amp;ci=142&amp;si=27</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://streamsgate.live/hd/hd-10.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2824320&amp;lang=es&amp;eid=298856762&amp;lid=2824320&amp;ci=142&amp;si=27</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://daddylive3.com/live/stream-111.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826662&amp;lang=es&amp;eid=298856762&amp;lid=2826662&amp;ci=142&amp;si=27</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://thesoclive.online/ch11.htm</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2818059&amp;lang=es&amp;eid=298856762&amp;lid=2818059&amp;ci=142&amp;si=27</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://daddylive3.com/live/stream-3.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826636&amp;lang=es&amp;eid=298856762&amp;lid=2826636&amp;ci=142&amp;si=27</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="39">
+    <nombre>Laver Cup</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>Laver Cup</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>21:00</hora>
+    <url>https://livetv.sx/es/eventinfo/298504781_laver_cup/</url>
+    <datetime_iso>2025-09-21T21:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="40">
+    <nombre>Ruud / Alcaraz –  Opelka / Michelsen</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Laver Cup. Doubles</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>21:25</hora>
+    <url>https://livetv.sx/es/eventinfo/300318802_ruud__alcaraz_opelka__michelsen/</url>
+    <datetime_iso>2025-09-21T21:25:00</datetime_iso>
+    <streams total="4">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=241821&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241821&amp;lang=es&amp;eid=300318802&amp;lid=2826734&amp;ci=6400&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=241822&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241822&amp;lang=es&amp;eid=300318802&amp;lid=2826736&amp;ci=6400&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl378.me/
+player/live.php?id=242262&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242262&amp;lang=es&amp;eid=300318802&amp;lid=2814483&amp;ci=6400&amp;si=4</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://voodc.com/embed/1/85818b99a08f9a86847a859aa39098878b80.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827861&amp;lang=es&amp;eid=300318802&amp;lid=2827861&amp;ci=6400&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="41">
+    <nombre>Ruud / Alcaraz – Opelka / Michelsen</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>Laver Cup. Doubles</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>21:25</hora>
+    <url>https://livetv.sx/es/eventinfo/300318802__/</url>
+    <datetime_iso>2025-09-21T21:25:00</datetime_iso>
+    <streams total="4">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=241821&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241821&amp;lang=es&amp;eid=300318802&amp;lid=2826734&amp;ci=6400&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=241822&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241822&amp;lang=es&amp;eid=300318802&amp;lid=2826736&amp;ci=6400&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl378.me/
+player/live.php?id=242262&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242262&amp;lang=es&amp;eid=300318802&amp;lid=2814483&amp;ci=6400&amp;si=4</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://voodc.com/embed/1/85818b99a08f9a86847a859aa39098878b80.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827861&amp;lang=es&amp;eid=300318802&amp;lid=2827861&amp;ci=6400&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="42">
+    <nombre>Arizona – Filadelfia</nombre>
+    <deporte>Béisbol</deporte>
+    <competicion>No especificado</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>22:10</hora>
+    <url>https://livetv.sx/es/eventinfo/296313888__/</url>
+    <datetime_iso>2025-09-21T22:10:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="43">
+    <nombre>LA Dodgers – San Francisco</nombre>
+    <deporte>Béisbol</deporte>
+    <competicion>No especificado</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>22:10</hora>
+    <url>https://livetv.sx/es/eventinfo/296313889__/</url>
+    <datetime_iso>2025-09-21T22:10:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="44">
     <nombre>Utah –  Colorado</nombre>
     <deporte>Fútbol</deporte>
     <competicion>No especificado</competicion>
@@ -1160,143 +1099,7 @@ player/live.php?id=242262&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-21T22:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="54">
-    <nombre>Sport Recife –  Corinthians</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Brasil. Serie A</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:30</hora>
-    <url>https://livetv.sx/es/eventinfo/296318679_sport_recife_corinthians/</url>
-    <datetime_iso>2025-09-21T22:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="55">
-    <nombre>Inter-RS –  Gremio-RS</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Brasil. Serie A</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:30</hora>
-    <url>https://livetv.sx/es/eventinfo/296318680_inter_rs_gremio_rs/</url>
-    <datetime_iso>2025-09-21T22:30:00</datetime_iso>
-    <streams total="5">
-      <stream id="1">
-        <url>https://flixxlive.pro/live/vamos_spain.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2661205&amp;lang=es&amp;eid=296318680&amp;lid=2661205&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl378.me/
-player/live.php?id=239281&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=239281&amp;lang=es&amp;eid=296318680&amp;lid=2785376&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://emb.apl378.me/
-player/live.php?id=242315&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242315&amp;lang=es&amp;eid=296318680&amp;lid=2812094&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://daddylive3.com/live/stream-17.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826641&amp;lang=es&amp;eid=296318680&amp;lid=2826641&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-      <stream id="5">
-        <url>https://antenasport.org/match3.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825028&amp;lang=es&amp;eid=296318680&amp;lid=2825028&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="56">
-    <nombre>Flamengo-RJ –  Vasco de Gama</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Brasil. Serie A</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:30</hora>
-    <url>https://livetv.sx/es/eventinfo/296318681_flamengo_rj_vasco_de_gama/</url>
-    <datetime_iso>2025-09-21T22:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="57">
-    <nombre>Jakub Mensik –  Alex De Minaur</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Laver Cup</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:30</hora>
-    <url>https://livetv.sx/es/eventinfo/300296988_jakub_mensik_alex_de_minaur/</url>
-    <datetime_iso>2025-09-21T22:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="58">
-    <nombre>Sport Recife – Corinthians</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Brasil. Serie A</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:30</hora>
-    <url>https://livetv.sx/es/eventinfo/296318679__/</url>
-    <datetime_iso>2025-09-21T22:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="59">
-    <nombre>Inter-RS – Gremio-RS</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Brasil. Serie A</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:30</hora>
-    <url>https://livetv.sx/es/eventinfo/296318680__/</url>
-    <datetime_iso>2025-09-21T22:30:00</datetime_iso>
-    <streams total="5">
-      <stream id="1">
-        <url>https://flixxlive.pro/live/vamos_spain.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2661205&amp;lang=es&amp;eid=296318680&amp;lid=2661205&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl378.me/
-player/live.php?id=239281&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=239281&amp;lang=es&amp;eid=296318680&amp;lid=2785376&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://emb.apl378.me/
-player/live.php?id=242315&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242315&amp;lang=es&amp;eid=296318680&amp;lid=2812094&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://daddylive3.com/live/stream-17.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826641&amp;lang=es&amp;eid=296318680&amp;lid=2826641&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-      <stream id="5">
-        <url>https://antenasport.org/match3.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825028&amp;lang=es&amp;eid=296318680&amp;lid=2825028&amp;ci=93&amp;si=1</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="60">
-    <nombre>Flamengo-RJ – Vasco de Gama</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Brasil. Serie A</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>22:30</hora>
-    <url>https://livetv.sx/es/eventinfo/296318681__/</url>
-    <datetime_iso>2025-09-21T22:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="61">
+  <evento id="45">
     <nombre>Utah – Colorado</nombre>
     <deporte>Hockey</deporte>
     <competicion>No especificado</competicion>
@@ -1306,7 +1109,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-21T22:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="62">
+  <evento id="46">
     <nombre>Alabama Crimson Tide –  Air Force Falcons</nombre>
     <deporte>Fútbol</deporte>
     <competicion>NCAA</competicion>
@@ -1316,7 +1119,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="63">
+  <evento id="47">
     <nombre>Macará –  Libertad</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1324,16 +1127,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315542_macar___libertad/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1ODA1MDY=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827891&amp;lang=es&amp;eid=296315542&amp;lid=2827891&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="64">
+  <evento id="48">
     <nombre>LDU Quito –  Univ Católica Quito</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1341,16 +1137,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315543_ldu_quito_univ_cat__lica_quito/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a58b9887847a.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827892&amp;lang=es&amp;eid=296315543&amp;lid=2827892&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="65">
+  <evento id="49">
     <nombre>Emelec –  El Nacional</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1358,16 +1147,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315544_emelec_el_nacional/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1ODA1MDA=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827893&amp;lang=es&amp;eid=296315544&amp;lid=2827893&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="66">
+  <evento id="50">
     <nombre>CD Cuenca –  Barcelona SC</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1375,16 +1157,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315545_cd_cuenca_barcelona_sc/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1ODA0OTQ=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827894&amp;lang=es&amp;eid=296315545&amp;lid=2827894&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="67">
+  <evento id="51">
     <nombre>Aucas –  Orense</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1392,16 +1167,19 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315547_aucas_orense/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1ODA1MDQ=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827895&amp;lang=es&amp;eid=296315547&amp;lid=2827895&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="68">
+  <evento id="52">
+    <nombre>Minnesota Lynx (M) –   Phoenix Mercury (M)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>WNBA</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>23:00</hora>
+    <url>https://livetv.sx/es/eventinfo/299847129__minnesota_lynx_m__phoenix_mercury_m/</url>
+    <datetime_iso>2025-09-21T23:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="53">
     <nombre>Deportivo La Guaira –  Yaracuyanos</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Venezuela. Primera División</competicion>
@@ -1409,16 +1187,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296312482_deportivo_la_guaira_yaracuyanos/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1NjkyMzc=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827889&amp;lang=es&amp;eid=296312482&amp;lid=2827889&amp;ci=455&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="69">
+  <evento id="54">
     <nombre>Guastatoya –  Deportivo Achuapa</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Guatemala. Liga Nacional</competicion>
@@ -1426,16 +1197,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296312506_guastatoya_deportivo_achuapa/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a58e9887847d.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827890&amp;lang=es&amp;eid=296312506&amp;lid=2827890&amp;ci=472&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="70">
+  <evento id="55">
     <nombre>Gimnasia de Jujuy –  Agropecuario</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Argentina. Primera Nacional</competicion>
@@ -1443,16 +1207,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296039464_gimnasia_de_jujuy_agropecuario/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1NzU5Nzk=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827884&amp;lang=es&amp;eid=296039464&amp;lid=2827884&amp;ci=532&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="71">
+  <evento id="56">
     <nombre>Cartaginés –  Sporting San José</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Costa Rica. Primera División</competicion>
@@ -1460,16 +1217,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296276068_cartagin__s_sporting_san_jos__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://daddylive3.com/live/stream-77.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826738&amp;lang=es&amp;eid=296276068&amp;lid=2826738&amp;ci=553&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="72">
+  <evento id="57">
     <nombre>Cúcuta Deportivo –  Jaguares de Córdoba</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Colombia. Primera B</competicion>
@@ -1477,16 +1227,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296325753_c__cuta_deportivo_jaguares_de_c__rdoba/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1NzYwNDY=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827896&amp;lang=es&amp;eid=296325753&amp;lid=2827896&amp;ci=896&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="73">
+  <evento id="58">
     <nombre>Indy Eleven –  Birmingham Legion</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. USL</competicion>
@@ -1494,22 +1237,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/299032130_indy_eleven_birmingham_legion/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="2">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/XGfqT-eLg4U?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=XGfqT-eLg4U&amp;lang=es&amp;eid=299032130&amp;lid=2823717&amp;ci=1084&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://daddylive3.com/live/stream-308.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826787&amp;lang=es&amp;eid=299032130&amp;lid=2826787&amp;ci=1084&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="74">
+  <evento id="59">
     <nombre>Export Sebaco –  Matagalpa</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Nicaragua. Liga Primera</competicion>
@@ -1519,7 +1249,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="75">
+  <evento id="60">
     <nombre>Union Omaha –  One Knoxville</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. USL1</competicion>
@@ -1527,16 +1257,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296327103_union_omaha_one_knoxville/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/14SBGqosDQg?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=14SBGqosDQg&amp;lang=es&amp;eid=296327103&amp;lid=2823710&amp;ci=2623&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="76">
+  <evento id="61">
     <nombre>Portland Hearts of Pine –  Naples</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. USL1</competicion>
@@ -1544,16 +1267,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296327104_portland_hearts_of_pine_naples/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/ziNgRMo-ips?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=ziNgRMo-ips&amp;lang=es&amp;eid=296327104&amp;lid=2823711&amp;ci=2623&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="77">
+  <evento id="62">
     <nombre>Boston –  Washington</nombre>
     <deporte>Fútbol</deporte>
     <competicion>NHL. Pretemporada</competicion>
@@ -1600,7 +1316,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="78">
+  <evento id="63">
     <nombre>Columbus –  San Luis</nombre>
     <deporte>Fútbol</deporte>
     <competicion>NHL. Pretemporada</competicion>
@@ -1623,7 +1339,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="79">
+  <evento id="64">
     <nombre>Winnipeg –  Minnesota</nombre>
     <deporte>Fútbol</deporte>
     <competicion>NHL. Pretemporada</competicion>
@@ -1682,7 +1398,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="80">
+  <evento id="65">
     <nombre>NY Red Bulls II –  Inter Miami II</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. MLS Next Pro</competicion>
@@ -1690,16 +1406,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/298914380_ny_red_bulls_ii_inter_miami_ii/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a5909887847f.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827910&amp;lang=es&amp;eid=298914380&amp;lid=2827910&amp;ci=6785&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="81">
+  <evento id="66">
     <nombre>Gimnasia de Jujuy – Agropecuario</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Argentina. Primera Nacional</competicion>
@@ -1707,16 +1416,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296039464__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1NzU5Nzk=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827884&amp;lang=es&amp;eid=296039464&amp;lid=2827884&amp;ci=532&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="82">
+  <evento id="67">
     <nombre>Indy Eleven – Birmingham Legion</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. USL</competicion>
@@ -1724,22 +1426,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/299032130__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="2">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/XGfqT-eLg4U?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=XGfqT-eLg4U&amp;lang=es&amp;eid=299032130&amp;lid=2823717&amp;ci=1084&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://daddylive3.com/live/stream-308.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826787&amp;lang=es&amp;eid=299032130&amp;lid=2826787&amp;ci=1084&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="83">
+  <evento id="68">
     <nombre>NY Red Bulls II – Inter Miami II</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. MLS Next Pro</competicion>
@@ -1747,16 +1436,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/298914380__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a5909887847f.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827910&amp;lang=es&amp;eid=298914380&amp;lid=2827910&amp;ci=6785&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="84">
+  <evento id="69">
     <nombre>Export Sebaco – Matagalpa</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Nicaragua. Liga Primera</competicion>
@@ -1766,7 +1448,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="85">
+  <evento id="70">
     <nombre>Cartaginés – Sporting San José</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Costa Rica. Primera División</competicion>
@@ -1774,16 +1456,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296276068__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://daddylive3.com/live/stream-77.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826738&amp;lang=es&amp;eid=296276068&amp;lid=2826738&amp;ci=553&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="86">
+  <evento id="71">
     <nombre>Cúcuta Deportivo – Jaguares de Córdoba</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Colombia. Primera B</competicion>
@@ -1791,16 +1466,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296325753__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1NzYwNDY=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827896&amp;lang=es&amp;eid=296325753&amp;lid=2827896&amp;ci=896&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="87">
+  <evento id="72">
     <nombre>Macará – Libertad</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1808,16 +1476,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315542__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1ODA1MDY=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827891&amp;lang=es&amp;eid=296315542&amp;lid=2827891&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="88">
+  <evento id="73">
     <nombre>LDU Quito – Univ Católica Quito</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1825,16 +1486,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315543__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a58b9887847a.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827892&amp;lang=es&amp;eid=296315543&amp;lid=2827892&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="89">
+  <evento id="74">
     <nombre>Emelec – El Nacional</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1842,16 +1496,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315544__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1ODA1MDA=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827893&amp;lang=es&amp;eid=296315544&amp;lid=2827893&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="90">
+  <evento id="75">
     <nombre>CD Cuenca – Barcelona SC</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1859,16 +1506,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315545__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1ODA0OTQ=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827894&amp;lang=es&amp;eid=296315545&amp;lid=2827894&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="91">
+  <evento id="76">
     <nombre>Aucas – Orense</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -1876,16 +1516,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296315547__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1ODA1MDQ=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827895&amp;lang=es&amp;eid=296315547&amp;lid=2827895&amp;ci=307&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="92">
+  <evento id="77">
     <nombre>Deportivo La Guaira – Yaracuyanos</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Venezuela. Primera División</competicion>
@@ -1893,16 +1526,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296312482__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg1NjkyMzc=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827889&amp;lang=es&amp;eid=296312482&amp;lid=2827889&amp;ci=455&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="93">
+  <evento id="78">
     <nombre>Guastatoya – Deportivo Achuapa</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Guatemala. Liga Nacional</competicion>
@@ -1910,16 +1536,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296312506__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a58e9887847d.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827890&amp;lang=es&amp;eid=296312506&amp;lid=2827890&amp;ci=472&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="94">
+  <evento id="79">
     <nombre>Union Omaha – One Knoxville</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. USL1</competicion>
@@ -1927,16 +1546,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296327103__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/14SBGqosDQg?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=14SBGqosDQg&amp;lang=es&amp;eid=296327103&amp;lid=2823710&amp;ci=2623&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="95">
+  <evento id="80">
     <nombre>Portland Hearts of Pine – Naples</nombre>
     <deporte>Fútbol</deporte>
     <competicion>EUA. USL1</competicion>
@@ -1944,16 +1556,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/296327104__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/ziNgRMo-ips?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=youtube&amp;c=ziNgRMo-ips&amp;lang=es&amp;eid=296327104&amp;lid=2823711&amp;ci=2623&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="96">
+  <evento id="81">
     <nombre>Boston – Washington</nombre>
     <deporte>Hockey</deporte>
     <competicion>NHL. Pretemporada</competicion>
@@ -2000,7 +1605,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="97">
+  <evento id="82">
     <nombre>Columbus – San Luis</nombre>
     <deporte>Hockey</deporte>
     <competicion>NHL. Pretemporada</competicion>
@@ -2023,7 +1628,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="98">
+  <evento id="83">
     <nombre>Winnipeg – Minnesota</nombre>
     <deporte>Hockey</deporte>
     <competicion>NHL. Pretemporada</competicion>
@@ -2082,7 +1687,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="99">
+  <evento id="84">
     <nombre>Minnesota Lynx (M) –  Phoenix Mercury (M)</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>WNBA</competicion>
@@ -2090,28 +1695,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/299847129__/</url>
     <datetime_iso>2025-09-21T23:00:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a58b9887857b.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827899&amp;lang=es&amp;eid=299847129&amp;lid=2827899&amp;ci=373&amp;si=3</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://voodc.com/embed/1/85818b99a08fa188847a8599a58a9887857a.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827898&amp;lang=es&amp;eid=299847129&amp;lid=2827898&amp;ci=373&amp;si=3</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2NTc5NTQ=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827897&amp;lang=es&amp;eid=299847129&amp;lid=2827897&amp;ci=373&amp;si=3</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="100">
+  <evento id="85">
     <nombre>Unión Magdalena –  Atlético Nacional</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Colombia. Primera A</competicion>
@@ -2119,22 +1705,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:10</hora>
     <url>https://livetv.sx/es/eventinfo/296325735_uni__n_magdalena_atl__tico_nacional/</url>
     <datetime_iso>2025-09-21T23:10:00</datetime_iso>
-    <streams total="2">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa284847a859a9c8b9887857c.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827747&amp;lang=es&amp;eid=296325735&amp;lid=2827747&amp;ci=19&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://daddylive3.com/live/stream-392.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826800&amp;lang=es&amp;eid=296325735&amp;lid=2826800&amp;ci=19&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="101">
+  <evento id="86">
     <nombre>Unión Magdalena – Atlético Nacional</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Colombia. Primera A</competicion>
@@ -2142,22 +1715,9 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
     <hora>23:10</hora>
     <url>https://livetv.sx/es/eventinfo/296325735__/</url>
     <datetime_iso>2025-09-21T23:10:00</datetime_iso>
-    <streams total="2">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a08fa284847a859a9c8b9887857c.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827747&amp;lang=es&amp;eid=296325735&amp;lid=2827747&amp;ci=19&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://daddylive3.com/live/stream-392.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826800&amp;lang=es&amp;eid=296325735&amp;lid=2826800&amp;ci=19&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="102">
+  <evento id="87">
     <nombre>Always Ready –  Jorge Wilstermann</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bolivia. Primera División</competicion>
@@ -2174,45 +1734,7 @@ player/live.php?id=242315&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="103">
-    <nombre>Jakub Mensik –  Alex De Minaur</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Laver Cup</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>23:15</hora>
-    <url>https://livetv.sx/es/eventinfo/300318799_jakub_mensik_alex_de_minaur/</url>
-    <datetime_iso>2025-09-21T23:15:00</datetime_iso>
-    <streams total="4">
-      <stream id="1">
-        <url>https://emb.apl378.me/
-player/live.php?id=241821&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241821&amp;lang=es&amp;eid=300318799&amp;lid=2826734&amp;ci=6399&amp;si=4</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl378.me/
-player/live.php?id=241822&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241822&amp;lang=es&amp;eid=300318799&amp;lid=2826736&amp;ci=6399&amp;si=4</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://emb.apl378.me/
-player/live.php?id=242262&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242262&amp;lang=es&amp;eid=300318799&amp;lid=2814483&amp;ci=6399&amp;si=4</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2NjQ3MTg=</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827883&amp;lang=es&amp;eid=300318799&amp;lid=2827883&amp;ci=6399&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="104">
+  <evento id="88">
     <nombre>Always Ready – Jorge Wilstermann</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bolivia. Primera División</competicion>
@@ -2229,15 +1751,57 @@ player/live.php?id=242262&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="105">
-    <nombre>Jakub Mensik – Alex De Minaur</nombre>
-    <deporte>Tenis</deporte>
+  <evento id="89">
+    <nombre>Peñarol –  Juventud Las Piedras</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Uruguay. Primera División</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>23:30</hora>
+    <url>https://livetv.sx/es/eventinfo/296333376_pe__arol_juventud_las_piedras/</url>
+    <datetime_iso>2025-09-21T23:30:00</datetime_iso>
+    <streams total="5">
+      <stream id="1">
+        <url>https://voodc.com/embed/1/85818b99a0909986847a859a9c8d9887857e.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827749&amp;lang=es&amp;eid=296333376&amp;lid=2827749&amp;ci=99&amp;si=1</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://daddylive3.com/live/stream-391.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826799&amp;lang=es&amp;eid=296333376&amp;lid=2826799&amp;ci=99&amp;si=1</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://e2link.link/ch.php?id=96</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825405&amp;lang=es&amp;eid=296333376&amp;lid=2825405&amp;ci=99&amp;si=1</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://daddylive3.com/live/stream-597.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826813&amp;lang=es&amp;eid=296333376&amp;lid=2826813&amp;ci=99&amp;si=1</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://emb.apl378.me/
+player/live.php?id=239880&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=239880&amp;lang=es&amp;eid=296333376&amp;lid=2793075&amp;ci=99&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="90">
+    <nombre>Jakub Mensik –  Alex De Minaur</nombre>
+    <deporte>Fútbol</deporte>
     <competicion>Laver Cup</competicion>
     <fecha>21 de septiembre</fecha>
-    <hora>23:15</hora>
-    <url>https://livetv.sx/es/eventinfo/300318799__/</url>
-    <datetime_iso>2025-09-21T23:15:00</datetime_iso>
-    <streams total="4">
+    <hora>23:30</hora>
+    <url>https://livetv.sx/es/eventinfo/300318799_jakub_mensik_alex_de_minaur/</url>
+    <datetime_iso>2025-09-21T23:30:00</datetime_iso>
+    <streams total="8">
       <stream id="1">
         <url>https://emb.apl378.me/
 player/live.php?id=241821&amp;w=700&amp;h=480</url>
@@ -2265,51 +1829,33 @@ player/live.php?id=242262&amp;w=700&amp;h=480</url>
         <idioma_nombre>Bandera #0</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827883&amp;lang=es&amp;eid=300318799&amp;lid=2827883&amp;ci=6399&amp;si=4</enlace_original>
       </stream>
-    </streams>
-  </evento>
-  <evento id="106">
-    <nombre>Peñarol –  Juventud Las Piedras</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Uruguay. Primera División</competicion>
-    <fecha>21 de septiembre</fecha>
-    <hora>23:30</hora>
-    <url>https://livetv.sx/es/eventinfo/296333376_pe__arol_juventud_las_piedras/</url>
-    <datetime_iso>2025-09-21T23:30:00</datetime_iso>
-    <streams total="5">
-      <stream id="1">
-        <url>https://voodc.com/embed/1/85818b99a0909986847a859a9c8d9887857e.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827749&amp;lang=es&amp;eid=296333376&amp;lid=2827749&amp;ci=99&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://daddylive3.com/live/stream-597.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826813&amp;lang=es&amp;eid=296333376&amp;lid=2826813&amp;ci=99&amp;si=1</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://daddylive3.com/live/stream-391.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826799&amp;lang=es&amp;eid=296333376&amp;lid=2826799&amp;ci=99&amp;si=1</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://e2link.link/ch.php?id=96</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825405&amp;lang=es&amp;eid=296333376&amp;lid=2825405&amp;ci=99&amp;si=1</enlace_original>
-      </stream>
       <stream id="5">
-        <url>https://emb.apl378.me/
-player/live.php?id=239880&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=239880&amp;lang=es&amp;eid=296333376&amp;lid=2793075&amp;ci=99&amp;si=1</enlace_original>
+        <url>https://wikisport.best/court/wik9.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826175&amp;lang=es&amp;eid=300318799&amp;lid=2826175&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://wikisport.best/court/wik20.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827920&amp;lang=es&amp;eid=300318799&amp;lid=2827920&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://wikisport.best/court/t9.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826174&amp;lang=es&amp;eid=300318799&amp;lid=2826174&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://wikisport.best/court/t20.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827919&amp;lang=es&amp;eid=300318799&amp;lid=2827919&amp;ci=6399&amp;si=4</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="107">
+  <evento id="91">
     <nombre>Peñarol – Juventud Las Piedras</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Uruguay. Primera División</competicion>
@@ -2325,22 +1871,22 @@ player/live.php?id=239880&amp;w=700&amp;h=480</url>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827749&amp;lang=es&amp;eid=296333376&amp;lid=2827749&amp;ci=99&amp;si=1</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://daddylive3.com/live/stream-597.php</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826813&amp;lang=es&amp;eid=296333376&amp;lid=2826813&amp;ci=99&amp;si=1</enlace_original>
-      </stream>
-      <stream id="3">
         <url>https://daddylive3.com/live/stream-391.php</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
         <idioma_nombre>Francés</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826799&amp;lang=es&amp;eid=296333376&amp;lid=2826799&amp;ci=99&amp;si=1</enlace_original>
       </stream>
-      <stream id="4">
+      <stream id="3">
         <url>https://e2link.link/ch.php?id=96</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
         <idioma_nombre>Francés</idioma_nombre>
         <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2825405&amp;lang=es&amp;eid=296333376&amp;lid=2825405&amp;ci=99&amp;si=1</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://daddylive3.com/live/stream-597.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826813&amp;lang=es&amp;eid=296333376&amp;lid=2826813&amp;ci=99&amp;si=1</enlace_original>
       </stream>
       <stream id="5">
         <url>https://emb.apl378.me/
@@ -2351,7 +1897,69 @@ player/live.php?id=239880&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="108">
+  <evento id="92">
+    <nombre>Jakub Mensik – Alex De Minaur</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>Laver Cup</competicion>
+    <fecha>21 de septiembre</fecha>
+    <hora>23:30</hora>
+    <url>https://livetv.sx/es/eventinfo/300318799__/</url>
+    <datetime_iso>2025-09-21T23:30:00</datetime_iso>
+    <streams total="8">
+      <stream id="1">
+        <url>https://emb.apl378.me/
+player/live.php?id=241821&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241821&amp;lang=es&amp;eid=300318799&amp;lid=2826734&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl378.me/
+player/live.php?id=241822&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=241822&amp;lang=es&amp;eid=300318799&amp;lid=2826736&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl378.me/
+player/live.php?id=242262&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer2.php?t=alieztv&amp;c=242262&amp;lang=es&amp;eid=300318799&amp;lid=2814483&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://antenasport.org/channel/exY3VzdG9tU2FsdDg2NjQ3MTg=</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827883&amp;lang=es&amp;eid=300318799&amp;lid=2827883&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://wikisport.best/court/wik9.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826175&amp;lang=es&amp;eid=300318799&amp;lid=2826175&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://wikisport.best/court/wik20.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827920&amp;lang=es&amp;eid=300318799&amp;lid=2827920&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://wikisport.best/court/t9.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2826174&amp;lang=es&amp;eid=300318799&amp;lid=2826174&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://wikisport.best/court/t20.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv863.me/webplayer.php?t=ifr&amp;c=2827919&amp;lang=es&amp;eid=300318799&amp;lid=2827919&amp;ci=6399&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="93">
     <nombre>OM –  San Cristóbal</nombre>
     <deporte>Fútbol</deporte>
     <competicion>República Dominicana. LDF</competicion>
@@ -2361,7 +1969,7 @@ player/live.php?id=239880&amp;w=700&amp;h=480</url>
     <datetime_iso>2025-09-21T23:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="109">
+  <evento id="94">
     <nombre>OM – San Cristóbal</nombre>
     <deporte>Fútbol</deporte>
     <competicion>República Dominicana. LDF</competicion>
