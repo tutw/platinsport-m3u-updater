@@ -2,38 +2,42 @@ name: Platinsport Scraper Hourly
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Se ejecuta cada hora en punto
-  workflow_dispatch:      # Permite ejecutarlo manualmente desde GitHub
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    # IMPORTANTE: Permisos para subir el archivo al repo
     permissions:
       contents: write
 
     steps:
-      - name: Checkout repositorio
+      - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Necesario para que git pueda hacer el rebase correctamente
 
-      - name: Configurar Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: 'pip'
 
-      - name: Instalar dependencias
-        run: |
-          pip install requests beautifulsoup4 lxml brotli
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4 lxml brotli
 
-      - name: Ejecutar Scraper
+      - name: Run scraper
         run: python platinsport_scraper.py
 
-      - name: Guardar cambios en el repositorio
+      - name: Commit and Push
         run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Action"
           git add platinsport.m3u
-          # Solo hace commit si hay cambios en el archivo
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Actualización automática: platinsport.m3u" && git push)
+          # Evita errores si no hay cambios
+          if git diff --staged --quiet; then
+            echo "No hay cambios para subir"
+          else
+            git commit -m "Auto-update platinsport.m3u"
+            git pull --rebase origin main # CORRECCIÓN: Trae cambios remotos antes de subir
+            git push origin main
+          fi
