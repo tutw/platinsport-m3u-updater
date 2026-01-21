@@ -2,11 +2,11 @@ name: Daily Platinsport M3U (Playwright)
 
 on:
   schedule:
-    - cron: '0 8 * * *'   # 08:00 UTC
+    - cron: '0 8 * * *'
   workflow_dispatch:
     inputs:
       date:
-        description: "Opcional: forzar fecha para la key (YYYY-MM-DD), ej: 2026-01-20"
+        description: "Opcional: forzar fecha key (YYYY-MM-DD), ej: 2026-01-20"
         required: false
         default: ""
       retries:
@@ -14,11 +14,11 @@ on:
         required: false
         default: "4"
       backoff_base:
-        description: "Backoff base en segundos (default: 1.0)"
+        description: "Backoff base segundos (default: 1.0)"
         required: false
         default: "1.0"
       backoff_cap:
-        description: "Backoff máximo en segundos (default: 10.0)"
+        description: "Backoff máximo segundos (default: 10.0)"
         required: false
         default: "10.0"
 
@@ -57,7 +57,7 @@ jobs:
           BACKOFF_CAP="${{ github.event.inputs.backoff_cap }}"
           DATE_INPUT="${{ github.event.inputs.date }}"
 
-          # Valores por defecto cuando es schedule (inputs no existen)
+          # Defaults cuando es schedule (inputs vacíos)
           if [ -z "${RETRIES:-}" ]; then RETRIES="4"; fi
           if [ -z "${BACKOFF_BASE:-}" ]; then BACKOFF_BASE="1.0"; fi
           if [ -z "${BACKOFF_CAP:-}" ]; then BACKOFF_CAP="10.0"; fi
