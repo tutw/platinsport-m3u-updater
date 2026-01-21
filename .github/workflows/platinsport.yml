@@ -1,43 +1,40 @@
-name: Platinsport Scraper Hourly
+name: Update Platinsport M3U Lista
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *'   # Cada hora en punto
+  workflow_dispatch:       # Permite ejecución manual desde GitHub
 
 jobs:
-  build:
+  scrape-and-update:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
-      - name: Checkout repo
+      - name: Checkout del repositorio
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Necesario para que git pueda hacer el rebase correctamente
+          fetch-depth: 0   # Necesario para poder commitear después
 
-      - name: Setup Python
+      - name: Configurar Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
-        run: pip install requests beautifulsoup4 lxml brotli
-
-      - name: Run scraper
-        run: python platinsport_scraper.py
-
-      - name: Commit and Push
+      - name: Instalar dependencias
         run: |
-          git config --local user.email "actions@github.com"
-          git config --local user.name "GitHub Action"
-          git add platinsport.m3u
-          # Evita errores si no hay cambios
-          if git diff --staged --quiet; then
-            echo "No hay cambios para subir"
-          else
-            git commit -m "Auto-update platinsport.m3u"
-            git pull --rebase origin main # CORRECCIÓN: Trae cambios remotos antes de subir
-            git push origin main
-          fi
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
+
+      - name: Ejecutar scraper
+        run: python platinsport.py
+
+      - name: Configurar git
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+
+      - name: Commit y push si hay cambios
+        run: |
+          git add lista.m3u || true
+          git diff --staged --quiet || git commit -m "Actualización automática lista.m3u - $(date '+%Y-%m-%d %H:%M UTC')"
+          git push || echo "No hay cambios o error en push (posiblemente ya actualizado)"
