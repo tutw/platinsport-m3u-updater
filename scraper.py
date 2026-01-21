@@ -1,18 +1,19 @@
 import argparse
 import base64
 import datetime as dt
+import json
 import random
 import re
 import sys
 import time
 from typing import List, Optional, Tuple
 
+import requests
 from bs4 import BeautifulSoup
-from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 try:
     from zoneinfo import ZoneInfo  # Python 3.9+
-except ImportError:  # pragma: no cover
+except ImportError:
     ZoneInfo = None
 
 
@@ -97,14 +98,14 @@ def parse_page_date_to_yyyy_mm_dd(page_html: str) -> Optional[str]:
 
 
 # -----------------------------
-# Playwright + backoff
+# Fetch con requests + backoff + sesión
 # -----------------------------
 def backoff_sleep(attempt: int, base: float, cap: float) -> None:
     delay = min(cap, base * (2 ** attempt)) + random.uniform(0, base)
     time.sleep(delay)
 
 
-def fetch_html_with_playwright(
+def fetch_html_with_requests(
     target_url: str,
     *,
     seed_link_home: bool,
@@ -112,65 +113,55 @@ def fetch_html_with_playwright(
     backoff_base: float,
     backoff_cap: float,
 ) -> str:
+    """
+    Usa requests (no Playwright) con sesión persistente y User-Agent real.
+    """
+    session = requests.Session()
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'DNT': '1',
+        'Connection': 'keep-alive',
+        'Upgrade-Insecure-Requests': '1',
+    }
+
     last_html = ""
 
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-
-        for attempt in range(max_retries):
-            context = browser.new_context(
-                user_agent=(
-                    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
-                    "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-                ),
-                locale="en-US",
-                viewport={"width": 1366, "height": 768},
-            )
-            page = context.new_page()
-            page.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined});")
-
-            def goto(url: str, wait_selector: Optional[str] = None) -> str:
-                page.goto(url, wait_until="domcontentloaded", timeout=60000)
-                if wait_selector:
-                    try:
-                        page.wait_for_selector(wait_selector, timeout=30000)
-                    except PlaywrightTimeoutError:
-                        pass
-                return page.content()
-
-            try:
-                if seed_link_home:
-                    try:
-                        goto(LINK_HOME)
-                    except PlaywrightTimeoutError:
-                        pass
-
-                html = goto(target_url, wait_selector="div.myDiv1")
-                last_html = html
-                context.close()
-
-                if has_schedule_container(html) and not looks_blocked(html):
-                    browser.close()
-                    return html
-
-                if attempt < max_retries - 1:
-                    backoff_sleep(attempt, backoff_base, backoff_cap)
-
-            except Exception:
+    for attempt in range(max_retries):
+        try:
+            # Seed cookies/sesión si es necesario
+            if seed_link_home:
                 try:
-                    context.close()
+                    session.get(LINK_HOME, headers=headers, timeout=30)
+                    time.sleep(random.uniform(1, 2))  # Pausa humana
                 except Exception:
                     pass
-                if attempt < max_retries - 1:
-                    backoff_sleep(attempt, backoff_base, backoff_cap)
 
-        browser.close()
+            # Petición real
+            resp = session.get(target_url, headers={**headers, 'Referer': LINK_HOME}, timeout=30)
+            resp.raise_for_status()
+            last_html = resp.text
+
+            if not looks_blocked(last_html) and has_schedule_container(last_html):
+                return last_html
+
+            # Si bloqueado, reintenta
+            if attempt < max_retries - 1:
+                backoff_sleep(attempt, backoff_base, backoff_cap)
+
+        except Exception as e:
+            if attempt < max_retries - 1:
+                backoff_sleep(attempt, backoff_base, backoff_cap)
+            continue
 
     return last_html
 
 
 # -----------------------------
-# Extracción y salida M3U
+# Extracción y M3U
 # -----------------------------
 def extract_entries_for_m3u(html: str) -> List[Tuple[str, str]]:
     soup = BeautifulSoup(html, "html.parser")
@@ -241,7 +232,7 @@ def get_candidate_dates(
     today_m, yesterday_m = madrid_today_and_yesterday()
     candidates = [today_m, yesterday_m]
 
-    link_html = fetch_html_with_playwright(
+    link_html = fetch_html_with_requests(
         LINK_HOME,
         seed_link_home=False,
         max_retries=retries,
@@ -256,12 +247,12 @@ def get_candidate_dates(
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Platinsport -> lista.m3u (Playwright + fallback + backoff)")
-    ap.add_argument("--date", default=None, help="Forzar fecha (YYYY-MM-DD) para la key")
+    ap = argparse.ArgumentParser(description="Platinsport -> lista.m3u (requests + fallback)")
+    ap.add_argument("--date", default=None, help="Forzar fecha (YYYY-MM-DD)")
     ap.add_argument("--output", default="lista.m3u", help="Salida (default: lista.m3u)")
-    ap.add_argument("--retries", type=int, default=4, help="Reintentos por URL (default: 4)")
-    ap.add_argument("--backoff-base", type=float, default=1.0, help="Backoff base (default: 1.0)")
-    ap.add_argument("--backoff-cap", type=float, default=10.0, help="Backoff máximo (default: 10.0)")
+    ap.add_argument("--retries", type=int, default=5, help="Reintentos por URL (default: 5)")
+    ap.add_argument("--backoff-base", type=float, default=2.0, help="Backoff base (default: 2.0)")
+    ap.add_argument("--backoff-cap", type=float, default=30.0, help="Backoff máximo (default: 30.0)")
     args = ap.parse_args()
 
     retries = max(1, args.retries)
@@ -279,7 +270,7 @@ def main() -> None:
         url = make_source_list_url(d)
         print(f"Intentando fecha={d} url={url}")
 
-        html = fetch_html_with_playwright(
+        html = fetch_html_with_requests(
             url,
             seed_link_home=True,
             max_retries=retries,
@@ -294,16 +285,16 @@ def main() -> None:
             last_reason = "Bloqueo (403/captcha/challenge)"
             continue
         if not has_schedule_container(html):
-            last_reason = "No aparece div.myDiv1 (desfase/estructura)"
+            last_reason = "No aparece div.myDiv1"
             continue
 
         entries = extract_entries_for_m3u(html)
         if not entries:
-            print("Aviso: no se encontraron enlaces AceStream en la página (se genera solo cabecera).")
+            print("Aviso: no hay AceStream links (se genera cabecera vacía)")
         write_m3u(entries, args.output)
         return
 
-    print(f"Fallo tras probar fechas: {tried}. Motivo final: {last_reason}", file=sys.stderr)
+    print(f"Fallo tras probar fechas: {tried}. Motivo: {last_reason}", file=sys.stderr)
     raise SystemExit(1)
 
 
