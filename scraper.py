@@ -21,8 +21,9 @@ LINK_HOME = f"{BASE_URL}/link/"
 SOURCE_LIST_PATH = "/link/source-list.php?key="
 MADRID_TZ = "Europe/Madrid"
 
+
 # -----------------------------
-# Helpers: fecha / key
+# Fecha / key
 # -----------------------------
 def madrid_today_and_yesterday() -> Tuple[str, str]:
     if ZoneInfo is None:
@@ -68,9 +69,6 @@ _MONTHS = {
 
 
 def parse_page_date_to_yyyy_mm_dd(page_html: str) -> Optional[str]:
-    """
-    Busca texto tipo: 'Tuesday 20th January 2026' en <div class="myDiv">...</div>
-    """
     soup = BeautifulSoup(page_html, "html.parser")
     candidates = soup.find_all("div", class_="myDiv")
     pattern = re.compile(r"\b(\d{1,2})(st|nd|rd|th)?\s+([A-Za-z]+)\s+(\d{4})\b")
@@ -114,9 +112,6 @@ def fetch_html_with_playwright(
     backoff_base: float,
     backoff_cap: float,
 ) -> str:
-    """
-    Carga una URL con Chromium headless. Reintenta con backoff.
-    """
     last_html = ""
 
     with sync_playwright() as p:
@@ -154,12 +149,10 @@ def fetch_html_with_playwright(
                 last_html = html
                 context.close()
 
-                # condición de éxito
                 if has_schedule_container(html) and not looks_blocked(html):
                     browser.close()
                     return html
 
-                # reintento
                 if attempt < max_retries - 1:
                     backoff_sleep(attempt, backoff_base, backoff_cap)
 
@@ -177,13 +170,9 @@ def fetch_html_with_playwright(
 
 
 # -----------------------------
-# Extracción y generación M3U
+# Extracción y salida M3U
 # -----------------------------
 def extract_entries_for_m3u(html: str) -> List[Tuple[str, str]]:
-    """
-    Devuelve lista de (title, url) SOLO para enlaces AceStream (acestream://...).
-    title = "Liga | EquipoA vs EquipoB | Canal"
-    """
     soup = BeautifulSoup(html, "html.parser")
     container = soup.find("div", class_="myDiv1")
     if not container:
@@ -211,9 +200,6 @@ def extract_entries_for_m3u(html: str) -> List[Tuple[str, str]]:
             if next_div and "button-group" in (next_div.get("class", []) or []):
                 for a in next_div.find_all("a"):
                     href = (a.get("href") or "").strip()
-                    if not href:
-                        continue
-                    # SOLO ACESTREAM para .m3u
                     if href.startswith("acestream://"):
                         channel = a.get_text(" ", strip=True)
                         title = f"{current_league} | {current_match} | {channel}"
@@ -223,7 +209,6 @@ def extract_entries_for_m3u(html: str) -> List[Tuple[str, str]]:
 
 
 def write_m3u(entries: List[Tuple[str, str]], output_path: str) -> None:
-    # Deduplicado por URL manteniendo orden
     seen = set()
     unique: List[Tuple[str, str]] = []
     for title, url in entries:
@@ -235,7 +220,6 @@ def write_m3u(entries: List[Tuple[str, str]], output_path: str) -> None:
     with open(output_path, "w", encoding="utf-8", newline="\n") as f:
         f.write("#EXTM3U\n")
         for title, url in unique:
-            # EXTINF clásico
             f.write(f"#EXTINF:-1,{title}\n")
             f.write(f"{url}\n")
 
@@ -243,23 +227,20 @@ def write_m3u(entries: List[Tuple[str, str]], output_path: str) -> None:
 
 
 # -----------------------------
-# Estrategia: fallback 3 fechas
+# Fallback automático 3 fechas
 # -----------------------------
-def get_candidate_dates(date_forced: Optional[str], retries: int, backoff_base: float, backoff_cap: float) -> List[str]:
-    """
-    3 pasos:
-      1) hoy Madrid
-      2) ayer Madrid
-      3) fecha detectada en /link/
-    Si date_forced existe, solo devuelve esa.
-    """
+def get_candidate_dates(
+    date_forced: Optional[str],
+    retries: int,
+    backoff_base: float,
+    backoff_cap: float
+) -> List[str]:
     if date_forced:
         return [date_forced]
 
     today_m, yesterday_m = madrid_today_and_yesterday()
     candidates = [today_m, yesterday_m]
 
-    # Detectar fecha desde /link/
     link_html = fetch_html_with_playwright(
         LINK_HOME,
         seed_link_home=False,
@@ -275,9 +256,9 @@ def get_candidate_dates(date_forced: Optional[str], retries: int, backoff_base: 
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Platinsport scraper -> lista.m3u (Playwright + fallback + backoff)")
+    ap = argparse.ArgumentParser(description="Platinsport -> lista.m3u (Playwright + fallback + backoff)")
     ap.add_argument("--date", default=None, help="Forzar fecha (YYYY-MM-DD) para la key")
-    ap.add_argument("--output", default="lista.m3u", help="Archivo de salida (default: lista.m3u)")
+    ap.add_argument("--output", default="lista.m3u", help="Salida (default: lista.m3u)")
     ap.add_argument("--retries", type=int, default=4, help="Reintentos por URL (default: 4)")
     ap.add_argument("--backoff-base", type=float, default=1.0, help="Backoff base (default: 1.0)")
     ap.add_argument("--backoff-cap", type=float, default=10.0, help="Backoff máximo (default: 10.0)")
@@ -290,8 +271,8 @@ def main() -> None:
     dates = get_candidate_dates(args.date, retries, backoff_base, backoff_cap)
     print(f"Fechas candidatas: {dates}")
 
-    last_error = None
     tried = []
+    last_reason = None
 
     for d in dates:
         tried.append(d)
@@ -307,30 +288,22 @@ def main() -> None:
         )
 
         if not html:
-            last_error = RuntimeError("HTML vacío")
+            last_reason = "HTML vacío"
             continue
-
         if looks_blocked(html):
-            last_error = RuntimeError("Parece bloqueo (403/captcha)")
+            last_reason = "Bloqueo (403/captcha/challenge)"
             continue
-
         if not has_schedule_container(html):
-            last_error = RuntimeError("No aparece div.myDiv1 (posible desfase o estructura diferente)")
+            last_reason = "No aparece div.myDiv1 (desfase/estructura)"
             continue
 
-        try:
-            entries = extract_entries_for_m3u(html)
-            if not entries:
-                # Puede haber días con links vacíos; aún así generamos archivo
-                print("Aviso: no se encontraron enlaces AceStream, se generará lista.m3u vacío salvo cabecera.")
-            write_m3u(entries, args.output)
-            return
-        except Exception as e:
-            last_error = e
-            continue
+        entries = extract_entries_for_m3u(html)
+        if not entries:
+            print("Aviso: no se encontraron enlaces AceStream en la página (se genera solo cabecera).")
+        write_m3u(entries, args.output)
+        return
 
-    msg = f"Fallo tras probar fechas: {tried}. Último error: {last_error}"
-    print(msg, file=sys.stderr)
+    print(f"Fallo tras probar fechas: {tried}. Motivo final: {last_reason}", file=sys.stderr)
     raise SystemExit(1)
 
 
