@@ -1,0 +1,87 @@
+name: Daily Platinsport M3U (Playwright)
+
+on:
+  schedule:
+    - cron: '0 8 * * *'   # 08:00 UTC
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Opcional: forzar fecha para la key (YYYY-MM-DD), ej: 2026-01-20"
+        required: false
+        default: ""
+      retries:
+        description: "Reintentos por URL (default: 4)"
+        required: false
+        default: "4"
+      backoff_base:
+        description: "Backoff base en segundos (default: 1.0)"
+        required: false
+        default: "1.0"
+      backoff_cap:
+        description: "Backoff máximo en segundos (default: 10.0)"
+        required: false
+        default: "10.0"
+
+permissions:
+  contents: write
+
+jobs:
+  scrape-and-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Install Playwright browser (Chromium)
+        run: |
+          python -m playwright install --with-deps chromium
+
+      - name: Run scraper (scheduled or manual)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RETRIES="${{ github.event.inputs.retries }}"
+          BACKOFF_BASE="${{ github.event.inputs.backoff_base }}"
+          BACKOFF_CAP="${{ github.event.inputs.backoff_cap }}"
+          DATE_INPUT="${{ github.event.inputs.date }}"
+
+          # Valores por defecto cuando es schedule (inputs no existen)
+          if [ -z "${RETRIES:-}" ]; then RETRIES="4"; fi
+          if [ -z "${BACKOFF_BASE:-}" ]; then BACKOFF_BASE="1.0"; fi
+          if [ -z "${BACKOFF_CAP:-}" ]; then BACKOFF_CAP="10.0"; fi
+
+          CMD="python scraper.py --output lista.m3u --retries ${RETRIES} --backoff-base ${BACKOFF_BASE} --backoff-cap ${BACKOFF_CAP}"
+
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${DATE_INPUT:-}" ]; then
+            CMD="${CMD} --date ${DATE_INPUT}"
+          fi
+
+          echo "Running: ${CMD}"
+          eval "${CMD}"
+
+      - name: Upload lista.m3u as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lista.m3u
+          path: lista.m3u
+          if-no-files-found: error
+
+      - name: Commit and push lista.m3u
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add lista.m3u
+          git commit -m "Update lista.m3u [skip ci]" || echo "No changes to commit"
+          git push
