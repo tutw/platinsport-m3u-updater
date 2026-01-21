@@ -2,8 +2,8 @@ name: Update Platinsport M3U Lista
 
 on:
   schedule:
-    - cron: '0 * * * *'
-  workflow_dispatch:
+    - cron: '0 * * * *'  # Cada hora
+  workflow_dispatch:  # Permite ejecución manual
 
 jobs:
   scrape-and-update:
@@ -14,11 +14,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configurar Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
 
       - name: Instalar dependencias Python + Playwright
         run: |
@@ -26,7 +28,7 @@ jobs:
           pip install requests beautifulsoup4 playwright
           playwright install --with-deps chromium
 
-      - name: Ejecutar scraper con browser
+      - name: Ejecutar scraper
         run: python platinsport.py
 
       - name: Configurar git
@@ -34,9 +36,13 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
 
-      - name: Commit y push si hay cambios (con rebase)
+      - name: Commit y push si hay cambios
         run: |
-          git pull --rebase origin main || true
           git add lista.m3u || true
-          git diff --staged --quiet || git commit -m "Actualización automática lista.m3u - $(date '+%Y-%m-%d %H:%M UTC')"
-          git push origin main || echo "Push final falló (raro después de rebase)"
+          if git diff --staged --quiet; then
+            echo "No hay cambios en lista.m3u"
+          else
+            git commit -m "Actualización automática lista.m3u - $(date -u '+%Y-%m-%d %H:%M UTC')"
+            git pull --rebase origin main || git pull --rebase origin master || true
+            git push || echo "Push falló, pero continuando..."
+          fi
