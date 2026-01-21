@@ -5,7 +5,7 @@ import time
 import random
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
-from playwright_stealth import stealth_sync
+from playwright_stealth import stealth_page
 
 # Configuración
 BASE_DOMAIN = "https://www.platinsport.com"
@@ -13,7 +13,7 @@ START_URL = "https://www.platinsport.com/link/" # Para "calentar" cookies
 SOURCE_TEMPLATE = "https://www.platinsport.com/link/source-list.php?key="
 
 def get_dynamic_url():
-    """Genera la URL con la key diaria."""
+    """Genera la URL con la key diaria en Base64."""
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     raw_string = f"{today}PLATINSPORT"
     encoded_bytes = base64.b64encode(raw_string.encode("utf-8"))
@@ -21,6 +21,7 @@ def get_dynamic_url():
     return f"{SOURCE_TEMPLATE}{encoded_key}"
 
 def parse_html(html_content):
+    """Procesa el HTML para extraer ligas, partidos y links."""
     soup = BeautifulSoup(html_content, 'html.parser')
     content_div = soup.find('div', class_='myDiv1')
     
@@ -28,15 +29,17 @@ def parse_html(html_content):
         return []
 
     sports_data = []
-    current_league = "Unknown League"
+    current_league = "Liga Desconocida"
     current_match = None
 
     for element in content_div.children:
         if element.name is None: continue
 
+        # Identificar la liga (párrafos)
         if element.name == 'p':
             current_league = element.get_text(strip=True)
 
+        # Identificar el partido (título y hora)
         elif element.name == 'div' and 'match-title-bar' in element.get('class', []):
             time_tag = element.find('time')
             match_time = time_tag['datetime'] if time_tag and 'datetime' in time_tag.attrs else "N/A"
@@ -52,6 +55,7 @@ def parse_html(html_content):
             }
             sports_data.append(current_match)
 
+        # Identificar los botones de canales/links
         elif element.name == 'div' and 'button-group' in element.get('class', []):
             if current_match:
                 for link in element.find_all('a'):
@@ -70,68 +74,51 @@ def main():
     print(f"Objetivo: {target_url}")
 
     with sync_playwright() as p:
-        # Argumentos para parecer un navegador real y no un bot
-        browser = p.chromium.launch(
-            headless=True,
-            args=[
-                "--disable-blink-features=AutomationControlled",
-                "--no-sandbox",
-                "--disable-setuid-sandbox"
-            ]
-        )
+        # Lanzamos el navegador
+        browser = p.chromium.launch(headless=True)
         
-        # Simulamos una pantalla estándar de laptop
+        # Configuramos el contexto con un User Agent real
         context = browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36",
-            viewport={"width": 1366, "height": 768},
-            locale="es-ES"
+            viewport={"width": 1366, "height": 768}
         )
         
         page = context.new_page()
         
-        # Aplicamos el módulo stealth (OCULTA que somos Playwright)
-        stealth_sync(page)
+        # APLICAR STEALTH (Corregido: stealth_page)
+        stealth_page(page) 
 
         try:
-            # 1. VISITA PREVIA: Vamos a la home primero para obtener cookies de sesión
+            # 1. Visita previa para generar cookies válidas
             print("1. Calentando sesión (visitando home)...")
-            page.goto(START_URL, wait_until="domcontentloaded", timeout=30000)
-            time.sleep(random.uniform(2, 4)) # Espera humana
+            page.goto(START_URL, wait_until="networkidle")
+            time.sleep(random.uniform(2, 4))
 
-            # 2. NAVEGACIÓN REAL: Ahora vamos a la URL con key
+            # 2. Navegación a la lista de fuentes
             print("2. Accediendo a la URL protegida...")
-            page.goto(target_url, wait_until="domcontentloaded", timeout=30000)
+            page.goto(target_url, wait_until="networkidle")
             
-            # Esperamos selectores clave
-            try:
-                page.wait_for_selector("div.myDiv1", timeout=15000)
-            except:
-                print("Nota: myDiv1 tardó en aparecer o no está.")
+            # Espera técnica para asegurar carga de scripts
+            page.wait_for_timeout(5000) 
 
             html_content = page.content()
             
-            # Validación de contenido
+            # Verificación de bloqueo
             if "Access Restricted" in html_content or "403 Forbidden" in html_content:
-                print("ERROR: El bloqueo persiste.")
-                # Guardamos el HTML de error para debuggear si falla (opcional)
-                with open("debug_error.html", "w", encoding="utf-8") as f:
-                    f.write(html_content)
-                exit(1) # Salimos con error para que GitHub avise
+                print("ERROR: Bloqueo detectado (403).")
+                exit(1)
 
+            # Parseo de datos
             data = parse_html(html_content)
             
-            if not data:
-                print("ADVERTENCIA: No se extrajeron datos (la lista podría estar vacía hoy).")
-            
-            # Guardar JSON
-            filename = 'sports_schedule.json'
-            with open(filename, 'w', encoding='utf-8') as f:
+            # Guardar en JSON
+            with open('sports_schedule.json', 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=4, ensure_ascii=False)
             
-            print(f"ÉXITO: {len(data)} eventos guardados.")
+            print(f"ÉXITO: {len(data)} eventos guardados en sports_schedule.json")
 
         except Exception as e:
-            print(f"Excepción crítica: {e}")
+            print(f"Excepción: {e}")
             exit(1)
         finally:
             browser.close()
