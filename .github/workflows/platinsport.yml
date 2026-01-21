@@ -20,7 +20,7 @@ jobs:
 
       - name: Install minimal deps
         run: |
-          pip install -r requirements-platinsport.txt
+          pip install -r requirements.txt
 
       - name: Run scraper
         env:
