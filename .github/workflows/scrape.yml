@@ -1,4 +1,4 @@
-name: Daily Platinsport M3U (Playwright)
+name: Daily Platinsport M3U (requests)
 
 on:
   schedule:
@@ -6,21 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       date:
-        description: "Opcional: forzar fecha key (YYYY-MM-DD), ej: 2026-01-20"
+        description: "Opcional: fecha (YYYY-MM-DD)"
         required: false
         default: ""
-      retries:
-        description: "Reintentos por URL (default: 4)"
-        required: false
-        default: "4"
-      backoff_base:
-        description: "Backoff base segundos (default: 1.0)"
-        required: false
-        default: "1.0"
-      backoff_cap:
-        description: "Backoff máximo segundos (default: 10.0)"
-        required: false
-        default: "10.0"
 
 permissions:
   contents: write
@@ -38,50 +26,34 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install Python dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install beautifulsoup4 requests
 
-      - name: Install Playwright browser (Chromium)
-        run: |
-          python -m playwright install --with-deps chromium
-
-      - name: Run scraper (scheduled or manual)
+      - name: Run scraper
         shell: bash
         run: |
           set -euo pipefail
-
-          RETRIES="${{ github.event.inputs.retries }}"
-          BACKOFF_BASE="${{ github.event.inputs.backoff_base }}"
-          BACKOFF_CAP="${{ github.event.inputs.backoff_cap }}"
           DATE_INPUT="${{ github.event.inputs.date }}"
-
-          # Defaults cuando es schedule (inputs vacíos)
-          if [ -z "${RETRIES:-}" ]; then RETRIES="4"; fi
-          if [ -z "${BACKOFF_BASE:-}" ]; then BACKOFF_BASE="1.0"; fi
-          if [ -z "${BACKOFF_CAP:-}" ]; then BACKOFF_CAP="10.0"; fi
-
-          CMD="python scraper.py --output lista.m3u --retries ${RETRIES} --backoff-base ${BACKOFF_BASE} --backoff-cap ${BACKOFF_CAP}"
-
+          CMD="python scraper.py --output lista.m3u --retries 5 --backoff-base 2.0 --backoff-cap 30.0"
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${DATE_INPUT:-}" ]; then
             CMD="${CMD} --date ${DATE_INPUT}"
           fi
-
           echo "Running: ${CMD}"
           eval "${CMD}"
 
-      - name: Upload lista.m3u as artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: lista.m3u
           path: lista.m3u
           if-no-files-found: error
 
-      - name: Commit and push lista.m3u
+      - name: Commit and push
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
           git add lista.m3u
-          git commit -m "Update lista.m3u [skip ci]" || echo "No changes to commit"
+          git commit -m "Update lista.m3u [skip ci]" || echo "No changes"
           git push
