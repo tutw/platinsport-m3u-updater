@@ -2,9 +2,8 @@ name: Daily Sports Scraper
 
 on:
   schedule:
-    # Ejecutar todos los días a las 08:00 UTC
     - cron: '0 8 * * *'
-  workflow_dispatch: # Botón manual
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -25,16 +24,24 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          # IMPORTANTE: Instalar navegadores de Playwright
           playwright install chromium
 
       - name: Run Scraper Script
         run: python scraper.py
 
       - name: Commit and Push results
+        # Solo se ejecuta si el paso anterior fue exitoso
+        if: success() 
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add sports_schedule.json
-          # Si no hay cambios, no fallar
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update sports schedule" && git push)
+          
+          # Verificamos si el archivo existe antes de añadirlo
+          if [ -f sports_schedule.json ]; then
+            git add sports_schedule.json
+            # Commit solo si hay cambios
+            git diff --quiet && git diff --staged --quiet || (git commit -m "Update sports schedule [skip ci]" && git push)
+          else
+            echo "El archivo sports_schedule.json no se generó. Saltando commit."
+            exit 1
+          fi
