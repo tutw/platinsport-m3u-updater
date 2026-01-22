@@ -13,14 +13,18 @@ URL = "https://www.platinsport.com/"
 print("=" * 70)
 print("=== PLATINSPORT M3U UPDATER ===")
 print("=" * 70)
-print(f"🐍 Python version: {sys.version.split()[0]}")
-print(f"📁 Working directory: {os.getcwd()}")
-print(f"🕐 Start time: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
+print(f"\U0001f40d Python version: {sys.version.split()[0]}")
+print(f"\U0001f4c1 Working directory: {os.getcwd()}")
+print(f"\U0001f550 Start time: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
 print("=" * 70)
 print()
 
 os.makedirs("debug", exist_ok=True)
 all_streams = []
+
+BAD_NAMES = {
+    "", "STREAM", "STREAM HD", "HD", "LINK", "WATCH", "VER", "PLAY", "LIVE", "CHANNEL", "TV"
+}
 
 def clean_text(s: str) -> str:
     if s is None:
@@ -29,6 +33,30 @@ def clean_text(s: str) -> str:
     s = s.replace("\u00a0", " ")
     s = re.sub(r"\s+", " ", s).strip()
     return s
+
+def is_bad_channel_name(name: str) -> bool:
+    if not name:
+        return True
+    n = clean_text(name)
+    if not n:
+        return True
+    up = n.upper()
+    # Exactos típicos que aparecen como texto del enlace
+    if up in BAD_NAMES:
+        return True
+    # Cosas demasiado genéricas
+    if up in {"STREAM", "STREAMS"}:
+        return True
+    # Evita casos tipo "HD" o similares
+    if len(n) <= 2:
+        return True
+    return False
+
+def normalize_candidate(name: str) -> str:
+    name = clean_text(name)
+    # Quitar prefijos tipo "GB " si vienen pegados
+    name = re.sub(r"^[A-Z]{2}\s+", "", name).strip()
+    return name
 
 def extract_lang_from_flag(link_tag) -> str:
     """Extraer idioma de las clases de banderas"""
@@ -42,51 +70,81 @@ def extract_lang_from_flag(link_tag) -> str:
                 break
     return lang
 
-def try_extract_channel_name(link_tag) -> str:
-    """Extraer nombre del canal con métodos mejorados"""
-    
-    # Método 1: Buscar en atributos del enlace
-    for attr in ["title", "aria-label", "data-title", "data-channel", "data-name"]:
-        value = clean_text(link_tag.get(attr, ""))
-        if value:
-            # Limpiar prefijos de idioma (ej: "GB Stream Name")
-            value = re.sub(r"^[A-Z]{2}\s+", "", value).strip()
-            if value and value.upper() not in {"STREAM", "HD", "LINK", "WATCH", "VER", "PLAY", "LIVE", "CHANNEL", "TV"}:
-                return value
-    
-    # Método 2: Buscar texto visible dentro del enlace
-    link_copy = link_tag
-    
-    # Remover span de bandera
-    for flag in link_copy.find_all("span", class_=re.compile(r"\bfi\b|\bfi-")):
-        flag.decompose()
-    
-    # Obtener texto limpio
-    full_text = clean_text(link_copy.get_text(" ", strip=True))
-    full_text = re.sub(r"^[A-Z]{2}\s+", "", full_text).strip()
-    
-    # Verificar si es un nombre válido
-    if full_text and full_text.upper() not in {"STREAM", "HD", "LINK", "WATCH", "VER", "PLAY", "LIVE", "CHANNEL", "TV", ""}:
-        return full_text
-    
-    # Método 3: Buscar en elementos hermanos o padres
+def iter_text_candidates_near_link(link_tag):
+    """
+    Generador de candidatos cerca del enlace:
+    - textos de hijos (span/b) que no sean la bandera
+    - hermanos inmediatos
+    - contenedor padre (sin tragarse todo)
+    """
+    # 1) Hijos directos del link (span, strong, b)
+    for child in link_tag.find_all(["span", "strong", "b"], recursive=True):
+        # ignora spans de bandera
+        cls = " ".join(child.get("class", []) or [])
+        if re.search(r"\bfi\b|\bfi-", cls):
+            continue
+        t = normalize_candidate(child.get_text(" ", strip=True))
+        if t:
+            yield t
+
+    # 2) Texto del link sin la bandera (sin mutar el DOM original)
+    try:
+        link_html = str(link_tag)
+        tmp = BeautifulSoup(link_html, "lxml")
+        a = tmp.find("a") or tmp
+        for flag in a.find_all("span", class_=re.compile(r"\bfi\b|\bfi-")):
+            flag.decompose()
+        t = normalize_candidate(a.get_text(" ", strip=True))
+        if t:
+            yield t
+    except Exception:
+        pass
+
+    # 3) Hermanos cercanos
+    for sib in list(link_tag.next_siblings)[:6]:
+        if getattr(sib, "get_text", None):
+            t = normalize_candidate(sib.get_text(" ", strip=True))
+            if t:
+                yield t
+        elif isinstance(sib, str):
+            t = normalize_candidate(sib)
+            if t:
+                yield t
+
+    # 4) Padre: buscar elementos con pistas
     parent = link_tag.parent
     if parent:
-        # Buscar spans con clases específicas de canales
-        channel_spans = parent.find_all("span", class_=re.compile(r"channel|name|title"))
-        for span in channel_spans:
-            text = clean_text(span.get_text(strip=True))
-            if text and len(text) > 2:
-                return text
-    
-    # Método 4: Buscar en el href del enlace (algunos sitios incluyen el nombre)
-    href = link_tag.get("href", "")
-    if "channel=" in href:
-        match = re.search(r"channel=([^&]+)", href)
-        if match:
-            channel = match.group(1).replace("+", " ").replace("%20", " ")
-            return clean_text(channel)
-    
+        # spans/divs típicos
+        for node in parent.find_all(["span", "div", "p"], recursive=True):
+            cls = " ".join(node.get("class", []) or [])
+            if re.search(r"(channel|name|title|label)", cls, re.I):
+                t = normalize_candidate(node.get_text(" ", strip=True))
+                if t:
+                    yield t
+
+def try_extract_channel_name(link_tag) -> str:
+    """Extraer nombre del canal de forma robusta"""
+    # A) Atributos primero
+    for attr in ["data-name", "data-channel", "data-title", "title", "aria-label"]:
+        value = normalize_candidate(link_tag.get(attr, "") or "")
+        if value and not is_bad_channel_name(value):
+            return value
+
+    # B) Buscar en href si hay parámetros con nombre
+    href = link_tag.get("href", "") or ""
+    for key in ["channel", "name", "title"]:
+        if f"{key}=" in href:
+            m = re.search(rf"{key}=([^&]+)", href)
+            if m:
+                cand = normalize_candidate(m.group(1).replace("+", " ").replace("%20", " "))
+                if cand and not is_bad_channel_name(cand):
+                    return cand
+
+    # C) Candidatos cerca del link (hijos / hermanos / parent)
+    for cand in iter_text_candidates_near_link(link_tag):
+        if cand and not is_bad_channel_name(cand):
+            return cand
+
     return ""
 
 def dump_debug_popup(popup_html: str, event_name: str, event_count: int, lang: str, ace_url: str, link_html: str):
@@ -99,10 +157,10 @@ def dump_debug_popup(popup_html: str, event_name: str, event_count: int, lang: s
             f.write(popup_html)
             f.write("\n\n<!-- LINK HTML -->\n")
             f.write(str(link_html))
-        
+
         with open("debug/debug_missing_channels.txt", "a", encoding="utf-8") as lf:
             lf.write(f"{event_name} | {lang} | {ace_url} | {fname}\n")
-        
+
         print(f"      ⚠️  Debug guardado: {fname}")
     except Exception as e:
         print(f"      ✗ Error guardando debug: {e}")
@@ -110,8 +168,8 @@ def dump_debug_popup(popup_html: str, event_name: str, event_count: int, lang: s
 # SCRAPER PRINCIPAL
 try:
     with sync_playwright() as p:
-        print("🌐 Iniciando navegador Chromium...")
-        
+        print("\U0001f310 Iniciando navegador Chromium...")
+
         try:
             browser = p.chromium.launch(
                 headless=True,
@@ -126,9 +184,9 @@ try:
             )
         except Exception as e:
             print(f"✗ Error al lanzar el navegador: {e}")
-            print("💡 Asegúrate de haber ejecutado: playwright install chromium")
+            print("\U0001f4a1 Asegúrate de haber ejecutado: playwright install chromium")
             sys.exit(1)
-        
+
         context = browser.new_context(
             user_agent=(
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -149,8 +207,8 @@ try:
 
         page = context.new_page()
         print("✅ Navegador iniciado correctamente")
-        print(f"🔗 Cargando página: {URL}")
-        
+        print(f"\U0001f517 Cargando página: {URL}")
+
         try:
             page.goto(URL, timeout=90000, wait_until="domcontentloaded")
             time.sleep(3)
@@ -163,14 +221,14 @@ try:
         main_html = page.content()
         soup = BeautifulSoup(main_html, "lxml")
 
-        print("🔍 Analizando estructura de eventos...\n")
+        print("\U0001f50d Analizando estructura de eventos...\n")
 
         category_divs = soup.find_all("div", style=re.compile(r"background:#000.*color:#ffae00"))
         print(f"✅ Encontradas {len(category_divs)} categorías\n")
 
         if len(category_divs) == 0:
             print("⚠️  No se encontraron categorías. El sitio puede haber cambiado su estructura.")
-            print("💾 Guardando HTML para debug...")
+            print("\U0001f4be Guardando HTML para debug...")
             with open("debug/main_page.html", "w", encoding="utf-8") as f:
                 f.write(main_html)
             print("✅ HTML guardado en debug/main_page.html")
@@ -179,7 +237,7 @@ try:
             category = clean_text(cat_div.get_text(strip=True))
             category = re.sub(r"^[–\-]\s*", "", category)
 
-            print(f"📁 Categoría [{cat_index}/{len(category_divs)}]: {category}")
+            print(f"\U0001f4c1 Categoría [{cat_index}/{len(category_divs)}]: {category}")
 
             current = cat_div.find_next_sibling()
             event_count = 0
@@ -195,7 +253,7 @@ try:
 
             while current and not is_category_div(current):
                 play_links = current.find_all("a", href=re.compile(r"javascript:go"))
-                
+
                 for play_link in play_links:
                     event_count += 1
 
@@ -235,38 +293,34 @@ try:
                     popup_url = f"https://www.platinsport.com/link/{php_file}?key={key}"
 
                     popup_page = context.new_page()
-                    
+
                     try:
-                        # NO bloquear JavaScript - necesitamos ver el contenido renderizado
                         popup_page.goto(popup_url, timeout=45000, referer=URL, wait_until="networkidle")
-                        time.sleep(1)  # Esperar renderizado
+                        time.sleep(1)
 
                         popup_html = popup_page.content()
                         popup_soup = BeautifulSoup(popup_html, "lxml")
 
                         ace_links = popup_soup.find_all("a", href=re.compile(r"^acestream://"))
-                        
+
                         if len(ace_links) == 0:
                             print("    ⚠️  No se encontraron streams acestream")
                         else:
                             print(f"    ✅ {len(ace_links)} stream{'s' if len(ace_links) != 1 else ''} encontrado{'s' if len(ace_links) != 1 else ''}")
 
                         for link in ace_links:
-                            ace_url = link.get("href", "").strip()
+                            ace_url = (link.get("href", "") or "").strip()
                             if not ace_url.startswith("acestream://"):
                                 continue
 
                             lang = extract_lang_from_flag(link)
                             channel = try_extract_channel_name(link)
+                            channel = normalize_candidate(channel)
 
-                            if not channel:
-                                # Método alternativo: usar el texto del enlace directamente
-                                link_text = clean_text(link.get_text(strip=True))
-                                if link_text and len(link_text) > 2:
-                                    channel = link_text
-                                else:
-                                    channel = f"{lang}_STREAM_{event_count}"
-                                    dump_debug_popup(popup_html, event_name, event_count, lang, ace_url, str(link))
+                            if is_bad_channel_name(channel):
+                                # Último fallback, pero NO usar STREAM HD
+                                channel = f"{lang}_STREAM_{event_count}"
+                                dump_debug_popup(popup_html, event_name, event_count, lang, ace_url, str(link))
 
                             all_streams.append({
                                 "event": event_name,
@@ -276,11 +330,11 @@ try:
                                 "url": ace_url,
                                 "lang": lang
                             })
-                            
-                            print(f"      🌍 [{lang}] {channel}")
+
+                            print(f"      \U0001f30d [{lang}] {channel}")
 
                     except Exception as e:
-                        error_msg = str(e)[:100]
+                        error_msg = str(e)[:120]
                         print(f"    ✗ Error al abrir popup: {error_msg}")
                     finally:
                         try:
@@ -288,7 +342,7 @@ try:
                         except Exception:
                             pass
 
-                    time.sleep(0.5)  # Mayor espera entre popups
+                    time.sleep(0.5)
 
                 current = current.find_next_sibling()
 
@@ -298,7 +352,7 @@ try:
             page.close()
         except Exception:
             pass
-        
+
         browser.close()
         print("✅ Navegador cerrado correctamente\n")
 
@@ -310,7 +364,7 @@ except Exception as e:
 
 # GENERACIÓN DEL ARCHIVO M3U
 print("=" * 70)
-print("📝 Generando archivo lista.m3u...")
+print("\U0001f4dd Generando archivo lista.m3u...")
 print("=" * 70)
 
 if len(all_streams) == 0:
@@ -342,7 +396,7 @@ except Exception as e:
 
 # ESTADÍSTICAS FINALES
 print("\n" + "=" * 70)
-print("📊 ESTADÍSTICAS FINALES")
+print("\U0001f4ca ESTADÍSTICAS FINALES")
 print("=" * 70)
 
 print(f"✅ Total de streams: {len(all_streams)}")
@@ -350,42 +404,23 @@ print(f"✅ Total de streams: {len(all_streams)}")
 if len(all_streams) > 0:
     categories = set(s['category'] for s in all_streams)
     events = set(s['event'] for s in all_streams)
-    
+
     print(f"✅ Categorías únicas: {len(categories)}")
     for cat in sorted(categories):
         count = sum(1 for s in all_streams if s['category'] == cat)
         print(f"   - {cat}: {count} streams")
-    
+
     print(f"✅ Eventos únicos: {len(events)}")
 
-    missing = sum(1 for s in all_streams if "STREAM_" in s["channel"] or s["channel"] == "UNKNOWN_CHANNEL")
+    missing = sum(1 for s in all_streams if re.search(r"_STREAM_\d+$", s["channel"]))
     if missing > 0:
         print(f"⚠️  Streams sin canal identificado: {missing}")
-        print(f"   📁 Revisar carpeta debug/ para más detalles")
+        print(f"   \U0001f4c1 Revisar carpeta debug/ para más detalles")
     else:
-        print(f"✅ Todos los streams tienen canal identificado")
-
-    langs = {}
-    for s in all_streams:
-        langs[s['lang']] = langs.get(s['lang'], 0) + 1
-    
-    print(f"✅ Idiomas detectados: {len(langs)}")
-    for lang, count in sorted(langs.items(), key=lambda x: x[1], reverse=True):
-        print(f"   - {lang}: {count} streams")
-
-    channels = {}
-    for s in all_streams:
-        if "STREAM_" not in s['channel'] and s['channel'] != "UNKNOWN_CHANNEL":
-            channels[s['channel']] = channels.get(s['channel'], 0) + 1
-    
-    if channels:
-        print(f"✅ Top 10 canales más frecuentes:")
-        top_channels = sorted(channels.items(), key=lambda x: x[1], reverse=True)[:10]
-        for idx, (channel, count) in enumerate(top_channels, 1):
-            print(f"   {idx:2d}. {channel}: {count} streams")
+        print("✅ Todos los streams tienen canal identificado")
 
 print("\n" + "=" * 70)
-print(f"🕐 Tiempo de finalización: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
+print(f"\U0001f550 Tiempo de finalización: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
 print("✅ PROCESO COMPLETADO EXITOSAMENTE")
 print("=" * 70)
 
