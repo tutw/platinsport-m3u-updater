@@ -1,43 +1,58 @@
-name: Update Platinsport M3U Lista
+name: Update Platinsport M3U
 
 on:
   schedule:
-    - cron: "0 * * * *"  # Cada hora
+    # Ejecutar cada 6 horas
+    - cron: '0 */6 * * *'
   workflow_dispatch:  # Permitir ejecución manual
 
-permissions:
-  contents: write
-
 jobs:
-  scrape-and-update:
+  update-m3u:
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright/python:v1.49.1-jammy
-
+    
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Install Python dependencies
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
         run: |
-          pip install --no-cache-dir -r requirements.txt
-
-      - name: Install Playwright browsers
-        run: |
-          playwright install --with-deps chromium
-
+          python -m pip install --upgrade pip
+          pip install playwright beautifulsoup4 lxml
+          playwright install chromium
+          playwright install-deps
+      
       - name: Run scraper
-        env:
-          TZ: UTC
-          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
         run: |
           python platinsport.py
-
-      - name: Commit & push if changed
+      
+      - name: Check if M3U file was created
         run: |
-          git config --global --add safe.directory /__w/platinsport-m3u-updater/platinsport-m3u-updater
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add lista.m3u debug/ || true
-          git diff --cached --quiet || git commit -m "🔄 Update lista.m3u - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
-          git push
+          if [ ! -f lista.m3u ]; then
+            echo "❌ Error: lista.m3u no fue generado"
+            exit 1
+          fi
+          echo "✅ lista.m3u generado correctamente"
+          echo "📊 Tamaño: $(wc -l < lista.m3u) líneas"
+      
+      - name: Commit and push if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add lista.m3u
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Actualizar lista.m3u - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push)
+      
+      - name: Upload debug artifacts (if any)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-files
+          path: debug/
+          if-no-files-found: ignore
+          retention-days: 7
