@@ -9,6 +9,7 @@ on:
 jobs:
   update-m3u:
     runs-on: ubuntu-latest
+    timeout-minutes: 15  # Timeout de seguridad
     
     steps:
       - name: Checkout repository
@@ -20,39 +21,63 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+          cache: 'pip'
       
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install playwright beautifulsoup4 lxml
           playwright install chromium
-          playwright install-deps
+          playwright install-deps chromium
       
       - name: Run scraper
         run: |
           python platinsport.py
+        continue-on-error: false
       
-      - name: Check if M3U file was created
+      - name: Verify M3U file
         run: |
           if [ ! -f lista.m3u ]; then
             echo "❌ Error: lista.m3u no fue generado"
             exit 1
           fi
+          
+          lines=$(wc -l < lista.m3u)
           echo "✅ lista.m3u generado correctamente"
-          echo "📊 Tamaño: $(wc -l < lista.m3u) líneas"
+          echo "📊 Tamaño: $lines líneas"
+          
+          # Verificar que tenga más que solo el header
+          if [ "$lines" -lt 3 ]; then
+            echo "⚠️ Advertencia: El archivo M3U está casi vacío"
+            echo "📄 Contenido:"
+            cat lista.m3u
+          fi
+          
+          # Mostrar primeras líneas
+          echo "📄 Primeras 20 líneas:"
+          head -n 20 lista.m3u
       
       - name: Commit and push if changed
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add lista.m3u
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🔄 Actualizar lista.m3u - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" && git push)
+          
+          if git diff --quiet && git diff --staged --quiet; then
+            echo "✅ No hay cambios en lista.m3u"
+          else
+            git commit -m "🔄 Actualizar lista.m3u - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git push
+            echo "✅ Cambios commiteados y pusheados"
+          fi
       
-      - name: Upload debug artifacts (if any)
+      - name: Upload debug artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: debug-files
-          path: debug/
-          if-no-files-found: ignore
+          name: debug-files-${{ github.run_number }}
+          path: |
+            debug/
+            lista.m3u
+          if-no-files-found: warn
           retention-days: 7
