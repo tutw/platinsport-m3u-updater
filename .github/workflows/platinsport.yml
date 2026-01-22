@@ -2,8 +2,8 @@ name: Update Platinsport M3U Lista
 
 on:
   schedule:
-    - cron: "0 * * * *"
-  workflow_dispatch:
+    - cron: "0 * * * *"  # Cada hora
+  workflow_dispatch:  # Permitir ejecución manual
 
 permissions:
   contents: write
@@ -18,20 +18,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install minimal deps
+      - name: Install Python dependencies
         run: |
-          pip install -r requirements.txt
+          pip install --no-cache-dir -r requirements.txt
+
+      - name: Install Playwright browsers
+        run: |
+          playwright install --with-deps chromium
 
       - name: Run scraper
         env:
           TZ: UTC
+          PLAYWRIGHT_BROWSERS_PATH: /ms-playwright
         run: |
           python platinsport.py
 
       - name: Commit & push if changed
         run: |
+          git config --global --add safe.directory /__w/platinsport-m3u-updater/platinsport-m3u-updater
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add lista.m3u debug/ || true
-          git diff --cached --quiet || git commit -m "Update lista.m3u"
+          git diff --cached --quiet || git commit -m "🔄 Update lista.m3u - $(date -u +'%Y-%m-%d %H:%M:%S UTC')"
           git push
