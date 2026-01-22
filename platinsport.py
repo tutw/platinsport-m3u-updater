@@ -11,7 +11,7 @@ import sys
 URL = "https://www.platinsport.com/"
 
 print("=" * 70)
-print("=== PLATINSPORT SCRAPER FINAL ===")
+print("=== PLATINSPORT M3U UPDATER ===")
 print("=" * 70)
 print(f"🐍 Python version: {sys.version.split()[0]}")
 print(f"📁 Working directory: {os.getcwd()}")
@@ -19,13 +19,10 @@ print(f"🕐 Start time: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S
 print("=" * 70)
 print()
 
-# Crear carpeta debug
 os.makedirs("debug", exist_ok=True)
-
 all_streams = []
 
 def clean_text(s: str) -> str:
-    """Limpia y normaliza texto eliminando HTML entities y espacios extras"""
     if s is None:
         return ""
     s = html.unescape(s)
@@ -34,10 +31,6 @@ def clean_text(s: str) -> str:
     return s
 
 def extract_lang_from_flag(link_tag) -> str:
-    """
-    Extrae el código de idioma desde el span con clase de bandera.
-    Ejemplo: <span class="fi fi-es"></span> -> "ES"
-    """
     flag_span = link_tag.find("span", class_=re.compile(r"\bfi\b|\bfi-"))
     lang = "XX"
     if flag_span:
@@ -49,49 +42,34 @@ def extract_lang_from_flag(link_tag) -> str:
     return lang
 
 def try_extract_channel_name(link_tag) -> str:
-    """
-    Extrae el nombre del canal de forma robusta usando múltiples estrategias:
-    1) Texto visible completo del <a>
-    2) Texto de nodos internos específicos (<b>, <strong>, <span>, <div>)
-    3) Atributos HTML (title, aria-label, data-*)
+    link_copy = link_tag
+    flag_span = link_copy.find("span", class_=re.compile(r"\bfi\b"))
+    full_text = clean_text(link_copy.get_text(" ", strip=True))
     
-    Returns:
-        str: Nombre del canal o cadena vacía si no se encuentra
-    """
-    # Estrategia 1: Texto completo del enlace
-    txt = clean_text(link_tag.get_text(" ", strip=True))
-    # Eliminar prefijos de idioma (ej: "PT ELEVEN" -> "ELEVEN")
-    txt = re.sub(r"^(?:[A-Z]{2})\s+", "", txt).strip()
+    if flag_span:
+        flag_text = clean_text(flag_span.get_text(" ", strip=True))
+        if flag_text:
+            full_text = full_text.replace(flag_text, "").strip()
     
-    # Palabras genéricas que no son nombres de canal
-    generic_words = {"STREAM", "STREAM HD", "HD", "LINK", "WATCH", "VER", "PLAY", "LIVE"}
+    full_text = re.sub(r"^(?:[A-Z]{2})\s+", "", full_text).strip()
     
-    if txt and txt.upper() not in generic_words:
-        return txt
-
-    # Estrategia 2: Buscar dentro de nodos HTML específicos
-    for selector in ["b", "strong", "span", "div"]:
-        candidates = link_tag.select(selector)
-        for candidate in candidates:
-            c_txt = clean_text(candidate.get_text(" ", strip=True))
-            c_txt = re.sub(r"^(?:[A-Z]{2})\s+", "", c_txt).strip()
-            if c_txt and c_txt.upper() not in generic_words:
-                return c_txt
-
-    # Estrategia 3: Atributos HTML útiles
+    generic_words = {
+        "STREAM", "STREAM HD", "HD", "LINK", "WATCH", "VER", 
+        "PLAY", "LIVE", "CHANNEL", "TV", ""
+    }
+    
+    if full_text and full_text.upper() not in generic_words:
+        return full_text
+    
     for attr in ["title", "aria-label", "data-title", "data-channel", "data-name"]:
         value = clean_text(link_tag.get(attr, ""))
         value = re.sub(r"^(?:[A-Z]{2})\s+", "", value).strip()
         if value and value.upper() not in generic_words:
             return value
-
+    
     return ""
 
 def dump_debug_popup(popup_html: str, event_name: str, event_count: int, lang: str, ace_url: str):
-    """
-    Guarda el HTML del popup para debugging cuando no se puede extraer el canal.
-    Crea un archivo HTML y registra la entrada en un log.
-    """
     safe_event = re.sub(r"[^a-zA-Z0-9_-]+", "_", event_name)[:60] or "evento"
     fname = f"debug/popup_{safe_event}_{event_count}_{lang}.html"
     try:
@@ -103,10 +81,7 @@ def dump_debug_popup(popup_html: str, event_name: str, event_count: int, lang: s
     except Exception as e:
         print(f"      ✗ Error guardando debug: {e}")
 
-# ============================================================================
-# INICIO DEL SCRAPER PRINCIPAL
-# ============================================================================
-
+# SCRAPER PRINCIPAL
 try:
     with sync_playwright() as p:
         print("🌐 Iniciando navegador Chromium...")
@@ -138,7 +113,6 @@ try:
             locale='es-ES'
         )
 
-        # Cookie para aceptar disclaimer automáticamente
         context.add_cookies([{
             "name": "disclaimer_accepted",
             "value": "true",
@@ -153,7 +127,7 @@ try:
         
         try:
             page.goto(URL, timeout=90000, wait_until="domcontentloaded")
-            time.sleep(3)  # Esperar a que cargue el contenido dinámico
+            time.sleep(3)
             print("✅ Página cargada correctamente\n")
         except Exception as e:
             print(f"✗ Error al cargar la página: {e}")
@@ -165,7 +139,6 @@ try:
 
         print("🔍 Analizando estructura de eventos...\n")
 
-        # Encontrar todas las categorías (cabeceras negras con texto naranja)
         category_divs = soup.find_all("div", style=re.compile(r"background:#000.*color:#ffae00"))
         print(f"✅ Encontradas {len(category_divs)} categorías\n")
 
@@ -176,7 +149,6 @@ try:
                 f.write(main_html)
             print("✅ HTML guardado en debug/main_page.html")
 
-        # Procesar cada categoría
         for cat_index, cat_div in enumerate(category_divs, 1):
             category = clean_text(cat_div.get_text(strip=True))
             category = re.sub(r"^[–\-]\s*", "", category)
@@ -187,7 +159,6 @@ try:
             event_count = 0
 
             def is_category_div(tag):
-                """Verifica si un tag es una categoría (para saber cuándo parar)"""
                 return (
                     tag
                     and tag.name == "div"
@@ -196,27 +167,22 @@ try:
                     and "color:#ffae00" in tag.get("style", "")
                 )
 
-            # Iterar por todos los eventos dentro de esta categoría
             while current and not is_category_div(current):
                 play_links = current.find_all("a", href=re.compile(r"javascript:go"))
                 
                 for play_link in play_links:
                     event_count += 1
 
-                    # Buscar el div contenedor del evento
                     event_div = play_link.find_parent("div", style=re.compile(r"background: #0a0a0a|border: 1px solid #333"))
                     if not event_div:
                         event_div = play_link.find_parent("div")
 
-                    # Extraer hora del evento
                     time_elem = event_div.find("time") if event_div else None
                     event_time = clean_text(time_elem.get_text(strip=True)) if time_elem else ""
 
-                    # Extraer nombres de equipos
                     team_spans = event_div.find_all("span", style=re.compile(r"font-size: 12px; color: #fff")) if event_div else []
                     teams = [clean_text(span.get_text(strip=True)) for span in team_spans if clean_text(span.get_text(strip=True))]
 
-                    # Construir nombre del evento
                     if len(teams) >= 2:
                         event_name = f"{teams[0]} vs {teams[1]}"
                     elif len(teams) == 1:
@@ -230,7 +196,6 @@ try:
                     else:
                         print()
 
-                    # Extraer el archivo PHP del enlace
                     href = play_link.get("href", "")
                     match = re.search(r"go\('([^']+)'\)", href)
                     if not match:
@@ -239,21 +204,25 @@ try:
 
                     php_file = match.group(1)
 
-                    # Construir URL del popup con key
                     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
                     key = base64.b64encode((today + "PLATINSPORT").encode()).decode()
                     popup_url = f"https://www.platinsport.com/link/{php_file}?key={key}"
 
-                    # Abrir popup en nueva página
                     popup_page = context.new_page()
+                    
+                    # CLAVE: BLOQUEAR JavaScript para capturar nombres originales
+                    try:
+                        popup_page.route("**/*.js", lambda route: route.abort())
+                    except Exception:
+                        pass
+                    
                     try:
                         popup_page.goto(popup_url, timeout=45000, referer=URL, wait_until="domcontentloaded")
-                        time.sleep(0.5)
+                        time.sleep(0.3)
 
                         popup_html = popup_page.content()
                         popup_soup = BeautifulSoup(popup_html, "lxml")
 
-                        # Buscar todos los enlaces acestream
                         ace_links = popup_soup.find_all("a", href=re.compile(r"^acestream://"))
                         
                         if len(ace_links) == 0:
@@ -269,7 +238,6 @@ try:
                             lang = extract_lang_from_flag(link)
                             channel = try_extract_channel_name(link)
 
-                            # Si no se encuentra el canal, marcarlo y guardar debug
                             if not channel:
                                 channel = "UNKNOWN_CHANNEL"
                                 dump_debug_popup(popup_html, event_name, event_count, lang, ace_url)
@@ -294,14 +262,12 @@ try:
                         except Exception:
                             pass
 
-                    # Pequeña pausa entre popups para no sobrecargar
                     time.sleep(0.2)
 
                 current = current.find_next_sibling()
 
-            print()  # Línea en blanco entre categorías
+            print()
 
-        # Cerrar navegador
         try:
             page.close()
         except Exception:
@@ -316,20 +282,13 @@ except Exception as e:
     traceback.print_exc()
     sys.exit(1)
 
-# ============================================================================
 # GENERACIÓN DEL ARCHIVO M3U
-# ============================================================================
-
 print("=" * 70)
 print("📝 Generando archivo lista.m3u...")
 print("=" * 70)
 
 if len(all_streams) == 0:
     print("⚠️  ADVERTENCIA: No se encontraron streams. El archivo M3U estará vacío.")
-    print("   Esto puede deberse a:")
-    print("   - No hay eventos en vivo actualmente")
-    print("   - El sitio web cambió su estructura")
-    print("   - Problemas de conexión")
 
 m3u_lines = ["#EXTM3U"]
 
@@ -341,13 +300,11 @@ for stream in all_streams:
     tvg_name = f"{event_info} - [{stream['lang']}] {stream['channel']}"
     group_title = stream["category"]
 
-    # Formato M3U estándar (2 líneas por stream)
     m3u_lines.append(
         f'#EXTINF:-1 tvg-name="{tvg_name}" group-title="{group_title}",{stream["channel"]}'
     )
     m3u_lines.append(stream["url"])
 
-# Escribir archivo M3U
 try:
     with open("lista.m3u", "w", encoding="utf-8") as f:
         f.write("\n".join(m3u_lines) + "\n")
@@ -356,10 +313,7 @@ except Exception as e:
     print(f"❌ Error al escribir lista.m3u: {e}")
     sys.exit(1)
 
-# ============================================================================
 # ESTADÍSTICAS FINALES
-# ============================================================================
-
 print("\n" + "=" * 70)
 print("📊 ESTADÍSTICAS FINALES")
 print("=" * 70)
@@ -377,7 +331,6 @@ if len(all_streams) > 0:
     
     print(f"✅ Eventos únicos: {len(events)}")
 
-    # Estadísticas de canales
     missing = sum(1 for s in all_streams if s["channel"] == "UNKNOWN_CHANNEL")
     if missing > 0:
         print(f"⚠️  Streams sin canal identificado: {missing}")
@@ -385,7 +338,6 @@ if len(all_streams) > 0:
     else:
         print(f"✅ Todos los streams tienen canal identificado")
 
-    # Estadísticas de idiomas
     langs = {}
     for s in all_streams:
         langs[s['lang']] = langs.get(s['lang'], 0) + 1
@@ -394,7 +346,6 @@ if len(all_streams) > 0:
     for lang, count in sorted(langs.items(), key=lambda x: x[1], reverse=True):
         print(f"   - {lang}: {count} streams")
 
-    # Canales más populares
     channels = {}
     for s in all_streams:
         if s['channel'] != "UNKNOWN_CHANNEL":
