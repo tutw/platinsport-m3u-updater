@@ -6,16 +6,26 @@ import base64
 import time
 import os
 import html
+import sys
 
 URL = "https://www.platinsport.com/"
 
-print("=== PLATINSPORT SCRAPER FINAL ===\n")
+print("=" * 70)
+print("=== PLATINSPORT SCRAPER FINAL ===")
+print("=" * 70)
+print(f"🐍 Python version: {sys.version.split()[0]}")
+print(f"📁 Working directory: {os.getcwd()}")
+print(f"🕐 Start time: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
+print("=" * 70)
+print()
 
+# Crear carpeta debug
 os.makedirs("debug", exist_ok=True)
 
 all_streams = []
 
 def clean_text(s: str) -> str:
+    """Limpia y normaliza texto eliminando HTML entities y espacios extras"""
     if s is None:
         return ""
     s = html.unescape(s)
@@ -24,11 +34,14 @@ def clean_text(s: str) -> str:
     return s
 
 def extract_lang_from_flag(link_tag) -> str:
+    """
+    Extrae el código de idioma desde el span con clase de bandera.
+    Ejemplo: <span class="fi fi-es"></span> -> "ES"
+    """
     flag_span = link_tag.find("span", class_=re.compile(r"\bfi\b|\bfi-"))
     lang = "XX"
     if flag_span:
         classes = flag_span.get("class", []) or []
-        # Ejemplos típicos: ["fi","fi-pt"] o ["fi","fi-es"]
         for cls in classes:
             if cls.startswith("fi-") and len(cls) == 5:
                 lang = cls.replace("fi-", "").upper()
@@ -37,197 +50,287 @@ def extract_lang_from_flag(link_tag) -> str:
 
 def try_extract_channel_name(link_tag) -> str:
     """
-    Extrae el canal de la forma más robusta posible:
-    1) Texto visible del <a> (incluyendo hijos)
-    2) Texto de nodos concretos (<b>, <strong>, spans)
-    3) Atributos (title/aria-label/data-*)
+    Extrae el nombre del canal de forma robusta usando múltiples estrategias:
+    1) Texto visible completo del <a>
+    2) Texto de nodos internos específicos (<b>, <strong>, <span>, <div>)
+    3) Atributos HTML (title, aria-label, data-*)
+    
+    Returns:
+        str: Nombre del canal o cadena vacía si no se encuentra
     """
-    # 1) Texto completo del enlace (incluye hijos)
+    # Estrategia 1: Texto completo del enlace
     txt = clean_text(link_tag.get_text(" ", strip=True))
-
-    # A veces el texto puede venir como "PT ELEVEN DAZN 1" o similar.
-    # Quitamos tokens de idioma al inicio si están sueltos.
+    # Eliminar prefijos de idioma (ej: "PT ELEVEN" -> "ELEVEN")
     txt = re.sub(r"^(?:[A-Z]{2})\s+", "", txt).strip()
-
-    # Si queda vacío o es basura, intentamos otros métodos
-    if txt and txt.upper() not in {"STREAM", "STREAM HD", "HD", "LINK"}:
+    
+    # Palabras genéricas que no son nombres de canal
+    generic_words = {"STREAM", "STREAM HD", "HD", "LINK", "WATCH", "VER", "PLAY", "LIVE"}
+    
+    if txt and txt.upper() not in generic_words:
         return txt
 
-    # 2) Buscar dentro de nodos que suelen contener el nombre (b/strong/span)
-    for sel in ["b", "strong", "span", "div"]:
-        candidates = link_tag.select(sel)
-        for c in candidates:
-            c_txt = clean_text(c.get_text(" ", strip=True))
+    # Estrategia 2: Buscar dentro de nodos HTML específicos
+    for selector in ["b", "strong", "span", "div"]:
+        candidates = link_tag.select(selector)
+        for candidate in candidates:
+            c_txt = clean_text(candidate.get_text(" ", strip=True))
             c_txt = re.sub(r"^(?:[A-Z]{2})\s+", "", c_txt).strip()
-            if c_txt and c_txt.upper() not in {"STREAM", "STREAM HD", "HD", "LINK"}:
+            if c_txt and c_txt.upper() not in generic_words:
                 return c_txt
 
-    # 3) Atributos útiles
+    # Estrategia 3: Atributos HTML útiles
     for attr in ["title", "aria-label", "data-title", "data-channel", "data-name"]:
-        v = clean_text(link_tag.get(attr, ""))
-        v = re.sub(r"^(?:[A-Z]{2})\s+", "", v).strip()
-        if v and v.upper() not in {"STREAM", "STREAM HD", "HD", "LINK"}:
-            return v
+        value = clean_text(link_tag.get(attr, ""))
+        value = re.sub(r"^(?:[A-Z]{2})\s+", "", value).strip()
+        if value and value.upper() not in generic_words:
+            return value
 
     return ""
 
 def dump_debug_popup(popup_html: str, event_name: str, event_count: int, lang: str, ace_url: str):
+    """
+    Guarda el HTML del popup para debugging cuando no se puede extraer el canal.
+    Crea un archivo HTML y registra la entrada en un log.
+    """
     safe_event = re.sub(r"[^a-zA-Z0-9_-]+", "_", event_name)[:60] or "evento"
     fname = f"debug/popup_{safe_event}_{event_count}_{lang}.html"
     try:
         with open(fname, "w", encoding="utf-8") as f:
             f.write(popup_html)
-        # también guardamos un mini log
         with open("debug/debug_missing_channels.txt", "a", encoding="utf-8") as lf:
             lf.write(f"{event_name} | {lang} | {ace_url} | {fname}\n")
-    except Exception:
-        pass
-
-with sync_playwright() as p:
-    browser = p.chromium.launch(headless=True)
-    context = browser.new_context(
-        user_agent=(
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-            "AppleWebKit/537.36 (KHTML, like Gecko) "
-            "Chrome/120.0.0.0 Safari/537.36"
-        )
-    )
-
-    # Cookie para aceptar términos
-    context.add_cookies([{
-        "name": "disclaimer_accepted",
-        "value": "true",
-        "domain": ".platinsport.com",
-        "path": "/",
-        "sameSite": "Lax"
-    }])
-
-    page = context.new_page()
-
-    print("Cargando página principal...")
-    try:
-        page.goto(URL, timeout=90000, wait_until="domcontentloaded")
-        time.sleep(2)
-        print("✓ Página cargada\n")
+        print(f"      ⚠️  Debug guardado: {fname}")
     except Exception as e:
-        print(f"✗ Error al cargar página: {e}")
-        browser.close()
-        raise
+        print(f"      ✗ Error guardando debug: {e}")
 
-    main_html = page.content()
-    soup = BeautifulSoup(main_html, "lxml")
+# ============================================================================
+# INICIO DEL SCRAPER PRINCIPAL
+# ============================================================================
 
-    print("Analizando estructura de eventos...")
-
-    category_divs = soup.find_all("div", style=re.compile(r"background:#000.*color:#ffae00"))
-    print(f"✓ Encontradas {len(category_divs)} categorías\n")
-
-    for cat_div in category_divs:
-        category = clean_text(cat_div.get_text(strip=True))
-        category = re.sub(r"^[–\-]\s*", "", category)
-
-        print(f"Categoría: {category}")
-
-        current = cat_div.find_next_sibling()
-        event_count = 0
-
-        def is_category_div(tag):
-            return (
-                tag
-                and tag.name == "div"
-                and tag.get("style")
-                and "background:#000" in tag.get("style", "")
-                and "color:#ffae00" in tag.get("style", "")
+try:
+    with sync_playwright() as p:
+        print("🌐 Iniciando navegador Chromium...")
+        
+        try:
+            browser = p.chromium.launch(
+                headless=True,
+                args=[
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-dev-shm-usage',
+                    '--disable-gpu',
+                    '--disable-software-rasterizer',
+                    '--disable-extensions'
+                ]
             )
+        except Exception as e:
+            print(f"✗ Error al lanzar el navegador: {e}")
+            print("💡 Asegúrate de haber ejecutado: playwright install chromium")
+            sys.exit(1)
+        
+        context = browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            ),
+            viewport={'width': 1920, 'height': 1080},
+            locale='es-ES'
+        )
 
-        while current and not is_category_div(current):
-            play_links = current.find_all("a", href=re.compile(r"javascript:go"))
-            for play_link in play_links:
-                event_count += 1
+        # Cookie para aceptar disclaimer automáticamente
+        context.add_cookies([{
+            "name": "disclaimer_accepted",
+            "value": "true",
+            "domain": ".platinsport.com",
+            "path": "/",
+            "sameSite": "Lax"
+        }])
 
-                event_div = play_link.find_parent("div", style=re.compile(r"background: #0a0a0a|border: 1px solid #333"))
-                if not event_div:
-                    event_div = play_link.find_parent("div")
+        page = context.new_page()
+        print("✅ Navegador iniciado correctamente")
+        print(f"🔗 Cargando página: {URL}")
+        
+        try:
+            page.goto(URL, timeout=90000, wait_until="domcontentloaded")
+            time.sleep(3)  # Esperar a que cargue el contenido dinámico
+            print("✅ Página cargada correctamente\n")
+        except Exception as e:
+            print(f"✗ Error al cargar la página: {e}")
+            browser.close()
+            sys.exit(1)
 
-                time_elem = event_div.find("time") if event_div else None
-                event_time = clean_text(time_elem.get_text(strip=True)) if time_elem else ""
+        main_html = page.content()
+        soup = BeautifulSoup(main_html, "lxml")
 
-                team_spans = event_div.find_all("span", style=re.compile(r"font-size: 12px; color: #fff")) if event_div else []
-                teams = [clean_text(span.get_text(strip=True)) for span in team_spans if clean_text(span.get_text(strip=True))]
+        print("🔍 Analizando estructura de eventos...\n")
 
-                if len(teams) >= 2:
-                    event_name = f"{teams[0]} vs {teams[1]}"
-                else:
-                    event_name = f"Evento {event_count}"
+        # Encontrar todas las categorías (cabeceras negras con texto naranja)
+        category_divs = soup.find_all("div", style=re.compile(r"background:#000.*color:#ffae00"))
+        print(f"✅ Encontradas {len(category_divs)} categorías\n")
 
-                print(f"  • {event_name} - {event_time}")
+        if len(category_divs) == 0:
+            print("⚠️  No se encontraron categorías. El sitio puede haber cambiado su estructura.")
+            print("💾 Guardando HTML para debug...")
+            with open("debug/main_page.html", "w", encoding="utf-8") as f:
+                f.write(main_html)
+            print("✅ HTML guardado en debug/main_page.html")
 
-                href = play_link.get("href", "")
-                match = re.search(r"go\('([^']+)'\)", href)
-                if not match:
-                    print("    ✗ No se pudo extraer el PHP file")
-                    continue
+        # Procesar cada categoría
+        for cat_index, cat_div in enumerate(category_divs, 1):
+            category = clean_text(cat_div.get_text(strip=True))
+            category = re.sub(r"^[–\-]\s*", "", category)
 
-                php_file = match.group(1)
+            print(f"📁 Categoría [{cat_index}/{len(category_divs)}]: {category}")
 
-                today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-                key = base64.b64encode((today + "PLATINSPORT").encode()).decode()
-                popup_url = f"https://www.platinsport.com/link/{php_file}?key={key}"
+            current = cat_div.find_next_sibling()
+            event_count = 0
 
-                popup_page = context.new_page()
-                try:
-                    popup_page.goto(popup_url, timeout=45000, referer=URL, wait_until="domcontentloaded")
-                    time.sleep(0.4)
+            def is_category_div(tag):
+                """Verifica si un tag es una categoría (para saber cuándo parar)"""
+                return (
+                    tag
+                    and tag.name == "div"
+                    and tag.get("style")
+                    and "background:#000" in tag.get("style", "")
+                    and "color:#ffae00" in tag.get("style", "")
+                )
 
-                    popup_html = popup_page.content()
-                    popup_soup = BeautifulSoup(popup_html, "lxml")
+            # Iterar por todos los eventos dentro de esta categoría
+            while current and not is_category_div(current):
+                play_links = current.find_all("a", href=re.compile(r"javascript:go"))
+                
+                for play_link in play_links:
+                    event_count += 1
 
-                    ace_links = popup_soup.find_all("a", href=re.compile(r"^acestream://"))
-                    print(f"    ✓ {len(ace_links)} streams")
+                    # Buscar el div contenedor del evento
+                    event_div = play_link.find_parent("div", style=re.compile(r"background: #0a0a0a|border: 1px solid #333"))
+                    if not event_div:
+                        event_div = play_link.find_parent("div")
 
-                    for link in ace_links:
-                        ace_url = link.get("href", "").strip()
-                        if not ace_url.startswith("acestream://"):
-                            continue
+                    # Extraer hora del evento
+                    time_elem = event_div.find("time") if event_div else None
+                    event_time = clean_text(time_elem.get_text(strip=True)) if time_elem else ""
 
-                        lang = extract_lang_from_flag(link)
-                        channel = try_extract_channel_name(link)
+                    # Extraer nombres de equipos
+                    team_spans = event_div.find_all("span", style=re.compile(r"font-size: 12px; color: #fff")) if event_div else []
+                    teams = [clean_text(span.get_text(strip=True)) for span in team_spans if clean_text(span.get_text(strip=True))]
 
-                        # requisito: canal sí o sí (si no, lo marcamos y guardamos HTML)
-                        if not channel:
-                            channel = "UNKNOWN_CHANNEL"
-                            dump_debug_popup(popup_html, event_name, event_count, lang, ace_url)
+                    # Construir nombre del evento
+                    if len(teams) >= 2:
+                        event_name = f"{teams[0]} vs {teams[1]}"
+                    elif len(teams) == 1:
+                        event_name = teams[0]
+                    else:
+                        event_name = f"Evento {event_count}"
 
-                        all_streams.append({
-                            "event": event_name,
-                            "category": category,
-                            "time": event_time,
-                            "channel": channel,
-                            "url": ace_url,
-                            "lang": lang
-                        })
+                    print(f"  ⚽ {event_name}", end="")
+                    if event_time:
+                        print(f" - {event_time}")
+                    else:
+                        print()
 
-                except Exception as e:
-                    print(f"    ✗ Error popup: {str(e)[:120]}")
-                finally:
+                    # Extraer el archivo PHP del enlace
+                    href = play_link.get("href", "")
+                    match = re.search(r"go\('([^']+)'\)", href)
+                    if not match:
+                        print("    ✗ No se pudo extraer el archivo PHP")
+                        continue
+
+                    php_file = match.group(1)
+
+                    # Construir URL del popup con key
+                    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                    key = base64.b64encode((today + "PLATINSPORT").encode()).decode()
+                    popup_url = f"https://www.platinsport.com/link/{php_file}?key={key}"
+
+                    # Abrir popup en nueva página
+                    popup_page = context.new_page()
                     try:
-                        popup_page.close()
-                    except Exception:
-                        pass
+                        popup_page.goto(popup_url, timeout=45000, referer=URL, wait_until="domcontentloaded")
+                        time.sleep(0.5)
 
-                time.sleep(0.1)
+                        popup_html = popup_page.content()
+                        popup_soup = BeautifulSoup(popup_html, "lxml")
 
-            current = current.find_next_sibling()
+                        # Buscar todos los enlaces acestream
+                        ace_links = popup_soup.find_all("a", href=re.compile(r"^acestream://"))
+                        
+                        if len(ace_links) == 0:
+                            print("    ⚠️  No se encontraron streams acestream")
+                        else:
+                            print(f"    ✅ {len(ace_links)} stream{'s' if len(ace_links) != 1 else ''} encontrado{'s' if len(ace_links) != 1 else ''}")
 
-        print()
+                        for link in ace_links:
+                            ace_url = link.get("href", "").strip()
+                            if not ace_url.startswith("acestream://"):
+                                continue
 
-    try:
-        page.close()
-    except Exception:
-        pass
-    browser.close()
+                            lang = extract_lang_from_flag(link)
+                            channel = try_extract_channel_name(link)
 
-print("Generando lista.m3u...")
+                            # Si no se encuentra el canal, marcarlo y guardar debug
+                            if not channel:
+                                channel = "UNKNOWN_CHANNEL"
+                                dump_debug_popup(popup_html, event_name, event_count, lang, ace_url)
+
+                            all_streams.append({
+                                "event": event_name,
+                                "category": category,
+                                "time": event_time,
+                                "channel": channel,
+                                "url": ace_url,
+                                "lang": lang
+                            })
+                            
+                            print(f"      🌍 [{lang}] {channel}")
+
+                    except Exception as e:
+                        error_msg = str(e)[:100]
+                        print(f"    ✗ Error al abrir popup: {error_msg}")
+                    finally:
+                        try:
+                            popup_page.close()
+                        except Exception:
+                            pass
+
+                    # Pequeña pausa entre popups para no sobrecargar
+                    time.sleep(0.2)
+
+                current = current.find_next_sibling()
+
+            print()  # Línea en blanco entre categorías
+
+        # Cerrar navegador
+        try:
+            page.close()
+        except Exception:
+            pass
+        
+        browser.close()
+        print("✅ Navegador cerrado correctamente\n")
+
+except Exception as e:
+    print(f"\n❌ ERROR FATAL: {e}\n")
+    import traceback
+    traceback.print_exc()
+    sys.exit(1)
+
+# ============================================================================
+# GENERACIÓN DEL ARCHIVO M3U
+# ============================================================================
+
+print("=" * 70)
+print("📝 Generando archivo lista.m3u...")
+print("=" * 70)
+
+if len(all_streams) == 0:
+    print("⚠️  ADVERTENCIA: No se encontraron streams. El archivo M3U estará vacío.")
+    print("   Esto puede deberse a:")
+    print("   - No hay eventos en vivo actualmente")
+    print("   - El sitio web cambió su estructura")
+    print("   - Problemas de conexión")
+
 m3u_lines = ["#EXTM3U"]
 
 for stream in all_streams:
@@ -238,18 +341,74 @@ for stream in all_streams:
     tvg_name = f"{event_info} - [{stream['lang']}] {stream['channel']}"
     group_title = stream["category"]
 
-    # Formato estándar (2 líneas):
-    m3u_lines.append(f'#EXTINF:-1 tvg-name="{tvg_name}" group-title="{group_title}",{stream["channel"]}')
+    # Formato M3U estándar (2 líneas por stream)
+    m3u_lines.append(
+        f'#EXTINF:-1 tvg-name="{tvg_name}" group-title="{group_title}",{stream["channel"]}'
+    )
     m3u_lines.append(stream["url"])
 
-with open("lista.m3u", "w", encoding="utf-8") as f:
-    f.write("\n".join(m3u_lines) + "\n")
+# Escribir archivo M3U
+try:
+    with open("lista.m3u", "w", encoding="utf-8") as f:
+        f.write("\n".join(m3u_lines) + "\n")
+    print("✅ Archivo lista.m3u generado correctamente")
+except Exception as e:
+    print(f"❌ Error al escribir lista.m3u: {e}")
+    sys.exit(1)
 
-print(f"\n{'='*50}")
-print("✓ lista.m3u generado con éxito!")
-print(f"✓ Total de streams: {len(all_streams)}")
-print(f"✓ Categorías únicas: {len(set(s['category'] for s in all_streams))}")
-print(f"✓ Eventos únicos: {len(set(s['event'] for s in all_streams))}")
-missing = sum(1 for s in all_streams if s["channel"] == "UNKNOWN_CHANNEL")
-print(f"✓ Streams sin canal (debug): {missing} (ver carpeta debug/)")
-print(f"{'='*50}")
+# ============================================================================
+# ESTADÍSTICAS FINALES
+# ============================================================================
+
+print("\n" + "=" * 70)
+print("📊 ESTADÍSTICAS FINALES")
+print("=" * 70)
+
+print(f"✅ Total de streams: {len(all_streams)}")
+
+if len(all_streams) > 0:
+    categories = set(s['category'] for s in all_streams)
+    events = set(s['event'] for s in all_streams)
+    
+    print(f"✅ Categorías únicas: {len(categories)}")
+    for cat in sorted(categories):
+        count = sum(1 for s in all_streams if s['category'] == cat)
+        print(f"   - {cat}: {count} streams")
+    
+    print(f"✅ Eventos únicos: {len(events)}")
+
+    # Estadísticas de canales
+    missing = sum(1 for s in all_streams if s["channel"] == "UNKNOWN_CHANNEL")
+    if missing > 0:
+        print(f"⚠️  Streams sin canal identificado: {missing}")
+        print(f"   📁 Revisar carpeta debug/ para más detalles")
+    else:
+        print(f"✅ Todos los streams tienen canal identificado")
+
+    # Estadísticas de idiomas
+    langs = {}
+    for s in all_streams:
+        langs[s['lang']] = langs.get(s['lang'], 0) + 1
+    
+    print(f"✅ Idiomas detectados: {len(langs)}")
+    for lang, count in sorted(langs.items(), key=lambda x: x[1], reverse=True):
+        print(f"   - {lang}: {count} streams")
+
+    # Canales más populares
+    channels = {}
+    for s in all_streams:
+        if s['channel'] != "UNKNOWN_CHANNEL":
+            channels[s['channel']] = channels.get(s['channel'], 0) + 1
+    
+    if channels:
+        print(f"✅ Top 10 canales más frecuentes:")
+        top_channels = sorted(channels.items(), key=lambda x: x[1], reverse=True)[:10]
+        for idx, (channel, count) in enumerate(top_channels, 1):
+            print(f"   {idx:2d}. {channel}: {count} streams")
+
+print("\n" + "=" * 70)
+print(f"🕐 Tiempo de finalización: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
+print("✅ PROCESO COMPLETADO EXITOSAMENTE")
+print("=" * 70)
+
+sys.exit(0)
