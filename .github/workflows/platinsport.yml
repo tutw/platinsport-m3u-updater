@@ -3,7 +3,7 @@ name: Update Platinsport M3U
 on:
   schedule:
     - cron: '0 */6 * * *'  # Cada 6 horas
-  workflow_dispatch:  # Permite ejecuciÃ³n manual
+  workflow_dispatch:  # Permite ejecucion manual
 
 jobs:
   update-m3u:
@@ -31,38 +31,38 @@ jobs:
 
       - name: Configure network
         run: |
-          echo "ðŸ”§ Configurando red..."
+          echo "Configurando red..."
           # Deshabilitar IPv6 para evitar errores ENETUNREACH
           sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1 || true
           sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1 || true
-          echo "âœ… ConfiguraciÃ³n de red completada"
+          echo "Configuracion de red completada"
 
       - name: Run scraper
         run: |
-          echo "ðŸš€ Ejecutando scraper..."
+          echo "Ejecutando scraper..."
           python platinsport.py
 
       - name: Verify M3U file
         run: |
           if [ ! -f lista.m3u ]; then
-            echo "âŒ Error: lista.m3u no fue generado"
+            echo "Error: lista.m3u no fue generado"
             exit 1
           fi
 
           lines=$(wc -l < lista.m3u)
-          echo "âœ… lista.m3u generado"
-          echo "ðŸ“Š LÃ­neas totales: $lines"
+          echo "lista.m3u generado"
+          echo "Lineas totales: $lines"
 
-          # Contar canales (cada 2 lÃ­neas despuÃ©s de #EXTM3U)
+          # Contar canales (cada 2 lineas despues de #EXTM3U)
           channels=$((($lines - 1) / 2))
-          echo "ðŸ“º Canales totales: $channels"
+          echo "Canales totales: $channels"
 
           echo ""
-          echo "ðŸ“„ Primeras 30 lÃ­neas de lista.m3u:"
+          echo "Primeras 30 lineas de lista.m3u:"
           head -n 30 lista.m3u
 
           if [ "$lines" -lt 10 ]; then
-            echo "âŒ M3U demasiado pequeÃ±o (menos de 10 lÃ­neas)"
+            echo "M3U demasiado pequeno (menos de 10 lineas)"
             exit 1
           fi
 
@@ -71,18 +71,18 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          # AÃ±adir archivos
+          # Anadir archivos
           git add lista.m3u || true
           git add debug/ || true
 
           # Verificar si hay cambios
           if git diff --quiet && git diff --staged --quiet; then
-            echo "âœ… No hay cambios para commitear"
+            echo "No hay cambios para commitear"
           else
             timestamp=$(date -u +'%Y-%m-%d %H:%M:%S UTC')
-            git commit -m "ðŸ”„ Actualizar lista.m3u - $timestamp" || true
+            git commit -m "Actualizar lista.m3u - $timestamp" || true
             git push || true
-            echo "âœ… Cambios commiteados y pusheados"
+            echo "Cambios commiteados y pusheados"
           fi
 
       - name: Upload debug artifacts
