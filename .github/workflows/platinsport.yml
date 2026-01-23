@@ -2,7 +2,7 @@ name: Update Platinsport M3U
 
 on:
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '0 */6 * * *'  # Cada 6 horas
   workflow_dispatch:
 
 jobs:
@@ -29,6 +29,14 @@ jobs:
           playwright install chromium
           playwright install-deps chromium
 
+      - name: Configure IPv6 (disable if problematic)
+        run: |
+          echo "🔧 Configurando red..."
+          # Deshabilitar IPv6 a nivel de sistema para evitar ENETUNREACH
+          sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+          sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+          echo "✅ IPv6 deshabilitado"
+
       - name: Run scraper
         run: |
           python platinsport.py
@@ -48,7 +56,7 @@ jobs:
           head -n 60 lista.m3u
 
           if [ "$lines" -lt 10 ]; then
-            echo "❌ M3U demasiado pequeño, algo falló"
+            echo "❌ M3U demasiado pequeño"
             exit 1
           fi
 
