@@ -112,7 +112,7 @@ def write_m3u(all_entries, out_path="lista.m3u"):
 
 def main():
     print("=" * 70)
-    print("=== PLATINSPORT M3U UPDATER (SOLUCION FINAL) ===")
+    print("=== PLATINSPORT M3U UPDATER ===")
     print("=" * 70)
     print(f"Python: {sys.version.split()[0]}")
     print(f"Inicio: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
@@ -131,7 +131,6 @@ def main():
                 "--disable-gpu",
                 "--disable-software-rasterizer",
                 "--disable-blink-features=AutomationControlled",
-                "--disable-ipv6",
             ],
         )
 
@@ -147,8 +146,7 @@ def main():
             ignore_https_errors=True,
         )
         
-        # CLAVE: Establecer cookie del disclaimer ANTES de navegar
-        # Esto evita tener que hacer click en el boton
+        # CLAVE: Establecer cookie ANTES de navegar
         expiry = int((datetime.now(timezone.utc) + timedelta(days=1)).timestamp())
         context.add_cookies([{
             "name": "disclaimer_accepted",
@@ -165,7 +163,6 @@ def main():
         # Bloquear trackers y scripts innecesarios
         def handle_route(route):
             url = route.request.url
-            resource_type = route.request.resource_type
             
             blocked_domains = [
                 "first-id.fr",
@@ -175,7 +172,6 @@ def main():
                 "facebook.com",
                 "analytics.",
                 "advertising.",
-                "haberdasherycorpse.com",
             ]
             
             if any(d in url for d in blocked_domains):
@@ -187,8 +183,8 @@ def main():
 
         print(f"\nPaso 1: Cargando {BASE_URL}...")
         try:
-            page.goto(BASE_URL, timeout=90000, wait_until="load")
-            time.sleep(2)
+            page.goto(BASE_URL, timeout=120000, wait_until="domcontentloaded")
+            time.sleep(3)
             print("Pagina principal cargada")
         except Exception as e:
             print(f"Error cargando pagina: {e}")
@@ -197,10 +193,9 @@ def main():
 
         print("\nPaso 2: Haciendo click en boton PLAY...")
         try:
-            # Buscar el boton PLAY
             play_button = page.locator("a[href=\"javascript:go('source-list.php')\"]").first
             
-            if play_button.is_visible(timeout=5000):
+            if play_button.is_visible(timeout=10000):
                 print("Boton PLAY encontrado, haciendo click...")
                 
                 # Esperar a que se abra nueva pagina (popup)
@@ -210,13 +205,7 @@ def main():
                 # Obtener la nueva pagina
                 daily_page = popup_info.value
                 print("Popup abierto con URL diaria")
-                
-                # Esperar a que cargue el contenido
-                daily_page.wait_for_load_state("load", timeout=60000)
-                
-                # Como ya tenemos la cookie, el disclaimer no deberia aparecer
-                # Pero por si acaso, esperamos un poco
-                time.sleep(3)
+                print(f"URL: {daily_page.url}")
                 
                 # Esperar a que aparezcan enlaces acestream
                 print("\nPaso 3: Esperando enlaces acestream...")
