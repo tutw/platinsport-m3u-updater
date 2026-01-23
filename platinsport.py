@@ -7,11 +7,12 @@ import sys
 import html
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
+import urllib.request
 
 BASE_URL = "https://www.platinsport.com/"
 LOGOS_XML_URL = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/LOGOS-CANALES-TV.xml"
 
-# Mapeo de códigos de país a nombres
+# Mapeo extendido de códigos de país a nombres
 COUNTRY_CODES = {
     "GB": "Reino Unido", "UK": "Reino Unido",
     "ES": "España", "PT": "Portugal", "IT": "Italia",
@@ -24,7 +25,41 @@ COUNTRY_CODES = {
     "DK": "Dinamarca", "SE": "Suecia", "NO": "Noruega",
     "FI": "Finlandia", "BE": "Bélgica", "CH": "Suiza",
     "AT": "Austria", "CZ": "República Checa", "SK": "Eslovaquia",
-    "HU": "Hungría", "XX": "Internacional"
+    "HU": "Hungría", "XX": "Internacional",
+    # Países adicionales con retransmisiones deportivas
+    "AU": "Australia", "NZ": "Nueva Zelanda",
+    "JP": "Japón", "KR": "Corea del Sur", "CN": "China",
+    "IN": "India", "PK": "Pakistán", "BD": "Bangladesh",
+    "ZA": "Sudáfrica", "EG": "Egipto", "NG": "Nigeria",
+    "KE": "Kenia", "MA": "Marruecos", "TN": "Túnez",
+    "SA": "Arabia Saudita", "AE": "Emiratos Árabes", "QA": "Catar",
+    "IL": "Israel", "IR": "Irán", "IQ": "Irak",
+    "CL": "Chile", "CO": "Colombia", "PE": "Perú",
+    "VE": "Venezuela", "UY": "Uruguay", "EC": "Ecuador",
+    "BO": "Bolivia", "PY": "Paraguay",
+    "IE": "Irlanda", "IS": "Islandia", "LT": "Lituania",
+    "LV": "Letonia", "EE": "Estonia", "SI": "Eslovenia",
+    "AL": "Albania", "MK": "Macedonia", "BA": "Bosnia",
+    "ME": "Montenegro", "XK": "Kosovo", "CY": "Chipre",
+    "MT": "Malta", "LU": "Luxemburgo"
+}
+
+# Abreviaciones comunes de canales para mejorar matching
+CHANNEL_ALIASES = {
+    "movistar laliga": ["m. laliga", "m laliga", "movistar+ laliga", "laliga tv"],
+    "movistar liga de campeones": ["m. liga de campeones", "m liga de campeones", "movistar+ champions"],
+    "movistar deportes": ["m+deportes", "m+ deportes", "movistar+ deportes"],
+    "movistar vamos": ["m+ vamos", "m+vamos", "vamos"],
+    "dazn laliga": ["dazn la liga"],
+    "eleven sports": ["eleven", "11 sports"],
+    "bein sports": ["bein", "beinsports"],
+    "sky sports": ["sky sport"],
+    "ziggo sport": ["ziggo"],
+    "sport tv": ["sporttv"],
+    "espn": ["espn deportes"],
+    "fox sports": ["fox sport"],
+    "setanta sports": ["setanta"],
+    "premier sports": ["premier sport"],
 }
 
 def clean_text(s: str) -> str:
@@ -50,6 +85,17 @@ def extract_lang_from_flag(node) -> str:
             return cc
     return "XX"
 
+def normalize_channel_name(channel_name: str) -> str:
+    """Normaliza el nombre del canal para mejorar el matching"""
+    normalized = channel_name.lower().strip()
+    # Remover puntos, guiones y caracteres especiales
+    normalized = re.sub(r'[.\-_+]', ' ', normalized)
+    # Remover palabras comunes
+    normalized = re.sub(r'\b(hd|4k|fhd|stream|tv|channel)\b', '', normalized)
+    # Normalizar espacios
+    normalized = re.sub(r'\s+', ' ', normalized).strip()
+    return normalized
+
 def similarity(a: str, b: str) -> float:
     """Calcula la similitud entre dos strings"""
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
@@ -65,9 +111,15 @@ def load_logos_from_xml(xml_path: str = "logos.xml") -> dict:
             name = channel.get("name", "").strip()
             logo_node = channel.find("logo_url")
             if name and logo_node is not None and logo_node.text:
-                # Normalizar el nombre del canal para búsqueda
-                normalized = name.lower().strip()
+                # Guardar con nombre original y normalizado
+                normalized = normalize_channel_name(name)
                 logos[normalized] = {
+                    "original_name": name,
+                    "logo_url": logo_node.text.strip()
+                }
+                
+                # También agregar con el nombre original como clave
+                logos[name.lower().strip()] = {
                     "original_name": name,
                     "logo_url": logo_node.text.strip()
                 }
@@ -78,18 +130,42 @@ def load_logos_from_xml(xml_path: str = "logos.xml") -> dict:
         print(f"⚠ Error cargando logos XML: {e}")
         return {}
 
-def find_best_logo_match(channel_name: str, logos_db: dict, threshold: float = 0.6) -> str:
-    """Encuentra el mejor match de logo para un nombre de canal"""
+def find_best_logo_match(channel_name: str, logos_db: dict, threshold: float = 0.55) -> str:
+    """Encuentra el mejor match de logo para un nombre de canal con lógica mejorada"""
     if not channel_name or not logos_db:
         return ""
     
-    channel_normalized = channel_name.lower().strip()
+    channel_normalized = normalize_channel_name(channel_name)
+    channel_lower = channel_name.lower().strip()
     
-    # Búsqueda exacta
+    # 1. Búsqueda exacta con nombre normalizado
     if channel_normalized in logos_db:
         return logos_db[channel_normalized]["logo_url"]
     
-    # Búsqueda por similitud
+    # 2. Búsqueda exacta con nombre original
+    if channel_lower in logos_db:
+        return logos_db[channel_lower]["logo_url"]
+    
+    # 3. Búsqueda por aliases
+    for canonical, aliases in CHANNEL_ALIASES.items():
+        if channel_normalized == normalize_channel_name(canonical):
+            if canonical in logos_db:
+                return logos_db[canonical]["logo_url"]
+        for alias in aliases:
+            if channel_normalized == normalize_channel_name(alias):
+                if canonical in logos_db:
+                    return logos_db[canonical]["logo_url"]
+                # Buscar el alias también
+                alias_norm = normalize_channel_name(alias)
+                if alias_norm in logos_db:
+                    return logos_db[alias_norm]["logo_url"]
+    
+    # 4. Búsqueda por substring (contiene)
+    for db_name, data in logos_db.items():
+        if channel_normalized in db_name or db_name in channel_normalized:
+            return data["logo_url"]
+    
+    # 5. Búsqueda por similitud usando SequenceMatcher
     best_match = None
     best_score = threshold
     
@@ -111,16 +187,30 @@ def extract_time_from_datetime(match_div) -> str:
             dt = datetime.fromisoformat(dt_str.replace("Z", "+00:00"))
             # Retornar hora en formato HH:MM
             return dt.strftime("%H:%M")
-        except:
-            pass
+        except Exception as e:
+            print(f"⚠ Error parseando tiempo: {e}")
     return ""
+
+def extract_match_title(match_div) -> str:
+    """Extrae el título del partido sin la hora"""
+    # Clonar el div para manipularlo
+    match_div_copy = BeautifulSoup(str(match_div), "lxml").find("div")
+    if not match_div_copy:
+        return ""
+    
+    # Remover la etiqueta <time>
+    for time_tag in match_div_copy.find_all("time"):
+        time_tag.decompose()
+    
+    # Obtener el texto limpio
+    return clean_text(match_div_copy.get_text())
 
 def clean_channel_name(raw_name: str) -> str:
     """Limpia y mejora el nombre del canal"""
     name = clean_text(raw_name)
     
     # Remover patrones comunes no deseados
-    name = re.sub(r'\b(STREAM|HD|4K|FHD)\b', '', name, flags=re.IGNORECASE).strip()
+    name = re.sub(r'\b(STREAM|4K|FHD)\b', '', name, flags=re.IGNORECASE).strip()
     name = re.sub(r'\s+', ' ', name).strip()
     
     # Si quedó vacío, mantener el original limpio
@@ -130,20 +220,21 @@ def clean_channel_name(raw_name: str) -> str:
     return name
 
 def parse_html_for_streams(html_content: str, logos_db: dict):
-    """Parsea el HTML y extrae informacion de streams con horarios"""
+    """Parsea el HTML y extrae informacion de streams con horarios y logos mejorados"""
     soup = BeautifulSoup(html_content, "lxml")
     entries = []
     
     # Buscar todas las secciones de partidos
     match_sections = soup.find_all("div", class_="match-title-bar")
     
-    for match_div in match_sections:
+    print(f"\n✓ Encontradas {len(match_sections)} secciones de partidos")
+    
+    for idx, match_div in enumerate(match_sections, 1):
         # Extraer la hora desde la etiqueta <time>
         event_time = extract_time_from_datetime(match_div)
         
-        # Extraer titulo del partido
-        match_title_raw = clean_text(match_div.get_text())
-        match_title = match_title_raw
+        # Extraer titulo del partido sin la hora
+        match_title = extract_match_title(match_div)
         
         # Buscar el contenedor de botones siguiente
         button_group = match_div.find_next_sibling("div", class_="button-group")
@@ -152,6 +243,8 @@ def parse_html_for_streams(html_content: str, logos_db: dict):
         
         # Buscar todos los enlaces acestream
         links = button_group.find_all("a", href=re.compile(r"^acestream://"))
+        
+        print(f"  Partido {idx}: '{match_title}' a las {event_time} - {len(links)} streams")
         
         for a in links:
             href = clean_text(a.get("href", ""))
@@ -183,7 +276,7 @@ def parse_html_for_streams(html_content: str, logos_db: dict):
             # Limpiar el nombre del canal
             channel_name = clean_channel_name(channel_name_raw)
             
-            # Buscar logo correspondiente
+            # Buscar logo correspondiente con lógica mejorada
             logo_url = find_best_logo_match(channel_name, logos_db)
             
             entries.append({
@@ -211,35 +304,48 @@ def write_m3u(all_entries, out_path="lista.m3u"):
         url = e.get("url", "")
         
         # Construir el nombre del canal en formato:
-        # hora, nombre del evento deportivo, [país], canal de TV
+        # HH:MM - Nombre del evento, [País], Canal
         parts = []
+        
+        # Agregar hora y evento juntos con guión
         if event_time:
-            parts.append(event_time)
-        parts.append(match)
+            parts.append(f"{event_time} - {match}")
+        else:
+            parts.append(match)
+        
+        # Agregar país entre corchetes
         if country:
             parts.append(f"[{country}]")
+        
+        # Agregar canal
         parts.append(channel)
         
         display_name = ", ".join(parts)
         
-        # Construir línea EXTINF sin group-title ni tvg-name, solo con tvg-logo
-        extinf_parts = ["#EXTINF:-1"]
+        # Construir línea EXTINF SIN group-title ni tvg-name, SOLO con tvg-logo
         if logo:
-            extinf_parts.append(f'tvg-logo="{logo}"')
-        extinf_parts.append(f',{display_name}')
+            extinf_line = f'#EXTINF:-1 tvg-logo="{logo}", {display_name}'
+        else:
+            extinf_line = f'#EXTINF:-1, {display_name}'
         
-        m3u.append(" ".join(extinf_parts))
-        m3u.append(url)
+        m3u.append(extinf_line)
+        
+        # Convertir acestream:// a http://127.0.0.1:6878/ace/getstream?id=
+        if url.startswith("acestream://"):
+            ace_id = url.replace("acestream://", "")
+            stream_url = f"http://127.0.0.1:6878/ace/getstream?id={ace_id}"
+        else:
+            stream_url = url
+        
+        m3u.append(stream_url)
     
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(m3u) + "\n")
     
-    print(f"✓ Archivo {out_path} generado con {len(all_entries)} entradas")
+    print(f"\n✓ Archivo {out_path} generado con {len(all_entries)} entradas")
 
 def download_logos_xml():
     """Descarga el archivo XML de logos si no existe"""
-    import urllib.request
-    
     if os.path.exists("logos.xml"):
         print("✓ Archivo logos.xml ya existe")
         return True
@@ -255,7 +361,7 @@ def download_logos_xml():
 
 def main():
     print("=" * 70)
-    print("=== PLATINSPORT M3U UPDATER - VERSION MEJORADA ===")
+    print("=== PLATINSPORT M3U UPDATER - VERSION MEJORADA V2 ===")
     print("=" * 70)
     print(f"Python: {sys.version.split()[0]}")
     print(f"Inicio: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
@@ -414,7 +520,7 @@ def main():
     for i, e in enumerate(all_entries[:10], 1):
         time_str = f"{e['time']} " if e['time'] else ""
         logo_str = "✓" if e['logo'] else "✗"
-        print(f"  {i}. [{logo_str}] {time_str}{e['match'][:30]} [{e['country']}] {e['channel']}")
+        print(f"  {i}. [{logo_str}] {time_str}{e['match'][:40]} [{e['country']}] {e['channel']}")
     
     # Estadísticas de logos
     with_logo = sum(1 for e in all_entries if e['logo'])
