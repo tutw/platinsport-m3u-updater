@@ -3,7 +3,7 @@ name: Update Platinsport M3U
 on:
   schedule:
     - cron: '0 */6 * * *'  # Cada 6 horas
-  workflow_dispatch:
+  workflow_dispatch:  # Permite ejecuciÃ³n manual
 
 jobs:
   update-m3u:
@@ -29,34 +29,40 @@ jobs:
           playwright install chromium
           playwright install-deps chromium
 
-      - name: Configure IPv6 (disable if problematic)
+      - name: Configure network
         run: |
-          echo "🔧 Configurando red..."
-          # Deshabilitar IPv6 a nivel de sistema para evitar ENETUNREACH
-          sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
-          sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-          echo "✅ IPv6 deshabilitado"
+          echo "ðŸ”§ Configurando red..."
+          # Deshabilitar IPv6 para evitar errores ENETUNREACH
+          sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1 || true
+          sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1 || true
+          echo "âœ… ConfiguraciÃ³n de red completada"
 
       - name: Run scraper
         run: |
+          echo "ðŸš€ Ejecutando scraper..."
           python platinsport.py
 
       - name: Verify M3U file
         run: |
           if [ ! -f lista.m3u ]; then
-            echo "❌ Error: lista.m3u no fue generado"
+            echo "âŒ Error: lista.m3u no fue generado"
             exit 1
           fi
 
           lines=$(wc -l < lista.m3u)
-          echo "✅ lista.m3u generado"
-          echo "📊 Líneas: $lines"
+          echo "âœ… lista.m3u generado"
+          echo "ðŸ“Š LÃ­neas totales: $lines"
 
-          echo "📄 Primeras 60 líneas:"
-          head -n 60 lista.m3u
+          # Contar canales (cada 2 lÃ­neas despuÃ©s de #EXTM3U)
+          channels=$((($lines - 1) / 2))
+          echo "ðŸ“º Canales totales: $channels"
+
+          echo ""
+          echo "ðŸ“„ Primeras 30 lÃ­neas de lista.m3u:"
+          head -n 30 lista.m3u
 
           if [ "$lines" -lt 10 ]; then
-            echo "❌ M3U demasiado pequeño"
+            echo "âŒ M3U demasiado pequeÃ±o (menos de 10 lÃ­neas)"
             exit 1
           fi
 
@@ -65,13 +71,18 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          git add lista.m3u debug/ || true
+          # AÃ±adir archivos
+          git add lista.m3u || true
+          git add debug/ || true
 
+          # Verificar si hay cambios
           if git diff --quiet && git diff --staged --quiet; then
-            echo "✅ No hay cambios"
+            echo "âœ… No hay cambios para commitear"
           else
-            git commit -m "🔄 Actualizar lista.m3u - $(date -u +'%Y-%m-%d %H:%M:%S UTC')" || true
+            timestamp=$(date -u +'%Y-%m-%d %H:%M:%S UTC')
+            git commit -m "ðŸ”„ Actualizar lista.m3u - $timestamp" || true
             git push || true
+            echo "âœ… Cambios commiteados y pusheados"
           fi
 
       - name: Upload debug artifacts
