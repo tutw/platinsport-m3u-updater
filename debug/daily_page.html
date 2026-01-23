@@ -1,0 +1,679 @@
+<!DOCTYPE html><html dir="ltr" lang="en"><head> 
+<meta charset="utf-8">
+<meta name="description" content="Live sports streams, match schedules and updates from Platinsport.">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.platinsport.com/style/style.css?v=1.1">
+<link rel="stylesheet" href="https://www.platinsport.com/style/flag-icons-main/css/flag-icons.min.css">
+<link rel="icon" href="https://www.platinsport.com/favicon.ico" type="image/x-icon">
+<title>Platinsport | Live Sports Schedule</title>
+
+<style>
+/* ---------------------------------------------------- */
+/* 1. STYLES: Clear Background Lock Modal (GÜNCELLENDİ) */
+/* ---------------------------------------------------- */
+#adblock-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Sadece hafif karartma, netlik korunur */
+    background: rgba(0, 0, 0, 0.2); 
+    /* Backdrop filter kaldırıldı */
+    z-index: 10000;
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    /* ÖNEMLİ: Bu, arka plandaki içeriğe tıklanmasını tamamen engeller. */
+    pointer-events: auto; 
+}
+
+#adblock-modal-content {
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.8); /* Turuncu Parlaklık */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
+    text-align: center;
+    border: 1px solid #ff8c00; /* Turuncu Çerçeve */
+}
+
+#adblock-modal-content h3 {
+    color: #ff8c00;
+    margin-top: 0;
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+#adblock-modal-content p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-weight: 300;
+}
+
+#adblock-modal-content strong {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.action-tip {
+    font-size: 14px;
+    color: #ff8c00;
+    margin-top: 20px;
+}
+</style>
+
+</head><body style="overflow: auto;"><div id="adblock-modal-overlay" style="display: none;">
+    <div id="adblock-modal-content">
+        <h3>🚫 Access Restricted: Ad Blocker Detected</h3>
+        <p>
+            You are attempting to access **PlatinSport** content with an active Ad Blocker.
+        </p>
+        <p>
+            To continue viewing our daily schedules, news, and analyses, please **disable your Ad Blocker** for our domain and **refresh the page**.
+        </p>
+        <p>
+            We appreciate your support in keeping our service free and running.
+        </p>
+        <div class="action-tip">
+            **ACTION REQUIRED:** Disable Ad Blocker and Refresh.
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var modalOverlay = document.getElementById('adblock-modal-overlay');
+    var adScriptUrl = 'https://adservice.google.com/adsid/google/ds-ad-data.js';
+
+    function checkAdBlock() {
+        var isAdBlockActive = false;
+        
+        // Yöntem 1: Sahte öğe testi
+        var testAd = document.createElement('div');
+        testAd.className = 'ad-wrapper ads ads_ads';
+        testAd.style.width = '1px';
+        testAd.style.height = '1px';
+        testAd.style.position = 'absolute';
+        testAd.style.top = '-1000px'; 
+        document.body.appendChild(testAd);
+
+        setTimeout(function() {
+            if (testAd.offsetParent === null || testAd.offsetHeight === 0 || testAd.style.display === 'none') {
+                isAdBlockActive = true;
+            }
+            document.body.removeChild(testAd);
+            
+            // Yöntem 2: Script Yükleme testi
+            fetch(adScriptUrl, { method: 'HEAD', mode: 'no-cors' })
+                .then(function() {}) 
+                .catch(function() {
+                    isAdBlockActive = true;
+                })
+                .finally(function() {
+                    if (isAdBlockActive) {
+                        modalOverlay.style.display = 'flex';
+                        // Sayfanın kaydırılmasını ve arka plan içeriğe tıklanmasını engelle
+                        document.body.style.overflow = 'hidden'; 
+                    } else {
+                        modalOverlay.style.display = 'none';
+                        document.body.style.overflow = 'auto'; 
+                    }
+                });
+            
+        }, 1000); 
+    }
+    
+    checkAdBlock();
+
+});
+</script>
+
+<script type="text/javascript">
+
+(function(){
+
+    const POP_URL = "//haberdasherycorpse.com/47/be/9f/47be9f2abe3033186473f00312b9412c.js";
+
+    let lastRun = 0;
+    function loadPop(){
+        // Sayfa içinde adblocker kilit ekranı varsa yükleme
+        if(document.getElementById('adblock-overlay')) return;
+
+        const now = Date.now();
+        // 10 saniye anti-spam kontrolü
+        if(now - lastRun < 10000) return; 
+        lastRun = now;
+
+        let s = document.createElement("script");
+        s.src = POP_URL;
+        document.body.appendChild(s);
+    }
+
+    // 1) ACESTREAM Linklerine tıklayınca tetikle
+    document.addEventListener("click", function(e){
+        let target = e.target;
+        while (target && target.tagName !== 'A') {
+            target = target.parentNode;
+            if (!target || target === document.body) break;
+        }
+
+        if (target && target.tagName === "A" && target.href.startsWith("acestream://")){
+            loadPop();
+        }
+    }, true);
+
+    // 2) Sayfaya girince 30 saniye sonra tetikle
+    setTimeout(loadPop, 30000);
+
+    // 3) Kullanıcı geri döndüğünde tetikle
+    window.addEventListener("pageshow", function (event) {
+        if (event.persisted) loadPop();
+    });
+
+    // 4) Scroll tetikleyici
+    let scrolled = false;
+    window.addEventListener("scroll", function(){
+        if(!scrolled){
+            scrolled = true;
+            loadPop();
+        }
+    });
+
+    // 5) Mobil cihazlar için ekstra tetikleme
+    if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)){
+        setTimeout(loadPop, 15000); 
+    }
+
+})();
+</script>
+
+
+
+
+
+<style>
+    /* Href'i boş olan linklerin genel ayarı */
+    a[href=""], a[href="#"] {
+        opacity: 0.5;             /* Linki biraz şeffaf yap */
+        cursor: not-allowed !important; 
+        pointer-events: none;     /* Tıklamayı engelle */
+        text-decoration: none !important;
+        display: inline-block;
+        transition: all 0.3s ease;
+        color: #999 !important;   /* Yazı rengini gri yap */
+    }
+
+    /* Bayrakların (span) renklerini koru! */
+    a[href=""] span.fi, a[href="#"] span.fi {
+        filter: none !important;   /* Grilik efektini bayrakta iptal et */
+        opacity: 1 !important;    /* Bayrağı tam parlak yap */
+    }
+
+    /* Yazıların üzerine gelince tıklanmaz olduğunu belli et */
+    a[href=""]:hover {
+        opacity: 0.5;
+    }
+</style>
+
+<script>
+    // Boş linklere tıklamayı tamamen kapatan garanti kod
+    document.addEventListener("click", function(e) {
+        let target = e.target.closest('a');
+        if (target && (target.getAttribute('href') === '' || target.getAttribute('href') === '#')) {
+            e.preventDefault();
+        }
+    }, true);
+</script>
+
+
+
+
+
+<div class="myDiv">
+    <a href="http://www.platinsport.com" target="_blank" class="header-link"> 
+        <img src="https://www.platinsport.com/resim/Header.webp" alt="acestream" class="header-logo">
+    </a>
+</div>
+
+<div class="myDiv3">
+    <p class="acestream-info">To use Acestream links, please download and install the Acestream Player:</p>
+    <div class="download-buttons">
+        <a href="https://acestream.net/#/install" target="_blank" class="download-btn pc-btn">
+            <i class="fas fa-desktop"></i> PC
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=org.acestream.node" target="_blank" class="download-btn android-btn">
+            <i class="fab fa-android"></i> Android
+        </a>
+    </div>
+</div>
+
+
+<div class="myDiv">
+    <a href="https://stake.com/?c=snT5uiCv" target="_blank" class="header-link"> 
+        <img src="https://platinsport.com/resim/starkphp.gif" alt="acestream" class="header-logo">
+    </a>
+</div>
+
+<div class="myDiv">
+Friday 23rd January 2026
+</div>
+
+<div class="myDiv1">
+
+<p>Spain La Liga</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T20:00:00Z">08:00 PM</time>
+Levante vs Elche</div>
+<div class="button-group">
+<a href="acestream://d08013df6e437a1fdf1e0c34f573fdf6a40c7fce" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a>
+<a href="acestream://42df8cbe7b001032d73288cbd1c8a66904d978c1" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a>
+<a href="acestream://31c19ffb3472c289c5bbbbc174449c8ed0d19e38" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a> 
+<a href="acestream://107c3ce5a5d2527c9f06e4eab87477201791f231" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a> 
+<a href="acestream://4b528d10eaad747ddf52251206177573ee3e9f74" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a> 
+<a href="acestream://00c9bc9c5d7d87680a5a6bed349edfa775a89947" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a> 
+<a href="acestream://14b6cd8769cd485f2cffdca64be9698d9bfeac58" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://868a6187d6aeec65ded84bd777814c9f7b7a9027" rel="nofollow" title="STREAM HD"><span class="fi fi-nl"></span> STREAM HD</a>
+<a href="acestream://458a0ddd7d193f6d2750cd14d03a47f47a808e09" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+<a href="acestream://ffbf8c687c788d9a1a7c651e24802ee773ff3f04" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+<a href="acestream://88cd0363dad0f2f4a1385ef06044e218042d8205" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+</div>
+
+<p>Italy Serie A</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:45:00Z">07:45 PM</time>
+Internazionale vs Pisa</div>
+<div class="button-group">
+<a href="acestream://156a88a7008419bc5b2a20f86fa7214ff2ba8761" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a>
+<a href="acestream://46ec8056502d0bb371d46497b1970bcb764f7543" rel="nofollow" title="STREAM HD"><span class="fi fi-gb"></span> STREAM HD</a>
+<a href="acestream://9591690489d6b93eed2e477d9255c5b43bdd0d32" rel="nofollow" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+<a href="acestream://ab7f9cc29ad09ee9575fed758ab317c818fdc491" rel="nofollow" title="STREAM HD"><span class="fi fi-ar"></span> STREAM HD</a>
+<a href="acestream://897e73c9d578848f596585314ecb9ae067c0e229" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a> 
+<a href="acestream://d0a5eb107ed5d70f542e7483e2d0f9068b15f6c4" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+<a href="acestream://9c4537488bfddaba997b57769e22f75f9db3ca9e" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+<a href="acestream://fcd7621df513f600652b4813d5d8fd1daed60058" rel="nofollow" title="STREAM HD"><span class="fi fi-nl"></span> STREAM HD</a>
+<a href="acestream://8e475c8b9f12270c524f88f5659cc6811fc1399c" rel="nofollow" title="STREAM HD"><span class="fi fi-nl"></span> STREAM HD</a>
+<a href="acestream://7ac2d74ef6df9d15012992d7e0e635a95f58c652" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+<a href="acestream://14407b00d454cb7dc0d70aa26e8bbc554f457f00" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+<a href="acestream://4ce55db7e578ff52a6e526cf610e477464b8a99f" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+<a href="acestream://42fe2ce3ef6b92653a74d85b6e98c2ba0abee707" rel="nofollow" title="STREAM HD"><span class="fi fi-ua"></span> STREAM HD</a>
+<a href="acestream://a203f6b935a8ad8659c4c76c1d9c13afa6368ef2 " rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+<a href="acestream://b28db77c5084da7993395d77df96c30bb134f0a9" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+<a href="acestream://2b6cd88ef5ff1a291692e7fb67646d6477e310d7" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+<a href="acestream://a25ff8ef9ebcac9fd32366143fdaee8c1334390c" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+<a href="acestream://e43dec5de17facb22756b57e331f5b054f51b578" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+</div>
+
+<p>Germany Bundesliga</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:30:00Z">07:30 PM</time>
+St Pauli vs Hamburger SV</div>
+<div class="button-group">
+<a href="acestream://36cad67fed5a739757a9db844a551aa845a8d51b" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a> 
+<a href="acestream://2b71a3f4050a0272d42fd63aa7e0d6061c0e2531" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a> 
+<a href="acestream://c7c81acdd1a03ecc418c94c2f28e2adb0556c40b" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a> 
+<a href="acestream://0e5d8c9724fa9163f49096b70484e315251eb785" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://38d8789a448dd0eaf99e0274b555974e4e8f3f3b" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+<a href="acestream://7c12288663069a12aff58f3f62e8ea47ab78c65d" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+<a href="acestream://edb507e38394d614c9ff55805c9d354ae13210bc" rel="nofollow" title="STREAM HD"><span class="fi fi-fr"></span> STREAM HD</a>
+<a href="acestream://b146ee4b6e16c9df58e27bd02ffd6cea840ff212" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+<a href="acestream://f6d68cfa8694f814983f2a5757f4e0c4964b880c" rel="nofollow" title="STREAM HD"><span class="fi fi-ua"></span> STREAM HD</a>
+<a href="acestream://583c115ffd1ac439e8577b5ded0837f2c2f68289" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+<a href="acestream://86f6be014d56400f0537a0f5404f1198b3a67c5f" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+</div>
+
+<p>France Ligue 1</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+Auxerre vs PSG</div>
+<div class="button-group">
+<a href="acestream://6776ba247cc59daef5aebeaf0fa43a88b0c37421" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a>
+<a href="acestream://d872a44653bf2ad232d5f8476597754b69e3d56c" rel="nofollow" title="STREAM HD"><span class="fi fi-ar"></span> STREAM HD</a>
+<a href="acestream://fc2163c307533045adc01201db0972104cf6fd7d" rel="nofollow" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+<a href="acestream://12ea555d431dbe51fc8e4ca745aec09fe22a4865" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+<a href="acestream://dc4664313cd5602761285b17c47dac022eb88918" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+<a href="acestream://7683cd0cbacf55fa8b39c363219ffba1bc47cf9d" rel="nofollow" title="STREAM HD"><span class="fi fi-tr"></span> STREAM HD</a>
+<a href="acestream://54a4a28882d3cae1ca19de5d4b022ebea40351f9" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+<a href="acestream://3e7a85ec30ec0f07cae4d7386534b3491a59d763" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+<a href="acestream://a483589735d9bc02f6814bb29370ecc4acee9f1d" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+</div>
+
+<p>Portugal Primeira Liga</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T20:15:00Z">08:15 PM</time>
+Casa Pia vs AVS</div>
+<div class="button-group">
+<a href="acestream://1e110721c3fc282d8c56010cdcbd8839dcfde092" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a>
+</div>
+
+<p>Turkey Super Lig</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T17:00:00Z">05:00 PM</time>
+Trabzonspor vs Kasimpasa</div>
+<div class="button-group">
+<a href="acestream://118416583faa3fb4f03800173429b6b844b43a52" rel="nofollow" title="STREAM HD"><span class="fi fi-tr"></span> STREAM HD</a>
+<a href="acestream://af3f60c1726d68e45abf08b0f25cf1adf8fef982" rel="nofollow" title="STREAM HD"><span class="fi fi-tr"></span> STREAM HD</a>
+<a href="acestream://e8e459656f964f601ad4bcda8b81a43ba41c68f9" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://b6baa046075d82da300fc1b16de96067a8b9540e" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+<a href="acestream://ae4db992d880221be7dcf618d330db2470a6fb77" rel="nofollow" title="STREAM HD"><span class="fi fi-ru"></span> STREAM HD</a>
+</div>
+
+<p>Romania Liga I</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T15:00:00Z">03:00 PM</time>
+Metaloglobus vs SCM Argesul Pitesti</div>
+<div class="button-group">
+<a href="acestream://747c9af88f473d34833dae31cb5c1271e9adf07e" rel="nofollow" title="STREAM HD"><span class="fi fi-ro"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T18:00:00Z">06:00 PM</time>
+Hermannstadt vs Dinamo Bucuresti</div>
+<div class="button-group">
+<a href="acestream://747c9af88f473d34833dae31cb5c1271e9adf07e" rel="nofollow" title="STREAM HD"><span class="fi fi-ro"></span> STREAM HD</a>
+</div>
+
+<p>England Championship</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T20:00:00Z">08:00 PM</time>
+Derby County vs West Bromwich Albion</div>
+<div class="button-group">
+<a href="acestream://eab7aeef0218ce8b0752e596e4792b69eda4df5e" rel="nofollow" title="STREAM HD"><span class="fi fi-gb"></span> STREAM HD</a>
+<a href="acestream://78266c15035d0ad8cbc58f821733931e1de434ab" rel="nofollow" title="STREAM HD"><span class="fi fi-gb"></span> STREAM HD</a>
+<a href="acestream://4be3c3be4b4de6f64990575e8c06bd34c8256a4b" rel="nofollow" title="STREAM HD"><span class="fi fi-gb"></span> STREAM HD</a>
+</div>
+
+<p>England Womens Super League</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+Everton vs Brighton &amp; Hove Albion</div>
+<div class="button-group">
+<span class="grey-info">The broadcast links will be updated every 5 minutes.</span>
+</div>
+
+<p>Germany FrauenBundesliga</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T17:30:00Z">05:30 PM</time>
+Union Berlin vs Bayer Leverkusen</div>
+<div class="button-group">
+<a href="acestream://897e73c9d578848f596585314ecb9ae067c0e229" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a> 
+<a href="acestream://d0a5eb107ed5d70f542e7483e2d0f9068b15f6c4" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+</div>
+
+<p>Spain Segunda Division</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:30:00Z">07:30 PM</time>
+Malaga vs Burgos</div>
+<div class="button-group">
+<a href="acestream://a4f072c9b614323ac1258a175f868a909ea3c8cd" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://8ee52f6208e33706171856f99d2ed2dabd317f3a" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://70f22be1286ef224b5e4e9451d9a42468152cda4" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+</div>
+
+<p>Germany Bundesliga 2</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T17:30:00Z">05:30 PM</time>
+Darmstadt 98 vs Nurnberg</div>
+<div class="button-group">
+<a href="acestream://d08013df6e437a1fdf1e0c34f573fdf6a40c7fce" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a>
+<a href="acestream://42df8cbe7b001032d73288cbd1c8a66904d978c1" rel="nofollow" title="STREAM HD"><span class="fi fi-pt"></span> STREAM HD</a>
+<a href="acestream://fc9f1f580da8f641a5991d44b399982a3a069f69" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+<a href="acestream://7ac2d74ef6df9d15012992d7e0e635a95f58c652" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+<a href="acestream://14407b00d454cb7dc0d70aa26e8bbc554f457f00" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T17:30:00Z">05:30 PM</time>
+Arminia Bielefeld vs Holstein Kiel</div>
+<div class="button-group">
+<a href="acestream://fc9f1f580da8f641a5991d44b399982a3a069f69" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+<a href="acestream://458a0ddd7d193f6d2750cd14d03a47f47a808e09" rel="nofollow" title="STREAM HD"><span class="fi fi-pl"></span> STREAM HD</a>
+</div>
+
+<p>Netherlands Eerste Divisie</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+MVV vs Utrecht II</div>
+<div class="button-group">
+<span class="grey-info">The broadcast links will be updated every 5 minutes.</span>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+Willem II vs VVV</div>
+<div class="button-group">
+<a href="acestream://5f9b19c57195cc28ab81e0ec8cad03b55118687a" rel="nofollow" title="STREAM HD"><span class="fi fi-nl"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+Roda JC vs Oss</div>
+<div class="button-group">
+<span class="grey-info">The broadcast links will be updated every 5 minutes.</span>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+De Graafschap vs RKC Waalwijk</div>
+<div class="button-group">
+<a href="acestream://a97cafedefe189d63e52eadc5c9bbc351b01540a" rel="nofollow" title="STREAM HD"><span class="fi fi-nl"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+Vitesse vs ADO Den Haag</div>
+<div class="button-group">
+<span class="grey-info">The broadcast links will be updated every 5 minutes.</span>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+Cambuur vs Eindhoven</div>
+<div class="button-group">
+<a href="acestream://3e0ba6867173f345d482d80c771f1a5dc3b37e63" rel="nofollow" title="STREAM HD"><span class="fi fi-nl"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:00:00Z">07:00 PM</time>
+Dordrecht vs Den Bosch</div>
+<div class="button-group">
+<span class="grey-info">The broadcast links will be updated every 5 minutes.</span>
+</div>
+
+<p>Argentina Primera Division</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T22:00:00Z">10:00 PM</time>
+San Lorenzo vs Lanus</div>
+<div class="button-group">
+<a href="https://antenasport.top/26.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+<a href="https://sportsonline.cv/channels/hd/hd10.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-br"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T23:00:00Z">11:00 PM</time>
+Independiente vs Estudiantes</div>
+<div class="button-group">
+<a href="acestream://4903ca695edb64bc72ae29eb85a5333ba0139537" rel="nofollow" title="STREAM HD"><span class="fi fi-gb"></span> STREAM HD</a>
+<a href="https://antenasport.top/27.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+<a href="https://sportsonline.cv/channels/hd/hd9.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-br"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T01:15:00Z">01:15 AM</time>
+Independiente Rivadavia vs Atletico Tucuman</div>
+<div class="button-group">
+<a href="https://antenasport.top/26.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+<a href="https://sportsonline.cv/channels/hd/hd10.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-br"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T01:15:00Z">01:15 AM</time>
+Talleres Cordoba vs Newells Old Boys</div>
+<div class="button-group">
+<a href="https://antenasport.top/27.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+<a href="https://sportsonline.cv/channels/bra/br6.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-br"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T20:00:00Z">08:00 PM</time>
+Barracas Central vs River Plate</div>
+<div class="button-group">
+<a href="https://antenasport.top/27.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+</div>
+
+<p>EuroLeague Basketball</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T17:45:00Z">05:45 PM</time>
+Fenerbahce Istanbul vs Baskonia</div>
+<div class="button-group">
+<a href="acestream://f0ee7a2b43c1df5ea9e4fac5bf876d5bef4372b0" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://edd06f11e1cef292a1d795e15207ef2f580e298c" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:30:00Z">07:30 PM</time>
+BC Partizan Beograd vs Hapoel Tel Aviv BC</div>
+<div class="button-group">
+<a href="acestream://39fefdecfc953dcf6e7c589739bf486c2e605ed0" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:30:00Z">07:30 PM</time>
+Virtus Bologna vs Crvena Zvezda MTS Belgrade</div>
+<div class="button-group">
+<a href="acestream://58a4c880ab18486d914751db32a12760e74b75a4" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-23T19:45:00Z">07:45 PM</time>
+ASVEL LyonVilleurbanne vs Barca Basket</div>
+<div class="button-group">
+<a href="acestream://1ab443f5b4beb6d586f19e8b25b9f9646cf2ab78" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://8c67cdb5ba81976662c3a67984a9545d9cfb0f70" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://b6ffbbc72a5b6b579faf79ebac229af7a25b933b" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+<a href="acestream://199190e3f28c1de0be34bccf0d3568dc65209b99" rel="nofollow" title="STREAM HD"><span class="fi fi-es"></span> STREAM HD</a>
+</div>
+
+<p>Australia ALeague</p>
+<div class="match-title-bar"><time class="time" datetime="2026-01-24T04:00:00Z">04:00 AM</time>
+Auckland vs Central Coast Mariners</div>
+<div class="button-group">
+<a href="https://antenasport.top/2.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-24T06:00:00Z">06:00 AM</time>
+Brisbane Roar vs Adelaide United</div>
+<div class="button-group">
+<a href="https://antenasport.top/2.php" rel="nofollow" target="_blank" title="STREAM HD"><span class="fi fi-us"></span> STREAM HD</a>
+</div>
+
+<div class="match-title-bar"><time class="time" datetime="2026-01-24T08:35:00Z">08:35 AM</time>
+Macarthur vs Melbourne City</div>
+<div class="button-group">
+<a href="acestream://5e94200ae8b1d95cb559fb150e5993d92e15d4e7" rel="nofollow" title="STREAM HD"><span class="fi fi-de"></span> STREAM HD</a>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+<div class="myDiv">
+    <a href="https://get.surfshark.net/aff_c?offer_id=926&amp;aff_id=43464&amp;url_id=1357&amp;aff_sub=d_5068283m_97c_1x_4004746" target="_blank" class="header-link"> 
+        <img src="https://www.platinsport.com/resim/shark2.jpg" alt="acestream" class="header-logo">
+    </a>
+</div>
+
+
+<div class="myDiv">
+<script>
+  atOptions = {
+    'key' : 'b307caa8051e43d0f8c46019ae3171c9',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script src="https://haberdasherycorpse.com/b307caa8051e43d0f8c46019ae3171c9/invoke.js"></script>
+</div>
+
+
+
+
+
+
+<div class="myDiv2">
+
+Platinsport © Copyright 2018-2026, All Rights Reserved
+
+</div>
+
+<style>
+/* Scroll To Top Butonunun Stili */
+#onlyJSyc {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    border: none;
+    outline: none;
+    background: url('https://www.platinsport.com/resim/up.png') no-repeat center center;
+    background-size: contain;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+#onlyJSyc.show {
+    display: block;
+    opacity: 1;
+}
+</style>
+
+<button id="onlyJSyc" onclick="topFunction()"></button>
+
+<script>
+/* Scroll To Top Butonu Scripti */
+const btn = document.getElementById("onlyJSyc");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 500) btn.classList.add("show");
+    else btn.classList.remove("show");
+});
+function topFunction() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+<script>
+document.querySelectorAll('time').forEach($e => {
+    const date = new Date($e.dateTime);
+    // 'default' diyerek kullanıcının kendi yerel ayarını kullanıyoruz
+    // Bu sayede tr-TR yazmamıza gerek kalmaz, tertemiz olur.
+    $e.textContent = date.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+});
+</script>
+
+<script>
+/* Sağ Tık Engelleme Scripti (Tek Kopyası) */
+let enableRightClick = false;
+document.addEventListener('contextmenu', e => { if (!enableRightClick) e.preventDefault(); });
+document.addEventListener('keydown', e => { if (e.code === 'Numpad0') enableRightClick = true; });
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Sayfadaki tüm linkleri bul
+    const links = document.querySelectorAll('.myDiv1 a');
+
+    links.forEach(link => {
+        // Linkin içindeki metni (kanal adını) bul
+        // span (bayrak) dışındaki metin kısmını hedef alıyoruz
+        const textNodes = Array.from(link.childNodes).filter(node => node.nodeType === Node.TEXT_NODE);
+        
+        textNodes.forEach(node => {
+            // Eğer metin boş değilse " SPORTS TV" olarak değiştir
+            if (node.textContent.trim().length > 0) {
+                node.textContent = " STREAM HD";
+            }
+        });
+        
+        // İsteğe bağlı: Gerçek adı sadece sen mouse ile üzerine gelince gör
+        // Bunun için kanal adını title'a yedekliyoruz
+        if(!link.getAttribute('title')) {
+            link.setAttribute('title', link.textContent.trim());
+        }
+    });
+});
+</script>
+
+
+
+</body></html>
