@@ -5,8 +5,6 @@ from datetime import datetime, timezone, timedelta
 import os
 import sys
 import html
-import time
-import base64
 
 BASE_URL = "https://www.platinsport.com/"
 
@@ -34,9 +32,7 @@ def extract_lang_from_flag(node) -> str:
     return "XX"
 
 def parse_html_for_streams(html_content: str):
-    """
-    Parsea el HTML y extrae informacion de streams.
-    """
+    """Parsea el HTML y extrae informacion de streams"""
     soup = BeautifulSoup(html_content, "lxml")
     entries = []
     
@@ -111,182 +107,9 @@ def write_m3u(all_entries, out_path="lista.m3u"):
     
     print(f"Archivo {out_path} generado con {len(all_entries)} entradas")
 
-def get_daily_url():
-    """
-    TAREA 1: Obtener la URL diaria CON JavaScript activado
-    """
-    print("\n" + "=" * 70)
-    print("TAREA 1: OBTENER URL DIARIA (CON JAVASCRIPT)")
-    print("=" * 70)
-    
-    daily_url = None
-    
-    with sync_playwright() as p:
-        print("\n[1] Lanzando navegador...")
-        browser = p.chromium.launch(
-            headless=True,
-            args=[
-                "--no-sandbox",
-                "--disable-setuid-sandbox",
-                "--disable-dev-shm-usage",
-                "--disable-gpu",
-            ],
-        )
-
-        context = browser.new_context(
-            user_agent=(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/131.0.0.0 Safari/537.36"
-            ),
-            viewport={"width": 1920, "height": 1080},
-            locale="en-US",
-            java_script_enabled=True,  # JAVASCRIPT ACTIVADO para obtener URL
-            ignore_https_errors=True,
-        )
-        
-        # Establecer cookie ANTES de navegar
-        expiry = int((datetime.now(timezone.utc) + timedelta(days=1)).timestamp())
-        context.add_cookies([{
-            "name": "disclaimer_accepted",
-            "value": "true",
-            "domain": ".platinsport.com",
-            "path": "/",
-            "expires": expiry,
-            "sameSite": "Lax"
-        }])
-        print("[2] Cookie disclaimer establecida")
-
-        page = context.new_page()
-
-        print(f"[3] Navegando a {BASE_URL}...")
-        try:
-            page.goto(BASE_URL, timeout=120000, wait_until="domcontentloaded")
-            time.sleep(2)
-            print("    ✓ Pagina principal cargada")
-        except Exception as e:
-            print(f"    ✗ Error: {e}")
-            browser.close()
-            return None
-
-        print("[4] Buscando boton PLAY...")
-        try:
-            # Buscar el boton que ejecuta javascript:go('source-list.php')
-            play_button = page.locator("a[href=\"javascript:go('source-list.php')\"]").first
-            
-            if play_button.is_visible(timeout=10000):
-                print("    ✓ Boton encontrado")
-                
-                # Esperar popup
-                print("[5] Haciendo click y esperando popup...")
-                with page.expect_popup(timeout=30000) as popup_info:
-                    play_button.click()
-                
-                daily_page = popup_info.value
-                daily_url = daily_page.url
-                
-                print(f"    ✓ ¡SUCCESS!")
-                print(f"    ✓ URL DIARIA OBTENIDA: {daily_url}")
-                
-                daily_page.close()
-            else:
-                print("    ✗ Boton no visible")
-                
-        except Exception as e:
-            print(f"    ✗ Error: {e}")
-            # Intentar construir la URL manualmente
-            print("[6] Construyendo URL manualmente...")
-            today = datetime.now(timezone.utc)
-            date_iso = today.strftime("%Y-%m-%d")
-            key_text = f"{date_iso}PLATINSPORT"
-            key_base64 = base64.b64encode(key_text.encode()).decode()
-            daily_url = f"https://www.platinsport.com/link/source-list.php?key={key_base64}"
-            print(f"    URL construida: {daily_url}")
-
-        browser.close()
-    
-    return daily_url
-
-def download_html_without_js(daily_url):
-    """
-    TAREA 2: Descargar HTML de la URL diaria SIN JavaScript
-    """
-    print("\n" + "=" * 70)
-    print("TAREA 2: DESCARGAR HTML (SIN JAVASCRIPT)")
-    print("=" * 70)
-    
-    raw_html = None
-    
-    with sync_playwright() as p:
-        print("\n[1] Lanzando navegador...")
-        browser = p.chromium.launch(
-            headless=True,
-            args=[
-                "--no-sandbox",
-                "--disable-setuid-sandbox",
-                "--disable-dev-shm-usage",
-                "--disable-gpu",
-            ],
-        )
-
-        context = browser.new_context(
-            user_agent=(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/131.0.0.0 Safari/537.36"
-            ),
-            viewport={"width": 1920, "height": 1080},
-            locale="en-US",
-            java_script_enabled=False,  # JAVASCRIPT DESACTIVADO para nombres reales
-            ignore_https_errors=True,
-        )
-        
-        # Cookie
-        expiry = int((datetime.now(timezone.utc) + timedelta(days=1)).timestamp())
-        context.add_cookies([{
-            "name": "disclaimer_accepted",
-            "value": "true",
-            "domain": ".platinsport.com",
-            "path": "/",
-            "expires": expiry,
-            "sameSite": "Lax"
-        }])
-        print("[2] Cookie disclaimer establecida")
-        print("[3] JavaScript DESACTIVADO")
-
-        page = context.new_page()
-
-        print(f"[4] Navegando a URL diaria...")
-        print(f"    {daily_url}")
-        
-        try:
-            page.goto(daily_url, timeout=120000, wait_until="domcontentloaded")
-            time.sleep(2)
-            print("    ✓ Pagina cargada")
-            
-            # Obtener HTML inmediatamente (antes de que JS lo modifique)
-            raw_html = page.content()
-            
-            print(f"    ✓ HTML capturado ({len(raw_html)} bytes)")
-            
-            # Guardar para debug
-            os.makedirs("debug", exist_ok=True)
-            with open("debug/daily_page_no_js.html", "w", encoding="utf-8") as f:
-                f.write(raw_html)
-            print("    ✓ Guardado en debug/daily_page_no_js.html")
-            
-        except Exception as e:
-            print(f"    ✗ Error: {e}")
-            import traceback
-            traceback.print_exc()
-
-        browser.close()
-    
-    return raw_html
-
 def main():
     print("=" * 70)
-    print("=== PLATINSPORT M3U UPDATER - VERSIÓN FINAL ===")
+    print("=== PLATINSPORT M3U UPDATER - VERSION CORREGIDA ===")
     print("=" * 70)
     print(f"Python: {sys.version.split()[0]}")
     print(f"Inicio: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
@@ -294,18 +117,120 @@ def main():
 
     os.makedirs("debug", exist_ok=True)
 
-    # TAREA 1: Obtener URL diaria CON JavaScript
-    daily_url = get_daily_url()
-    
-    if not daily_url:
-        print("\n✗ ERROR: No se pudo obtener la URL diaria")
-        sys.exit(1)
-    
-    # TAREA 2: Descargar HTML SIN JavaScript
-    raw_html = download_html_without_js(daily_url)
+    raw_html = None
+
+    with sync_playwright() as p:
+        print("\n[1] Lanzando navegador...")
+        browser = p.chromium.launch(
+            headless=True,
+            args=[
+                "--no-sandbox",
+                "--disable-setuid-sandbox",
+                "--disable-dev-shm-usage",
+                "--disable-gpu",
+            ],
+        )
+
+        context = browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/131.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1920, "height": 1080},
+            locale="en-US",
+            java_script_enabled=True,  # Necesario para abrir popup
+            ignore_https_errors=True,
+        )
+        
+        # Cookie ANTES de navegar
+        expiry = int((datetime.now(timezone.utc) + timedelta(days=1)).timestamp())
+        context.add_cookies([{
+            "name": "disclaimer_accepted",
+            "value": "true",
+            "domain": ".platinsport.com",
+            "path": "/",
+            "expires": expiry,
+            "sameSite": "Lax"
+        }])
+        print("[2] Cookie disclaimer establecida")
+
+        # CLAVE: Interceptar a nivel de contexto ANTES de abrir popup
+        def handle_route(route, request):
+            nonlocal raw_html
+            
+            if "source-list.php" in request.url:
+                print(f"[4] Interceptando: {request.url}")
+                
+                response = route.fetch()
+                body = response.text()
+                
+                raw_html = body
+                print(f"[5] HTML capturado: {len(body)} bytes (ANTES de JavaScript)")
+                
+                # Guardar para debug
+                with open("debug/daily_page_intercepted.html", "w", encoding="utf-8") as f:
+                    f.write(body)
+                print("[6] Debug guardado: debug/daily_page_intercepted.html")
+                
+                route.fulfill(response=response)
+            else:
+                route.continue_()
+        
+        context.route("**/*", handle_route)
+        print("[3] Interceptor registrado")
+
+        page = context.new_page()
+
+        print(f"[7] Navegando a {BASE_URL}...")
+        try:
+            page.goto(BASE_URL, timeout=120000, wait_until="domcontentloaded")
+            import time
+            time.sleep(2)
+            print("     Pagina principal cargada")
+        except Exception as e:
+            print(f"     Error: {e}")
+            browser.close()
+            sys.exit(1)
+
+        print("[8] Buscando boton PLAY...")
+        try:
+            play_button = page.locator("a[href=\"javascript:go('source-list.php')\"]").first
+            
+            if play_button.is_visible(timeout=10000):
+                print("     Boton encontrado")
+                
+                print("[9] Haciendo click y esperando popup...")
+                with page.expect_popup(timeout=30000) as popup_info:
+                    play_button.click()
+                
+                daily_page = popup_info.value
+                daily_url = daily_page.url
+                
+                print(f"     SUCCESS! Popup abierto: {daily_url}")
+                
+                # Esperar carga
+                daily_page.wait_for_load_state("load")
+                import time
+                time.sleep(2)
+                
+                daily_page.close()
+            else:
+                print("     Boton no visible")
+                browser.close()
+                sys.exit(1)
+                
+        except Exception as e:
+            print(f"     Error: {e}")
+            import traceback
+            traceback.print_exc()
+            browser.close()
+            sys.exit(1)
+
+        browser.close()
     
     if not raw_html:
-        print("\n✗ ERROR: No se pudo descargar el HTML")
+        print("\n ERROR: No se pudo capturar el HTML")
         sys.exit(1)
     
     # Parsear el HTML
@@ -318,8 +243,7 @@ def main():
     print(f"\nTotal streams encontrados: {len(all_entries)}")
     
     if len(all_entries) < 5:
-        print("⚠ ERROR: Muy pocos streams encontrados")
-        print("   Revisa debug/daily_page_no_js.html")
+        print(" ERROR: Muy pocos streams encontrados")
         sys.exit(1)
 
     # Eliminar duplicados por URL
@@ -339,7 +263,7 @@ def main():
         print(f"  {i}. [{e['lang']}] {e['channel']} - {e['match'][:40]}")
     
     print("\n" + "=" * 70)
-    print("✓ PROCESO COMPLETADO EXITOSAMENTE")
+    print(" PROCESO COMPLETADO EXITOSAMENTE")
     print("=" * 70)
 
 if __name__ == "__main__":
