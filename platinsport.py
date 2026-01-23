@@ -7,6 +7,7 @@ import sys
 import html
 import xml.etree.ElementTree as ET
 from difflib import SequenceMatcher
+import urllib.request
 
 BASE_URL = "https://www.platinsport.com/"
 LOGOS_XML_URL = "https://raw.githubusercontent.com/tutw/platinsport-m3u-updater/refs/heads/main/LOGOS-CANALES-TV.xml"
@@ -54,12 +55,15 @@ def similarity(a: str, b: str) -> float:
     """Calcula la similitud entre dos strings"""
     return SequenceMatcher(None, a.lower(), b.lower()).ratio()
 
-def load_logos_from_xml(xml_path: str = "logos.xml") -> dict:
-    """Carga el mapeo de canales a logos desde el XML"""
+def load_logos_from_xml_url(xml_url: str) -> dict:
+    """Carga el mapeo de canales a logos desde el XML en GitHub"""
     logos = {}
     try:
-        tree = ET.parse(xml_path)
-        root = tree.getroot()
+        print(f"[XML] Descargando logos desde {xml_url}...")
+        with urllib.request.urlopen(xml_url, timeout=30) as response:
+            xml_content = response.read()
+        
+        root = ET.fromstring(xml_content)
         
         for channel in root.findall(".//channel"):
             name = channel.get("name", "").strip()
@@ -211,71 +215,65 @@ def write_m3u(all_entries, out_path="lista.m3u"):
         url = e.get("url", "")
         
         # Construir el nombre del canal en formato:
-        # hora, nombre del evento deportivo, [país], canal de TV
+        # hora - nombre del evento deportivo, [país], canal de TV
         parts = []
         if event_time:
-            parts.append(event_time)
+            # Usar guión en lugar de coma después de la hora
+            parts.append(f"{event_time} -")
+        
+        # Añadir nombre del evento
         parts.append(match)
+        
+        # Añadir país entre corchetes
         if country:
-            parts.append(f"[{country}]")
+            parts.append(f", [{country}],")
+        else:
+            parts.append(",")
+        
+        # Añadir canal
         parts.append(channel)
         
-        display_name = ", ".join(parts)
+        display_name = " ".join(parts)
         
         # Construir línea EXTINF sin group-title ni tvg-name, solo con tvg-logo
-        extinf_parts = ["#EXTINF:-1"]
         if logo:
-            extinf_parts.append(f'tvg-logo="{logo}"')
-        extinf_parts.append(f',{display_name}')
+            extinf_line = f'#EXTINF:-1 tvg-logo="{logo}", {display_name}'
+        else:
+            extinf_line = f'#EXTINF:-1 , {display_name}'
         
-        m3u.append(" ".join(extinf_parts))
+        m3u.append(extinf_line)
         m3u.append(url)
     
+    # Escribir el archivo
     with open(out_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(m3u) + "\n")
+        f.write("\n".join(m3u))
     
-    print(f"✓ Archivo {out_path} generado con {len(all_entries)} entradas")
-
-def download_logos_xml():
-    """Descarga el archivo XML de logos si no existe"""
-    import urllib.request
-    
-    if os.path.exists("logos.xml"):
-        print("✓ Archivo logos.xml ya existe")
-        return True
-    
-    try:
-        print(f"Descargando logos desde {LOGOS_XML_URL}...")
-        urllib.request.urlretrieve(LOGOS_XML_URL, "logos.xml")
-        print("✓ Archivo logos.xml descargado")
-        return True
-    except Exception as e:
-        print(f"⚠ Error descargando logos.xml: {e}")
-        return False
+    print(f"\n✓ Archivo M3U guardado: {out_path}")
 
 def main():
-    print("=" * 70)
-    print("=== PLATINSPORT M3U UPDATER - VERSION MEJORADA ===")
-    print("=" * 70)
-    print(f"Python: {sys.version.split()[0]}")
-    print(f"Inicio: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
-    print("=" * 70)
-
     os.makedirs("debug", exist_ok=True)
-
-    # Descargar y cargar logos
-    download_logos_xml()
-    logos_db = load_logos_from_xml("logos.xml")
-
+    
+    # Cargar logos desde GitHub
+    print("\n" + "=" * 70)
+    print("CARGANDO LOGOS DESDE GITHUB...")
+    print("=" * 70)
+    logos_db = load_logos_from_xml_url(LOGOS_XML_URL)
+    
+    # Capturar HTML
+    print("\n" + "=" * 70)
+    print("CAPTURANDO HTML...")
+    print("=" * 70)
+    
     raw_html = None
-
+    
     with sync_playwright() as p:
-        print("\n[1] Lanzando navegador...")
+        print("[1] Iniciando navegador...")
         browser = p.chromium.launch(
             headless=True,
             args=[
                 "--no-sandbox",
                 "--disable-setuid-sandbox",
+                "--disable-blink-features=AutomationControlled",
                 "--disable-dev-shm-usage",
                 "--disable-gpu",
             ],
@@ -412,9 +410,9 @@ def main():
     print("MUESTRA DE LOS PRIMEROS 10 CANALES:")
     print("=" * 70)
     for i, e in enumerate(all_entries[:10], 1):
-        time_str = f"{e['time']} " if e['time'] else ""
+        time_str = f"{e['time']} - " if e['time'] else ""
         logo_str = "✓" if e['logo'] else "✗"
-        print(f"  {i}. [{logo_str}] {time_str}{e['match'][:30]} [{e['country']}] {e['channel']}")
+        print(f"  {i}. [{logo_str}] {time_str}{e['match'][:40]} [{e['country']}] {e['channel']}")
     
     # Estadísticas de logos
     with_logo = sum(1 for e in all_entries if e['logo'])
