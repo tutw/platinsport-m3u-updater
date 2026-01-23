@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 import os
 import sys
 import html
+import time
 
 BASE_URL = "https://www.platinsport.com/"
 
@@ -35,7 +36,6 @@ def extract_lang_from_flag(a_tag) -> str:
     for cls in classes:
         if cls.startswith("fi-") and len(cls) == 5:
             cc = cls.replace("fi-", "").upper()
-            # Conversión especial para UK
             if cc == "UK":
                 cc = "GB"
             return cc
@@ -150,6 +150,46 @@ def write_m3u(all_entries, out_path="lista.m3u"):
     
     print(f"✅ Archivo {out_path} generado con {len(all_entries)} entradas")
 
+def wait_for_acestream_links(page, max_wait=60):
+    """
+    Espera activamente a que aparezcan enlaces acestream:// en la página.
+    Verifica cada 2 segundos durante max_wait segundos.
+    """
+    print(f"⏳ Esperando a que carguen enlaces acestream (máx {max_wait}s)...")
+    
+    start_time = time.time()
+    found_count = 0
+    
+    while (time.time() - start_time) < max_wait:
+        try:
+            # Contar enlaces en el DOM actual
+            links = page.locator("a[href^='acestream://']")
+            count = links.count()
+            
+            if count > 0:
+                if count != found_count:
+                    found_count = count
+                    print(f"  ✅ Detectados {count} enlaces acestream...")
+                
+                # Si encontramos enlaces, esperamos 3s más por si aparecen más
+                time.sleep(3)
+                
+                # Verificar si aumentó el conteo
+                final_count = page.locator("a[href^='acestream://']").count()
+                if final_count == found_count:
+                    print(f"  ✅ Total final: {final_count} enlaces acestream")
+                    return True
+                found_count = final_count
+            
+            time.sleep(2)
+            
+        except Exception as e:
+            print(f"  ⚠️ Error durante espera: {e}")
+            time.sleep(2)
+    
+    print(f"  ⏱️ Timeout después de {max_wait}s. Enlaces encontrados: {found_count}")
+    return found_count > 0
+
 def main():
     print("=" * 70)
     print("=== PLATINSPORT M3U UPDATER ===")
@@ -171,8 +211,7 @@ def main():
                 "--disable-gpu",
                 "--disable-software-rasterizer",
                 "--disable-blink-features=AutomationControlled",
-                # CRÍTICO: Deshabilitar IPv6 para evitar ENETUNREACH
-                "--disable-ipv6",
+                "--disable-ipv6",  # Evitar errores IPv6
             ],
         )
         
@@ -182,7 +221,7 @@ def main():
                 "AppleWebKit/537.36 (KHTML, like Gecko) "
                 "Chrome/131.0.0.0 Safari/537.36"
             ),
-            viewport={"width": 1920, "height": 1080},
+            viewport={"width": 1920, "height": 1080"},
             locale="en-US",
             java_script_enabled=True,
             ignore_https_errors=True,
@@ -201,11 +240,10 @@ def main():
         
         page = context.new_page()
         
-        # Bloquear peticiones problemáticas (first-id.fr, analytics, ads)
+        # Bloquear peticiones problemáticas
         def handle_route(route):
             url = route.request.url
             
-            # Bloquear dominios conocidos que causan problemas IPv6
             blocked_domains = [
                 "first-id.fr",
                 "google-analytics.com",
@@ -226,21 +264,14 @@ def main():
         print(f"🌐 Cargando {BASE_URL}...")
         
         try:
-            # Cargar página con timeout extendido
+            # Cargar página
             page.goto(BASE_URL, timeout=90000, wait_until="domcontentloaded")
             
-            # Esperar a que aparezcan enlaces acestream (máx 20s)
-            try:
-                page.wait_for_selector("a[href^='acestream://']", timeout=20000)
-                print("✅ Enlaces acestream detectados en DOM")
-            except PlaywrightTimeout:
-                print("⚠️ Timeout esperando enlaces, parseando DOM actual...")
+            # CRÍTICO: Esperar activamente a que JavaScript cargue los enlaces
+            success = wait_for_acestream_links(page, max_wait=60)
             
-            # Esperar carga completa de red (opcional, máx 15s)
-            try:
-                page.wait_for_load_state("networkidle", timeout=15000)
-            except PlaywrightTimeout:
-                print("⚠️ Timeout networkidle, continuando...")
+            if not success:
+                print("⚠️ No se detectaron enlaces acestream después de 60s")
             
             # Obtener HTML completo
             html_content = page.content()
