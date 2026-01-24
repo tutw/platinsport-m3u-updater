@@ -44,6 +44,49 @@ COUNTRY_CODES = {
     "MT": "Malta", "LU": "Luxemburgo"
 }
 
+def convert_utc_to_spain(utc_time_str: str) -> str:
+    """
+    Convierte hora UTC a hora de España (Europe/Madrid) respetando DST.
+    DST en España: último domingo de marzo a las 02:00 UTC (CET->CEST +2)
+                   último domingo de octubre a las 01:00 UTC (CEST->CET +1)
+    """
+    if not utc_time_str:
+        return ""
+    
+    try:
+        # Parsear la hora UTC desde el datetime ISO
+        dt_utc = datetime.fromisoformat(utc_time_str.replace("Z", "+00:00"))
+        
+        # Determinar si estamos en horario de verano (CEST) o invierno (CET)
+        year = dt_utc.year
+        
+        # Calcular último domingo de marzo (cambio a verano)
+        march_last = datetime(year, 3, 31, 1, 0, tzinfo=timezone.utc)  # 01:00 UTC
+        while march_last.weekday() != 6:  # 6 = domingo
+            march_last -= timedelta(days=1)
+        
+        # Calcular último domingo de octubre (cambio a invierno)
+        october_last = datetime(year, 10, 31, 1, 0, tzinfo=timezone.utc)  # 01:00 UTC
+        while october_last.weekday() != 6:
+            october_last -= timedelta(days=1)
+        
+        # Determinar el offset según la fecha
+        if march_last <= dt_utc < october_last:
+            # Horario de verano (CEST): UTC+2
+            spain_offset = timedelta(hours=2)
+        else:
+            # Horario de invierno (CET): UTC+1
+            spain_offset = timedelta(hours=1)
+        
+        # Convertir a hora española
+        dt_spain = dt_utc + spain_offset
+        
+        return dt_spain.strftime("%H:%M")
+        
+    except Exception as e:
+        print(f"⚠ Error convirtiendo hora a España: {e}")
+        return ""
+
 def clean_text(s: str) -> str:
     """Limpia y normaliza texto"""
     if s is None:
@@ -306,17 +349,20 @@ def find_best_logo_match(channel_name: str, logos_db: dict, aliases: dict, thres
     
     return best_match if best_match else ""
 
-def extract_time_from_datetime(match_div) -> str:
-    """Extrae la hora de la etiqueta <time> en el div del partido"""
+def extract_time_from_datetime(match_div) -> tuple:
+    """
+    Extrae la hora de la etiqueta <time> en el div del partido.
+    Retorna: (hora_utc_str, hora_españa_str)
+    """
     time_tag = match_div.find("time", class_="time")
     if time_tag and time_tag.get("datetime"):
         try:
             dt_str = time_tag.get("datetime")
-            dt = datetime.fromisoformat(dt_str.replace("Z", "+00:00"))
-            return dt.strftime("%H:%M")
+            spain_time = convert_utc_to_spain(dt_str)
+            return dt_str, spain_time
         except Exception as e:
             print(f"⚠ Error parseando tiempo: {e}")
-    return ""
+    return "", ""
 
 def extract_match_title(match_div) -> str:
     """Extrae el título del partido sin la hora"""
@@ -353,7 +399,7 @@ def parse_html_for_streams(html_content: str, logos_db: dict, aliases: dict):
     print(f"\n✓ Encontradas {len(match_sections)} secciones de partidos")
     
     for idx, match_div in enumerate(match_sections, 1):
-        event_time = extract_time_from_datetime(match_div)
+        dt_utc_str, event_time = extract_time_from_datetime(match_div)
         match_title = extract_match_title(match_div)
         
         button_group = match_div.find_next_sibling("div", class_="button-group")
@@ -362,7 +408,7 @@ def parse_html_for_streams(html_content: str, logos_db: dict, aliases: dict):
         
         links = button_group.find_all("a", href=re.compile(r"^acestream://"))
         
-        print(f"  Partido {idx}: '{match_title}' a las {event_time} - {len(links)} streams")
+        print(f"  Partido {idx}: '{match_title}' a las {event_time} hora España - {len(links)} streams")
         
         for a in links:
             href = clean_text(a.get("href", ""))
@@ -410,12 +456,14 @@ def parse_html_for_streams(html_content: str, logos_db: dict, aliases: dict):
 
 def write_m3u(all_entries, out_path="lista.m3u"):
     """
-    Escribe el archivo M3U en formato TOTALMENTE compatible con OTT Navigator y otros reproductores IPTV.
-    Formato estándar siguiendo especificaciones EXTM3U oficiales.
+    Escribe el archivo M3U en formato compatible con OTT Navigator.
+    TODOS LOS EVENTOS SE AGRUPAN EN: "AGENDA PLATINSPORT"
     """
     m3u = ["#EXTM3U"]
     
-    # Agrupar por categorías (eventos deportivos)
+    # Usar un ÚNICO grupo para todos los eventos
+    GROUP_NAME = "AGENDA PLATINSPORT"
+    
     for idx, e in enumerate(all_entries, 1):
         event_time = e.get("time", "")
         match = e.get("match", "Evento")
@@ -426,53 +474,44 @@ def write_m3u(all_entries, out_path="lista.m3u"):
         tvg_id = e.get("tvg_id", "")
         lang_code = e.get("lang_code", "")
         
-        # Construir grupo basado en el evento (limpio y claro)
-        group_title = match if match else "Eventos Deportivos"
-        
-        # Construir tvg-name limpio (nombre completo para EPG)
+        # Construir tvg-name limpio
         tvg_name = channel
         
-        # Construir nombre de visualización para el canal
-        # Formato optimizado para OTT Navigator: HH:MM | Canal | [País]
+        # Construir nombre de visualización
+        # Formato: HH:MM | Evento | Canal | [País]
         display_name_parts = []
         if event_time:
             display_name_parts.append(event_time)
+        if match:
+            display_name_parts.append(match)
         display_name_parts.append(channel)
         if country and country != "Internacional":
             display_name_parts.append(f"[{country}]")
         
         display_name = " | ".join(display_name_parts)
         
-        # Construir línea EXTINF siguiendo especificación oficial M3U/M3U8
-        # Orden correcto de atributos según best practices IPTV:
-        # tvg-id -> tvg-name -> tvg-logo -> group-title -> extras
-        
+        # Construir línea EXTINF
         extinf_parts = ['#EXTINF:-1']
         
-        # tvg-id (identificador único para EPG)
         if tvg_id:
             extinf_parts.append(f'tvg-id="{tvg_id}"')
         
-        # tvg-name (nombre del canal para matching EPG)
         extinf_parts.append(f'tvg-name="{tvg_name}"')
         
-        # tvg-logo (URL del logo - IMPORTANTE para visualización)
         if logo:
             extinf_parts.append(f'tvg-logo="{logo}"')
         
-        # group-title (categoría/grupo - CRÍTICO para organización)
-        extinf_parts.append(f'group-title="{group_title}"')
+        # GRUPO ÚNICO: AGENDA PLATINSPORT
+        extinf_parts.append(f'group-title="{GROUP_NAME}"')
         
-        # tvg-country (código de país - útil para filtros)
         if lang_code and lang_code != "XX":
             extinf_parts.append(f'tvg-country="{lang_code}"')
         
-        # Nombre de visualización al final (después de la coma)
         extinf_line = ' '.join(extinf_parts) + f',{display_name}'
         
         m3u.append(extinf_line)
         
-        # Convertir acestream:// a formato localhost compatible
+        # Convertir acestream:// a formato localhost
         if url.startswith("acestream://"):
             ace_id = url.replace("acestream://", "")
             stream_url = f"http://127.0.0.1:6878/ace/getstream?id={ace_id}"
@@ -481,12 +520,13 @@ def write_m3u(all_entries, out_path="lista.m3u"):
         
         m3u.append(stream_url)
     
-    # Escribir archivo con encoding UTF-8 (estándar IPTV)
+    # Escribir archivo
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(m3u) + "\n")
     
     print(f"\n✓ Archivo {out_path} generado con {len(all_entries)} entradas")
-    print(f"✓ Formato: EXTM3U estándar compatible con OTT Navigator, TiviMate, etc.")
+    print(f"✓ Todos los eventos agrupados en: {GROUP_NAME}")
+    print(f"✓ Horarios convertidos a España (con soporte DST)")
 
 def download_logos_xml():
     """Descarga el archivo XML de logos si no existe"""
@@ -505,7 +545,9 @@ def download_logos_xml():
 
 def main():
     print("=" * 70)
-    print("=== PLATINSPORT M3U UPDATER - VERSION MEJORADA V4 FINAL ===")
+    print("=== PLATINSPORT M3U UPDATER - VERSIÓN MODIFICADA ===")
+    print("=== GRUPO ÚNICO: AGENDA PLATINSPORT ===")
+    print("=== HORARIOS EN HORA DE ESPAÑA (CON DST) ===")
     print("=" * 70)
     print(f"Python: {sys.version.split()[0]}")
     print(f"Inicio: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M:%S UTC')}")
@@ -517,7 +559,7 @@ def main():
     download_logos_xml()
     logos_db, all_channel_names = load_logos_from_xml("logos.xml")
     
-    # Construir aliases extendidos (ahora con MUCHOS más aliases)
+    # Construir aliases extendidos
     aliases = build_channel_aliases(all_channel_names)
 
     raw_html = None
@@ -633,7 +675,7 @@ def main():
         sys.exit(1)
     
     print("\n" + "=" * 70)
-    print("PARSEANDO STREAMS CON SISTEMA DE MATCHING MEJORADO...")
+    print("PARSEANDO STREAMS CON CONVERSIÓN A HORA ESPAÑA...")
     print("=" * 70)
     
     all_entries = parse_html_for_streams(raw_html, logos_db, aliases)
@@ -652,7 +694,7 @@ def main():
     
     print(f"✓ Streams únicos: {len(all_entries)}")
 
-    # Guardar el M3U con formato CORRECTO para OTT Navigator
+    # Guardar el M3U con grupo único
     write_m3u(all_entries, "lista.m3u")
     
     # Mostrar muestra
@@ -662,7 +704,7 @@ def main():
     for i, e in enumerate(all_entries[:10], 1):
         time_str = f"{e['time']} " if e['time'] else ""
         logo_str = "✓ LOGO" if e['logo'] else "✗ sin logo"
-        print(f"  {i}. [{logo_str}] {time_str}{e['match'][:40]} | {e['channel']} [{e['country']}]")
+        print(f"  {i}. [{logo_str}] {time_str}hora España | {e['match'][:30]} | {e['channel']} [{e['country']}]")
     
     # Estadísticas de logos
     with_logo = sum(1 for e in all_entries if e['logo'])
@@ -671,12 +713,8 @@ def main():
     
     print("\n" + "=" * 70)
     print("✅ PROCESO COMPLETADO EXITOSAMENTE")
-    print("✅ M3U generado en formato estándar compatible con:")
-    print("   - OTT Navigator ✓")
-    print("   - TiviMate ✓")
-    print("   - IPTV Smarters ✓")
-    print("   - Perfect Player ✓")
-    print("   - VLC ✓")
+    print("✅ TODOS LOS EVENTOS EN: AGENDA PLATINSPORT")
+    print("✅ HORARIOS CONVERTIDOS A ESPAÑA (con DST automático)")
     print("=" * 70)
 
 if __name__ == "__main__":
