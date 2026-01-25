@@ -2,19 +2,20 @@ name: Update PlayTorrio M3U
 
 on:
   schedule:
-    - cron: '0 * * * *'  # Ejecutar cada hora
+    - cron: '0 */6 * * *'  # Ejecutar cada 6 horas (más eficiente)
   workflow_dispatch:  # Permitir ejecución manual
 
 jobs:
   update-m3u:
     runs-on: ubuntu-latest
+    timeout-minutes: 30  # Timeout de seguridad
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       
@@ -22,16 +23,38 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install playwright
-          playwright install chromium
-          playwright install-deps chromium
+          python -m playwright install chromium
+          python -m playwright install-deps chromium
       
       - name: Run scraper
         run: |
           python playtorrio.py
+        timeout-minutes: 25
+      
+      - name: Check if file changed
+        id: check_changes
+        run: |
+          if git diff --quiet playtorrio.m3u; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
       
       - name: Commit and push changes
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git add playtorrio.m3u
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Update playtorrio.m3u - $(date +'%Y-%m-%d %H:%M:%S')" && git push)
+          git add playtorrio.m3u channels_final.json
+          git commit -m "🔄 Update playtorrio.m3u - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          git push
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playtorrio-m3u
+          path: |
+            playtorrio.m3u
+            channels_final.json
+          retention-days: 30
