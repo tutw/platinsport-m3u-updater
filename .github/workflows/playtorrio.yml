@@ -1,1 +1,40 @@
+name: Actualizar PlayTorrio Eventos Deportivos
 
+on:
+  schedule:
+    # Ejecutar cada hora
+    - cron: '0 * * * *'
+  workflow_dispatch:  # Permitir ejecución manual
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install aiohttp pytz
+      
+      - name: Extract sports events
+        run: |
+          python playtorrio.py
+          echo "✅ Eventos deportivos extraídos"
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add playtorrio.m3u playtorrio_events.json
+          git diff-index --quiet HEAD || git commit -m "🔄 Actualizar eventos deportivos - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          git push
