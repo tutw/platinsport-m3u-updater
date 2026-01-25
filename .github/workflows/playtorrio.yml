@@ -34,7 +34,7 @@ jobs:
           playwright install chromium
 
       - name: Run scraper script
-        run: python playtorrio.py
+        run: python playtorrio_canales.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
