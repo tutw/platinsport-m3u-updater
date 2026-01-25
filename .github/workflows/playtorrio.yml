@@ -39,9 +39,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: playtorrio-m3u
+          name: playtorrio-canales
           path: |
-            playtorrio.m3u
+            playtorrio_canales.m3u
             channels_final.json
 
       - name: Commit and push changes
@@ -51,7 +51,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
           
           # Añadir los archivos generados
-          git add playtorrio.m3u channels_final.json
+          git add playtorrio_canales.m3u channels_final.json
           
           # Comprobar si hay cambios reales antes de intentar commitear
           if git diff --staged --quiet; then
@@ -60,7 +60,7 @@ jobs:
           fi
           
           # Crear el commit
-          git commit -m "🔄 Update playtorrio.m3u - $(date -u)"
+          git commit -m "🔄 Update playtorrio_canales.m3u - $(date -u)"
           
           # --- FIX CRÍTICO: Sincronizar antes de subir ---
           git pull --rebase origin main
