@@ -2,8 +2,8 @@ name: Update Platinsport M3U
 
 on:
   schedule:
-    # Ejecutar cada 6 horas
-    - cron: '0 */6 * * *'
+    # Ejecutar cada 1 hora al minuto 0
+    - cron: '0 * * * *'
   workflow_dispatch:  # Permitir ejecución manual
 
 jobs:
