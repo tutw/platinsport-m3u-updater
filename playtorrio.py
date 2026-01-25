@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-PlayTorrio Sports Events M3U Updater - VERSIÓN CORREGIDA FINAL
-Extrae TODOS los eventos deportivos con logos, nombres de canal y países correctos
+PlayTorrio Sports Events M3U Updater - VERSIÓN CON EXTRACCIÓN DE LIGA
+Extrae TODOS los eventos deportivos con logos, nombres de canal, países Y LIGA/COMPETICIÓN
 """
 import asyncio
 import aiohttp
@@ -299,7 +299,7 @@ class PlayTorrioEventsExtractor:
                 
                 if event['sources']:
                     events.append(event)
-                    print(f"✅ {event['title']} ({event['time']}) - {len(event['sources'])} sources")
+                    print(f"✅ {event['title']} ({event['time']}) - Liga: {event['league']} - {len(event['sources'])} sources")
             except Exception as e:
                 print(f"⚠️  Error procesando evento CDN: {e}")
         
@@ -354,7 +354,7 @@ class PlayTorrioEventsExtractor:
                 
                 if event['sources']:
                     events.append(event)
-                    print(f"✅ {event['title']} ({event['time']}) - {len(event['sources'])} sources")
+                    print(f"✅ {event['title']} ({event['time']}) - Liga: {event['league']} - {len(event['sources'])} sources")
             except Exception as e:
                 print(f"⚠️  Error procesando evento All Sources: {e}")
         
@@ -386,7 +386,7 @@ class PlayTorrioEventsExtractor:
     async def extract_all_events(self):
         """Extraer todos los eventos deportivos"""
         print("=" * 80)
-        print("🚀 PLAYTORRIO SPORTS EVENTS EXTRACTOR - VERSIÓN CORREGIDA")
+        print("🚀 PLAYTORRIO SPORTS EVENTS EXTRACTOR - VERSIÓN CON LIGA")
         print("=" * 80)
         
         await self.init_session()
@@ -419,7 +419,7 @@ class PlayTorrioEventsExtractor:
             await self.close_session()
     
     def generate_m3u(self, output_file: str = 'playtorrio.m3u'):
-        """Generar archivo M3U con información completa"""
+        """Generar archivo M3U con información completa (HORA - LIGA - NOMBRE)"""
         print(f"\n📝 Generando archivo M3U: {output_file}")
         
         with open(output_file, 'w', encoding='utf-8') as f:
@@ -451,7 +451,8 @@ class PlayTorrioEventsExtractor:
                     # Añadir emoji de LIVE si está en vivo
                     live_indicator = " 🔴" if is_live else ""
                     
-                    full_name = f"[{time}] {title}{live_indicator}"
+                    # FORMATO NUEVO: [HORA] LIGA - NOMBRE DEL EVENTO
+                    full_name = f"[{time}] {league} - {title}{live_indicator}"
                     if len(event['sources']) > 1:
                         full_name += f" - {channel_display}"
                     
