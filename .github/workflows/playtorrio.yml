@@ -2,7 +2,7 @@ name: PlayTorrio M3U Updater
 
 on:
   schedule:
-    - cron: '0 */4 * * *'  # Se ejecuta cada 4 horas (ajusta según prefieras)
+- cron: '0 * * * *'  # Se ejecuta exactamente cada 1 hora
   workflow_dispatch:       # Botón para ejecutar manualmente
 
 # Evita colisiones si una ejecución anterior se quedó colgada
