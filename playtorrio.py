@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-PlayTorrio Sports Events M3U Updater - VERSIÓN FINAL CORREGIDA
-Extrae eventos deportivos en vivo con todos los sources y logos correctos
+PlayTorrio Sports Events M3U Updater - VERSIÓN CORREGIDA DEFINITIVA
+Extrae TODOS los eventos deportivos con todos sus sources
 """
 import asyncio
 import aiohttp
@@ -14,13 +14,17 @@ import pytz
 # APIs de PlayTorrio
 CDNLIVE_API = 'https://ntvstream-scraper.aymanisthedude1.workers.dev/cdnlive'
 ALL_SOURCES_API = 'https://ntvstream-scraper.aymanisthedude1.workers.dev/matches'
-STREAM_API = 'https://ntvstream-scraper.aymanisthedude1.workers.dev/stream?url='
 
+# Headers EXACTOS para que funcione la API de matches
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     'Referer': 'https://iptv.playtorrio.xyz/',
     'Origin': 'https://iptv.playtorrio.xyz',
-    'Accept': 'application/json',
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'Sec-Fetch-Dest': 'empty',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Site': 'cross-site',
 }
 
 class PlayTorrioEventsExtractor:
@@ -57,10 +61,11 @@ class PlayTorrioEventsExtractor:
                     if response.status == 200:
                         return await response.json()
                     else:
-                        print(f"❌ HTTP {response.status}")
+                        print(f"❌ HTTP {response.status} para {url}")
                         if attempt < max_retries - 1:
                             await asyncio.sleep(2)
             except Exception as e:
+                print(f"⚠️  Error en intento {attempt + 1}: {e}")
                 if attempt < max_retries - 1:
                     await asyncio.sleep(2)
         return {}
@@ -95,6 +100,13 @@ class PlayTorrioEventsExtractor:
                 elif badge:
                     return badge
         
+        # Intentar homeTeamIMG o awayTeamIMG de CDN Live
+        if 'homeTeamIMG' in item and item['homeTeamIMG'] and item['homeTeamIMG'] != 'https://api.cdn-live.tv/api/v1/team/logo.png':
+            return item['homeTeamIMG']
+        
+        if 'awayTeamIMG' in item and item['awayTeamIMG'] and item['awayTeamIMG'] != 'https://api.cdn-live.tv/api/v1/team/logo.png':
+            return item['awayTeamIMG']
+        
         # Logo por defecto
         return 'https://iptv.playtorrio.xyz/logo.ico'
     
@@ -102,7 +114,7 @@ class PlayTorrioEventsExtractor:
         """Obtener nombre de la liga/competición"""
         category_map = {
             'soccer': 'Fútbol',
-            'football': 'Fútbol',
+            'football': 'Fútbol Americano',
             'basketball': 'Baloncesto',
             'hockey': 'Hockey',
             'baseball': 'Béisbol',
@@ -110,6 +122,11 @@ class PlayTorrioEventsExtractor:
             'fight': 'Lucha/UFC',
             'mma': 'Lucha/UFC',
             'boxing': 'Boxeo',
+            'rugby': 'Rugby',
+            'cricket': 'Cricket',
+            'golf': 'Golf',
+            'motorsport': 'Automovilismo',
+            'other': 'Otros',
         }
         
         category = item.get('category', '').lower()
@@ -136,31 +153,34 @@ class PlayTorrioEventsExtractor:
                     'time': time_spain,
                     'timestamp': timestamp,
                     'logo': self.get_logo_url(item),
-                    'sources': []
+                    'sources': [],
+                    'live': item.get('live', False),
                 }
                 
-                # Extraer sources
+                # Extraer sources de CDN Live - usan playerUrl, no embedUrl
                 if 'sources' in item and isinstance(item['sources'], list):
                     for source in item['sources']:
-                        if isinstance(source, dict) and 'embedUrl' in source:
-                            source_name = source.get('source', 'Stream').upper()
-                            embed_url = source['embedUrl']
-                            
-                            event['sources'].append({
-                                'name': f"CDN-{source_name}",
-                                'url': embed_url
-                            })
+                        if isinstance(source, dict):
+                            # CDN Live usa 'playerUrl' en lugar de 'embedUrl'
+                            url = source.get('embedUrl') or source.get('playerUrl')
+                            if url:
+                                source_name = source.get('source', source.get('name', 'Stream')).upper()
+                                
+                                event['sources'].append({
+                                    'name': f"CDN-{source_name}",
+                                    'url': url
+                                })
                 
                 if event['sources']:
                     events.append(event)
-                    print(f"✅ {event['title']} ({event['time']}) - {len(event['sources'])} sources")
+                    print(f"✅ {event['title']} ({event['time']}) - {len(event['sources'])} sources - Live: {event['live']}")
             except Exception as e:
-                print(f"⚠️  Error: {e}")
+                print(f"⚠️  Error procesando evento CDN: {e}")
         
         return events
     
     async def extract_all_sources_events(self) -> List[Dict]:
-        """Extraer eventos de All Sources"""
+        """Extraer eventos de All Sources (matches API)"""
         print("\n📡 Extrayendo eventos de All Sources...")
         data = await self.fetch_with_retry(ALL_SOURCES_API)
         
@@ -180,10 +200,11 @@ class PlayTorrioEventsExtractor:
                     'time': time_spain,
                     'timestamp': timestamp,
                     'logo': self.get_logo_url(item),
-                    'sources': []
+                    'sources': [],
+                    'live': item.get('live', False),
                 }
                 
-                # Extraer sources
+                # Extraer sources - esta API SÍ usa embedUrl
                 if 'sources' in item and isinstance(item['sources'], list):
                     for source in item['sources']:
                         if isinstance(source, dict) and 'embedUrl' in source:
@@ -197,9 +218,9 @@ class PlayTorrioEventsExtractor:
                 
                 if event['sources']:
                     events.append(event)
-                    print(f"✅ {event['title']} ({event['time']}) - {len(event['sources'])} sources")
+                    print(f"✅ {event['title']} ({event['time']}) - {len(event['sources'])} sources - Live: {event['live']}")
             except Exception as e:
-                print(f"⚠️  Error: {e}")
+                print(f"⚠️  Error procesando evento All Sources: {e}")
         
         return events
     
@@ -214,32 +235,48 @@ class PlayTorrioEventsExtractor:
                 if key not in merged:
                     merged[key] = event
                 else:
-                    # Combinar sources
+                    # Combinar sources evitando duplicados
                     existing_urls = {s['url'] for s in merged[key]['sources']}
                     for source in event['sources']:
                         if source['url'] not in existing_urls:
                             merged[key]['sources'].append(source)
+                    
+                    # Mantener el estado live si alguno lo tiene
+                    if event.get('live'):
+                        merged[key]['live'] = True
         
         return list(merged.values())
     
     async def extract_all_events(self):
         """Extraer todos los eventos deportivos"""
         print("=" * 80)
-        print("🚀 PLAYTORRIO SPORTS EVENTS EXTRACTOR")
+        print("🚀 PLAYTORRIO SPORTS EVENTS EXTRACTOR - VERSIÓN COMPLETA")
         print("=" * 80)
         
         await self.init_session()
         
         try:
+            # Extraer de ambas APIs en paralelo
             cdn_events, all_events = await asyncio.gather(
                 self.extract_cdnlive_events(),
                 self.extract_all_sources_events()
             )
             
+            print(f"\n{'=' * 80}")
+            print(f"📊 RESULTADOS PARCIALES:")
+            print(f"   CDN Live: {len(cdn_events)} eventos")
+            print(f"   All Sources: {len(all_events)} eventos")
+            print(f"{'=' * 80}")
+            
+            # Combinar y eliminar duplicados
             self.events = self.merge_events([cdn_events, all_events])
+            
+            # Filtrar eventos en vivo
+            live_events = [e for e in self.events if e.get('live', False)]
             
             print(f"\n{'=' * 80}")
             print(f"✅ TOTAL: {len(self.events)} eventos deportivos únicos extraídos")
+            print(f"🔴 EN VIVO: {len(live_events)} eventos")
             print(f"{'=' * 80}")
             
         finally:
@@ -252,21 +289,29 @@ class PlayTorrioEventsExtractor:
         with open(output_file, 'w', encoding='utf-8') as f:
             f.write('#EXTM3U\n')
             f.write(f'# PlayTorrio Sports Events - {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n')
-            f.write(f'# Total Events: {len(self.events)}\n\n')
+            f.write(f'# Total Events: {len(self.events)}\n')
             
-            # Ordenar por timestamp
-            sorted_events = sorted(self.events, key=lambda x: x['timestamp'])
+            # Contar eventos en vivo
+            live_count = sum(1 for e in self.events if e.get('live', False))
+            f.write(f'# Live Events: {live_count}\n\n')
+            
+            # Ordenar: primero eventos en vivo, luego por timestamp
+            sorted_events = sorted(self.events, key=lambda x: (not x.get('live', False), x['timestamp']))
             
             for event in sorted_events:
                 title = event['title'].replace('"', "'").strip()
                 league = event['league'].replace('"', "'").strip()
                 time = event['time']
                 logo = event['logo']
+                is_live = event.get('live', False)
                 
                 for source in event['sources']:
                     source_name = source['name'].replace('"', "'").strip()
                     
-                    full_name = f"[{time}] {title}"
+                    # Añadir emoji de LIVE si está en vivo
+                    live_indicator = " 🔴" if is_live else ""
+                    
+                    full_name = f"[{time}] {title}{live_indicator}"
                     if len(event['sources']) > 1:
                         full_name += f" - {source_name}"
                     
@@ -278,6 +323,7 @@ class PlayTorrioEventsExtractor:
         total_streams = sum(len(e['sources']) for e in self.events)
         print(f"📊 Total streams: {total_streams}")
         
+        # Estadísticas por liga
         leagues = {}
         for e in self.events:
             leagues[e['league']] = leagues.get(e['league'], 0) + 1
@@ -292,6 +338,7 @@ class PlayTorrioEventsExtractor:
             json.dump({
                 'generated_at': datetime.now().isoformat(),
                 'total_events': len(self.events),
+                'live_events': sum(1 for e in self.events if e.get('live', False)),
                 'events': self.events
             }, f, indent=2, ensure_ascii=False)
         
@@ -306,7 +353,7 @@ async def main():
         extractor.generate_json('playtorrio_events.json')
         
         print(f"\n{'=' * 80}")
-        print("✅ EXTRACCIÓN COMPLETADA")
+        print("✅ EXTRACCIÓN COMPLETADA CON ÉXITO")
         print(f"{'=' * 80}\n")
     else:
         print("\n❌ No se extrajeron eventos")
