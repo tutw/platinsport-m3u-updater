@@ -2,8 +2,8 @@ name: PlayTorrio_Canales M3U Updater
 
 on:
   schedule:
-- cron: '0 * * * *'  # Se ejecuta exactamente cada 1 hora
-  workflow_dispatch:       # Botón para ejecutar manualmente
+    - cron: '0 * * * *'  # Se ejecuta exactamente cada 1 hora
+  workflow_dispatch:      # Botón para ejecutar manualmente
 
 # Evita colisiones si una ejecución anterior se quedó colgada
 concurrency:
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install playwright
+          pip install playwright requests
           playwright install chromium
 
       - name: Run scraper script
@@ -64,7 +64,6 @@ jobs:
           
           # --- FIX CRÍTICO: Sincronizar antes de subir ---
           git pull --rebase origin main
-          # -----------------------------------------------
           
           # Subir cambios
           git push
