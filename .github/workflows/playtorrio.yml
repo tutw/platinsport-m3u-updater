@@ -1,60 +1,70 @@
-name: Update PlayTorrio M3U
+name: PlayTorrio M3U Updater
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Cada 6 horas
-  workflow_dispatch:  # Permitir ejecuciÃ³n manual
+    - cron: '0 */4 * * *'  # Se ejecuta cada 4 horas (ajusta según prefieras)
+  workflow_dispatch:       # Botón para ejecutar manualmente
+
+# Evita colisiones si una ejecución anterior se quedó colgada
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
 
 jobs:
   update-m3u:
     runs-on: ubuntu-latest
-    timeout-minutes: 35  # Aumentado para procesar 516 canales
     
+    # Permisos explícitos para que el bot pueda escribir en el repo
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install playwright
-          python -m playwright install chromium
-          python -m playwright install-deps chromium
-      
-      - name: Run scraper
-        run: |
-          python playtorrio.py
-        timeout-minutes: 30
-      
-      - name: Check if file changed
-        id: check_changes
-        run: |
-          if git diff --quiet playtorrio.m3u; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-      
-      - name: Commit and push changes
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add playtorrio.m3u channels_final.json
-          git commit -m "ðŸ”„ Update playtorrio.m3u - $(date +'%Y-%m-%d %H:%M:%S UTC')"
-          git push
-      
+          playwright install chromium
+
+      - name: Run scraper script
+        run: python playtorrio.py
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
-        if: always()
         with:
           name: playtorrio-m3u
           path: |
             playtorrio.m3u
             channels_final.json
-          retention-days: 30
+
+      - name: Commit and push changes
+        run: |
+          # Configurar identidad del bot
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          
+          # Añadir los archivos generados
+          git add playtorrio.m3u channels_final.json
+          
+          # Comprobar si hay cambios reales antes de intentar commitear
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          
+          # Crear el commit
+          git commit -m "🔄 Update playtorrio.m3u - $(date -u)"
+          
+          # --- FIX CRÍTICO: Sincronizar antes de subir ---
+          git pull --rebase origin main
+          # -----------------------------------------------
+          
+          # Subir cambios
+          git push
