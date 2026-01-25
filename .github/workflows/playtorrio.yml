@@ -2,13 +2,13 @@ name: Update PlayTorrio M3U
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Ejecutar cada 6 horas (más eficiente)
-  workflow_dispatch:  # Permitir ejecución manual
+    - cron: '0 */6 * * *'  # Cada 6 horas
+  workflow_dispatch:  # Permitir ejecuciÃ³n manual
 
 jobs:
   update-m3u:
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # Timeout de seguridad
+    timeout-minutes: 35  # Aumentado para procesar 516 canales
     
     steps:
       - name: Checkout repository
@@ -29,7 +29,7 @@ jobs:
       - name: Run scraper
         run: |
           python playtorrio.py
-        timeout-minutes: 25
+        timeout-minutes: 30
       
       - name: Check if file changed
         id: check_changes
@@ -46,7 +46,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add playtorrio.m3u channels_final.json
-          git commit -m "🔄 Update playtorrio.m3u - $(date +'%Y-%m-%d %H:%M:%S UTC')"
+          git commit -m "ðŸ”„ Update playtorrio.m3u - $(date +'%Y-%m-%d %H:%M:%S UTC')"
           git push
       
       - name: Upload artifact
