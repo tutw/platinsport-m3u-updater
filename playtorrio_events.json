@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-01-27T14:30:06.773590",
+  "generated_at": "2026-01-27T15:30:47.010210",
   "total_events": 29,
-  "live_events": 0,
+  "live_events": 1,
   "events": [
     {
       "title": "Golden Arrows vs Stellenbosch",
@@ -16,9 +16,16 @@
           "country": "🇿🇦 South Africa",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-pls.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+psl&code=za&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "SuperSport PSL 🇿🇦 South Africa",
+          "channel": "SuperSport PSL",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-pls.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+psl&code=za&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Sekhukhune United vs Mamelodi Sundowns",
