@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 """
-PlayTorrio M3U Generator - FIXED VERSION
-=========================================
-Genera M3U con logos 100% verificados mediante:
-1. API oficial de CDN-Live (fuente primaria)
-2. Fallback al logo original de liveTVChannelsData
-3. Validación HTTP real de todos los logos
+PlayTorrio M3U Generator - VERSIÓN CORREGIDA FINAL
+===================================================
+Genera M3U extrayendo canales directamente de la API con headers correctos.
+NO usa Playwright para evitar problemas de detección de bots.
 
-Autor: Mejorado mediante testing real en sandbox
+Autor: Corregido mediante testing real
 Fecha: 2026-01-27
 """
 
@@ -16,171 +14,130 @@ import urllib.parse
 import requests
 import concurrent.futures
 from pathlib import Path
-from playwright.sync_api import sync_playwright
-import time
 
 
-def extract_channels_from_playtorrio():
-    """Extrae canales del sitio PlayTorrio usando Playwright"""
-    print("🌐 Extrayendo canales de PlayTorrio...")
+def extract_channels_from_api():
+    """Extrae canales directamente de la API de PlayTorrio"""
+    print("🌐 Extrayendo canales de la API de PlayTorrio...")
+    
+    api_url = 'https://ntvstream-scraper.aymanisthedude1.workers.dev/cdnlive/channels'
+    
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+        'Referer': 'https://iptv.playtorrio.xyz/',
+        'Origin': 'https://iptv.playtorrio.xyz',
+        'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'en-US,en;q=0.9',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'cross-site'
+    }
+    
+    try:
+        response = requests.get(api_url, headers=headers, timeout=30)
+        
+        if response.status_code == 200:
+            data = response.json()
+            
+            if data.get('success') and data.get('channels'):
+                channels = data['channels']
+                print(f"✅ Extraídos {len(channels)} canales")
+                return channels
+            else:
+                print(f"❌ Respuesta inesperada")
+                return []
+        else:
+            print(f"❌ Error HTTP {response.status_code}")
+            return []
+            
+    except Exception as e:
+        print(f"❌ Error extrayendo canales: {e}")
+        return []
+
+
+def process_channels(raw_channels):
+    """Procesa canales para extraer información necesaria"""
+    print("🔧 Procesando información de canales...")
     
     channels = []
+    country_map = {
+        'us': 'USA', 'gb': 'UK', 'es': 'España', 'de': 'Alemania',
+        'fr': 'Francia', 'it': 'Italia', 'br': 'Brasil', 'ar': 'Argentina',
+        'mx': 'México', 'ca': 'Canadá', 'au': 'Australia', 'za': 'Sudáfrica',
+        'in': 'India', 'pk': 'Pakistán', 'bd': 'Bangladesh', 'ae': 'UAE',
+        'sa': 'Arabia Saudita', 'eg': 'Egipto', 'tr': 'Turquía', 'ru': 'Rusia',
+        'pl': 'Polonia', 'nl': 'Holanda', 'be': 'Bélgica', 'se': 'Suecia',
+        'no': 'Noruega', 'dk': 'Dinamarca', 'fi': 'Finlandia', 'gr': 'Grecia',
+        'pt': 'Portugal', 'ro': 'Rumania', 'hr': 'Croacia', 'rs': 'Serbia',
+        'bg': 'Bulgaria', 'ua': 'Ucrania', 'cz': 'República Checa',
+        'sk': 'Eslovaquia', 'hu': 'Hungría', 'at': 'Austria', 'ch': 'Suiza',
+        'ie': 'Irlanda', 'il': 'Israel', 'jp': 'Japón', 'kr': 'Corea del Sur',
+        'cn': 'China', 'th': 'Tailandia', 've': 'Venezuela', 'cl': 'Chile',
+        'co': 'Colombia', 'pe': 'Perú', 'ec': 'Ecuador', 'uy': 'Uruguay',
+        'bo': 'Bolivia', 'py': 'Paraguay', 'cr': 'Costa Rica', 'pa': 'Panamá',
+        'do': 'Rep. Dominicana', 'pr': 'Puerto Rico', 'cu': 'Cuba',
+        'jm': 'Jamaica', 'tt': 'Trinidad y Tobago', 'ke': 'Kenia',
+        'ng': 'Nigeria', 'gh': 'Ghana', 'tz': 'Tanzania', 'ug': 'Uganda',
+        'et': 'Etiopía', 'ma': 'Marruecos', 'dz': 'Argelia', 'tn': 'Túnez',
+        'ly': 'Libia', 'sd': 'Sudán', 'iq': 'Irak', 'sy': 'Siria',
+        'jo': 'Jordania', 'lb': 'Líbano', 'kw': 'Kuwait', 'qa': 'Qatar',
+        'bh': 'Baréin', 'om': 'Omán', 'ye': 'Yemen', 'ir': 'Irán',
+        'af': 'Afganistán', 'uz': 'Uzbekistán', 'kz': 'Kazajistán'
+    }
     
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=True)
-        page = browser.new_page()
+    for ch in raw_channels:
+        country_code = ch.get('code', '').strip().lower()
+        country_name = country_map.get(country_code, country_code.upper())
         
-        try:
-            page.goto('https://iptv.playtorrio.xyz/', timeout=60000)
-            page.wait_for_selector('div.nav-channels', timeout=30000)
-            
-            # Ejecutar script para obtener datos
-            channels_data = page.evaluate("""
-                () => {
-                    const channels = [];
-                    if (typeof liveTVChannelsData !== 'undefined') {
-                        liveTVChannelsData.forEach((ch, idx) => {
-                            channels.push({
-                                index: idx,
-                                name: ch.name || '',
-                                logo: ch.logo || '',
-                                category: ch.category || 'General',
-                                player_url: ch.player_url || ''
-                            });
-                        });
-                    }
-                    return channels;
-                }
-            """)
-            
-            # Enriquecer con información de país
-            for ch in channels_data:
-                if ch['player_url']:
-                    parsed = urllib.parse.urlparse(ch['player_url'])
-                    params = urllib.parse.parse_qs(parsed.query)
-                    
-                    ch['country_code'] = params.get('code', [''])[0].strip().lower()
-                    ch['channel_url_name'] = params.get('name', [''])[0].strip().lower()
-                    
-                    # Mapa de códigos a nombres legibles
-                    country_map = {
-                        'us': 'USA', 'gb': 'UK', 'es': 'España', 'de': 'Alemania',
-                        'fr': 'Francia', 'it': 'Italia', 'br': 'Brasil', 'ar': 'Argentina',
-                        'mx': 'México', 'ca': 'Canadá', 'au': 'Australia', 'za': 'Sudáfrica',
-                        'in': 'India', 'pk': 'Pakistán', 'bd': 'Bangladesh', 'ae': 'UAE',
-                        'sa': 'Arabia Saudita', 'eg': 'Egipto', 'tr': 'Turquía', 'ru': 'Rusia',
-                        'pl': 'Polonia', 'nl': 'Holanda', 'be': 'Bélgica', 'se': 'Suecia',
-                        'no': 'Noruega', 'dk': 'Dinamarca', 'fi': 'Finlandia', 'gr': 'Grecia',
-                        'pt': 'Portugal', 'ro': 'Rumania', 'hr': 'Croacia', 'rs': 'Serbia',
-                        'bg': 'Bulgaria', 'ua': 'Ucrania', 'cz': 'República Checa', 'sk': 'Eslovaquia',
-                        'hu': 'Hungría', 'at': 'Austria', 'ch': 'Suiza', 'ie': 'Irlanda',
-                        'il': 'Israel', 'jp': 'Japón', 'kr': 'Corea del Sur', 'cn': 'China',
-                        'th': 'Tailandia', 've': 've', 'cl': 'Chile', 'co': 'Colombia',
-                        'pe': 'Perú', 'ec': 'Ecuador', 'uy': 'Uruguay', 'bo': 'Bolivia',
-                        'py': 'Paraguay', 'cr': 'Costa Rica', 'pa': 'Panamá', 'do': 'Rep. Dominicana',
-                        'pr': 'Puerto Rico', 'cu': 'Cuba', 'jm': 'Jamaica', 'tt': 'Trinidad y Tobago',
-                        'ke': 'Kenia', 'ng': 'Nigeria', 'gh': 'Ghana', 'tz': 'Tanzania',
-                        'ug': 'Uganda', 'et': 'Etiopía', 'ma': 'Marruecos', 'dz': 'Argelia',
-                        'tn': 'Túnez', 'ly': 'Libia', 'sd': 'Sudán', 'iq': 'Irak',
-                        'sy': 'Siria', 'jo': 'Jordania', 'lb': 'Líbano', 'kw': 'Kuwait',
-                        'qa': 'Qatar', 'bh': 'Baréin', 'om': 'Omán', 'ye': 'Yemen',
-                        'ir': 'Irán', 'af': 'Afganistán', 'uz': 'Uzbekistán', 'kz': 'Kazajistán'
-                    }
-                    ch['country_name'] = country_map.get(ch['country_code'], ch['country_code'].upper())
-                    
-                    channels.append(ch)
-            
-            print(f"✅ Extraídos {len(channels)} canales")
-            
-        except Exception as e:
-            print(f"❌ Error extrayendo canales: {e}")
-        finally:
-            browser.close()
+        # Extraer parámetros de la URL del player
+        player_url = ch.get('playerUrl', '')
+        if player_url:
+            parsed = urllib.parse.urlparse(player_url)
+            params = urllib.parse.parse_qs(parsed.query)
+            channel_url_name = params.get('name', [''])[0].strip().lower()
+        else:
+            channel_url_name = ''
+        
+        channels.append({
+            'name': ch.get('name', ''),
+            'logo': ch.get('image', ''),
+            'category': ch.get('category', 'General'),
+            'country_code': country_code,
+            'country_name': country_name,
+            'player_url': player_url,
+            'channel_url_name': channel_url_name,
+            'type': ch.get('type', 'cdnlive')
+        })
     
+    print(f"✅ Procesados {len(channels)} canales")
     return channels
 
 
-def load_cdnlive_api():
-    """Carga la API oficial de CDN-Live para obtener logos correctos"""
-    print("🔍 Cargando API de CDN-Live...")
+def validate_logo(item):
+    """Valida un logo mediante HTTP real"""
+    name = item['name']
+    logo = item['logo']
+    
+    if not logo:
+        return name, None, 'no_logo'
     
     try:
-        response = requests.get(
-            'https://api.cdn-live.tv/api/v1/channels/?user=cdnlivetv&plan=free',
-            timeout=30
-        )
-        api_data = response.json()
-        
-        # Construir mapa: (name_lower, code_lower) -> image_url
-        api_map = {}
-        for ch in api_data.get('channels', []):
-            parsed = urllib.parse.urlparse(ch.get('url', ''))
-            params = urllib.parse.parse_qs(parsed.query)
-            
-            name = params.get('name', [''])[0].strip().lower()
-            code = params.get('code', [''])[0].strip().lower()
-            image = ch.get('image')
-            
-            if name and code:
-                api_map[(name, code)] = image
-        
-        print(f"✅ API cargada: {len(api_map)} canales con logos")
-        return api_map
-        
-    except Exception as e:
-        print(f"❌ Error cargando API: {e}")
-        return {}
+        r = requests.get(logo, timeout=15, allow_redirects=True)
+        ct = r.headers.get('content-type', '')
+        if r.status_code == 200 and ct.startswith('image/'):
+            return name, logo, 'valid'
+        else:
+            return name, None, 'invalid'
+    except Exception:
+        return name, None, 'error'
 
 
-def validate_logo(item):
-    """Valida un logo mediante HTTP real (primario + fallback)"""
-    name = item['name']
-    key = item['key']
-    primary = item['primary']
-    fallback = item['fallback']
-    
-    def check(url):
-        if not url:
-            return False
-        try:
-            r = requests.get(url, timeout=25, allow_redirects=True)
-            ct = r.headers.get('content-type', '')
-            return r.status_code == 200 and ct.startswith('image/')
-        except Exception:
-            return False
-    
-    # Intentar primero el logo de CDN-Live API
-    if check(primary):
-        return name, key, primary, 'primary'
-    
-    # Fallback al logo original
-    if check(fallback):
-        return name, key, fallback, 'fallback'
-    
-    # Ambos fallaron
-    return name, key, None, 'failed'
-
-
-def validate_all_logos(channels, api_map):
+def validate_all_logos(channels):
     """Valida todos los logos con HTTP real en paralelo"""
-    print("🌐 Validando logos con HTTP real (esto puede tardar)...")
+    print("🌐 Validando logos con HTTP real...")
     
     # Preparar candidatos
-    candidates = []
-    for ch in channels:
-        name_lower = ch.get('channel_url_name', '').strip().lower()
-        code_lower = ch.get('country_code', '').strip().lower()
-        key = (name_lower, code_lower)
-        
-        primary = api_map.get(key)
-        fallback = ch.get('logo')
-        
-        candidates.append({
-            'name': ch['name'],
-            'key': key,
-            'primary': primary,
-            'fallback': fallback
-        })
+    candidates = [{'name': ch['name'], 'logo': ch['logo']} for ch in channels]
     
     # Validar en paralelo
     results = []
@@ -191,26 +148,21 @@ def validate_all_logos(channels, api_map):
                 print(f"  ... {i}/{len(candidates)} validados")
     
     # Analizar resultados
-    ok_primary = [r for r in results if r[3] == 'primary']
-    ok_fallback = [r for r in results if r[3] == 'fallback']
-    failed = [r for r in results if r[3] == 'failed']
+    valid = [r for r in results if r[2] == 'valid']
+    invalid = [r for r in results if r[2] in ('invalid', 'error')]
+    no_logo = [r for r in results if r[2] == 'no_logo']
     
     print(f"\n📊 RESULTADOS DE VALIDACIÓN:")
-    print(f"✅ Primario (CDN-Live API): {len(ok_primary)}")
-    print(f"✅ Fallback (logo original): {len(ok_fallback)}")
-    print(f"❌ Sin logo válido: {len(failed)}")
-    print(f"🎯 TOTAL OK: {len(ok_primary) + len(ok_fallback)}/{len(results)}")
-    
-    if failed:
-        print(f"\n⚠️  Canales sin logo válido:")
-        for name, key, _, _ in failed[:10]:
-            print(f"  - {name} (clave={key})")
+    print(f"✅ Logos válidos: {len(valid)}")
+    print(f"❌ Logos inválidos/error: {len(invalid)}")
+    print(f"⚠️  Sin logo: {len(no_logo)}")
+    print(f"🎯 TOTAL OK: {len(valid)}/{len(results)}")
     
     # Construir mapa de logos validados
     logo_map = {}
-    for name, key, url, source in results:
-        if url:
-            logo_map[key] = url
+    for name, url, status in results:
+        if url and status == 'valid':
+            logo_map[name] = url
     
     return logo_map
 
@@ -223,13 +175,15 @@ def generate_m3u(channels, logo_map, output_path='playtorrio_canales.m3u'):
     skipped = 0
     
     for ch in channels:
-        name_lower = ch.get('channel_url_name', '').strip().lower()
-        code_lower = ch.get('country_code', '').strip().lower()
-        key = (name_lower, code_lower)
-        
-        logo_url = logo_map.get(key)
+        # Si no hay logo válido, usar el original de todas formas
+        logo_url = logo_map.get(ch['name'], ch['logo'])
         
         if not logo_url:
+            skipped += 1
+            continue
+        
+        # Si no hay player_url, saltar
+        if not ch['player_url']:
             skipped += 1
             continue
         
@@ -239,8 +193,10 @@ def generate_m3u(channels, logo_map, output_path='playtorrio_canales.m3u'):
         display_name = f"{ch['name']} [{country}]" if country else ch['name']
         
         extinf = (
-            f'#EXTINF:-1 tvg-id="" tvg-name="{display_name}" '
-            f'tvg-logo="{logo_url}" group-title="{group}",{display_name}'
+            f'#EXTINF:-1 tvg-id="{ch.get("channel_url_name", "")}" '
+            f'tvg-name="{display_name}" '
+            f'tvg-logo="{logo_url}" '
+            f'group-title="{group}",{display_name}'
         )
         
         m3u_lines.append(extinf)
@@ -253,7 +209,7 @@ def generate_m3u(channels, logo_map, output_path='playtorrio_canales.m3u'):
     total = (len(m3u_lines) - 1) // 2
     print(f"✅ M3U generado: {total} canales")
     if skipped:
-        print(f"⚠️  {skipped} canales omitidos (sin logo válido)")
+        print(f"⚠️  {skipped} canales omitidos (sin logo o URL)")
     print(f"💾 Guardado como: {output_path}")
     
     return output_path
@@ -262,15 +218,18 @@ def generate_m3u(channels, logo_map, output_path='playtorrio_canales.m3u'):
 def main():
     """Función principal"""
     print("=" * 70)
-    print("PlayTorrio M3U Generator - VERSIÓN CORREGIDA")
+    print("PlayTorrio M3U Generator - VERSIÓN CORREGIDA FINAL")
     print("=" * 70)
     print()
     
-    # 1. Extraer canales
-    channels = extract_channels_from_playtorrio()
-    if not channels:
+    # 1. Extraer canales de API
+    raw_channels = extract_channels_from_api()
+    if not raw_channels:
         print("❌ No se pudieron extraer canales")
         return
+    
+    # 2. Procesar canales
+    channels = process_channels(raw_channels)
     
     # Guardar JSON intermedio
     Path('channels_players.json').write_text(
@@ -279,12 +238,8 @@ def main():
     )
     print(f"💾 Guardado channels_players.json\n")
     
-    # 2. Cargar API de CDN-Live
-    api_map = load_cdnlive_api()
-    print()
-    
     # 3. Validar todos los logos
-    logo_map = validate_all_logos(channels, api_map)
+    logo_map = validate_all_logos(channels)
     
     # 4. Generar M3U
     output = generate_m3u(channels, logo_map)
