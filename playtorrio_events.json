@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-01-29T21:26:52.888609",
+  "generated_at": "2026-01-29T22:27:45.777854",
   "total_events": 47,
-  "live_events": 19,
+  "live_events": 21,
   "events": [
     {
       "title": "Celtic vs Utrecht",
@@ -980,13 +980,54 @@
           "country": "🇨🇴 Colombia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Belgrano vs Tigre",
+      "league": "Primera División",
+      "time": "23:15",
+      "timestamp": 1769724900000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3203.png",
+      "sources": [
+        {
+          "name": "Espn Premium 🇦🇷 Argentina",
+          "channel": "Espn Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Win Futbol 🇨🇴 Colombia",
-          "channel": "Win Futbol",
-          "country": "🇨🇴 Colombia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=ntvstream&plan=free"
+          "name": "ESPN Premium 🇦🇷 Argentina",
+          "channel": "ESPN Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Lanús vs Unión Santa Fe",
+      "league": "Primera División",
+      "time": "23:15",
+      "timestamp": 1769724900000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3218.png",
+      "sources": [
+        {
+          "name": "Tnt Sports 🇦🇷 Argentina",
+          "channel": "Tnt Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TNT Sports 🇦🇷 Argentina",
+          "channel": "TNT Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -1077,40 +1118,6 @@
           "country": "🇵🇹 Portugal",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/benfica-tv.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=benfica+tv&code=pt&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Belgrano vs Tigre",
-      "league": "Primera División",
-      "time": "23:15",
-      "timestamp": 1769724900000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3203.png",
-      "sources": [
-        {
-          "name": "Espn Premium 🇦🇷 Argentina",
-          "channel": "Espn Premium",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Lanús vs Unión Santa Fe",
-      "league": "Primera División",
-      "time": "23:15",
-      "timestamp": 1769724900000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3218.png",
-      "sources": [
-        {
-          "name": "Tnt Sports 🇦🇷 Argentina",
-          "channel": "Tnt Sports",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
