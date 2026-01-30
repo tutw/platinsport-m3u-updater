@@ -1,59 +1,8 @@
 {
-  "generated_at": "2026-01-30T15:34:22.721339",
+  "generated_at": "2026-01-30T16:39:01.750749",
   "total_events": 45,
-  "live_events": 4,
+  "live_events": 1,
   "events": [
-    {
-      "title": "Hapoel Kfar Saba vs Hapoel Nazareth Illit",
-      "league": "Liga Leumit",
-      "time": "14:00",
-      "timestamp": 1769778000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/5200.png",
-      "sources": [
-        {
-          "name": "Sport 5 Stars 🇮🇱 Israel",
-          "channel": "Sport 5 Stars",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Hapoel Acre vs Maccabi Petah Tikva",
-      "league": "Liga Leumit",
-      "time": "14:00",
-      "timestamp": 1769778000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/7380.png",
-      "sources": [
-        {
-          "name": "Sport 5 Live 🇮🇱 Israel",
-          "channel": "Sport 5 Live",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-live.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Al Taawon vs Al Akhdoud",
-      "league": "Pro League",
-      "time": "14:50",
-      "timestamp": 1769781000000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Sky Sport 3 🇩🇪 Germany",
-          "channel": "Sky Sport 3",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+3&code=de&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "CFR Cluj vs Metaloglobus",
       "league": "Liga I",
@@ -81,30 +30,60 @@
           "country": "🇷🇴 Romania",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Arena Sport 1 🇭🇷 Croatia",
-          "channel": "Arena Sport 1",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Digi Sport 1 🇷🇴 Romania",
-          "channel": "Digi Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Prima Sport 1 🇷🇴 Romania",
-          "channel": "Prima Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=ntvstream&plan=free"
         }
       ],
       "live": true
+    },
+    {
+      "title": "Hapoel Kfar Saba vs Hapoel Nazareth Illit",
+      "league": "Liga Leumit",
+      "time": "14:00",
+      "timestamp": 1769778000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/5200.png",
+      "sources": [
+        {
+          "name": "Sport 5 Stars 🇮🇱 Israel",
+          "channel": "Sport 5 Stars",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Hapoel Acre vs Maccabi Petah Tikva",
+      "league": "Liga Leumit",
+      "time": "14:00",
+      "timestamp": 1769778000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/7380.png",
+      "sources": [
+        {
+          "name": "Sport 5 Live 🇮🇱 Israel",
+          "channel": "Sport 5 Live",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-live.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Al Taawon vs Al Akhdoud",
+      "league": "Pro League",
+      "time": "14:50",
+      "timestamp": 1769781000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sky Sport 3 🇩🇪 Germany",
+          "channel": "Sky Sport 3",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+3&code=de&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
     },
     {
       "title": "Zagłębie Lubin vs Katowice",
