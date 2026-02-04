@@ -1,32 +1,8 @@
 {
-  "generated_at": "2026-02-04T16:47:35.286110",
+  "generated_at": "2026-02-04T17:45:06.713187",
   "total_events": 48,
-  "live_events": 4,
+  "live_events": 6,
   "events": [
-    {
-      "title": "OFI vs Levadiakos",
-      "league": "Greek Cup",
-      "time": "16:00",
-      "timestamp": 1770217200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/5063.png",
-      "sources": [
-        {
-          "name": "Cosmote Sport 2 🇬🇷 Greece",
-          "channel": "Cosmote Sport 2",
-          "country": "🇬🇷 Greece",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+2&code=gr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport 5 Stars 🇮🇱 Israel",
-          "channel": "Sport 5 Stars",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "UTA Arad vs CFR Cluj",
       "league": "Liga I",
@@ -54,27 +30,6 @@
           "country": "🇷🇴 Romania",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Arena Sport 2 🇭🇷 Croatia",
-          "channel": "Arena Sport 2",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Digi Sport 1 🇷🇴 Romania",
-          "channel": "Digi Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Prima Sport 1 🇷🇴 Romania",
-          "channel": "Prima Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -92,13 +47,6 @@
           "country": "CY",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-2.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+2&code=cy&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Cytavision Sports 2 CY",
-          "channel": "Cytavision Sports 2",
-          "country": "CY",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+2&code=cy&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -116,13 +64,78 @@
           "country": "🇬🇷 Greece",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-prime.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+prime&code=gr&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Omonia Nicosia vs AEL",
+      "league": "Cypriot Cup",
+      "time": "18:00",
+      "timestamp": 1770224400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3395.png",
+      "sources": [
+        {
+          "name": "Cytavision Sports 1 CY",
+          "channel": "Cytavision Sports 1",
+          "country": "CY",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+1&code=cy&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Nova Sports Prime 🇬🇷 Greece",
-          "channel": "Nova Sports Prime",
-          "country": "🇬🇷 Greece",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-prime.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+prime&code=gr&user=ntvstream&plan=free"
+          "name": "Cytavision Sports 1 CY",
+          "channel": "Cytavision Sports 1",
+          "country": "CY",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+1&code=cy&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Bologna vs Lazio",
+      "league": "Coppa Italia",
+      "time": "18:00",
+      "timestamp": 1770224400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/2685.png",
+      "sources": [
+        {
+          "name": "Viaplay Sports 2 🇬🇧 UK",
+          "channel": "Viaplay Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Viaplay Sports 2 🇬🇧 UK",
+          "channel": "Viaplay Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Galatasaray vs İstanbulspor",
+      "league": "Turkish Cup",
+      "time": "18:30",
+      "timestamp": 1770226200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3061.png",
+      "sources": [
+        {
+          "name": "Max Sport 4 🇧🇬 Bulgaria",
+          "channel": "Max Sport 4",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Max Sport 4 🇧🇬 Bulgaria",
+          "channel": "Max Sport 4",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -159,52 +172,25 @@
       "live": false
     },
     {
-      "title": "Omonia Nicosia vs AEL",
-      "league": "Cypriot Cup",
-      "time": "18:00",
-      "timestamp": 1770224400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3395.png",
+      "title": "OFI vs Levadiakos",
+      "league": "Greek Cup",
+      "time": "16:00",
+      "timestamp": 1770217200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/5063.png",
       "sources": [
         {
-          "name": "Cytavision Sports 1 CY",
-          "channel": "Cytavision Sports 1",
-          "country": "CY",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/cyprus/cytavision-sports-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cytavision+sports+1&code=cy&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Bologna vs Lazio",
-      "league": "Coppa Italia",
-      "time": "18:00",
-      "timestamp": 1770224400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/2685.png",
-      "sources": [
+          "name": "Cosmote Sport 2 🇬🇷 Greece",
+          "channel": "Cosmote Sport 2",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+2&code=gr&user=cdnlivetv&plan=free"
+        },
         {
-          "name": "Viaplay Sports 2 🇬🇧 UK",
-          "channel": "Viaplay Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Galatasaray vs İstanbulspor",
-      "league": "Turkish Cup",
-      "time": "18:30",
-      "timestamp": 1770226200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3061.png",
-      "sources": [
-        {
-          "name": "Max Sport 4 🇧🇬 Bulgaria",
-          "channel": "Max Sport 4",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=cdnlivetv&plan=free"
+          "name": "Sport 5 Stars 🇮🇱 Israel",
+          "channel": "Sport 5 Stars",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
