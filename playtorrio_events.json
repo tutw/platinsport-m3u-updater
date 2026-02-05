@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-02-05T05:55:23.853010",
+  "generated_at": "2026-02-05T06:58:53.147305",
   "total_events": 49,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Los Angeles Clippers vs Cleveland Cavaliers",
-      "league": "NBA",
-      "time": "04:30",
-      "timestamp": 1770262200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3425.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 7 🇺🇸 USA",
-          "channel": "Nba League Pass 7",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+7&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Metaloglobus vs Csikszereda",
       "league": "Liga I",
@@ -1861,6 +1844,23 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+10&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Los Angeles Clippers vs Cleveland Cavaliers",
+      "league": "NBA",
+      "time": "04:30",
+      "timestamp": 1770262200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3425.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 7 🇺🇸 USA",
+          "channel": "Nba League Pass 7",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+7&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
