@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-02-05T15:40:50.416443",
+  "generated_at": "2026-02-05T16:49:01.082801",
   "total_events": 24,
-  "live_events": 2,
+  "live_events": 3,
   "events": [
     {
       "title": "Kocaelispor vs Beşiktaş",
@@ -23,20 +23,6 @@
           "country": "🇷🇸 Serbia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Max Sport 4 🇧🇬 Bulgaria",
-          "channel": "Max Sport 4",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport Klub 3 🇷🇸 Serbia",
-          "channel": "Sport Klub 3",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -54,33 +40,9 @@
           "country": "🇩🇪 Germany",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-premier-league.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+premier+league&code=de&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sky Sport Premier League 🇩🇪 Germany",
-          "channel": "Sky Sport Premier League",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-premier-league.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+premier+league&code=de&user=ntvstream&plan=free"
         }
       ],
       "live": true
-    },
-    {
-      "title": "Keçiörengücü vs Gaziantep FK",
-      "league": "Turkish Cup",
-      "time": "11:00",
-      "timestamp": 1770285600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/6366.png",
-      "sources": [
-        {
-          "name": "Sport Klub 1 🇷🇸 Serbia",
-          "channel": "Sport Klub 1",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
     },
     {
       "title": "CSU Craiova vs Oţelul",
@@ -109,6 +71,44 @@
           "country": "🇷🇴 Romania",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Arena Sport 1 🇭🇷 Croatia",
+          "channel": "Arena Sport 1",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Digi Sport 1 🇷🇴 Romania",
+          "channel": "Digi Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Prima Sport 1 🇷🇴 Romania",
+          "channel": "Prima Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Keçiörengücü vs Gaziantep FK",
+      "league": "Turkish Cup",
+      "time": "11:00",
+      "timestamp": 1770285600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/6366.png",
+      "sources": [
+        {
+          "name": "Sport Klub 1 🇷🇸 Serbia",
+          "channel": "Sport Klub 1",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
