@@ -1,32 +1,8 @@
 {
-  "generated_at": "2026-02-06T15:39:44.453085",
+  "generated_at": "2026-02-06T16:43:49.968106",
   "total_events": 47,
   "live_events": 5,
   "events": [
-    {
-      "title": "Montana vs CSKA 1948",
-      "league": "Parva Liga",
-      "time": "14:15",
-      "timestamp": 1770383700000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/252080.png",
-      "sources": [
-        {
-          "name": "Diema Sport 1 🇧🇬 Bulgaria",
-          "channel": "Diema Sport 1",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport Klub 3 🇷🇸 Serbia",
-          "channel": "Sport Klub 3",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "NEOM vs Al Riyadh",
       "league": "Pro League",
@@ -124,6 +100,30 @@
       "live": true
     },
     {
+      "title": "CSKA Sofia vs Arda",
+      "league": "Parva Liga",
+      "time": "16:45",
+      "timestamp": 1770392700000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3275.png",
+      "sources": [
+        {
+          "name": "Diema Sport 1 🇧🇬 Bulgaria",
+          "channel": "Diema Sport 1",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Diema Sport 1 🇧🇬 Bulgaria",
+          "channel": "Diema Sport 1",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "Kiryat Yam SC vs Hapoel Kfar Saba",
       "league": "Liga Leumit",
       "time": "14:00",
@@ -158,11 +158,11 @@
       "live": false
     },
     {
-      "title": "CSKA Sofia vs Arda",
+      "title": "Montana vs CSKA 1948",
       "league": "Parva Liga",
-      "time": "16:45",
-      "timestamp": 1770392700000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3275.png",
+      "time": "14:15",
+      "timestamp": 1770383700000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/252080.png",
       "sources": [
         {
           "name": "Diema Sport 1 🇧🇬 Bulgaria",
@@ -170,6 +170,13 @@
           "country": "🇧🇬 Bulgaria",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport Klub 3 🇷🇸 Serbia",
+          "channel": "Sport Klub 3",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
