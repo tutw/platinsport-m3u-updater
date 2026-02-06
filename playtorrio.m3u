@@ -1,37 +1,220 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-02-06 16:43:49
+# PlayTorrio Sports Events - 2026-02-06 17:40:47
 # Total Events: 47
-# Live Events: 5
+# Live Events: 7
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg" group-title="Pro League",[15:25] Pro League - NEOM vs Al Riyadh 🔴 - Sky Sport 251 🇮🇹 Italy
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+251&code=it&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png" group-title="Pro League",[15:25] Pro League - NEOM vs Al Riyadh 🔴 - Sportv 1 🇧🇷 Brazil
-https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-9.webp" group-title="Premijer Liga",[16:00] Premijer Liga - Rudar Prijedor vs Široki Brijeg 🔴 - Arena Sport 9 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+9&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp" group-title="Premijer Liga",[16:00] Premijer Liga - Rudar Prijedor vs Široki Brijeg 🔴 - Arena Sport 2 🇭🇷 Croatia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp" group-title="Liga I",[16:00] Liga I - SCM Argeşul Piteşti vs Hermannstadt 🔴 - Arena Sport 1 🇭🇷 Croatia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png" group-title="Liga I",[16:00] Liga I - SCM Argeşul Piteşti vs Hermannstadt 🔴 - Digi Sport 1 🇷🇴 Romania
-https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg" group-title="Liga I",[16:00] Liga I - SCM Argeşul Piteşti vs Hermannstadt 🔴 - Prima Sport 1 🇷🇴 Romania
-https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-5.png" group-title="Pro League",[16:00] Pro League - Al Ittifaq vs Damac 🔴
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+5&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png" group-title="Parva Liga",[16:45] Parva Liga - CSKA Sofia vs Arda 🔴 - Diema Sport 1 🇧🇬 Bulgaria
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png" group-title="Parva Liga",[16:45] Parva Liga - CSKA Sofia vs Arda 🔴
 https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png" group-title="Parva Liga",[16:45] Parva Liga - CSKA Sofia vs Arda 🔴 - Diema Sport 1 🇧🇬 Bulgaria
-https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=ntvstream&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/hungary/m4-sport.svg" group-title="NB1",[17:45] NB1 - Várda SE vs Kazincbarcika 🔴 - M4 Sports 🇭🇺 Hungary
+https://cdn-live.tv/api/v1/channels/player/?name=m4+sports&code=hu&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/hungary/m4-sport.svg" group-title="NB1",[17:45] NB1 - Várda SE vs Kazincbarcika 🔴 - M4 Sports 🇭🇺 Hungary
+https://cdn-live.tv/api/v1/channels/player/?name=m4+sports&code=hu&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-9.webp" group-title="Premijer Liga",[18:00] Premijer Liga - Zrinjski vs Sloga Doboj 🔴 - Arena Sport 9 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+9&code=rs&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp" group-title="Premijer Liga",[18:00] Premijer Liga - Zrinjski vs Sloga Doboj 🔴 - Arena Sport 2 🇭🇷 Croatia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-9.webp" group-title="Premijer Liga",[18:00] Premijer Liga - Zrinjski vs Sloga Doboj 🔴 - Arena Sport 9 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+9&code=rs&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp" group-title="Premijer Liga",[18:00] Premijer Liga - Zrinjski vs Sloga Doboj 🔴 - Arena Sport 2 🇭🇷 Croatia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports.webp" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - Bein Sports 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - Bein Sports N 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-3.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - Canal Sport 3 🇵🇱 Poland
+https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+3&code=pl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-5.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - Canal Sport 5 🇵🇱 Poland
+https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+5&code=pl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - Arena Sport 1 🇭🇷 Croatia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports.webp" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - beIN SPORTS 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - beIN SPORTS N 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-3.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - Canal Sport 3 🇵🇱 Poland
+https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+3&code=pl&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-5.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - Canal Sport 5 🇵🇱 Poland
+https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+5&code=pl&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin 🔴 - Arena Sport 1 🇭🇷 Croatia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-2.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Nova Sports 2 🇬🇷 Greece
+https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+2&code=gr&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/eleven-sport-2.svg" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Eleven Sports 2 🇵🇱 Poland
+https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+2&code=pl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-3.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Diema Sport 3 🇧🇬 Bulgaria
+https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+3&code=bg&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-7.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Arena Sport 7 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+7&code=rs&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-4.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Nova Sport 4 🇨🇿 Czech Republic
+https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+4&code=cz&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/sweden/v-sport-premium.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - V Sport Premium 🇸🇪 Sweden
+https://cdn-live.tv/api/v1/channels/player/?name=v+sport+premium&code=se&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/ssc-4.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Ssc 4 🇸🇦 Saudi Arabia
+https://cdn-live.tv/api/v1/channels/player/?name=ssc+4&code=sa&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-2.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Nova Sports 2 🇬🇷 Greece
+https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+2&code=gr&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/eleven-sport-2.svg" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Eleven Sports 2 🇵🇱 Poland
+https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+2&code=pl&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-3.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Diema Sport 3 🇧🇬 Bulgaria
+https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+3&code=bg&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-7.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Arena Sport 7 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+7&code=rs&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-4.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - Nova Sport 4 🇨🇿 Czech Republic
+https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+4&code=cz&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/sweden/v-sport-premium.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - V Sport Premium 🇸🇪 Sweden
+https://cdn-live.tv/api/v1/channels/player/?name=v+sport+premium&code=se&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/ssc-4.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum 🔴 - SSC 4 🇸🇦 Saudi Arabia
+https://cdn-live.tv/api/v1/channels/player/?name=ssc+4&code=sa&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-2.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Sky Sport Bundesliga 2 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+2&code=de&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/nova-sport.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Nova Sport 🇧🇬 Bulgaria
+https://cdn-live.tv/api/v1/channels/player/?name=nova+sport&code=bg&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-4.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Arena Sport 4 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+4&code=rs&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Sport Klub 3 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-5.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Nova Sport 5 🇨🇿 Czech Republic
+https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+5&code=cz&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-1.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Sport 1 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+1&code=il&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/ssc-5.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Ssc 5 🇸🇦 Saudi Arabia
+https://cdn-live.tv/api/v1/channels/player/?name=ssc+5&code=sa&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-2.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Sky Sport Bundesliga 2 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+2&code=de&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/nova-sport.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Nova Sport 🇧🇬 Bulgaria
+https://cdn-live.tv/api/v1/channels/player/?name=nova+sport&code=bg&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-4.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Arena Sport 4 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+4&code=rs&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Sport Klub 3 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-5.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Nova Sport 5 🇨🇿 Czech Republic
+https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+5&code=cz&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-1.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - Sport 1 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+1&code=il&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/ssc-5.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg 🔴 - SSC 5 🇸🇦 Saudi Arabia
+https://cdn-live.tv/api/v1/channels/player/?name=ssc+5&code=sa&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-soccer-plus.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Fox Soccer Plus 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=fox+soccer+plus&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Fox Deportes 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Tnt Sports 7 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - M Liga De Campeones 1 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/vamos-spain.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Vamos Spain 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=vamos+spain&code=es&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-2.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Dazn 2 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=dazn+2&code=de&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Sportdigital Fussball 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Sport Tv 1 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Cosmote Sport 1 🇬🇷 Greece
+https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+1&code=gr&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/ring.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Ring 🇧🇬 Bulgaria
+https://cdn-live.tv/api/v1/channels/player/?name=ring&code=bg&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-2.png.webp" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Sport Klub 2 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-2.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Prima Sport 2 🇷🇴 Romania
+https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+2&code=ro&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Trt Spor 🇹🇷 Turkey
+https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-soccer-plus.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - FOX Soccer Plus 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=fox+soccer+plus&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - FOX Deportes 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - TNT Sports 7 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - M Liga de Campeones 1 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/vamos-spain.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Vamos Spain 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=vamos+spain&code=es&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-2.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - DAZN 2 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=dazn+2&code=de&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - SportDigital Fussball 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Sport TV 1 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Cosmote Sport 1 🇬🇷 Greece
+https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+1&code=gr&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/ring.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Ring 🇧🇬 Bulgaria
+https://cdn-live.tv/api/v1/channels/player/?name=ring&code=bg&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-2.png.webp" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Sport Klub 2 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-2.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - Prima Sport 2 🇷🇴 Romania
+https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+2&code=ro&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad 🔴 - TRT Spor 🇹🇷 Turkey
+https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png" group-title="Liga Leumit",[14:00] Liga Leumit - Kiryat Yam SC vs Hapoel Kfar Saba
 https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free
@@ -45,110 +228,29 @@ https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnl
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp" group-title="Parva Liga",[14:15] Parva Liga - Montana vs CSKA 1948 - Sport Klub 3 🇷🇸 Serbia
 https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/hungary/m4-sport.svg" group-title="NB1",[17:45] NB1 - Várda SE vs Kazincbarcika
-https://cdn-live.tv/api/v1/channels/player/?name=m4+sports&code=hu&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg" group-title="Pro League",[15:25] Pro League - NEOM vs Al Riyadh - Sky Sport 251 🇮🇹 Italy
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+251&code=it&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-9.webp" group-title="Premijer Liga",[18:00] Premijer Liga - Zrinjski vs Sloga Doboj - Arena Sport 9 🇷🇸 Serbia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png" group-title="Pro League",[15:25] Pro League - NEOM vs Al Riyadh - Sportv 1 🇧🇷 Brazil
+https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-9.webp" group-title="Premijer Liga",[16:00] Premijer Liga - Rudar Prijedor vs Široki Brijeg - Arena Sport 9 🇷🇸 Serbia
 https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+9&code=rs&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp" group-title="Premijer Liga",[18:00] Premijer Liga - Zrinjski vs Sloga Doboj - Arena Sport 2 🇭🇷 Croatia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp" group-title="Premijer Liga",[16:00] Premijer Liga - Rudar Prijedor vs Široki Brijeg - Arena Sport 2 🇭🇷 Croatia
 https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports.webp" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin - Bein Sports 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin - Bein Sports N 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-3.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin - Canal Sport 3 🇵🇱 Poland
-https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+3&code=pl&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-5.svg" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin - Canal Sport 5 🇵🇱 Poland
-https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+5&code=pl&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp" group-title="Ekstraklasa",[18:00] Ekstraklasa - Korona Kielce vs Zagłębie Lubin - Arena Sport 1 🇭🇷 Croatia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp" group-title="Liga I",[16:00] Liga I - SCM Argeşul Piteşti vs Hermannstadt - Arena Sport 1 🇭🇷 Croatia
 https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-2.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum - Nova Sports 2 🇬🇷 Greece
-https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+2&code=gr&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png" group-title="Liga I",[16:00] Liga I - SCM Argeşul Piteşti vs Hermannstadt - Digi Sport 1 🇷🇴 Romania
+https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/eleven-sport-2.svg" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum - Eleven Sports 2 🇵🇱 Poland
-https://cdn-live.tv/api/v1/channels/player/?name=eleven+sports+2&code=pl&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg" group-title="Liga I",[16:00] Liga I - SCM Argeşul Piteşti vs Hermannstadt - Prima Sport 1 🇷🇴 Romania
+https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-3.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum - Diema Sport 3 🇧🇬 Bulgaria
-https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+3&code=bg&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-7.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum - Arena Sport 7 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+7&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-4.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum - Nova Sport 4 🇨🇿 Czech Republic
-https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+4&code=cz&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/sweden/v-sport-premium.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum - V Sport Premium 🇸🇪 Sweden
-https://cdn-live.tv/api/v1/channels/player/?name=v+sport+premium&code=se&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/ssc-4.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Preußen Münster vs Bochum - Ssc 4 🇸🇦 Saudi Arabia
-https://cdn-live.tv/api/v1/channels/player/?name=ssc+4&code=sa&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-2.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg - Sky Sport Bundesliga 2 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+2&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/nova-sport.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg - Nova Sport 🇧🇬 Bulgaria
-https://cdn-live.tv/api/v1/channels/player/?name=nova+sport&code=bg&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-4.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg - Arena Sport 4 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+4&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg - Sport Klub 3 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-5.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg - Nova Sport 5 🇨🇿 Czech Republic
-https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+5&code=cz&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-1.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg - Sport 1 🇮🇱 Israel
-https://cdn-live.tv/api/v1/channels/player/?name=sport+1&code=il&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/ssc-5.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Greuther Fürth vs Magdeburg - Ssc 5 🇸🇦 Saudi Arabia
-https://cdn-live.tv/api/v1/channels/player/?name=ssc+5&code=sa&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-soccer-plus.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Fox Soccer Plus 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=fox+soccer+plus&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Fox Deportes 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Tnt Sports 7 🇬🇧 UK
-https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - M Liga De Campeones 1 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/vamos-spain.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Vamos Spain 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=vamos+spain&code=es&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-2.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Dazn 2 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=dazn+2&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Sportdigital Fussball 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Sport Tv 1 🇵🇹 Portugal
-https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-1.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Cosmote Sport 1 🇬🇷 Greece
-https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+1&code=gr&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/ring.png" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Ring 🇧🇬 Bulgaria
-https://cdn-live.tv/api/v1/channels/player/?name=ring&code=bg&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-2.png.webp" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Sport Klub 2 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-2.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Prima Sport 2 🇷🇴 Romania
-https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+2&code=ro&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg" group-title="Pro League",[18:30] Pro League - Al Nassr vs Al Ittihad - Trt Spor 🇹🇷 Turkey
-https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-5.png" group-title="Pro League",[16:00] Pro League - Al Ittifaq vs Damac
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+bundesliga+5&code=de&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/porto-canal.png" group-title="Segunda liga",[19:00] Segunda liga - Porto II vs Academico Viseu
 https://cdn-live.tv/api/v1/channels/player/?name=porto+canal&code=pt&user=cdnlivetv&plan=free
