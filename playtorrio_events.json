@@ -1,66 +1,8 @@
 {
-  "generated_at": "2026-02-07T04:12:20.884528",
+  "generated_at": "2026-02-07T05:42:02.838837",
   "total_events": 48,
-  "live_events": 3,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Tijuana vs Puebla",
-      "league": "Liga MX",
-      "time": "04:00",
-      "timestamp": 1770433200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/261129.png",
-      "sources": [
-        {
-          "name": "Tudn 🇺🇸 USA",
-          "channel": "Tudn",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Portland Trail Blazers vs Memphis Grizzlies",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1770433200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3414.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 5 🇺🇸 USA",
-          "channel": "Nba League Pass 5",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+5&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport 5 🇮🇱 Israel",
-          "channel": "Sport 5",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Sacramento Kings vs Los Angeles Clippers",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1770433200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3413.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 6 🇺🇸 USA",
-          "channel": "Nba League Pass 6",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+6&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Kiryat Yam SC vs Hapoel Kfar Saba",
       "league": "Liga Leumit",
@@ -1788,6 +1730,64 @@
           "country": "🇨🇴 Colombia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Tijuana vs Puebla",
+      "league": "Liga MX",
+      "time": "04:00",
+      "timestamp": 1770433200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/261129.png",
+      "sources": [
+        {
+          "name": "Tudn 🇺🇸 USA",
+          "channel": "Tudn",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Portland Trail Blazers vs Memphis Grizzlies",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1770433200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3414.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 5 🇺🇸 USA",
+          "channel": "Nba League Pass 5",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+5&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport 5 🇮🇱 Israel",
+          "channel": "Sport 5",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Sacramento Kings vs Los Angeles Clippers",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1770433200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3413.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 6 🇺🇸 USA",
+          "channel": "Nba League Pass 6",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+6&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
