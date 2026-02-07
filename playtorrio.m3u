@@ -1,18 +1,63 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-02-06 23:25:46
+# PlayTorrio Sports Events - 2026-02-07 01:58:08
 # Total Events: 48
-# Live Events: 2
+# Live Events: 9
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png" group-title="Primera Division",[00:00] Primera Division - Audax Italiano vs Univ. Concepción 🔴 - Tnt Sports 🇨🇱 Chile
-https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png" group-title="Primera Division",[00:00] Primera Division - Audax Italiano vs Univ. Concepción 🔴 - TNT Sports 🇨🇱 Chile
-https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=ntvstream&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[00:20] Primera A - Deportivo Pasto vs Atlético Bucaramanga 🔴 - Win Futbol 🇨🇴 Colombia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[00:20] Primera A - Deportivo Pasto vs Atlético Bucaramanga 🔴
 https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[00:20] Primera A - Deportivo Pasto vs Atlético Bucaramanga 🔴 - Win Futbol 🇨🇴 Colombia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png" group-title="Primera División",[01:00] Primera División - Central Córdoba SdE vs Unión Santa Fe 🔴
+https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[01:30] NBA - Boston Celtics vs Miami Heat 🔴
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[01:30] NBA - Detroit Pistons vs New York Knicks 🔴 - Nba League Pass 2 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png" group-title="NBA",[01:30] NBA - Detroit Pistons vs New York Knicks 🔴 - Msg 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg" group-title="NBA",[01:30] NBA - Detroit Pistons vs New York Knicks 🔴 - Tsn 5 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg" group-title="NBA",[01:30] NBA - Detroit Pistons vs New York Knicks 🔴 - Tsn 3 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[02:00] Liga MX - Necaxa vs Atlético San Luis 🔴 - Tudn 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[02:00] Liga MX - Necaxa vs Atlético San Luis 🔴 - TUDN 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nbc.png" group-title="Liga MX",[02:00] Liga MX - Tigres UANL vs Santos Laguna 🔴 - Nbc 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nbc&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg" group-title="Liga MX",[02:00] Liga MX - Tigres UANL vs Santos Laguna 🔴 - Fox Deportes 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nbc.png" group-title="Liga MX",[02:00] Liga MX - Tigres UANL vs Santos Laguna 🔴 - NBC 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nbc&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg" group-title="Liga MX",[02:00] Liga MX - Tigres UANL vs Santos Laguna 🔴 - FOX Deportes 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[02:00] NBA - Milwaukee Bucks vs Indiana Pacers 🔴 - Nba League Pass 3 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[02:00] NBA - Milwaukee Bucks vs Indiana Pacers 🔴 - NBA League Pass 3 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[02:00] NBA - Minnesota Timberwolves vs New Orleans Pelicans 🔴 - Nba League Pass 4 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[02:00] NBA - Minnesota Timberwolves vs New Orleans Pelicans 🔴 - NBA League Pass 4 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[02:30] Primera A - Medellín vs Inter Bogotá 🔴 - Win Futbol 🇨🇴 Colombia
+https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[02:30] Primera A - Medellín vs Inter Bogotá 🔴 - Win Futbol 🇨🇴 Colombia
 https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png" group-title="Liga Leumit",[14:00] Liga Leumit - Kiryat Yam SC vs Hapoel Kfar Saba
@@ -522,41 +567,8 @@ https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+5&code=sa&user=cdnl
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="Segunda liga",[21:15] Segunda liga - Chaves vs Penafiel
 https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png" group-title="Primera División",[01:00] Primera División - Central Córdoba SdE vs Unión Santa Fe
-https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[01:30] NBA - Boston Celtics vs Miami Heat
-https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[01:30] NBA - Detroit Pistons vs New York Knicks - Nba League Pass 2 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png" group-title="NBA",[01:30] NBA - Detroit Pistons vs New York Knicks - Msg 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg" group-title="NBA",[01:30] NBA - Detroit Pistons vs New York Knicks - Tsn 5 🇨🇦 Canada
-https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg" group-title="NBA",[01:30] NBA - Detroit Pistons vs New York Knicks - Tsn 3 🇨🇦 Canada
-https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[02:00] Liga MX - Necaxa vs Atlético San Luis
-https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nbc.png" group-title="Liga MX",[02:00] Liga MX - Tigres UANL vs Santos Laguna - Nbc 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=nbc&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg" group-title="Liga MX",[02:00] Liga MX - Tigres UANL vs Santos Laguna - Fox Deportes 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[02:00] NBA - Milwaukee Bucks vs Indiana Pacers
-https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[02:00] NBA - Minnesota Timberwolves vs New Orleans Pelicans
-https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[02:30] Primera A - Medellín vs Inter Bogotá
-https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png" group-title="Primera Division",[00:00] Primera Division - Audax Italiano vs Univ. Concepción
+https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[04:00] Liga MX - Tijuana vs Puebla
 https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free

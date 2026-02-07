@@ -1,38 +1,213 @@
 {
-  "generated_at": "2026-02-06T23:25:46.945676",
+  "generated_at": "2026-02-07T01:58:08.303927",
   "total_events": 48,
-  "live_events": 2,
+  "live_events": 9,
   "events": [
-    {
-      "title": "Audax Italiano vs Univ. Concepción",
-      "league": "Primera Division",
-      "time": "00:00",
-      "timestamp": 1770418800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3162.png",
-      "sources": [
-        {
-          "name": "Tnt Sports 🇨🇱 Chile",
-          "channel": "Tnt Sports",
-          "country": "🇨🇱 Chile",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "TNT Sports 🇨🇱 Chile",
-          "channel": "TNT Sports",
-          "country": "🇨🇱 Chile",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Deportivo Pasto vs Atlético Bucaramanga",
       "league": "Primera A",
       "time": "00:20",
       "timestamp": 1770420000000,
       "logo": "https://api.cdn-live.tv/api/v1/team/images/6113.png",
+      "sources": [
+        {
+          "name": "Win Futbol 🇨🇴 Colombia",
+          "channel": "Win Futbol",
+          "country": "🇨🇴 Colombia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Central Córdoba SdE vs Unión Santa Fe",
+      "league": "Primera División",
+      "time": "01:00",
+      "timestamp": 1770422400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/65676.png",
+      "sources": [
+        {
+          "name": "Tnt Sports 🇦🇷 Argentina",
+          "channel": "Tnt Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Boston Celtics vs Miami Heat",
+      "league": "NBA",
+      "time": "01:30",
+      "timestamp": 1770424200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3422.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 1 🇺🇸 USA",
+          "channel": "Nba League Pass 1",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Detroit Pistons vs New York Knicks",
+      "league": "NBA",
+      "time": "01:30",
+      "timestamp": 1770424200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3424.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 2 🇺🇸 USA",
+          "channel": "Nba League Pass 2",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Msg 🇺🇸 USA",
+          "channel": "Msg",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 5 🇨🇦 Canada",
+          "channel": "Tsn 5",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 3 🇨🇦 Canada",
+          "channel": "Tsn 3",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Necaxa vs Atlético San Luis",
+      "league": "Liga MX",
+      "time": "02:00",
+      "timestamp": 1770426000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/274432.png",
+      "sources": [
+        {
+          "name": "Tudn 🇺🇸 USA",
+          "channel": "Tudn",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TUDN 🇺🇸 USA",
+          "channel": "TUDN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Tigres UANL vs Santos Laguna",
+      "league": "Liga MX",
+      "time": "02:00",
+      "timestamp": 1770426000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/268554.png",
+      "sources": [
+        {
+          "name": "Nbc 🇺🇸 USA",
+          "channel": "Nbc",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nbc.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nbc&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Fox Deportes 🇺🇸 USA",
+          "channel": "Fox Deportes",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "NBC 🇺🇸 USA",
+          "channel": "NBC",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nbc.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nbc&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "FOX Deportes 🇺🇸 USA",
+          "channel": "FOX Deportes",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Milwaukee Bucks vs Indiana Pacers",
+      "league": "NBA",
+      "time": "02:00",
+      "timestamp": 1770426000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3410.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 3 🇺🇸 USA",
+          "channel": "Nba League Pass 3",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "NBA League Pass 3 🇺🇸 USA",
+          "channel": "NBA League Pass 3",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Minnesota Timberwolves vs New Orleans Pelicans",
+      "league": "NBA",
+      "time": "02:00",
+      "timestamp": 1770426000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3426.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 4 🇺🇸 USA",
+          "channel": "Nba League Pass 4",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "NBA League Pass 4 🇺🇸 USA",
+          "channel": "NBA League Pass 4",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Medellín vs Inter Bogotá",
+      "league": "Primera A",
+      "time": "02:30",
+      "timestamp": 1770427800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
           "name": "Win Futbol 🇨🇴 Colombia",
@@ -1585,165 +1760,18 @@
       "live": false
     },
     {
-      "title": "Central Córdoba SdE vs Unión Santa Fe",
-      "league": "Primera División",
-      "time": "01:00",
-      "timestamp": 1770422400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/65676.png",
+      "title": "Audax Italiano vs Univ. Concepción",
+      "league": "Primera Division",
+      "time": "00:00",
+      "timestamp": 1770418800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3162.png",
       "sources": [
         {
-          "name": "Tnt Sports 🇦🇷 Argentina",
+          "name": "Tnt Sports 🇨🇱 Chile",
           "channel": "Tnt Sports",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Boston Celtics vs Miami Heat",
-      "league": "NBA",
-      "time": "01:30",
-      "timestamp": 1770424200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3422.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 1 🇺🇸 USA",
-          "channel": "Nba League Pass 1",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Detroit Pistons vs New York Knicks",
-      "league": "NBA",
-      "time": "01:30",
-      "timestamp": 1770424200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3424.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 2 🇺🇸 USA",
-          "channel": "Nba League Pass 2",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Msg 🇺🇸 USA",
-          "channel": "Msg",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 5 🇨🇦 Canada",
-          "channel": "Tsn 5",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 3 🇨🇦 Canada",
-          "channel": "Tsn 3",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Necaxa vs Atlético San Luis",
-      "league": "Liga MX",
-      "time": "02:00",
-      "timestamp": 1770426000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/274432.png",
-      "sources": [
-        {
-          "name": "Tudn 🇺🇸 USA",
-          "channel": "Tudn",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Tigres UANL vs Santos Laguna",
-      "league": "Liga MX",
-      "time": "02:00",
-      "timestamp": 1770426000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/268554.png",
-      "sources": [
-        {
-          "name": "Nbc 🇺🇸 USA",
-          "channel": "Nbc",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nbc.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nbc&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Fox Deportes 🇺🇸 USA",
-          "channel": "Fox Deportes",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Milwaukee Bucks vs Indiana Pacers",
-      "league": "NBA",
-      "time": "02:00",
-      "timestamp": 1770426000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3410.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 3 🇺🇸 USA",
-          "channel": "Nba League Pass 3",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Minnesota Timberwolves vs New Orleans Pelicans",
-      "league": "NBA",
-      "time": "02:00",
-      "timestamp": 1770426000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3426.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 4 🇺🇸 USA",
-          "channel": "Nba League Pass 4",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Medellín vs Inter Bogotá",
-      "league": "Primera A",
-      "time": "02:30",
-      "timestamp": 1770427800000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Win Futbol 🇨🇴 Colombia",
-          "channel": "Win Futbol",
-          "country": "🇨🇴 Colombia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
+          "country": "🇨🇱 Chile",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
