@@ -1,80 +1,8 @@
 {
-  "generated_at": "2026-02-08T05:03:18.612136",
+  "generated_at": "2026-02-08T06:50:25.016436",
   "total_events": 105,
-  "live_events": 3,
+  "live_events": 0,
   "events": [
-    {
-      "title": "América vs Monterrey",
-      "league": "Liga MX",
-      "time": "04:00",
-      "timestamp": 1770519600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/1939.png",
-      "sources": [
-        {
-          "name": "Tudn 🇺🇸 USA",
-          "channel": "Tudn",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Univision 🇺🇸 USA",
-          "channel": "Univision",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/unvision.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=univision&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tudn 🇲🇽 Mexico",
-          "channel": "Tudn",
-          "country": "🇲🇽 Mexico",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/tudn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=mx&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Portland Trail Blazers vs Memphis Grizzlies",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1770519600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3414.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 9 🇺🇸 USA",
-          "channel": "Nba League Pass 9",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+9&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport 5 Stars 🇮🇱 Israel",
-          "channel": "Sport 5 Stars",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Sacramento Kings vs Cleveland Cavaliers",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1770519600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3413.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 10 🇺🇸 USA",
-          "channel": "Nba League Pass 10",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+10&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Cherno More vs Spartak Varna",
       "league": "Parva Liga",
@@ -4584,6 +4512,78 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+8&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "América vs Monterrey",
+      "league": "Liga MX",
+      "time": "04:00",
+      "timestamp": 1770519600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/1939.png",
+      "sources": [
+        {
+          "name": "Tudn 🇺🇸 USA",
+          "channel": "Tudn",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Univision 🇺🇸 USA",
+          "channel": "Univision",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/unvision.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=univision&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tudn 🇲🇽 Mexico",
+          "channel": "Tudn",
+          "country": "🇲🇽 Mexico",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/tudn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=mx&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Portland Trail Blazers vs Memphis Grizzlies",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1770519600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3414.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 9 🇺🇸 USA",
+          "channel": "Nba League Pass 9",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+9&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport 5 Stars 🇮🇱 Israel",
+          "channel": "Sport 5 Stars",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Sacramento Kings vs Cleveland Cavaliers",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1770519600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3413.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 10 🇺🇸 USA",
+          "channel": "Nba League Pass 10",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+10&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
