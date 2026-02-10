@@ -1,32 +1,8 @@
 {
-  "generated_at": "2026-02-10T16:11:52.458652",
+  "generated_at": "2026-02-10T18:02:13.258739",
   "total_events": 28,
-  "live_events": 3,
+  "live_events": 7,
   "events": [
-    {
-      "title": "Esteghlal vs Al Hussein",
-      "league": "AFC Champions League Two",
-      "time": "14:45",
-      "timestamp": 1770731100000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Diema Sport 2 🇧🇬 Bulgaria",
-          "channel": "Diema Sport 2",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+2&code=bg&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports 1 🇸🇦 Saudi Arabia",
-          "channel": "Bein Sports 1",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Al Zawra'a vs Al Wasl",
       "league": "AFC Champions League Two",
@@ -47,20 +23,6 @@
           "country": "🇸🇦 Saudi Arabia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Nova Sport 🇧🇬 Bulgaria",
-          "channel": "Nova Sport",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/nova-sport.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport&code=bg&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 3 🇸🇦 Saudi Arabia",
-          "channel": "beIN SPORTS 3",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -99,34 +61,112 @@
           "country": "🇸🇦 Saudi Arabia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=cdnlivetv&plan=free"
-        },
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Sorrento vs Giugliano",
+      "league": "Serie C",
+      "time": "18:00",
+      "timestamp": 1770742800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/7937.png",
+      "sources": [
         {
-          "name": "Astro Grandstand 🇺🇸 USA",
-          "channel": "Astro Grandstand",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/astro-grandstand.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=astro+grandstand&code=us&user=ntvstream&plan=free"
-        },
+          "name": "Sky Sport Max 🇮🇹 Italy",
+          "channel": "Sky Sport Max",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-max.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+max&code=it&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Cavese vs Monopoli",
+      "league": "Serie C",
+      "time": "18:00",
+      "timestamp": 1770742800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/25137.png",
+      "sources": [
         {
-          "name": "Diema Sport 3 🇧🇬 Bulgaria",
-          "channel": "Diema Sport 3",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-3.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+3&code=bg&user=ntvstream&plan=free"
-        },
+          "name": "Sky Sport Calcio 🇮🇹 Italy",
+          "channel": "Sky Sport Calcio",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Sampdoria vs Palermo",
+      "league": "Serie B",
+      "time": "19:00",
+      "timestamp": 1770746400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/2711.png",
+      "sources": [
         {
-          "name": "Sport Klub 3 🇷🇸 Serbia",
-          "channel": "Sport Klub 3",
+          "name": "Arena Sport 2 🇷🇸 Serbia",
+          "channel": "Arena Sport 2",
           "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=ntvstream&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=rs&user=cdnlivetv&plan=free"
         },
         {
-          "name": "beIN SPORTS 2 🇸🇦 Saudi Arabia",
-          "channel": "beIN SPORTS 2",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=ntvstream&plan=free"
+          "name": "Arena Sport 2 🇷🇸 Serbia",
+          "channel": "Arena Sport 2",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=rs&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "CFR Cluj vs Rapid Bucureşti",
+      "league": "Cupa Romaniei",
+      "time": "19:00",
+      "timestamp": 1770746400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/5287.png",
+      "sources": [
+        {
+          "name": "Digi Sport 1 🇷🇴 Romania",
+          "channel": "Digi Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Digi Sport 1 🇷🇴 Romania",
+          "channel": "Digi Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Dumbrăviţa vs SCM Argeşul Piteşti",
+      "league": "Cupa Romaniei",
+      "time": "19:00",
+      "timestamp": 1770746400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/116221.png",
+      "sources": [
+        {
+          "name": "Digi Sport 2 🇷🇴 Romania",
+          "channel": "Digi Sport 2",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+2&code=ro&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Digi Sport 2 🇷🇴 Romania",
+          "channel": "Digi Sport 2",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+2&code=ro&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -263,86 +303,25 @@
       "live": false
     },
     {
-      "title": "Sorrento vs Giugliano",
-      "league": "Serie C",
-      "time": "18:00",
-      "timestamp": 1770742800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/7937.png",
+      "title": "Esteghlal vs Al Hussein",
+      "league": "AFC Champions League Two",
+      "time": "14:45",
+      "timestamp": 1770731100000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Sky Sport Max 🇮🇹 Italy",
-          "channel": "Sky Sport Max",
-          "country": "🇮🇹 Italy",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-max.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+max&code=it&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Cavese vs Monopoli",
-      "league": "Serie C",
-      "time": "18:00",
-      "timestamp": 1770742800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/25137.png",
-      "sources": [
+          "name": "Diema Sport 2 🇧🇬 Bulgaria",
+          "channel": "Diema Sport 2",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+2&code=bg&user=cdnlivetv&plan=free"
+        },
         {
-          "name": "Sky Sport Calcio 🇮🇹 Italy",
-          "channel": "Sky Sport Calcio",
-          "country": "🇮🇹 Italy",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Sampdoria vs Palermo",
-      "league": "Serie B",
-      "time": "19:00",
-      "timestamp": 1770746400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/2711.png",
-      "sources": [
-        {
-          "name": "Arena Sport 2 🇷🇸 Serbia",
-          "channel": "Arena Sport 2",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=rs&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "CFR Cluj vs Rapid Bucureşti",
-      "league": "Cupa Romaniei",
-      "time": "19:00",
-      "timestamp": 1770746400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/5287.png",
-      "sources": [
-        {
-          "name": "Digi Sport 1 🇷🇴 Romania",
-          "channel": "Digi Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Dumbrăviţa vs SCM Argeşul Piteşti",
-      "league": "Cupa Romaniei",
-      "time": "19:00",
-      "timestamp": 1770746400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/116221.png",
-      "sources": [
-        {
-          "name": "Digi Sport 2 🇷🇴 Romania",
-          "channel": "Digi Sport 2",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+2&code=ro&user=cdnlivetv&plan=free"
+          "name": "Bein Sports 1 🇸🇦 Saudi Arabia",
+          "channel": "Bein Sports 1",
+          "country": "🇸🇦 Saudi Arabia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
