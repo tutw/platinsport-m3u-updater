@@ -1,60 +1,8 @@
 {
-  "generated_at": "2026-02-11T05:02:22.429251",
+  "generated_at": "2026-02-11T07:00:40.455989",
   "total_events": 40,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Los Angeles Lakers vs San Antonio Spurs",
-      "league": "NBA",
-      "time": "04:30",
-      "timestamp": 1770780600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3427.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 4 🇺🇸 USA",
-          "channel": "Nba League Pass 4",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Nba Tv 🇺🇸 USA",
-          "channel": "Nba Tv",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-tv.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+tv&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 3 🇨🇦 Canada",
-          "channel": "Tsn 3",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Cosmote Sport 4 🇬🇷 Greece",
-          "channel": "Cosmote Sport 4",
-          "country": "🇬🇷 Greece",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Arena 1 Premium 🇷🇸 Serbia",
-          "channel": "Arena 1 Premium",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport Klub 1 🇷🇸 Serbia",
-          "channel": "Sport Klub 1",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Sanfrecce Hiroshima vs Johor Darul Ta'zim",
       "league": "AFC Champions League Elite",
@@ -1694,6 +1642,58 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Los Angeles Lakers vs San Antonio Spurs",
+      "league": "NBA",
+      "time": "04:30",
+      "timestamp": 1770780600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3427.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 4 🇺🇸 USA",
+          "channel": "Nba League Pass 4",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Nba Tv 🇺🇸 USA",
+          "channel": "Nba Tv",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-tv.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+tv&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 3 🇨🇦 Canada",
+          "channel": "Tsn 3",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Cosmote Sport 4 🇬🇷 Greece",
+          "channel": "Cosmote Sport 4",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Arena 1 Premium 🇷🇸 Serbia",
+          "channel": "Arena 1 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport Klub 1 🇷🇸 Serbia",
+          "channel": "Sport Klub 1",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
