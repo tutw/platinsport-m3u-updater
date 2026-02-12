@@ -1,13 +1,7 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-02-12 21:32:59
+# PlayTorrio Sports Events - 2026-02-12 22:32:40
 # Total Events: 23
-# Live Events: 5
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg" group-title="Eerste Divisie",[20:00] Eerste Divisie - Den Bosch vs Eindhoven 🔴
-https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg" group-title="Serie C",[20:30] Serie C - Ternana vs Ravenna 🔴
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free
+# Live Events: 6
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/astro-premier-league.webp" group-title="Premier League",[21:00] Premier League - Brentford vs Arsenal 🔴 - Astro Premier League 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=astro+premier+league&code=us&user=cdnlivetv&plan=free
@@ -117,11 +111,68 @@ https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+2&code=ro&user=cdnl
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-4.png" group-title="Copa del Rey",[21:00] Copa del Rey - Atlético Madrid vs Barcelona 🔴 - Sport 4 🇮🇱 Israel
 https://cdn-live.tv/api/v1/channels/player/?name=sport+4&code=il&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[22:10] Primera A - Boyacá Chicó vs Jaguares de Córdoba 🔴 - Win Futbol 🇨🇴 Colombia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[22:10] Primera A - Boyacá Chicó vs Jaguares de Córdoba 🔴
 https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[22:10] Primera A - Boyacá Chicó vs Jaguares de Córdoba 🔴 - Win Futbol 🇨🇴 Colombia
-https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=ntvstream&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg" group-title="Primera División",[23:00] Primera División - Tigre vs Aldosivi 🔴 - Espn Premium 🇦🇷 Argentina
+https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg" group-title="Primera División",[23:00] Primera División - Tigre vs Aldosivi 🔴 - ESPN Premium 🇦🇷 Argentina
+https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Brasileirão",[23:00] Brasileirão - Athletico-PR vs Santos 🔴 - Sportdigital Fussball 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png" group-title="Brasileirão",[23:00] Brasileirão - Athletico-PR vs Santos 🔴 - Sportv 1 🇧🇷 Brazil
+https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Brasileirão",[23:00] Brasileirão - Athletico-PR vs Santos 🔴 - SportDigital Fussball 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png" group-title="Brasileirão",[23:00] Brasileirão - Athletico-PR vs Santos 🔴 - SporTV 1 🇧🇷 Brazil
+https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Viaplay Sports 1 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-1.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Premier Sports 1 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+1&code=gb&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/vamos-spain.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Vamos Spain 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=vamos+spain&code=es&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - M Liga De Campeones 1 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Match Football 3 🇷🇺 Russia
+https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Arena 2 Premium 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-4.png" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Sport 4 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+4&code=il&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Viaplay Sports 1 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-1.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Premier Sports 1 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+1&code=gb&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/vamos-spain.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Vamos Spain 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=vamos+spain&code=es&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - M Liga de Campeones 1 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Match Football 3 🇷🇺 Russia
+https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Arena 2 Premium 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-4.png" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo 🔴 - Sport 4 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+4&code=il&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/nova-sport.png" group-title="AFC Champions League Two",[11:00] AFC Champions League Two - Pohang Steelers vs Gamba Osaka - Nova Sport 🇧🇬 Bulgaria
 https://cdn-live.tv/api/v1/channels/player/?name=nova+sport&code=bg&user=cdnlivetv&plan=free
@@ -162,35 +213,11 @@ https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+3&code=ro&user=cdnli
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-3.svg" group-title="Cupa Romaniei",[19:30] Cupa Romaniei - Gloria Bistriţa vs UTA Arad - Prima Sport 3 🇷🇴 Romania
 https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+3&code=ro&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg" group-title="Primera División",[23:00] Primera División - Tigre vs Aldosivi
-https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg" group-title="Eerste Divisie",[20:00] Eerste Divisie - Den Bosch vs Eindhoven
+https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Brasileirão",[23:00] Brasileirão - Athletico-PR vs Santos - Sportdigital Fussball 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png" group-title="Brasileirão",[23:00] Brasileirão - Athletico-PR vs Santos - Sportv 1 🇧🇷 Brazil
-https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo - Viaplay Sports 1 🇬🇧 UK
-https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-1.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo - Premier Sports 1 🇬🇧 UK
-https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+1&code=gb&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/vamos-spain.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo - Vamos Spain 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=vamos+spain&code=es&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo - M Liga De Campeones 1 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo - Match Football 3 🇷🇺 Russia
-https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo - Arena 2 Premium 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-4.png" group-title="Brasileirão",[23:30] Brasileirão - Fluminense vs Botafogo - Sport 4 🇮🇱 Israel
-https://cdn-live.tv/api/v1/channels/player/?name=sport+4&code=il&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg" group-title="Serie C",[20:30] Serie C - Ternana vs Ravenna
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/canal-11.png" group-title="Brasileirão",[00:00] Brasileirão - Corinthians vs RB Bragantino
 https://cdn-live.tv/api/v1/channels/player/?name=canal+11&code=pt&user=cdnlivetv&plan=free
