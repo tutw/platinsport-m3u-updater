@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-02-12T16:58:27.437736",
+  "generated_at": "2026-02-12T17:59:38.157335",
   "total_events": 23,
-  "live_events": 1,
+  "live_events": 2,
   "events": [
     {
       "title": "Dinamo Bucureşti vs Hermannstadt",
@@ -23,20 +23,30 @@
           "country": "🇷🇴 Romania",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Nuova Monterosi vs Bra",
+      "league": "Serie C",
+      "time": "18:00",
+      "timestamp": 1770915600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/111883.png",
+      "sources": [
+        {
+          "name": "Sky Sport Calcio 🇮🇹 Italy",
+          "channel": "Sky Sport Calcio",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Digi Sport 1 🇷🇴 Romania",
-          "channel": "Digi Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Prima Sport 1 🇷🇴 Romania",
-          "channel": "Prima Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=ntvstream&plan=free"
+          "name": "Sky Sport Calcio 🇮🇹 Italy",
+          "channel": "Sky Sport Calcio",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -99,23 +109,6 @@
           "country": "🇸🇦 Saudi Arabia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Nuova Monterosi vs Bra",
-      "league": "Serie C",
-      "time": "18:00",
-      "timestamp": 1770915600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/111883.png",
-      "sources": [
-        {
-          "name": "Sky Sport Calcio 🇮🇹 Italy",
-          "channel": "Sky Sport Calcio",
-          "country": "🇮🇹 Italy",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
