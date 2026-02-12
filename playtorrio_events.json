@@ -1,14 +1,31 @@
 {
-  "generated_at": "2026-02-12T17:59:38.157335",
+  "generated_at": "2026-02-12T19:16:04.325395",
   "total_events": 23,
-  "live_events": 2,
+  "live_events": 4,
   "events": [
     {
-      "title": "Dinamo Bucureşti vs Hermannstadt",
+      "title": "Nuova Monterosi vs Bra",
+      "league": "Serie C",
+      "time": "18:00",
+      "timestamp": 1770915600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/111883.png",
+      "sources": [
+        {
+          "name": "Sky Sport Calcio 🇮🇹 Italy",
+          "channel": "Sky Sport Calcio",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "CSU Craiova vs FCSB",
       "league": "Cupa Romaniei",
-      "time": "17:00",
-      "timestamp": 1770912000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/260356.png",
+      "time": "19:30",
+      "timestamp": 1770921000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/116223.png",
       "sources": [
         {
           "name": "Digi Sport 1 🇷🇴 Romania",
@@ -23,30 +40,82 @@
           "country": "🇷🇴 Romania",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Digi Sport 1 🇷🇴 Romania",
+          "channel": "Digi Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Prima Sport 1 🇷🇴 Romania",
+          "channel": "Prima Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "Nuova Monterosi vs Bra",
-      "league": "Serie C",
-      "time": "18:00",
-      "timestamp": 1770915600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/111883.png",
+      "title": "Gloria Bistriţa vs UTA Arad",
+      "league": "Cupa Romaniei",
+      "time": "19:30",
+      "timestamp": 1770921000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/204657.png",
       "sources": [
         {
-          "name": "Sky Sport Calcio 🇮🇹 Italy",
-          "channel": "Sky Sport Calcio",
-          "country": "🇮🇹 Italy",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=cdnlivetv&plan=free"
+          "name": "Digi Sport 3 🇷🇴 Romania",
+          "channel": "Digi Sport 3",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-3.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+3&code=ro&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Sky Sport Calcio 🇮🇹 Italy",
-          "channel": "Sky Sport Calcio",
-          "country": "🇮🇹 Italy",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=ntvstream&plan=free"
+          "name": "Prima Sport 3 🇷🇴 Romania",
+          "channel": "Prima Sport 3",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+3&code=ro&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Digi Sport 3 🇷🇴 Romania",
+          "channel": "Digi Sport 3",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-3.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+3&code=ro&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Prima Sport 3 🇷🇴 Romania",
+          "channel": "Prima Sport 3",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+3&code=ro&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Den Bosch vs Eindhoven",
+      "league": "Eerste Divisie",
+      "time": "20:00",
+      "timestamp": 1770922800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/2963.png",
+      "sources": [
+        {
+          "name": "Espn 🇳🇱 Netherlands",
+          "channel": "Espn",
+          "country": "🇳🇱 Netherlands",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "ESPN 🇳🇱 Netherlands",
+          "channel": "ESPN",
+          "country": "🇳🇱 Netherlands",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -114,11 +183,11 @@
       "live": false
     },
     {
-      "title": "CSU Craiova vs FCSB",
+      "title": "Dinamo Bucureşti vs Hermannstadt",
       "league": "Cupa Romaniei",
-      "time": "19:30",
-      "timestamp": 1770921000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/116223.png",
+      "time": "17:00",
+      "timestamp": 1770912000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/260356.png",
       "sources": [
         {
           "name": "Digi Sport 1 🇷🇴 Romania",
@@ -133,47 +202,6 @@
           "country": "🇷🇴 Romania",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Gloria Bistriţa vs UTA Arad",
-      "league": "Cupa Romaniei",
-      "time": "19:30",
-      "timestamp": 1770921000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/204657.png",
-      "sources": [
-        {
-          "name": "Digi Sport 3 🇷🇴 Romania",
-          "channel": "Digi Sport 3",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-3.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+3&code=ro&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Prima Sport 3 🇷🇴 Romania",
-          "channel": "Prima Sport 3",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+3&code=ro&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Den Bosch vs Eindhoven",
-      "league": "Eerste Divisie",
-      "time": "20:00",
-      "timestamp": 1770922800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/2963.png",
-      "sources": [
-        {
-          "name": "Espn 🇳🇱 Netherlands",
-          "channel": "Espn",
-          "country": "🇳🇱 Netherlands",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
