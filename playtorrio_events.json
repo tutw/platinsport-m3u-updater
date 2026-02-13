@@ -1,32 +1,8 @@
 {
-  "generated_at": "2026-02-13T15:41:34.768818",
+  "generated_at": "2026-02-13T16:45:34.448415",
   "total_events": 40,
   "live_events": 2,
   "events": [
-    {
-      "title": "Boluspor vs Hatayspor",
-      "league": "1. Lig",
-      "time": "15:00",
-      "timestamp": 1770991200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/6414.png",
-      "sources": [
-        {
-          "name": "Trt Spor 🇹🇷 Turkey",
-          "channel": "Trt Spor",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports 2 🇹🇷 Turkey",
-          "channel": "Bein Sports 2",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Al Hilal vs Al Ittifaq",
       "league": "Pro League",
@@ -89,62 +65,23 @@
           "country": "🇷🇴 Romania",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-2.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+2&code=ro&user=cdnlivetv&plan=free"
-        },
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Spartak Varna vs Lokomotiv Sofia 1929",
+      "league": "Parva Liga",
+      "time": "16:45",
+      "timestamp": 1770997500000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3278.png",
+      "sources": [
         {
-          "name": "FOX Sports 2 🇺🇸 USA",
-          "channel": "FOX Sports 2",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-sport-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+sports+2&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Vamos Spain 🇪🇸 Spain",
-          "channel": "Vamos Spain",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/vamos-spain.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=vamos+spain&code=es&user=ntvstream&plan=free"
-        },
-        {
-          "name": "SportDigital Fussball 🇩🇪 Germany",
-          "channel": "SportDigital Fussball",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=ntvstream&plan=free"
-        },
-        {
-          "name": "DAZN 2 🇩🇪 Germany",
-          "channel": "DAZN 2",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/dazn-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+2&code=de&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport TV 1 🇵🇹 Portugal",
-          "channel": "Sport TV 1",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Cosmote Sport 3 🇬🇷 Greece",
-          "channel": "Cosmote Sport 3",
-          "country": "🇬🇷 Greece",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-3.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+3&code=gr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Max Sport 4 🇧🇬 Bulgaria",
-          "channel": "Max Sport 4",
+          "name": "Diema Sport 1 🇧🇬 Bulgaria",
+          "channel": "Diema Sport 1",
           "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Prima Sport 2 🇷🇴 Romania",
-          "channel": "Prima Sport 2",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+2&code=ro&user=ntvstream&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
         }
       ],
       "live": true
@@ -208,18 +145,25 @@
       "live": false
     },
     {
-      "title": "Spartak Varna vs Lokomotiv Sofia 1929",
-      "league": "Parva Liga",
-      "time": "16:45",
-      "timestamp": 1770997500000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3278.png",
+      "title": "Boluspor vs Hatayspor",
+      "league": "1. Lig",
+      "time": "15:00",
+      "timestamp": 1770991200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/6414.png",
       "sources": [
         {
-          "name": "Diema Sport 1 🇧🇬 Bulgaria",
-          "channel": "Diema Sport 1",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
+          "name": "Trt Spor 🇹🇷 Turkey",
+          "channel": "Trt Spor",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Bein Sports 2 🇹🇷 Turkey",
+          "channel": "Bein Sports 2",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
