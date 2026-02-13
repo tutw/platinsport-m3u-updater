@@ -1,32 +1,8 @@
 {
-  "generated_at": "2026-02-13T04:52:31.116053",
+  "generated_at": "2026-02-13T05:59:08.089234",
   "total_events": 24,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Los Angeles Lakers vs Dallas Mavericks",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1770951600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3427.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 3 🇺🇸 USA",
-          "channel": "Nba League Pass 3",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tvp Sport 🇵🇱 Poland",
-          "channel": "Tvp Sport",
-          "country": "🇵🇱 Poland",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/tvp-sport.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tvp+sport&code=pl&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Pohang Steelers vs Gamba Osaka",
       "league": "AFC Champions League Two",
@@ -834,6 +810,30 @@
           "country": "🇮🇱 Israel",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Los Angeles Lakers vs Dallas Mavericks",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1770951600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3427.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 3 🇺🇸 USA",
+          "channel": "Nba League Pass 3",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tvp Sport 🇵🇱 Poland",
+          "channel": "Tvp Sport",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/tvp-sport.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tvp+sport&code=pl&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
