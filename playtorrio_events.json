@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-02-13T23:30:12.533041",
+  "generated_at": "2026-02-14T02:00:07.934443",
   "total_events": 40,
-  "live_events": 2,
+  "live_events": 5,
   "events": [
     {
-      "title": "Everton vs Huachipato",
+      "title": "Palestino vs Universidad Chile",
       "league": "Primera Division",
-      "time": "22:00",
-      "timestamp": 1771016400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/5032.png",
+      "time": "00:30",
+      "timestamp": 1771025400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3157.png",
       "sources": [
         {
           "name": "Tnt Sports 🇨🇱 Chile",
@@ -21,47 +21,46 @@
       "live": true
     },
     {
-      "title": "Independiente vs Lanús",
-      "league": "Primera División",
-      "time": "00:00",
-      "timestamp": 1771023600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/36842.png",
+      "title": "Puebla vs Pumas UNAM",
+      "league": "Liga MX",
+      "time": "02:00",
+      "timestamp": 1771030800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/1941.png",
       "sources": [
         {
-          "name": "Viaplay Sports 2 🇬🇧 UK",
-          "channel": "Viaplay Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free"
-        },
+          "name": "Tudn 🇺🇸 USA",
+          "channel": "Tudn",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "América de Cali vs Santa Fe",
+      "league": "Primera A",
+      "time": "02:00",
+      "timestamp": 1771030800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/6102.png",
+      "sources": [
         {
-          "name": "Premier Sports 2 🇬🇧 UK",
-          "channel": "Premier Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport Tv 1 🇵🇹 Portugal",
-          "channel": "Sport Tv 1",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Arena 1 Premium 🇷🇸 Serbia",
-          "channel": "Arena 1 Premium",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Arena Sport 1 🇭🇷 Croatia",
-          "channel": "Arena Sport 1",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free"
-        },
+          "name": "Win Futbol 🇨🇴 Colombia",
+          "channel": "Win Futbol",
+          "country": "🇨🇴 Colombia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Defensa y Justicia vs Vélez Sarsfield",
+      "league": "Primera División",
+      "time": "02:15",
+      "timestamp": 1771031700000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/36839.png",
+      "sources": [
         {
           "name": "Espn Premium 🇦🇷 Argentina",
           "channel": "Espn Premium",
@@ -70,60 +69,35 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Sport 3 🇮🇱 Israel",
-          "channel": "Sport 3",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-3.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+3&code=il&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Viaplay Sports 2 🇬🇧 UK",
-          "channel": "Viaplay Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Premier Sports 2 🇬🇧 UK",
-          "channel": "Premier Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport TV 1 🇵🇹 Portugal",
-          "channel": "Sport TV 1",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena 1 Premium 🇷🇸 Serbia",
-          "channel": "Arena 1 Premium",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena Sport 1 🇭🇷 Croatia",
-          "channel": "Arena Sport 1",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=ntvstream&plan=free"
-        },
-        {
           "name": "ESPN Premium 🇦🇷 Argentina",
           "channel": "ESPN Premium",
           "country": "🇦🇷 Argentina",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Unión Santa Fe vs San Lorenzo",
+      "league": "Primera División",
+      "time": "02:15",
+      "timestamp": 1771031700000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3204.png",
+      "sources": [
+        {
+          "name": "Tnt Sports 🇦🇷 Argentina",
+          "channel": "Tnt Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Sport 3 🇮🇱 Israel",
-          "channel": "Sport 3",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-3.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+3&code=il&user=ntvstream&plan=free"
+          "name": "TNT Sports 🇦🇷 Argentina",
+          "channel": "TNT Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -1632,11 +1606,11 @@
       "live": false
     },
     {
-      "title": "Palestino vs Universidad Chile",
+      "title": "Everton vs Huachipato",
       "league": "Primera Division",
-      "time": "00:30",
-      "timestamp": 1771025400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3157.png",
+      "time": "22:00",
+      "timestamp": 1771016400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/5032.png",
       "sources": [
         {
           "name": "Tnt Sports 🇨🇱 Chile",
@@ -1649,69 +1623,60 @@
       "live": false
     },
     {
-      "title": "Puebla vs Pumas UNAM",
-      "league": "Liga MX",
-      "time": "02:00",
-      "timestamp": 1771030800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/1941.png",
-      "sources": [
-        {
-          "name": "Tudn 🇺🇸 USA",
-          "channel": "Tudn",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "América de Cali vs Santa Fe",
-      "league": "Primera A",
-      "time": "02:00",
-      "timestamp": 1771030800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/6102.png",
-      "sources": [
-        {
-          "name": "Win Futbol 🇨🇴 Colombia",
-          "channel": "Win Futbol",
-          "country": "🇨🇴 Colombia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Defensa y Justicia vs Vélez Sarsfield",
+      "title": "Independiente vs Lanús",
       "league": "Primera División",
-      "time": "02:15",
-      "timestamp": 1771031700000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/36839.png",
+      "time": "00:00",
+      "timestamp": 1771023600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/36842.png",
       "sources": [
+        {
+          "name": "Viaplay Sports 2 🇬🇧 UK",
+          "channel": "Viaplay Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Premier Sports 2 🇬🇧 UK",
+          "channel": "Premier Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport Tv 1 🇵🇹 Portugal",
+          "channel": "Sport Tv 1",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Arena 1 Premium 🇷🇸 Serbia",
+          "channel": "Arena 1 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Arena Sport 1 🇭🇷 Croatia",
+          "channel": "Arena Sport 1",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=cdnlivetv&plan=free"
+        },
         {
           "name": "Espn Premium 🇦🇷 Argentina",
           "channel": "Espn Premium",
           "country": "🇦🇷 Argentina",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Unión Santa Fe vs San Lorenzo",
-      "league": "Primera División",
-      "time": "02:15",
-      "timestamp": 1771031700000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3204.png",
-      "sources": [
+        },
         {
-          "name": "Tnt Sports 🇦🇷 Argentina",
-          "channel": "Tnt Sports",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free"
+          "name": "Sport 3 🇮🇱 Israel",
+          "channel": "Sport 3",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-3.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+3&code=il&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
