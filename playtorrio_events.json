@@ -1,32 +1,8 @@
 {
-  "generated_at": "2026-02-15T04:53:41.417749",
+  "generated_at": "2026-02-15T05:56:00.845019",
   "total_events": 102,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Guadalajara vs América",
-      "league": "Liga MX",
-      "time": "04:07",
-      "timestamp": 1771124820000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/264823.png",
-      "sources": [
-        {
-          "name": "Nbc Universo 🇺🇸 USA",
-          "channel": "Nbc Universo",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nbc_universo.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nbc+universo&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Telemundo 🇺🇸 USA",
-          "channel": "Telemundo",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/telemundo.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=telemundo&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Septemvri Sofia vs Montana",
       "league": "Parva Liga",
@@ -3840,6 +3816,30 @@
           "country": "🇨🇴 Colombia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Guadalajara vs América",
+      "league": "Liga MX",
+      "time": "04:07",
+      "timestamp": 1771124820000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/264823.png",
+      "sources": [
+        {
+          "name": "Nbc Universo 🇺🇸 USA",
+          "channel": "Nbc Universo",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nbc_universo.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nbc+universo&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Telemundo 🇺🇸 USA",
+          "channel": "Telemundo",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/telemundo.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=telemundo&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
