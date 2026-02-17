@@ -1,32 +1,8 @@
 {
-  "generated_at": "2026-02-17T18:59:20.610549",
+  "generated_at": "2026-02-17T19:50:20.696437",
   "total_events": 21,
   "live_events": 3,
   "events": [
-    {
-      "title": "İstanbulspor vs Erokspor",
-      "league": "1. Lig",
-      "time": "18:00",
-      "timestamp": 1771347600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3066.png",
-      "sources": [
-        {
-          "name": "Trt Spor 🇹🇷 Turkey",
-          "channel": "Trt Spor",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports 2 🇹🇷 Turkey",
-          "channel": "Bein Sports 2",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Galatasaray vs Juventus",
       "league": "UEFA Champions League",
@@ -246,27 +222,44 @@
           "country": "🇸🇦 Saudi Arabia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-5.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+5&code=sa&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Bristol City vs Wrexham",
+      "league": "Championship",
+      "time": "20:45",
+      "timestamp": 1771357500000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/58.png",
+      "sources": [
+        {
+          "name": "Sky Sports Arena 🇬🇧 UK",
+          "channel": "Sky Sports Arena",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-arena.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+arena&code=gb&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Nova Sport 🇧🇬 Bulgaria",
-          "channel": "Nova Sport",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/nova-sport.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport&code=bg&user=ntvstream&plan=free"
+          "name": "Espn 🇧🇷 Brazil",
+          "channel": "Espn",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=br&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Sport Klub 1 🇷🇸 Serbia",
-          "channel": "Sport Klub 1",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=ntvstream&plan=free"
+          "name": "Sky Sports Arena 🇬🇧 UK",
+          "channel": "Sky Sports Arena",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-arena.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+arena&code=gb&user=ntvstream&plan=free"
         },
         {
-          "name": "beIN SPORTS 5 🇸🇦 Saudi Arabia",
-          "channel": "beIN SPORTS 5",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-5.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+5&code=sa&user=ntvstream&plan=free"
+          "name": "ESPN 🇧🇷 Brazil",
+          "channel": "ESPN",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=br&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -572,25 +565,25 @@
       "live": false
     },
     {
-      "title": "Bristol City vs Wrexham",
-      "league": "Championship",
-      "time": "20:45",
-      "timestamp": 1771357500000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/58.png",
+      "title": "İstanbulspor vs Erokspor",
+      "league": "1. Lig",
+      "time": "18:00",
+      "timestamp": 1771347600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3066.png",
       "sources": [
         {
-          "name": "Sky Sports Arena 🇬🇧 UK",
-          "channel": "Sky Sports Arena",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-arena.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+arena&code=gb&user=cdnlivetv&plan=free"
+          "name": "Trt Spor 🇹🇷 Turkey",
+          "channel": "Trt Spor",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Espn 🇧🇷 Brazil",
-          "channel": "Espn",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=br&user=cdnlivetv&plan=free"
+          "name": "Bein Sports 2 🇹🇷 Turkey",
+          "channel": "Bein Sports 2",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
