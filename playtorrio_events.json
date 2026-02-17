@@ -1,39 +1,8 @@
 {
-  "generated_at": "2026-02-16T23:28:46.167738",
+  "generated_at": "2026-02-17T15:53:13.455360",
   "total_events": 27,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Deportivo Riestra vs Newell's Old Boys",
-      "league": "Primera División",
-      "time": "23:00",
-      "timestamp": 1771279200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/189723.png",
-      "sources": [
-        {
-          "name": "Espn 4 🇧🇷 Brazil",
-          "channel": "Espn 4",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-4.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+4&code=br&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Espn Premium 🇦🇷 Argentina",
-          "channel": "Espn Premium",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Espn 🇦🇷 Argentina",
-          "channel": "Espn",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=ar&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Septemvri Sofia vs Montana",
       "league": "Parva Liga",
@@ -1172,6 +1141,37 @@
           "country": "🇷🇸 Serbia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Deportivo Riestra vs Newell's Old Boys",
+      "league": "Primera División",
+      "time": "23:00",
+      "timestamp": 1771279200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/189723.png",
+      "sources": [
+        {
+          "name": "Espn 4 🇧🇷 Brazil",
+          "channel": "Espn 4",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-4.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+4&code=br&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Espn Premium 🇦🇷 Argentina",
+          "channel": "Espn Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Espn 🇦🇷 Argentina",
+          "channel": "Espn",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=ar&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
