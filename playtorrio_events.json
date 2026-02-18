@@ -1,84 +1,8 @@
 {
-  "generated_at": "2026-02-18T02:08:17.177257",
+  "generated_at": "2026-02-18T04:52:56.937741",
   "total_events": 22,
-  "live_events": 2,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Liverpool vs Medellín",
-      "league": "Copa Libertadores",
-      "time": "01:30",
-      "timestamp": 1771374600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/6879.png",
-      "sources": [
-        {
-          "name": "Fox Sports 🇦🇷 Argentina",
-          "channel": "Fox Sports",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/fox-sports.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+sports&code=ar&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Espn 2 🇲🇽 Mexico",
-          "channel": "Espn 2",
-          "country": "🇲🇽 Mexico",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports 3 🇸🇦 Saudi Arabia",
-          "channel": "Bein Sports 3",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "CS 2 de Mayo vs Sporting Cristal",
-      "league": "Copa Libertadores",
-      "time": "01:30",
-      "timestamp": 1771374600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/5992.png",
-      "sources": [
-        {
-          "name": "Bein Sports 🇺🇸 USA",
-          "channel": "Bein Sports",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports N 🇪🇸 Spain",
-          "channel": "Bein Sports N",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Espn 🇧🇷 Brazil",
-          "channel": "Espn",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=br&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Fox Sports 2 🇦🇷 Argentina",
-          "channel": "Fox Sports 2",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/fox-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+sports+2&code=ar&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports 2 🇸🇦 Saudi Arabia",
-          "channel": "Bein Sports 2",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Seoul vs Sanfrecce Hiroshima",
       "league": "AFC Champions League Elite",
@@ -1269,6 +1193,82 @@
           "country": "🇨🇴 Colombia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Liverpool vs Medellín",
+      "league": "Copa Libertadores",
+      "time": "01:30",
+      "timestamp": 1771374600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/6879.png",
+      "sources": [
+        {
+          "name": "Fox Sports 🇦🇷 Argentina",
+          "channel": "Fox Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/fox-sports.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+sports&code=ar&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Espn 2 🇲🇽 Mexico",
+          "channel": "Espn 2",
+          "country": "🇲🇽 Mexico",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Bein Sports 3 🇸🇦 Saudi Arabia",
+          "channel": "Bein Sports 3",
+          "country": "🇸🇦 Saudi Arabia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "CS 2 de Mayo vs Sporting Cristal",
+      "league": "Copa Libertadores",
+      "time": "01:30",
+      "timestamp": 1771374600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/5992.png",
+      "sources": [
+        {
+          "name": "Bein Sports 🇺🇸 USA",
+          "channel": "Bein Sports",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Bein Sports N 🇪🇸 Spain",
+          "channel": "Bein Sports N",
+          "country": "🇪🇸 Spain",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-n.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Espn 🇧🇷 Brazil",
+          "channel": "Espn",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=br&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Fox Sports 2 🇦🇷 Argentina",
+          "channel": "Fox Sports 2",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/fox-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+sports+2&code=ar&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Bein Sports 2 🇸🇦 Saudi Arabia",
+          "channel": "Bein Sports 2",
+          "country": "🇸🇦 Saudi Arabia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
