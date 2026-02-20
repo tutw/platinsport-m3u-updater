@@ -1,32 +1,8 @@
 {
-  "generated_at": "2026-02-20T04:46:38.196223",
+  "generated_at": "2026-02-20T05:53:22.855919",
   "total_events": 35,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Golden State Warriors vs Boston Celtics",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1771556400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3428.png",
-      "sources": [
-        {
-          "name": "Tsn 5 🇨🇦 Canada",
-          "channel": "Tsn 5",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 3 🇨🇦 Canada",
-          "channel": "Tsn 3",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Macarthur vs Bangkok United",
       "league": "AFC Champions League Two",
@@ -1840,6 +1816,30 @@
           "country": "🇬🇧 UK",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Golden State Warriors vs Boston Celtics",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1771556400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3428.png",
+      "sources": [
+        {
+          "name": "Tsn 5 🇨🇦 Canada",
+          "channel": "Tsn 5",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 3 🇨🇦 Canada",
+          "channel": "Tsn 3",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
