@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-02-22T04:48:22.855857",
+  "generated_at": "2026-02-22T05:51:19.599321",
   "total_events": 103,
   "live_events": 1,
   "events": [
     {
-      "title": "Cruz Azul vs Guadalajara",
+      "title": "Tijuana vs Mazatlán",
       "league": "Liga MX",
-      "time": "04:00",
-      "timestamp": 1771729200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/261027.png",
+      "time": "06:10",
+      "timestamp": 1771737000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/261129.png",
       "sources": [
         {
           "name": "Tudn 🇺🇸 USA",
@@ -18,11 +18,11 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Univision 🇺🇸 USA",
-          "channel": "Univision",
+          "name": "TUDN 🇺🇸 USA",
+          "channel": "TUDN",
           "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/unvision.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=univision&code=us&user=cdnlivetv&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -4419,11 +4419,11 @@
       "live": false
     },
     {
-      "title": "Tijuana vs Mazatlán",
+      "title": "Cruz Azul vs Guadalajara",
       "league": "Liga MX",
-      "time": "06:10",
-      "timestamp": 1771737000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/261129.png",
+      "time": "04:00",
+      "timestamp": 1771729200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/261027.png",
       "sources": [
         {
           "name": "Tudn 🇺🇸 USA",
@@ -4431,6 +4431,13 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Univision 🇺🇸 USA",
+          "channel": "Univision",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/unvision.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=univision&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
