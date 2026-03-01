@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-01T10:25:19.754540",
+  "generated_at": "2026-03-01T11:20:18.580610",
   "total_events": 97,
-  "live_events": 0,
+  "live_events": 5,
   "events": [
     {
       "title": "Serik Belediyespor vs Sivasspor",
@@ -23,9 +23,23 @@
           "country": "🇹🇷 Turkey",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TRT Spor 🇹🇷 Turkey",
+          "channel": "TRT Spor",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS 2 🇹🇷 Turkey",
+          "channel": "beIN SPORTS 2",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Adana Demirspor vs Pendikspor",
@@ -40,9 +54,16 @@
           "country": "🇮🇹 Italy",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+256&code=it&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sky Sport 256 🇮🇹 Italy",
+          "channel": "Sky Sport 256",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+256&code=it&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Farense vs Lusitania FC Lourosa",
@@ -57,9 +78,16 @@
           "country": "🇵🇹 Portugal",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport TV 1 🇵🇹 Portugal",
+          "channel": "Sport TV 1",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "PEC Zwolle vs Ajax",
@@ -151,9 +179,93 @@
           "country": "🇮🇱 Israel",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-4.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+4&code=il&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Viaplay Sports 2 🇬🇧 UK",
+          "channel": "Viaplay Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Premier Sports 2 🇬🇧 UK",
+          "channel": "Premier Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sportsnet World 🇨🇦 Canada",
+          "channel": "Sportsnet World",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-world.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+world&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "SportDigital Fussball 🇩🇪 Germany",
+          "channel": "SportDigital Fussball",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=ntvstream&plan=free"
+        },
+        {
+          "name": "DAZN 1 🇵🇹 Portugal",
+          "channel": "DAZN 1",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=pt&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 🇳🇱 Netherlands",
+          "channel": "ESPN",
+          "country": "🇳🇱 Netherlands",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Nova Sports 2 🇬🇷 Greece",
+          "channel": "Nova Sports 2",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+2&code=gr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport Klub 2 🇷🇸 Serbia",
+          "channel": "Sport Klub 2",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-2.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 3 🇦🇷 Argentina",
+          "channel": "ESPN 3",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=ar&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 2 🇲🇽 Mexico",
+          "channel": "ESPN 2",
+          "country": "🇲🇽 Mexico",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Prima Sport 3 🇷🇴 Romania",
+          "channel": "Prima Sport 3",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+3&code=ro&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport 4 🇮🇱 Israel",
+          "channel": "Sport 4",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-4.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+4&code=il&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Nieciecza vs Radomiak Radom",
@@ -182,9 +294,30 @@
           "country": "🇭🇷 Croatia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Canal Sport 3 🇵🇱 Poland",
+          "channel": "Canal Sport 3",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+3&code=pl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Canal 360 🇵🇱 Poland",
+          "channel": "Canal 360",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-360.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+360&code=pl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Arena Sport 2 🇭🇷 Croatia",
+          "channel": "Arena Sport 2",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Potenza Calcio vs Benevento",
