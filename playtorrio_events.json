@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-03-05T05:47:18.551442",
+  "generated_at": "2026-03-05T06:52:01.932860",
   "total_events": 65,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Los Angeles Clippers vs Indiana Pacers",
-      "league": "NBA",
-      "time": "04:30",
-      "timestamp": 1772681400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3425.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 6 🇺🇸 USA",
-          "channel": "Nba League Pass 6",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+6&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Seoul vs Vissel Kobe",
       "league": "AFC Champions League Elite",
@@ -2616,6 +2599,23 @@
           "country": "🇩🇰 Denmark",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-sport.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+sport&code=dk&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Los Angeles Clippers vs Indiana Pacers",
+      "league": "NBA",
+      "time": "04:30",
+      "timestamp": 1772681400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3425.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 6 🇺🇸 USA",
+          "channel": "Nba League Pass 6",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+6&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
