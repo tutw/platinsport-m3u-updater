@@ -1,49 +1,8 @@
 {
-  "generated_at": "2026-03-06T04:41:26.764204",
+  "generated_at": "2026-03-06T05:44:12.176670",
   "total_events": 31,
-  "live_events": 2,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Denver Nuggets vs Los Angeles Lakers",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1772766000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3417.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 8 🇺🇸 USA",
-          "channel": "Nba League Pass 8",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+8&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 2 🇨🇦 Canada",
-          "channel": "Tsn 2",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+2&code=ca&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Sacramento Kings vs New Orleans Pelicans",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1772766000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3413.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 9 🇺🇸 USA",
-          "channel": "Nba League Pass 9",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+9&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Lokomotiv Sofia 1929 vs Dobrudzha 1919",
       "league": "Parva Liga",
@@ -974,6 +933,47 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+7&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Denver Nuggets vs Los Angeles Lakers",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1772766000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3417.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 8 🇺🇸 USA",
+          "channel": "Nba League Pass 8",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+8&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 2 🇨🇦 Canada",
+          "channel": "Tsn 2",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+2&code=ca&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Sacramento Kings vs New Orleans Pelicans",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1772766000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3413.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 9 🇺🇸 USA",
+          "channel": "Nba League Pass 9",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+9&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
