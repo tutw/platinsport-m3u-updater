@@ -1,13 +1,64 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-03-06 23:27:27
-# Total Events: 38
-# Live Events: 2
+# PlayTorrio Sports Events - 2026-03-07 01:55:16
+# Total Events: 39
+# Live Events: 8
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png" group-title="Primera Division",[22:00] Primera Division - La Serena vs Unión La Calera 🔴
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png" group-title="Primera Division",[00:30] Primera Division - Deportes Concepción vs Ñublense 🔴
 https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/cbs-sports-network.svg" group-title="NCAA",[00:00] NCAA - Akron vs Northern Illinois 🔴
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-5.png" group-title="Cricket",[00:30] Cricket - undefined vs undefined 🔴 - Sky Sport 5 🇳🇿 New Zealand
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+5&code=nz&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-9.png" group-title="Cricket",[00:30] Cricket - undefined vs undefined 🔴 - Sky Sport 9 🇳🇿 New Zealand
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+9&code=nz&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks 🔴 - Espn 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn-deportes.png" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks 🔴 - Espn Deportes 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks 🔴 - Sport Tv 1 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks 🔴 - Cosmote Sport 4 🇬🇷 Greece
+https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/tvp-sport.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks 🔴 - Tvp Sport 🇵🇱 Poland
+https://cdn-live.tv/api/v1/channels/player/?name=tvp+sport&code=pl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks 🔴 - Sport Klub 1 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-3.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks 🔴 - Espn 3 🇦🇷 Argentina
+https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=ar&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks 🔴 - Espn 2 🇲🇽 Mexico
+https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[02:00] Liga MX - Mazatlán vs León 🔴 - Tudn 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[02:00] Liga MX - Mazatlán vs León 🔴 - TUDN 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp" group-title="NBA",[02:00] NBA - Houston Rockets vs Portland Trail Blazers 🔴 - Sport 5 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp" group-title="NBA",[02:00] NBA - Houston Rockets vs Portland Trail Blazers 🔴 - Sport 5 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/cbs-sports-network.svg" group-title="NCAA",[02:00] NCAA - West Virginia vs UCF Knights 🔴
 https://cdn-live.tv/api/v1/channels/player/?name=cbs+sports+network&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn-u.svg" group-title="NCAA",[02:00] NCAA - TBD vs Tennessee State 🔴
+https://cdn-live.tv/api/v1/channels/player/?name=espn+u&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[02:30] Primera A - Deportivo Cali vs Once Caldas 🔴 - Win Futbol 🇨🇴 Colombia
+https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[02:30] Primera A - Deportivo Cali vs Once Caldas 🔴 - Win Futbol 🇨🇴 Colombia
+https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg" group-title="1. Lig",[14:00] 1. Lig - Sarıyer vs Ümranıyespor - Trt Spor 🇹🇷 Turkey
 https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free
@@ -426,47 +477,8 @@ https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlive
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-9.webp" group-title="Primeira Liga",[21:15] Primeira Liga - Famalicão vs Arouca - Cosmote Sport 9 🇬🇷 Greece
 https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+9&code=gr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png" group-title="Primera Division",[00:30] Primera Division - Deportes Concepción vs Ñublense
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png" group-title="Primera Division",[22:00] Primera Division - La Serena vs Unión La Calera
 https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-5.png" group-title="Cricket",[00:30] Cricket - undefined vs undefined - Sky Sport 5 🇳🇿 New Zealand
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+5&code=nz&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-9.png" group-title="Cricket",[00:30] Cricket - undefined vs undefined - Sky Sport 9 🇳🇿 New Zealand
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+9&code=nz&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks - Espn 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn-deportes.png" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks - Espn Deportes 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks - Sport Tv 1 🇵🇹 Portugal
-https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks - Cosmote Sport 4 🇬🇷 Greece
-https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/tvp-sport.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks - Tvp Sport 🇵🇱 Poland
-https://cdn-live.tv/api/v1/channels/player/?name=tvp+sport&code=pl&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks - Sport Klub 1 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-3.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks - Espn 3 🇦🇷 Argentina
-https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=ar&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg" group-title="NBA",[01:00] NBA - Boston Celtics vs Dallas Mavericks - Espn 2 🇲🇽 Mexico
-https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[02:00] Liga MX - Mazatlán vs León
-https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp" group-title="NBA",[02:00] NBA - Houston Rockets vs Portland Trail Blazers
-https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[02:30] Primera A - Deportivo Cali vs Once Caldas
-https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png" group-title="NBA",[03:00] NBA - Denver Nuggets vs New York Knicks - Msg 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free
