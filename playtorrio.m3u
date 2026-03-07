@@ -1,10 +1,7 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-03-07 05:36:29
+# PlayTorrio Sports Events - 2026-03-07 06:40:14
 # Total Events: 37
-# Live Events: 4
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[04:00] Liga MX - Necaxa vs Pumas UNAM 🔴
-https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free
+# Live Events: 2
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tennis-channel.png" group-title="Tennis",[04:00] Tennis - undefined vs undefined 🔴 - Tennis Channel 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=tennis+channel&code=us&user=cdnlivetv&plan=free
@@ -74,15 +71,6 @@ https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=cdnli
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp" group-title="Tennis",[04:00] Tennis - undefined vs undefined 🔴 - Sport Klub 4 🇷🇸 Serbia
 https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-premier-league.webp" group-title="NBA",[04:30] NBA - Los Angeles Lakers vs Indiana Pacers 🔴 - Sky Sport Premier League 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+premier+league&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="NBA",[04:30] NBA - Los Angeles Lakers vs Indiana Pacers 🔴 - Sport Tv 1 🇵🇹 Portugal
-https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp" group-title="NBA",[04:30] NBA - Los Angeles Lakers vs Indiana Pacers 🔴 - Sport Klub 1 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg" group-title="Cricket",[06:15] Cricket - undefined vs undefined 🔴 - Willow Cricket 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=cdnlivetv&plan=free
@@ -578,4 +566,16 @@ https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=ar&user=cdnlivetv&p
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg" group-title="NBA",[03:30] NBA - San Antonio Spurs vs Los Angeles Clippers - Espn 2 🇲🇽 Mexico
 https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg" group-title="Liga MX",[04:00] Liga MX - Necaxa vs Pumas UNAM
+https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-premier-league.webp" group-title="NBA",[04:30] NBA - Los Angeles Lakers vs Indiana Pacers - Sky Sport Premier League 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+premier+league&code=de&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="NBA",[04:30] NBA - Los Angeles Lakers vs Indiana Pacers - Sport Tv 1 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp" group-title="NBA",[04:30] NBA - Los Angeles Lakers vs Indiana Pacers - Sport Klub 1 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free
 
