@@ -1,53 +1,8 @@
 {
-  "generated_at": "2026-03-10T08:41:23.037784",
+  "generated_at": "2026-03-10T09:43:08.070360",
   "total_events": 33,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "undefined vs undefined",
-      "league": "Cricket",
-      "time": "06:15",
-      "timestamp": 1773119700000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Willow Cricket 🇺🇸 USA",
-          "channel": "Willow Cricket",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tnt Sports 2 🇬🇧 UK",
-          "channel": "Tnt Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sky Sport 2 🇳🇿 New Zealand",
-          "channel": "Sky Sport 2",
-          "country": "🇳🇿 New Zealand",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+2&code=nz&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Supersport Cricket 🇿🇦 South Africa",
-          "channel": "Supersport Cricket",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Supersport Grandstand 🇿🇦 South Africa",
-          "channel": "Supersport Grandstand",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-grandstand.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+grandstand&code=za&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Rotor Volgograd vs Ural",
       "league": "FNL",
@@ -1505,6 +1460,51 @@
           "country": "🇷🇸 Serbia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "undefined vs undefined",
+      "league": "Cricket",
+      "time": "06:15",
+      "timestamp": 1773119700000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow Cricket 🇺🇸 USA",
+          "channel": "Willow Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tnt Sports 2 🇬🇧 UK",
+          "channel": "Tnt Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sky Sport 2 🇳🇿 New Zealand",
+          "channel": "Sky Sport 2",
+          "country": "🇳🇿 New Zealand",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+2&code=nz&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Supersport Cricket 🇿🇦 South Africa",
+          "channel": "Supersport Cricket",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Supersport Grandstand 🇿🇦 South Africa",
+          "channel": "Supersport Grandstand",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-grandstand.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+grandstand&code=za&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
