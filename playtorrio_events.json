@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-03-11T08:40:35.055951",
+  "generated_at": "2026-03-11T09:41:45.633569",
   "total_events": 37,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "undefined vs undefined",
-      "league": "Cricket",
-      "time": "06:15",
-      "timestamp": 1773206100000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Tnt Sports 2 🇬🇧 UK",
-          "channel": "Tnt Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Machida Zelvia vs Gangwon",
       "league": "AFC Champions League Elite",
@@ -1741,6 +1724,23 @@
           "country": "🇳🇿 New Zealand",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-4.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+4&code=nz&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "undefined vs undefined",
+      "league": "Cricket",
+      "time": "06:15",
+      "timestamp": 1773206100000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Tnt Sports 2 🇬🇧 UK",
+          "channel": "Tnt Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
