@@ -1,8 +1,49 @@
 {
-  "generated_at": "2026-03-12T14:06:54.451005",
-  "total_events": 40,
+  "generated_at": "2026-03-12T16:03:01.176631",
+  "total_events": 43,
   "live_events": 8,
   "events": [
+    {
+      "title": "undefined vs undefined",
+      "league": "Cricket",
+      "time": "11:00",
+      "timestamp": 1773309600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow Cricket 🇺🇸 USA",
+          "channel": "Willow Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Iğdır FK vs Bodrumspor",
+      "league": "1. Lig",
+      "time": "11:30",
+      "timestamp": 1773311400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/388264.png",
+      "sources": [
+        {
+          "name": "Trt Spor 🇹🇷 Turkey",
+          "channel": "Trt Spor",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Bein Sports 2 🇹🇷 Turkey",
+          "channel": "Bein Sports 2",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
     {
       "title": "undefined vs undefined",
       "league": "Cricket",
@@ -25,7 +66,7 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+grandstand&code=za&user=cdnlivetv&plan=free"
         }
       ],
-      "live": true
+      "live": false
     },
     {
       "title": "Tampines Rovers vs Bangkok United",
@@ -54,30 +95,9 @@
           "country": "🇸🇦 Saudi Arabia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Nova Sport 🇧🇬 Bulgaria",
-          "channel": "Nova Sport",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/nova-sport.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nova+sport&code=bg&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport Klub 1 🇷🇸 Serbia",
-          "channel": "Sport Klub 1",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 1 🇸🇦 Saudi Arabia",
-          "channel": "beIN SPORTS 1",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=ntvstream&plan=free"
         }
       ],
-      "live": true
+      "live": false
     },
     {
       "title": "Boluspor vs Çorum Belediyespor",
@@ -85,61 +105,6 @@
       "time": "14:00",
       "timestamp": 1773320400000,
       "logo": "https://api.cdn-live.tv/api/v1/team/images/6414.png",
-      "sources": [
-        {
-          "name": "Trt Spor 🇹🇷 Turkey",
-          "channel": "Trt Spor",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports 2 🇹🇷 Turkey",
-          "channel": "Bein Sports 2",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "TRT Spor 🇹🇷 Turkey",
-          "channel": "TRT Spor",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 2 🇹🇷 Turkey",
-          "channel": "beIN SPORTS 2",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "undefined vs undefined",
-      "league": "Cricket",
-      "time": "11:00",
-      "timestamp": 1773309600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Willow Cricket 🇺🇸 USA",
-          "channel": "Willow Cricket",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Iğdır FK vs Bodrumspor",
-      "league": "1. Lig",
-      "time": "11:30",
-      "timestamp": 1773311400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/388264.png",
       "sources": [
         {
           "name": "Trt Spor 🇹🇷 Turkey",
@@ -1922,27 +1887,48 @@
       "live": false
     },
     {
-      "title": "Montafon | Ski Cross World Cup",
+      "title": "FIS World Cup Drammen | Men's and Women's Classic Sprint",
       "league": "WinterSports",
-      "time": "13:15",
-      "timestamp": 1773317700000,
+      "time": "16:35",
+      "timestamp": 1773329700000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "TNT Sports 2 🇬🇧 UK",
-          "channel": "TNT Sports 2",
+          "name": "TNT Sports 4 🇬🇧 UK",
+          "channel": "TNT Sports 4",
           "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=ntvstream&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-4.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+4&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 1 🇬🇧 UK",
+          "channel": "Euro Sport 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/euro-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+1&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 1 🇪🇸 Spain",
+          "channel": "Euro Sport 1",
+          "country": "🇪🇸 Spain",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/euro-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+1&code=es&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 1 🇮🇹 Italy",
+          "channel": "Euro Sport 1",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/euro-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+1&code=it&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "2026 Milan Cortina Paralympics Wheelchair Curling, Mixed Team: Norway vs. United States",
-      "league": "WinterSports",
-      "time": "13:35",
-      "timestamp": 1773318900000,
+      "title": "George Washington vs Fordham",
+      "league": "NCAA",
+      "time": "17:00",
+      "timestamp": 1773331200000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
@@ -1956,66 +1942,138 @@
       "live": true
     },
     {
-      "title": "Live racing from Cheltenham Festival",
-      "league": "HorseRacing",
-      "time": "13:45",
-      "timestamp": 1773319500000,
+      "title": "TBD vs Virginia",
+      "league": "NCAA",
+      "time": "17:00",
+      "timestamp": 1773331200000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "ITV 1 🇬🇧 UK",
-          "channel": "ITV 1",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/itv-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=itv+1&code=gb&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "World Cup Women : South Korea W vs Nigeria W",
-      "league": "Basketball",
-      "time": "13:50",
-      "timestamp": 1773319800000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "beIN SPORTS MAX 6 🇫🇷 France",
-          "channel": "beIN SPORTS MAX 6",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-6.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+6&code=fr&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "WRC Safari Rally Kenya | Special Stage 1 | Day 1",
-      "league": "Motorsport",
-      "time": "14:00",
-      "timestamp": 1773320400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "beIN SPORTS 1 🇺🇸 USA",
-          "channel": "beIN SPORTS 1",
+          "name": "ESPN 2 🇺🇸 USA",
+          "channel": "ESPN 2",
           "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=us&user=ntvstream&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "TBD vs Ohio State",
+      "league": "NCAA",
+      "time": "17:00",
+      "timestamp": 1773331200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "BTN 🇺🇸 USA",
+          "channel": "BTN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/btn.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=btn&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "CEV Cup Hague : Fenerbahce vs ACH Ljubljana",
+      "league": "Volleyball",
+      "time": "17:00",
+      "timestamp": 1773331200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sky Sport Arena 🇮🇹 Italy",
+          "channel": "Sky Sport Arena",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/sky-sport-arena.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+arena&code=it&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Paris-Nice | Stage 5 Men | Cormoranche-sur-Saône - Colombier-Le-Vieux (205.4km)",
+      "league": "Cycling",
+      "time": "15:10",
+      "timestamp": 1773324600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "beIN SPORTS 2 🇺🇸 USA",
+          "channel": "beIN SPORTS 2",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=us&user=ntvstream&plan=free"
         },
         {
-          "name": "TNT Sports 3 🇬🇧 UK",
-          "channel": "TNT Sports 3",
+          "name": "TNT Sports 2 🇬🇧 UK",
+          "channel": "TNT Sports 2",
           "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-3.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+3&code=gb&user=ntvstream&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=ntvstream&plan=free"
         },
         {
-          "name": "Sky Sport Mix 🇩🇪 Germany",
-          "channel": "Sky Sport Mix",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=ntvstream&plan=free"
+          "name": "TNT Sports 1 🇬🇧 UK",
+          "channel": "TNT Sports 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport 1 🇳🇿 New Zealand",
+          "channel": "Sky Sport 1",
+          "country": "🇳🇿 New Zealand",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+1&code=nz&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 3 🇧🇷 Brazil",
+          "channel": "ESPN 3",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=br&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "World Cup Women : Hungary W vs Canada W",
+      "league": "Basketball",
+      "time": "15:20",
+      "timestamp": 1773325200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TSN 3 🇨🇦 Canada",
+          "channel": "TSN 3",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS MAX 4 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 4",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-4.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "World Cup Women : Philippines W vs Germany W",
+      "league": "Basketball",
+      "time": "16:45",
+      "timestamp": 1773330300000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "beIN SPORTS MAX 5 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 5",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=ntvstream&plan=free"
         }
       ],
       "live": true
