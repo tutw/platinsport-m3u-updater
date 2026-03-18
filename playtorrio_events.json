@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-03-18T15:02:16.813647",
+  "generated_at": "2026-03-18T16:59:56.298960",
   "total_events": 32,
-  "live_events": 3,
+  "live_events": 4,
   "events": [
-    {
-      "title": "Alanyaspor vs Kocaelispor",
-      "league": "Super Lig",
-      "time": "14:00",
-      "timestamp": 1773838800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/6362.png",
-      "sources": [
-        {
-          "name": "Bein Sports 1 🇹🇷 Turkey",
-          "channel": "Bein Sports 1",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=tr&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Jadran vs Aluminij",
       "league": "Slovenian Youth League",
@@ -195,30 +178,6 @@
       "live": true
     },
     {
-      "title": "undefined vs undefined",
-      "league": "Cricket",
-      "time": "12:00",
-      "timestamp": 1773831600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Supersport Cricket 🇿🇦 South Africa",
-          "channel": "Supersport Cricket",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Supersport Grandstand 🇿🇦 South Africa",
-          "channel": "Supersport Grandstand",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-grandstand.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+grandstand&code=za&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
       "title": "Zenit vs Dynamo Makhachkala",
       "league": "Russian Cup",
       "time": "16:15",
@@ -240,7 +199,7 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+tv&code=ru&user=cdnlivetv&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Sporting Braga vs Ferencváros",
@@ -388,6 +347,47 @@
           "country": "🇭🇺 Hungary",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/hungary/m4-sport.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=m4+sports&code=hu&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "undefined vs undefined",
+      "league": "Cricket",
+      "time": "12:00",
+      "timestamp": 1773831600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Supersport Cricket 🇿🇦 South Africa",
+          "channel": "Supersport Cricket",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Supersport Grandstand 🇿🇦 South Africa",
+          "channel": "Supersport Grandstand",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-grandstand.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+grandstand&code=za&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Alanyaspor vs Kocaelispor",
+      "league": "Super Lig",
+      "time": "14:00",
+      "timestamp": 1773838800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/6362.png",
+      "sources": [
+        {
+          "name": "Bein Sports 1 🇹🇷 Turkey",
+          "channel": "Bein Sports 1",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-1.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=tr&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
