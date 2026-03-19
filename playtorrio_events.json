@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-19T17:55:07.335626",
-  "total_events": 58,
-  "live_events": 21,
+  "generated_at": "2026-03-19T18:58:19.213506",
+  "total_events": 57,
+  "live_events": 19,
   "events": [
     {
       "title": "undefined vs undefined",
@@ -156,54 +156,6 @@
           "country": "🇷🇸 Serbia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Krylya Sovetov vs Lokomotiv Moskva",
-      "league": "Russian Cup",
-      "time": "16:30",
-      "timestamp": 1773934200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/2322.png",
-      "sources": [
-        {
-          "name": "Match Premier 🇷🇺 Russia",
-          "channel": "Match Premier",
-          "country": "🇷🇺 Russia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-premier.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+premier&code=ru&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Match Tv 🇷🇺 Russia",
-          "channel": "Match Tv",
-          "country": "🇷🇺 Russia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-tv.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+tv&code=ru&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Spartak Varna vs Ludogorets",
-      "league": "Parva Liga",
-      "time": "17:00",
-      "timestamp": 1773936000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3278.png",
-      "sources": [
-        {
-          "name": "Diema Sport 1 🇧🇬 Bulgaria",
-          "channel": "Diema Sport 1",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Diema Sport 1 🇧🇬 Bulgaria",
-          "channel": "Diema Sport 1",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -1615,6 +1567,44 @@
       "live": true
     },
     {
+      "title": "Dinamo Bucureşti vs CSU Craiova",
+      "league": "Liga I",
+      "time": "19:30",
+      "timestamp": 1773945000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/116223.png",
+      "sources": [
+        {
+          "name": "Digi Sport 1 🇷🇴 Romania",
+          "channel": "Digi Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Prima Sport 1 🇷🇴 Romania",
+          "channel": "Prima Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Digi Sport 1 🇷🇴 Romania",
+          "channel": "Digi Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Prima Sport 1 🇷🇴 Romania",
+          "channel": "Prima Sport 1",
+          "country": "🇷🇴 Romania",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "undefined vs undefined",
       "league": "Cricket",
       "time": "12:00",
@@ -1656,25 +1646,42 @@
       "live": false
     },
     {
-      "title": "Dinamo Bucureşti vs CSU Craiova",
-      "league": "Liga I",
-      "time": "19:30",
-      "timestamp": 1773945000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/116223.png",
+      "title": "Krylya Sovetov vs Lokomotiv Moskva",
+      "league": "Russian Cup",
+      "time": "16:30",
+      "timestamp": 1773934200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/2322.png",
       "sources": [
         {
-          "name": "Digi Sport 1 🇷🇴 Romania",
-          "channel": "Digi Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/digi-sport-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=digi+sport+1&code=ro&user=cdnlivetv&plan=free"
+          "name": "Match Premier 🇷🇺 Russia",
+          "channel": "Match Premier",
+          "country": "🇷🇺 Russia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-premier.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+premier&code=ru&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Prima Sport 1 🇷🇴 Romania",
-          "channel": "Prima Sport 1",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/romania/prima-sport-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=prima+sport+1&code=ro&user=cdnlivetv&plan=free"
+          "name": "Match Tv 🇷🇺 Russia",
+          "channel": "Match Tv",
+          "country": "🇷🇺 Russia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-tv.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+tv&code=ru&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Spartak Varna vs Ludogorets",
+      "league": "Parva Liga",
+      "time": "17:00",
+      "timestamp": 1773936000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3278.png",
+      "sources": [
+        {
+          "name": "Diema Sport 1 🇧🇬 Bulgaria",
+          "channel": "Diema Sport 1",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
@@ -3070,6 +3077,23 @@
       "live": false
     },
     {
+      "title": "PGA Tour Golf Valspar Championship, First Round",
+      "league": "Golf",
+      "time": "19:00",
+      "timestamp": 1773943200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "GOLF TV 🇺🇸 USA",
+          "channel": "GOLF TV",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/golf-tv.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=golf+tv&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "South Florida vs Louisville",
       "league": "NCAA",
       "time": "18:30",
@@ -3116,40 +3140,6 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/cbs.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=cbs&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Greek Cup : OFI vs Panathinaikos",
-      "league": "Volleyball",
-      "time": "17:00",
-      "timestamp": 1773936000000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "M Liga de Campeones 2 🇪🇸 Spain",
-          "channel": "M Liga de Campeones 2",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+2&code=es&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Orlen Liga Women : Opole W vs Radom W",
-      "league": "Volleyball",
-      "time": "17:30",
-      "timestamp": 1773937800000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Polsat Sport 2 🇵🇱 Poland",
-          "channel": "Polsat Sport 2",
-          "country": "🇵🇱 Poland",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/polsat-sport-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=polsat+sport+2&code=pl&user=ntvstream&plan=free"
         }
       ],
       "live": true
