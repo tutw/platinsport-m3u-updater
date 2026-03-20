@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-20T17:35:27.633074",
+  "generated_at": "2026-03-20T18:50:39.628006",
   "total_events": 54,
   "live_events": 10,
   "events": [
@@ -156,47 +156,6 @@
           "country": "🇷🇸 Serbia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Slavia Sofia vs Botev Plovdiv",
-      "league": "Parva Liga",
-      "time": "17:00",
-      "timestamp": 1774022400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3274.png",
-      "sources": [
-        {
-          "name": "Diema Sport 1 🇧🇬 Bulgaria",
-          "channel": "Diema Sport 1",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport Klub 4 🇷🇸 Serbia",
-          "channel": "Sport Klub 4",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Auda vs Riga",
-      "league": "Virsliga",
-      "time": "17:00",
-      "timestamp": 1774022400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/5346.png",
-      "sources": [
-        {
-          "name": "M Liga De Campeones 4 🇪🇸 Spain",
-          "channel": "M Liga De Campeones 4",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-4.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+4&code=es&user=cdnlivetv&plan=free"
         }
       ],
       "live": true
@@ -594,6 +553,47 @@
       "live": true
     },
     {
+      "title": "Chaves vs União de Leiria",
+      "league": "Segunda liga",
+      "time": "19:00",
+      "timestamp": 1774029600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3025.png",
+      "sources": [
+        {
+          "name": "Tnt Sports 8 🇬🇧 UK",
+          "channel": "Tnt Sports 8",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Sturm Graz vs Salzburg",
+      "league": "Bundesliga",
+      "time": "19:30",
+      "timestamp": 1774031400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/2051.png",
+      "sources": [
+        {
+          "name": "Sky Sport 1 🇦🇹 Austria",
+          "channel": "Sky Sport 1",
+          "country": "🇦🇹 Austria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/austria/sky-sport-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+1&code=at&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport 5 Gold 🇮🇱 Israel",
+          "channel": "Sport 5 Gold",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-gold.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+gold&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "undefined vs undefined",
       "league": "Cricket",
       "time": "07:00",
@@ -698,42 +698,42 @@
       "live": false
     },
     {
-      "title": "Chaves vs União de Leiria",
-      "league": "Segunda liga",
-      "time": "19:00",
-      "timestamp": 1774029600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3025.png",
+      "title": "Slavia Sofia vs Botev Plovdiv",
+      "league": "Parva Liga",
+      "time": "17:00",
+      "timestamp": 1774022400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3274.png",
       "sources": [
         {
-          "name": "Tnt Sports 8 🇬🇧 UK",
-          "channel": "Tnt Sports 8",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=cdnlivetv&plan=free"
+          "name": "Diema Sport 1 🇧🇬 Bulgaria",
+          "channel": "Diema Sport 1",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport Klub 4 🇷🇸 Serbia",
+          "channel": "Sport Klub 4",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
     },
     {
-      "title": "Sturm Graz vs Salzburg",
-      "league": "Bundesliga",
-      "time": "19:30",
-      "timestamp": 1774031400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/2051.png",
+      "title": "Auda vs Riga",
+      "league": "Virsliga",
+      "time": "17:00",
+      "timestamp": 1774022400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/5346.png",
       "sources": [
         {
-          "name": "Sky Sport 1 🇦🇹 Austria",
-          "channel": "Sky Sport 1",
-          "country": "🇦🇹 Austria",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/austria/sky-sport-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+1&code=at&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport 5 Gold 🇮🇱 Israel",
-          "channel": "Sport 5 Gold",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-gold.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+gold&code=il&user=cdnlivetv&plan=free"
+          "name": "M Liga De Campeones 4 🇪🇸 Spain",
+          "channel": "M Liga De Campeones 4",
+          "country": "🇪🇸 Spain",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-4.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+4&code=es&user=cdnlivetv&plan=free"
         }
       ],
       "live": false

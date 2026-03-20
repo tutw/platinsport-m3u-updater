@@ -1,5 +1,5 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-03-20 17:35:27
+# PlayTorrio Sports Events - 2026-03-20 18:50:39
 # Total Events: 54
 # Live Events: 10
 
@@ -65,15 +65,6 @@ https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=cdnli
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp" group-title="Tennis",[16:00] Tennis - undefined vs undefined 🔴 - Sport Klub 4 🇷🇸 Serbia
 https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png" group-title="Parva Liga",[17:00] Parva Liga - Slavia Sofia vs Botev Plovdiv 🔴 - Diema Sport 1 🇧🇬 Bulgaria
-https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp" group-title="Parva Liga",[17:00] Parva Liga - Slavia Sofia vs Botev Plovdiv 🔴 - Sport Klub 4 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-4.webp" group-title="Virsliga",[17:00] Virsliga - Auda vs Riga 🔴
-https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+4&code=es&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-premier.svg" group-title="FNL",[17:30] FNL - Rotor Volgograd vs Fakel 🔴 - Match Premier 🇷🇺 Russia
 https://cdn-live.tv/api/v1/channels/player/?name=match+premier&code=ru&user=cdnlivetv&plan=free
@@ -213,6 +204,15 @@ https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+3&code=bg&user=cdnl
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/czech-republic/nova-sports-5.png" group-title="Bundesliga 2",[18:30] Bundesliga 2 - Karlsruher SC vs Greuther Fürth 🔴 - Nova Sport 5 🇨🇿 Czech Republic
 https://cdn-live.tv/api/v1/channels/player/?name=nova+sport+5&code=cz&user=cdnlivetv&plan=free
 
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png" group-title="Segunda liga",[19:00] Segunda liga - Chaves vs União de Leiria 🔴
+https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/austria/sky-sport-1.svg" group-title="Bundesliga",[19:30] Bundesliga - Sturm Graz vs Salzburg 🔴 - Sky Sport 1 🇦🇹 Austria
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+1&code=at&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-gold.png" group-title="Bundesliga",[19:30] Bundesliga - Sturm Graz vs Salzburg 🔴 - Sport 5 Gold 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+5+gold&code=il&user=cdnlivetv&plan=free
+
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png" group-title="Cricket",[07:00] Cricket - undefined vs undefined - Tnt Sports 2 🇬🇧 UK
 https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=cdnlivetv&plan=free
 
@@ -249,14 +249,14 @@ https://cdn-live.tv/api/v1/channels/player/?name=oneplay+sport+1&code=cz&user=cd
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp" group-title="MMA",[13:30] MMA - undefined vs undefined - Bein Sports 1 🇸🇦 Saudi Arabia
 https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png" group-title="Segunda liga",[19:00] Segunda liga - Chaves vs União de Leiria
-https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png" group-title="Parva Liga",[17:00] Parva Liga - Slavia Sofia vs Botev Plovdiv - Diema Sport 1 🇧🇬 Bulgaria
+https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/austria/sky-sport-1.svg" group-title="Bundesliga",[19:30] Bundesliga - Sturm Graz vs Salzburg - Sky Sport 1 🇦🇹 Austria
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+1&code=at&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp" group-title="Parva Liga",[17:00] Parva Liga - Slavia Sofia vs Botev Plovdiv - Sport Klub 4 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-gold.png" group-title="Bundesliga",[19:30] Bundesliga - Sturm Graz vs Salzburg - Sport 5 Gold 🇮🇱 Israel
-https://cdn-live.tv/api/v1/channels/player/?name=sport+5+gold&code=il&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-4.webp" group-title="Virsliga",[17:00] Virsliga - Auda vs Riga
+https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+4&code=es&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-6.svg" group-title="Ligue 2",[19:55] Ligue 2 - Boulogne-sur-mer vs Nancy
 https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+6&code=fr&user=cdnlivetv&plan=free
