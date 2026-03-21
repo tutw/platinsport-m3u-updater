@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-03-21T05:40:35.215654",
+  "generated_at": "2026-03-21T06:42:36.928225",
   "total_events": 54,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Mazatlán vs Cruz Azul",
-      "league": "Liga MX",
-      "time": "04:06",
-      "timestamp": 1774062360000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/262432.png",
-      "sources": [
-        {
-          "name": "Tudn 🇺🇸 USA",
-          "channel": "Tudn",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "undefined vs undefined",
       "league": "Cricket",
@@ -2219,6 +2202,23 @@
           "country": "🇩🇪 Germany",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Mazatlán vs Cruz Azul",
+      "league": "Liga MX",
+      "time": "04:06",
+      "timestamp": 1774062360000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/262432.png",
+      "sources": [
+        {
+          "name": "Tudn 🇺🇸 USA",
+          "channel": "Tudn",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tudn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tudn&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
