@@ -1,39 +1,8 @@
 {
-  "generated_at": "2026-03-21T04:09:15.628485",
+  "generated_at": "2026-03-21T05:40:35.215654",
   "total_events": 54,
-  "live_events": 2,
+  "live_events": 1,
   "events": [
-    {
-      "title": "Anaheim Ducks vs Utah Mammoth",
-      "league": "NHL",
-      "time": "03:00",
-      "timestamp": 1774058400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3675.png",
-      "sources": [
-        {
-          "name": "Tnt Sports 8 🇬🇧 UK",
-          "channel": "Tnt Sports 8",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sky Sport Mix 🇩🇪 Germany",
-          "channel": "Sky Sport Mix",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sky Sport Top Event 🇩🇪 Germany",
-          "channel": "Sky Sport Top Event",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Mazatlán vs Cruz Azul",
       "league": "Liga MX",
@@ -2219,6 +2188,37 @@
           "country": "🇨🇦 Canada",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-west.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Anaheim Ducks vs Utah Mammoth",
+      "league": "NHL",
+      "time": "03:00",
+      "timestamp": 1774058400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3675.png",
+      "sources": [
+        {
+          "name": "Tnt Sports 8 🇬🇧 UK",
+          "channel": "Tnt Sports 8",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sky Sport Mix 🇩🇪 Germany",
+          "channel": "Sky Sport Mix",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sky Sport Top Event 🇩🇪 Germany",
+          "channel": "Sky Sport Top Event",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
