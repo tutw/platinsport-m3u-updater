@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-21T10:26:38.260528",
+  "generated_at": "2026-03-21T11:22:50.586856",
   "total_events": 102,
-  "live_events": 3,
+  "live_events": 8,
   "events": [
     {
       "title": "Boluspor vs Bandırmaspor",
@@ -16,9 +16,16 @@
           "country": "🇹🇷 Turkey",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TRT Spor 🇹🇷 Turkey",
+          "channel": "TRT Spor",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Serik Belediyespor vs Sakaryaspor",
@@ -40,9 +47,23 @@
           "country": "🇹🇷 Turkey",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TNT Sports 7 🇬🇧 UK",
+          "channel": "TNT Sports 7",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS 2 🇹🇷 Turkey",
+          "channel": "beIN SPORTS 2",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Septemvri Sofia vs Arda",
@@ -64,9 +85,23 @@
           "country": "🇷🇸 Serbia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Diema Sport 1 🇧🇬 Bulgaria",
+          "channel": "Diema Sport 1",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport Klub 4 🇷🇸 Serbia",
+          "channel": "Sport Klub 4",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Lusitania FC Lourosa vs Academico Viseu",
@@ -81,9 +116,16 @@
           "country": "🇵🇹 Portugal",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport TV 1 🇵🇹 Portugal",
+          "channel": "Sport TV 1",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "undefined vs undefined",
@@ -100,7 +142,7 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Elversberg vs Arminia Bielefeld",
@@ -4550,6 +4592,23 @@
       "live": false
     },
     {
+      "title": "1-Day Cup '26: Boland vs Lions",
+      "league": "Cricket",
+      "time": "12:00",
+      "timestamp": 1774090800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "SuperSport Cricket 🇿🇦 South Africa",
+          "channel": "SuperSport Cricket",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "LIV Golf South Africa | Day 3",
       "league": "Golf",
       "time": "10:30",
@@ -4576,37 +4635,6 @@
           "country": "🇪🇸 Spain",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-golf.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=movistar+golf&code=es&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Milano-Sanremo Men | Pavia – Sanremo (298km)",
-      "league": "Cycling",
-      "time": "10:00",
-      "timestamp": 1774083600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Euro Sport 2 🇬🇧 UK",
-          "channel": "Euro Sport 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/euro-sport-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+2&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Euro Sport 2 🇪🇸 Spain",
-          "channel": "Euro Sport 2",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/euro-sport-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+2&code=es&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Euro Sport 2 🇮🇹 Italy",
-          "channel": "Euro Sport 2",
-          "country": "🇮🇹 Italy",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/euro-sport-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+2&code=it&user=ntvstream&plan=free"
         }
       ],
       "live": true

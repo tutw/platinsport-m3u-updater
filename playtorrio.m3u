@@ -1,16 +1,7 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-03-21 10:26:38
+# PlayTorrio Sports Events - 2026-03-21 11:22:50
 # Total Events: 102
-# Live Events: 3
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/euro-sport-2.png" group-title="Cycling",[10:00] Cycling - Milano-Sanremo Men | Pavia – Sanremo (298km) 🔴 - Euro Sport 2 🇬🇧 UK
-https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+2&code=gb&user=ntvstream&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/euro-sport-2.png" group-title="Cycling",[10:00] Cycling - Milano-Sanremo Men | Pavia – Sanremo (298km) 🔴 - Euro Sport 2 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+2&code=es&user=ntvstream&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/italy/euro-sport-2.png" group-title="Cycling",[10:00] Cycling - Milano-Sanremo Men | Pavia – Sanremo (298km) 🔴 - Euro Sport 2 🇮🇹 Italy
-https://cdn-live.tv/api/v1/channels/player/?name=euro+sport+2&code=it&user=ntvstream&plan=free
+# Live Events: 8
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox.png" group-title="Golf",[10:30] Golf - LIV Golf South Africa | Day 3 🔴 - FOX 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=fox&code=us&user=ntvstream&plan=free
@@ -30,26 +21,47 @@ https://cdn-live.tv/api/v1/channels/player/?name=supersport+motorsport&code=za&u
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-3.png" group-title="Motorsport",[10:40] Motorsport - Formula E - Jarama Circuit Qualifying 🔴 - Ziggo Sport 3 🇳🇱 Netherlands
 https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+3&code=nl&user=ntvstream&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg" group-title="1. Lig",[11:30] 1. Lig - Boluspor vs Bandırmaspor
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg" group-title="1. Lig",[11:30] 1. Lig - Boluspor vs Bandırmaspor 🔴 - Trt Spor 🇹🇷 Turkey
 https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png" group-title="1. Lig",[11:30] 1. Lig - Serik Belediyespor vs Sakaryaspor - Tnt Sports 7 🇬🇧 UK
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg" group-title="1. Lig",[11:30] 1. Lig - Boluspor vs Bandırmaspor 🔴 - TRT Spor 🇹🇷 Turkey
+https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png" group-title="1. Lig",[11:30] 1. Lig - Serik Belediyespor vs Sakaryaspor 🔴 - Tnt Sports 7 🇬🇧 UK
 https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg" group-title="1. Lig",[11:30] 1. Lig - Serik Belediyespor vs Sakaryaspor - Bein Sports 2 🇹🇷 Turkey
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg" group-title="1. Lig",[11:30] 1. Lig - Serik Belediyespor vs Sakaryaspor 🔴 - Bein Sports 2 🇹🇷 Turkey
 https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png" group-title="Parva Liga",[11:30] Parva Liga - Septemvri Sofia vs Arda - Diema Sport 1 🇧🇬 Bulgaria
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png" group-title="1. Lig",[11:30] 1. Lig - Serik Belediyespor vs Sakaryaspor 🔴 - TNT Sports 7 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-2.svg" group-title="1. Lig",[11:30] 1. Lig - Serik Belediyespor vs Sakaryaspor 🔴 - beIN SPORTS 2 🇹🇷 Turkey
+https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=tr&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png" group-title="Parva Liga",[11:30] Parva Liga - Septemvri Sofia vs Arda 🔴 - Diema Sport 1 🇧🇬 Bulgaria
 https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp" group-title="Parva Liga",[11:30] Parva Liga - Septemvri Sofia vs Arda - Sport Klub 4 🇷🇸 Serbia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp" group-title="Parva Liga",[11:30] Parva Liga - Septemvri Sofia vs Arda 🔴 - Sport Klub 4 🇷🇸 Serbia
 https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="Segunda liga",[12:00] Segunda liga - Lusitania FC Lourosa vs Academico Viseu
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png" group-title="Parva Liga",[11:30] Parva Liga - Septemvri Sofia vs Arda 🔴 - Diema Sport 1 🇧🇬 Bulgaria
+https://cdn-live.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp" group-title="Parva Liga",[11:30] Parva Liga - Septemvri Sofia vs Arda 🔴 - Sport Klub 4 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="Segunda liga",[12:00] Segunda liga - Lusitania FC Lourosa vs Academico Viseu 🔴 - Sport Tv 1 🇵🇹 Portugal
 https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp" group-title="Cricket",[12:00] Cricket - undefined vs undefined
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="Segunda liga",[12:00] Segunda liga - Lusitania FC Lourosa vs Academico Viseu 🔴 - Sport TV 1 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp" group-title="Cricket",[12:00] Cricket - undefined vs undefined 🔴
 https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp" group-title="Cricket",[12:00] Cricket - 1-Day Cup '26: Boland vs Lions 🔴
+https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-3.svg" group-title="Bundesliga 2",[13:00] Bundesliga 2 - Elversberg vs Arminia Bielefeld - Bein Sports 3 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=us&user=cdnlivetv&plan=free
