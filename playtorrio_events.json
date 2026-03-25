@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-25T21:38:46.843426",
+  "generated_at": "2026-03-25T22:35:18.656517",
   "total_events": 18,
-  "live_events": 1,
+  "live_events": 2,
   "events": [
     {
       "title": "undefined vs undefined",
@@ -16,6 +16,30 @@
           "country": "🇨🇦 Canada",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Deportivo Riestra vs San Lorenzo",
+      "league": "Primera División",
+      "time": "23:00",
+      "timestamp": 1774476000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/189723.png",
+      "sources": [
+        {
+          "name": "Espn Premium 🇦🇷 Argentina",
+          "channel": "Espn Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "ESPN Premium 🇦🇷 Argentina",
+          "channel": "ESPN Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -252,23 +276,6 @@
           "country": "🇨🇦 Canada",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Deportivo Riestra vs San Lorenzo",
-      "league": "Primera División",
-      "time": "23:00",
-      "timestamp": 1774476000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/189723.png",
-      "sources": [
-        {
-          "name": "Espn Premium 🇦🇷 Argentina",
-          "channel": "Espn Premium",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
         }
       ],
       "live": false

@@ -1,10 +1,16 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-03-25 21:38:46
+# PlayTorrio Sports Events - 2026-03-25 22:35:18
 # Total Events: 18
-# Live Events: 1
+# Live Events: 2
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg" group-title="Tennis",[20:00] Tennis - undefined vs undefined 🔴
 https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg" group-title="Primera División",[23:00] Primera División - Deportivo Riestra vs San Lorenzo 🔴 - Espn Premium 🇦🇷 Argentina
+https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg" group-title="Primera División",[23:00] Primera División - Deportivo Riestra vs San Lorenzo 🔴 - ESPN Premium 🇦🇷 Argentina
+https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png" group-title="Cricket",[07:00] Cricket - undefined vs undefined - Tnt Sports 1 🇬🇧 UK
 https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=cdnlivetv&plan=free
@@ -89,9 +95,6 @@ https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnli
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg" group-title="Tennis",[18:00] Tennis - undefined vs undefined
 https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg" group-title="Primera División",[23:00] Primera División - Deportivo Riestra vs San Lorenzo
-https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg" group-title="NBA",[00:00] NBA - Detroit Pistons vs Atlanta Hawks - Espn 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free
