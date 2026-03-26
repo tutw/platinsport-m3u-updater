@@ -1,39 +1,8 @@
 {
-  "generated_at": "2026-03-26T05:05:46.766144",
+  "generated_at": "2026-03-26T07:08:26.035442",
   "total_events": 18,
-  "live_events": 1,
+  "live_events": 0,
   "events": [
-    {
-      "title": "Los Angeles Clippers vs Toronto Raptors",
-      "league": "NBA",
-      "time": "03:30",
-      "timestamp": 1774492200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3425.png",
-      "sources": [
-        {
-          "name": "Tsn 1 🇨🇦 Canada",
-          "channel": "Tsn 1",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+1&code=ca&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 4 🇨🇦 Canada",
-          "channel": "Tsn 4",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-4.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 5 🇨🇦 Canada",
-          "channel": "Tsn 5",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "undefined vs undefined",
       "league": "Cricket",
@@ -739,6 +708,37 @@
           "country": "🇮🇱 Israel",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Los Angeles Clippers vs Toronto Raptors",
+      "league": "NBA",
+      "time": "03:30",
+      "timestamp": 1774492200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3425.png",
+      "sources": [
+        {
+          "name": "Tsn 1 🇨🇦 Canada",
+          "channel": "Tsn 1",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+1&code=ca&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 4 🇨🇦 Canada",
+          "channel": "Tsn 4",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-4.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 5 🇨🇦 Canada",
+          "channel": "Tsn 5",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
