@@ -1,42 +1,8 @@
 {
-  "generated_at": "2026-03-28T15:31:11.027281",
+  "generated_at": "2026-03-28T16:35:23.883124",
   "total_events": 33,
-  "live_events": 5,
+  "live_events": 4,
   "events": [
-    {
-      "title": "Ceuta vs Cádiz",
-      "league": "Segunda Division",
-      "time": "14:00",
-      "timestamp": 1774702800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/4488.png",
-      "sources": [
-        {
-          "name": "Laliga Tv Hypermotion 1 🇪🇸 Spain",
-          "channel": "Laliga Tv Hypermotion 1",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "undefined vs undefined",
-      "league": "MMA",
-      "time": "14:00",
-      "timestamp": 1774702800000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Italia 1 🇮🇹 Italy",
-          "channel": "Italia 1",
-          "country": "🇮🇹 Italy",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/italia-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=italia+1&code=it&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "undefined vs undefined",
       "league": "Cricket",
@@ -279,23 +245,6 @@
     },
     {
       "title": "undefined vs undefined",
-      "league": "Cricket",
-      "time": "10:30",
-      "timestamp": 1774690200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Willow 2 Cricket 🇺🇸 USA",
-          "channel": "Willow 2 Cricket",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "undefined vs undefined",
       "league": "MMA",
       "time": "17:30",
       "timestamp": 1774715400000,
@@ -314,6 +263,57 @@
           "country": "🇪🇸 Spain",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-deportes-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=movistar+deportes+1&code=es&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "undefined vs undefined",
+      "league": "Cricket",
+      "time": "10:30",
+      "timestamp": 1774690200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow 2 Cricket 🇺🇸 USA",
+          "channel": "Willow 2 Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Ceuta vs Cádiz",
+      "league": "Segunda Division",
+      "time": "14:00",
+      "timestamp": 1774702800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/4488.png",
+      "sources": [
+        {
+          "name": "Laliga Tv Hypermotion 1 🇪🇸 Spain",
+          "channel": "Laliga Tv Hypermotion 1",
+          "country": "🇪🇸 Spain",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "undefined vs undefined",
+      "league": "MMA",
+      "time": "14:00",
+      "timestamp": 1774702800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Italia 1 🇮🇹 Italy",
+          "channel": "Italia 1",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/italia-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=italia+1&code=it&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
