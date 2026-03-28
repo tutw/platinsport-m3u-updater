@@ -1,25 +1,8 @@
 {
-  "generated_at": "2026-03-28T12:55:53.674749",
+  "generated_at": "2026-03-28T13:52:19.338952",
   "total_events": 33,
-  "live_events": 1,
+  "live_events": 2,
   "events": [
-    {
-      "title": "undefined vs undefined",
-      "league": "Cricket",
-      "time": "10:30",
-      "timestamp": 1774690200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Willow 2 Cricket 🇺🇸 USA",
-          "channel": "Willow 2 Cricket",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Ceuta vs Cádiz",
       "league": "Segunda Division",
@@ -35,7 +18,7 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "undefined vs undefined",
@@ -50,6 +33,23 @@
           "country": "🇮🇹 Italy",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/italia-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=italia+1&code=it&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "undefined vs undefined",
+      "league": "Cricket",
+      "time": "10:30",
+      "timestamp": 1774690200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow 2 Cricket 🇺🇸 USA",
+          "channel": "Willow 2 Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
