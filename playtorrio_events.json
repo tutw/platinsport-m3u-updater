@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-28T14:32:25.178138",
+  "generated_at": "2026-03-28T15:31:11.027281",
   "total_events": 33,
-  "live_events": 3,
+  "live_events": 5,
   "events": [
     {
       "title": "Ceuta vs Cádiz",
@@ -102,23 +102,6 @@
         }
       ],
       "live": true
-    },
-    {
-      "title": "undefined vs undefined",
-      "league": "Cricket",
-      "time": "10:30",
-      "timestamp": 1774690200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Willow 2 Cricket 🇺🇸 USA",
-          "channel": "Willow 2 Cricket",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
     },
     {
       "title": "undefined vs undefined",
@@ -275,7 +258,7 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Real Valladolid vs Burgos",
@@ -290,6 +273,23 @@
           "country": "🇪🇸 Spain",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "undefined vs undefined",
+      "league": "Cricket",
+      "time": "10:30",
+      "timestamp": 1774690200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow 2 Cricket 🇺🇸 USA",
+          "channel": "Willow 2 Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
