@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-28T13:52:19.338952",
+  "generated_at": "2026-03-28T14:32:25.178138",
   "total_events": 33,
-  "live_events": 2,
+  "live_events": 3,
   "events": [
     {
       "title": "Ceuta vs Cádiz",
@@ -36,23 +36,6 @@
         }
       ],
       "live": true
-    },
-    {
-      "title": "undefined vs undefined",
-      "league": "Cricket",
-      "time": "10:30",
-      "timestamp": 1774690200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Willow 2 Cricket 🇺🇸 USA",
-          "channel": "Willow 2 Cricket",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
     },
     {
       "title": "undefined vs undefined",
@@ -116,6 +99,23 @@
           "country": "🇿🇦 South Africa",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "undefined vs undefined",
+      "league": "Cricket",
+      "time": "10:30",
+      "timestamp": 1774690200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow 2 Cricket 🇺🇸 USA",
+          "channel": "Willow 2 Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
