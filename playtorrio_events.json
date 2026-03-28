@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-28T16:35:23.883124",
+  "generated_at": "2026-03-28T17:29:46.891385",
   "total_events": 33,
-  "live_events": 4,
+  "live_events": 6,
   "events": [
     {
       "title": "undefined vs undefined",
@@ -268,6 +268,68 @@
       "live": true
     },
     {
+      "title": "Ottawa Senators vs Tampa Bay Lightning",
+      "league": "NHL",
+      "time": "18:00",
+      "timestamp": 1774717200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3700.png",
+      "sources": [
+        {
+          "name": "Tsn 5 🇨🇦 Canada",
+          "channel": "Tsn 5",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Florida Panthers vs New York Islanders",
+      "league": "NHL",
+      "time": "18:00",
+      "timestamp": 1774717200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3687.png",
+      "sources": [
+        {
+          "name": "Sportsnet 360 🇨🇦 Canada",
+          "channel": "Sportsnet 360",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-360.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+360&code=ca&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Bein Sports Max 4 🇫🇷 France",
+          "channel": "Bein Sports Max 4",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-4.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport Tv 6 🇵🇹 Portugal",
+          "channel": "Sport Tv 6",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-6.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+6&code=pt&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Arena Sport 3 🇷🇸 Serbia",
+          "channel": "Arena Sport 3",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-3.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+3&code=rs&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport 5 Gold 🇮🇱 Israel",
+          "channel": "Sport 5 Gold",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-gold.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+gold&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "undefined vs undefined",
       "league": "Cricket",
       "time": "10:30",
@@ -314,68 +376,6 @@
           "country": "🇮🇹 Italy",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/italy/italia-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=italia+1&code=it&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Ottawa Senators vs Tampa Bay Lightning",
-      "league": "NHL",
-      "time": "18:00",
-      "timestamp": 1774717200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3700.png",
-      "sources": [
-        {
-          "name": "Tsn 5 🇨🇦 Canada",
-          "channel": "Tsn 5",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Florida Panthers vs New York Islanders",
-      "league": "NHL",
-      "time": "18:00",
-      "timestamp": 1774717200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3687.png",
-      "sources": [
-        {
-          "name": "Sportsnet 360 🇨🇦 Canada",
-          "channel": "Sportsnet 360",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-360.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+360&code=ca&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports Max 4 🇫🇷 France",
-          "channel": "Bein Sports Max 4",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-4.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport Tv 6 🇵🇹 Portugal",
-          "channel": "Sport Tv 6",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-6.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+6&code=pt&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Arena Sport 3 🇷🇸 Serbia",
-          "channel": "Arena Sport 3",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-3.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+3&code=rs&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport 5 Gold 🇮🇱 Israel",
-          "channel": "Sport 5 Gold",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-gold.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+gold&code=il&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
