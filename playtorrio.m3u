@@ -1,13 +1,7 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-03-30 15:02:44
+# PlayTorrio Sports Events - 2026-03-30 16:55:42
 # Total Events: 21
-# Live Events: 7
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-live.png" group-title="Liga Leumit",[15:30] Liga Leumit - Maccabi Herzliya vs Hapoel Hadera 🔴
-https://cdn-live.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png" group-title="Liga Leumit",[15:30] Liga Leumit - Hapoel Rishon LeZion vs Kafr Qasim 🔴
-https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free
+# Live Events: 5
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg" group-title="Cricket",[16:00] Cricket - undefined vs undefined 🔴 - Willow Cricket 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=cdnlivetv&plan=free
@@ -32,12 +26,6 @@ https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+1&code=nz&user=cdnliv
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp" group-title="Cricket",[16:00] Cricket - undefined vs undefined 🔴 - Supersport Cricket 🇿🇦 South Africa
 https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-soccer-plus.svg" group-title="Friendly",[17:00] Friendly - Azerbaijan vs Sierra Leone *FIFA Series 🔴 - Fox Soccer Plus 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=fox+soccer+plus&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp" group-title="Friendly",[17:00] Friendly - Azerbaijan vs Sierra Leone *FIFA Series 🔴 - Sport Klub 3 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tennis-channel.png" group-title="Tennis",[17:00] Tennis - undefined vs undefined 🔴 - Tennis Channel 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=tennis+channel&code=us&user=cdnlivetv&plan=free
@@ -147,8 +135,20 @@ https://cdn-live.tv/api/v1/channels/player/?name=tve+la+1&code=es&user=cdnlivetv
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/egypt/on-time-sport.webp" group-title="Friendly",[18:00] Friendly - Spain vs Egypt 🔴 - On Time Sports 🇪🇬 Egypt
 https://cdn-live.tv/api/v1/channels/player/?name=on+time+sports&code=eg&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-premier.svg" group-title="FNL",[18:30] FNL - Torpedo Moskva vs SKA Khabarovsk
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-premier.svg" group-title="FNL",[18:30] FNL - Torpedo Moskva vs SKA Khabarovsk 🔴
 https://cdn-live.tv/api/v1/channels/player/?name=match+premier&code=ru&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-live.png" group-title="Liga Leumit",[15:30] Liga Leumit - Maccabi Herzliya vs Hapoel Hadera
+https://cdn-live.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png" group-title="Liga Leumit",[15:30] Liga Leumit - Hapoel Rishon LeZion vs Kafr Qasim
+https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-soccer-plus.svg" group-title="Friendly",[17:00] Friendly - Azerbaijan vs Sierra Leone *FIFA Series - Fox Soccer Plus 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=fox+soccer+plus&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp" group-title="Friendly",[17:00] Friendly - Azerbaijan vs Sierra Leone *FIFA Series - Sport Klub 3 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/italy/rai-sport.webp" group-title="Serie C",[20:30] Serie C - Arezzo vs Ascoli
 https://cdn-live.tv/api/v1/channels/player/?name=rai+sport&code=it&user=cdnlivetv&plan=free

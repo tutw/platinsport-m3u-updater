@@ -1,42 +1,8 @@
 {
-  "generated_at": "2026-03-30T15:02:44.618924",
+  "generated_at": "2026-03-30T16:55:42.058799",
   "total_events": 21,
-  "live_events": 7,
+  "live_events": 5,
   "events": [
-    {
-      "title": "Maccabi Herzliya vs Hapoel Hadera",
-      "league": "Liga Leumit",
-      "time": "15:30",
-      "timestamp": 1774877400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/7478.png",
-      "sources": [
-        {
-          "name": "Sport 5 Live 🇮🇱 Israel",
-          "channel": "Sport 5 Live",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-live.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Hapoel Rishon LeZion vs Kafr Qasim",
-      "league": "Liga Leumit",
-      "time": "15:30",
-      "timestamp": 1774877400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/5394.png",
-      "sources": [
-        {
-          "name": "Sport 5 Stars 🇮🇱 Israel",
-          "channel": "Sport 5 Stars",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "undefined vs undefined",
       "league": "Cricket",
@@ -99,30 +65,6 @@
           "country": "🇿🇦 South Africa",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Azerbaijan vs Sierra Leone *FIFA Series",
-      "league": "Friendly",
-      "time": "17:00",
-      "timestamp": 1774882800000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Fox Soccer Plus 🇺🇸 USA",
-          "channel": "Fox Soccer Plus",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-soccer-plus.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+soccer+plus&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sport Klub 3 🇷🇸 Serbia",
-          "channel": "Sport Klub 3",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free"
         }
       ],
       "live": true
@@ -422,6 +364,64 @@
           "country": "🇷🇺 Russia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-premier.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+premier&code=ru&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Maccabi Herzliya vs Hapoel Hadera",
+      "league": "Liga Leumit",
+      "time": "15:30",
+      "timestamp": 1774877400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/7478.png",
+      "sources": [
+        {
+          "name": "Sport 5 Live 🇮🇱 Israel",
+          "channel": "Sport 5 Live",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-live.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Hapoel Rishon LeZion vs Kafr Qasim",
+      "league": "Liga Leumit",
+      "time": "15:30",
+      "timestamp": 1774877400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/5394.png",
+      "sources": [
+        {
+          "name": "Sport 5 Stars 🇮🇱 Israel",
+          "channel": "Sport 5 Stars",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Azerbaijan vs Sierra Leone *FIFA Series",
+      "league": "Friendly",
+      "time": "17:00",
+      "timestamp": 1774882800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Fox Soccer Plus 🇺🇸 USA",
+          "channel": "Fox Soccer Plus",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-soccer-plus.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+soccer+plus&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport Klub 3 🇷🇸 Serbia",
+          "channel": "Sport Klub 3",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
