@@ -1,21 +1,38 @@
 {
-  "generated_at": "2026-03-30T23:34:37.820235",
+  "generated_at": "2026-03-31T02:24:06.414018",
   "total_events": 24,
-  "live_events": 7,
+  "live_events": 6,
   "events": [
     {
-      "title": "Miami Heat vs Philadelphia 76ers",
+      "title": "Utah Jazz vs Cleveland Cavaliers",
       "league": "NBA",
-      "time": "01:00",
-      "timestamp": 1774911600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3435.png",
+      "time": "03:00",
+      "timestamp": 1774918800000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3434.png",
       "sources": [
         {
-          "name": "Nba League Pass 1 🇺🇸 USA",
-          "channel": "Nba League Pass 1",
+          "name": "Nba League Pass 6 🇺🇸 USA",
+          "channel": "Nba League Pass 6",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=cdnlivetv&plan=free"
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+6&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Oklahoma City Thunder vs Detroit Pistons",
+      "league": "NBA",
+      "time": "03:30",
+      "timestamp": 1774920600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3418.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 7 🇺🇸 USA",
+          "channel": "Nba League Pass 7",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+7&code=us&user=cdnlivetv&plan=free"
         },
         {
           "name": "Bein Sports Mena 1 🇺🇸 USA",
@@ -46,6 +63,20 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+action&code=za&user=cdnlivetv&plan=free"
         },
         {
+          "name": "Bein Sports 2 🇫🇷 France",
+          "channel": "Bein Sports 2",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=fr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sky Sport Mix 🇩🇪 Germany",
+          "channel": "Sky Sport Mix",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free"
+        },
+        {
           "name": "Sky Sport Top Event 🇩🇪 Germany",
           "channel": "Sky Sport Top Event",
           "country": "🇩🇪 Germany",
@@ -53,11 +84,32 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Sport Klub 1 🇷🇸 Serbia",
-          "channel": "Sport Klub 1",
+          "name": "Sport Tv 3 🇵🇹 Portugal",
+          "channel": "Sport Tv 3",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+3&code=pt&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Espn 🇳🇱 Netherlands",
+          "channel": "Espn",
+          "country": "🇳🇱 Netherlands",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Cosmote Sport 4 🇬🇷 Greece",
+          "channel": "Cosmote Sport 4",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Arena 1 Premium 🇷🇸 Serbia",
+          "channel": "Arena 1 Premium",
           "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free"
         },
         {
           "name": "Espn 2 🇧🇷 Brazil",
@@ -91,173 +143,90 @@
       "live": true
     },
     {
-      "title": "Pittsburgh Penguins vs New York Islanders",
-      "league": "NHL",
-      "time": "01:00",
-      "timestamp": 1774911600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3697.png",
+      "title": "Los Angeles Lakers vs Washington Wizards",
+      "league": "NBA",
+      "time": "04:00",
+      "timestamp": 1774922400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3427.png",
       "sources": [
         {
-          "name": "Nhl League Pass 1 🇺🇸 USA",
-          "channel": "Nhl League Pass 1",
+          "name": "Nba League Pass 8 🇺🇸 USA",
+          "channel": "Nba League Pass 8",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+8&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport Klub 1 🇷🇸 Serbia",
+          "channel": "Sport Klub 1",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Vancouver Canucks vs Vegas Golden Knights",
+      "league": "NHL",
+      "time": "04:00",
+      "timestamp": 1774922400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3692.png",
+      "sources": [
+        {
+          "name": "Nhl League Pass 3 🇺🇸 USA",
+          "channel": "Nhl League Pass 3",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+1&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Nhl Network 🇺🇸 USA",
-          "channel": "Nhl Network",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-network.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+network&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Viaplay Sports 2 🇬🇧 UK",
-          "channel": "Viaplay Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports 3 🇫🇷 France",
-          "channel": "Bein Sports 3",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=fr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sky Sport Mix 🇩🇪 Germany",
-          "channel": "Sky Sport Mix",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tv3 Sport 🇩🇰 Denmark",
-          "channel": "Tv3 Sport",
-          "country": "🇩🇰 Denmark",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-sport.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+sport&code=dk&user=cdnlivetv&plan=free"
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+3&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "Atlanta Hawks vs Boston Celtics",
-      "league": "NBA",
-      "time": "01:30",
-      "timestamp": 1774913400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3423.png",
+      "title": "Toronto Maple Leafs vs Anaheim Ducks",
+      "league": "NHL",
+      "time": "04:00",
+      "timestamp": 1774922400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3693.png",
       "sources": [
         {
-          "name": "Nba League Pass 2 🇺🇸 USA",
-          "channel": "Nba League Pass 2",
+          "name": "Nhl League Pass 4 🇺🇸 USA",
+          "channel": "Nhl League Pass 4",
           "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=cdnlivetv&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+4&code=us&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Bein Sports 1 🇫🇷 France",
-          "channel": "Bein Sports 1",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-1.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Memphis Grizzlies vs Phoenix Suns",
-      "league": "NBA",
-      "time": "02:00",
-      "timestamp": 1774915200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3415.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 3 🇺🇸 USA",
-          "channel": "Nba League Pass 3",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "San Antonio Spurs vs Chicago Bulls",
-      "league": "NBA",
-      "time": "02:00",
-      "timestamp": 1774915200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3429.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 4 🇺🇸 USA",
-          "channel": "Nba League Pass 4",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Espn 🇲🇽 Mexico",
-          "channel": "Espn",
-          "country": "🇲🇽 Mexico",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=mx&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Dallas Mavericks vs Minnesota Timberwolves",
-      "league": "NBA",
-      "time": "02:30",
-      "timestamp": 1774917000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3411.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 5 🇺🇸 USA",
-          "channel": "Nba League Pass 5",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+5&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 2 🇨🇦 Canada",
-          "channel": "Tsn 2",
+          "name": "Sportsnet Ontario 🇨🇦 Canada",
+          "channel": "Sportsnet Ontario",
           "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+2&code=ca&user=cdnlivetv&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Bein Sports Max 5 🇫🇷 France",
+          "channel": "Bein Sports Max 5",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=cdnlivetv&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "Calgary Flames vs Colorado Avalanche",
+      "title": "St. Louis Blues vs San Jose Sharks",
       "league": "NHL",
-      "time": "02:30",
-      "timestamp": 1774917000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3679.png",
+      "time": "04:00",
+      "timestamp": 1774922400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3695.png",
       "sources": [
         {
-          "name": "Nhl League Pass 2 🇺🇸 USA",
-          "channel": "Nhl League Pass 2",
+          "name": "Nhl League Pass 5 🇺🇸 USA",
+          "channel": "Nhl League Pass 5",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+2&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Viaplay Sports 1 🇬🇧 UK",
-          "channel": "Viaplay Sports 1",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tv3 Puls 🇩🇰 Denmark",
-          "channel": "Tv3 Puls",
-          "country": "🇩🇰 Denmark",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-plus.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+puls&code=dk&user=cdnlivetv&plan=free"
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+5&code=us&user=cdnlivetv&plan=free"
         }
       ],
       "live": true
@@ -863,35 +832,18 @@
       "live": false
     },
     {
-      "title": "Utah Jazz vs Cleveland Cavaliers",
+      "title": "Miami Heat vs Philadelphia 76ers",
       "league": "NBA",
-      "time": "03:00",
-      "timestamp": 1774918800000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3434.png",
+      "time": "01:00",
+      "timestamp": 1774911600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3435.png",
       "sources": [
         {
-          "name": "Nba League Pass 6 🇺🇸 USA",
-          "channel": "Nba League Pass 6",
+          "name": "Nba League Pass 1 🇺🇸 USA",
+          "channel": "Nba League Pass 1",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+6&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Oklahoma City Thunder vs Detroit Pistons",
-      "league": "NBA",
-      "time": "03:30",
-      "timestamp": 1774920600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3418.png",
-      "sources": [
-        {
-          "name": "Nba League Pass 7 🇺🇸 USA",
-          "channel": "Nba League Pass 7",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+7&code=us&user=cdnlivetv&plan=free"
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=cdnlivetv&plan=free"
         },
         {
           "name": "Bein Sports Mena 1 🇺🇸 USA",
@@ -922,20 +874,6 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+action&code=za&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Bein Sports 2 🇫🇷 France",
-          "channel": "Bein Sports 2",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=fr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sky Sport Mix 🇩🇪 Germany",
-          "channel": "Sky Sport Mix",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free"
-        },
-        {
           "name": "Sky Sport Top Event 🇩🇪 Germany",
           "channel": "Sky Sport Top Event",
           "country": "🇩🇪 Germany",
@@ -943,32 +881,11 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Sport Tv 3 🇵🇹 Portugal",
-          "channel": "Sport Tv 3",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+3&code=pt&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Espn 🇳🇱 Netherlands",
-          "channel": "Espn",
-          "country": "🇳🇱 Netherlands",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Cosmote Sport 4 🇬🇷 Greece",
-          "channel": "Cosmote Sport 4",
-          "country": "🇬🇷 Greece",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Arena 1 Premium 🇷🇸 Serbia",
-          "channel": "Arena 1 Premium",
+          "name": "Sport Klub 1 🇷🇸 Serbia",
+          "channel": "Sport Klub 1",
           "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
         },
         {
           "name": "Espn 2 🇧🇷 Brazil",
@@ -1002,90 +919,173 @@
       "live": false
     },
     {
-      "title": "Los Angeles Lakers vs Washington Wizards",
-      "league": "NBA",
-      "time": "04:00",
-      "timestamp": 1774922400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3427.png",
+      "title": "Pittsburgh Penguins vs New York Islanders",
+      "league": "NHL",
+      "time": "01:00",
+      "timestamp": 1774911600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3697.png",
       "sources": [
         {
-          "name": "Nba League Pass 8 🇺🇸 USA",
-          "channel": "Nba League Pass 8",
+          "name": "Nhl League Pass 1 🇺🇸 USA",
+          "channel": "Nhl League Pass 1",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+1&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Nhl Network 🇺🇸 USA",
+          "channel": "Nhl Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-network.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+network&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Viaplay Sports 2 🇬🇧 UK",
+          "channel": "Viaplay Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Bein Sports 3 🇫🇷 France",
+          "channel": "Bein Sports 3",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=fr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sky Sport Mix 🇩🇪 Germany",
+          "channel": "Sky Sport Mix",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tv3 Sport 🇩🇰 Denmark",
+          "channel": "Tv3 Sport",
+          "country": "🇩🇰 Denmark",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-sport.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+sport&code=dk&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Atlanta Hawks vs Boston Celtics",
+      "league": "NBA",
+      "time": "01:30",
+      "timestamp": 1774913400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3423.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 2 🇺🇸 USA",
+          "channel": "Nba League Pass 2",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+8&code=us&user=cdnlivetv&plan=free"
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=cdnlivetv&plan=free"
         },
         {
-          "name": "Sport Klub 1 🇷🇸 Serbia",
-          "channel": "Sport Klub 1",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Vancouver Canucks vs Vegas Golden Knights",
-      "league": "NHL",
-      "time": "04:00",
-      "timestamp": 1774922400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3692.png",
-      "sources": [
-        {
-          "name": "Nhl League Pass 3 🇺🇸 USA",
-          "channel": "Nhl League Pass 3",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+3&code=us&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Toronto Maple Leafs vs Anaheim Ducks",
-      "league": "NHL",
-      "time": "04:00",
-      "timestamp": 1774922400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3693.png",
-      "sources": [
-        {
-          "name": "Nhl League Pass 4 🇺🇸 USA",
-          "channel": "Nhl League Pass 4",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+4&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Sportsnet Ontario 🇨🇦 Canada",
-          "channel": "Sportsnet Ontario",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Bein Sports Max 5 🇫🇷 France",
-          "channel": "Bein Sports Max 5",
+          "name": "Bein Sports 1 🇫🇷 France",
+          "channel": "Bein Sports 1",
           "country": "🇫🇷 France",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=cdnlivetv&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
     },
     {
-      "title": "St. Louis Blues vs San Jose Sharks",
-      "league": "NHL",
-      "time": "04:00",
-      "timestamp": 1774922400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3695.png",
+      "title": "Memphis Grizzlies vs Phoenix Suns",
+      "league": "NBA",
+      "time": "02:00",
+      "timestamp": 1774915200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3415.png",
       "sources": [
         {
-          "name": "Nhl League Pass 5 🇺🇸 USA",
-          "channel": "Nhl League Pass 5",
+          "name": "Nba League Pass 3 🇺🇸 USA",
+          "channel": "Nba League Pass 3",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "San Antonio Spurs vs Chicago Bulls",
+      "league": "NBA",
+      "time": "02:00",
+      "timestamp": 1774915200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3429.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 4 🇺🇸 USA",
+          "channel": "Nba League Pass 4",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Espn 🇲🇽 Mexico",
+          "channel": "Espn",
+          "country": "🇲🇽 Mexico",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn&code=mx&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Dallas Mavericks vs Minnesota Timberwolves",
+      "league": "NBA",
+      "time": "02:30",
+      "timestamp": 1774917000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3411.png",
+      "sources": [
+        {
+          "name": "Nba League Pass 5 🇺🇸 USA",
+          "channel": "Nba League Pass 5",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+5&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 2 🇨🇦 Canada",
+          "channel": "Tsn 2",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+2&code=ca&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": false
+    },
+    {
+      "title": "Calgary Flames vs Colorado Avalanche",
+      "league": "NHL",
+      "time": "02:30",
+      "timestamp": 1774917000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3679.png",
+      "sources": [
+        {
+          "name": "Nhl League Pass 2 🇺🇸 USA",
+          "channel": "Nhl League Pass 2",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+5&code=us&user=cdnlivetv&plan=free"
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+2&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Viaplay Sports 1 🇬🇧 UK",
+          "channel": "Viaplay Sports 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tv3 Puls 🇩🇰 Denmark",
+          "channel": "Tv3 Puls",
+          "country": "🇩🇰 Denmark",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-plus.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv3+puls&code=dk&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
