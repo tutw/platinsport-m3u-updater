@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-03-31T15:02:00.460568",
+  "generated_at": "2026-03-31T16:57:01.478046",
   "total_events": 52,
-  "live_events": 6,
+  "live_events": 9,
   "events": [
     {
       "title": "undefined vs undefined",
@@ -65,23 +65,6 @@
           "country": "🇿🇦 South Africa",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Poland U20 vs Germany U20",
-      "league": "Friendly",
-      "time": "16:45",
-      "timestamp": 1774968300000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Tvp Sport 🇵🇱 Poland",
-          "channel": "Tvp Sport",
-          "country": "🇵🇱 Poland",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/tvp-sport.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tvp+sport&code=pl&user=cdnlivetv&plan=free"
         }
       ],
       "live": true
@@ -449,6 +432,95 @@
       "live": true
     },
     {
+      "title": "Aldosivi vs Argentinos Juniors",
+      "league": "Primera División",
+      "time": "19:00",
+      "timestamp": 1774976400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/36836.png",
+      "sources": [
+        {
+          "name": "Espn Premium 🇦🇷 Argentina",
+          "channel": "Espn Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Hungary vs Greece",
+      "league": "Friendly",
+      "time": "19:00",
+      "timestamp": 1774976400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sky Sport 9 🇳🇿 New Zealand",
+          "channel": "Sky Sport 9",
+          "country": "🇳🇿 New Zealand",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-9.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+9&code=nz&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Supersport Action 🇿🇦 South Africa",
+          "channel": "Supersport Action",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-action.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+action&code=za&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Polsat Sport 2 🇵🇱 Poland",
+          "channel": "Polsat Sport 2",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/polsat-sport-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=polsat+sport+2&code=pl&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "M4 Sports 🇭🇺 Hungary",
+          "channel": "M4 Sports",
+          "country": "🇭🇺 Hungary",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/hungary/m4-sport.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=m4+sports&code=hu&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Russia vs Mali",
+      "league": "Friendly",
+      "time": "19:00",
+      "timestamp": 1774976400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Match Tv 🇷🇺 Russia",
+          "channel": "Match Tv",
+          "country": "🇷🇺 Russia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-tv.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+tv&code=ru&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Mirandés vs Albacete",
+      "league": "Segunda Division",
+      "time": "19:00",
+      "timestamp": 1774976400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/35092.png",
+      "sources": [
+        {
+          "name": "Laliga Tv Hypermotion 1 🇪🇸 Spain",
+          "channel": "Laliga Tv Hypermotion 1",
+          "country": "🇪🇸 Spain",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "Costa Rica vs Iran",
       "league": "Friendly",
       "time": "14:00",
@@ -528,90 +600,18 @@
       "live": false
     },
     {
-      "title": "Aldosivi vs Argentinos Juniors",
-      "league": "Primera División",
-      "time": "19:00",
-      "timestamp": 1774976400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/36836.png",
-      "sources": [
-        {
-          "name": "Espn Premium 🇦🇷 Argentina",
-          "channel": "Espn Premium",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Hungary vs Greece",
+      "title": "Poland U20 vs Germany U20",
       "league": "Friendly",
-      "time": "19:00",
-      "timestamp": 1774976400000,
+      "time": "16:45",
+      "timestamp": 1774968300000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Sky Sport 9 🇳🇿 New Zealand",
-          "channel": "Sky Sport 9",
-          "country": "🇳🇿 New Zealand",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-9.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+9&code=nz&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Supersport Action 🇿🇦 South Africa",
-          "channel": "Supersport Action",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-action.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+action&code=za&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Polsat Sport 2 🇵🇱 Poland",
-          "channel": "Polsat Sport 2",
+          "name": "Tvp Sport 🇵🇱 Poland",
+          "channel": "Tvp Sport",
           "country": "🇵🇱 Poland",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/polsat-sport-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=polsat+sport+2&code=pl&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "M4 Sports 🇭🇺 Hungary",
-          "channel": "M4 Sports",
-          "country": "🇭🇺 Hungary",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/hungary/m4-sport.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=m4+sports&code=hu&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Russia vs Mali",
-      "league": "Friendly",
-      "time": "19:00",
-      "timestamp": 1774976400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Match Tv 🇷🇺 Russia",
-          "channel": "Match Tv",
-          "country": "🇷🇺 Russia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-tv.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+tv&code=ru&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Mirandés vs Albacete",
-      "league": "Segunda Division",
-      "time": "19:00",
-      "timestamp": 1774976400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/35092.png",
-      "sources": [
-        {
-          "name": "Laliga Tv Hypermotion 1 🇪🇸 Spain",
-          "channel": "Laliga Tv Hypermotion 1",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free"
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/tvp-sport.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tvp+sport&code=pl&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
