@@ -1,7 +1,10 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-04-02 11:44:33
-# Total Events: 24
+# PlayTorrio Sports Events - 2026-04-02 13:13:15
+# Total Events: 39
 # Live Events: 0
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp" group-title="Cricket",[11:30] Cricket - undefined vs undefined
+https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=cdnlivetv&plan=free
 
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg" group-title="Cricket",[16:00] Cricket - undefined vs undefined - Willow Cricket 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=cdnlivetv&plan=free
@@ -75,6 +78,15 @@ https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+tennis&code=de&user=c
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-4.png" group-title="Tennis",[18:00] Tennis - undefined vs undefined - Ziggo Sport 4 🇳🇱 Netherlands
 https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+4&code=nl&user=cdnlivetv&plan=free
 
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-1.png" group-title="Tennis",[18:00] Tennis - undefined vs undefined - Ziggo Sport 1 🇳🇱 Netherlands
+https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+1&code=nl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-2.png" group-title="Tennis",[18:00] Tennis - undefined vs undefined - Ziggo Sport 2 🇳🇱 Netherlands
+https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+2&code=nl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-3.png" group-title="Tennis",[18:00] Tennis - undefined vs undefined - Ziggo Sport 3 🇳🇱 Netherlands
+https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+3&code=nl&user=cdnlivetv&plan=free
+
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-5.png" group-title="Tennis",[18:00] Tennis - undefined vs undefined - Ziggo Sport 5 🇳🇱 Netherlands
 https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+5&code=nl&user=cdnlivetv&plan=free
 
@@ -90,228 +102,255 @@ https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=cdnli
 #EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/sk-4.png.webp" group-title="Tennis",[18:00] Tennis - undefined vs undefined - Sport Klub 4 🇷🇸 Serbia
 https://cdn-live.tv/api/v1/channels/player/?name=sport+klub+4&code=rs&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-premier.svg" group-title="FNL",[18:30] FNL - Neftekhimik vs Fakel
-https://cdn-live.tv/api/v1/channels/player/?name=match+premier&code=ru&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg" group-title="Segunda Division",[19:00] Segunda Division - FC Andorra vs Málaga - Laliga Tv Hypermotion 1 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-xtra.webp" group-title="Segunda Division",[19:00] Segunda Division - FC Andorra vs Málaga - Bein Sports Xtra 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+xtra&code=es&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp" group-title="Segunda Division",[20:00] Segunda Division - Huesca vs Cultural Leonesa
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-2.svg" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Bein Sports 2 🇺🇸 USA
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-2.svg" group-title="Segunda Division",[19:00] Segunda Division - Las Palmas vs Granada - Bein Sports 2 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=us&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Bein Sports Max 5 🇫🇷 France
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg" group-title="Segunda Division",[19:00] Segunda Division - Las Palmas vs Granada - Bein Sports Max 5 🇫🇷 France
 https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Laliga Tv Hypermotion 1 🇪🇸 Spain
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg" group-title="Segunda Division",[19:00] Segunda Division - Las Palmas vs Granada - Laliga Tv Hypermotion 1 🇪🇸 Spain
 https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/bein-sports-xtra.webp" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Bein Sports Xtra 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+xtra&code=es&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/italy/italia-1.svg" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Italia 1 🇮🇹 Italy
-https://cdn-live.tv/api/v1/channels/player/?name=italia+1&code=it&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-1.png" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Dazn 1 🇵🇹 Portugal
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-1.png" group-title="Segunda Division",[19:00] Segunda Division - Las Palmas vs Granada - Dazn 1 🇵🇹 Portugal
 https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=pt&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/nova-sports-start.png" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Nova Sports Start 🇬🇷 Greece
-https://cdn-live.tv/api/v1/channels/player/?name=nova+sports+start&code=gr&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Match Football 3 🇷🇺 Russia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Segunda Division",[19:00] Segunda Division - Las Palmas vs Granada - Match Football 3 🇷🇺 Russia
 https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Max Sport 4 🇧🇬 Bulgaria
-https://cdn-live.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp" group-title="Segunda Division",[19:00] Segunda Division - Las Palmas vs Granada - Arena Sport 2 🇭🇷 Croatia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Arena 2 Premium 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/sweden/tv4-football.png" group-title="Segunda Division",[21:30] Segunda Division - Racing Santander vs Sporting Gijón - Tv4 Football 🇸🇪 Sweden
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/sweden/tv4-football.png" group-title="Segunda Division",[19:00] Segunda Division - Las Palmas vs Granada - Tv4 Football 🇸🇪 Sweden
 https://cdn-live.tv/api/v1/channels/player/?name=tv4+football&code=se&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[23:10] Primera A - Alianza vs Deportivo Pasto
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg" group-title="Primera División",[20:00] Primera División - Barracas Central vs Sarmiento
+https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/italy/italia-1.svg" group-title="Segunda Division",[20:00] Segunda Division - Real Sociedad II vs Eibar
+https://cdn-live.tv/api/v1/channels/player/?name=italia+1&code=it&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-3.webp" group-title="Segunda Division",[20:00] Segunda Division - CD Castellon vs Almería
+https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+3&code=sa&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg" group-title="Cricket",[20:30] Cricket - undefined vs undefined
+https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[21:00] Primera A - Boyacá Chicó vs Deportivo Pereira
 https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/movistar-liga-campeones-1.svg" group-title="Brasileirão",[00:30] Brasileirão - Internacional vs São Paulo - M Liga De Campeones 1 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=m+liga+de+campeones+1&code=es&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-2.svg" group-title="Segunda Division",[21:30] Segunda Division - Leganés vs Real Zaragoza - Bein Sports 2 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+2&code=us&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/vamos-spain.svg" group-title="Brasileirão",[00:30] Brasileirão - Internacional vs São Paulo - Vamos Spain 🇪🇸 Spain
-https://cdn-live.tv/api/v1/channels/player/?name=vamos+spain&code=es&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg" group-title="Segunda Division",[21:30] Segunda Division - Leganés vs Real Zaragoza - Laliga Tv Hypermotion 1 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Brasileirão",[00:30] Brasileirão - Internacional vs São Paulo - Sportdigital Fussball 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/spain/gol-play.svg" group-title="Segunda Division",[21:30] Segunda Division - Leganés vs Real Zaragoza - Gol Play 🇪🇸 Spain
+https://cdn-live.tv/api/v1/channels/player/?name=gol+play&code=es&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Brasileirão",[00:30] Brasileirão - Internacional vs São Paulo - Match Football 3 🇷🇺 Russia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/dazn-1.png" group-title="Segunda Division",[21:30] Segunda Division - Leganés vs Real Zaragoza - Dazn 1 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=dazn+1&code=pt&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Segunda Division",[21:30] Segunda Division - Leganés vs Real Zaragoza - Match Football 3 🇷🇺 Russia
 https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp" group-title="Brasileirão",[00:30] Brasileirão - Internacional vs São Paulo - Arena 2 Premium 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-3.webp" group-title="Segunda Division",[21:30] Segunda Division - Leganés vs Real Zaragoza - Arena 3 Premium 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+3+premium&code=rs&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-4.png" group-title="Brasileirão",[00:30] Brasileirão - Internacional vs São Paulo - Sport 4 🇮🇱 Israel
-https://cdn-live.tv/api/v1/channels/player/?name=sport+4&code=il&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp" group-title="Segunda Division",[21:30] Segunda Division - Leganés vs Real Zaragoza - Arena Sport 2 🇭🇷 Croatia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png" group-title="Primera División",[01:00] Primera División - Lanús vs Platense
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/sweden/tv4-football.png" group-title="Segunda Division",[21:30] Segunda Division - Leganés vs Real Zaragoza - Tv4 Football 🇸🇪 Sweden
+https://cdn-live.tv/api/v1/channels/player/?name=tv4+football&code=se&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png" group-title="Primera División",[22:30] Primera División - Tigre vs Independiente Rivadavia
 https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-10.png" group-title="Brasileirão",[01:00] Brasileirão - Bahia vs Athletico-PR
-https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+10&code=gb&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png" group-title="Primera Division",[23:00] Primera Division - Universidad Católica vs Palestino
+https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/canal-11.png" group-title="Brasileirão",[01:00] Brasileirão - Cruzeiro vs Vitória
-https://cdn-live.tv/api/v1/channels/player/?name=canal+11&code=pt&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png" group-title="NBA",[01:00] NBA - Orlando Magic vs Atlanta Hawks - Sky Sport Top Event 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg" group-title="NBA",[01:00] NBA - Orlando Magic vs Atlanta Hawks - Espn 🇳🇱 Netherlands
-https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png" group-title="Brasileirão",[01:30] Brasileirão - Coritiba vs Vasco da Gama
-https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[01:30] Primera A - Santa Fe vs Llaneros
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[23:10] Primera A - América de Cali vs Atlético Bucaramanga
 https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Espn 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Brasileirão",[00:00] Brasileirão - Chapecoense vs Atlético Mineiro - Match Football 3 🇷🇺 Russia
+https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn-deportes.png" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Espn Deportes 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Bein Sports Mena 1 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+mena+1&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-1.svg" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Bein Sports 1 🇫🇷 France
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Cosmote Sport 4 🇬🇷 Greece
-https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Arena 1 Premium 🇷🇸 Serbia
-https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-2.svg" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Espn 2 🇧🇷 Brazil
-https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=br&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-2.svg" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Espn 2 🇦🇷 Argentina
-https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=ar&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Espn 2 🇲🇽 Mexico
-https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Sport 5 🇮🇱 Israel
-https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-8.svg" group-title="NBA",[01:30] NBA - Miami Heat vs Boston Celtics - Bein Sports 8 🇸🇦 Saudi Arabia
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+8&code=sa&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-3.svg" group-title="NBA",[02:00] NBA - Houston Rockets vs Milwaukee Bucks
-https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+3&code=pt&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png" group-title="NBA",[02:00] NBA - Memphis Grizzlies vs New York Knicks
-https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-4.svg" group-title="NBA",[02:00] NBA - Toronto Raptors vs Sacramento Kings
-https://cdn-live.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Brasileirão",[02:30] Brasileirão - Fluminense vs Corinthians - Sportdigital Fussball 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp" group-title="Brasileirão",[02:30] Brasileirão - Fluminense vs Corinthians - Arena 2 Premium 🇷🇸 Serbia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp" group-title="Brasileirão",[00:00] Brasileirão - Chapecoense vs Atlético Mineiro - Arena 2 Premium 🇷🇸 Serbia
 https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Nhl League Pass 1 🇺🇸 USA
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sportdigital-fussball.svg" group-title="Brasileirão",[00:00] Brasileirão - Santos vs Remo - Sportdigital Fussball 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sportdigital+fussball&code=de&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/canal-11.png" group-title="Brasileirão",[00:00] Brasileirão - Santos vs Remo - Canal 11 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=canal+11&code=pt&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/sportv-1.png" group-title="Brasileirão",[00:00] Brasileirão - Santos vs Remo - Sportv 1 🇧🇷 Brazil
+https://cdn-live.tv/api/v1/channels/player/?name=sportv+1&code=br&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-4.png" group-title="Brasileirão",[00:00] Brasileirão - Santos vs Remo - Sport 4 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+4&code=il&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[01:00] NBA - Charlotte Hornets vs Phoenix Suns
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[01:00] NBA - Detroit Pistons vs Minnesota Timberwolves
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[01:00] NHL - Pittsburgh Penguins vs Tampa Bay Lightning - Nhl League Pass 1 🇺🇸 USA
 https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+1&code=us&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Viaplay Sports 2 🇬🇧 UK
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png" group-title="NHL",[01:00] NHL - Pittsburgh Penguins vs Tampa Bay Lightning - Viaplay Sports 2 🇬🇧 UK
 https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Sportsnet Ontario 🇨🇦 Canada
-https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg" group-title="NHL",[01:00] NHL - Pittsburgh Penguins vs Tampa Bay Lightning - Bein Sports Max 5 🇫🇷 France
+https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-west.png" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Sportsnet West 🇨🇦 Canada
-https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-4.svg" group-title="NHL",[01:00] NHL - Pittsburgh Penguins vs Tampa Bay Lightning - Sport Tv 4 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+4&code=pt&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-east.png" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Sportsnet East 🇨🇦 Canada
-https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Sky Sport Top Event 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Sky Sport Mix 🇩🇪 Germany
-https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-plus.webp" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Tv3 Puls 🇩🇰 Denmark
-https://cdn-live.tv/api/v1/channels/player/?name=tv3+puls&code=dk&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-3.svg" group-title="NHL",[02:30] NHL - Vancouver Canucks vs Colorado Avalanche - Espn 3 🇧🇷 Brazil
-https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=br&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[03:00] NHL - St. Louis Blues vs Los Angeles Kings - Nhl League Pass 2 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+2&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-sport.webp" group-title="NHL",[03:00] NHL - St. Louis Blues vs Los Angeles Kings - Tv3 Sport 🇩🇰 Denmark
-https://cdn-live.tv/api/v1/channels/player/?name=tv3+sport&code=dk&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[03:00] NHL - Anaheim Ducks vs San Jose Sharks - Nhl League Pass 3 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+3&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tnt.png" group-title="NHL",[03:00] NHL - Anaheim Ducks vs San Jose Sharks - Tnt 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=tnt&code=us&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png" group-title="NHL",[03:00] NHL - Anaheim Ducks vs San Jose Sharks - Viaplay Sports 1 🇬🇧 UK
-https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/bulgaria/max-sport-2.svg" group-title="NHL",[03:00] NHL - Anaheim Ducks vs San Jose Sharks - Max Sport 2 🇧🇬 Bulgaria
-https://cdn-live.tv/api/v1/channels/player/?name=max+sport+2&code=bg&user=cdnlivetv&plan=free
-
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png" group-title="NHL",[03:00] NHL - Anaheim Ducks vs San Jose Sharks - Sport 5 Stars 🇮🇱 Israel
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png" group-title="NHL",[01:00] NHL - Pittsburgh Penguins vs Tampa Bay Lightning - Sport 5 Stars 🇮🇱 Israel
 https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-deportes.svg" group-title="Liga Nacional",[03:30] Liga Nacional - Victoria vs Motagua
-https://cdn-live.tv/api/v1/channels/player/?name=fox+deportes&code=us&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[01:00] NHL - Boston Bruins vs Florida Panthers - Nhl League Pass 2 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+2&code=us&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Espn 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png" group-title="NHL",[01:00] NHL - Boston Bruins vs Florida Panthers - Sportsnet Ontario 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn-deportes.png" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Espn Deportes 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-east.png" group-title="NHL",[01:00] NHL - Boston Bruins vs Florida Panthers - Sportsnet East 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Bein Sports Mena 1 🇺🇸 USA
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+mena+1&code=us&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[01:00] NHL - Montreal Canadiens vs New York Rangers - Nhl League Pass 3 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+3&code=us&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/france/bein-sports-1.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Bein Sports 1 🇫🇷 France
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/msg.png" group-title="NHL",[01:00] NHL - Montreal Canadiens vs New York Rangers - Msg 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=msg&code=us&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Sport Tv 1 🇵🇹 Portugal
-https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-2.svg" group-title="NHL",[01:00] NHL - Montreal Canadiens vs New York Rangers - Tsn 2 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=tsn+2&code=ca&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Espn 🇳🇱 Netherlands
-https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[01:00] NHL - Buffalo Sabres vs Ottawa Senators - Nhl League Pass 4 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+4&code=us&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/greece/cosmote-sport-5.webp" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Cosmote Sport 5 🇬🇷 Greece
-https://cdn-live.tv/api/v1/channels/player/?name=cosmote+sport+5&code=gr&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-5.svg" group-title="NHL",[01:00] NHL - Buffalo Sabres vs Ottawa Senators - Tsn 5 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Arena 1 Premium 🇷🇸 Serbia
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[01:00] NHL - Detroit Red Wings vs Philadelphia Flyers
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+5&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[01:00] NHL - Columbus Blue Jackets vs Carolina Hurricanes
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+6&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-6.svg" group-title="Primera División",[01:30] Primera División - Talleres Córdoba vs Boca Juniors - Sport Tv 6 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+6&code=pt&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp" group-title="Primera División",[01:30] Primera División - Talleres Córdoba vs Boca Juniors - Arena 1 Premium 🇷🇸 Serbia
 https://cdn-live.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-2.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Espn 2 🇧🇷 Brazil
-https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=br&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn.svg" group-title="Primera División",[01:30] Primera División - Talleres Córdoba vs Boca Juniors - Espn 🇧🇷 Brazil
+https://cdn-live.tv/api/v1/channels/player/?name=espn&code=br&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-2.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Espn 2 🇦🇷 Argentina
-https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=ar&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-premium.svg" group-title="Primera División",[01:30] Primera División - Talleres Córdoba vs Boca Juniors - Espn Premium 🇦🇷 Argentina
+https://cdn-live.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/mexico/espn-2.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Espn 2 🇲🇽 Mexico
-https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=mx&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-2.png" group-title="Primera División",[01:30] Primera División - Talleres Córdoba vs Boca Juniors - Sport 2 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+2&code=il&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Sport 5 🇮🇱 Israel
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[01:30] NHL - Washington Capitals vs New Jersey Devils
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+7&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[02:00] NHL - Vancouver Canucks vs Minnesota Wild - Nhl League Pass 8 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+8&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-6.png" group-title="NHL",[02:00] NHL - Vancouver Canucks vs Minnesota Wild - Ziggo Sport 6 🇳🇱 Netherlands
+https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+6&code=nl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[02:00] NHL - Winnipeg Jets vs Dallas Stars - Nhl League Pass 9 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+9&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg" group-title="NHL",[02:00] NHL - Winnipeg Jets vs Dallas Stars - Tsn 3 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/portugal/canal-11.png" group-title="Brasileirão",[02:30] Brasileirão - Palmeiras vs Grêmio - Canal 11 🇵🇹 Portugal
+https://cdn-live.tv/api/v1/channels/player/?name=canal+11&code=pt&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg" group-title="Brasileirão",[02:30] Brasileirão - Palmeiras vs Grêmio - Match Football 3 🇷🇺 Russia
+https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png" group-title="Brasileirão",[02:30] Brasileirão - RB Bragantino vs Flamengo - Viaplay Sports 2 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg" group-title="Brasileirão",[02:30] Brasileirão - RB Bragantino vs Flamengo - Premier Sports 2 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp" group-title="Brasileirão",[02:30] Brasileirão - RB Bragantino vs Flamengo - Arena 2 Premium 🇷🇸 Serbia
+https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[03:00] NHL - Chicago Blackhawks vs Edmonton Oilers - Nhl League Pass 10 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+10&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png" group-title="NHL",[03:00] NHL - Chicago Blackhawks vs Edmonton Oilers - Viaplay Sports 1 🇬🇧 UK
+https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-west.png" group-title="NHL",[03:00] NHL - Chicago Blackhawks vs Edmonton Oilers - Sportsnet West 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png" group-title="NHL",[03:00] NHL - Chicago Blackhawks vs Edmonton Oilers - Sky Sport Top Event 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg" group-title="NHL",[03:00] NHL - Chicago Blackhawks vs Edmonton Oilers - Sky Sport Mix 🇩🇪 Germany
+https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/denmark/tv3-plus.webp" group-title="NHL",[03:00] NHL - Chicago Blackhawks vs Edmonton Oilers - Tv3 Puls 🇩🇰 Denmark
+https://cdn-live.tv/api/v1/channels/player/?name=tv3+puls&code=dk&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp" group-title="Primera A",[03:30] Primera A - Once Caldas vs Medellín
+https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[03:30] NBA - Oklahoma City Thunder vs Los Angeles Lakers - Nba League Pass 3 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+3&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/espn.svg" group-title="NBA",[03:30] NBA - Oklahoma City Thunder vs Los Angeles Lakers - Espn 🇳🇱 Netherlands
+https://cdn-live.tv/api/v1/channels/player/?name=espn&code=nl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/poland/tvp-sport.svg" group-title="NBA",[03:30] NBA - Oklahoma City Thunder vs Los Angeles Lakers - Tvp Sport 🇵🇱 Poland
+https://cdn-live.tv/api/v1/channels/player/?name=tvp+sport&code=pl&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[04:00] NBA - Golden State Warriors vs Cleveland Cavaliers - Nba League Pass 4 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+4&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/espn.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs Cleveland Cavaliers - Espn 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=espn&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[04:00] NBA - Portland Trail Blazers vs New Orleans Pelicans - Nba League Pass 5 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+5&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5.webp" group-title="NBA",[04:00] NBA - Portland Trail Blazers vs New Orleans Pelicans - Sport 5 🇮🇱 Israel
 https://cdn-live.tv/api/v1/channels/player/?name=sport+5&code=il&user=cdnlivetv&plan=free
 
-#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-8.svg" group-title="NBA",[04:00] NBA - Golden State Warriors vs San Antonio Spurs - Bein Sports 8 🇸🇦 Saudi Arabia
-https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+8&code=sa&user=cdnlivetv&plan=free
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[04:00] NHL - Utah Mammoth vs Seattle Kraken - Nhl League Pass 11 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+11&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png" group-title="NHL",[04:00] NHL - Utah Mammoth vs Seattle Kraken - Sport 5 Stars 🇮🇱 Israel
+https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[04:00] NHL - Toronto Maple Leafs vs San Jose Sharks - Nhl League Pass 12 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+12&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-4.svg" group-title="NHL",[04:00] NHL - Toronto Maple Leafs vs San Jose Sharks - Tsn 4 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[04:00] NHL - Calgary Flames vs Vegas Golden Knights - Nhl League Pass 13 🇺🇸 USA
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+13&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png" group-title="NHL",[04:00] NHL - Calgary Flames vs Vegas Golden Knights - Sportsnet Ontario 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/canada/sportsnet-east.png" group-title="NHL",[04:00] NHL - Calgary Flames vs Vegas Golden Knights - Sportsnet East 🇨🇦 Canada
+https://cdn-live.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nba-league-pass.png" group-title="NBA",[04:30] NBA - Los Angeles Clippers vs San Antonio Spurs
+https://cdn-live.tv/api/v1/channels/player/?name=nba+league+pass+6&code=us&user=cdnlivetv&plan=free
+
+#EXTINF:-1 tvg-logo="https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png" group-title="NHL",[04:30] NHL - Nashville Predators vs Los Angeles Kings
+https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+14&code=us&user=cdnlivetv&plan=free
 
