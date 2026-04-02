@@ -1,56 +1,8 @@
 {
-  "generated_at": "2026-04-02T22:30:45.780473",
-  "total_events": 42,
-  "live_events": 17,
+  "generated_at": "2026-04-02T23:34:31.522622",
+  "total_events": 44,
+  "live_events": 21,
   "events": [
-    {
-      "title": "Universidad Católica vs Palestino",
-      "league": "Primera Division",
-      "time": "23:00",
-      "timestamp": 1775163600000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3151.png",
-      "sources": [
-        {
-          "name": "Tnt Sports 🇨🇱 Chile",
-          "channel": "Tnt Sports",
-          "country": "🇨🇱 Chile",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "TNT Sports 🇨🇱 Chile",
-          "channel": "TNT Sports",
-          "country": "🇨🇱 Chile",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "América de Cali vs Atlético Bucaramanga",
-      "league": "Primera A",
-      "time": "23:10",
-      "timestamp": 1775164200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/6102.png",
-      "sources": [
-        {
-          "name": "Win Futbol 🇨🇴 Colombia",
-          "channel": "Win Futbol",
-          "country": "🇨🇴 Colombia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Win Futbol 🇨🇴 Colombia",
-          "channel": "Win Futbol",
-          "country": "🇨🇴 Colombia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Chapecoense vs Atlético Mineiro",
       "league": "Brasileirão",
@@ -578,6 +530,172 @@
       "live": true
     },
     {
+      "title": "Vancouver Canucks vs Minnesota Wild",
+      "league": "NHL",
+      "time": "02:00",
+      "timestamp": 1775174400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3692.png",
+      "sources": [
+        {
+          "name": "Nhl League Pass 8 🇺🇸 USA",
+          "channel": "Nhl League Pass 8",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+8&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Ziggo Sport 6 🇳🇱 Netherlands",
+          "channel": "Ziggo Sport 6",
+          "country": "🇳🇱 Netherlands",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-6.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+6&code=nl&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "NHL League Pass 8 🇺🇸 USA",
+          "channel": "NHL League Pass 8",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+8&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Ziggo Sport 6 🇳🇱 Netherlands",
+          "channel": "Ziggo Sport 6",
+          "country": "🇳🇱 Netherlands",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-6.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+6&code=nl&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Winnipeg Jets vs Dallas Stars",
+      "league": "NHL",
+      "time": "02:00",
+      "timestamp": 1775174400000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3676.png",
+      "sources": [
+        {
+          "name": "Nhl League Pass 9 🇺🇸 USA",
+          "channel": "Nhl League Pass 9",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+9&code=us&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Tsn 3 🇨🇦 Canada",
+          "channel": "Tsn 3",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "NHL League Pass 9 🇺🇸 USA",
+          "channel": "NHL League Pass 9",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+9&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TSN 3 🇨🇦 Canada",
+          "channel": "TSN 3",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Palmeiras vs Grêmio",
+      "league": "Brasileirão",
+      "time": "02:30",
+      "timestamp": 1775176200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/1963.png",
+      "sources": [
+        {
+          "name": "Canal 11 🇵🇹 Portugal",
+          "channel": "Canal 11",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/canal-11.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+11&code=pt&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Match Football 3 🇷🇺 Russia",
+          "channel": "Match Football 3",
+          "country": "🇷🇺 Russia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Canal 11 🇵🇹 Portugal",
+          "channel": "Canal 11",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/canal-11.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+11&code=pt&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Match Football 3 🇷🇺 Russia",
+          "channel": "Match Football 3",
+          "country": "🇷🇺 Russia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "RB Bragantino vs Flamengo",
+      "league": "Brasileirão",
+      "time": "02:30",
+      "timestamp": 1775176200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/5981.png",
+      "sources": [
+        {
+          "name": "Viaplay Sports 2 🇬🇧 UK",
+          "channel": "Viaplay Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Premier Sports 2 🇬🇧 UK",
+          "channel": "Premier Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Arena 2 Premium 🇷🇸 Serbia",
+          "channel": "Arena 2 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Viaplay Sports 2 🇬🇧 UK",
+          "channel": "Viaplay Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Premier Sports 2 🇬🇧 UK",
+          "channel": "Premier Sports 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Arena 2 Premium 🇷🇸 Serbia",
+          "channel": "Arena 2 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "undefined vs undefined",
       "league": "Cricket",
       "time": "11:30",
@@ -1066,104 +1184,35 @@
       "live": false
     },
     {
-      "title": "Vancouver Canucks vs Minnesota Wild",
-      "league": "NHL",
-      "time": "02:00",
-      "timestamp": 1775174400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3692.png",
+      "title": "Universidad Católica vs Palestino",
+      "league": "Primera Division",
+      "time": "23:00",
+      "timestamp": 1775163600000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3151.png",
       "sources": [
         {
-          "name": "Nhl League Pass 8 🇺🇸 USA",
-          "channel": "Nhl League Pass 8",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+8&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Ziggo Sport 6 🇳🇱 Netherlands",
-          "channel": "Ziggo Sport 6",
-          "country": "🇳🇱 Netherlands",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/netherlands/ziggo-sport-6.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=ziggo+sport+6&code=nl&user=cdnlivetv&plan=free"
+          "name": "Tnt Sports 🇨🇱 Chile",
+          "channel": "Tnt Sports",
+          "country": "🇨🇱 Chile",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
     },
     {
-      "title": "Winnipeg Jets vs Dallas Stars",
-      "league": "NHL",
-      "time": "02:00",
-      "timestamp": 1775174400000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3676.png",
+      "title": "América de Cali vs Atlético Bucaramanga",
+      "league": "Primera A",
+      "time": "23:10",
+      "timestamp": 1775164200000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/6102.png",
       "sources": [
         {
-          "name": "Nhl League Pass 9 🇺🇸 USA",
-          "channel": "Nhl League Pass 9",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=nhl+league+pass+9&code=us&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Tsn 3 🇨🇦 Canada",
-          "channel": "Tsn 3",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/canada/tsn-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Palmeiras vs Grêmio",
-      "league": "Brasileirão",
-      "time": "02:30",
-      "timestamp": 1775176200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/1963.png",
-      "sources": [
-        {
-          "name": "Canal 11 🇵🇹 Portugal",
-          "channel": "Canal 11",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/canal-11.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+11&code=pt&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Match Football 3 🇷🇺 Russia",
-          "channel": "Match Football 3",
-          "country": "🇷🇺 Russia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/russia/match-football-3.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=match+football+3&code=ru&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "RB Bragantino vs Flamengo",
-      "league": "Brasileirão",
-      "time": "02:30",
-      "timestamp": 1775176200000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/5981.png",
-      "sources": [
-        {
-          "name": "Viaplay Sports 2 🇬🇧 UK",
-          "channel": "Viaplay Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Premier Sports 2 🇬🇧 UK",
-          "channel": "Premier Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/premier-sports-2.svg",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=premier+sports+2&code=gb&user=cdnlivetv&plan=free"
-        },
-        {
-          "name": "Arena 2 Premium 🇷🇸 Serbia",
-          "channel": "Arena 2 Premium",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=cdnlivetv&plan=free"
+          "name": "Win Futbol 🇨🇴 Colombia",
+          "channel": "Win Futbol",
+          "country": "🇨🇴 Colombia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=win+futbol&code=co&user=cdnlivetv&plan=free"
         }
       ],
       "live": false
@@ -1430,6 +1479,23 @@
       "live": false
     },
     {
+      "title": "Curling: World Championships - Ogden 2026 : China vs Poland",
+      "league": "WinterSports",
+      "time": "02:00",
+      "timestamp": 1775174400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Polsat Sport 🇵🇱 Poland",
+          "channel": "Polsat Sport",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/polsat-sport.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=polsat+sport&code=pl&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "PGA Tour Valero Texas Open",
       "league": "Golf",
       "time": "01:00",
@@ -1511,6 +1577,23 @@
           "country": "🇧🇷 Brazil",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/brazil/espn-2.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+2&code=br&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "All Elite Wrestling AEW : Collision",
+      "league": "WWE",
+      "time": "02:00",
+      "timestamp": 1775174400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT 🇺🇸 USA",
+          "channel": "TNT",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/tnt.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true
