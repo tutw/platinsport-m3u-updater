@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-04T08:39:56.263366",
-  "total_events": 106,
-  "live_events": 0,
+  "generated_at": "2026-04-04T09:37:49.975800",
+  "total_events": 109,
+  "live_events": 8,
   "events": [
     {
       "title": "Farense vs Feirense",
@@ -16,9 +16,16 @@
           "country": "🇵🇹 Portugal",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Sport TV 1 🇵🇹 Portugal",
+          "channel": "Sport TV 1",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "undefined vs undefined",
@@ -84,7 +91,7 @@
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=cdnlivetv&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Katowice vs Wisła Płock",
@@ -106,9 +113,23 @@
           "country": "🇭🇷 Croatia",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-4.webp",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+4&code=hr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "Canal Sport 3 🇵🇱 Poland",
+          "channel": "Canal Sport 3",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/canal-sport-3.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=canal+sport+3&code=pl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Arena Sport 4 🇭🇷 Croatia",
+          "channel": "Arena Sport 4",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/croatia/arena-sport-4.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=arena+sport+4&code=hr&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Norrköping vs Värnamo",
@@ -123,9 +144,16 @@
           "country": "🇸🇪 Sweden",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/sweden/tv4-football.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv4+football&code=se&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TV4 Football 🇸🇪 Sweden",
+          "channel": "TV4 Football",
+          "country": "🇸🇪 Sweden",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/sweden/tv4-football.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tv4+football&code=se&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Keçiörengücü vs Van BB",
@@ -140,9 +168,16 @@
           "country": "🇹🇷 Turkey",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TRT Spor 🇹🇷 Turkey",
+          "channel": "TRT Spor",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/trt-spor.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=trt+spor&code=tr&user=ntvstream&plan=free"
         }
       ],
-      "live": false
+      "live": true
     },
     {
       "title": "Radnik Bijeljina vs Široki Brijeg",
@@ -4863,6 +4898,106 @@
         }
       ],
       "live": false
+    },
+    {
+      "title": "Indian Premier League : Delhi Capitals vs Mumbai Indians",
+      "league": "Cricket",
+      "time": "12:00",
+      "timestamp": 1775296800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow Cricket 🇺🇸 USA",
+          "channel": "Willow Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Willow 2 Cricket 🇺🇸 USA",
+          "channel": "Willow 2 Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Fox Cricket 🇺🇸 USA",
+          "channel": "Fox Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/fox-cricket.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=fox+cricket&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Astro Cricket 🇺🇸 USA",
+          "channel": "Astro Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-states/astro-cricket.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=astro+cricket&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Cricket 🇬🇧 UK",
+          "channel": "Sky Sports Cricket",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-cricket.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+cricket&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Main Event 🇬🇧 UK",
+          "channel": "Sky Sports Main Event",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/sky-sport-main-event.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport 5 🇳🇿 New Zealand",
+          "channel": "Sky Sport 5",
+          "country": "🇳🇿 New Zealand",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/new-zealand/sky-sport-5.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=sky+sport+5&code=nz&user=ntvstream&plan=free"
+        },
+        {
+          "name": "SuperSport Cricket 🇿🇦 South Africa",
+          "channel": "SuperSport Cricket",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Poland, Liga Siatkowki, Women : Budowlani Lodz vs. Uni Opole",
+      "league": "Volleyball",
+      "time": "12:30",
+      "timestamp": 1775298600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Polsat Sport 🇵🇱 Poland",
+          "channel": "Polsat Sport",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/poland/polsat-sport.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=polsat+sport&code=pl&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Süper Ligi : Mersin SK vs Buyukcekmece",
+      "league": "Basketball",
+      "time": "12:00",
+      "timestamp": 1775296800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "beIN SPORTS 5 🇹🇷 Turkey",
+          "channel": "beIN SPORTS 5",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/turkey/bein-sports-5.svg",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=bein+sports+5&code=tr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
     }
   ]
 }
