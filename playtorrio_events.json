@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-06T22:36:15.869583",
-  "total_events": 73,
-  "live_events": 11,
+  "generated_at": "2026-04-06T23:35:34.358174",
+  "total_events": 76,
+  "live_events": 17,
   "events": [
     {
       "title": "Argentinos Juniors vs Banfield",
@@ -379,6 +379,78 @@
           "country": "🇮🇱 Israel",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Huachipato vs Univ. Concepción",
+      "league": "Primera Division",
+      "time": "02:00",
+      "timestamp": 1775520000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3164.png",
+      "sources": [
+        {
+          "name": "Tnt Sports 🇨🇱 Chile",
+          "channel": "Tnt Sports",
+          "country": "🇨🇱 Chile",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TNT Sports 🇨🇱 Chile",
+          "channel": "TNT Sports",
+          "country": "🇨🇱 Chile",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Memphis Grizzlies vs Cleveland Cavaliers",
+      "league": "NBA",
+      "time": "02:00",
+      "timestamp": 1775520000000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/3415.png",
+      "sources": [
+        {
+          "name": "Tnt Sports 7 🇬🇧 UK",
+          "channel": "Tnt Sports 7",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TNT Sports 7 🇬🇧 UK",
+          "channel": "TNT Sports 7",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Instituto vs Defensa y Justicia",
+      "league": "Primera División",
+      "time": "02:15",
+      "timestamp": 1775520900000,
+      "logo": "https://api.cdn-live.tv/api/v1/team/images/36839.png",
+      "sources": [
+        {
+          "name": "Tnt Sports 🇦🇷 Argentina",
+          "channel": "Tnt Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free"
+        },
+        {
+          "name": "TNT Sports 🇦🇷 Argentina",
+          "channel": "TNT Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -2866,57 +2938,6 @@
       "live": false
     },
     {
-      "title": "Huachipato vs Univ. Concepción",
-      "league": "Primera Division",
-      "time": "02:00",
-      "timestamp": 1775520000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3164.png",
-      "sources": [
-        {
-          "name": "Tnt Sports 🇨🇱 Chile",
-          "channel": "Tnt Sports",
-          "country": "🇨🇱 Chile",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/chile/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Memphis Grizzlies vs Cleveland Cavaliers",
-      "league": "NBA",
-      "time": "02:00",
-      "timestamp": 1775520000000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/3415.png",
-      "sources": [
-        {
-          "name": "Tnt Sports 7 🇬🇧 UK",
-          "channel": "Tnt Sports 7",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
-      "title": "Instituto vs Defensa y Justicia",
-      "league": "Primera División",
-      "time": "02:15",
-      "timestamp": 1775520900000,
-      "logo": "https://api.cdn-live.tv/api/v1/team/images/36839.png",
-      "sources": [
-        {
-          "name": "Tnt Sports 🇦🇷 Argentina",
-          "channel": "Tnt Sports",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
-          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=cdnlivetv&plan=free"
-        }
-      ],
-      "live": false
-    },
-    {
       "title": "Denver Nuggets vs Portland Trail Blazers",
       "league": "NBA",
       "time": "03:00",
@@ -2992,10 +3013,10 @@
       "live": false
     },
     {
-      "title": "Brazil Superliga B : Montes Claros Vôlei vs Brasília Vôlei",
+      "title": "Brazil Superliga B : Araguari vs Norde Vôlei",
       "league": "Volleyball",
-      "time": "23:30",
-      "timestamp": 1775511000000,
+      "time": "02:00",
+      "timestamp": 1775520000000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
@@ -3186,6 +3207,85 @@
           "country": "🇦🇷 Argentina",
           "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/argentina/espn-3.svg",
           "url": "https://cdn-live.tv/api/v1/channels/player/?name=espn+3&code=ar&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Chicago White Sox vs Baltimore Orioles",
+      "league": "MLB",
+      "time": "01:40",
+      "timestamp": 1775518800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Chicago White Sox 🇺🇸 USA",
+          "channel": "Chicago White Sox",
+          "country": "🇺🇸 USA",
+          "logo": "",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=chicago+white+sox&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Baltimore Orioles 🇺🇸 USA",
+          "channel": "Baltimore Orioles",
+          "country": "🇺🇸 USA",
+          "logo": "",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=baltimore+orioles&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Minnesota Twins vs Detroit Tigers",
+      "league": "MLB",
+      "time": "01:40",
+      "timestamp": 1775518800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Minnesota Twins 🇺🇸 USA",
+          "channel": "Minnesota Twins",
+          "country": "🇺🇸 USA",
+          "logo": "",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=minnesota+twins&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Detroit Tigers 🇺🇸 USA",
+          "channel": "Detroit Tigers",
+          "country": "🇺🇸 USA",
+          "logo": "",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=detroit+tigers&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Texas Rangers vs Seattle Mariners",
+      "league": "MLB",
+      "time": "02:05",
+      "timestamp": 1775520300000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Texas Rangers 🇺🇸 USA",
+          "channel": "Texas Rangers",
+          "country": "🇺🇸 USA",
+          "logo": "",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=texas+rangers&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Seattle Mariners 🇺🇸 USA",
+          "channel": "Seattle Mariners",
+          "country": "🇺🇸 USA",
+          "logo": "",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=seattle+mariners&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT Sports 1 🇬🇧 UK",
+          "channel": "TNT Sports 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdn-live.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png",
+          "url": "https://cdn-live.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
