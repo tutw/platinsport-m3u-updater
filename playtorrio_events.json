@@ -1,70 +1,8 @@
 {
-  "generated_at": "2026-04-12T21:34:16.892342",
-  "total_events": 14,
-  "live_events": 14,
+  "generated_at": "2026-04-12T22:34:36.066323",
+  "total_events": 15,
+  "live_events": 15,
   "events": [
-    {
-      "title": "Atlético Tucumán vs Tigre",
-      "league": "Primera División",
-      "time": "22:30",
-      "timestamp": 1776025800000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "ESPN Premium 🇦🇷 Argentina",
-          "channel": "ESPN Premium",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN 🇦🇷 Argentina",
-          "channel": "ESPN",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=ar&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Huracán vs Rosario Central",
-      "league": "Primera División",
-      "time": "22:30",
-      "timestamp": 1776025800000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Sport TV 2 🇵🇹 Portugal",
-          "channel": "Sport TV 2",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/sport-tv-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+tv+2&code=pt&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena Sport 2 🇷🇸 Serbia",
-          "channel": "Arena Sport 2",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-2.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+sport+2&code=rs&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena Sport 4 🇭🇷 Croatia",
-          "channel": "Arena Sport 4",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/croatia/arena-sport-4.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+sport+4&code=hr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "TNT Sports 🇦🇷 Argentina",
-          "channel": "TNT Sports",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Deportivo Cali vs Llaneros",
       "league": "Primera A",
@@ -140,6 +78,75 @@
           "country": "🇮🇱 Israel",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-1.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+1&code=il&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Racing Club vs River Plate",
+      "league": "Primera División",
+      "time": "01:00",
+      "timestamp": 1776034800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Viaplay Sports 1 🇬🇧 UK",
+          "channel": "Viaplay Sports 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Premier Sports 1 🇬🇧 UK",
+          "channel": "Premier Sports 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/premier-sports-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=premier+sports+1&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport TV 2 🇵🇹 Portugal",
+          "channel": "Sport TV 2",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/sport-tv-2.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+tv+2&code=pt&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Arena 2 Premium 🇷🇸 Serbia",
+          "channel": "Arena 2 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN Premium 🇦🇷 Argentina",
+          "channel": "ESPN Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport 3 🇮🇱 Israel",
+          "channel": "Sport 3",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-3.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+3&code=il&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Atlético Bucaramanga vs Boyacá Chicó",
+      "league": "Primera A",
+      "time": "01:20",
+      "timestamp": 1776036000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Win Futbol 🇨🇴 Colombia",
+          "channel": "Win Futbol",
+          "country": "🇨🇴 Colombia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=win+futbol&code=co&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -373,6 +380,23 @@
       "live": true
     },
     {
+      "title": "Ottawa Senators vs New Jersey Devils",
+      "league": "NHL",
+      "time": "01:00",
+      "timestamp": 1776034800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TSN 5 🇨🇦 Canada",
+          "channel": "TSN 5",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-5.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+5&code=ca&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "Purdue vs Indiana",
       "league": "College Softball",
       "time": "23:00",
@@ -390,18 +414,53 @@
       "live": true
     },
     {
-      "title": "Los Angeles Dodgers vs Texas Rangers",
+      "title": "Atlanta Braves vs Cleveland Guardians",
       "league": "MLB",
-      "time": "22:10",
-      "timestamp": 1776024600000,
+      "time": "01:20",
+      "timestamp": 1776036000000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "MLB Network 🇺🇸 USA",
-          "channel": "MLB Network",
+          "name": "NBC 🇺🇸 USA",
+          "channel": "NBC",
           "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=mlb+network&code=us&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nbc.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nbc&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT Sports 1 🇬🇧 UK",
+          "channel": "TNT Sports 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TSN 3 🇨🇦 Canada",
+          "channel": "TSN 3",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-3.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS MAX 5 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 5",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport Klub 2 🇷🇸 Serbia",
+          "channel": "Sport Klub 2",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/sk-2.png.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+klub+2&code=rs&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 3 🇧🇷 Brazil",
+          "channel": "ESPN 3",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-3.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+3&code=br&user=ntvstream&plan=free"
         }
       ],
       "live": true
