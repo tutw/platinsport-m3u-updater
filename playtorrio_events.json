@@ -1,21 +1,38 @@
 {
-  "generated_at": "2026-04-13T22:42:45.214721",
-  "total_events": 10,
-  "live_events": 10,
+  "generated_at": "2026-04-13T23:41:59.823942",
+  "total_events": 17,
+  "live_events": 17,
   "events": [
     {
-      "title": "Lanús vs Banfield",
-      "league": "Primera División",
-      "time": "00:00",
-      "timestamp": 1776117600000,
+      "title": "Unión La Calera vs Deportes Concepción",
+      "league": "Primera Division",
+      "time": "02:00",
+      "timestamp": 1776124800000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "ESPN Premium 🇦🇷 Argentina",
-          "channel": "ESPN Premium",
+          "name": "TNT Sports 🇨🇱 Chile",
+          "channel": "TNT Sports",
+          "country": "🇨🇱 Chile",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/chile/tnt-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Vélez Sarsfield vs Central Córdoba SdE",
+      "league": "Primera División",
+      "time": "02:30",
+      "timestamp": 1776126600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 🇦🇷 Argentina",
+          "channel": "TNT Sports",
           "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -90,6 +107,23 @@
       "live": true
     },
     {
+      "title": "Carolina Hurricanes vs Philadelphia Flyers",
+      "league": "NHL",
+      "time": "01:00",
+      "timestamp": 1776121200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NBCS California 🇺🇸 USA",
+          "channel": "NBCS California",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nbc-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nbcs+california&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "Dallas Stars vs Toronto Maple Leafs",
       "league": "NHL",
       "time": "01:30",
@@ -102,6 +136,30 @@
           "country": "🇩🇪 Germany",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-7.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+7&code=de&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "San Jose Sharks vs Nashville Predators",
+      "league": "NHL",
+      "time": "02:00",
+      "timestamp": 1776124800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NBCS California 🇺🇸 USA",
+          "channel": "NBCS California",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nbc-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nbcs+california&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport Bundesliga 6 🇩🇪 Germany",
+          "channel": "Sky Sport Bundesliga 6",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-6.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+6&code=de&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -141,23 +199,6 @@
       "live": true
     },
     {
-      "title": "Women's Volleyball Super League Semifinal Game 1 : Minas vs. Osasco",
-      "league": "Volleyball",
-      "time": "23:30",
-      "timestamp": 1776115800000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "SporTV 2 🇧🇷 Brazil",
-          "channel": "SporTV 2",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/brazil/sportv-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportv+2&code=br&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
       "title": "Women's Volleyball Super League Semifinal Game 2 : Praia Clube vs. Sesc-RJ Flamengo",
       "league": "Volleyball",
       "time": "01:30",
@@ -175,6 +216,30 @@
       "live": true
     },
     {
+      "title": "Baltimore Orioles vs Arizona Diamondbacks",
+      "league": "MLB",
+      "time": "00:35",
+      "timestamp": 1776119700000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Baltimore Orioles 🇺🇸 USA",
+          "channel": "Baltimore Orioles",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=baltimore+orioles&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "MASN 🇺🇸 USA",
+          "channel": "MASN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/masn.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=masn&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "Philadelphia Phillies vs Chicago Cubs",
       "league": "MLB",
       "time": "00:40",
@@ -182,11 +247,25 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
+          "name": "Philadelphia Phillies 🇺🇸 USA",
+          "channel": "Philadelphia Phillies",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=philadelphia+phillies&code=us&user=ntvstream&plan=free"
+        },
+        {
           "name": "FOX Sports 1 🇺🇸 USA",
           "channel": "FOX Sports 1",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/fox-sport-1.svg",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+1&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Marquee Sports Network 🇺🇸 USA",
+          "channel": "Marquee Sports Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/marquee.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=marquee+sports+network&code=us&user=ntvstream&plan=free"
         },
         {
           "name": "FOX Deportes 🇺🇸 USA",
@@ -208,6 +287,37 @@
           "country": "🇨🇦 Canada",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-1.svg",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+1&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sportsnet One 🇨🇦 Canada",
+          "channel": "Sportsnet One",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-one.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+one&code=ca&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Pittsburgh Pirates vs Washington Nationals",
+      "league": "MLB",
+      "time": "00:40",
+      "timestamp": 1776120000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Pittsburgh Pirates 🇺🇸 USA",
+          "channel": "Pittsburgh Pirates",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=pittsburgh+pirates&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "SportsNet Pittsburgh 🇺🇸 USA",
+          "channel": "SportsNet Pittsburgh",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sportsnet-pittsburgh.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+pittsburgh&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -220,11 +330,25 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
+          "name": "New York Yankees 🇺🇸 USA",
+          "channel": "New York Yankees",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=new+york+yankees&code=us&user=ntvstream&plan=free"
+        },
+        {
           "name": "Yes Network 🇺🇸 USA",
           "channel": "Yes Network",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/yes.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=yes+network&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "FanDuel Sports Network West 🇺🇸 USA",
+          "channel": "FanDuel Sports Network West",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/fanduel-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fanduel+sports+network+west&code=us&user=ntvstream&plan=free"
         },
         {
           "name": "Sportsnet East 🇨🇦 Canada",
@@ -239,6 +363,64 @@
           "country": "🇨🇦 Canada",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-ontario.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+ontario&code=ca&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Atlanta Braves vs Miami Marlins",
+      "league": "MLB",
+      "time": "01:15",
+      "timestamp": 1776122100000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Atlanta Braves 🇺🇸 USA",
+          "channel": "Atlanta Braves",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=atlanta+braves&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Minnesota Twins vs Boston Red Sox",
+      "league": "MLB",
+      "time": "01:40",
+      "timestamp": 1776123600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Minnesota Twins 🇺🇸 USA",
+          "channel": "Minnesota Twins",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=minnesota+twins&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "NESN 🇺🇸 USA",
+          "channel": "NESN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nesn.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nesn&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "St. Louis Cardinals vs Cleveland Guardians",
+      "league": "MLB",
+      "time": "01:45",
+      "timestamp": 1776123900000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "St. Louis Cardinals 🇺🇸 USA",
+          "channel": "St. Louis Cardinals",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=st+louis+cardinals&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true
