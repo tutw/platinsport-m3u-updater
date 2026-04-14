@@ -1,8 +1,70 @@
 {
-  "generated_at": "2026-04-14T13:25:27.181167",
-  "total_events": 5,
-  "live_events": 5,
+  "generated_at": "2026-04-14T15:12:45.728654",
+  "total_events": 9,
+  "live_events": 9,
   "events": [
+    {
+      "title": "Tractor Sazi vs Shabab Al Ahli",
+      "league": "AFC Champions League Elite",
+      "time": "16:45",
+      "timestamp": 1776177900000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sport 1 🇩🇪 Germany",
+          "channel": "Sport 1",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sport-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+1&code=de&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 🇳🇱 Netherlands",
+          "channel": "ESPN",
+          "country": "🇳🇱 Netherlands",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/netherlands/espn.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=nl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport Klub 1 🇷🇸 Serbia",
+          "channel": "Sport Klub 1",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS 2 🇸🇦 Saudi Arabia",
+          "channel": "beIN SPORTS 2",
+          "country": "🇸🇦 Saudi Arabia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Botev Vratsa vs Lokomotiv Sofia 1929",
+      "league": "Parva Liga",
+      "time": "17:00",
+      "timestamp": 1776178800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Diema Sport 1 🇧🇬 Bulgaria",
+          "channel": "Diema Sport 1",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/bulgaria/diema-sports-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=diema+sport+1&code=bg&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport Klub 3 🇷🇸 Serbia",
+          "channel": "Sport Klub 3",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
     {
       "title": "Indian Premier League : Chennai Super Kings vs Kolkata Knight Riders",
       "league": "Cricket",
@@ -70,18 +132,35 @@
       "live": true
     },
     {
-      "title": "Bulgaria Super League : CSKA Sofia vs Levski Sofia",
+      "title": "Serbia Superliga, Women : ŽOK Ub vs OK Jedinstvo Stara Pazova",
       "league": "Volleyball",
-      "time": "15:00",
-      "timestamp": 1776171600000,
+      "time": "18:00",
+      "timestamp": 1776182400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Max Sport 2 🇧🇬 Bulgaria",
-          "channel": "Max Sport 2",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/bulgaria/max-sport-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=max+sport+2&code=bg&user=ntvstream&plan=free"
+          "name": "Arena 3 Premium 🇷🇸 Serbia",
+          "channel": "Arena 3 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-3.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+3+premium&code=rs&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "PlusLiga : Olsztyn vs Belchatow Skra",
+      "league": "Volleyball",
+      "time": "17:30",
+      "timestamp": 1776180600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Polsat Sport 🇵🇱 Poland",
+          "channel": "Polsat Sport",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/poland/polsat-sport.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=polsat+sport&code=pl&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -125,23 +204,6 @@
       "live": true
     },
     {
-      "title": "Live racing from around the UK",
-      "league": "HorseRacing",
-      "time": "14:00",
-      "timestamp": 1776168000000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Sky Sports Racing 🇬🇧 UK",
-          "channel": "Sky Sports Racing",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-racing.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+racing&code=gb&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
       "title": "Elite League : Layrio vs Vikoς Ioanninon",
       "league": "Basketball",
       "time": "16:00",
@@ -154,6 +216,40 @@
           "country": "🇬🇧 UK",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-9.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+9&code=gb&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Women's World Championship Qualifiers : Poland vs. Ireland",
+      "league": "Handball",
+      "time": "17:30",
+      "timestamp": 1776180600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TVP Sport 🇵🇱 Poland",
+          "channel": "TVP Sport",
+          "country": "🇵🇱 Poland",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/poland/tvp-sport.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tvp+sport&code=pl&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Latvia Optibet Hokeja Liga : Zemgale vs Mogo",
+      "league": "Hockey",
+      "time": "18:00",
+      "timestamp": 1776182400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 10 🇬🇧 UK",
+          "channel": "TNT Sports 10",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-10.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+10&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
