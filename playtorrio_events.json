@@ -1,13 +1,47 @@
 {
-  "generated_at": "2026-04-14T23:41:30.077320",
-  "total_events": 21,
-  "live_events": 21,
+  "generated_at": "2026-04-15T02:30:27.489377",
+  "total_events": 16,
+  "live_events": 16,
   "events": [
     {
-      "title": "Boca Juniors vs Barcelona",
+      "title": "Sport Boys vs Melgar",
+      "league": "Primera Division",
+      "time": "03:00",
+      "timestamp": 1776214800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 7 🇬🇧 UK",
+          "channel": "TNT Sports 7",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "LDU Quito vs Mirassol",
       "league": "Copa Libertadores",
-      "time": "02:00",
-      "timestamp": 1776211200000,
+      "time": "04:00",
+      "timestamp": 1776218400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "FOX Sports 2 🇦🇷 Argentina",
+          "channel": "FOX Sports 2",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/fox-sports-2.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+2&code=ar&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Universitario vs Coquimbo Unido",
+      "league": "Copa Libertadores",
+      "time": "04:00",
+      "timestamp": 1776218400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
@@ -25,79 +59,6 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+n&code=es&user=ntvstream&plan=free"
         },
         {
-          "name": "Sport TV 1 🇵🇹 Portugal",
-          "channel": "Sport TV 1",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN 🇳🇱 Netherlands",
-          "channel": "ESPN",
-          "country": "🇳🇱 Netherlands",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/netherlands/espn.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=nl&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Max Sport 4 🇧🇬 Bulgaria",
-          "channel": "Max Sport 4",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena 1 Premium 🇷🇸 Serbia",
-          "channel": "Arena 1 Premium",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=ntvstream&plan=free"
-        },
-        {
-          "name": "FOX Sports 🇦🇷 Argentina",
-          "channel": "FOX Sports",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/fox-sports.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports&code=ar&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN 2 🇲🇽 Mexico",
-          "channel": "ESPN 2",
-          "country": "🇲🇽 Mexico",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/mexico/espn-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+2&code=mx&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport 4 🇮🇱 Israel",
-          "channel": "Sport 4",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-4.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+4&code=il&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 2 🇸🇦 Saudi Arabia",
-          "channel": "beIN SPORTS 2",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Bolívar vs Deportivo La Guaira",
-      "league": "Copa Libertadores",
-      "time": "02:00",
-      "timestamp": 1776211200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "beIN SPORTS XTRA 🇪🇸 Spain",
-          "channel": "beIN SPORTS XTRA",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/spain/bein-sports-xtra.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+xtra&code=es&user=ntvstream&plan=free"
-        },
-        {
           "name": "ESPN 4 🇧🇷 Brazil",
           "channel": "ESPN 4",
           "country": "🇧🇷 Brazil",
@@ -105,35 +66,35 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+4&code=br&user=ntvstream&plan=free"
         },
         {
-          "name": "FOX Sports 2 🇦🇷 Argentina",
-          "channel": "FOX Sports 2",
+          "name": "FOX Sports 3 🇦🇷 Argentina",
+          "channel": "FOX Sports 3",
           "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/fox-sports-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+2&code=ar&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/fox-sports-3.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+3&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "Philadelphia 76ers vs Orlando Magic",
+      "title": "Phoenix Suns vs Portland Trail Blazers",
       "league": "NBA",
-      "time": "01:30",
-      "timestamp": 1776209400000,
+      "time": "04:00",
+      "timestamp": 1776218400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
+        {
+          "name": "NBA League Pass 🇺🇸 USA",
+          "channel": "NBA League Pass",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nba+league+pass&code=us&user=ntvstream&plan=free"
+        },
         {
           "name": "TSN 1 🇨🇦 Canada",
           "channel": "TSN 1",
           "country": "🇨🇦 Canada",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-1.svg",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+1&code=ca&user=ntvstream&plan=free"
-        },
-        {
-          "name": "TSN 4 🇨🇦 Canada",
-          "channel": "TSN 4",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-4.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=ntvstream&plan=free"
         },
         {
           "name": "TSN 5 🇨🇦 Canada",
@@ -160,46 +121,53 @@
       "live": true
     },
     {
-      "title": "Montreal Canadiens vs Philadelphia Flyers",
+      "title": "Colorado Avalanche vs Calgary Flames",
       "league": "NHL",
-      "time": "01:00",
-      "timestamp": 1776207600000,
+      "time": "03:00",
+      "timestamp": 1776214800000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "TSN 2 🇨🇦 Canada",
-          "channel": "TSN 2",
+          "name": "Sportsnet West 🇨🇦 Canada",
+          "channel": "Sportsnet West",
           "country": "🇨🇦 Canada",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+2&code=ca&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-west.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "Carolina Hurricanes vs New York Islanders",
+      "title": "Winnipeg Jets vs Utah Mammoth",
       "league": "NHL",
-      "time": "01:00",
-      "timestamp": 1776207600000,
+      "time": "03:00",
+      "timestamp": 1776214800000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Sky Sport Bundesliga 7 🇩🇪 Germany",
-          "channel": "Sky Sport Bundesliga 7",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-7.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+7&code=de&user=ntvstream&plan=free"
+          "name": "TSN 3 🇨🇦 Canada",
+          "channel": "TSN 3",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-3.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+3&code=ca&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "Washington Capitals vs Columbus Blue Jackets",
+      "title": "Pittsburgh Penguins vs St. Louis Blues",
       "league": "NHL",
-      "time": "01:00",
-      "timestamp": 1776207600000,
+      "time": "03:30",
+      "timestamp": 1776216600000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
+        {
+          "name": "SportsNet Pittsburgh 🇺🇸 USA",
+          "channel": "SportsNet Pittsburgh",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sportsnet-pittsburgh.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+pittsburgh&code=us&user=ntvstream&plan=free"
+        },
         {
           "name": "ESPN 🇺🇸 USA",
           "channel": "ESPN",
@@ -208,42 +176,35 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=us&user=ntvstream&plan=free"
         },
         {
-          "name": "Sky Sport Bundesliga 6 🇩🇪 Germany",
-          "channel": "Sky Sport Bundesliga 6",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-6.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+6&code=de&user=ntvstream&plan=free"
+          "name": "TNT Sports 8 🇬🇧 UK",
+          "channel": "TNT Sports 8",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "New Jersey Devils vs Boston Bruins",
+      "title": "Los Angeles Kings vs Vancouver Canucks",
       "league": "NHL",
-      "time": "01:00",
-      "timestamp": 1776207600000,
+      "time": "04:00",
+      "timestamp": 1776218400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "NESN 🇺🇸 USA",
-          "channel": "NESN",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nesn.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nesn&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "MSG 🇺🇸 USA",
-          "channel": "MSG",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/msg.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=msg&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "MLB League Pass 8 🇺🇸 USA",
-          "channel": "MLB League Pass 8",
+          "name": "MLB League Pass 1 🇺🇸 USA",
+          "channel": "MLB League Pass 1",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=mlb+league+pass+8&code=us&user=ntvstream&plan=free"
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=mlb+league+pass+1&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 1 🇬🇧 UK",
+          "channel": "Euro Sport 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/euro-sport-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+1&code=gb&user=ntvstream&plan=free"
         },
         {
           "name": "Viaplay Sports 2 🇬🇧 UK",
@@ -251,301 +212,6 @@
           "country": "🇬🇧 UK",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sportsnet 360 🇨🇦 Canada",
-          "channel": "Sportsnet 360",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-360.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+360&code=ca&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sport Mix 🇩🇪 Germany",
-          "channel": "Sky Sport Mix",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-mix.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+mix&code=de&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sport Top Event 🇩🇪 Germany",
-          "channel": "Sky Sport Top Event",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-top-event.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+top+event&code=de&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena 2 Premium 🇷🇸 Serbia",
-          "channel": "Arena 2 Premium",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport 5 Stars 🇮🇱 Israel",
-          "channel": "Sport 5 Stars",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Anaheim Ducks vs Minnesota Wild",
-      "league": "NHL",
-      "time": "02:00",
-      "timestamp": 1776211200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Viaplay Sports 1 🇬🇧 UK",
-          "channel": "Viaplay Sports 1",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "College Golf : Western Intercollegiate",
-      "league": "Golf",
-      "time": "01:00",
-      "timestamp": 1776207600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "GOLF TV 🇺🇸 USA",
-          "channel": "GOLF TV",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-tv.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=golf+tv&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Creighton vs Nebraska",
-      "league": "College Baseball",
-      "time": "01:00",
-      "timestamp": 1776207600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "BTN 🇺🇸 USA",
-          "channel": "BTN",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/btn.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=btn&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Siena vs UAlbany",
-      "league": "College Lacrosse",
-      "time": "01:00",
-      "timestamp": 1776207600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "ESPN+ USA 🇺🇸 USA",
-          "channel": "ESPN+ USA",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-plus.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+usa&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Baltimore Orioles vs Arizona Diamondbacks",
-      "league": "MLB",
-      "time": "00:35",
-      "timestamp": 1776206100000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Baltimore Orioles 🇺🇸 USA",
-          "channel": "Baltimore Orioles",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=baltimore+orioles&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "MASN 🇺🇸 USA",
-          "channel": "MASN",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/masn.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=masn&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Philadelphia Phillies vs Chicago Cubs",
-      "league": "MLB",
-      "time": "00:40",
-      "timestamp": 1776206400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Philadelphia Phillies 🇺🇸 USA",
-          "channel": "Philadelphia Phillies",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=philadelphia+phillies&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Marquee Sports Network 🇺🇸 USA",
-          "channel": "Marquee Sports Network",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/marquee.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=marquee+sports+network&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "TBS 🇺🇸 USA",
-          "channel": "TBS",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/tbs.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tbs&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "TNT Sports 1 🇬🇧 UK",
-          "channel": "TNT Sports 1",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "TNT Sports 2 🇬🇧 UK",
-          "channel": "TNT Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Detroit Tigers vs Kansas City Royals",
-      "league": "MLB",
-      "time": "00:40",
-      "timestamp": 1776206400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "TNT Sports 10 🇬🇧 UK",
-          "channel": "TNT Sports 10",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-10.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+10&code=gb&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Cincinnati Reds vs San Francisco Giants",
-      "league": "MLB",
-      "time": "00:40",
-      "timestamp": 1776206400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Cincinnati Reds 🇺🇸 USA",
-          "channel": "Cincinnati Reds",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cincinnati+reds&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Pittsburgh Pirates vs Washington Nationals",
-      "league": "MLB",
-      "time": "00:40",
-      "timestamp": 1776206400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Pittsburgh Pirates 🇺🇸 USA",
-          "channel": "Pittsburgh Pirates",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=pittsburgh+pirates&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "SportsNet Pittsburgh 🇺🇸 USA",
-          "channel": "SportsNet Pittsburgh",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sportsnet-pittsburgh.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+pittsburgh&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "New York Yankees vs Los Angeles Angels",
-      "league": "MLB",
-      "time": "01:05",
-      "timestamp": 1776207900000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "New York Yankees 🇺🇸 USA",
-          "channel": "New York Yankees",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=new+york+yankees&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Yes Network 🇺🇸 USA",
-          "channel": "Yes Network",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/yes.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=yes+network&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "FanDuel Sports Network West 🇺🇸 USA",
-          "channel": "FanDuel Sports Network West",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/fanduel-sports.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fanduel+sports+network+west&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Atlanta Braves vs Miami Marlins",
-      "league": "MLB",
-      "time": "01:15",
-      "timestamp": 1776208500000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Atlanta Braves 🇺🇸 USA",
-          "channel": "Atlanta Braves",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=atlanta+braves&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Milwaukee Brewers vs Toronto Blue Jays",
-      "league": "MLB",
-      "time": "01:40",
-      "timestamp": 1776210000000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Sportsnet One 🇨🇦 Canada",
-          "channel": "Sportsnet One",
-          "country": "🇨🇦 Canada",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-one.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+one&code=ca&user=ntvstream&plan=free"
         },
         {
           "name": "Sportsnet Ontario 🇨🇦 Canada",
@@ -560,40 +226,184 @@
           "country": "🇨🇦 Canada",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-east.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+east&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport 5 Stars 🇮🇱 Israel",
+          "channel": "Sport 5 Stars",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "St. Louis Cardinals vs Cleveland Guardians",
-      "league": "MLB",
-      "time": "01:45",
-      "timestamp": 1776210300000,
+      "title": "Bakersfield Condors vs Henderson Silver Knights",
+      "league": "AHL",
+      "time": "04:00",
+      "timestamp": 1776218400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "beIN SPORTS MAX 5 🇫🇷 France",
-          "channel": "beIN SPORTS MAX 5",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=ntvstream&plan=free"
+          "name": "Italia 1 🇮🇹 Italy",
+          "channel": "Italia 1",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/italy/italia-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=italia+1&code=it&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "Houston Astros vs Colorado Rockies",
-      "league": "MLB",
-      "time": "02:10",
-      "timestamp": 1776211800000,
+      "title": "Coachella Valley Firebirds vs San Jose Barracuda",
+      "league": "AHL",
+      "time": "04:00",
+      "timestamp": 1776218400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Space City Home Network 🇺🇸 USA",
-          "channel": "Space City Home Network",
+          "name": "ESPN+ USA 2 🇺🇸 USA",
+          "channel": "ESPN+ USA 2",
           "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/space-city.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=space+city+home+network&code=us&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-plus.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+usa+2&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "UC Santa Barbara vs UCLA",
+      "league": "College Baseball",
+      "time": "04:00",
+      "timestamp": 1776218400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "BTN 🇺🇸 USA",
+          "channel": "BTN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/btn.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=btn&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "AHL : Bakersfield Condors vs Henderson Silver Knights",
+      "league": "Hockey",
+      "time": "04:00",
+      "timestamp": 1776218400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Italia 1 🇮🇹 Italy",
+          "channel": "Italia 1",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/italy/italia-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=italia+1&code=it&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "AHL : Coachella Valley Firebirds vs San Jose Barracuda",
+      "league": "Hockey",
+      "time": "04:00",
+      "timestamp": 1776218400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "ESPN+ USA 2 🇺🇸 USA",
+          "channel": "ESPN+ USA 2",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-plus.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+usa+2&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "San Diego Padres vs Seattle Mariners",
+      "league": "MLB",
+      "time": "03:40",
+      "timestamp": 1776217200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "San Diego Padres 🇺🇸 USA",
+          "channel": "San Diego Padres",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=san+diego+padres&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS MAX 4 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 4",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-4.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Oakland Athletics vs Texas Rangers",
+      "league": "MLB",
+      "time": "03:40",
+      "timestamp": 1776217200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Oakland Athletics 🇺🇸 USA",
+          "channel": "Oakland Athletics",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=oakland+athletics&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "MLB Network 🇺🇸 USA",
+          "channel": "MLB Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=mlb+network&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "NBCS California 🇺🇸 USA",
+          "channel": "NBCS California",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nbc-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nbcs+california&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Los Angeles Dodgers vs New York Mets",
+      "league": "MLB",
+      "time": "04:10",
+      "timestamp": 1776219000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Los Angeles Dodgers 🇺🇸 USA",
+          "channel": "Los Angeles Dodgers",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=los+angeles+dodgers&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "SportsNet New York 🇺🇸 USA",
+          "channel": "SportsNet New York",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sny.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+new+york&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Spectrum Sportsnet LA 🇺🇸 USA",
+          "channel": "Spectrum Sportsnet LA",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/spectrum-sportsnet.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=spectrum+sportsnet+la&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true
