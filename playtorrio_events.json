@@ -1,13 +1,102 @@
 {
-  "generated_at": "2026-04-17T21:41:06.610535",
-  "total_events": 12,
-  "live_events": 12,
+  "generated_at": "2026-04-17T22:38:41.154264",
+  "total_events": 24,
+  "live_events": 24,
   "events": [
+    {
+      "title": "Jaguares de Córdoba vs Deportivo Pasto",
+      "league": "Primera A",
+      "time": "01:20",
+      "timestamp": 1776468000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Win Futbol 🇨🇴 Colombia",
+          "channel": "Win Futbol",
+          "country": "🇨🇴 Colombia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=win+futbol&code=co&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Unión Santa Fe vs Newell's Old Boys",
+      "league": "Primera División",
+      "time": "01:30",
+      "timestamp": 1776468600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "ESPN 🇦🇷 Argentina",
+          "channel": "ESPN",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=ar&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN Premium 🇦🇷 Argentina",
+          "channel": "ESPN Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Charlotte Hornets vs Orlando Magic",
+      "league": "NBA",
+      "time": "01:30",
+      "timestamp": 1776468600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "MLB League Pass 16 🇬🇧 UK",
+          "channel": "MLB League Pass 16",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=mlb+league+pass+16&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TSN 4 🇨🇦 Canada",
+          "channel": "TSN 4",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-4.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport 5 🇮🇱 Israel",
+          "channel": "Sport 5",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+5&code=il&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "LPGA Tour Golf JM Eagle LA Championship, Second Round",
+      "league": "Golf",
+      "time": "00:00",
+      "timestamp": 1776463200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "GOLF TV 🇺🇸 USA",
+          "channel": "GOLF TV",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-tv.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=golf+tv&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
     {
       "title": "PGA Tour RBC Heritage",
       "league": "Golf",
-      "time": "21:00",
-      "timestamp": 1776452400000,
+      "time": "00:30",
+      "timestamp": 1776465000000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
@@ -98,18 +187,25 @@
       "live": true
     },
     {
-      "title": "LPGA Tour Golf JM Eagle LA Championship, Second Round",
+      "title": "LPGA Tour JM Eagle LA Championship",
       "league": "Golf",
-      "time": "00:00",
-      "timestamp": 1776463200000,
+      "time": "01:00",
+      "timestamp": 1776466800000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "GOLF TV 🇺🇸 USA",
-          "channel": "GOLF TV",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-tv.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=golf+tv&code=us&user=ntvstream&plan=free"
+          "name": "Sky Sports Golf 🇬🇧 UK",
+          "channel": "Sky Sports Golf",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-golf.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+golf&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Main Event 🇬🇧 UK",
+          "channel": "Sky Sports Main Event",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-main-event.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -127,6 +223,91 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sec-network.svg",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sec+network&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Oregon vs Illinois",
+      "league": "College Baseball",
+      "time": "01:00",
+      "timestamp": 1776466800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NBA League Pass 1 🇺🇸 USA",
+          "channel": "NBA League Pass 1",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Maryland vs Iowa",
+      "league": "College Baseball",
+      "time": "01:00",
+      "timestamp": 1776466800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NBA League Pass 2 🇺🇸 USA",
+          "channel": "NBA League Pass 2",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Texas A&M vs Louisiana State University",
+      "league": "College Baseball",
+      "time": "01:00",
+      "timestamp": 1776466800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "ESPN 🇺🇸 USA",
+          "channel": "ESPN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "SE Louisiana vs UT Rio Grande Valley",
+      "league": "College Baseball",
+      "time": "01:30",
+      "timestamp": 1776468600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "ESPN U 🇺🇸 USA",
+          "channel": "ESPN U",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-u.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+u&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Kentucky vs Alabama",
+      "league": "College Softball",
+      "time": "01:00",
+      "timestamp": 1776466800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "ESPN 2 🇺🇸 USA",
+          "channel": "ESPN 2",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-2.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+2&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -221,18 +402,90 @@
       "live": true
     },
     {
-      "title": "Speedway PGE Ekstraliga : Gezet Stal Gorz?w vs. Betard Sparta Wroc?aw",
-      "league": "Motorsport",
-      "time": "20:00",
-      "timestamp": 1776448800000,
+      "title": "Washington Nationals vs San Francisco Giants",
+      "league": "MLB",
+      "time": "00:45",
+      "timestamp": 1776465900000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Canal Sport 1 🇵🇱 Poland",
-          "channel": "Canal Sport 1",
-          "country": "🇵🇱 Poland",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/poland/canal-sport.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+sport+1&code=pl&user=ntvstream&plan=free"
+          "name": "NBCS Bay Area 🇺🇸 USA",
+          "channel": "NBCS Bay Area",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nbc-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nbcs+bay+area&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "New York Yankees vs Kansas City Royals",
+      "league": "MLB",
+      "time": "01:05",
+      "timestamp": 1776467100000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Yes Network 🇺🇸 USA",
+          "channel": "Yes Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/yes.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=yes+network&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TVA Sports 🇨🇦 Canada",
+          "channel": "TVA Sports",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tva+sports&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport Bundesliga 6 🇩🇪 Germany",
+          "channel": "Sky Sport Bundesliga 6",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-6.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+6&code=de&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 4 🇧🇷 Brazil",
+          "channel": "ESPN 4",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-4.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+4&code=br&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Miami Marlins vs Milwaukee Brewers",
+      "league": "MLB",
+      "time": "01:10",
+      "timestamp": 1776467400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "beIN SPORTS MAX 4 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 4",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-4.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Shooto Brazil 136",
+      "league": "MMA",
+      "time": "01:00",
+      "timestamp": 1776466800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Italia 1 🇮🇹 Italy",
+          "channel": "Italia 1",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/italy/italia-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=italia+1&code=it&user=ntvstream&plan=free"
         }
       ],
       "live": true
