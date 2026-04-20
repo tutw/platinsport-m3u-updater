@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-20T20:45:37.147454",
-  "total_events": 3,
-  "live_events": 3,
+  "generated_at": "2026-04-20T21:46:11.793284",
+  "total_events": 6,
+  "live_events": 6,
   "events": [
     {
       "title": "Banfield vs Independiente Rivadavia",
@@ -45,18 +45,83 @@
       "live": true
     },
     {
-      "title": "Nevada vs Northern Colorado",
-      "league": "College Softball",
-      "time": "22:00",
-      "timestamp": 1776715200000,
+      "title": "San Lorenzo vs Vélez Sarsfield",
+      "league": "Primera División",
+      "time": "00:30",
+      "timestamp": 1776724200000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "MLB League Pass 9 🇺🇸 USA",
-          "channel": "MLB League Pass 9",
+          "name": "Sport TV 1 🇵🇹 Portugal",
+          "channel": "Sport TV 1",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Arena 2 Premium 🇷🇸 Serbia",
+          "channel": "Arena 2 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT Sports 🇦🇷 Argentina",
+          "channel": "TNT Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Cleveland Guardians vs Houston Astros",
+      "league": "MLB",
+      "time": "00:10",
+      "timestamp": 1776723000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Altitude 🇺🇸 USA",
+          "channel": "Altitude",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=altitude&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Tampa Bay Rays vs Cincinnati Reds",
+      "league": "MLB",
+      "time": "00:40",
+      "timestamp": 1776724800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "MLB Network 🇺🇸 USA",
+          "channel": "MLB Network",
           "country": "🇺🇸 USA",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=mlb+league+pass+9&code=us&user=ntvstream&plan=free"
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=mlb+network&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Miami Marlins vs St. Louis Cardinals",
+      "league": "MLB",
+      "time": "00:40",
+      "timestamp": 1776724800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 8 🇬🇧 UK",
+          "channel": "TNT Sports 8",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-8.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+8&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
