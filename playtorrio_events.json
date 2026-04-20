@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-20T10:47:57.489015",
-  "total_events": 1,
-  "live_events": 1,
+  "generated_at": "2026-04-20T12:03:48.062333",
+  "total_events": 2,
+  "live_events": 2,
   "events": [
     {
       "title": "Tour of the Alps | Stage 1 Men | Innsbruck (144.3km)",
@@ -37,6 +37,23 @@
           "country": "🇮🇹 Italy",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/italy/euro-sport-2.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+2&code=it&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Live racing from around the UK",
+      "league": "HorseRacing",
+      "time": "14:00",
+      "timestamp": 1776686400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sky Sports Racing 🇬🇧 UK",
+          "channel": "Sky Sports Racing",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-racing.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+racing&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
