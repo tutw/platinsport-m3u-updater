@@ -1,8 +1,87 @@
 {
-  "generated_at": "2026-04-22T11:04:32.402339",
-  "total_events": 5,
-  "live_events": 5,
+  "generated_at": "2026-04-22T13:26:27.827963",
+  "total_events": 9,
+  "live_events": 9,
   "events": [
+    {
+      "title": "Panserraikos vs Atromitos",
+      "league": "Super League",
+      "time": "15:00",
+      "timestamp": 1776862800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 7 🇬🇧 UK",
+          "channel": "TNT Sports 7",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Nova Sports Prime 🇬🇷 Greece",
+          "channel": "Nova Sports Prime",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/greece/nova-sports-prime.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nova+sports+prime&code=gr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport Klub 1 🇷🇸 Serbia",
+          "channel": "Sport Klub 1",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Posušje vs Radnik Bijeljina",
+      "league": "Premijer Liga",
+      "time": "16:00",
+      "timestamp": 1776866400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Arena Sport 9 🇷🇸 Serbia",
+          "channel": "Arena Sport 9",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-9.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+sport+9&code=rs&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Arena Sport 2 🇭🇷 Croatia",
+          "channel": "Arena Sport 2",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Larissa vs Kifisia",
+      "league": "Super League",
+      "time": "16:00",
+      "timestamp": 1776866400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Cosmote Sport 1 🇬🇷 Greece",
+          "channel": "Cosmote Sport 1",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/greece/cosmote-sport-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cosmote+sport+1&code=gr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Cytavision Sports 6 CY",
+          "channel": "Cytavision Sports 6",
+          "country": "CY",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/cyprus/cytavision-sports-6.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cytavision+sports+6&code=cy&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
     {
       "title": "Pakistan Super League : Karachi Kings vs Peshawar Zalmi",
       "league": "Cricket",
@@ -16,6 +95,72 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Indian Premier League : Lucknow Super Giants vs Rajasthan Royals",
+      "league": "Cricket",
+      "time": "16:00",
+      "timestamp": 1776866400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow Cricket 🇺🇸 USA",
+          "channel": "Willow Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/willow-cricket-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=willow+cricket&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Willow 2 Cricket 🇺🇸 USA",
+          "channel": "Willow 2 Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/willow-cricket-2.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=willow+2+cricket&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Fox Cricket 🇺🇸 USA",
+          "channel": "Fox Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/fox-cricket.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+cricket&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Astro Cricket 🇺🇸 USA",
+          "channel": "Astro Cricket",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/astro-cricket.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=astro+cricket&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Cricket 🇬🇧 UK",
+          "channel": "Sky Sports Cricket",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-cricket.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+cricket&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Main Event 🇬🇧 UK",
+          "channel": "Sky Sports Main Event",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-main-event.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport 1 🇳🇿 New Zealand",
+          "channel": "Sky Sport 1",
+          "country": "🇳🇿 New Zealand",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/new-zealand/sky-sport-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+1&code=nz&user=ntvstream&plan=free"
+        },
+        {
+          "name": "SuperSport Cricket 🇿🇦 South Africa",
+          "channel": "SuperSport Cricket",
+          "country": "🇿🇦 South Africa",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=ntvstream&plan=free"
         }
       ],
       "live": true
