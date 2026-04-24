@@ -1,450 +1,8 @@
 {
-  "generated_at": "2026-04-24T20:47:50.547537",
-  "total_events": 17,
-  "live_events": 17,
+  "generated_at": "2026-04-24T21:47:20.523079",
+  "total_events": 14,
+  "live_events": 14,
   "events": [
-    {
-      "title": "Sunderland vs Nottingham Forest",
-      "league": "Premier League",
-      "time": "21:00",
-      "timestamp": 1777057200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "USA Network 🇺🇸 USA",
-          "channel": "USA Network",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/usa-network.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=usa+network&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Astro Premier League 🇺🇸 USA",
-          "channel": "Astro Premier League",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/astro-premier-league.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=astro+premier+league&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS MENA 1 🇺🇸 USA",
-          "channel": "beIN SPORTS MENA 1",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+mena+1&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sports Main Event 🇬🇧 UK",
-          "channel": "Sky Sports Main Event",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-main-event.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sports Premier League 🇬🇧 UK",
-          "channel": "Sky Sports Premier League",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-premier-league.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+premier+league&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sport 8 🇳🇿 New Zealand",
-          "channel": "Sky Sport 8",
-          "country": "🇳🇿 New Zealand",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/new-zealand/sky-sport-8.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+8&code=nz&user=ntvstream&plan=free"
-        },
-        {
-          "name": "SuperSport Premier League 🇿🇦 South Africa",
-          "channel": "SuperSport Premier League",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/south-africa/supersport-premier-league.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=supersport+premier+league&code=za&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Canal Foot 🇫🇷 France",
-          "channel": "Canal Foot",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/canal-foot.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+foot&code=fr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "DAZN 1 🇪🇸 Spain",
-          "channel": "DAZN 1",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/spain/dazn-1.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=dazn+1&code=es&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sport Calcio 🇮🇹 Italy",
-          "channel": "Sky Sport Calcio",
-          "country": "🇮🇹 Italy",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/italy/sky-sport-calcio.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+calcio&code=it&user=ntvstream&plan=free"
-        },
-        {
-          "name": "DAZN 2 🇵🇹 Portugal",
-          "channel": "DAZN 2",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/dazn-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=dazn+2&code=pt&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Nova Sports Premier League 🇬🇷 Greece",
-          "channel": "Nova Sports Premier League",
-          "country": "🇬🇷 Greece",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/greece/nova-sports-premier-league.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nova+sports+premier+league&code=gr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "See 🇩🇰 Denmark",
-          "channel": "See",
-          "country": "🇩🇰 Denmark",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/denmark/see.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=see&code=dk&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Diema Sport 2 🇧🇬 Bulgaria",
-          "channel": "Diema Sport 2",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/bulgaria/diema-sports-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=diema+sport+2&code=bg&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Cytavision Sports 3 CY",
-          "channel": "Cytavision Sports 3",
-          "country": "CY",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/cyprus/cytavision-sports-3.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cytavision+sports+3&code=cy&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena Sport 1 🇭🇷 Croatia",
-          "channel": "Arena Sport 1",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/croatia/arena-sport-1.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+sport+1&code=hr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Canal Sport 🇨🇿 Czech Republic",
-          "channel": "Canal Sport",
-          "country": "🇨🇿 Czech Republic",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/czech-republic/canal-sport.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+sport&code=cz&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 3 🇹🇷 Turkey",
-          "channel": "beIN SPORTS 3",
-          "country": "🇹🇷 Turkey",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/turkey/bein-sports-3.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+3&code=tr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport 2 🇮🇱 Israel",
-          "channel": "Sport 2",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+2&code=il&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 2 🇸🇦 Saudi Arabia",
-          "channel": "beIN SPORTS 2",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+2&code=sa&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Real Betis vs Real Madrid",
-      "league": "La Liga",
-      "time": "21:00",
-      "timestamp": 1777057200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "beIN SPORTS 1 🇺🇸 USA",
-          "channel": "beIN SPORTS 1",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+1&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN Deportes 🇺🇸 USA",
-          "channel": "ESPN Deportes",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-deportes.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "LaLiga TV 🇬🇧 UK",
-          "channel": "LaLiga TV",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/la-liga-tv.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=laliga+tv&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "SuperSport Maximo 1 🇿🇦 South Africa",
-          "channel": "SuperSport Maximo 1",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/south-africa/supersport-maximo-1.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=supersport+maximo+1&code=za&user=ntvstream&plan=free"
-        },
-        {
-          "name": "SuperSport LaLiga 🇿🇦 South Africa",
-          "channel": "SuperSport LaLiga",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/south-africa/supersport-laliga.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=supersport+laliga&code=za&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 1 🇫🇷 France",
-          "channel": "beIN SPORTS 1",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+1&code=fr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "DAZN LaLiga 🇪🇸 Spain",
-          "channel": "DAZN LaLiga",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/spain/dazn-laliga.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=dazn+laliga&code=es&user=ntvstream&plan=free"
-        },
-        {
-          "name": "DAZN 2 🇩🇪 Germany",
-          "channel": "DAZN 2",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/dazn-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=dazn+2&code=de&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sport Bundesliga 7 🇩🇪 Germany",
-          "channel": "Sky Sport Bundesliga 7",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-7.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+7&code=de&user=ntvstream&plan=free"
-        },
-        {
-          "name": "DAZN 1 🇵🇹 Portugal",
-          "channel": "DAZN 1",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/dazn-1.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=dazn+1&code=pt&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Ziggo Sport 2 🇳🇱 Netherlands",
-          "channel": "Ziggo Sport 2",
-          "country": "🇳🇱 Netherlands",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/netherlands/ziggo-sport-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ziggo+sport+2&code=nl&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Nova Sports 1 🇬🇷 Greece",
-          "channel": "Nova Sports 1",
-          "country": "🇬🇷 Greece",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/greece/nova-sports-1.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nova+sports+1&code=gr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "TV2 Sport X 🇩🇰 Denmark",
-          "channel": "TV2 Sport X",
-          "country": "🇩🇰 Denmark",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/denmark/tv2-sports-x.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tv2+sport+x&code=dk&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Eleven Sports 1 🇵🇱 Poland",
-          "channel": "Eleven Sports 1",
-          "country": "🇵🇱 Poland",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/poland/eleven-sport-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=eleven+sports+1&code=pl&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Match TV 🇷🇺 Russia",
-          "channel": "Match TV",
-          "country": "🇷🇺 Russia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/russia/match-tv.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=match+tv&code=ru&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Match Football 2 🇷🇺 Russia",
-          "channel": "Match Football 2",
-          "country": "🇷🇺 Russia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/russia/match-football-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=match+football+2&code=ru&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Max Sport 4 🇧🇬 Bulgaria",
-          "channel": "Max Sport 4",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/bulgaria/max-sport-4.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=max+sport+4&code=bg&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena 2 Premium 🇷🇸 Serbia",
-          "channel": "Arena 2 Premium",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-2.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+2+premium&code=rs&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena Sport 2 🇭🇷 Croatia",
-          "channel": "Arena Sport 2",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/croatia/arena-sport-2.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+sport+2&code=hr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Nova Sport 5 🇨🇿 Czech Republic",
-          "channel": "Nova Sport 5",
-          "country": "🇨🇿 Czech Republic",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/czech-republic/nova-sports-5.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nova+sport+5&code=cz&user=ntvstream&plan=free"
-        },
-        {
-          "name": "TV4 Football 🇸🇪 Sweden",
-          "channel": "TV4 Football",
-          "country": "🇸🇪 Sweden",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/sweden/tv4-football.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tv4+football&code=se&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN 🇧🇷 Brazil",
-          "channel": "ESPN",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/brazil/espn.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=br&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Digi Sport 2 🇷🇴 Romania",
-          "channel": "Digi Sport 2",
-          "country": "🇷🇴 Romania",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/romania/digi-sport-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=digi+sport+2&code=ro&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 1 🇸🇦 Saudi Arabia",
-          "channel": "beIN SPORTS 1",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-1.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+1&code=sa&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Leicester City vs Millwall",
-      "league": "Championship",
-      "time": "21:00",
-      "timestamp": 1777057200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "beIN SPORTS MENA 2 🇺🇸 USA",
-          "channel": "beIN SPORTS MENA 2",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/bein-sports-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+mena+2&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sports Football 🇬🇧 UK",
-          "channel": "Sky Sports Football",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-football.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+football&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Cosmote Sport 9 🇬🇷 Greece",
-          "channel": "Cosmote Sport 9",
-          "country": "🇬🇷 Greece",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/greece/cosmote-sport-9.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cosmote+sport+9&code=gr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Nova Sport 🇧🇬 Bulgaria",
-          "channel": "Nova Sport",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/bulgaria/nova-sport.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nova+sport&code=bg&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN 4 🇧🇷 Brazil",
-          "channel": "ESPN 4",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-4.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+4&code=br&user=ntvstream&plan=free"
-        },
-        {
-          "name": "FOX Sports 2 🇦🇷 Argentina",
-          "channel": "FOX Sports 2",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/fox-sports-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+2&code=ar&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN 3 🇲🇽 Mexico",
-          "channel": "ESPN 3",
-          "country": "🇲🇽 Mexico",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/mexico/espn-3.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+3&code=mx&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport 4 🇮🇱 Israel",
-          "channel": "Sport 4",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-4.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+4&code=il&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS 4 🇸🇦 Saudi Arabia",
-          "channel": "beIN SPORTS 4",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-4.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+4&code=sa&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Avellino vs Bari 1908",
-      "league": "Serie B",
-      "time": "21:00",
-      "timestamp": 1777057200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Arena Sport 3 🇷🇸 Serbia",
-          "channel": "Arena Sport 3",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-3.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+sport+3&code=rs&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sport 5 Live 🇮🇱 Israel",
-          "channel": "Sport 5 Live",
-          "country": "🇮🇱 Israel",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5-live.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Alverca vs Arouca",
-      "league": "Primeira Liga",
-      "time": "21:15",
-      "timestamp": 1777058100000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Sport TV 1 🇵🇹 Portugal",
-          "channel": "Sport TV 1",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Deportivo Riestra vs Independiente",
       "league": "Primera División",
@@ -475,6 +33,64 @@
           "country": "🇨🇴 Colombia",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/colombia/win-futbol.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=win+futbol&code=co&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Unión La Calera vs Coquimbo Unido",
+      "league": "Primera Division",
+      "time": "00:00",
+      "timestamp": 1777068000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 🇨🇱 Chile",
+          "channel": "TNT Sports",
+          "country": "🇨🇱 Chile",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/chile/tnt-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Lanús vs Central Córdoba SdE",
+      "league": "Primera División",
+      "time": "00:15",
+      "timestamp": 1777068900000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "ESPN 🇦🇷 Argentina",
+          "channel": "ESPN",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=ar&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN Premium 🇦🇷 Argentina",
+          "channel": "ESPN Premium",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn-premium.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+premium&code=ar&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Estudiantes Río Cuarto vs Rosario Central",
+      "league": "Primera División",
+      "time": "00:15",
+      "timestamp": 1777068900000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 🇦🇷 Argentina",
+          "channel": "TNT Sports",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/tnt-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -541,79 +157,6 @@
           "country": "🇿🇦 South Africa",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/south-africa/supersport-cricket.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=supersport+cricket&code=za&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Women's golf major The Chevron Championship",
-      "league": "Golf",
-      "time": "18:00",
-      "timestamp": 1777046400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "GOLF TV 🇺🇸 USA",
-          "channel": "GOLF TV",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-tv.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=golf+tv&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN Deportes 🇺🇸 USA",
-          "channel": "ESPN Deportes",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-deportes.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sports Golf 🇬🇧 UK",
-          "channel": "Sky Sports Golf",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-golf.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+golf&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sports Arena 🇬🇧 UK",
-          "channel": "Sky Sports Arena",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-arena.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+arena&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sports Main Event 🇬🇧 UK",
-          "channel": "Sky Sports Main Event",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-main-event.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "SuperSport Golf 🇿🇦 South Africa",
-          "channel": "SuperSport Golf",
-          "country": "🇿🇦 South Africa",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/south-africa/supersport-golf.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=supersport+golf&code=za&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Movistar Golf 🇪🇸 Spain",
-          "channel": "Movistar Golf",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/spain/movistar-golf.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=movistar+golf&code=es&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Ziggo Sport 6 🇳🇱 Netherlands",
-          "channel": "Ziggo Sport 6",
-          "country": "🇳🇱 Netherlands",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/netherlands/ziggo-sport-6.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ziggo+sport+6&code=nl&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN 2 🇦🇷 Argentina",
-          "channel": "ESPN 2",
-          "country": "🇦🇷 Argentina",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+2&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -709,6 +252,23 @@
       "live": true
     },
     {
+      "title": "Texas vs Kentucky",
+      "league": "College Softball",
+      "time": "00:00",
+      "timestamp": 1777068000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "SEC Network 🇺🇸 USA",
+          "channel": "SEC Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sec-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sec+network&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "America's Day At the Races",
       "league": "HorseRacing",
       "time": "19:00",
@@ -726,66 +286,35 @@
       "live": true
     },
     {
-      "title": "Copa Paulista Futsal Placard - Semi-Final",
-      "league": "Futsal",
-      "time": "22:00",
-      "timestamp": 1777060800000,
+      "title": "NBB : Corinthians Paulista vs Unifacisa",
+      "league": "Basketball",
+      "time": "00:00",
+      "timestamp": 1777068000000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Canal 11 🇵🇹 Portugal",
-          "channel": "Canal 11",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/canal-11.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+11&code=pt&user=ntvstream&plan=free"
+          "name": "SporTV 1 🇧🇷 Brazil",
+          "channel": "SporTV 1",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/brazil/sportv-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportv+1&code=br&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "Andebol 1 : Aquas Santas vs Porto",
-      "league": "Handball",
-      "time": "21:30",
-      "timestamp": 1777059000000,
+      "title": "Cincinnati Reds vs Detroit Tigers",
+      "league": "MLB",
+      "time": "00:40",
+      "timestamp": 1777070400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Porto Canal 🇵🇹 Portugal",
-          "channel": "Porto Canal",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/porto-canal.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=porto+canal&code=pt&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "WRC Rally Islas Canarias | Special Stage 7 | Day 2",
-      "league": "Motorsport",
-      "time": "18:45",
-      "timestamp": 1777049100000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "TNT Sports 2 🇬🇧 UK",
-          "channel": "TNT Sports 2",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+2&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Canal Sport360 🇫🇷 France",
-          "channel": "Canal Sport360",
+          "name": "beIN SPORTS MAX 4 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 4",
           "country": "🇫🇷 France",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/canal-sport-360.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+sport360&code=fr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "SSC 2 🇸🇦 Saudi Arabia",
-          "channel": "SSC 2",
-          "country": "🇸🇦 Saudi Arabia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/ssc-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ssc+2&code=sa&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-4.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=ntvstream&plan=free"
         }
       ],
       "live": true
