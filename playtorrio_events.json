@@ -1,8 +1,63 @@
 {
-  "generated_at": "2026-04-26T07:28:24.825373",
-  "total_events": 8,
-  "live_events": 8,
+  "generated_at": "2026-04-26T09:00:17.915374",
+  "total_events": 12,
+  "live_events": 12,
   "events": [
+    {
+      "title": "Chelyabinsk vs Ural",
+      "league": "FNL",
+      "time": "10:30",
+      "timestamp": 1777192200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Match Premier 🇷🇺 Russia",
+          "channel": "Match Premier",
+          "country": "🇷🇺 Russia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/russia/match-premier.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=match+premier&code=ru&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Tour of Türkiye | Stage 1 Men | Çeşme - Selçuk (149km)",
+      "league": "Cycling",
+      "time": "10:30",
+      "timestamp": 1777192200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 4 🇬🇧 UK",
+          "channel": "TNT Sports 4",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-4.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+4&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 2 🇬🇧 UK",
+          "channel": "Euro Sport 2",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/euro-sport-2.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+2&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 2 🇪🇸 Spain",
+          "channel": "Euro Sport 2",
+          "country": "🇪🇸 Spain",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/spain/euro-sport-2.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+2&code=es&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 2 🇮🇹 Italy",
+          "channel": "Euro Sport 2",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/italy/euro-sport-2.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+2&code=it&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
     {
       "title": "Fiba 3x3 world tour : Utsunomiya, semifinala i finale",
       "league": "Basketball",
@@ -415,6 +470,61 @@
           "country": "🇺🇸 USA",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/bein-sports-3.svg",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+3&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Porsche Carrera Cup Germany 2026: Red Bull Ring Race 2",
+      "league": "Motorsport",
+      "time": "11:30",
+      "timestamp": 1777195800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "beIN SPORTS 3 🇺🇸 USA",
+          "channel": "beIN SPORTS 3",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/bein-sports-3.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+3&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "WRC Rally Islas Canarias | Special Stages 17 | Day 4",
+      "league": "Motorsport",
+      "time": "11:45",
+      "timestamp": 1777196700000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 1 🇬🇧 UK",
+          "channel": "TNT Sports 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Canal Sport 🇫🇷 France",
+          "channel": "Canal Sport",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/canal-sport.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+sport&code=fr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Cosmote Sport 8 🇬🇷 Greece",
+          "channel": "Cosmote Sport 8",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/greece/cosmote-sport-8.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cosmote+sport+8&code=gr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "SSC 1 🇸🇦 Saudi Arabia",
+          "channel": "SSC 1",
+          "country": "🇸🇦 Saudi Arabia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/ssc-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ssc+1&code=sa&user=ntvstream&plan=free"
         }
       ],
       "live": true
