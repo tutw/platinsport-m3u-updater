@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-04-28T21:57:36.687422",
-  "total_events": 6,
-  "live_events": 6,
+  "generated_at": "2026-04-28T22:59:43.757663",
+  "total_events": 10,
+  "live_events": 10,
   "events": [
     {
       "title": "Lanús vs LDU Quito",
@@ -108,6 +108,72 @@
       "live": true
     },
     {
+      "title": "Boston Bruins vs Buffalo Sabres",
+      "league": "NHL",
+      "time": "01:30",
+      "timestamp": 1777419000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NHL League Pass 2 🇺🇸 USA",
+          "channel": "NHL League Pass 2",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-7.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nhl+league+pass+2&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT 🇺🇸 USA",
+          "channel": "TNT",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/tnt.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "truTV 🇺🇸 USA",
+          "channel": "truTV",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=trutv&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TVA Sports 🇨🇦 Canada",
+          "channel": "TVA Sports",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tva+sports&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sportsnet West 🇨🇦 Canada",
+          "channel": "Sportsnet West",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-west.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sportsnet 360 🇨🇦 Canada",
+          "channel": "Sportsnet 360",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-360.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+360&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS MAX 5 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 5",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport 5 Stars 🇮🇱 Israel",
+          "channel": "Sport 5 Stars",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "Indian Premier League : Kings XI Punjab vs Rajasthan Royals",
       "league": "Cricket",
       "time": "16:00",
@@ -174,6 +240,23 @@
       "live": true
     },
     {
+      "title": "2026 PGA Professional Championship, Third Round",
+      "league": "Golf",
+      "time": "01:00",
+      "timestamp": 1777417200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "GOLF TV 🇺🇸 USA",
+          "channel": "GOLF TV",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-tv.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=golf+tv&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "UConn vs Rutgers",
       "league": "College Baseball",
       "time": "00:00",
@@ -208,18 +291,206 @@
       "live": true
     },
     {
-      "title": "SPEEDWAY Ekstraliga : HUNTERS PSŻ Poznań vs ZKS STAL Rzeszów",
-      "league": "Motorsport",
-      "time": "19:00",
-      "timestamp": 1777395600000,
+      "title": "Florida State vs Florida",
+      "league": "College Softball",
+      "time": "01:00",
+      "timestamp": 1777417200000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Canal Sport 5 🇵🇱 Poland",
-          "channel": "Canal Sport 5",
-          "country": "🇵🇱 Poland",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/poland/canal-sport-5.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+sport+5&code=pl&user=ntvstream&plan=free"
+          "name": "SEC Network 🇺🇸 USA",
+          "channel": "SEC Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sec-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sec+network&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "NBA : Boston Celtics vs Philadelphia 76ers",
+      "league": "Basketball",
+      "time": "01:00",
+      "timestamp": 1777417200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "ESPN 🇺🇸 USA",
+          "channel": "ESPN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN Deportes 🇺🇸 USA",
+          "channel": "ESPN Deportes",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-deportes.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+deportes&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS MENA 1 🇺🇸 USA",
+          "channel": "beIN SPORTS MENA 1",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+mena+1&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT Sports 7 🇬🇧 UK",
+          "channel": "TNT Sports 7",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Action 🇬🇧 UK",
+          "channel": "Sky Sports Action",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-action.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+action&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Main Event 🇬🇧 UK",
+          "channel": "Sky Sports Main Event",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-main-event.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+main+event&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "RDS 🇨🇦 Canada",
+          "channel": "RDS",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=rds&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TSN 4 🇨🇦 Canada",
+          "channel": "TSN 4",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-4.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Cosmote Sport 4 🇬🇷 Greece",
+          "channel": "Cosmote Sport 4",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/greece/cosmote-sport-4.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cosmote+sport+4&code=gr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Arena 1 Premium 🇷🇸 Serbia",
+          "channel": "Arena 1 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport Klub 1 🇷🇸 Serbia",
+          "channel": "Sport Klub 1",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/sk-1.png.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+klub+1&code=rs&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 2 🇧🇷 Brazil",
+          "channel": "ESPN 2",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-2.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+2&code=br&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 3 🇦🇷 Argentina",
+          "channel": "ESPN 3",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/argentina/espn-3.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+3&code=ar&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 2 🇲🇽 Mexico",
+          "channel": "ESPN 2",
+          "country": "🇲🇽 Mexico",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/mexico/espn-2.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+2&code=mx&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport 5 🇮🇱 Israel",
+          "channel": "Sport 5",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+5&code=il&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS 8 🇸🇦 Saudi Arabia",
+          "channel": "beIN SPORTS 8",
+          "country": "🇸🇦 Saudi Arabia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/bein-sports-8.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+8&code=sa&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "NHL : Boston Bruins vs Buffalo Sabres",
+      "league": "Hockey",
+      "time": "01:30",
+      "timestamp": 1777419000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT 🇺🇸 USA",
+          "channel": "TNT",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/tnt.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "truTV 🇺🇸 USA",
+          "channel": "truTV",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=trutv&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TVA Sports 🇨🇦 Canada",
+          "channel": "TVA Sports",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tva+sports&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sportsnet West 🇨🇦 Canada",
+          "channel": "Sportsnet West",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-west.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+west&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sportsnet 360 🇨🇦 Canada",
+          "channel": "Sportsnet 360",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-360.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+360&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS MAX 5 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 5",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-5.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+5&code=fr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport Bundesliga 7 🇩🇪 Germany",
+          "channel": "Sky Sport Bundesliga 7",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-7.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+7&code=de&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport 5 Stars 🇮🇱 Israel",
+          "channel": "Sport 5 Stars",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5-stars.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+5+stars&code=il&user=ntvstream&plan=free"
         }
       ],
       "live": true
