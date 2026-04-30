@@ -1,6 +1,56 @@
 <?xml version='1.0' encoding='utf-8'?>
-<eventos generado="2026-04-30 16:13:48" total="180">
+<eventos generado="2026-04-30 17:57:40" total="206">
   <evento id="1">
+    <nombre>Nymburk –  NH Ostrava</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>República Checa. NBL</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>84:48</hora>
+    <url>https://livetv.sx/es/eventinfo/373921601_nymburk_nh_ostrava/</url>
+    <datetime_iso>2026-04-30T00:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="2">
+    <nombre>Orbi –  Mega</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Georgia. Superliga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>61:48</hora>
+    <url>https://livetv.sx/es/eventinfo/375594054_orbi_mega/</url>
+    <datetime_iso>2026-04-30T00:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="3">
+    <nombre>Neptunas-Akvaservis –  Suduva-Mantinga</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Lituania. NKL</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>26:38</hora>
+    <url>https://livetv.sx/es/eventinfo/375131734_neptunas_akvaservis_suduva_mantinga/</url>
+    <datetime_iso>2026-04-30T00:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="4">
+    <nombre>Pardubice –  Sokol Pisek</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>República Checa. NBL</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>43:38</hora>
+    <url>https://livetv.sx/es/eventinfo/373514865_pardubice_sokol_pisek/</url>
+    <datetime_iso>2026-04-30T00:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="5">
+    <nombre>Podcetrtek –  Krka</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Eslovenia. Liga Nova KBM</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>27:47</hora>
+    <url>https://livetv.sx/es/eventinfo/369656242_podcetrtek_krka/</url>
+    <datetime_iso>2026-04-30T00:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="6">
     <nombre>Uber Cup</nombre>
     <deporte>Fútbol</deporte>
     <competicion>No especificado</competicion>
@@ -23,17 +73,41 @@
       </stream>
     </streams>
   </evento>
-  <evento id="2">
-    <nombre>Turkish Airlines Open</nombre>
+  <evento id="7">
+    <nombre>Zlatorog –  Triglav Kranj</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>DP World Tour</competicion>
+    <competicion>Eslovenia. Liga Nova KBM</competicion>
     <fecha>30 de abril</fecha>
-    <hora>13:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375200567_turkish_airlines_open/</url>
-    <datetime_iso>2026-04-30T13:00:00</datetime_iso>
-    <streams total="0" />
+    <hora>10:10</hora>
+    <url>https://livetv.sx/es/eventinfo/369664684_zlatorog_triglav_kranj/</url>
+    <datetime_iso>2026-04-30T10:10:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/f8KUHRH8EGY?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=f8KUHRH8EGY&amp;lang=es&amp;eid=369664684&amp;lid=3006771&amp;ci=1470&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="3">
+  <evento id="8">
+    <nombre>Rilski Sportist –  Beroe</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Bulgaria. NBL</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>12:17</hora>
+    <url>https://livetv.sx/es/eventinfo/375006720_rilski_sportist_beroe/</url>
+    <datetime_iso>2026-04-30T12:17:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/5mhv8PAgsuA?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=5mhv8PAgsuA&amp;lang=es&amp;eid=375006720&amp;lid=3007737&amp;ci=617&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="9">
     <nombre>ATP/WTA. Madrid</nombre>
     <deporte>Fútbol</deporte>
     <competicion>ATP/WTA Tour</competicion>
@@ -100,7 +174,7 @@ player/live.php?id=258330&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="4">
+  <evento id="10">
     <nombre>ATP/WTA. Madrid</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP/WTA Tour</competicion>
@@ -167,17 +241,7 @@ player/live.php?id=258330&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="5">
-    <nombre>Campeonato Mundial, Sheffield</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Snooker</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>14:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375178756_campeonato_mundial_sheffield/</url>
-    <datetime_iso>2026-04-30T14:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="6">
+  <evento id="11">
     <nombre>MODUS Super Series</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Modus League</competicion>
@@ -185,136 +249,19 @@ player/live.php?id=258330&amp;w=700&amp;h=480</url>
     <hora>14:00</hora>
     <url>https://livetv.sx/es/eventinfo/375169236_modus_super_series/</url>
     <datetime_iso>2026-04-30T14:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/pCRdD8R808Q?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=pCRdD8R808Q&amp;lang=es&amp;eid=375169236&amp;lid=3007660&amp;ci=3063&amp;si=30</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="7">
-    <nombre>Baku Sporting –  Difai Agsu</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Azerbaiyan. 1 Liga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>14:30</hora>
-    <url>https://livetv.sx/es/eventinfo/375093483_baku_sporting_difai_agsu/</url>
-    <datetime_iso>2026-04-30T14:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="8">
-    <nombre>Bars –  Turan</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Kazajistán. Vysheyshaya Liga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/376239886_bars_turan/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="9">
-    <nombre>Zenit-M –  SShOR-Lokomotiv-Kuban</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Liga VTB United Júnior</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375745760_zenit_m_sshor_lokomotiv_kuban/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="10">
-    <nombre>Korabelka (W) –  Dynamo-Ak Bars (W)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Rusia. Mujeres. Copa</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375744519_korabelka_w_dynamo_ak_bars_w/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="11">
-    <nombre>Sabail –  Cabrayil</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Azerbaiyan. 1 Liga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/376027730_sabail_cabrayil/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
     <streams total="0" />
   </evento>
   <evento id="12">
-    <nombre>Corea del Sur U18 –  Austria U18</nombre>
+    <nombre>Avenida (M) –   Jairis (M)</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Grupo B</competicion>
+    <competicion>Liga Femenina</competicion>
     <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/372567760_corea_del_sur_u18_austria_u18/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
+    <hora>14:10</hora>
+    <url>https://livetv.sx/es/eventinfo/375544657__avenida_m__jairis_m/</url>
+    <datetime_iso>2026-04-30T14:10:00</datetime_iso>
     <streams total="0" />
   </evento>
   <evento id="13">
-    <nombre>Johnson / Zielinski –  Doumbia / Reboul</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>ATP. Madrid. Doubles</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375885630_johnson__zielinski_doumbia__reboul/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="14">
-    <nombre>Sabail – Cabrayil</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Azerbaiyan. 1 Liga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/376027730__/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="15">
-    <nombre>Corea del Sur U18 – Austria U18</nombre>
-    <deporte>Hockey</deporte>
-    <competicion>Campeonato mundial Sub-18. Div I. Grupo B</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/372567760_south_korea_u18_austria_u18/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="16">
-    <nombre>Bars – Turan</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Kazajistán. Vysheyshaya Liga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/376239886__/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="17">
-    <nombre>Johnson / Zielinski – Doumbia / Reboul</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP. Madrid. Doubles</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375885630__/</url>
-    <datetime_iso>2026-04-30T15:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="18">
-    <nombre>Avangard –  Lokomotiv</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>No especificado</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/370173387_avangard_lokomotiv/</url>
-    <datetime_iso>2026-04-30T15:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="19">
     <nombre>Avto –  JHC Spartak</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Rusia. MHL</competicion>
@@ -322,70 +269,9 @@ player/live.php?id=258330&amp;w=700&amp;h=480</url>
     <hora>15:30</hora>
     <url>https://livetv.sx/es/eventinfo/371253071_avto_jhc_spartak/</url>
     <datetime_iso>2026-04-30T15:30:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://emb.apl407.me/
-player/live.php?id=258358&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258358&amp;lang=es&amp;eid=371253071&amp;lid=3004959&amp;ci=279&amp;si=2</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl407.me/
-player/live.php?id=258685&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258685&amp;lang=es&amp;eid=371253071&amp;lid=3006229&amp;ci=279&amp;si=2</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://www.youtube.com/embed/JUnFQ5-7lEs?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=JUnFQ5-7lEs&amp;lang=es&amp;eid=371253071&amp;lid=3007339&amp;ci=279&amp;si=2</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="20">
-    <nombre>Tour de Romandie</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>UCI World Tour</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/375180212_tour_de_romandie/</url>
-    <datetime_iso>2026-04-30T15:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="21">
-    <nombre>Zambia U20 –  Mozambique U20</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>IHF Trophy. África</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/375531412_zambia_u20_mozambique_u20/</url>
-    <datetime_iso>2026-04-30T15:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="22">
-    <nombre>Zambia U18 –  Mozambique U18</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>IHF Trophy. África</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/375531413_zambia_u18_mozambique_u18/</url>
-    <datetime_iso>2026-04-30T15:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="23">
-    <nombre>Avangard – Lokomotiv</nombre>
-    <deporte>Hockey</deporte>
-    <competicion>No especificado</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:30</hora>
-    <url>https://livetv.sx/es/eventinfo/370173387__/</url>
-    <datetime_iso>2026-04-30T15:30:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="24">
+  <evento id="14">
     <nombre>Avto – JHC Spartak</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. MHL</competicion>
@@ -393,40 +279,9 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <hora>15:30</hora>
     <url>https://livetv.sx/es/eventinfo/371253071__/</url>
     <datetime_iso>2026-04-30T15:30:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://emb.apl407.me/
-player/live.php?id=258358&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258358&amp;lang=es&amp;eid=371253071&amp;lid=3004959&amp;ci=279&amp;si=2</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl407.me/
-player/live.php?id=258685&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258685&amp;lang=es&amp;eid=371253071&amp;lid=3006229&amp;ci=279&amp;si=2</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://www.youtube.com/embed/JUnFQ5-7lEs?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=JUnFQ5-7lEs&amp;lang=es&amp;eid=371253071&amp;lid=3007339&amp;ci=279&amp;si=2</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="25">
-    <nombre>Carboni / Cadenasso –  Haase / Frantzen</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Doubles</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>15:45</hora>
-    <url>https://livetv.sx/es/eventinfo/375491350_carboni__cadenasso_haase__frantzen/</url>
-    <datetime_iso>2026-04-30T15:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="26">
+  <evento id="15">
     <nombre>Aktobe –  Elimai</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Kazajistán. Copa</competicion>
@@ -434,16 +289,9 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/369155000_aktobe_elimai/</url>
     <datetime_iso>2026-04-30T16:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/RCV4_D53xhQ?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=RCV4_D53xhQ&amp;lang=es&amp;eid=369155000&amp;lid=3007685&amp;ci=298&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="27">
+  <evento id="16">
     <nombre>Yugra –  Neftyanik</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Rusia. VHL</competicion>
@@ -451,16 +299,9 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/372583829_yugra_neftyanik/</url>
     <datetime_iso>2026-04-30T16:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/f5lj6UkiFII?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=f5lj6UkiFII&amp;lang=es&amp;eid=372583829&amp;lid=3007340&amp;ci=418&amp;si=2</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="28">
+  <evento id="17">
     <nombre>Gujarat Titans –  Royal Challengers Bengaluru</nombre>
     <deporte>Fútbol</deporte>
     <competicion>India. Premier League</competicion>
@@ -496,7 +337,7 @@ player/live.php?id=258290&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="29">
+  <evento id="18">
     <nombre>Metallurg –  JHC Ryazan VDV</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Rusia. NMHL</competicion>
@@ -506,7 +347,7 @@ player/live.php?id=258290&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="30">
+  <evento id="19">
     <nombre>Konya BBSK –  Fenerbahce 2</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Turquía. TBL</competicion>
@@ -516,7 +357,7 @@ player/live.php?id=258290&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="31">
+  <evento id="20">
     <nombre>República Centroafricana U20 –  Congo U20</nombre>
     <deporte>Fútbol</deporte>
     <competicion>IHF Trophy. África</competicion>
@@ -526,7 +367,7 @@ player/live.php?id=258290&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="32">
+  <evento id="21">
     <nombre>Aktobe – Elimai</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Kazajistán. Copa</competicion>
@@ -534,16 +375,9 @@ player/live.php?id=258290&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/369155000__/</url>
     <datetime_iso>2026-04-30T16:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/RCV4_D53xhQ?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=RCV4_D53xhQ&amp;lang=es&amp;eid=369155000&amp;lid=3007685&amp;ci=298&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="33">
+  <evento id="22">
     <nombre>Yugra – Neftyanik</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. VHL</competicion>
@@ -551,16 +385,9 @@ player/live.php?id=258290&amp;w=700&amp;h=480</url>
     <hora>16:00</hora>
     <url>https://livetv.sx/es/eventinfo/372583829__/</url>
     <datetime_iso>2026-04-30T16:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/f5lj6UkiFII?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=f5lj6UkiFII&amp;lang=es&amp;eid=372583829&amp;lid=3007340&amp;ci=418&amp;si=2</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="34">
+  <evento id="23">
     <nombre>Metallurg – JHC Ryazan VDV</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. NMHL</competicion>
@@ -570,17 +397,7 @@ player/live.php?id=258290&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T16:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="35">
-    <nombre>República Centroafricana U20 – Congo U20</nombre>
-    <deporte>Balonmano</deporte>
-    <competicion>IHF Trophy. África</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>16:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375531414_car_u20_congo_u20/</url>
-    <datetime_iso>2026-04-30T16:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="36">
+  <evento id="24">
     <nombre>Hailey Baptiste (M) –   Mirra Andreeva (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Madrid</competicion>
@@ -588,66 +405,9 @@ player/live.php?id=258290&amp;w=700&amp;h=480</url>
     <hora>16:05</hora>
     <url>https://livetv.sx/es/eventinfo/375607958__hailey_baptiste_m__mirra_andreeva_m/</url>
     <datetime_iso>2026-04-30T16:05:00</datetime_iso>
-    <streams total="8">
-      <stream id="1">
-        <url>https://emb.apl407.me/
-player/live.php?id=258506&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258506&amp;lang=es&amp;eid=375607958&amp;lid=3004023&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl407.me/
-player/live.php?id=243137&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=243137&amp;lang=es&amp;eid=375607958&amp;lid=2924345&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://emb.apl407.me/
-player/live.php?id=258280&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258280&amp;lang=es&amp;eid=375607958&amp;lid=3003835&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://emb.apl407.me/
-player/live.php?id=258282&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258282&amp;lang=es&amp;eid=375607958&amp;lid=3003714&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="5">
-        <url>https://emb.apl407.me/
-player/live.php?id=258307&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
-        <idioma_nombre>Italiano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258307&amp;lang=es&amp;eid=375607958&amp;lid=3005017&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="6">
-        <url>https://emb.apl407.me/
-player/live.php?id=258330&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
-        <idioma_nombre>Croata</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258330&amp;lang=es&amp;eid=375607958&amp;lid=3005345&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="7">
-        <url>https://emb.apl407.me/
-player/live.php?id=258450&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
-        <idioma_nombre>Italiano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258450&amp;lang=es&amp;eid=375607958&amp;lid=3003767&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="8">
-        <url>https://emb.apl407.me/
-player/live.php?id=258451&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
-        <idioma_nombre>Italiano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258451&amp;lang=es&amp;eid=375607958&amp;lid=3003768&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="37">
+  <evento id="25">
     <nombre>Hailey Baptiste (M) –  Mirra Andreeva (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Madrid</competicion>
@@ -655,110 +415,19 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>16:05</hora>
     <url>https://livetv.sx/es/eventinfo/375607958__/</url>
     <datetime_iso>2026-04-30T16:05:00</datetime_iso>
-    <streams total="8">
-      <stream id="1">
-        <url>https://emb.apl407.me/
-player/live.php?id=258506&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258506&amp;lang=es&amp;eid=375607958&amp;lid=3004023&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl407.me/
-player/live.php?id=243137&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=243137&amp;lang=es&amp;eid=375607958&amp;lid=2924345&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://emb.apl407.me/
-player/live.php?id=258280&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258280&amp;lang=es&amp;eid=375607958&amp;lid=3003835&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://emb.apl407.me/
-player/live.php?id=258282&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258282&amp;lang=es&amp;eid=375607958&amp;lid=3003714&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="5">
-        <url>https://emb.apl407.me/
-player/live.php?id=258307&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
-        <idioma_nombre>Italiano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258307&amp;lang=es&amp;eid=375607958&amp;lid=3005017&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="6">
-        <url>https://emb.apl407.me/
-player/live.php?id=258330&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
-        <idioma_nombre>Croata</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258330&amp;lang=es&amp;eid=375607958&amp;lid=3005345&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="7">
-        <url>https://emb.apl407.me/
-player/live.php?id=258450&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
-        <idioma_nombre>Italiano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258450&amp;lang=es&amp;eid=375607958&amp;lid=3003767&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-      <stream id="8">
-        <url>https://emb.apl407.me/
-player/live.php?id=258451&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
-        <idioma_nombre>Italiano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258451&amp;lang=es&amp;eid=375607958&amp;lid=3003768&amp;ci=3668&amp;si=4</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="38">
+  <evento id="26">
     <nombre>Bolsova (M) /  Bassols-Ribera (M) –   Mihalikova (M) /  Nicholls (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Doubles</competicion>
     <fecha>30 de abril</fecha>
-    <hora>16:15</hora>
+    <hora>16:50</hora>
     <url>https://livetv.sx/es/eventinfo/375508468__bolsova_m___bassols_ribera_m__mihalikova_m___nicholls_m/</url>
-    <datetime_iso>2026-04-30T16:15:00</datetime_iso>
+    <datetime_iso>2026-04-30T16:50:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="39">
-    <nombre>Vacherot / Arneodo –  Andreozzi / Guinard</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>ATP. Madrid. Doubles</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>16:45</hora>
-    <url>https://livetv.sx/es/eventinfo/375856167_vacherot__arneodo_andreozzi__guinard/</url>
-    <datetime_iso>2026-04-30T16:45:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://shd247.pro/frame020.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
-        <idioma_nombre>Coreano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007681&amp;lang=es&amp;eid=375856167&amp;lid=3007681&amp;ci=5743&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="40">
-    <nombre>Vacherot / Arneodo – Andreozzi / Guinard</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP. Madrid. Doubles</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>16:45</hora>
-    <url>https://livetv.sx/es/eventinfo/375856167__/</url>
-    <datetime_iso>2026-04-30T16:45:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://shd247.pro/frame020.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
-        <idioma_nombre>Coreano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007681&amp;lang=es&amp;eid=375856167&amp;lid=3007681&amp;ci=5743&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="41">
+  <evento id="27">
     <nombre>Ordabasy –  Caspiy</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Kazajistán. Copa</competicion>
@@ -766,16 +435,79 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>17:00</hora>
     <url>https://livetv.sx/es/eventinfo/369154991_ordabasy_caspiy/</url>
     <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/id1a2bHrInQ?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/37.png</idioma>
-        <idioma_nombre>Bandera #37</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=id1a2bHrInQ&amp;lang=es&amp;eid=369154991&amp;lid=3007687&amp;ci=298&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="42">
+  <evento id="28">
+    <nombre>DHJ –  RS Zemamra</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Marruecos. Botola Pro</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/371717731_dhj_rs_zemamra/</url>
+    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="29">
+    <nombre>Olympique Dcheira –  Union Touarga</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Marruecos. Botola Pro</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/371717733_olympique_dcheira_union_touarga/</url>
+    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="30">
+    <nombre>Cluj –  Sibiu</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Rumania. Liga Nationala</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375217275_cluj_sibiu/</url>
+    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="31">
+    <nombre>Corona Brasov –  Steaua Bucuresti</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Rumania. Liga Nationala</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375217276_corona_brasov_steaua_bucuresti/</url>
+    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="32">
+    <nombre>Galati –  Timisoara</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Rumania. Liga Nationala</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375217277_galati_timisoara/</url>
+    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="33">
+    <nombre>Vacherot / Arneodo –  Andreozzi / Guinard</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP. Madrid. Doubles</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375856167_vacherot__arneodo_andreozzi__guinard/</url>
+    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="34">
+    <nombre>Ninomiya (M) /  Fossa Huergo (M) –   Pigossi (M) /  Cavalle-Reimers (M)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Doubles</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375508470__ninomiya_m___fossa_huergo_m__pigossi_m___cavalle_reimers_m/</url>
+    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="35">
     <nombre>DHJ – RS Zemamra</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Marruecos. Botola Pro</competicion>
@@ -783,16 +515,9 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>17:00</hora>
     <url>https://livetv.sx/es/eventinfo/371717731__/</url>
     <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/GqPF0dTTZQA?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/5.png</idioma>
-        <idioma_nombre>Alemán (Alemania)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=GqPF0dTTZQA&amp;lang=es&amp;eid=371717731&amp;lid=3007703&amp;ci=551&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="43">
+  <evento id="36">
     <nombre>Olympique Dcheira – Union Touarga</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Marruecos. Botola Pro</competicion>
@@ -800,16 +525,9 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>17:00</hora>
     <url>https://livetv.sx/es/eventinfo/371717733__/</url>
     <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/cDReh6I846k?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/5.png</idioma>
-        <idioma_nombre>Alemán (Alemania)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=cDReh6I846k&amp;lang=es&amp;eid=371717733&amp;lid=3007702&amp;ci=551&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="44">
+  <evento id="37">
     <nombre>Ordabasy – Caspiy</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Kazajistán. Copa</competicion>
@@ -817,16 +535,9 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>17:00</hora>
     <url>https://livetv.sx/es/eventinfo/369154991__/</url>
     <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/id1a2bHrInQ?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/37.png</idioma>
-        <idioma_nombre>Bandera #37</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=id1a2bHrInQ&amp;lang=es&amp;eid=369154991&amp;lid=3007687&amp;ci=298&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="45">
+  <evento id="38">
     <nombre>Nymburk – NH Ostrava</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>República Checa. NBL</competicion>
@@ -834,16 +545,9 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>17:00</hora>
     <url>https://livetv.sx/es/eventinfo/373921601__/</url>
     <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://embed.tvcom.cz/171e7393-a614-4070-9d66-9b796db1c1d3/</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
-        <idioma_nombre>Danés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3006865&amp;lang=es&amp;eid=373921601&amp;lid=3006865&amp;ci=1004&amp;si=3</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="46">
+  <evento id="39">
     <nombre>Orbi – Mega</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Georgia. Superliga</competicion>
@@ -851,16 +555,9 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>17:00</hora>
     <url>https://livetv.sx/es/eventinfo/375594054__/</url>
     <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/UvqqGi9i-s0?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/24.png</idioma>
-        <idioma_nombre>Portugués</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=UvqqGi9i-s0&amp;lang=es&amp;eid=375594054&amp;lid=3007692&amp;ci=1726&amp;si=3</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="47">
+  <evento id="40">
     <nombre>Neptunas-Akvaservis – Suduva-Mantinga</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Lituania. NKL</competicion>
@@ -868,94 +565,66 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>17:00</hora>
     <url>https://livetv.sx/es/eventinfo/375131734__/</url>
     <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.lrt.lt/mediateka/tiesiogiai/live21</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/35.png</idioma>
-        <idioma_nombre>Bandera #35</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifrx&amp;c=3007712&amp;lang=es&amp;eid=375131734&amp;lid=3007712&amp;ci=1816&amp;si=3</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="48">
-    <nombre>Cluj – Sibiu</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Rumania. Liga Nationala</competicion>
+  <evento id="41">
+    <nombre>Vacherot / Arneodo – Andreozzi / Guinard</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Madrid. Doubles</competicion>
     <fecha>30 de abril</fecha>
     <hora>17:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375217275_cluj_sibiu/</url>
+    <url>https://livetv.sx/es/eventinfo/375856167__/</url>
     <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/tZmzV1TxIfU?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/14.png</idioma>
-        <idioma_nombre>Árabe</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=tZmzV1TxIfU&amp;lang=es&amp;eid=375217275&amp;lid=3007269&amp;ci=639&amp;si=3</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="49">
-    <nombre>Corona Brasov – Steaua Bucuresti</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Rumania. Liga Nationala</competicion>
+  <evento id="42">
+    <nombre>Kiev-Basket –  Dnipro</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Ucrania. Superliga</competicion>
     <fecha>30 de abril</fecha>
-    <hora>17:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375217276_corona_brasov_steaua_bucuresti/</url>
-    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/rbgX5TRrOsw?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/14.png</idioma>
-        <idioma_nombre>Árabe</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=rbgX5TRrOsw&amp;lang=es&amp;eid=375217276&amp;lid=3007270&amp;ci=639&amp;si=3</enlace_original>
-      </stream>
-    </streams>
+    <hora>17:15</hora>
+    <url>https://livetv.sx/es/eventinfo/372219030_kiev_basket_dnipro/</url>
+    <datetime_iso>2026-04-30T17:15:00</datetime_iso>
+    <streams total="0" />
   </evento>
-  <evento id="50">
-    <nombre>Galati – Timisoara</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Rumania. Liga Nationala</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>17:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375217277_galati_timisoara/</url>
-    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/oRgD1PfC1xk?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/14.png</idioma>
-        <idioma_nombre>Árabe</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=oRgD1PfC1xk&amp;lang=es&amp;eid=375217277&amp;lid=3007271&amp;ci=639&amp;si=3</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="51">
+  <evento id="43">
     <nombre>Kiev-Basket – Dnipro</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Ucrania. Superliga</competicion>
     <fecha>30 de abril</fecha>
-    <hora>17:00</hora>
+    <hora>17:15</hora>
     <url>https://livetv.sx/es/eventinfo/372219030__/</url>
-    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
+    <datetime_iso>2026-04-30T17:15:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="44">
+    <nombre>Resovia Rzeszow –  Projekt Warszawa</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Polonia. PlusLiga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:30</hora>
+    <url>https://livetv.sx/es/eventinfo/370798759_resovia_rzeszow_projekt_warszawa/</url>
+    <datetime_iso>2026-04-30T17:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="45">
+    <nombre>Saipa –  Ilves</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Finlandia. Liiga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:30</hora>
+    <url>https://livetv.sx/es/eventinfo/375404092_saipa_ilves/</url>
+    <datetime_iso>2026-04-30T17:30:00</datetime_iso>
     <streams total="1">
       <stream id="1">
-        <url>https://www.youtube.com/embed/QGv6nCBvA7o?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/3.png</idioma>
-        <idioma_nombre>Español</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=QGv6nCBvA7o&amp;lang=es&amp;eid=372219030&amp;lid=3006777&amp;ci=389&amp;si=3</enlace_original>
+        <url>https://olimp-video.com/api/broadcast/sportboomcom/14645073</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007736&amp;lang=es&amp;eid=375404092&amp;lid=3007736&amp;ci=220&amp;si=2</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="52">
-    <nombre>Ninomiya (M) /  Fossa Huergo (M) –  Pigossi (M) /  Cavalle-Reimers (M)</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>WTA. La Bisbal del Ampurdán. Doubles</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>17:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375508470__/</url>
-    <datetime_iso>2026-04-30T17:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="53">
+  <evento id="46">
     <nombre>Saipa – Ilves</nombre>
     <deporte>Hockey</deporte>
     <competicion>Finlandia. Liiga</competicion>
@@ -972,7 +641,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="54">
+  <evento id="47">
     <nombre>Pardubice – Sokol Pisek</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>República Checa. NBL</competicion>
@@ -980,16 +649,9 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <hora>17:30</hora>
     <url>https://livetv.sx/es/eventinfo/373514865__/</url>
     <datetime_iso>2026-04-30T17:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://embed.tvcom.cz/1df2c222-9043-4dd1-bdee-0e478c364358/</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
-        <idioma_nombre>Danés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3006867&amp;lang=es&amp;eid=373514865&amp;lid=3006867&amp;ci=1004&amp;si=3</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="55">
+  <evento id="48">
     <nombre>Podcetrtek – Krka</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Eslovenia. Liga Nova KBM</competicion>
@@ -999,7 +661,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="56">
+  <evento id="49">
     <nombre>Resovia Rzeszow – Projekt Warszawa</nombre>
     <deporte>Voleibol</deporte>
     <competicion>Polonia. PlusLiga</competicion>
@@ -1009,7 +671,47 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="57">
+  <evento id="50">
+    <nombre>Hapoel Kfar Shalem –  Hapoel Kfar Saba</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Liga Leumit</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:45</hora>
+    <url>https://livetv.sx/es/eventinfo/372028724_hapoel_kfar_shalem_hapoel_kfar_saba/</url>
+    <datetime_iso>2026-04-30T17:45:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="51">
+    <nombre>Hapoel Raanana –  Maccabi Jaffa</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Liga Leumit</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:45</hora>
+    <url>https://livetv.sx/es/eventinfo/372028726_hapoel_raanana_maccabi_jaffa/</url>
+    <datetime_iso>2026-04-30T17:45:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="52">
+    <nombre>Nof HaGalil –  Hapoel Hadera</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Liga Leumit</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:45</hora>
+    <url>https://livetv.sx/es/eventinfo/372028728_nof_hagalil_hapoel_hadera/</url>
+    <datetime_iso>2026-04-30T17:45:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="53">
+    <nombre>Hapoel Acre –  Hapoel Afula</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Liga Leumit</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>17:45</hora>
+    <url>https://livetv.sx/es/eventinfo/372028730_hapoel_acre_hapoel_afula/</url>
+    <datetime_iso>2026-04-30T17:45:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="54">
     <nombre>Hapoel Kfar Shalem – Hapoel Kfar Saba</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -1019,7 +721,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="58">
+  <evento id="55">
     <nombre>Hapoel Raanana – Maccabi Jaffa</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -1029,7 +731,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="59">
+  <evento id="56">
     <nombre>Nof HaGalil – Hapoel Hadera</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -1039,7 +741,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="60">
+  <evento id="57">
     <nombre>Hapoel Acre – Hapoel Afula</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -1049,7 +751,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="61">
+  <evento id="58">
     <nombre>Hapoel Kfar Saba – Hapoel Kfar Shalem</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -1059,7 +761,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="62">
+  <evento id="59">
     <nombre>Maccabi Jaffa – Hapoel Raanana</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -1069,7 +771,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="63">
+  <evento id="60">
     <nombre>Hapoel Hadera – Nof HaGalil</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -1079,7 +781,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:45:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="64">
+  <evento id="61">
     <nombre>Hapoel Afula – Hapoel Acre</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Israel. Liga Leumit</competicion>
@@ -1089,7 +791,538 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T17:45:00</datetime_iso>
     <streams total="0" />
   </evento>
+  <evento id="62">
+    <nombre>Al-Okhdood –  Al-Ettifaq</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Arabia Saudita. Liga Pro</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/368765961_al_okhdood_al_ettifaq/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="63">
+    <nombre>Lokomotiv Plovdiv –  Arda</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Bulgaria. Copa</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369660804_lokomotiv_plovdiv_arda/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="5">
+      <stream id="1">
+        <url>https://nrdrse.link/ch.php?id=48</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/16.png</idioma>
+        <idioma_nombre>Japonés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3003227&amp;lang=es&amp;eid=369660804&amp;lid=3003227&amp;ci=88&amp;si=1</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://kiratop.site/live3/stream49.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/16.png</idioma>
+        <idioma_nombre>Japonés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007542&amp;lang=es&amp;eid=369660804&amp;lid=3007542&amp;ci=88&amp;si=1</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://thepinks.site/channel.html?id=12</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/16.png</idioma>
+        <idioma_nombre>Japonés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007538&amp;lang=es&amp;eid=369660804&amp;lid=3007538&amp;ci=88&amp;si=1</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://streamsgate.click/tv/tv-35.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/16.png</idioma>
+        <idioma_nombre>Japonés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007255&amp;lang=es&amp;eid=369660804&amp;lid=3007255&amp;ci=88&amp;si=1</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://shd247.live/frame0011.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/16.png</idioma>
+        <idioma_nombre>Japonés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007167&amp;lang=es&amp;eid=369660804&amp;lid=3007167&amp;ci=88&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="64">
+    <nombre>Flora –  Harju</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Estonia. Meistriliiga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369666372_flora_harju/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/gyjPBNxJ-Bc?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=gyjPBNxJ-Bc&amp;lang=es&amp;eid=369666372&amp;lid=3007312&amp;ci=180&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
   <evento id="65">
+    <nombre>Neftchi –  Qarabag</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Azerbaiyán. Premier League</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/372998444_neftchi_qarabag/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/Uy3nJrEOBkw?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/23.png</idioma>
+        <idioma_nombre>Noruego</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=Uy3nJrEOBkw&amp;lang=es&amp;eid=372998444&amp;lid=3006890&amp;ci=184&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="66">
+    <nombre>Finlandia –  República Checa</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Euro Tour</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369661750_finlandia_rep__blica_checa/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="4">
+      <stream id="1">
+        <url>https://nrdrse.link/ch.php?id=41</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007076&amp;lang=es&amp;eid=369661750&amp;lid=3007076&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://zenoz.link/ch?id=41</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007742&amp;lang=es&amp;eid=369661750&amp;lid=3007742&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://gopst.link/ch?id=41</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007741&amp;lang=es&amp;eid=369661750&amp;lid=3007741&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://olimp-video.com/api/broadcast/sportboomcom/14597334</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007740&amp;lang=es&amp;eid=369661750&amp;lid=3007740&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="67">
+    <nombre>Suecia –  Suiza</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Euro Tour</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369661752_suecia_suiza/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="2">
+      <stream id="1">
+        <url>https://zenoz.link/ch?id=72</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/22.png</idioma>
+        <idioma_nombre>Sueco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007729&amp;lang=es&amp;eid=369661752&amp;lid=3007729&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://nrdrse.link/ch.php?id=72</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/22.png</idioma>
+        <idioma_nombre>Sueco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007205&amp;lang=es&amp;eid=369661752&amp;lid=3007205&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="68">
+    <nombre>Campeonato Mundial 2026</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Campeonato mundial</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375541345_campeonato_mundial_2026/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="8">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/1uJ7gA-zW7A?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=1uJ7gA-zW7A&amp;lang=es&amp;eid=375541345&amp;lid=3007590&amp;ci=250&amp;si=39</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://www.youtube.com/embed/3yXbI7B9Rtg?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=3yXbI7B9Rtg&amp;lang=es&amp;eid=375541345&amp;lid=3007591&amp;ci=250&amp;si=39</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://www.youtube.com/embed/9_WN1oGiBbs?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=9_WN1oGiBbs&amp;lang=es&amp;eid=375541345&amp;lid=3007592&amp;ci=250&amp;si=39</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://www.youtube.com/embed/aatcrYs2FRg?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=aatcrYs2FRg&amp;lang=es&amp;eid=375541345&amp;lid=3007595&amp;ci=250&amp;si=39</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://www.youtube.com/embed/DdnNRdOfKO4?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=DdnNRdOfKO4&amp;lang=es&amp;eid=375541345&amp;lid=3007593&amp;ci=250&amp;si=39</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://www.youtube.com/embed/gkgSbQCvtlg?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=gkgSbQCvtlg&amp;lang=es&amp;eid=375541345&amp;lid=3007596&amp;ci=250&amp;si=39</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://www.youtube.com/embed/i515CqnOX8M?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=i515CqnOX8M&amp;lang=es&amp;eid=375541345&amp;lid=3007597&amp;ci=250&amp;si=39</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://www.youtube.com/embed/jk3vf2SRZlY?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=jk3vf2SRZlY&amp;lang=es&amp;eid=375541345&amp;lid=3007594&amp;ci=250&amp;si=39</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="69">
+    <nombre>Chaika –  Loko</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Rusia. MHL</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/371253072_chaika_loko/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="5">
+      <stream id="1">
+        <url>https://emb.apl407.me/
+player/live.php?id=253258&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=253258&amp;lang=es&amp;eid=371253072&amp;lid=3005942&amp;ci=279&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl407.me/
+player/live.php?id=258358&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258358&amp;lang=es&amp;eid=371253072&amp;lid=3004959&amp;ci=279&amp;si=2</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl407.me/
+player/live.php?id=258366&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258366&amp;lang=es&amp;eid=371253072&amp;lid=3003855&amp;ci=279&amp;si=2</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl407.me/
+player/live.php?id=258685&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258685&amp;lang=es&amp;eid=371253072&amp;lid=3006229&amp;ci=279&amp;si=2</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://www.youtube.com/embed/NJRyTxAQ2yw?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=NJRyTxAQ2yw&amp;lang=es&amp;eid=371253072&amp;lid=3007714&amp;ci=279&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="70">
+    <nombre>Dziki Varsovia –  Anwil Wloclawek</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Polonia. PLK</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369664070_dziki_varsovia_anwil_wloclawek/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="71">
+    <nombre>ACS Targu Jiu –  Valcea 1924</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Rumania. Liga Nationala</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375217278_acs_targu_jiu_valcea_1924/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/YLTfo760eDw?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/14.png</idioma>
+        <idioma_nombre>Árabe</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=YLTfo760eDw&amp;lang=es&amp;eid=375217278&amp;lid=3007267&amp;ci=639&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="72">
+    <nombre>Rapid Bucuresti –  Dinamo Bucuresti</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Rumania. Liga Nationala</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375217279_rapid_bucuresti_dinamo_bucuresti/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/GPNMbSVIznA?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/14.png</idioma>
+        <idioma_nombre>Árabe</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=GPNMbSVIznA&amp;lang=es&amp;eid=375217279&amp;lid=3007268&amp;ci=639&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="73">
+    <nombre>Nitra –  Slovan</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Eslovaquia. Extraliga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375612028_nitra_slovan/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://olimp-video.com/api/broadcast/sportboomcom/14645065</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007744&amp;lang=es&amp;eid=375612028&amp;lid=3007744&amp;ci=650&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="74">
+    <nombre>Dubocica –  Partizan</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Serbia. Superliga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375217560_dubocica_partizan/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/A4MDWa-2ntA?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=A4MDWa-2ntA&amp;lang=es&amp;eid=375217560&amp;lid=3007282&amp;ci=652&amp;si=13</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="75">
+    <nombre>Dubocica –  Partizan</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Serbia. Superliga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/376164505_dubocica_partizan/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/A4MDWa-2ntA?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=A4MDWa-2ntA&amp;lang=es&amp;eid=376164505&amp;lid=3007282&amp;ci=652&amp;si=13</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="76">
+    <nombre>Maccabi T-A –  Bnei Herzliya</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Ligat Ha'Al</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369662022_maccabi_t_a_bnei_herzliya/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="77">
+    <nombre>Hapoel Be`er Sheva –  Elitzur Netanya</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Ligat Ha'Al</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369662028_hapoel_beer_sheva_elitzur_netanya/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="78">
+    <nombre>Hapoel Gilboa –  Hapoel Jerusalén</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Ligat Ha'Al</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369662030_hapoel_gilboa_hapoel_jerusal__n/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="79">
+    <nombre>Maccabi Rishon –  Maccabi Raanana</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Ligat Ha'Al</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369662032_maccabi_rishon_maccabi_raanana/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="80">
+    <nombre>Karlovarsko –  Lvi Praha</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>República Checa. Extraliga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/370232196_karlovarsko_lvi_praha/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://volej.tv/match/4408417</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifrx&amp;c=3007726&amp;lang=es&amp;eid=370232196&amp;lid=3007726&amp;ci=1010&amp;si=5</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="81">
+    <nombre>Granit –  Ermak</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Rusia. NMHL</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375940194_granit_ermak/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="82">
+    <nombre>Rabotnicki –  KK Angeli</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Macedonia del Norte. Superliga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375499030_rabotnicki_kk_angeli/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/sgTbvS9zezg?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=sgTbvS9zezg&amp;lang=es&amp;eid=375499030&amp;lid=3006763&amp;ci=1499&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="83">
+    <nombre>MBA-MAI-Junior –  CSKA-Junior</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Liga VTB United Júnior</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375745883_mba_mai_junior_cska_junior/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="84">
+    <nombre>Al-Hussein –  Al-Jazeera Amán</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Jordania. Copa</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375770797_al_hussein_al_jazeera_am__n/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/fyjw_RTnmGg?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/5.png</idioma>
+        <idioma_nombre>Alemán (Alemania)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtub&amp;c=fyjw_RTnmGg&amp;lang=es&amp;eid=375770797&amp;lid=3007738&amp;ci=2043&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="85">
+    <nombre>Kozarmisleny (M) –   Esztergomi (M)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Hungría. Mujeres. NB I</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375842452__kozarmisleny_m__esztergomi_m/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/UY7ZcsEKArQ?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=UY7ZcsEKArQ&amp;lang=es&amp;eid=375842452&amp;lid=3007748&amp;ci=2339&amp;si=13</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="86">
+    <nombre>Zarechie Odintsovo (M) –  Dynamo Moscow (M)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Rusia. Mujeres. Copa</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375744520_zarechie_odintsovo_m_dynamo_moscow_m/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="87">
+    <nombre>Flora II (M) –   Elva (M)</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Estonia. Mujeres. Copa</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375790673__flora_ii_m__elva_m/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/gyjPBNxJ-Bc?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=gyjPBNxJ-Bc&amp;lang=es&amp;eid=375790673&amp;lid=3007312&amp;ci=3164&amp;si=1</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="88">
+    <nombre>Sutjeska –  Studentski Centar</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Montenegro. Primera División</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/373927082_sutjeska_studentski_centar/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/SZfUfeEZiyg?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=SZfUfeEZiyg&amp;lang=es&amp;eid=373927082&amp;lid=3006854&amp;ci=3732&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="89">
+    <nombre>Gabón U20 –  Chad U20</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>IHF Trophy. África</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/375531415_gaband243_n_u20_chad_u20/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/PdkqneRuQSY?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=PdkqneRuQSY&amp;lang=es&amp;eid=375531415&amp;lid=3006953&amp;ci=6485&amp;si=13</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="90">
     <nombre>Al-Okhdood – Al-Ettifaq</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Arabia Saudita. Liga Pro</competicion>
@@ -1099,7 +1332,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="66">
+  <evento id="91">
     <nombre>Neftchi – Qarabag</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Azerbaiyán. Premier League</competicion>
@@ -1116,7 +1349,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="67">
+  <evento id="92">
     <nombre>Flora – Harju</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Estonia. Meistriliiga</competicion>
@@ -1133,7 +1366,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="68">
+  <evento id="93">
     <nombre>Flora II (M) –  Elva (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Estonia. Mujeres. Copa</competicion>
@@ -1150,7 +1383,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="69">
+  <evento id="94">
     <nombre>Lokomotiv Plovdiv – Arda</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Bulgaria. Copa</competicion>
@@ -1191,7 +1424,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="70">
+  <evento id="95">
     <nombre>Al-Hussein – Al-Jazeera Amán</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Jordania. Copa</competicion>
@@ -1208,65 +1441,7 @@ player/live.php?id=258451&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="71">
-    <nombre>Finlandia – República Checa</nombre>
-    <deporte>Hockey</deporte>
-    <competicion>Euro Tour</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/369661750__/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="4">
-      <stream id="1">
-        <url>https://nrdrse.link/ch.php?id=41</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
-        <idioma_nombre>Danés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007076&amp;lang=es&amp;eid=369661750&amp;lid=3007076&amp;ci=196&amp;si=2</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://zenoz.link/ch?id=41</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007742&amp;lang=es&amp;eid=369661750&amp;lid=3007742&amp;ci=196&amp;si=2</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://gopst.link/ch?id=41</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007741&amp;lang=es&amp;eid=369661750&amp;lid=3007741&amp;ci=196&amp;si=2</enlace_original>
-      </stream>
-      <stream id="4">
-        <url>https://olimp-video.com/api/broadcast/sportboomcom/14597334</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007740&amp;lang=es&amp;eid=369661750&amp;lid=3007740&amp;ci=196&amp;si=2</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="72">
-    <nombre>Suecia – Suiza</nombre>
-    <deporte>Hockey</deporte>
-    <competicion>Euro Tour</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/369661752__/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="2">
-      <stream id="1">
-        <url>https://nrdrse.link/ch.php?id=72</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/22.png</idioma>
-        <idioma_nombre>Sueco</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007205&amp;lang=es&amp;eid=369661752&amp;lid=3007205&amp;ci=196&amp;si=2</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://zenoz.link/ch?id=72</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/22.png</idioma>
-        <idioma_nombre>Sueco</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007729&amp;lang=es&amp;eid=369661752&amp;lid=3007729&amp;ci=196&amp;si=2</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="73">
+  <evento id="96">
     <nombre>Chaika – Loko</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. MHL</competicion>
@@ -1311,7 +1486,65 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="74">
+  <evento id="97">
+    <nombre>Finlandia – República Checa</nombre>
+    <deporte>Hockey</deporte>
+    <competicion>Euro Tour</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369661750__/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="4">
+      <stream id="1">
+        <url>https://nrdrse.link/ch.php?id=41</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007076&amp;lang=es&amp;eid=369661750&amp;lid=3007076&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://zenoz.link/ch?id=41</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007742&amp;lang=es&amp;eid=369661750&amp;lid=3007742&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://gopst.link/ch?id=41</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007741&amp;lang=es&amp;eid=369661750&amp;lid=3007741&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://olimp-video.com/api/broadcast/sportboomcom/14597334</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007740&amp;lang=es&amp;eid=369661750&amp;lid=3007740&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="98">
+    <nombre>Suecia – Suiza</nombre>
+    <deporte>Hockey</deporte>
+    <competicion>Euro Tour</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/369661752__/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="2">
+      <stream id="1">
+        <url>https://nrdrse.link/ch.php?id=72</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/22.png</idioma>
+        <idioma_nombre>Sueco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007205&amp;lang=es&amp;eid=369661752&amp;lid=3007205&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://zenoz.link/ch?id=72</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/22.png</idioma>
+        <idioma_nombre>Sueco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007729&amp;lang=es&amp;eid=369661752&amp;lid=3007729&amp;ci=196&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="99">
     <nombre>Granit – Ermak</nombre>
     <deporte>Hockey</deporte>
     <competicion>Rusia. NMHL</competicion>
@@ -1321,7 +1554,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="75">
+  <evento id="100">
     <nombre>Nitra – Slovan</nombre>
     <deporte>Hockey</deporte>
     <competicion>Eslovaquia. Extraliga</competicion>
@@ -1329,9 +1562,16 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <hora>18:00</hora>
     <url>https://livetv.sx/es/eventinfo/375612028__/</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://olimp-video.com/api/broadcast/sportboomcom/14645065</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007744&amp;lang=es&amp;eid=375612028&amp;lid=3007744&amp;ci=650&amp;si=2</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="76">
+  <evento id="101">
     <nombre>Rilski Sportist – Beroe</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Bulgaria. NBL</competicion>
@@ -1342,30 +1582,13 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <streams total="1">
       <stream id="1">
         <url>https://www.youtube.com/embed/5mhv8PAgsuA?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/16.png</idioma>
-        <idioma_nombre>Japonés</idioma_nombre>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
         <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=5mhv8PAgsuA&amp;lang=es&amp;eid=375006720&amp;lid=3007737&amp;ci=617&amp;si=3</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="77">
-    <nombre>Rabotnicki – KK Angeli</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Macedonia del Norte. Superliga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375499030_rabotnicki_kk_angeli/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/sgTbvS9zezg?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
-        <idioma_nombre>Italiano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=sgTbvS9zezg&amp;lang=es&amp;eid=375499030&amp;lid=3006763&amp;ci=1499&amp;si=3</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="78">
+  <evento id="102">
     <nombre>Maccabi T-A – Bnei Herzliya</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Israel. Ligat Ha'Al</competicion>
@@ -1375,7 +1598,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="79">
+  <evento id="103">
     <nombre>Dziki Varsovia – Anwil Wloclawek</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Polonia. PLK</competicion>
@@ -1385,7 +1608,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="80">
+  <evento id="104">
     <nombre>Hapoel Be`er Sheva – Elitzur Netanya</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Israel. Ligat Ha'Al</competicion>
@@ -1395,7 +1618,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="81">
+  <evento id="105">
     <nombre>Hapoel Gilboa – Hapoel Jerusalén</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Israel. Ligat Ha'Al</competicion>
@@ -1405,7 +1628,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="82">
+  <evento id="106">
     <nombre>Maccabi Rishon – Maccabi Raanana</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Israel. Ligat Ha'Al</competicion>
@@ -1415,7 +1638,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="83">
+  <evento id="107">
     <nombre>Avenida (M) –  Jairis (M)</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>España. Mujeres. Liga Femenina</competicion>
@@ -1425,68 +1648,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="84">
-    <nombre>MBA-MAI-Junior – CSKA-Junior</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Liga VTB United Júnior</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375745883_mba_mai_junior_cska_junior/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="85">
-    <nombre>ACS Targu Jiu – Valcea 1924</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Rumania. Liga Nationala</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375217278_acs_targu_jiu_valcea_1924/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/YLTfo760eDw?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/14.png</idioma>
-        <idioma_nombre>Árabe</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=YLTfo760eDw&amp;lang=es&amp;eid=375217278&amp;lid=3007267&amp;ci=639&amp;si=3</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="86">
-    <nombre>Rapid Bucuresti – Dinamo Bucuresti</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Rumania. Liga Nationala</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375217279_rapid_bucuresti_dinamo_bucuresti/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/GPNMbSVIznA?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/14.png</idioma>
-        <idioma_nombre>Árabe</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=GPNMbSVIznA&amp;lang=es&amp;eid=375217279&amp;lid=3007268&amp;ci=639&amp;si=3</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="87">
-    <nombre>Sutjeska – Studentski Centar</nombre>
-    <deporte>Baloncesto</deporte>
-    <competicion>Montenegro. Primera División</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/373927082_sutjeska_studentski_centar/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/SZfUfeEZiyg?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
-        <idioma_nombre>Coreano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=SZfUfeEZiyg&amp;lang=es&amp;eid=373927082&amp;lid=3006854&amp;ci=3732&amp;si=3</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="88">
+  <evento id="108">
     <nombre>Zlatorog – Triglav Kranj</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Eslovenia. Liga Nova KBM</competicion>
@@ -1503,7 +1665,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="89">
+  <evento id="109">
     <nombre>Hapoel Holon – Maccabi Raanana</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Israel. Ligat Ha'Al</competicion>
@@ -1513,7 +1675,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="90">
+  <evento id="110">
     <nombre>Ironi Kiryat Ata – Ness Tziona</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Israel. Ligat Ha'Al</competicion>
@@ -1523,7 +1685,7 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="91">
+  <evento id="111">
     <nombre>Zarechie Odintsovo (M) – Dynamo Moscow (M)</nombre>
     <deporte>Voleibol</deporte>
     <competicion>Rusia. Mujeres. Copa</competicion>
@@ -1531,17 +1693,9 @@ player/live.php?id=258685&amp;w=700&amp;h=480</url>
     <hora>18:00</hora>
     <url>https://livetv.sx/es/eventinfo/375744520_zarechie_odintsovo_w_dynamo_moscow_w/</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://emb.apl407.me/
-player/live.php?id=258688&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
-        <idioma_nombre>Inglés</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258688&amp;lang=es&amp;eid=375744520&amp;lid=3004987&amp;ci=2369&amp;si=5</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="92">
+  <evento id="112">
     <nombre>Karlovarsko – Lvi Praha</nombre>
     <deporte>Voleibol</deporte>
     <competicion>República Checa. Extraliga</competicion>
@@ -1552,47 +1706,13 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <streams total="1">
       <stream id="1">
         <url>https://volej.tv/match/4408417</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
+        <idioma>https://cdn.livetv860.me/img/linkflag/25.png</idioma>
+        <idioma_nombre>Danés</idioma_nombre>
         <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifrx&amp;c=3007726&amp;lang=es&amp;eid=370232196&amp;lid=3007726&amp;ci=1010&amp;si=5</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="93">
-    <nombre>Dubocica – Partizan</nombre>
-    <deporte>Balonmano</deporte>
-    <competicion>Serbia. Superliga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375217560_dubocica_partizan/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/A4MDWa-2ntA?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
-        <idioma_nombre>Coreano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=A4MDWa-2ntA&amp;lang=es&amp;eid=375217560&amp;lid=3007282&amp;ci=652&amp;si=13</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="94">
-    <nombre>Dubocica – Partizan</nombre>
-    <deporte>Balonmano</deporte>
-    <competicion>Serbia. Superliga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:00</hora>
-    <url>https://livetv.sx/es/eventinfo/376164505__/</url>
-    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/A4MDWa-2ntA?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
-        <idioma_nombre>Coreano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=A4MDWa-2ntA&amp;lang=es&amp;eid=376164505&amp;lid=3007282&amp;ci=652&amp;si=13</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="95">
+  <evento id="113">
     <nombre>Kozarmisleny (M) –  Esztergomi (M)</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Hungría. Mujeres. NB I</competicion>
@@ -1602,7 +1722,17 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="96">
+  <evento id="114">
+    <nombre>Dubocica – Partizan</nombre>
+    <deporte>Balonmano</deporte>
+    <competicion>Serbia. Superliga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:00</hora>
+    <url>https://livetv.sx/es/eventinfo/376164505__/</url>
+    <datetime_iso>2026-04-30T18:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="115">
     <nombre>Gabón U20 – Chad U20</nombre>
     <deporte>Balonmano</deporte>
     <competicion>IHF Trophy. África</competicion>
@@ -1610,16 +1740,42 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <hora>18:00</hora>
     <url>https://livetv.sx/es/eventinfo/375531415_gabon_u20_chad_u20/</url>
     <datetime_iso>2026-04-30T18:00:00</datetime_iso>
-    <streams total="1">
+    <streams total="0" />
+  </evento>
+  <evento id="116">
+    <nombre>Atlanta –  Detroit</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>No especificado</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:15</hora>
+    <url>https://livetv.sx/es/eventinfo/369663656_atlanta_detroit/</url>
+    <datetime_iso>2026-04-30T18:15:00</datetime_iso>
+    <streams total="2">
       <stream id="1">
-        <url>https://www.youtube.com/embed/PdkqneRuQSY?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=PdkqneRuQSY&amp;lang=es&amp;eid=375531415&amp;lid=3006953&amp;ci=6485&amp;si=13</enlace_original>
+        <url>https://embedsports.top/embed/admin/ppv-detroit-tigers-vs-atlanta-braves/1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007745&amp;lang=es&amp;eid=369663656&amp;lid=3007745&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://shd247.live/frame0026.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007183&amp;lang=es&amp;eid=369663656&amp;lid=3007183&amp;ci=14&amp;si=19</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="97">
+  <evento id="117">
+    <nombre>Lokomotiv Plovdiv –  Botev Vratsa</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Bulgaria. NBL</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:15</hora>
+    <url>https://livetv.sx/es/eventinfo/375006722_lokomotiv_plovdiv_botev_vratsa/</url>
+    <datetime_iso>2026-04-30T18:15:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="118">
     <nombre>Lokomotiv Plovdiv – Botev Vratsa</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Bulgaria. NBL</competicion>
@@ -1629,24 +1785,7 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:15:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="98">
-    <nombre>King / Goransson – Gonzalez / Molteni</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP. Madrid. Doubles</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:15</hora>
-    <url>https://livetv.sx/es/eventinfo/375901526__/</url>
-    <datetime_iso>2026-04-30T18:15:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://shd247.pro/frame020.html</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
-        <idioma_nombre>Coreano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007681&amp;lang=es&amp;eid=375901526&amp;lid=3007681&amp;ci=5743&amp;si=4</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="99">
+  <evento id="119">
     <nombre>Atlanta – Detroit</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -1654,16 +1793,32 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <hora>18:15</hora>
     <url>https://livetv.sx/es/eventinfo/369663656__/</url>
     <datetime_iso>2026-04-30T18:15:00</datetime_iso>
-    <streams total="1">
+    <streams total="2">
       <stream id="1">
         <url>https://shd247.live/frame0026.html</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
         <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007183&amp;lang=es&amp;eid=369663656&amp;lid=3007183&amp;ci=14&amp;si=19</enlace_original>
       </stream>
+      <stream id="2">
+        <url>https://embedsports.top/embed/admin/ppv-detroit-tigers-vs-atlanta-braves/1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007745&amp;lang=es&amp;eid=369663656&amp;lid=3007745&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
     </streams>
   </evento>
-  <evento id="100">
+  <evento id="120">
+    <nombre>Cash / Tracy –  Martineau / Bertrand</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Doubles</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:20</hora>
+    <url>https://livetv.sx/es/eventinfo/375491585_cash__tracy_martineau__bertrand/</url>
+    <datetime_iso>2026-04-30T18:20:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="121">
     <nombre>Cash / Tracy – Martineau / Bertrand</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Aix-en-Provence. Doubles</competicion>
@@ -1673,7 +1828,91 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:20:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="101">
+  <evento id="122">
+    <nombre>Partizan –  Sloboda Uzice</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Serbia. KLS</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:30</hora>
+    <url>https://livetv.sx/es/eventinfo/376159964_partizan_sloboda_uzice/</url>
+    <datetime_iso>2026-04-30T18:30:00</datetime_iso>
+    <streams total="2">
+      <stream id="1">
+        <url>https://kiratop.site/live3/stream2.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007555&amp;lang=es&amp;eid=376159964&amp;lid=3007555&amp;ci=693&amp;si=3</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://streamsgate.click/tv/tv-21.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007666&amp;lang=es&amp;eid=376159964&amp;lid=3007666&amp;ci=693&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="123">
+    <nombre>Hapoel Galil Elion –  Ironi Ramat Gan</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Israel. Ligat Ha'Al</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:30</hora>
+    <url>https://livetv.sx/es/eventinfo/364648068_hapoel_galil_elion_ironi_ramat_gan/</url>
+    <datetime_iso>2026-04-30T18:30:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="124">
+    <nombre>Budai Farkasok –  Csurgo</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Hungría. NB I</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:30</hora>
+    <url>https://livetv.sx/es/eventinfo/369670558_budai_farkasok_csurgo/</url>
+    <datetime_iso>2026-04-30T18:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/pDHcFax43aM?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=pDHcFax43aM&amp;lang=es&amp;eid=369670558&amp;lid=3007749&amp;ci=2512&amp;si=13</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="125">
+    <nombre>Francia U18 –  Estonia U18</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Grupo B</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:30</hora>
+    <url>https://livetv.sx/es/eventinfo/372567761_francia_u18_estonia_u18/</url>
+    <datetime_iso>2026-04-30T18:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://olimp-video.com/api/broadcast/sportboomcom/14597321</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007743&amp;lang=es&amp;eid=372567761&amp;lid=3007743&amp;ci=5117&amp;si=2</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="126">
+    <nombre>Tallinna Bunker Partner –  Narva</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Estonia. Saaliliiga</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:30</hora>
+    <url>https://livetv.sx/es/eventinfo/372611761_tallinna_bunker_partner_narva/</url>
+    <datetime_iso>2026-04-30T18:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/DaX1wwnAzSE?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=DaX1wwnAzSE&amp;lang=es&amp;eid=372611761&amp;lid=3007290&amp;ci=5599&amp;si=12</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="127">
     <nombre>Francia U18 – Estonia U18</nombre>
     <deporte>Hockey</deporte>
     <competicion>Campeonato mundial Sub-18. Div I. Grupo B</competicion>
@@ -1681,9 +1920,16 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <hora>18:30</hora>
     <url>https://livetv.sx/es/eventinfo/372567761_france_u18_estonia_u18/</url>
     <datetime_iso>2026-04-30T18:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://olimp-video.com/api/broadcast/sportboomcom/14597321</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007743&amp;lang=es&amp;eid=372567761&amp;lid=3007743&amp;ci=5117&amp;si=2</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="102">
+  <evento id="128">
     <nombre>Hapoel Galil Elion – Ironi Ramat Gan</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Israel. Ligat Ha'Al</competicion>
@@ -1693,7 +1939,7 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="103">
+  <evento id="129">
     <nombre>Partizan – Sloboda Uzice</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Serbia. KLS</competicion>
@@ -1716,7 +1962,24 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="104">
+  <evento id="130">
+    <nombre>King / Goransson – Gonzalez / Molteni</nombre>
+    <deporte>Tenis</deporte>
+    <competicion>ATP. Madrid. Doubles</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>18:30</hora>
+    <url>https://livetv.sx/es/eventinfo/375901526__/</url>
+    <datetime_iso>2026-04-30T18:30:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://shd247.pro/frame020.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007681&amp;lang=es&amp;eid=375901526&amp;lid=3007681&amp;ci=5743&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="131">
     <nombre>ATP Challenger. Abidjan 2</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP Challenger. Abidjan 2</competicion>
@@ -1726,24 +1989,7 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T18:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="105">
-    <nombre>Tallinna Bunker Partner – Narva</nombre>
-    <deporte>Futsal</deporte>
-    <competicion>Estonia. Saaliliiga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>18:30</hora>
-    <url>https://livetv.sx/es/eventinfo/372611761_tallinna_bunker_partner_narva/</url>
-    <datetime_iso>2026-04-30T18:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/DaX1wwnAzSE?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
-        <idioma_nombre>Bandera #0</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=DaX1wwnAzSE&amp;lang=es&amp;eid=372611761&amp;lid=3007290&amp;ci=5599&amp;si=12</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="106">
+  <evento id="132">
     <nombre>Budai Farkasok – Csurgo</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Hungría. NB I</competicion>
@@ -1751,9 +1997,16 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <hora>18:30</hora>
     <url>https://livetv.sx/es/eventinfo/369670558__/</url>
     <datetime_iso>2026-04-30T18:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/pDHcFax43aM?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=pDHcFax43aM&amp;lang=es&amp;eid=369670558&amp;lid=3007749&amp;ci=2512&amp;si=13</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="107">
+  <evento id="133">
     <nombre>Pittsburgh – San Luis</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -1761,9 +2014,16 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <hora>18:35</hora>
     <url>https://livetv.sx/es/eventinfo/369673036__/</url>
     <datetime_iso>2026-04-30T18:35:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://embedsports.top/embed/admin/ppv-st-louis-cardinals-vs-pittsburgh-pirates/1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007746&amp;lang=es&amp;eid=369673036&amp;lid=3007746&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="108">
+  <evento id="134">
     <nombre>Baltimore – Houston</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -1771,17 +2031,22 @@ player/live.php?id=258688&amp;w=700&amp;h=480</url>
     <hora>18:35</hora>
     <url>https://livetv.sx/es/eventinfo/369673038__/</url>
     <datetime_iso>2026-04-30T18:35:00</datetime_iso>
-    <streams total="1">
+    <streams total="2">
       <stream id="1">
-        <url>https://emb.apl407.me/
-player/live.php?id=258347&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
-        <idioma_nombre>Croata</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258347&amp;lang=es&amp;eid=369673038&amp;lid=3003947&amp;ci=14&amp;si=19</enlace_original>
+        <url>https://embedsports.top/embed/admin/ppv-houston-astros-vs-baltimore-orioles/1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007757&amp;lang=es&amp;eid=369673038&amp;lid=3007757&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://embedhd.org/source/streamed.php?hd=602&amp;id=22053&amp;no=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007759&amp;lang=es&amp;eid=369673038&amp;lid=3007759&amp;ci=14&amp;si=19</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="109">
+  <evento id="135">
     <nombre>Filadelfia – San Francisco</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -1789,9 +2054,16 @@ player/live.php?id=258347&amp;w=700&amp;h=480</url>
     <hora>18:35</hora>
     <url>https://livetv.sx/es/eventinfo/369682595__/</url>
     <datetime_iso>2026-04-30T18:35:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://embedhd.org/source/streamed.php?hd=620&amp;id=22071&amp;no=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007756&amp;lang=es&amp;eid=369682595&amp;lid=3007756&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="110">
+  <evento id="136">
     <nombre>Cincinnati – Colorado</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -1799,9 +2071,16 @@ player/live.php?id=258347&amp;w=700&amp;h=480</url>
     <hora>18:40</hora>
     <url>https://livetv.sx/es/eventinfo/369673040__/</url>
     <datetime_iso>2026-04-30T18:40:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://embedsports.top/embed/admin/ppv-colorado-rockies-vs-cincinnati-reds/1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007758&amp;lang=es&amp;eid=369673040&amp;lid=3007758&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="111">
+  <evento id="137">
     <nombre>Veszprem – Fuechse Berlin</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Liga de Campeones de la EHF</competicion>
@@ -1858,7 +2137,7 @@ player/live.php?id=258729&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="112">
+  <evento id="138">
     <nombre>ASFAR – Raja CA</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Marruecos. Botola Pro</competicion>
@@ -1866,9 +2145,16 @@ player/live.php?id=258729&amp;w=700&amp;h=480</url>
     <hora>19:00</hora>
     <url>https://livetv.sx/es/eventinfo/371717735__/</url>
     <datetime_iso>2026-04-30T19:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/sFNTxkb6viU?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/5.png</idioma>
+        <idioma_nombre>Alemán (Alemania)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=sFNTxkb6viU&amp;lang=es&amp;eid=371717735&amp;lid=3007760&amp;ci=551&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="113">
+  <evento id="139">
     <nombre>Bodoe/Glimt – Start</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Noruega. Eliteserien</competicion>
@@ -1878,7 +2164,7 @@ player/live.php?id=258729&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="114">
+  <evento id="140">
     <nombre>Jedinstvo Ub – Estrella Roja</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Serbia. Copa</competicion>
@@ -1914,7 +2200,7 @@ player/live.php?id=258732&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="115">
+  <evento id="141">
     <nombre>Esbjerg – Horsens</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Dinamarca. 1 División</competicion>
@@ -1931,7 +2217,7 @@ player/live.php?id=258732&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="116">
+  <evento id="142">
     <nombre>Rogle – Skelleftea</nombre>
     <deporte>Hockey</deporte>
     <competicion>Suecia. SHL</competicion>
@@ -1939,35 +2225,28 @@ player/live.php?id=258732&amp;w=700&amp;h=480</url>
     <hora>19:00</hora>
     <url>https://livetv.sx/es/eventinfo/369903073__/</url>
     <datetime_iso>2026-04-30T19:00:00</datetime_iso>
-    <streams total="5">
+    <streams total="4">
       <stream id="1">
-        <url>https://emb.apl407.me/
-player/live.php?id=258285&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
-        <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258285&amp;lang=es&amp;eid=369903073&amp;lid=3005516&amp;ci=192&amp;si=2</enlace_original>
-      </stream>
-      <stream id="2">
         <url>https://emb.apl407.me/
 player/live.php?id=258365&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
         <idioma_nombre>Inglés</idioma_nombre>
         <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258365&amp;lang=es&amp;eid=369903073&amp;lid=3003884&amp;ci=192&amp;si=2</enlace_original>
       </stream>
-      <stream id="3">
+      <stream id="2">
         <url>https://emb.apl407.me/
 player/live.php?id=258426&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
         <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258426&amp;lang=es&amp;eid=369903073&amp;lid=3003838&amp;ci=192&amp;si=2</enlace_original>
       </stream>
-      <stream id="4">
+      <stream id="3">
         <url>https://nrdrse.link/ch.php?id=74</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/22.png</idioma>
         <idioma_nombre>Sueco</idioma_nombre>
         <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2994484&amp;lang=es&amp;eid=369903073&amp;lid=2994484&amp;ci=192&amp;si=2</enlace_original>
       </stream>
-      <stream id="5">
+      <stream id="4">
         <url>https://nrdrse.link/ch.php?id=20</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
         <idioma_nombre>Italiano</idioma_nombre>
@@ -1975,7 +2254,7 @@ player/live.php?id=258426&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="117">
+  <evento id="143">
     <nombre>Austria – Alemania</nombre>
     <deporte>Hockey</deporte>
     <competicion>Partido amistoso</competicion>
@@ -1986,20 +2265,21 @@ player/live.php?id=258426&amp;w=700&amp;h=480</url>
     <streams total="2">
       <stream id="1">
         <url>https://emb.apl407.me/
+player/live.php?id=258380&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258380&amp;lang=es&amp;eid=376164979&amp;lid=3007694&amp;ci=276&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl407.me/
 player/live.php?id=258862&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
         <idioma_nombre>Italiano</idioma_nombre>
         <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258862&amp;lang=es&amp;eid=376164979&amp;lid=3007693&amp;ci=276&amp;si=2</enlace_original>
       </stream>
-      <stream id="2">
-        <url>https://nrdrse.link/ch.php?id=16</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
-        <idioma_nombre>Italiano</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007210&amp;lang=es&amp;eid=376164979&amp;lid=3007210&amp;ci=276&amp;si=2</enlace_original>
-      </stream>
     </streams>
   </evento>
-  <evento id="118">
+  <evento id="144">
     <nombre>Dinamarca – Noruega</nombre>
     <deporte>Hockey</deporte>
     <competicion>Partido amistoso</competicion>
@@ -2009,7 +2289,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="119">
+  <evento id="145">
     <nombre>Pelister – Tikves</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Macedonia del Norte. Superliga</competicion>
@@ -2026,7 +2306,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="120">
+  <evento id="146">
     <nombre>Graz – Flyers Wels</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Austria. Superliga</competicion>
@@ -2036,7 +2316,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="121">
+  <evento id="147">
     <nombre>Arges – Oradea</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Rumania. Liga Nationala</competicion>
@@ -2053,7 +2333,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="122">
+  <evento id="148">
     <nombre>Petrolul – Targu Mures</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Rumania. Liga Nationala</competicion>
@@ -2070,7 +2350,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="123">
+  <evento id="149">
     <nombre>Gaziantep BB – Kipas Istiklal</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Turquía. TBL</competicion>
@@ -2087,7 +2367,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="124">
+  <evento id="150">
     <nombre>Rogaska – Helios Suns</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Eslovenia. Liga Nova KBM</competicion>
@@ -2104,7 +2384,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="125">
+  <evento id="151">
     <nombre>Leganés (M) –  Spar Girona (M)</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>España. Mujeres. Liga Femenina</competicion>
@@ -2121,7 +2401,24 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="126">
+  <evento id="152">
+    <nombre>Jumper Zenica (M) –  Orlovi (M)</nombre>
+    <deporte>Baloncesto</deporte>
+    <competicion>Bosnia y Herzegovina. Mujeres. Prvenstvo</competicion>
+    <fecha>30 de abril</fecha>
+    <hora>19:00</hora>
+    <url>https://livetv.sx/es/eventinfo/376268726__/</url>
+    <datetime_iso>2026-04-30T19:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/rqNyPQwXD60?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=rqNyPQwXD60&amp;lang=es&amp;eid=376268726&amp;lid=3007764&amp;ci=3739&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="153">
     <nombre>Ensino (M) –  Valencia (M)</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>España. Mujeres. Liga Femenina</competicion>
@@ -2129,9 +2426,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:00</hora>
     <url>https://livetv.sx/es/eventinfo/375576045__/</url>
     <datetime_iso>2026-04-30T19:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/YC0EcmCOD90?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=YC0EcmCOD90&amp;lang=es&amp;eid=375576045&amp;lid=3007761&amp;ci=1199&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="127">
+  <evento id="154">
     <nombre>Spartak Subotica – Zadar</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Liga del Adriático</competicion>
@@ -2148,17 +2452,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="128">
-    <nombre>Vranje – Estrella Roja</nombre>
-    <deporte>Balonmano</deporte>
-    <competicion>Serbia. Superliga</competicion>
-    <fecha>30 de abril</fecha>
-    <hora>19:00</hora>
-    <url>https://livetv.sx/es/eventinfo/375217561_vranje_crvena_zvezda/</url>
-    <datetime_iso>2026-04-30T19:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="129">
+  <evento id="155">
     <nombre>Leipzig – Erlangen</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Alemania. Bundesliga</competicion>
@@ -2168,7 +2462,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T19:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="130">
+  <evento id="156">
     <nombre>Gummersbach – Goeppingen</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Alemania. Bundesliga</competicion>
@@ -2185,7 +2479,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="131">
+  <evento id="157">
     <nombre>Vranje – Estrella Roja</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Serbia. Superliga</competicion>
@@ -2202,7 +2496,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="132">
+  <evento id="158">
     <nombre>Ruma (W) – Jagodina (M)</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Serbia. Mujeres. Super Liga</competicion>
@@ -2219,7 +2513,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="133">
+  <evento id="159">
     <nombre>Boraas – Norrkoeping</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Suecia. Basketligan</competicion>
@@ -2229,7 +2523,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T19:04:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="134">
+  <evento id="160">
     <nombre>NY Mets – Washington</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -2237,16 +2531,22 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:10</hora>
     <url>https://livetv.sx/es/eventinfo/369682597__/</url>
     <datetime_iso>2026-04-30T19:10:00</datetime_iso>
-    <streams total="1">
+    <streams total="2">
       <stream id="1">
-        <url>https://shd247.live/frame0027.html</url>
+        <url>https://embedsports.top/embed/admin/ppv-washington-nationals-vs-new-york-mets/1</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
         <idioma_nombre>Francés (Francia)</idioma_nombre>
-        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007185&amp;lang=es&amp;eid=369682597&amp;lid=3007185&amp;ci=14&amp;si=19</enlace_original>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007768&amp;lang=es&amp;eid=369682597&amp;lid=3007768&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://shd247.pro/frame0027.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007769&amp;lang=es&amp;eid=369682597&amp;lid=3007769&amp;ci=14&amp;si=19</enlace_original>
       </stream>
     </streams>
   </evento>
-  <evento id="135">
+  <evento id="161">
     <nombre>Grindavik (M) –  Thor/KA (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Islandia. Mujeres. Urvalsdeild</competicion>
@@ -2256,7 +2556,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="136">
+  <evento id="162">
     <nombre>Dijon – Chateauroux</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Francia. National</competicion>
@@ -2264,9 +2564,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:30</hora>
     <url>https://livetv.sx/es/eventinfo/369693911__/</url>
     <datetime_iso>2026-04-30T19:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/fpU3Mow1xVc?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/11.png</idioma>
+        <idioma_nombre>Alemán</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=fpU3Mow1xVc&amp;lang=es&amp;eid=369693911&amp;lid=3007298&amp;ci=188&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="137">
+  <evento id="163">
     <nombre>Concarneau – Paris 13</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Francia. National</competicion>
@@ -2274,9 +2581,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:30</hora>
     <url>https://livetv.sx/es/eventinfo/369693913__/</url>
     <datetime_iso>2026-04-30T19:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/wOh6tVNuMsw?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/11.png</idioma>
+        <idioma_nombre>Alemán</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=wOh6tVNuMsw&amp;lang=es&amp;eid=369693913&amp;lid=3007297&amp;ci=188&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="138">
+  <evento id="164">
     <nombre>Eisbaeren Berlín – Adler Mannheim</nombre>
     <deporte>Hockey</deporte>
     <competicion>Alemania. DEL</competicion>
@@ -2284,9 +2598,37 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:30</hora>
     <url>https://livetv.sx/es/eventinfo/371850981__/</url>
     <datetime_iso>2026-04-30T19:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="4">
+      <stream id="1">
+        <url>https://emb.apl407.me/
+player/live.php?id=258380&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258380&amp;lang=es&amp;eid=371850981&amp;lid=3007694&amp;ci=208&amp;si=2</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl407.me/
+player/live.php?id=258866&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258866&amp;lang=es&amp;eid=371850981&amp;lid=3007695&amp;ci=208&amp;si=2</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl407.me/
+player/live.php?id=258870&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258870&amp;lang=es&amp;eid=371850981&amp;lid=3007696&amp;ci=208&amp;si=2</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://nrdrse.link/ch.php?id=15</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007196&amp;lang=es&amp;eid=371850981&amp;lid=3007196&amp;ci=208&amp;si=2</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="139">
+  <evento id="165">
     <nombre>Lions de Geneve – Nyon</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Suiza. SB League</competicion>
@@ -2296,7 +2638,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T19:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="140">
+  <evento id="166">
     <nombre>Union Neuchatel – Pully Lausana Foxes</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Suiza. SB League</competicion>
@@ -2304,9 +2646,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:30</hora>
     <url>https://livetv.sx/es/eventinfo/375630721__/</url>
     <datetime_iso>2026-04-30T19:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/6uSj8vki_XA?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/11.png</idioma>
+        <idioma_nombre>Alemán</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=6uSj8vki_XA&amp;lang=es&amp;eid=375630721&amp;lid=3007278&amp;ci=1806&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="141">
+  <evento id="167">
     <nombre>Sencur – Triglav Kranj</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Eslovenia. Liga Nova KBM</competicion>
@@ -2314,9 +2663,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:30</hora>
     <url>https://livetv.sx/es/eventinfo/365758877__/</url>
     <datetime_iso>2026-04-30T19:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/9s0PUPFL5fE?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=9s0PUPFL5fE&amp;lang=es&amp;eid=365758877&amp;lid=3006769&amp;ci=1470&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="142">
+  <evento id="168">
     <nombre>Ulbroka – Vainode</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Letonia. Primera Liga</competicion>
@@ -2324,9 +2680,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:30</hora>
     <url>https://livetv.sx/es/eventinfo/375533284_ulbroka_vainode/</url>
     <datetime_iso>2026-04-30T19:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/j20i7K5uOKc?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=j20i7K5uOKc&amp;lang=es&amp;eid=375533284&amp;lid=3006965&amp;ci=6769&amp;si=13</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="143">
+  <evento id="169">
     <nombre>Milwaukee – Arizona</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -2334,9 +2697,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:40</hora>
     <url>https://livetv.sx/es/eventinfo/369692035__/</url>
     <datetime_iso>2026-04-30T19:40:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://embedsports.top/embed/admin/ppv-arizona-diamondbacks-vs-milwaukee-brewers/1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007772&amp;lang=es&amp;eid=369692035&amp;lid=3007772&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="144">
+  <evento id="170">
     <nombre>Fenerbahce – Zalgiris</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Euroliga</competicion>
@@ -2344,9 +2714,62 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>19:45</hora>
     <url>https://livetv.sx/es/eventinfo/370281837__/</url>
     <datetime_iso>2026-04-30T19:45:00</datetime_iso>
-    <streams total="0" />
+    <streams total="8">
+      <stream id="1">
+        <url>https://nrdrse.link/ch.php?id=94</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007209&amp;lang=es&amp;eid=370281837&amp;lid=3007209&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl407.me/
+player/live.php?id=238237&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/3.png</idioma>
+        <idioma_nombre>Español</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=238237&amp;lang=es&amp;eid=370281837&amp;lid=2790291&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl407.me/
+player/live.php?id=258724&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
+        <idioma_nombre>Croata</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258724&amp;lang=es&amp;eid=370281837&amp;lid=3006144&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl407.me/
+player/live.php?id=258798&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258798&amp;lang=es&amp;eid=370281837&amp;lid=3007093&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://emb.apl407.me/
+player/live.php?id=258863&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258863&amp;lang=es&amp;eid=370281837&amp;lid=3007698&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://flixxlive.pro/live/novasport5_greece.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/28.png</idioma>
+        <idioma_nombre>Búlgaro</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2661201&amp;lang=es&amp;eid=370281837&amp;lid=2661201&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://flixxlive.pro/live/plusdep4_spain.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2691943&amp;lang=es&amp;eid=370281837&amp;lid=2691943&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://flixxlive.pro/live/ssport_turkey.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/10.png</idioma>
+        <idioma_nombre>Ruso</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2661210&amp;lang=es&amp;eid=370281837&amp;lid=2661210&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="145">
+  <evento id="171">
     <nombre>Al-Kholood – Al-Fayha</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Arabia Saudita. Liga Pro</competicion>
@@ -2356,7 +2779,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="146">
+  <evento id="172">
     <nombre>IBV Vestmannaeyjar (M) –  Vikingur Reykjavik (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Islandia. Mujeres. Urvalsdeild</competicion>
@@ -2366,7 +2789,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="147">
+  <evento id="173">
     <nombre>Davos – Fribourg</nombre>
     <deporte>Hockey</deporte>
     <competicion>Suiza. National League</competicion>
@@ -2374,9 +2797,17 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:00</hora>
     <url>https://livetv.sx/es/eventinfo/375613158__/</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://emb.apl407.me/
+player/live.php?id=258365&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258365&amp;lang=es&amp;eid=375613158&amp;lid=3003884&amp;ci=202&amp;si=2</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="148">
+  <evento id="174">
     <nombre>Denain – Ruan</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Francia. LNB Pro B</competicion>
@@ -2386,7 +2817,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="149">
+  <evento id="175">
     <nombre>Olympiacos – AS Mónaco</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Euroliga</competicion>
@@ -2394,9 +2825,61 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:00</hora>
     <url>https://livetv.sx/es/eventinfo/373790556__/</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="8">
+      <stream id="1">
+        <url>https://flixxlive.pro/live/plusdep3_spain.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2691926&amp;lang=es&amp;eid=373790556&amp;lid=2691926&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://nrdrse.link/ch.php?id=93</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007208&amp;lang=es&amp;eid=373790556&amp;lid=3007208&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl407.me/
+player/live.php?id=258325&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
+        <idioma_nombre>Croata</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258325&amp;lang=es&amp;eid=373790556&amp;lid=3003706&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl407.me/
+player/live.php?id=258388&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258388&amp;lang=es&amp;eid=373790556&amp;lid=3004905&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://emb.apl407.me/
+player/live.php?id=258872&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258872&amp;lang=es&amp;eid=373790556&amp;lid=3007701&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://flixxlive.pro/live/ch5_greece.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/28.png</idioma>
+        <idioma_nombre>Búlgaro</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2672422&amp;lang=es&amp;eid=373790556&amp;lid=2672422&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://flixxlive.pro/live/novasport4_greece.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/28.png</idioma>
+        <idioma_nombre>Búlgaro</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2661204&amp;lang=es&amp;eid=373790556&amp;lid=2661204&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://nrdrse.link/ch.php?id=24</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/28.png</idioma>
+        <idioma_nombre>Búlgaro</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007199&amp;lang=es&amp;eid=373790556&amp;lid=3007199&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="150">
+  <evento id="176">
     <nombre>Le Mans – Nancy</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Francia. LNB Pro A</competicion>
@@ -2406,7 +2889,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="151">
+  <evento id="177">
     <nombre>Chalons-Reims – Orleans Loiret</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Francia. LNB Pro B</competicion>
@@ -2416,7 +2899,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="152">
+  <evento id="178">
     <nombre>La-Rochelle – Evreux</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Francia. LNB Pro B</competicion>
@@ -2426,7 +2909,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="153">
+  <evento id="179">
     <nombre>Estepona (M) –  Zaragoza (M)</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>España. Mujeres. Liga Femenina</competicion>
@@ -2434,9 +2917,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:00</hora>
     <url>https://livetv.sx/es/eventinfo/375576047__/</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/e2jx9vj4i_c?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=e2jx9vj4i_c&amp;lang=es&amp;eid=375576047&amp;lid=3007735&amp;ci=1199&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="154">
+  <evento id="180">
     <nombre>Flavio Cobolli – Alexander Zverev</nombre>
     <deporte>Tenis</deporte>
     <competicion>ATP. Madrid</competicion>
@@ -2444,9 +2934,62 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:00</hora>
     <url>https://livetv.sx/es/eventinfo/375660642__/</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="8">
+      <stream id="1">
+        <url>https://abcsport.top/abc/movistar2.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007144&amp;lang=es&amp;eid=375660642&amp;lid=3007144&amp;ci=3741&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl407.me/
+player/live.php?id=243137&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=243137&amp;lang=es&amp;eid=375660642&amp;lid=2924345&amp;ci=3741&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl407.me/
+player/live.php?id=251374&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/3.png</idioma>
+        <idioma_nombre>Español</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=251374&amp;lang=es&amp;eid=375660642&amp;lid=2978061&amp;ci=3741&amp;si=4</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl407.me/
+player/live.php?id=258280&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258280&amp;lang=es&amp;eid=375660642&amp;lid=3003835&amp;ci=3741&amp;si=4</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://emb.apl407.me/
+player/live.php?id=258419&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258419&amp;lang=es&amp;eid=375660642&amp;lid=3003756&amp;ci=3741&amp;si=4</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://wikisport.club/court/t20.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3006734&amp;lang=es&amp;eid=375660642&amp;lid=3006734&amp;ci=3741&amp;si=4</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://abcsport.top/abc/tennis1.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007521&amp;lang=es&amp;eid=375660642&amp;lid=3007521&amp;ci=3741&amp;si=4</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://wikisport.club/court/wik15.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007231&amp;lang=es&amp;eid=375660642&amp;lid=3007231&amp;ci=3741&amp;si=4</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="155">
+  <evento id="181">
     <nombre>Mladost NP (W) – Crvena Zvezda (W)</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Serbia. Mujeres. Super Liga</competicion>
@@ -2454,9 +2997,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:00</hora>
     <url>https://livetv.sx/es/eventinfo/375855215_mladost_np_w_crvena_zvezda_w/</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/HzDI6q03tr8?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=HzDI6q03tr8&amp;lang=es&amp;eid=375855215&amp;lid=3007285&amp;ci=4344&amp;si=13</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="156">
+  <evento id="182">
     <nombre>Bor (W) – Nis (W)</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Serbia. Mujeres. Super Liga</competicion>
@@ -2464,9 +3014,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:00</hora>
     <url>https://livetv.sx/es/eventinfo/375855216_bor_w_nis_w/</url>
     <datetime_iso>2026-04-30T20:00:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/yfM-zt-EumM?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=yfM-zt-EumM&amp;lang=es&amp;eid=375855216&amp;lid=3007283&amp;ci=4344&amp;si=13</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="157">
+  <evento id="183">
     <nombre>Gornik Walbrzych – Czarni Slupsk</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Polonia. PLK</competicion>
@@ -2476,7 +3033,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:15:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="158">
+  <evento id="184">
     <nombre>Reino Unido – Italia</nombre>
     <deporte>Hockey</deporte>
     <competicion>Partido amistoso</competicion>
@@ -2486,7 +3043,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="159">
+  <evento id="185">
     <nombre>Antibes – JA Vichy</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Francia. LNB Pro B</competicion>
@@ -2496,7 +3053,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="160">
+  <evento id="186">
     <nombre>Madzari – Skopje</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Macedonia del Norte. Superliga</competicion>
@@ -2504,9 +3061,16 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:30</hora>
     <url>https://livetv.sx/es/eventinfo/375499029_madzari_skopje/</url>
     <datetime_iso>2026-04-30T20:30:00</datetime_iso>
-    <streams total="0" />
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/Q8YaGa0i9_E?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
+        <idioma_nombre>Polaco</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=youtube&amp;c=Q8YaGa0i9_E&amp;lang=es&amp;eid=375499029&amp;lid=3006764&amp;ci=1499&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="161">
+  <evento id="187">
     <nombre>Duchess (M) –  UBI Graz (M)</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Australia. Mujeres. WNBL</competicion>
@@ -2516,7 +3080,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="162">
+  <evento id="188">
     <nombre>Cesson-Rennes – Istres</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Francia. Starligue</competicion>
@@ -2526,7 +3090,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="163">
+  <evento id="189">
     <nombre>Valencia – Panathinaikos</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Euroliga</competicion>
@@ -2534,9 +3098,62 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:45</hora>
     <url>https://livetv.sx/es/eventinfo/372278037__/</url>
     <datetime_iso>2026-04-30T20:45:00</datetime_iso>
-    <streams total="0" />
+    <streams total="8">
+      <stream id="1">
+        <url>https://flixxlive.pro/live/plusdep1_spain.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2661224&amp;lang=es&amp;eid=372278037&amp;lid=2661224&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://nrdrse.link/ch.php?id=90</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007207&amp;lang=es&amp;eid=372278037&amp;lid=3007207&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://streamsgate.click/tv/tv-9.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
+        <idioma_nombre>Francés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007250&amp;lang=es&amp;eid=372278037&amp;lid=3007250&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl407.me/
+player/live.php?id=253259&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/1.png</idioma>
+        <idioma_nombre>Inglés</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=253259&amp;lang=es&amp;eid=372278037&amp;lid=2984305&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://emb.apl407.me/
+player/live.php?id=258321&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
+        <idioma_nombre>Croata</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258321&amp;lang=es&amp;eid=372278037&amp;lid=3004016&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://emb.apl407.me/
+player/live.php?id=258322&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258322&amp;lang=es&amp;eid=372278037&amp;lid=3004606&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://emb.apl407.me/
+player/live.php?id=258670&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/13.png</idioma>
+        <idioma_nombre>Italiano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258670&amp;lang=es&amp;eid=372278037&amp;lid=3004907&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://flixxlive.pro/live/ch4_greece.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/28.png</idioma>
+        <idioma_nombre>Búlgaro</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=2672423&amp;lang=es&amp;eid=372278037&amp;lid=2672423&amp;ci=41&amp;si=3</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="164">
+  <evento id="190">
     <nombre>Nantes – Barcelona</nombre>
     <deporte>Balonmano</deporte>
     <competicion>Liga de Campeones de la EHF</competicion>
@@ -2544,9 +3161,23 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <hora>20:45</hora>
     <url>https://livetv.sx/es/eventinfo/369710809__/</url>
     <datetime_iso>2026-04-30T20:45:00</datetime_iso>
-    <streams total="0" />
+    <streams total="2">
+      <stream id="1">
+        <url>https://emb.apl407.me/
+player/live.php?id=258729&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
+        <idioma_nombre>Croata</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer2.php?t=alieztv&amp;c=258729&amp;lang=es&amp;eid=369710809&amp;lid=3006114&amp;ci=293&amp;si=13</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://shd247.live/frame0012.html</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://cdn.livetv880.me/webplayer.php?t=ifr&amp;c=3007168&amp;lang=es&amp;eid=369710809&amp;lid=3007168&amp;ci=293&amp;si=13</enlace_original>
+      </stream>
+    </streams>
   </evento>
-  <evento id="165">
+  <evento id="191">
     <nombre>Poitiers – Pau Orthez</nombre>
     <deporte>Baloncesto</deporte>
     <competicion>Francia. LNB Pro B</competicion>
@@ -2556,7 +3187,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T20:50:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="166">
+  <evento id="192">
     <nombre>Nottingham Forest – Aston Villa</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Europa League</competicion>
@@ -2566,7 +3197,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="167">
+  <evento id="193">
     <nombre>Braga – Friburgo</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Europa League</competicion>
@@ -2576,7 +3207,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="168">
+  <evento id="194">
     <nombre>Shajtar Donetsk – Crystal Palace</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga Europa Conferencia</competicion>
@@ -2586,7 +3217,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="169">
+  <evento id="195">
     <nombre>Rayo Vallecano – Estrasburgo</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Liga Europa Conferencia</competicion>
@@ -2596,7 +3227,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="170">
+  <evento id="196">
     <nombre>Simulcast</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Europa League</competicion>
@@ -2606,7 +3237,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="171">
+  <evento id="197">
     <nombre>RS Berkan – KACM</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Marruecos. Botola Pro</competicion>
@@ -2616,7 +3247,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="172">
+  <evento id="198">
     <nombre>Hull Kingston Rovers – Castleford Tigers</nombre>
     <deporte>Rugby</deporte>
     <competicion>Inglaterra. Super League</competicion>
@@ -2626,7 +3257,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="173">
+  <evento id="199">
     <nombre>Oakland – Kansas City</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -2636,7 +3267,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:05:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="174">
+  <evento id="200">
     <nombre>Throttur (M) –  FH Hafnarfjordur (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Islandia. Mujeres. Urvalsdeild</competicion>
@@ -2646,7 +3277,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:15:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="175">
+  <evento id="201">
     <nombre>Marta Kostyuk (M) –  Anastasia Potapova (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Madrid</competicion>
@@ -2656,7 +3287,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T21:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="176">
+  <evento id="202">
     <nombre>Colombia U17 (M) – Bolivia U17 (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Campeonato Sudamericano Sub-17</competicion>
@@ -2666,7 +3297,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T22:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="177">
+  <evento id="203">
     <nombre>Baltimore – Houston</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
@@ -2676,7 +3307,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T22:05:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="178">
+  <evento id="204">
     <nombre>Independiente Juniors – LDU Portoviejo</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie B</competicion>
@@ -2686,7 +3317,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T22:30:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="179">
+  <evento id="205">
     <nombre>Once Caldas (M) –  Deportivo Pasto (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Colombia. Mujeres. Liga Aguila</competicion>
@@ -2696,7 +3327,7 @@ player/live.php?id=258862&amp;w=700&amp;h=480</url>
     <datetime_iso>2026-04-30T23:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="180">
+  <evento id="206">
     <nombre>Filadelfia – San Francisco</nombre>
     <deporte>Béisbol</deporte>
     <competicion>No especificado</competicion>
