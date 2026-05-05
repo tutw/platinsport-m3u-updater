@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-05T21:01:58.734464",
-  "total_events": 9,
-  "live_events": 9,
+  "generated_at": "2026-05-05T22:54:39.750412",
+  "total_events": 18,
+  "live_events": 18,
   "events": [
     {
       "title": "Rosario Central vs Libertad",
@@ -143,6 +143,61 @@
       "live": true
     },
     {
+      "title": "Cleveland Cavaliers vs Detroit Pistons",
+      "league": "NBA",
+      "time": "01:00",
+      "timestamp": 1778022000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NBA League Pass 1 🇺🇸 USA",
+          "channel": "NBA League Pass 1",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nba+league+pass+1&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "MLB League Pass 8 🇺🇸 USA",
+          "channel": "MLB League Pass 8",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=mlb+league+pass+8&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TSN 4 🇨🇦 Canada",
+          "channel": "TSN 4",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/tsn-4.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tsn+4&code=ca&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Arena 1 Premium 🇷🇸 Serbia",
+          "channel": "Arena 1 Premium",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-1.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+1+premium&code=rs&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Wilkes-Barre/Scranton vs Hershey Bears",
+      "league": "AHL",
+      "time": "01:00",
+      "timestamp": 1778022000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NHL League Pass 1 🇺🇸 USA",
+          "channel": "NHL League Pass 1",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nhl+league+pass+1&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "Indian Premier League : Delhi Capitals vs Chennai Super Kings",
       "league": "Cricket",
       "time": "16:00",
@@ -243,40 +298,6 @@
       "live": true
     },
     {
-      "title": "TBD vs TBD",
-      "league": "College Softball",
-      "time": "21:30",
-      "timestamp": 1778009400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "ESPN+ USA 🇺🇸 USA",
-          "channel": "ESPN+ USA",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-plus.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn+usa&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Mississippi State vs Kentucky",
-      "league": "College Softball",
-      "time": "22:00",
-      "timestamp": 1778011200000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "SEC Network 🇺🇸 USA",
-          "channel": "SEC Network",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sec-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sec+network&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
       "title": "Eastern Kentucky vs North Florida",
       "league": "College Softball",
       "time": "23:00",
@@ -294,25 +315,206 @@
       "live": true
     },
     {
-      "title": "Swedish Speedway",
-      "league": "Motorsport",
-      "time": "19:00",
-      "timestamp": 1778000400000,
+      "title": "South Carolina vs Mississippi",
+      "league": "College Softball",
+      "time": "01:00",
+      "timestamp": 1778022000000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Viaplay Sports 1 🇬🇧 UK",
-          "channel": "Viaplay Sports 1",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-1.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=viaplay+sports+1&code=gb&user=ntvstream&plan=free"
+          "name": "SEC Network 🇺🇸 USA",
+          "channel": "SEC Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/sec-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sec+network&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "AHL : Wilkes-Barre/Scranton vs Hershey Bears",
+      "league": "Hockey",
+      "time": "01:00",
+      "timestamp": 1778022000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NBA League Pass 2 🇺🇸 USA",
+          "channel": "NBA League Pass 2",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nba-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nba+league+pass+2&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Philadelphia Phillies vs Oakland Athletics",
+      "league": "MLB",
+      "time": "00:40",
+      "timestamp": 1778020800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NBCS California 🇺🇸 USA",
+          "channel": "NBCS California",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nbc-sports.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nbcs+california&code=us&user=ntvstream&plan=free"
         },
         {
-          "name": "Viaplay Sports 2 🇬🇧 UK",
-          "channel": "Viaplay Sports 2",
+          "name": "NBCS Philadelphia 🇺🇸 USA",
+          "channel": "NBCS Philadelphia",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nbcs+philadelphia&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Miami Marlins vs Baltimore Orioles",
+      "league": "MLB",
+      "time": "00:40",
+      "timestamp": 1778020800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "MASN 🇺🇸 USA",
+          "channel": "MASN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/masn.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=masn&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT Sports 7 🇬🇧 UK",
+          "channel": "TNT Sports 7",
           "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/viaplay-sports-2.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=viaplay+sports+2&code=gb&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-7.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+7&code=gb&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Detroit Tigers vs Boston Red Sox",
+      "league": "MLB",
+      "time": "00:40",
+      "timestamp": 1778020800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "NESN 🇺🇸 USA",
+          "channel": "NESN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nesn.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=nesn&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN SPORTS MAX 4 🇫🇷 France",
+          "channel": "beIN SPORTS MAX 4",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-4.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport 5 Live 🇮🇱 Israel",
+          "channel": "Sport 5 Live",
+          "country": "🇮🇱 Israel",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5-live.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+5+live&code=il&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Tampa Bay Rays vs Toronto Blue Jays",
+      "league": "MLB",
+      "time": "00:40",
+      "timestamp": 1778020800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sportsnet One 🇨🇦 Canada",
+          "channel": "Sportsnet One",
+          "country": "🇨🇦 Canada",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/canada/sportsnet-one.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportsnet+one&code=ca&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Washington Nationals vs Minnesota Twins",
+      "league": "MLB",
+      "time": "00:45",
+      "timestamp": 1778021100000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sky Sport Bundesliga 7 🇩🇪 Germany",
+          "channel": "Sky Sport Bundesliga 7",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-7.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+7&code=de&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "New York Yankees vs Texas Rangers",
+      "league": "MLB",
+      "time": "01:05",
+      "timestamp": 1778022300000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Yes Network 🇺🇸 USA",
+          "channel": "Yes Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/yes.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=yes+network&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport Bundesliga 6 🇩🇪 Germany",
+          "channel": "Sky Sport Bundesliga 6",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-6.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+6&code=de&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Chicago Cubs vs Cincinnati Reds",
+      "league": "MLB",
+      "time": "01:40",
+      "timestamp": 1778024400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Marquee Sports Network 🇺🇸 USA",
+          "channel": "Marquee Sports Network",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/marquee.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=marquee+sports+network&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "St. Louis Cardinals vs Milwaukee Brewers",
+      "league": "MLB",
+      "time": "01:45",
+      "timestamp": 1778024700000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 9 🇬🇧 UK",
+          "channel": "TNT Sports 9",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-9.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+9&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
