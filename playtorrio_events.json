@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-05-12T09:38:14.232140",
-  "total_events": 3,
-  "live_events": 3,
+  "generated_at": "2026-05-12T11:54:50.099232",
+  "total_events": 5,
+  "live_events": 5,
   "events": [
     {
       "title": "2026 BNL Italian International Tennis Tournament ATP Round of 16; WTA Quarterfinal 1 & 2; ATP Doubles Second Round",
@@ -393,6 +393,82 @@
           "country": "🇮🇹 Italy",
           "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/italy/euro-sport-1.png",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+1&code=it&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Giro d'Italia | Stage 4 Men | Catanzaro – Cosenza (138km)",
+      "league": "Cycling",
+      "time": "13:00",
+      "timestamp": 1778583600000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "truTV 🇺🇸 USA",
+          "channel": "truTV",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=trutv&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT Sports 1 🇬🇧 UK",
+          "channel": "TNT Sports 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+1&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT Sports 3 🇬🇧 UK",
+          "channel": "TNT Sports 3",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-3.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+3&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 1 🇬🇧 UK",
+          "channel": "Euro Sport 1",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/euro-sport-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+1&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 1 🇪🇸 Spain",
+          "channel": "Euro Sport 1",
+          "country": "🇪🇸 Spain",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/spain/euro-sport-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+1&code=es&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Euro Sport 1 🇮🇹 Italy",
+          "channel": "Euro Sport 1",
+          "country": "🇮🇹 Italy",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/italy/euro-sport-1.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=euro+sport+1&code=it&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport Bundesliga 6 🇩🇪 Germany",
+          "channel": "Sky Sport Bundesliga 6",
+          "country": "🇩🇪 Germany",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-bundesliga-6.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+bundesliga+6&code=de&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Live racing from around the UK",
+      "league": "HorseRacing",
+      "time": "14:00",
+      "timestamp": 1778587200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sky Sports Racing 🇬🇧 UK",
+          "channel": "Sky Sports Racing",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-racing.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+racing&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
