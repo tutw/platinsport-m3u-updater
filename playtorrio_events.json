@@ -1,76 +1,8 @@
 {
-  "generated_at": "2026-05-30T20:56:15.596806",
-  "total_events": 32,
-  "live_events": 32,
+  "generated_at": "2026-05-30T22:02:10.223996",
+  "total_events": 26,
+  "live_events": 26,
   "events": [
-    {
-      "title": "Flamengo vs Coritiba",
-      "league": "Brasileirão",
-      "time": "21:00",
-      "timestamp": 1780167600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "SporTV 1 🇧🇷 Brazil",
-          "channel": "SporTV 1",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/brazil/sportv-1.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sportv+1&code=br&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "La Serena vs Colo-Colo",
-      "league": "Primera Division",
-      "time": "21:00",
-      "timestamp": 1780167600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "TNT Sports 🇨🇱 Chile",
-          "channel": "TNT Sports",
-          "country": "🇨🇱 Chile",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/chile/tnt-sports.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports&code=cl&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Granada vs Sporting Gijón",
-      "league": "Segunda Division",
-      "time": "21:00",
-      "timestamp": 1780167600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "LaLiga TV Hypermotion 1 🇪🇸 Spain",
-          "channel": "LaLiga TV Hypermotion 1",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/spain/laliga-tv-hypermotion.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=laliga+tv+hypermotion+1&code=es&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "CF Os Belenenses vs Farense",
-      "league": "Segunda liga",
-      "time": "21:30",
-      "timestamp": 1780169400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Sport TV 1 🇵🇹 Portugal",
-          "channel": "Sport TV 1",
-          "country": "🇵🇹 Portugal",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/portugal/sport-tv-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+tv+1&code=pt&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
     {
       "title": "Grêmio vs Corinthians",
       "league": "Brasileirão",
@@ -383,80 +315,35 @@
       "live": true
     },
     {
+      "title": "TBD vs TBD",
+      "league": "College Softball",
+      "time": "01:00",
+      "timestamp": 1780182000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "ESPN 🇺🇸 USA",
+          "channel": "ESPN",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/espn.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=espn&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "America's Day At the Races",
       "league": "HorseRacing",
-      "time": "18:00",
-      "timestamp": 1780156800000,
+      "time": "20:30",
+      "timestamp": 1780165800000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "FOX Sports 2 🇺🇸 USA",
-          "channel": "FOX Sports 2",
+          "name": "FOX Sports 1 🇺🇸 USA",
+          "channel": "FOX Sports 1",
           "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/fox-sport-2.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+2&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "French League : Quarterfinals, G3",
-      "league": "Basketball",
-      "time": "21:00",
-      "timestamp": 1780167600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Arena 3 Premium 🇷🇸 Serbia",
-          "channel": "Arena 3 Premium",
-          "country": "🇷🇸 Serbia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-premium-3.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+3+premium&code=rs&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Chicago White Sox vs Detroit Tigers",
-      "league": "MLB",
-      "time": "20:10",
-      "timestamp": 1780164600000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Chicago White Sox 🇺🇸 USA",
-          "channel": "Chicago White Sox",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=chicago+white+sox&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Detroit Tigers 🇺🇸 USA",
-          "channel": "Detroit Tigers",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=detroit+tigers&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Chicago Sports Network 🇺🇸 USA",
-          "channel": "Chicago Sports Network",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/mlb-network.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=chicago+sports+network&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "beIN SPORTS MAX 4 🇫🇷 France",
-          "channel": "beIN SPORTS MAX 4",
-          "country": "🇫🇷 France",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-max-4.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+max+4&code=fr&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Arena Sport 3 🇭🇷 Croatia",
-          "channel": "Arena Sport 3",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/croatia/arena-sport-3.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=arena+sport+3&code=hr&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/fox-sport-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+1&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -637,23 +524,6 @@
       "live": true
     },
     {
-      "title": "BKFC 90 Bare Knuckle Fighting Championship",
-      "league": "MMA",
-      "time": "20:00",
-      "timestamp": 1780164000000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "Match TV 🇷🇺 Russia",
-          "channel": "Match TV",
-          "country": "🇷🇺 Russia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/russia/match-tv.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=match+tv&code=ru&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
       "title": "MVPW-03",
       "league": "MMA",
       "time": "21:00",
@@ -726,77 +596,18 @@
       "live": true
     },
     {
-      "title": "Indy NXT Series Detroit Grand Prix, Qualifying",
-      "league": "Motorsport",
-      "time": "18:00",
-      "timestamp": 1780156800000,
+      "title": "TBL Team Boxing League : Philadelphia Smoke vs. Boston Butchers",
+      "league": "MMA",
+      "time": "01:00",
+      "timestamp": 1780182000000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "FOX Sports 1 🇺🇸 USA",
-          "channel": "FOX Sports 1",
+          "name": "MSG 🇺🇸 USA",
+          "channel": "MSG",
           "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/fox-sport-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+1&code=us&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "IndyCar Series Season Streets of Detroit in Michigan Qualifying",
-      "league": "Motorsport",
-      "time": "19:00",
-      "timestamp": 1780160400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "FOX Sports 1 🇺🇸 USA",
-          "channel": "FOX Sports 1",
-          "country": "🇺🇸 USA",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/fox-sport-1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=fox+sports+1&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sports F1 🇬🇧 UK",
-          "channel": "Sky Sports F1",
-          "country": "🇬🇧 UK",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sport-f1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sports+f1&code=gb&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sport 3 🇳🇿 New Zealand",
-          "channel": "Sky Sport 3",
-          "country": "🇳🇿 New Zealand",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/new-zealand/sky-sport-3.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+3&code=nz&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Movistar Deportes 4 🇪🇸 Spain",
-          "channel": "Movistar Deportes 4",
-          "country": "🇪🇸 Spain",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/spain/movistar-deportes-4.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=movistar+deportes+4&code=es&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Sky Sport F1 🇩🇪 Germany",
-          "channel": "Sky Sport F1",
-          "country": "🇩🇪 Germany",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/germany/sky-sport-f1.svg",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sky+sport+f1&code=de&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Ziggo Sport 3 🇳🇱 Netherlands",
-          "channel": "Ziggo Sport 3",
-          "country": "🇳🇱 Netherlands",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/netherlands/ziggo-sport-3.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ziggo+sport+3&code=nl&user=ntvstream&plan=free"
-        },
-        {
-          "name": "V Sport Motor 🇸🇪 Sweden",
-          "channel": "V Sport Motor",
-          "country": "🇸🇪 Sweden",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/sweden/v-sport-motor.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=v+sport+motor&code=se&user=ntvstream&plan=free"
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/msg.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=msg&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -836,6 +647,65 @@
       "live": true
     },
     {
+      "title": "WRC Rally FORUM8 Rally Japan: Stage 15",
+      "league": "Motorsport",
+      "time": "01:00",
+      "timestamp": 1780182000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "beIN SPORTS 1 🇺🇸 USA",
+          "channel": "beIN SPORTS 1",
+          "country": "🇺🇸 USA",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/bein-sports-1.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=bein+sports+1&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TNT Sports 3 🇬🇧 UK",
+          "channel": "TNT Sports 3",
+          "country": "🇬🇧 UK",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sport-3.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=tnt+sports+3&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Canal Sport360 🇫🇷 France",
+          "channel": "Canal Sport360",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/canal-sport-360.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+sport360&code=fr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Canal Sport 🇫🇷 France",
+          "channel": "Canal Sport",
+          "country": "🇫🇷 France",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/france/canal-sport.svg",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=canal+sport&code=fr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Cosmote Sport 6 🇬🇷 Greece",
+          "channel": "Cosmote Sport 6",
+          "country": "🇬🇷 Greece",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/greece/cosmote-sport-6.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cosmote+sport+6&code=gr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Cytavision Sports 6 CY",
+          "channel": "Cytavision Sports 6",
+          "country": "CY",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/cyprus/cytavision-sports-6.png",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=cytavision+sports+6&code=cy&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport Klub 3 🇷🇸 Serbia",
+          "channel": "Sport Klub 3",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/serbia/sk-3.png.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=sport+klub+3&code=rs&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
       "title": "SENSHI 31 : Fighting Gala from Plovdiv",
       "league": "UFC",
       "time": "18:30",
@@ -853,25 +723,18 @@
       "live": true
     },
     {
-      "title": "Boxing : Dmitry Bivol vs Michael Eifert",
+      "title": "BKFC 90 Bare Knuckle Fighting Championship",
       "league": "UFC",
-      "time": "17:00",
-      "timestamp": 1780153200000,
+      "time": "20:00",
+      "timestamp": 1780164000000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Stan Sport 4 🇦🇺 Australia",
-          "channel": "Stan Sport 4",
-          "country": "🇦🇺 Australia",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/australia/stan-sport.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=stan+sport+4&code=au&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Viasat Vinter 🇸🇪 Sweden",
-          "channel": "Viasat Vinter",
-          "country": "🇸🇪 Sweden",
-          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/united-states/nhl-league-pass.png",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=viasat+vinter&code=se&user=ntvstream&plan=free"
+          "name": "Match TV 🇷🇺 Russia",
+          "channel": "Match TV",
+          "country": "🇷🇺 Russia",
+          "logo": "https://api.cdnlivetv.tv/api/v1/channels/images6318/russia/match-tv.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=match+tv&code=ru&user=ntvstream&plan=free"
         }
       ],
       "live": true
