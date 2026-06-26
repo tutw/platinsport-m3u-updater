@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-25T22:20:45.997631",
-  "total_events": 22,
-  "live_events": 22,
+  "generated_at": "2026-06-26T00:08:15.989724",
+  "total_events": 21,
+  "live_events": 21,
   "events": [
     {
       "title": "Curaçao vs Côte d'Ivoire",
@@ -11,6 +11,13 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
+          "name": "BBC Two FHD UK 🇬🇧 UK",
+          "channel": "BBC Two FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/bbc-two-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=BBC%20Two%20FHD%20UK&code=gb&user=ntvstream&plan=free"
+        },
+        {
           "name": "TSN 2 FHD CA Internacional",
           "channel": "TSN 2 FHD CA",
           "country": "Internacional",
@@ -18,11 +25,25 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TSN%202%20FHD%20CA&code=&user=ntvstream&plan=free"
         },
         {
-          "name": "Duna World HD HU 🇭🇺 Hungary",
-          "channel": "Duna World HD HU",
-          "country": "🇭🇺 Hungary",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/hungary/duna-world-hd-hu.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Duna%20World%20HD%20HU&code=hu&user=ntvstream&plan=free"
+          "name": "TRT 1 FHD TR 🇹🇷 Turkey",
+          "channel": "TRT 1 FHD TR",
+          "country": "🇹🇷 Turkey",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/turkey/trt-1-fhd-tr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TRT%201%20FHD%20TR&code=tr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TVP Sport FHD PL 🇵🇱 Poland",
+          "channel": "TVP Sport FHD PL",
+          "country": "🇵🇱 Poland",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/poland/tvp-sport-fhd-pl.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TVP%20Sport%20FHD%20PL&code=pl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Servus TV HD AT 🇦🇹 Austria",
+          "channel": "Servus TV HD AT",
+          "country": "🇦🇹 Austria",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/austria/servus-tv-hd-at.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Servus%20TV%20HD%20AT&code=at&user=ntvstream&plan=free"
         },
         {
           "name": "NPO1 FHD NL 🇳🇱 Netherlands",
@@ -46,13 +67,6 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TV2%20Sport%20X%20HD%20DK&code=dk&user=ntvstream&plan=free"
         },
         {
-          "name": "BNT 3 HD BG 🇧🇬 Bulgaria",
-          "channel": "BNT 3 HD BG",
-          "country": "🇧🇬 Bulgaria",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/bg/bnt-3-hd-bg.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=BNT%203%20HD%20BG&code=bg&user=ntvstream&plan=free"
-        },
-        {
           "name": "beIN SPORTS MAX 2 FHD TR 🇸🇦 Saudi Arabia",
           "channel": "beIN SPORTS MAX 2 FHD TR",
           "country": "🇸🇦 Saudi Arabia",
@@ -65,6 +79,13 @@
           "country": "🇮🇱 Israel",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/israel/sport-2-hd-il.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%202%20HD%20IL&code=il&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ITV 1 FHD UK Internacional",
+          "channel": "ITV 1 FHD UK",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ITV%201%20FHD%20UK&code=&user=ntvstream&plan=free"
         },
         {
           "name": "Sport TV 1 FHD PT 🇵🇹 Portugal",
@@ -113,23 +134,6 @@
           "country": "🇮🇱 Israel",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5-hd-il.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%205%2B%20HD%20IL&code=il&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "Campinas W vs Sodie Mesquita W",
-      "league": "Brazil LBF Women",
-      "time": "23:30",
-      "timestamp": 1782423000000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
-        {
-          "name": "ESPN 2 HD BR 🇧🇷 Brazil",
-          "channel": "ESPN 2 HD BR",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-2-hd-br.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%202%20HD%20BR&code=br&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -268,13 +272,6 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=beIN%20Sports%201%20AU&code=au&user=ntvstream&plan=free"
         },
         {
-          "name": "ESPN 2 HD BR 🇧🇷 Brazil",
-          "channel": "ESPN 2 HD BR",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-2-hd-br.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%202%20HD%20BR&code=br&user=ntvstream&plan=free"
-        },
-        {
           "name": "Cytavision Sports 5 HD CY CY",
           "channel": "Cytavision Sports 5 HD CY",
           "country": "CY",
@@ -386,25 +383,18 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
+          "name": "Sky Sports Golf FHD UK 🇬🇧 UK",
+          "channel": "Sky Sports Golf FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sports-golf-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sports%20Golf%20FHD%20UK&code=gb&user=ntvstream&plan=free"
+        },
+        {
           "name": "Golf Channel FHD US 🇺🇸 USA",
           "channel": "Golf Channel FHD US",
           "country": "🇺🇸 USA",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-channel-fhd-us.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Golf%20Channel%20FHD%20US&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Movistar Golf FHD Internacional",
-          "channel": "Movistar Golf FHD",
-          "country": "Internacional",
-          "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Movistar%20Golf%20FHD&code=&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN Deportes US Internacional",
-          "channel": "ESPN Deportes US",
-          "country": "Internacional",
-          "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%20Deportes%20US&code=&user=ntvstream&plan=free"
         },
         {
           "name": "Sky Sport 4 NZ 🇳🇿 New Zealand",
@@ -466,25 +456,18 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
+          "name": "Sky Sports Golf FHD UK 🇬🇧 UK",
+          "channel": "Sky Sports Golf FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sports-golf-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sports%20Golf%20FHD%20UK&code=gb&user=ntvstream&plan=free"
+        },
+        {
           "name": "Golf Channel FHD US 🇺🇸 USA",
           "channel": "Golf Channel FHD US",
           "country": "🇺🇸 USA",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-channel-fhd-us.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Golf%20Channel%20FHD%20US&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Movistar Golf FHD Internacional",
-          "channel": "Movistar Golf FHD",
-          "country": "Internacional",
-          "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Movistar%20Golf%20FHD&code=&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN Deportes US Internacional",
-          "channel": "ESPN Deportes US",
-          "country": "Internacional",
-          "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%20Deportes%20US&code=&user=ntvstream&plan=free"
         },
         {
           "name": "Sky Sport 3 NZ 🇳🇿 New Zealand",
@@ -546,25 +529,18 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
+          "name": "Sky Sports Golf FHD UK 🇬🇧 UK",
+          "channel": "Sky Sports Golf FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sports-golf-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sports%20Golf%20FHD%20UK&code=gb&user=ntvstream&plan=free"
+        },
+        {
           "name": "Golf Channel FHD US 🇺🇸 USA",
           "channel": "Golf Channel FHD US",
           "country": "🇺🇸 USA",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-channel-fhd-us.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Golf%20Channel%20FHD%20US&code=us&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Movistar Golf FHD Internacional",
-          "channel": "Movistar Golf FHD",
-          "country": "Internacional",
-          "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Movistar%20Golf%20FHD&code=&user=ntvstream&plan=free"
-        },
-        {
-          "name": "ESPN Deportes US Internacional",
-          "channel": "ESPN Deportes US",
-          "country": "Internacional",
-          "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%20Deportes%20US&code=&user=ntvstream&plan=free"
         },
         {
           "name": "V Sport Golf HD DK Internacional",
@@ -640,6 +616,13 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20TV%202%20FHD%20PT&code=pt&user=ntvstream&plan=free"
         },
         {
+          "name": "Max Sport 4 FHD BG 🇧🇬 Bulgaria",
+          "channel": "Max Sport 4 FHD BG",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/bg/max-sport-4-fhd-bg.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Max%20Sport%204%20FHD%20BG&code=bg&user=ntvstream&plan=free"
+        },
+        {
           "name": "Canal+ Sport 360 HD FR Internacional",
           "channel": "Canal+ Sport 360 HD FR",
           "country": "Internacional",
@@ -652,6 +635,23 @@
           "country": "Internacional",
           "logo": "",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Cosmote%20Sport%205%20HD%20GR&code=&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Austria",
+      "league": "Formula 1 Drivers Press Conference",
+      "time": "14:00",
+      "timestamp": 1782388800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sky Sports F1 FHD UK 🇬🇧 UK",
+          "channel": "Sky Sports F1 FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sports-f1-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sports%20F1%20FHD%20UK&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -709,6 +709,13 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20TV%202%20FHD%20PT&code=pt&user=ntvstream&plan=free"
         },
         {
+          "name": "Max Sport 4 FHD BG 🇧🇬 Bulgaria",
+          "channel": "Max Sport 4 FHD BG",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/bg/max-sport-4-fhd-bg.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Max%20Sport%204%20FHD%20BG&code=bg&user=ntvstream&plan=free"
+        },
+        {
           "name": "Canal+ Sport 360 HD FR Internacional",
           "channel": "Canal+ Sport 360 HD FR",
           "country": "Internacional",
@@ -721,23 +728,13 @@
           "country": "Internacional",
           "logo": "",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Cosmote%20Sport%205%20HD%20GR&code=&user=ntvstream&plan=free"
-        }
-      ],
-      "live": true
-    },
-    {
-      "title": "INNPRO ROW Rybnik vs H. Skrzydlewska Orzeł Łódź",
-      "league": "Speedway: Metalkas 2. Ekstraliga",
-      "time": "17:30",
-      "timestamp": 1782401400000,
-      "logo": "https://iptv.playtorrio.xyz/logo.ico",
-      "sources": [
+        },
         {
-          "name": "Canal+ Sport 5 FHD PL 🇵🇱 Poland",
-          "channel": "Canal+ Sport 5 FHD PL",
-          "country": "🇵🇱 Poland",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/poland/canal-sport-5-fhd-pl.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Canal%2B%20Sport%205%20FHD%20PL&code=pl&user=ntvstream&plan=free"
+          "name": "Sportklub 3 FHD HR 🇭🇷 Croatia",
+          "channel": "Sportklub 3 FHD HR",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sportklub-3-fhd-hr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sportklub%203%20FHD%20HR&code=hr&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -791,11 +788,11 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Willow Cricket HD US Internacional",
-          "channel": "Willow Cricket HD US",
-          "country": "Internacional",
-          "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Willow%20Cricket%20HD%20US&code=&user=ntvstream&plan=free"
+          "name": "TNT Sports 3 FHD UK 🇬🇧 UK",
+          "channel": "TNT Sports 3 FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sports-3-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TNT%20Sports%203%20FHD%20UK&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -827,13 +824,6 @@
           "country": "🇸🇪 Sweden",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/sweden/eurosport-1-se.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Eurosport%201%20SE&code=se&user=ntvstream&plan=free"
-        },
-        {
-          "name": "Eurosport 1 GR 🇬🇷 Greece",
-          "channel": "Eurosport 1 GR",
-          "country": "🇬🇷 Greece",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/greece/eurosport-1-gr.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Eurosport%201%20GR&code=gr&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -846,11 +836,11 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Canal+ Sport 5 FHD PL 🇵🇱 Poland",
-          "channel": "Canal+ Sport 5 FHD PL",
-          "country": "🇵🇱 Poland",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/poland/canal-sport-5-fhd-pl.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Canal%2B%20Sport%205%20FHD%20PL&code=pl&user=ntvstream&plan=free"
+          "name": "Sky Sport 2 NZ 🇳🇿 New Zealand",
+          "channel": "Sky Sport 2 NZ",
+          "country": "🇳🇿 New Zealand",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/nz/sky-sport-2-nz.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sport%202%20NZ&code=nz&user=ntvstream&plan=free"
         }
       ],
       "live": true
