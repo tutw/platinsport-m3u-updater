@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-30T00:05:27.318149",
-  "total_events": 8,
-  "live_events": 8,
+  "generated_at": "2026-06-30T05:02:16.070309",
+  "total_events": 11,
+  "live_events": 11,
   "events": [
     {
       "title": "CSKA 1948 vs Partizan",
@@ -16,6 +16,23 @@
           "country": "🇷🇸 Serbia",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-3-premium-fhd-rs.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Arena%20Sport%203%20Premium%20FHD%20RS&code=rs&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Crvena Zvezda vs Slovan Bratislava",
+      "league": "World - Club Friendly",
+      "time": "16:30",
+      "timestamp": 1782743400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Arena Sport 2 Premium FHD RS 🇷🇸 Serbia",
+          "channel": "Arena Sport 2 Premium FHD RS",
+          "country": "🇷🇸 Serbia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-2-premium-fhd-rs.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Arena%20Sport%202%20Premium%20FHD%20RS&code=rs&user=ntvstream&plan=free"
         }
       ],
       "live": true
@@ -67,6 +84,13 @@
           "country": "🇺🇸 USA",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-hd-us.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%20HD%20US&code=us&user=ntvstream&plan=free"
+        },
+        {
+          "name": "BBC One FHD UK 🇬🇧 UK",
+          "channel": "BBC One FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/bbc-one-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=BBC%20One%20FHD%20UK&code=gb&user=ntvstream&plan=free"
         },
         {
           "name": "BBC Two FHD UK 🇬🇧 UK",
@@ -230,13 +254,6 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Polsat%20Sport%203%20FHD%20PL&code=pl&user=ntvstream&plan=free"
         },
         {
-          "name": "ESPN 2 HD BR 🇧🇷 Brazil",
-          "channel": "ESPN 2 HD BR",
-          "country": "🇧🇷 Brazil",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-2-hd-br.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%202%20HD%20BR&code=br&user=ntvstream&plan=free"
-        },
-        {
           "name": "Nova Sports Prime FHD GR 🇬🇷 Greece",
           "channel": "Nova Sports Prime FHD GR",
           "country": "🇬🇷 Greece",
@@ -321,13 +338,6 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sportklub%204%20FHD%20HR&code=hr&user=ntvstream&plan=free"
         },
         {
-          "name": "Sport Klub 5 HD HR 🇭🇷 Croatia",
-          "channel": "Sport Klub 5 HD HR",
-          "country": "🇭🇷 Croatia",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-5-hd-hr.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%205%20HD%20HR&code=hr&user=ntvstream&plan=free"
-        },
-        {
           "name": "Sport Klub 10 HD HR 🇭🇷 Croatia",
           "channel": "Sport Klub 10 HD HR",
           "country": "🇭🇷 Croatia",
@@ -354,6 +364,40 @@
           "country": "🇮🇱 Israel",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/israel/sport-5-hd-il.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%205%2B%20HD%20IL&code=il&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Golf World Long Drive Pinnacle World Long Drive Tour - Florida",
+      "league": "Golf",
+      "time": "01:00",
+      "timestamp": 1782774000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Golf Channel FHD US 🇺🇸 USA",
+          "channel": "Golf Channel FHD US",
+          "country": "🇺🇸 USA",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-channel-fhd-us.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Golf%20Channel%20FHD%20US&code=us&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "WWE NXT",
+      "league": "Wrestling (NXT)",
+      "time": "01:00",
+      "timestamp": 1782774000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "CW US 🇺🇸 USA",
+          "channel": "CW US",
+          "country": "🇺🇸 USA",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-states/cw-us.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=CW%20US&code=us&user=ntvstream&plan=free"
         }
       ],
       "live": true

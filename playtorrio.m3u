@@ -1,13 +1,16 @@
 #EXTM3U
-# PlayTorrio Sports Events - 2026-06-30 00:05:27
-# Total Events: 8
-# Live Events: 8
+# PlayTorrio Sports Events - 2026-06-30 05:02:16
+# Total Events: 11
+# Live Events: 11
 
 #EXTINF:-1 tvg-logo="https://iptv.playtorrio.xyz/logo.ico" group-title="MLB",[02:40] MLB - Arizona Diamondbacks vs San Francisco Giants 🔴
 https://cdnlivetv.tv/api/v1/channels/player/?name=MLB%20Network%20HD%20US&code=&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/united-states/espn-hd-us.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - ESPN HD US 🇺🇸 USA
 https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%20HD%20US&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/bbc-one-fhd-uk.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - BBC One FHD UK 🇬🇧 UK
+https://cdnlivetv.tv/api/v1/channels/player/?name=BBC%20One%20FHD%20UK&code=gb&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/bbc-two-fhd-uk.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - BBC Two FHD UK 🇬🇧 UK
 https://cdnlivetv.tv/api/v1/channels/player/?name=BBC%20Two%20FHD%20UK&code=gb&user=ntvstream&plan=free
@@ -78,9 +81,6 @@ https://cdnlivetv.tv/api/v1/channels/player/?name=Polsat%20Sport%20Extra%204%20F
 #EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/poland/polsat-sport-3-fhd-pl.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - Polsat Sport 3 FHD PL 🇵🇱 Poland
 https://cdnlivetv.tv/api/v1/channels/player/?name=Polsat%20Sport%203%20FHD%20PL&code=pl&user=ntvstream&plan=free
 
-#EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-2-hd-br.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - ESPN 2 HD BR 🇧🇷 Brazil
-https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%202%20HD%20BR&code=br&user=ntvstream&plan=free
-
 #EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/greece/nova-sports-prime-fhd-gr.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - Nova Sports Prime FHD GR 🇬🇷 Greece
 https://cdnlivetv.tv/api/v1/channels/player/?name=Nova%20Sports%20Prime%20FHD%20GR&code=gr&user=ntvstream&plan=free
 
@@ -116,9 +116,6 @@ https://cdnlivetv.tv/api/v1/channels/player/?name=Sportklub%203%20FHD%20HR&code=
 
 #EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sportklub-4-fhd-hr.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - Sportklub 4 FHD HR 🇭🇷 Croatia
 https://cdnlivetv.tv/api/v1/channels/player/?name=Sportklub%204%20FHD%20HR&code=hr&user=ntvstream&plan=free
-
-#EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-5-hd-hr.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - Sport Klub 5 HD HR 🇭🇷 Croatia
-https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%205%20HD%20HR&code=hr&user=ntvstream&plan=free
 
 #EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-10-hd-hr.webp" group-title="Tennis",[11:00] Tennis - 2026 Wimbledon Championships First Round 🔴 - Sport Klub 10 HD HR 🇭🇷 Croatia
 https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%2010%20HD%20HR&code=hr&user=ntvstream&plan=free
@@ -156,6 +153,15 @@ https://cdnlivetv.tv/api/v1/channels/player/?name=Arena%20Sport%203%20Premium%20
 #EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sports-1-fhd-uk.webp" group-title="Cricket",[15:00] Cricket - West Indies vs Sri Lanka 🔴
 https://cdnlivetv.tv/api/v1/channels/player/?name=TNT%20Sports%201%20FHD%20UK&code=gb&user=ntvstream&plan=free
 
+#EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/serbia/arena-sport-2-premium-fhd-rs.webp" group-title="World - Club Friendly",[16:30] World - Club Friendly - Crvena Zvezda vs Slovan Bratislava 🔴
+https://cdnlivetv.tv/api/v1/channels/player/?name=Arena%20Sport%202%20Premium%20FHD%20RS&code=rs&user=ntvstream&plan=free
+
 #EXTINF:-1 tvg-logo="https://iptv.playtorrio.xyz/logo.ico" group-title="FIFA World Cup",[21:30] FIFA World Cup - Tactical Feed 🔴
 https://cdnlivetv.tv/api/v1/channels/player/?name=FUSSBALL%20TV%202%20FHD%20DE&code=&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/united-states/golf-channel-fhd-us.webp" group-title="Golf",[01:00] Golf - Golf World Long Drive Pinnacle World Long Drive Tour - Florida 🔴
+https://cdnlivetv.tv/api/v1/channels/player/?name=Golf%20Channel%20FHD%20US&code=us&user=ntvstream&plan=free
+
+#EXTINF:-1 tvg-logo="https://cdnlivetv.tv/api/v1/channels/images6318/united-states/cw-us.webp" group-title="Wrestling (NXT)",[01:00] Wrestling (NXT) - WWE NXT 🔴
+https://cdnlivetv.tv/api/v1/channels/player/?name=CW%20US&code=us&user=ntvstream&plan=free
 
