@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-20T10:09:11.849348",
-  "total_events": 3,
-  "live_events": 3,
+  "generated_at": "2026-07-20T13:04:50.549600",
+  "total_events": 4,
+  "live_events": 4,
   "events": [
     {
       "title": "ATP Kitzbühel, ATP Estoril, WTA Hamburg &amp; WTA Prague – Early Rounds",
@@ -158,35 +158,59 @@
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%205%20Live%20HD%20IL&code=il&user=ntvstream&plan=free"
         },
         {
-          "name": "Tennis Channel FHD DE Internacional",
-          "channel": "Tennis Channel FHD DE",
-          "country": "Internacional",
-          "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Tennis%20Channel%20FHD%20DE&code=&user=ntvstream&plan=free"
-        },
-        {
           "name": "Sky Sport Uno FHD IT 🇮🇹 Italy",
           "channel": "Sky Sport Uno FHD IT",
           "country": "🇮🇹 Italy",
           "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/italy/sky-sport-uno-fhd-it.webp",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sport%20Uno%20FHD%20IT&code=it&user=ntvstream&plan=free"
+        },
+        {
+          "name": "SONY TEN 3 Internacional",
+          "channel": "SONY TEN 3",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=SONY%20TEN%203&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TyC Sports HD ARG 🇦🇷 Argentina",
+          "channel": "TyC Sports HD ARG",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/argentina/tyc-sports-hd-arg.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TyC%20Sports%20HD%20ARG&code=ar&user=ntvstream&plan=free"
         }
       ],
       "live": true
     },
     {
-      "title": "ATP 250 Kitzbühel &amp; WTA 250 Prague",
+      "title": "ATP 250 Estoril, ATP 250 Kitzbühel &amp; WTA 250 Prague",
       "league": "Tennis",
-      "time": "10:00",
-      "timestamp": 1784534400000,
+      "time": "12:00",
+      "timestamp": 1784541600000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "Sport Klub 5 HD HR 🇭🇷 Croatia",
-          "channel": "Sport Klub 5 HD HR",
+          "name": "Sport Klub 5 HR 🇭🇷 Croatia",
+          "channel": "Sport Klub 5 HR",
           "country": "🇭🇷 Croatia",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-5-hd-hr.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%205%20HD%20HR&code=hr&user=ntvstream&plan=free"
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-5-hr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%205%20HR&code=hr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "ATP 250 Estoril, ATP 250 Kitzbühel, WTA 250 Hamburg &amp; WTA 250 Prague",
+      "league": "Tennis",
+      "time": "12:30",
+      "timestamp": 1784543400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sport Klub 5 HR 🇭🇷 Croatia",
+          "channel": "Sport Klub 5 HR",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-5-hr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%205%20HR&code=hr&user=ntvstream&plan=free"
         }
       ],
       "live": true
