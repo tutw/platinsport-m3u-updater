@@ -1,21 +1,278 @@
 {
-  "generated_at": "2026-07-27T10:41:36.734167",
-  "total_events": 1,
-  "live_events": 1,
+  "generated_at": "2026-07-27T16:18:52.300246",
+  "total_events": 12,
+  "live_events": 12,
   "events": [
     {
-      "title": "Day 4 Session 1",
-      "league": "Glasgow 2026 Boxing",
-      "time": "11:00",
-      "timestamp": 1785142800000,
+      "title": "Dunav 2010 vs Ludogorets",
+      "league": "Bulgaria - Parva Liga",
+      "time": "17:00",
+      "timestamp": 1785164400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "UFC 24/7 HD US Internacional",
-          "channel": "UFC 24/7 HD US",
+          "name": "Sport Klub 3 HD HR 🇭🇷 Croatia",
+          "channel": "Sport Klub 3 HD HR",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-3-hd-hr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%203%20HD%20HR&code=hr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Zagłębie Lubin vs Piast Gliwice",
+      "league": "Poland - Ekstraklasa",
+      "time": "18:00",
+      "timestamp": 1785168000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "beIN Sports XTRA Internacional",
+          "channel": "beIN Sports XTRA",
           "country": "Internacional",
           "logo": "",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=UFC%2024%2F7%20HD%20US&code=&user=ntvstream&plan=free"
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=beIN%20Sports%20XTRA&code=&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Örebro vs Oddevold",
+      "league": "Swedish Superettan",
+      "time": "18:00",
+      "timestamp": 1785168000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TV4 Sportkanalen SE 🇸🇪 Sweden",
+          "channel": "TV4 Sportkanalen SE",
+          "country": "🇸🇪 Sweden",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/sweden/tv4-sportkanalen-se.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TV4%20Sportkanalen%20SE&code=se&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Randers vs Silkeborg",
+      "league": "Denmark - Superliga",
+      "time": "18:00",
+      "timestamp": 1785168000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sportklub 1 FHD HR 🇭🇷 Croatia",
+          "channel": "Sportklub 1 FHD HR",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sportklub-1-fhd-hr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sportklub%201%20FHD%20HR&code=hr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Miedź Legnica vs Podbeskidzie",
+      "league": "Poland - I Liga",
+      "time": "18:00",
+      "timestamp": 1785168000000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TVP Sport HD PL 🇵🇱 Poland",
+          "channel": "TVP Sport HD PL",
+          "country": "🇵🇱 Poland",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/poland/tvp-sport-hd-pl.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TVP%20Sport%20HD%20PL&code=pl&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Öster vs Varberg",
+      "league": "Swedish Superettan",
+      "time": "18:05",
+      "timestamp": 1785168300000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TV12 HD SE 🇸🇪 Sweden",
+          "channel": "TV12 HD SE",
+          "country": "🇸🇪 Sweden",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/sweden/tv12-hd-se.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TV12%20HD%20SE&code=se&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Day 1 – Session 1",
+      "league": "Washington Open",
+      "time": "16:00",
+      "timestamp": 1785160800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TSN 3 [English] Internacional",
+          "channel": "TSN 3 [English]",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TSN%203%20%5BEnglish%5D&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TV4 Tennis SE Internacional",
+          "channel": "TV4 Tennis SE",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TV4%20Tennis%20SE&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "beIN Sports 1 HD FR 🇫🇷 France",
+          "channel": "beIN Sports 1 HD FR",
+          "country": "🇫🇷 France",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/france/bein-sports-1-hd-fr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=beIN%20Sports%201%20HD%20FR&code=fr&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Movistar Deportes FHD 🇪🇸 Spain",
+          "channel": "Movistar Deportes FHD",
+          "country": "🇪🇸 Spain",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/spain/movistar-deportes-fhd.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Movistar%20Deportes%20FHD&code=es&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Movistar Deportes 2 HD Internacional",
+          "channel": "Movistar Deportes 2 HD",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Movistar%20Deportes%202%20HD&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Canal+ Sport 2 FHD PL 🇵🇱 Poland",
+          "channel": "Canal+ Sport 2 FHD PL",
+          "country": "🇵🇱 Poland",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/poland/canal-sport-2-fhd-pl.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Canal%2B%20Sport%202%20FHD%20PL&code=pl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Ziggo Sport FHD NL 🇳🇱 Netherlands",
+          "channel": "Ziggo Sport FHD NL",
+          "country": "🇳🇱 Netherlands",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/netherlands/ziggo-sport-fhd-nl.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Ziggo%20Sport%20FHD%20NL&code=nl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Max Sport 3 FHD BG 🇧🇬 Bulgaria",
+          "channel": "Max Sport 3 FHD BG",
+          "country": "🇧🇬 Bulgaria",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/bg/max-sport-3-fhd-bg.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Max%20Sport%203%20FHD%20BG&code=bg&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN 2 HD BR 🇧🇷 Brazil",
+          "channel": "ESPN 2 HD BR",
+          "country": "🇧🇷 Brazil",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/brazil/espn-2-hd-br.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%202%20HD%20BR&code=br&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ESPN HD ARG 🇦🇷 Argentina",
+          "channel": "ESPN HD ARG",
+          "country": "🇦🇷 Argentina",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/argentina/espn-hd-arg.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ESPN%20HD%20ARG&code=ar&user=ntvstream&plan=free"
+        },
+        {
+          "name": "VIP beIN SPORTS 1 FHD 🇸🇦 Saudi Arabia",
+          "channel": "VIP beIN SPORTS 1 FHD",
+          "country": "🇸🇦 Saudi Arabia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/saudi-arabia/vip-bein-sports-1-fhd.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=VIP%20beIN%20SPORTS%201%20FHD&code=sa&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Tennis: WTA 500 + ATP 500 Washington",
+      "league": "Tennis",
+      "time": "16:00",
+      "timestamp": 1785160800000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sport Klub 4 HD HR 🇭🇷 Croatia",
+          "channel": "Sport Klub 4 HD HR",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-4-hd-hr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%204%20HD%20HR&code=hr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Tennis: WTA 500 + ATP 500 Washington &amp; WTA 250 Memphis",
+      "league": "Tennis",
+      "time": "17:00",
+      "timestamp": 1785164400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sport Klub 4 HD HR 🇭🇷 Croatia",
+          "channel": "Sport Klub 4 HD HR",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-4-hd-hr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%204%20HD%20HR&code=hr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Tennis: WTA 250 Memphis &amp; WTA 500 + ATP 500 Washington",
+      "league": "Tennis",
+      "time": "17:00",
+      "timestamp": 1785164400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Sport Klub 2 HD HR 🇭🇷 Croatia",
+          "channel": "Sport Klub 2 HD HR",
+          "country": "🇭🇷 Croatia",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/croatia/sport-klub-2-hd-hr.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20Klub%202%20HD%20HR&code=hr&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "West Indies vs Pakistan",
+      "league": "1st Test | Day 3",
+      "time": "15:00",
+      "timestamp": 1785157200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 4 HD UK 🇬🇧 UK",
+          "channel": "TNT Sports 4 HD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sports-4-hd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TNT%20Sports%204%20HD%20UK&code=gb&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Southern Brave Women vs Oval Invincibles Women",
+      "league": "The Hundred Women",
+      "time": "15:00",
+      "timestamp": 1785157200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "BBC Two HD UK 🇬🇧 UK",
+          "channel": "BBC Two HD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/bbc-two-hd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=BBC%20Two%20HD%20UK&code=gb&user=ntvstream&plan=free"
         }
       ],
       "live": true
