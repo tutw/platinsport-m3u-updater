@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-31T11:58:56.982484",
-  "total_events": 8,
-  "live_events": 8,
+  "generated_at": "2026-07-31T14:25:46.262474",
+  "total_events": 11,
+  "live_events": 11,
   "events": [
     {
-      "title": "AIG Women's Open – Royal Lytham &amp; St Annes",
-      "league": "Ladies European Tour",
-      "time": "09:00",
-      "timestamp": 1785481200000,
+      "title": "Day 2 – Part 1 (World Feed Commentary)",
+      "league": "AIG Women's Open",
+      "time": "13:00",
+      "timestamp": 1785495600000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
@@ -49,10 +49,55 @@
       "live": true
     },
     {
-      "title": "Day 2 – Part 1 (World Feed Commentary)",
+      "title": "Portugal Invitational",
+      "league": "PGA Champions Tour",
+      "time": "14:00",
+      "timestamp": 1785499200000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Golf Channel HD US Internacional",
+          "channel": "Golf Channel HD US",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Golf%20Channel%20HD%20US&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Golf HD UK Internacional",
+          "channel": "Sky Sports Golf HD UK",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sports%20Golf%20HD%20UK&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Golf UK Internacional",
+          "channel": "Sky Sports Golf UK",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sports%20Golf%20UK&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport Golf HD DE Internacional",
+          "channel": "Sky Sport Golf HD DE",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sport%20Golf%20HD%20DE&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Golf+ HD FR Internacional",
+          "channel": "Golf+ HD FR",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Golf%2B%20HD%20FR&code=&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Day 2 – Part 2 (World Feed)",
       "league": "AIG Women's Open",
-      "time": "13:00",
-      "timestamp": 1785495600000,
+      "time": "15:00",
+      "timestamp": 1785502800000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
@@ -101,11 +146,70 @@
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
         {
-          "name": "TNT Sports 1 HD UK 🇬🇧 UK",
-          "channel": "TNT Sports 1 HD UK",
+          "name": "TNT Sports 1 FHD UK 🇬🇧 UK",
+          "channel": "TNT Sports 1 FHD UK",
           "country": "🇬🇧 UK",
-          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sports-1-hd-uk.webp",
-          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TNT%20Sports%201%20HD%20UK&code=gb&user=ntvstream&plan=free"
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sports-1-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TNT%20Sports%201%20FHD%20UK&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "TV4 Motor SE Internacional",
+          "channel": "TV4 Motor SE",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TV4%20Motor%20SE&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Cosmote Sport 5 HD GR Internacional",
+          "channel": "Cosmote Sport 5 HD GR",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Cosmote%20Sport%205%20HD%20GR&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Motowizja FHD PL 🇵🇱 Poland",
+          "channel": "Motowizja FHD PL",
+          "country": "🇵🇱 Poland",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/poland/motowizja-fhd-pl.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Motowizja%20FHD%20PL&code=pl&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sport TV 4 HD PT 🇵🇹 Portugal",
+          "channel": "Sport TV 4 HD PT",
+          "country": "🇵🇹 Portugal",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/portugal/sport-tv-4-hd-pt.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sport%20TV%204%20HD%20PT&code=pt&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Cytavision Sports 6 HD CY CY",
+          "channel": "Cytavision Sports 6 HD CY",
+          "country": "CY",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/cy/cytavision-sports-6-hd-cy.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Cytavision%20Sports%206%20HD%20CY&code=cy&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Canal+ Sport 360 HD FR Internacional",
+          "channel": "Canal+ Sport 360 HD FR",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Canal%2B%20Sport%20360%20HD%20FR&code=&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Day 2 – Special Stages 9 &amp; 10",
+      "league": "WRC Rally Finland",
+      "time": "16:00",
+      "timestamp": 1785506400000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "TNT Sports 1 FHD UK 🇬🇧 UK",
+          "channel": "TNT Sports 1 FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/tnt-sports-1-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=TNT%20Sports%201%20FHD%20UK&code=gb&user=ntvstream&plan=free"
         },
         {
           "name": "TV4 Motor SE Internacional",
@@ -159,6 +263,13 @@
       "timestamp": 1785492000000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
+        {
+          "name": "UFC Starzplay Internacional",
+          "channel": "UFC Starzplay",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=UFC%20Starzplay&code=&user=ntvstream&plan=free"
+        },
         {
           "name": "UFC 24/7 HD US Internacional",
           "channel": "UFC 24/7 HD US",
@@ -218,6 +329,13 @@
       "timestamp": 1785497400000,
       "logo": "https://iptv.playtorrio.xyz/logo.ico",
       "sources": [
+        {
+          "name": "UFC Starzplay Internacional",
+          "channel": "UFC Starzplay",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=UFC%20Starzplay&code=&user=ntvstream&plan=free"
+        },
         {
           "name": "UFC 24/7 HD US Internacional",
           "channel": "UFC 24/7 HD US",
@@ -287,6 +405,58 @@
           "country": "Internacional",
           "logo": "",
           "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=VIP%20beIN%20SPORTS%201%20FHD%20KSA&code=&user=ntvstream&plan=free"
+        }
+      ],
+      "live": true
+    },
+    {
+      "title": "Southern Brave Women vs Trent Rockets Women",
+      "league": "The Hundred Women",
+      "time": "14:45",
+      "timestamp": 1785501900000,
+      "logo": "https://iptv.playtorrio.xyz/logo.ico",
+      "sources": [
+        {
+          "name": "Willow Cricket HD US Internacional",
+          "channel": "Willow Cricket HD US",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Willow%20Cricket%20HD%20US&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Cricket FHD UK 🇬🇧 UK",
+          "channel": "Sky Sports Cricket FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/sky-sports-cricket-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sports%20Cricket%20FHD%20UK&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "BBC Two FHD UK 🇬🇧 UK",
+          "channel": "BBC Two FHD UK",
+          "country": "🇬🇧 UK",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/united-kingdom/bbc-two-fhd-uk.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=BBC%20Two%20FHD%20UK&code=gb&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sports Main Event FHD UK Internacional",
+          "channel": "Sky Sports Main Event FHD UK",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sports%20Main%20Event%20FHD%20UK&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "ASTRO CRICKET HD Internacional",
+          "channel": "ASTRO CRICKET HD",
+          "country": "Internacional",
+          "logo": "",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=ASTRO%20CRICKET%20HD&code=&user=ntvstream&plan=free"
+        },
+        {
+          "name": "Sky Sport Select NZ 🇳🇿 New Zealand",
+          "channel": "Sky Sport Select NZ",
+          "country": "🇳🇿 New Zealand",
+          "logo": "https://cdnlivetv.tv/api/v1/channels/images6318/nz/sky-sport-select-nz.webp",
+          "url": "https://cdnlivetv.tv/api/v1/channels/player/?name=Sky%20Sport%20Select%20NZ&code=nz&user=ntvstream&plan=free"
         }
       ],
       "live": true
