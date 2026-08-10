@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<eventos generado="2026-08-10 22:37:57" total="33">
+<eventos generado="2026-08-10 23:36:06" total="29">
   <evento id="1">
     <nombre>Banfield –  Belgrano</nombre>
     <deporte>Fútbol</deporte>
@@ -71,16 +71,6 @@ player/live.php?id=263353&amp;w=700&amp;h=480</url>
     </streams>
   </evento>
   <evento id="4">
-    <nombre>Cuba –  Curacao</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Copa Panamericana</competicion>
-    <fecha>10 de agosto</fecha>
-    <hora>00:00</hora>
-    <url>https://livetv.sx/es/eventinfo/394767865_cuba_curacao/</url>
-    <datetime_iso>2026-08-10T00:00:00</datetime_iso>
-    <streams total="0" />
-  </evento>
-  <evento id="5">
     <nombre>Oeste Sub-20 –   Botafogo-SP Sub-20</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Campeonato Paulista Sub-20</competicion>
@@ -97,7 +87,34 @@ player/live.php?id=263353&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
+  <evento id="5">
+    <nombre>Mogi das Cruzes Sub-20 –   Paulistano Sub-20</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Campeonato Paulista Sub-20</competicion>
+    <fecha>10 de agosto</fecha>
+    <hora>50:58</hora>
+    <url>https://livetv.sx/es/eventinfo/395709604__mogi_das_cruzes_sub_20__paulistano_sub_20/</url>
+    <datetime_iso>2026-08-10T00:00:00</datetime_iso>
+    <streams total="0" />
+  </evento>
   <evento id="6">
+    <nombre>Sorocaba Sub-20 –   Rio Claro Sub-20</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>Campeonato Paulista Sub-20</competicion>
+    <fecha>10 de agosto</fecha>
+    <hora>62:61</hora>
+    <url>https://livetv.sx/es/eventinfo/395709605__sorocaba_sub_20__rio_claro_sub_20/</url>
+    <datetime_iso>2026-08-10T00:00:00</datetime_iso>
+    <streams total="1">
+      <stream id="1">
+        <url>https://www.youtube.com/embed/zjER5fo67rU?autoplay=1</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
+        <idioma_nombre>Holandés</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=zjER5fo67rU&amp;lang=es&amp;eid=395709605&amp;lid=3050747&amp;ci=7874&amp;si=3</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="7">
     <nombre>Venezuela U17 –  Chile U17</nombre>
     <deporte>Fútbol</deporte>
     <competicion>CONMEBOL U17</competicion>
@@ -114,7 +131,7 @@ player/live.php?id=263353&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="7">
+  <evento id="8">
     <nombre>Goias –  Londrina</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Brasil. Serie B</competicion>
@@ -137,7 +154,7 @@ player/live.php?id=263353&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="8">
+  <evento id="9">
     <nombre>Caracas –  Deportivo La Guaira</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Venezuela. Primera División</competicion>
@@ -160,150 +177,346 @@ player/live.php?id=263353&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="9">
-    <nombre>Mogi das Cruzes Sub-20 –   Paulistano Sub-20</nombre>
+  <evento id="10">
+    <nombre>Paysandu –  Confianca EC</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Campeonato Paulista Sub-20</competicion>
+    <competicion>Brasil. Serie C</competicion>
     <fecha>10 de agosto</fecha>
-    <hora>10:16</hora>
-    <url>https://livetv.sx/es/eventinfo/395709604__mogi_das_cruzes_sub_20__paulistano_sub_20/</url>
-    <datetime_iso>2026-08-10T10:16:00</datetime_iso>
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/393621550_paysandu_confianca_ec/</url>
+    <datetime_iso>2026-08-10T01:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="10">
-    <nombre>Sorocaba Sub-20 –   Rio Claro Sub-20</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Campeonato Paulista Sub-20</competicion>
-    <fecha>10 de agosto</fecha>
-    <hora>14:15</hora>
-    <url>https://livetv.sx/es/eventinfo/395709605__sorocaba_sub_20__rio_claro_sub_20/</url>
-    <datetime_iso>2026-08-10T14:15:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/zjER5fo67rU?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=zjER5fo67rU&amp;lang=es&amp;eid=395709605&amp;lid=3050747&amp;ci=7874&amp;si=3</enlace_original>
-      </stream>
-    </streams>
-  </evento>
   <evento id="11">
-    <nombre>Trinidad y Tobago –  Costa Rica</nombre>
+    <nombre>Anapolis –  Guarani</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Copa Panamericana</competicion>
+    <competicion>Brasil. Serie C</competicion>
     <fecha>10 de agosto</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/394767863_trinidad_y_tobago_costa_rica/</url>
-    <datetime_iso>2026-08-10T22:00:00</datetime_iso>
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/393621551_anapolis_guarani/</url>
+    <datetime_iso>2026-08-10T01:00:00</datetime_iso>
     <streams total="1">
       <stream id="1">
-        <url>https://www.youtube.com/embed/oL8C8lqlmX0?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=oL8C8lqlmX0&amp;lang=es&amp;eid=394767863&amp;lid=3050682&amp;ci=1591&amp;si=5</enlace_original>
+        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbAM15qzD8ocTT8pvhxv</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050752&amp;lang=es&amp;eid=393621551&amp;lid=3050752&amp;ci=744&amp;si=1</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="12">
-    <nombre>Atl Bucaramanga (M) –   Once Caldas (M)</nombre>
+    <nombre>Gremio U17 –  Botafogo U18</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>Colombia. Mujeres. Liga Aguila</competicion>
+    <competicion>Brasil. Brasileiro Sub 17</competicion>
     <fecha>10 de agosto</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/395601739__atl_bucaramanga_m__once_caldas_m/</url>
-    <datetime_iso>2026-08-10T22:00:00</datetime_iso>
-    <streams total="0" />
+    <hora>01:00</hora>
+    <url>https://livetv.sx/es/eventinfo/395676721_gremio_u17_botafogo_u18/</url>
+    <datetime_iso>2026-08-10T01:00:00</datetime_iso>
+    <streams total="4">
+      <stream id="1">
+        <url>https://emb.apl425.me/
+player/live.php?id=263355&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
+        <idioma_nombre>Holandés</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263355&amp;lang=es&amp;eid=395676721&amp;lid=3049689&amp;ci=2794&amp;si=1</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl425.me/
+player/live.php?id=263363&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
+        <idioma_nombre>Holandés</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263363&amp;lang=es&amp;eid=395676721&amp;lid=3049690&amp;ci=2794&amp;si=1</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://dlhd.st/stream/stream-78.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050720&amp;lang=es&amp;eid=395676721&amp;lid=3050720&amp;ci=2794&amp;si=1</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbAM1KEeLhe86KcxcdoX</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050681&amp;lang=es&amp;eid=395676721&amp;lid=3050681&amp;ci=2794&amp;si=1</enlace_original>
+      </stream>
+    </streams>
   </evento>
   <evento id="13">
-    <nombre>Trinidad y Tobago – Costa Rica</nombre>
-    <deporte>Voleibol</deporte>
-    <competicion>Copa Panamericana</competicion>
+    <nombre>Toronto –  Boston</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>No especificado</competicion>
     <fecha>10 de agosto</fecha>
-    <hora>22:00</hora>
-    <url>https://livetv.sx/es/eventinfo/394767863_trinidad_and_tobago_costa_rica/</url>
-    <datetime_iso>2026-08-10T22:00:00</datetime_iso>
-    <streams total="1">
+    <hora>01:07</hora>
+    <url>https://livetv.sx/es/eventinfo/393623035_toronto_boston/</url>
+    <datetime_iso>2026-08-10T01:07:00</datetime_iso>
+    <streams total="6">
       <stream id="1">
-        <url>https://www.youtube.com/embed/oL8C8lqlmX0?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=oL8C8lqlmX0&amp;lang=es&amp;eid=394767863&amp;lid=3050682&amp;ci=1591&amp;si=5</enlace_original>
+        <url>https://dlhd.st/stream/stream-1.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/3.png</idioma>
+        <idioma_nombre>Español</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3046724&amp;lang=es&amp;eid=393623035&amp;lid=3046724&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://dlhd.st/stream/stream-494.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3049052&amp;lang=es&amp;eid=393623035&amp;lid=3049052&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://dlhd.st/stream/stream-4015.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050745&amp;lang=es&amp;eid=393623035&amp;lid=3050745&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbAM175u9YFauRNAyL5n</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050686&amp;lang=es&amp;eid=393623035&amp;lid=3050686&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbAM16qWxfAPcdKWAQTR</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050685&amp;lang=es&amp;eid=393623035&amp;lid=3050685&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://dlhd.st/stream/stream-762.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3046804&amp;lang=es&amp;eid=393623035&amp;lid=3046804&amp;ci=14&amp;si=19</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="14">
-    <nombre>Galarneau / Chan –  Arevalo Gonzalez / Pavic</nombre>
+    <nombre>Diana Shnaider (M) –   Iga Swiatek (M)</nombre>
     <deporte>Fútbol</deporte>
-    <competicion>ATP. Montreal. Doubles</competicion>
+    <competicion>WTA. Toronto</competicion>
     <fecha>10 de agosto</fecha>
-    <hora>22:10</hora>
-    <url>https://livetv.sx/es/eventinfo/395602332_galarneau__chan_arevalo_gonzalez__pavic/</url>
-    <datetime_iso>2026-08-10T22:10:00</datetime_iso>
-    <streams total="2">
+    <hora>01:10</hora>
+    <url>https://livetv.sx/es/eventinfo/395611178__diana_shnaider_m__iga_swiatek_m/</url>
+    <datetime_iso>2026-08-10T01:10:00</datetime_iso>
+    <streams total="5">
       <stream id="1">
         <url>https://emb.apl425.me/
 player/live.php?id=263738&amp;w=700&amp;h=480</url>
         <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
         <idioma_nombre>Croata</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263738&amp;lang=es&amp;eid=395602332&amp;lid=3041682&amp;ci=6203&amp;si=4</enlace_original>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263738&amp;lang=es&amp;eid=395611178&amp;lid=3041682&amp;ci=3692&amp;si=4</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetb66dPGUb8CgJbSsXmtt</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050653&amp;lang=es&amp;eid=395602332&amp;lid=3050653&amp;ci=6203&amp;si=4</enlace_original>
+        <url>https://emb.apl425.me/
+player/live.php?id=263943&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263943&amp;lang=es&amp;eid=395611178&amp;lid=3045842&amp;ci=3692&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://dlhd.st/stream/stream-7001.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050753&amp;lang=es&amp;eid=395611178&amp;lid=3050753&amp;ci=3692&amp;si=4</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetb66dAsMD5iwpu9R5YYo</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050684&amp;lang=es&amp;eid=395611178&amp;lid=3050684&amp;ci=3692&amp;si=4</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://abisnews.com/supertennis.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/12.png</idioma>
+        <idioma_nombre>Turco</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050572&amp;lang=es&amp;eid=395611178&amp;lid=3050572&amp;ci=3692&amp;si=4</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="15">
-    <nombre>Galarneau / Chan – Arevalo Gonzalez / Pavic</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP. Montreal. Doubles</competicion>
+    <nombre>Atlanta –  NY Mets</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>No especificado</competicion>
     <fecha>10 de agosto</fecha>
-    <hora>22:10</hora>
-    <url>https://livetv.sx/es/eventinfo/395602332__/</url>
-    <datetime_iso>2026-08-10T22:10:00</datetime_iso>
-    <streams total="2">
+    <hora>01:15</hora>
+    <url>https://livetv.sx/es/eventinfo/393623038_atlanta_ny_mets/</url>
+    <datetime_iso>2026-08-10T01:15:00</datetime_iso>
+    <streams total="8">
       <stream id="1">
         <url>https://emb.apl425.me/
-player/live.php?id=263738&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
-        <idioma_nombre>Croata</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263738&amp;lang=es&amp;eid=395602332&amp;lid=3041682&amp;ci=6203&amp;si=4</enlace_original>
+player/live.php?id=263809&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263809&amp;lang=es&amp;eid=393623038&amp;lid=3047566&amp;ci=14&amp;si=19</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetb66dPGUb8CgJbSsXmtt</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050653&amp;lang=es&amp;eid=395602332&amp;lid=3050653&amp;ci=6203&amp;si=4</enlace_original>
+        <url>https://emb.apl425.me/
+player/live.php?id=264318&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/4.png</idioma>
+        <idioma_nombre>Italiano (Italia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=264318&amp;lang=es&amp;eid=393623038&amp;lid=3050588&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://dlhd.st/stream/stream-3.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
+        <idioma_nombre>Coreano</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3043724&amp;lang=es&amp;eid=393623038&amp;lid=3043724&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://dlhd.st/stream/stream-4016.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050742&amp;lang=es&amp;eid=393623038&amp;lid=3050742&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://dlhd.st/stream/stream-839.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050744&amp;lang=es&amp;eid=393623038&amp;lid=3050744&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://dlhd.st/stream/stream-759.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3049814&amp;lang=es&amp;eid=393623038&amp;lid=3049814&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbARqVmxPjxxAmQVkbYK</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050687&amp;lang=es&amp;eid=393623038&amp;lid=3050687&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://dlhd.st/stream/stream-31.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3043521&amp;lang=es&amp;eid=393623038&amp;lid=3043521&amp;ci=14&amp;si=19</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="16">
-    <nombre>Olivetti / Arribage – Medvedev / Marozsan</nombre>
-    <deporte>Tenis</deporte>
-    <competicion>ATP. Montreal. Doubles</competicion>
+    <nombre>Minnesota –  Baltimore</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>No especificado</competicion>
     <fecha>10 de agosto</fecha>
-    <hora>22:10</hora>
-    <url>https://livetv.sx/es/eventinfo/395602333__/</url>
-    <datetime_iso>2026-08-10T22:10:00</datetime_iso>
-    <streams total="2">
+    <hora>01:40</hora>
+    <url>https://livetv.sx/es/eventinfo/393623039_minnesota_baltimore/</url>
+    <datetime_iso>2026-08-10T01:40:00</datetime_iso>
+    <streams total="6">
       <stream id="1">
-        <url>https://emb.apl425.me/
-player/live.php?id=263257&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/17.png</idioma>
-        <idioma_nombre>Coreano</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263257&amp;lang=es&amp;eid=395602333&amp;lid=3041698&amp;ci=6203&amp;si=4</enlace_original>
+        <url>https://dlhd.st/stream/stream-4.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/34.png</idioma>
+        <idioma_nombre>Bandera #34</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3043734&amp;lang=es&amp;eid=393623039&amp;lid=3043734&amp;ci=14&amp;si=19</enlace_original>
       </stream>
       <stream id="2">
-        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetb66dPWrn1HsbPVYLhXF</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050654&amp;lang=es&amp;eid=395602333&amp;lid=3050654&amp;ci=6203&amp;si=4</enlace_original>
+        <url>https://dlhd.st/stream/stream-4017.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050741&amp;lang=es&amp;eid=393623039&amp;lid=3050741&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://dlhd.st/stream/stream-2003.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050740&amp;lang=es&amp;eid=393623039&amp;lid=3050740&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbARqWX6xPEY39YWBNS5</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050691&amp;lang=es&amp;eid=393623039&amp;lid=3050691&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbARqWGimW9LkMVqNSoi</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/0.png</idioma>
+        <idioma_nombre>Bandera #0</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050690&amp;lang=es&amp;eid=393623039&amp;lid=3050690&amp;ci=14&amp;si=19</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://dlhd.st/stream/stream-829.php</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/2.png</idioma>
+        <idioma_nombre>Francés (Francia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050358&amp;lang=es&amp;eid=393623039&amp;lid=3050358&amp;ci=14&amp;si=19</enlace_original>
       </stream>
     </streams>
   </evento>
   <evento id="17">
+    <nombre>Rafael Jodar –  Arthur Fils</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP. Montreal</competicion>
+    <fecha>10 de agosto</fecha>
+    <hora>01:40</hora>
+    <url>https://livetv.sx/es/eventinfo/395415505_rafael_jodar_arthur_fils/</url>
+    <datetime_iso>2026-08-10T01:40:00</datetime_iso>
+    <streams total="8">
+      <stream id="1">
+        <url>https://emb.apl425.me/
+player/live.php?id=263385&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/4.png</idioma>
+        <idioma_nombre>Italiano (Italia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263385&amp;lang=es&amp;eid=395415505&amp;lid=3050723&amp;ci=2799&amp;si=4</enlace_original>
+      </stream>
+      <stream id="2">
+        <url>https://emb.apl425.me/
+player/live.php?id=263411&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/4.png</idioma>
+        <idioma_nombre>Italiano (Italia)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263411&amp;lang=es&amp;eid=395415505&amp;lid=3039407&amp;ci=2799&amp;si=4</enlace_original>
+      </stream>
+      <stream id="3">
+        <url>https://emb.apl425.me/
+player/live.php?id=263416&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
+        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263416&amp;lang=es&amp;eid=395415505&amp;lid=3039333&amp;ci=2799&amp;si=4</enlace_original>
+      </stream>
+      <stream id="4">
+        <url>https://emb.apl425.me/
+player/live.php?id=263653&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/11.png</idioma>
+        <idioma_nombre>Alemán</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263653&amp;lang=es&amp;eid=395415505&amp;lid=3046622&amp;ci=2799&amp;si=4</enlace_original>
+      </stream>
+      <stream id="5">
+        <url>https://emb.apl425.me/
+player/live.php?id=263723&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/44.png</idioma>
+        <idioma_nombre>Bandera #44</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263723&amp;lang=es&amp;eid=395415505&amp;lid=3041679&amp;ci=2799&amp;si=4</enlace_original>
+      </stream>
+      <stream id="6">
+        <url>https://emb.apl425.me/
+player/live.php?id=263725&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/29.png</idioma>
+        <idioma_nombre>Croata</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263725&amp;lang=es&amp;eid=395415505&amp;lid=3041680&amp;ci=2799&amp;si=4</enlace_original>
+      </stream>
+      <stream id="7">
+        <url>https://emb.apl425.me/
+player/live.php?id=263730&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
+        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263730&amp;lang=es&amp;eid=395415505&amp;lid=3041681&amp;ci=2799&amp;si=4</enlace_original>
+      </stream>
+      <stream id="8">
+        <url>https://emb.apl425.me/
+player/live.php?id=263734&amp;w=700&amp;h=480</url>
+        <idioma>https://cdn.livetv860.me/img/linkflag/8.png</idioma>
+        <idioma_nombre>Portugués (Portugal)</idioma_nombre>
+        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263734&amp;lang=es&amp;eid=395415505&amp;lid=3044746&amp;ci=2799&amp;si=4</enlace_original>
+      </stream>
+    </streams>
+  </evento>
+  <evento id="18">
+    <nombre>Heliovaara / Patten –  Cerundolo / Etcheverry</nombre>
+    <deporte>Fútbol</deporte>
+    <competicion>ATP. Montreal. Doubles</competicion>
+    <fecha>10 de agosto</fecha>
+    <hora>01:40</hora>
+    <url>https://livetv.sx/es/eventinfo/395403914_heliovaara__patten_cerundolo__etcheverry/</url>
+    <datetime_iso>2026-08-10T01:40:00</datetime_iso>
+    <streams total="0" />
+  </evento>
+  <evento id="19">
     <nombre>Botafogo-RJ (M) –   Fluminense (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Brasil. Mujeres. Serie A1</competicion>
@@ -311,30 +524,9 @@ player/live.php?id=263257&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/395603158__botafogo_rj_m__fluminense_m/</url>
     <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://emb.apl425.me/
-player/live.php?id=263355&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263355&amp;lang=es&amp;eid=395603158&amp;lid=3049689&amp;ci=2706&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl425.me/
-player/live.php?id=263363&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263363&amp;lang=es&amp;eid=395603158&amp;lid=3049690&amp;ci=2706&amp;si=1</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbAGAtounLJPoR9QvXR5</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050655&amp;lang=es&amp;eid=395603158&amp;lid=3050655&amp;ci=2706&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="18">
+  <evento id="20">
     <nombre>Brasil U17 (M) –  España U17 (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Mundial Sub-17</competicion>
@@ -342,16 +534,9 @@ player/live.php?id=263363&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/394553906_brasil_u17_m_espaandntilde_a_u17_m/</url>
     <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/sMpHPwZDOqI?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=sMpHPwZDOqI&amp;lang=es&amp;eid=394553906&amp;lid=3046257&amp;ci=7892&amp;si=5</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="19">
+  <evento id="21">
     <nombre>Chinese Taipei U17 (W) –  Algeria U17 (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Mundial Sub-17</competicion>
@@ -359,16 +544,9 @@ player/live.php?id=263363&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/394553907_chinese_taipei_u17_w_algeria_u17_m/</url>
     <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/w1HTsciFF1k?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=w1HTsciFF1k&amp;lang=es&amp;eid=394553907&amp;lid=3046258&amp;ci=7892&amp;si=5</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="20">
+  <evento id="22">
     <nombre>Perú U17 (M) –  Filipinas U17 (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Mundial Sub-17</competicion>
@@ -376,16 +554,9 @@ player/live.php?id=263363&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/394553908_peranduacute__u17_m_filipinas_u17_m/</url>
     <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/eRDMjTC4yq4?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=eRDMjTC4yq4&amp;lang=es&amp;eid=394553908&amp;lid=3046259&amp;ci=7892&amp;si=5</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="21">
+  <evento id="23">
     <nombre>Turquía U17 (M) –  República Checa U17 (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Mujeres. Copa Mundial Sub-17</competicion>
@@ -393,125 +564,9 @@ player/live.php?id=263363&amp;w=700&amp;h=480</url>
     <hora>23:00</hora>
     <url>https://livetv.sx/es/eventinfo/394553909_turquandiacute_a_u17_m_repanduacute_blica_checa_u17_m/</url>
     <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/dm74HOAiWWg?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=dm74HOAiWWg&amp;lang=es&amp;eid=394553909&amp;lid=3046260&amp;ci=7892&amp;si=5</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="22">
-    <nombre>Aguilas Doradas – Llaneros</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Colombia. Primera A</competicion>
-    <fecha>10 de agosto</fecha>
-    <hora>23:00</hora>
-    <url>https://livetv.sx/es/eventinfo/393455727__/</url>
-    <datetime_iso>2026-08-10T23:00:00</datetime_iso>
     <streams total="0" />
   </evento>
-  <evento id="23">
-    <nombre>Botafogo-RJ (M) –  Fluminense (M)</nombre>
-    <deporte>Fútbol</deporte>
-    <competicion>Brasil. Mujeres. Serie A1</competicion>
-    <fecha>10 de agosto</fecha>
-    <hora>23:00</hora>
-    <url>https://livetv.sx/es/eventinfo/395603158__/</url>
-    <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="3">
-      <stream id="1">
-        <url>https://emb.apl425.me/
-player/live.php?id=263355&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263355&amp;lang=es&amp;eid=395603158&amp;lid=3049689&amp;ci=2706&amp;si=1</enlace_original>
-      </stream>
-      <stream id="2">
-        <url>https://emb.apl425.me/
-player/live.php?id=263363&amp;w=700&amp;h=480</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=alieztv&amp;c=263363&amp;lang=es&amp;eid=395603158&amp;lid=3049690&amp;ci=2706&amp;si=1</enlace_original>
-      </stream>
-      <stream id="3">
-        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbAGAtounLJPoR9QvXR5</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/9.png</idioma>
-        <idioma_nombre>Holandés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050655&amp;lang=es&amp;eid=395603158&amp;lid=3050655&amp;ci=2706&amp;si=1</enlace_original>
-      </stream>
-    </streams>
-  </evento>
   <evento id="24">
-    <nombre>Brasil U17 (M) – España U17 (M)</nombre>
-    <deporte>Voleibol</deporte>
-    <competicion>Mujeres. Copa Mundial Sub-17</competicion>
-    <fecha>10 de agosto</fecha>
-    <hora>23:00</hora>
-    <url>https://livetv.sx/es/eventinfo/394553906_brazil_u17_w_spain_u17_w/</url>
-    <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/sMpHPwZDOqI?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=sMpHPwZDOqI&amp;lang=es&amp;eid=394553906&amp;lid=3046257&amp;ci=7892&amp;si=5</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="25">
-    <nombre>Chinese Taipei U17 (W) – Algeria U17 (M)</nombre>
-    <deporte>Voleibol</deporte>
-    <competicion>Mujeres. Copa Mundial Sub-17</competicion>
-    <fecha>10 de agosto</fecha>
-    <hora>23:00</hora>
-    <url>https://livetv.sx/es/eventinfo/394553907_chinese_taipei_u17_w_algeria_u17_w/</url>
-    <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/w1HTsciFF1k?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=w1HTsciFF1k&amp;lang=es&amp;eid=394553907&amp;lid=3046258&amp;ci=7892&amp;si=5</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="26">
-    <nombre>Perú U17 (M) – Filipinas U17 (M)</nombre>
-    <deporte>Voleibol</deporte>
-    <competicion>Mujeres. Copa Mundial Sub-17</competicion>
-    <fecha>10 de agosto</fecha>
-    <hora>23:00</hora>
-    <url>https://livetv.sx/es/eventinfo/394553908_peru_u17_w_philippines_u17_w/</url>
-    <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/eRDMjTC4yq4?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=eRDMjTC4yq4&amp;lang=es&amp;eid=394553908&amp;lid=3046259&amp;ci=7892&amp;si=5</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="27">
-    <nombre>Turquía U17 (M) – República Checa U17 (M)</nombre>
-    <deporte>Voleibol</deporte>
-    <competicion>Mujeres. Copa Mundial Sub-17</competicion>
-    <fecha>10 de agosto</fecha>
-    <hora>23:00</hora>
-    <url>https://livetv.sx/es/eventinfo/394553909_turkey_u17_w_czech_republic_u17_w/</url>
-    <datetime_iso>2026-08-10T23:00:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.youtube.com/embed/dm74HOAiWWg?autoplay=1</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/18.png</idioma>
-        <idioma_nombre>Polaco</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer2.php?t=youtube&amp;c=dm74HOAiWWg&amp;lang=es&amp;eid=394553909&amp;lid=3046260&amp;ci=7892&amp;si=5</enlace_original>
-      </stream>
-    </streams>
-  </evento>
-  <evento id="28">
     <nombre>Zhang (M) /  Siniakova (M) –   Krawczyk (M) /  Hunter (M)</nombre>
     <deporte>Fútbol</deporte>
     <competicion>WTA. Toronto. Doubles</competicion>
@@ -535,7 +590,7 @@ player/live.php?id=263830&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="29">
+  <evento id="25">
     <nombre>Zhang (M) /  Siniakova (M) –  Krawczyk (M) /  Hunter (M)</nombre>
     <deporte>Tenis</deporte>
     <competicion>WTA. Toronto. Doubles</competicion>
@@ -559,7 +614,7 @@ player/live.php?id=263830&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="30">
+  <evento id="26">
     <nombre>Libertad –  Univ Católica Quito</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
@@ -576,7 +631,7 @@ player/live.php?id=263830&amp;w=700&amp;h=480</url>
       </stream>
     </streams>
   </evento>
-  <evento id="31">
+  <evento id="27">
     <nombre>Libertad –  Sportivo Trinidense</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Paraguay. Primera División</competicion>
@@ -584,16 +639,9 @@ player/live.php?id=263830&amp;w=700&amp;h=480</url>
     <hora>23:30</hora>
     <url>https://livetv.sx/es/eventinfo/394702271_libertad_sportivo_trinidense/</url>
     <datetime_iso>2026-08-10T23:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbAGAuZ4LyZyfoHRMJHD</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050668&amp;lang=es&amp;eid=394702271&amp;lid=3050668&amp;ci=442&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="32">
+  <evento id="28">
     <nombre>Libertad – Sportivo Trinidense</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Paraguay. Primera División</competicion>
@@ -601,16 +649,9 @@ player/live.php?id=263830&amp;w=700&amp;h=480</url>
     <hora>23:30</hora>
     <url>https://livetv.sx/es/eventinfo/394702271__/</url>
     <datetime_iso>2026-08-10T23:30:00</datetime_iso>
-    <streams total="1">
-      <stream id="1">
-        <url>https://www.vdocity.com/1/_2UbEamZvh72YBZXetbAGAuZ4LyZyfoHRMJHD</url>
-        <idioma>https://cdn.livetv860.me/img/linkflag/7.png</idioma>
-        <idioma_nombre>Francés</idioma_nombre>
-        <enlace_original>https://livetv.sx/webplayer.php?t=ifr&amp;c=3050668&amp;lang=es&amp;eid=394702271&amp;lid=3050668&amp;ci=442&amp;si=1</enlace_original>
-      </stream>
-    </streams>
+    <streams total="0" />
   </evento>
-  <evento id="33">
+  <evento id="29">
     <nombre>Libertad – Univ Católica Quito</nombre>
     <deporte>Fútbol</deporte>
     <competicion>Ecuador. Serie A</competicion>
