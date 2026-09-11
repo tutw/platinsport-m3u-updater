@@ -21,6 +21,8 @@ http://127.0.0.1:6878/ace/getstream?id=d3b11d6c18ad43df5cd42c1dafb4dd12d8f829e8
 http://127.0.0.1:6878/ace/getstream?id=a64e02a6d914f098cbe1b724ff4f7aef83419a4a
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20LaLiga.png" group-title="Liga" tvg-id="M+ LaLiga HD", M+ LaLiga 1080p ** --> ELCANO ...259
 http://127.0.0.1:6878/ace/getstream?id=3ce95bc9d6fc63676d828bb2cfc7a1f1854fd259
+#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20LaLiga.png" group-title="Liga" tvg-id="M+ LaLiga HD", M+ LaLiga 1080p ** --> ELCANO ...357
+http://127.0.0.1:6878/ace/getstream?id=0febfb5cac3384f487d55c559bbfc877db2d0357
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20LaLiga.png" group-title="Liga" tvg-id="M+ LaLiga HD", M+ LaLiga 720p * --> ELCANO ...36c
 http://127.0.0.1:6878/ace/getstream?id=5ad75216a63a31fef23ddc3532edc66c2fc0936c
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20LaLiga.png" group-title="Liga" tvg-id="M+ LaLiga HD", M+ LaLiga 720p ** --> ELCANO ...007
@@ -481,8 +483,6 @@ http://127.0.0.1:6878/ace/getstream?id=bec9f6119618624d5a8b0702816c6bcce1f4f983
 http://127.0.0.1:6878/ace/getstream?id=6b4acf7cab48967eccea5c3e89b1e945ceab457c
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/DARK.png" group-title="Cine y documentales" tvg-id="DARK", Dark --> NEW ERA III ...e5d
 http://127.0.0.1:6878/ace/getstream?id=fd7e013b1827db32af3665d1ef5da7fc0cc6ae5d
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/Discovery.png" group-title="Cine y documentales" tvg-id="Discovery", Investigation-Discovery --> New Loop ...89b
-http://127.0.0.1:6878/ace/getstream?id=a4032363436a92373ec76636a43371ea4268f89b
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Cine%20Espa%C3%B1ol.png" group-title="Cine y documentales" tvg-id="M+ Cine Español", M+ CINE ESPAnOL HD Spain --> New Loop ...b72
 http://127.0.0.1:6878/ace/getstream?id=dc044c79fcde8ed69ed4c878643b09f09e7ccb72
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Comedia.png" group-title="Cine y documentales" tvg-id="M+ Comedia HD", M+ COMEDIA HD Spain --> New Loop ...40a
@@ -497,12 +497,10 @@ http://127.0.0.1:6878/ace/getstream?id=bb78482832c454dfbb932912d65726619f924873
 http://127.0.0.1:6878/ace/getstream?id=205cf36437bf4e0643398f62f212832d4b8e271f
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Originales.png" group-title="Cine y documentales" tvg-id="M+ Originales HD", M+ Originales HD Spain --> New Loop ...8bc
 http://127.0.0.1:6878/ace/getstream?id=0364449064d322a1bc0f97d568452053810ef8bc
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Orgullo.png" group-title="Cine y documentales" tvg-id="M+ Orgullo", M+ Romance HD Spain --> New Loop ...d7a
+#EXTINF:-1 tvg-logo="" group-title="Cine y documentales" tvg-id="", M+ Romance HD Spain --> New Loop ...d7a
 http://127.0.0.1:6878/ace/getstream?id=c8a8710788e86761c4c702ee5cb7164e2a0e2d7a
-#EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Orgullo.png" group-title="Cine y documentales" tvg-id="M+ Orgullo", M+ Wéstern HD Spain --> New Loop ...560
+#EXTINF:-1 tvg-logo="" group-title="Cine y documentales" tvg-id="", M+ Wéstern HD Spain --> New Loop ...560
 http://127.0.0.1:6878/ace/getstream?id=c5d339864350949aa5311a7aca52d4573818c560
-#EXTINF:-1 tvg-logo="" group-title="Cine y documentales" tvg-id="", Maincast sport --> New Loop ...c9d
-http://127.0.0.1:6878/ace/getstream?id=40f9a0993165b3c0f5bce84f69a0a0f2e205ac9d
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Cine%20Espa%C3%B1ol.png" group-title="Cine y documentales" tvg-id="M+ Cine Español", Movistar Cine Español --> NEW ERA III ...eca
 http://127.0.0.1:6878/ace/getstream?id=f4e37b63fb042d90528585741a39851af543deca
 #EXTINF:-1 tvg-logo="https://raw.githubusercontent.com/davidmuma/picons_dobleM/master/icon/M%2B%20Comedia.png" group-title="Cine y documentales" tvg-id="M+ Comedia HD", Movistar Comedia --> NEW ERA III ...fcb
